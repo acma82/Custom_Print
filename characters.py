@@ -201,9 +201,9 @@ def square(ver,hor,cor):
    print("\n")
 
 
-
-
 square("\u25AE","\u25AC","\u25AC")
 square("\u25C9","\u25A3","\u25A3")
 square("\u2758","\u2796","\u2724")
 square("\u2B1B","\u2B1B","\u2B1B")
+square("\u25A0","\u25a0","\u25A0")
+square("\u2588","\u25a0","\u25A0")

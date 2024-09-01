@@ -4,69 +4,6 @@ def print_hort_chr(start_chr,end_chr,x):
       print(end_chr,end="")
 
 
-print("Class Square")
-print()
-
-
-print("DASH_LINE")
-print("+---------------+---------+------------+")
-print("|  Terminology  |  Hello  |  Good Bye  |")
-print("+---------------+---------+------------+")
-print("|  Terminology  |  Hello  |  Good Bye  |")
-print("+---------------+---------+------------+")
-print("\n")
-
-
-
-
-print("SINGLE_LINE")
-print_hort_chr(u"\u250c",u"\u2500",15) # left top corner and horizontal line
-print_hort_chr(u'\u252C',u"\u2500",9)  # T down and horizontal line
-print_hort_chr(u'\u252C',u"\u2500",12) # T down and horizontal line
-print_hort_chr(u'\u2510',u"\u2500",0)  # right top corner and horizontal line
-print()
-print(u'\u2502'+"  Terminology  "+u'\u2502'+"  Hello  "+u'\u2502'+"  Good Bye  "+u'\u2502') # vertical line
-
-print_hort_chr(u'\u251C',u'\u2500',15) # left middle line
-print_hort_chr(u'\u253C',u'\u2500',9)  # middle middle line
-print_hort_chr(u'\u253C',u'\u2500',12) # middle middle line
-print_hort_chr(u'\u2524',u'\u2500',0)  # right middle line
-print()
-
-print(u'\u2502'+"  Terminology  "+u'\u2502'+"  Hello  "+u'\u2502'+"  Good Bye  "+u'\u2502') # vertical line
-print_hort_chr(u"\u2514",u"\u2500",15) # left bottom corner and horizontal line
-print_hort_chr(u'\u2534',u"\u2500",9)  # T up and horizontal line
-print_hort_chr(u'\u2534',u"\u2500",12) # T up and horizontal line
-print_hort_chr(u'\u2518',u"\u2500",0)  # right bottom corner and horizontal line
-print("\n")
-
-
-
-
-
-print("DOUBLE_LINE")
-print_hort_chr(u"\u2554",u"\u2550",15) # left top corner and horizontal top
-print_hort_chr(u'\u2566',u"\u2550",9)  # T down and horizontal line
-print_hort_chr(u'\u2566',u"\u2550",12) # T down and horizontal line
-print_hort_chr(u'\u2557',u"\u2550",0)  # right top corner and horizontal top
-print()
-print(u'\u2551'+"  Terminology  "+u'\u2551'+"  Hello  "+u'\u2551'+"  Good Bye  "+u'\u2551') # vertical line
-
-print_hort_chr(u'\u2560',u'\u2550',15) # left middle line
-print_hort_chr(u'\u256C',u'\u2550',9)  # middle middle line
-print_hort_chr(u'\u256C',u'\u2550',12) # middle middle line
-print_hort_chr(u'\u2563',u'\u2550',0)  # right middle line
-print()
-
-print(u'\u2551'+"  Terminology  "+u'\u2551'+"  Hello  "+u'\u2551'+"  Good Bye  "+u'\u2551') # vertical line
-print_hort_chr(u"\u255A",u"\u2550",15) # left bottom corner and horizontal line
-print_hort_chr(u'\u2569',u"\u2550",9)  # T up and horizontal line
-print_hort_chr(u'\u2569',u"\u2550",12) # T up and horizontal line
-print_hort_chr(u'\u255D',u"\u2550",0)  # right bottom corner and horizontal line
-print("\n")
-
-
-
 
 
 print("SQUARE All Type")
@@ -141,4 +78,3 @@ print_hort_chr(u'\u2587',u"\u2587",9)  # T up and horizontal line
 print_hort_chr(u'\u2587',u"\u2587",12) # T up and horizontal line
 print_hort_chr(u'\u2587',u"\u2587",0)  # right bottom corner and horizontal line
 print("\n")
-print("RECTANGULAR")
