@@ -4,6 +4,7 @@
 import os
 import enum
 import platform
+import dataclasses
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 # For Help:
 #   inside the python interpreter
@@ -20,18 +21,32 @@ import platform
 # Layout is used for the Range, Set, Frozenset.                                                                                                -
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 class Layout(enum.StrEnum):
-   HORIZONTAL = "HORIZONTAL"
-   VERTICAL =   "VERTICAL"
+   HORIZONTAL = "horizontal"
+   VERTICAL =   "vertical"
 
 class Move(enum.StrEnum):
-   UP    = "UP"
-   RIGHT = "RIGHT"
-   DOWN  = "DOWN"
-   LEFT  = "LEFT"
+   UP    = "up"
+   RIGHT = "right"
+   DOWN  = "down"
+   LEFT  = "left"
   
 class Length_bg(enum.Enum):
    ALL_ROW   = 1
    ONLY_WORD = 2
+
+class Align(enum.StrEnum):
+   LEFT     = "left"
+   CENTER   = "center"
+   RIGHT    = "right"
+   JUSTIFY  = "justify"
+
+class Square(enum.Enum):   
+   DASH_LINE   = 1
+   SINGLE_LINE = 2
+   DOUBLE_LINE = 3
+   SQUARE      = 4
+   RECTANGULAR = 5
+   CUSTOMIZE   = 6
 
 
 #-----------------------------------------------------------------------------------------------------------------------------------------------
@@ -359,16 +374,17 @@ def reset_font():
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 # Move Cursor to the Right. This function is used as the indentation for the print                                                             -
 #-----------------------------------------------------------------------------------------------------------------------------------------------
-def move_right(n=0):
+def move_right(n=0,option=False):
    '''
 ----------------------------------------------------------------------------
    This function moves the cursor n spaces to the right.   
 ----------------------------------------------------------------------------
    '''
-
-   sp = ins_space(n)
+   if (option == True):
+      sp = ins_space(n)
+   else:
+      sp = f"\033[{str(n)}C"
    return sp 
-   # return f"\033[{str(n)}C"
 
    
 #-----------------------------------------------------------------------------------------------------------------------------------------------
@@ -458,7 +474,7 @@ def dict2list(my_dict, key_title="key", value_title="value"):
 def set2list(my_set:set, set_header = "none", layout:Layout=Layout.HORIZONTAL):
    tempo_list = []; cnt = 0; l = len(my_set)
 
-   if (layout.upper() == Layout.VERTICAL):
+   if (layout.lower() == Layout.VERTICAL):
       if set_header == "set" or set_header == "frozenset":
          if len(my_set) > 1:
             tempo_list.append([set_header+" Values"])
@@ -477,7 +493,7 @@ def set2list(my_set:set, set_header = "none", layout:Layout=Layout.HORIZONTAL):
          cnt += 1
          l   -= 1
 
-   if (layout.upper() == Layout.HORIZONTAL):
+   if (layout.lower() == Layout.HORIZONTAL):
       if set_header == "set" or set_header == "frozenset":
          if len(my_set) > 1:
             tempo_list.append("Set Values")
@@ -505,7 +521,7 @@ def set2list(my_set:set, set_header = "none", layout:Layout=Layout.HORIZONTAL):
 def range2list(my_range:range, range_header = "none", layout:Layout=Layout.HORIZONTAL):
    tempo_list = []
 
-   if (layout.upper() == Layout.VERTICAL):
+   if (layout.lower() == Layout.VERTICAL):
       if range_header == "range":  tempo_list = [["Range"]]
       elif range_header == "none": pass
       else:                       tempo_list = [[range_header]]
@@ -513,7 +529,7 @@ def range2list(my_range:range, range_header = "none", layout:Layout=Layout.HORIZ
       for n in my_range:
          tempo_list.append([n])
       
-   if (layout.upper() == Layout.HORIZONTAL):
+   if (layout.lower() == Layout.HORIZONTAL):
       if range_header == "range":  tempo_list = ["Range"]
       elif range_header == "none": pass
       else:                       tempo_list = [range_header]
@@ -811,17 +827,17 @@ def print_title(self,my_list):
 
    ins_newline(self.adj_margin)
 
-   if (self.align_title == "left") or (self.align_title == "l"):
+   if (self.align_title.lower() == "left") or (self.align_title.lower() == "l"):
       print(move_right(self.adj_indent)+settings+self.msg_title+reset_font())
    
-   elif (self.align_title == "center") or (self.align_title == "c"):
+   elif (self.align_title.lower() == "center") or (self.align_title.lower() == "c"):
       difference = (int((total_length)/2)) - (int(((len(self.msg_title) + self.adj_indent))/2))
       if difference <= 0:
          print(move_right(self.adj_indent)+settings+self.msg_title+reset_font()) # left align
       else:
          print(move_right(self.adj_indent+difference)+settings+self.msg_title+reset_font())
 
-   elif (self.align_title == "right") or (self.align_title == "r"):
+   elif (self.align_title.lower() == "right") or (self.align_title.lower() == "r"):
       # the 1 is for the vertical line
       difference = total_length - (len(self.msg_title) + (self.adj_space) + self.adj_indent + 1)
       if difference <= 0:
@@ -829,7 +845,7 @@ def print_title(self,my_list):
       else:
          print(move_right(self.adj_indent+self.adj_space+1+difference)+settings+self.msg_title+reset_font())
 
-   elif (self.align_title == "justify") or (self.align_title == "j"):    
+   elif (self.align_title.lower() == "justify") or (self.align_title.lower() == "j"):    
       difference = total_length - (len(self.msg_title) + (self.adj_space) + self.adj_indent + 1)
       if difference <= 0:
          print(move_right(self.adj_indent)+settings+self.msg_title+reset_font()) # left align
@@ -855,24 +871,24 @@ def print_notefoot(self,my_list):
 
    ins_newline(self.adj_bottom_space)
 
-   if (self.align_footnote == "left") or (self.align_footnote == "l"):
+   if (self.align_footnote.lower() == "left") or (self.align_footnote.lower() == "l"):
       print(move_right(self.adj_indent)+settings+self.msg_footnote+reset_font())
    
-   elif (self.align_footnote == "center") or (self.align_footnote == "c"):
+   elif (self.align_footnote.lower() == "center") or (self.align_footnote.lower() == "c"):
       difference = (int((total_length)/2)) - (int(((len(self.msg_footnote) + self.adj_indent))/2))
       if difference <= 0:
          print(move_right(self.adj_indent)+settings+self.msg_footnote+reset_font()) # left align
       else:
          print(move_right(self.adj_indent+difference)+settings+self.msg_footnote+reset_font())
 
-   elif (self.align_footnote == "right") or (self.align_footnote == "r"):      
+   elif (self.align_footnote.lower() == "right") or (self.align_footnote.lower() == "r"):      
       difference = total_length - (len(self.msg_footnote) + (self.adj_space) + self.adj_indent + 1) # 1 is for the vertical line
       if difference <= 0:
          print(move_right(self.adj_indent)+settings+self.msg_footnote+reset_font()) # left align
       else:
          print(move_right(self.adj_indent+self.adj_space+1+difference)+settings+self.msg_footnote+reset_font())
 
-   elif (self.align_footnote == "justify") or (self.align_footnote == "j"):    
+   elif (self.align_footnote.lower() == "justify") or (self.align_footnote.lower() == "j"):    
       difference = total_length - (len(self.msg_footnote) + (self.adj_space) + self.adj_indent + 1)
       if difference <= 0:
          print(move_right(self.adj_indent)+settings+self.msg_footnote+reset_font()) # left align
@@ -951,25 +967,25 @@ def print_single_element(self,my_list):
 
    #--------------------------------------------------------------------------------------------------------------------------------------------
    # print data with adjustments. We are missing vertical line color and horizontal line color and data color
-   if (self.align_data == "left") or (self.align_data == "l"):
-      print(move_right(self.adj_indent) + set_v+self.left_vertical_line_chr + set_d+ item+move_right(self.adj_space*2) + set_v +\
+   if (self.align_data.lower() == "left") or (self.align_data.lower() == "l"):
+      print(move_right(self.adj_indent) + set_v+self.left_vertical_line_chr + set_d+ item + move_right((self.adj_space*2),self.bg_all_cell_data) + set_v +\
             self.right_vertical_line_chr + reset_font())
 
-   elif (self.align_data == "right") or (self.align_data == "r"):
-      print(move_right(self.adj_indent) + set_v+self.left_vertical_line_chr+set_d + move_right((self.adj_space*2)) + item+set_v +\
-            self.right_vertical_line_chr + reset_font())
+   elif (self.align_data.lower() == "right") or (self.align_data.lower() == "r"):
+      print(move_right(self.adj_indent) + set_v+self.left_vertical_line_chr+set_d + move_right((self.adj_space*2),self.bg_all_cell_data)\
+            + item + set_v + self.right_vertical_line_chr + reset_font())
   
-   elif (self.align_data == "center") or (self.align_data == "c"):
-      print(move_right(self.adj_indent) + set_v+self.left_vertical_line_chr + set_d+ move_right(self.adj_space) +\
-            item+move_right(self.adj_space) + set_v+self.right_vertical_line_chr + reset_font())
+   elif (self.align_data.lower() == "center") or (self.align_data.lower() == "c"):
+      print(move_right(self.adj_indent) + set_v + self.left_vertical_line_chr + set_d+ move_right(self.adj_space,self.bg_all_cell_data) +\
+            item + move_right(self.adj_space,self.bg_all_cell_data) + set_v+self.right_vertical_line_chr + reset_font())
   
-   elif (self.align_data == "justify") or (self.align_data == "j"):
-      print(move_right(self.adj_indent) + set_v + self.left_vertical_line_chr + set_d + move_right(self.adj_space) +\
-            item+move_right(self.adj_space) + set_v+self.right_vertical_line_chr + reset_font())
+   elif (self.align_data.lower() == "justify") or (self.align_data.lower() == "j"):
+      print(move_right(self.adj_indent) + set_v + self.left_vertical_line_chr + set_d + move_right(self.adj_space,self.bg_all_cell_data) +\
+            item + move_right(self.adj_space,self.bg_all_cell_data) + set_v+self.right_vertical_line_chr + reset_font())
 
    else:
-      print(move_right(self.adj_indent) + set_v+self.left_vertical_line_chr + set_d+move_right(self.adj_space)+\
-            item + move_right(self.adj_space) + set_v+self.right_vertical_line_chr + reset_font())
+      print(move_right(self.adj_indent) + set_v+self.left_vertical_line_chr + set_d+move_right(self.adj_space,self.bg_all_cell_data)+\
+            item + move_right(self.adj_space,self.bg_all_cell_data) + set_v+self.right_vertical_line_chr + reset_font())
     
    #--------------------------------------------------------------------------------------------------------------------------------------------
    # print the bottom horizontal line
@@ -1017,34 +1033,40 @@ def print_multiple_horizontal_items(self,my_list):
    # print the data with their alignments
    indent = 1
    for item in my_list:
-      if (self.align_data == "left") or (self.align_data == "l"):
+      if (self.align_data.lower() == "left") or (self.align_data.lower() == "l"):
          if indent == 1:
-            print(move_right(self.adj_indent)+set_v+self.left_vertical_line_chr+set_d+item+move_right(self.adj_space*2),end="")
+            print(move_right(self.adj_indent) + set_v + self.left_vertical_line_chr + set_d + item +\
+                  move_right((self.adj_space*2),self.bg_all_cell_data),end="")
             indent = 0
          else:
-            print(set_v+self.middle_vertical_line_chr+set_d+item+move_right(self.adj_space*2),end="")
+            print(set_v + self.middle_vertical_line_chr + set_d + item + move_right((self.adj_space*2),self.bg_all_cell_data),end="")
 
          #---------------------------------------------------------------------------------------------------------------------------------------
-      elif (self.align_data == "right") or (self.align_data == "r"):
+      elif (self.align_data.lower() == "right") or (self.align_data.lower() == "r"):
          if indent == 1:
-            print(move_right(self.adj_indent)+set_v+self.left_vertical_line_chr+set_d+move_right(self.adj_space*2)+item,end="")
+            print(move_right(self.adj_indent) + set_v + self.left_vertical_line_chr + set_d+\
+                  move_right((self.adj_space*2),self.bg_all_cell_data) + item,end="")
             indent = 0
          else:
-            print(set_v+self.middle_vertical_line_chr+set_d+move_right(self.adj_space*2)+item,end="")
+            print(set_v + self.middle_vertical_line_chr + set_d + move_right((self.adj_space*2),self.bg_all_cell_data) + item,end="")
         
          #---------------------------------------------------------------------------------------------------------------------------------------
-      elif (self.align_data == "justify") or (self.align_data == "j") or (self.align_data == "center") or (self.align_data == "c"):
+      elif (self.align_data.lower() == "justify") or (self.align_data.lower() == "j")\
+           or (self.align_data.lower() == "center") or (self.align_data.lower() == "c"):
          if indent == 1:
-            print(move_right(self.adj_indent)+set_v+self.left_vertical_line_chr+set_d+move_right(self.adj_space)+item+move_right(self.adj_space),end="")
+            print(move_right(self.adj_indent) + set_v + self.left_vertical_line_chr + set_d +\
+                  move_right(self.adj_space,self.bg_all_cell_data) + item + move_right(self.adj_space,self.bg_all_cell_data),end="")
             indent = 0
          else:
-            print(set_v+self.middle_vertical_line_chr+set_d+move_right(self.adj_space)+item+move_right(self.adj_space),end="")
+            print(set_v + self.middle_vertical_line_chr + set_d+move_right(self.adj_space,self.bg_all_cell_data) + item +\
+                  move_right(self.adj_space,self.bg_all_cell_data),end="")
 
          #---------------------------------------------------------------------------------------------------------------------------------------
       else: # justify default one
-         print(move_right(self.adj_indent)+set_v+self.left_vertical_line_chr+set_d+move_right(self.adj_space)+item+move_right(self.adj_space),end="")
+         print(move_right(self.adj_indent) + set_v + self.left_vertical_line_chr + set_d + move_right(self.adj_space,self.bg_all_cell_data) +\
+               item + move_right(self.adj_space,self.bg_all_cell_data),end="")
 
-   print(set_v+self.right_vertical_line_chr+reset_font())
+   print(set_v + self.right_vertical_line_chr + reset_font())
 
    #---------------------------------------------------------------------------------------------------------------------------------------------
    # print the bottom horizontal line
@@ -1170,26 +1192,34 @@ def print_matrix_list(self,my_list):
          for dato in row:
             if ctrl_header == 0:        # printing Header
                ctrl_header += 1          
-               if (self.align_header == "left") or (self.align_header == "l"):
-                  print(move_right(self.adj_indent)+set_hchr_v+self.left_vertical_header_line_chr+set_t+dato+move_right((self.adj_space*2)+\
-                                (length-len(dato)))+set_hchr_v+self.right_vertical_header_line_chr+reset_font(),end="")
+               if (self.align_header.lower() == "left") or (self.align_header.lower() == "l"):
+                  print(move_right(self.adj_indent) + set_hchr_v + self.left_vertical_header_line_chr + set_t + dato +\
+                        move_right((self.adj_space*2)+(length-len(dato)),self.bg_all_cell_header) + set_hchr_v +\
+                        self.right_vertical_header_line_chr + reset_font(),end="")
 
-               elif (self.align_header == "right") or (self.align_header == "r"):
-                  print(move_right(self.adj_indent)+set_hchr_v+self.left_vertical_header_line_chr+set_t+move_right((self.adj_space*2)+\
-                                (length-len(dato)))+dato+set_hchr_v+self.right_vertical_header_line_chr+reset_font(),end="")
+               elif (self.align_header.lower() == "right") or (self.align_header.lower() == "r"):
+                  print(move_right(self.adj_indent) + set_hchr_v + self.left_vertical_header_line_chr + set_t +\
+                        move_right((self.adj_space*2)+(length-len(dato)),self.bg_all_cell_header) + dato + set_hchr_v +\
+                        self.right_vertical_header_line_chr + reset_font(),end="")
       
-               elif (self.align_header == "center") or (self.align_header == "c"):
+               elif (self.align_header.lower() == "center") or (self.align_header.lower() == "c"):
                   # add the extra space for the word odd or even space adjustment for start and the end
                   oe_sp_start, oe_sp_end = get_odd_even_space_adj(length,len(dato)) 
-                  print(move_right(self.adj_indent)+set_hchr_v+self.left_vertical_header_line_chr+set_t+move_right(self.adj_space+oe_sp_start)+\
-                     dato+move_right(self.adj_space+oe_sp_end)+set_hchr_v+self.right_vertical_header_line_chr+reset_font(),end="")
+                  print(move_right(self.adj_indent) + set_hchr_v + self.left_vertical_header_line_chr + set_t +\
+                        move_right(self.adj_space+oe_sp_start,self.bg_all_cell_header)+ dato +\
+                        move_right(self.adj_space+oe_sp_end,self.bg_all_cell_header) +\
+                        set_hchr_v+self.right_vertical_header_line_chr+reset_font(),end="")
       
-               elif (self.align_header == "justify") or (self.align_header == "j"):
-                  print(move_right(self.adj_indent)+set_hchr_v+self.left_vertical_header_line_chr+set_t+move_right(self.adj_space)+dato+\
-                     move_right(self.adj_space+(length-len(dato)))+set_hchr_v+self.right_vertical_header_line_chr+reset_font(),end="")
+               elif (self.align_header.lower() == "justify") or (self.align_header.lower() == "j"):
+                  print(move_right(self.adj_indent) + set_hchr_v + self.left_vertical_header_line_chr + set_t +\
+                        move_right(self.adj_space,self.bg_all_cell_header) + dato +\
+                     move_right(self.adj_space+(length-len(dato)),self.bg_all_cell_header) + set_hchr_v +\
+                     self.right_vertical_header_line_chr+reset_font(),end="")
                else:
-                  print(move_right(self.adj_indent)+set_hchr_v+self.left_vertical_header_line_chr+set_t+move_right(self.adj_space)+dato+\
-                     move_right(self.adj_space+(length-len(dato)))+set_hchr_v+self.right_vertical_header_line_chr+reset_font(),end="")
+                  print(move_right(self.adj_indent) + set_hchr_v + self.left_vertical_header_line_chr + set_t +\
+                        move_right(self.adj_space,self.bg_all_cell_header) + dato +\
+                        move_right(self.adj_space+(length-len(dato)),self.bg_all_cell_header) + set_hchr_v +\
+                        self.right_vertical_header_line_chr + reset_font(),end="")
                print()
                # the horizontal line between the headers and the firs data row, only for matrix list
                #if self.horizontal_line_under_header_on == True or self.horizontal_separator_line_on == 1: 
@@ -1202,26 +1232,35 @@ def print_matrix_list(self,my_list):
                   print()
           
             else:                        # printing Data
-               if (self.align_data == "left") or (self.align_data == "l"):
-                  print(move_right(self.adj_indent)+set_v+self.left_vertical_line_chr+set_d+dato+\
-                     move_right((self.adj_space*2)+(length-len(dato)))+set_v+self.right_vertical_line_chr+reset_font(),end="")
+               if (self.align_data.lower() == "left") or (self.align_data.lower() == "l"):
+                  print(move_right(self.adj_indent) + set_v + self.left_vertical_line_chr + set_d + dato+\
+                     move_right((self.adj_space*2)+(length-len(dato)),self.bg_all_cell_data) +\
+                     set_v + self.right_vertical_line_chr + reset_font(),end="")
 
-               elif (self.align_data == "right") or (self.align_data == "r"):
-                  print(move_right(self.adj_indent)+set_v+self.left_vertical_line_chr+set_d+move_right((self.adj_space*2)+\
-                                             (length-len(dato)))+dato+set_v+self.right_vertical_line_chr+reset_font(),end="")
+               elif (self.align_data.lower() == "right") or (self.align_data.lower() == "r"):
+                  print(move_right(self.adj_indent) + set_v + self.left_vertical_line_chr + set_d +\
+                        move_right((self.adj_space*2)+(length-len(dato)),self.bg_all_cell_data) +\
+                           dato + set_v + self.right_vertical_line_chr + reset_font(),end="")
       
-               elif (self.align_data == "center") or (self.align_data == "c"):
+               elif (self.align_data.lower() == "center") or (self.align_data.lower() == "c"):
                   # add the extra space for the word odd or even space adjustment for start and the end
                   oe_sp_start, oe_sp_end = get_odd_even_space_adj(length,len(dato)) 
-                  print(move_right(self.adj_indent)+set_v+self.left_vertical_line_chr+set_d+move_right(self.adj_space+oe_sp_start)+\
-                     dato+move_right(self.adj_space+oe_sp_end)+set_v+self.right_vertical_line_chr+reset_font(),end="")
+                  print(move_right(self.adj_indent) + set_v + self.left_vertical_line_chr + set_d +\
+                        move_right(self.adj_space+oe_sp_start,self.bg_all_cell_data)+ dato +\
+                        move_right(self.adj_space+oe_sp_end,self.bg_all_cell_data) + set_v +\
+                        self.right_vertical_line_chr + reset_font(),end="")
       
-               elif (self.align_data == "justify") or (self.align_data == "j"):
-                  print(move_right(self.adj_indent)+set_v+self.left_vertical_line_chr+set_d+move_right(self.adj_space)+\
-                     dato+move_right(self.adj_space+(length-len(dato)))+set_v+self.right_vertical_line_chr+reset_font(),end="")
+               elif (self.align_data.lower() == "justify") or (self.align_data.lower() == "j"):
+                  print(move_right(self.adj_indent) + set_v + self.left_vertical_line_chr + set_d +\
+                        move_right(self.adj_space,self.bg_all_cell_data)+ dato +\
+                        move_right(self.adj_space+length-len(dato),self.bg_all_cell_data)+\
+                        set_v + self.right_vertical_line_chr + reset_font(),end="")
                else:
-                  print(move_right(self.adj_indent)+set_v+self.left_vertical_line_chr+set_d+move_right(self.adj_space)+\
-                  dato+move_right(self.adj_space+(length-len(dato)))+set_v+self.right_vertical_line_chr+reset_font(),end="")
+                  print(move_right(self.adj_indent) + set_v + self.left_vertical_line_chr + set_d +\
+                        move_right(self.adj_space,self.bg_all_cell_data)+ dato +\
+                        move_right(self.adj_space+length-len(dato),self.bg_all_cell_data) + set_v +\
+                        self.right_vertical_line_chr + reset_font(),end="")
+         
                print()
                # the horizontal line for all the rows, only for matrix list. 1 shows it and 0 hides it
                if self.horizontal_separator_line_on == 1: 
@@ -1287,25 +1326,30 @@ def print_matrix_list(self,my_list):
       vertical = move_right(self.adj_indent)+set_hchr_v+self.left_vertical_header_line_chr 
       for dato in my_list[0]:
 
-         if (self.align_header == "left") or (self.align_header == "l"):
-            print(vertical+set_t+dato+move_right((self.adj_space*2)+(longest_cols[ctrl_col]-len(dato)))+reset_font(),end="")
+         if (self.align_header.lower() == "left") or (self.align_header.lower() == "l"):
+            print(vertical + set_t + dato + move_right((self.adj_space*2)+(longest_cols[ctrl_col]-len(dato)),self.bg_all_cell_header) +\
+                  reset_font(),end="")
 
-         elif (self.align_header == "right") or (self.align_header == "r"):
-            print(vertical+set_t+move_right((self.adj_space*2)+(longest_cols[ctrl_col]-len(dato)))+dato+reset_font(),end="")
+         elif (self.align_header.lower() == "right") or (self.align_header.lower() == "r"):
+            print(vertical + set_t + move_right((self.adj_space*2)+(longest_cols[ctrl_col]-len(dato)),self.bg_all_cell_header) +\
+                  dato + reset_font(),end="")
     
-         elif (self.align_header == "center") or (self.align_header == "c"):
+         elif (self.align_header.lower() == "center") or (self.align_header.lower() == "c"):
             # add the extra space for the word odd or even space adjustment for start and the end
-            oe_sp_start, oe_sp_end = get_odd_even_space_adj(longest_cols[ctrl_col],len(dato)) 
-            print(vertical+set_t+move_right(self.adj_space+oe_sp_start)+dato+move_right(self.adj_space+oe_sp_end)+reset_font(),end="")
+            oe_sp_start, oe_sp_end = get_odd_even_space_adj(longest_cols[ctrl_col],len(dato))
+            print(vertical + set_t + move_right(self.adj_space+oe_sp_start,self.bg_all_cell_header) + dato +\
+                  move_right(self.adj_space+oe_sp_end,self.bg_all_cell_header) + reset_font(),end="")
     
-         elif (self.align_header == "justify") or (self.align_header == "j"):
-            print(vertical+set_t+move_right(self.adj_space)+dato+move_right(self.adj_space+(longest_cols[ctrl_col]-len(dato)))+reset_font(),end="")
+         elif (self.align_header.lower() == "justify") or (self.align_header.lower() == "j"):
+            print(vertical + set_t + move_right(self.adj_space,self.bg_all_cell_header) + dato +\
+                  move_right(self.adj_space+(longest_cols[ctrl_col]-len(dato)),self.bg_all_cell_header) + reset_font(),end="")
 
          else:
-            print(vertical+set_t+move_right(self.adj_space)+dato+move_right(self.adj_space+(longest_cols[ctrl_col]-len(dato)))+reset_font(),end="")
+            print(vertical + set_t + move_right(self.adj_space,self.bg_all_cell_header) + dato +\
+                  move_right(self.adj_space+(longest_cols[ctrl_col]-len(dato)),self.bg_all_cell_header) + reset_font(),end="")
 
          vertical = set_hchr_v+self.middle_vertical_header_line_chr
-         ctrl_col += 1       
+         ctrl_col += 1
       print(set_hchr_v+self.right_vertical_header_line_chr+reset_font())
     
       #-------------------------------------------------------------------------------------------------------------------------------------------
@@ -1341,22 +1385,27 @@ def print_matrix_list(self,my_list):
          vertical = move_right(self.adj_indent)+set_v+self.left_vertical_line_chr
          for dato in datos:
 
-            if (self.align_data == "left") or (self.align_data == "l"):
-               print(vertical+set_d+dato+move_right((self.adj_space*2)+(longest_cols[ctrl_col]-len(dato)))+reset_font(),end="")
+            if (self.align_data.lower() == "left") or (self.align_data.lower() == "l"):
+               print(vertical + set_d + dato + move_right((self.adj_space*2)+(longest_cols[ctrl_col]-len(dato)),self.bg_all_cell_data) +\
+                     reset_font(),end="")
 
-            elif (self.align_data == "right") or (self.align_data == "r"):
-               print(vertical+set_d+move_right((self.adj_space*2)+(longest_cols[ctrl_col]-len(dato)))+dato+reset_font(),end="")
+            elif (self.align_data.lower() == "right") or (self.align_data.lower() == "r"):
+               print(vertical + set_d + move_right((self.adj_space*2)+(longest_cols[ctrl_col]-len(dato)),self.bg_all_cell_data) +\
+                     dato + reset_font(),end="")
       
-            elif (self.align_data == "center") or (self.align_data == "c"):
+            elif (self.align_data.lower() == "center") or (self.align_data.lower() == "c"):
                # add the extra space for the word odd or even space adjustment for start and the end
                oe_sp_start, oe_sp_end = get_odd_even_space_adj(longest_cols[ctrl_col],len(dato)) 
-               print(vertical+set_d+move_right(self.adj_space+oe_sp_start)+dato+move_right(self.adj_space+oe_sp_end)+reset_font(),end="")
+               print(vertical + set_d + move_right(self.adj_space+oe_sp_start,self.bg_all_cell_data) + dato +\
+                     move_right(self.adj_space+oe_sp_end,self.bg_all_cell_data) + reset_font(),end="")
       
-            elif (self.align_data == "justify") or (self.align_data == "j"):
-               print(vertical+set_d+move_right(self.adj_space)+dato+move_right(self.adj_space+(longest_cols[ctrl_col]-len(dato)))+reset_font(),end="")
+            elif (self.align_data.lower() == "justify") or (self.align_data.lower() == "j"):
+               print(vertical + set_d + move_right(self.adj_space,self.bg_all_cell_data) + dato +\
+                     move_right(self.adj_space+(longest_cols[ctrl_col]-len(dato)),self.bg_all_cell_data) + reset_font(),end="")
 
             else:
-               print(vertical+set_d+move_right(self.adj_space)+dato+move_right(self.adj_space+(longest_cols[ctrl_col]-len(dato)))+reset_font(),end="")
+               print(vertical + set_d + move_right(self.adj_space,self.bg_all_cell_data) + dato +\
+                     move_right(self.adj_space+(longest_cols[ctrl_col]-len(dato)),self.bg_all_cell_data) + reset_font(),end="")
 
             vertical = set_v+self.middle_vertical_line_chr
             ctrl_col += 1        
@@ -1441,7 +1490,7 @@ class FancyFormat():
       self.adj_bottom_space  = 0                 # lines to be added between bottom list and footnote
       self.set_fill_chr = "----"                 # to fill the empty spots when the list is not complete    
       self.update_list = False                   # if we want to save the data as it's presented, but string each element in list
-      self.bg_all_cell = True
+      
 
       #-------------------------------------------------------------------------------------------------------------------------------------------
       # Title Section
@@ -1463,10 +1512,12 @@ class FancyFormat():
       # Data Section
       self.bold_data  = False                    # two values False and True (0 and 1)
       self.bg_data    = -1                       # values -1 to 255
+      self.bg_all_cell_data = True               # how long will be the bg (all the cell or only the data)
       self.fg_data    = -1                       # values -1 to 255
       self.align_data = "justify"                # 4 values: justify(j),left(l), center(c), and right(r)    
       self.horizontal_separator_line_on = False  # horizontal line for all the rows, only for matrix list. 1 shows it and 0 hides it
                                                  # two values False and True (0 and 1)
+
       #-------------------------------------------------------------------------------------------------------------------------------------------
       # Horizontal Line Section
       self.top_horizontal_line_chr = "-"         # chr used to print the horizontal segment for the top line
@@ -1517,6 +1568,7 @@ class FancyFormat():
       # attributes for the header text
       self.bold_header  = False                  # two values False and True (0 and 1)
       self.bg_header    = -1                     # values -1 to 255
+      self.bg_all_cell_header = True             # how long will be the bg (all the cell or only the header)
       self.fg_header    = -1                     # values -1 to 255
       self.align_header = "justify"              # 4 values: justify(j),left(l), center(c), and right(r)
 
@@ -1677,10 +1729,10 @@ class Cursor():
       Moves the cursor n position to the Direction Specified
    ----------------------------------------------------------------------------
       '''
-      if   direction == Move.UP    or direction.upper() == "UP":    movement = f"\033[{str(qty)}A"
-      elif direction == Move.DOWN  or direction.upper() == "DOWN":  movement = f"\033[{str(qty)}B"
-      elif direction == Move.RIGHT or direction.upper() == "RIGHT": movement = f"\033[{str(qty)}C"
-      elif direction == Move.LEFT  or direction.upper() == "LEFT":  movement = f"\033[{str(qty)}D"
+      if   direction == Move.UP    or direction.lower() == "up":    movement = f"\033[{str(qty)}A"
+      elif direction == Move.DOWN  or direction.lower() == "down":  movement = f"\033[{str(qty)}B"
+      elif direction == Move.RIGHT or direction.lower() == "right": movement = f"\033[{str(qty)}C"
+      elif direction == Move.LEFT  or direction.lower() == "left":  movement = f"\033[{str(qty)}D"
       else:                                                    movement = ""
       return movement
 
@@ -1904,7 +1956,7 @@ class Draw(Cursor):            # Inheritance the Cursor Class here.
          
 
    def line(self,x:int=-1,y:int=-1,size:int=1, layout:Layout=Layout.HORIZONTAL)->None:
-      if (layout.upper() == Layout.HORIZONTAL):
+      if (layout.lower() == Layout.HORIZONTAL):
          if (x == -1 and y == -1):
             pass
          elif (x <= -1 and y >= 0):
@@ -1922,7 +1974,7 @@ class Draw(Cursor):            # Inheritance the Cursor Class here.
          
          print(self.head,end="")
 
-      elif (layout.upper() == Layout.VERTICAL):
+      elif (layout.lower() == Layout.VERTICAL):
          for n in range(size):
             self.gotoxy(x,y)
             print(self.body)

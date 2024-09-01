@@ -5,9 +5,12 @@ csr = fun.Cursor()
 draw = fun.Draw()
 
 
+ncols, nrows = fun.dimensions()
+os.system("resize -s 44 110")
+#print(ncols, nrows)
 # setting for the format
 # general use
-
+list1.bg_all_cell_header = False
 list1.adj_indent = 6
 list1.horizontal_line_under_header_on = False
 #list1.update_list = 1
@@ -121,3 +124,6 @@ msg = f"{fun.ins_space(44)}THE END.....!{fun.ins_space(44)}"
 
 #csr.gotoxy(x=0,y=0)
 #print(f"{csr.moveTo(row=0, col=0)} I am Miguelito")
+
+input("Enter to Continue: ")
+os.system(f"resize -s {nrows} {ncols}")

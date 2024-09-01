@@ -26,7 +26,9 @@ list1.inner_vertical_header_line_chr = u'\u2022'  # matrix list only
 list1.horizontal_line_under_header_on = 1         # horizontal line between headers and the firs data row. 1 shows it and 0 hides it
 list1.horizontal_line_under_header_chr = "-"      # chr to be printed for theheader line
 list1.bg_header = 55
-list1.fg_data    = 1 
+list1.fg_data    = 1
+list1.bold_header = 1
+list1.bg_all_cell_header = False
 print()
 #------------------------------------------------------------------------------------------------------
 # Printing from right to left  <--                                                                    -
@@ -88,6 +90,8 @@ list1.horizontal_line_under_header_on = True
 list1.bg_header = 55
 list1.fg_data    = 1 
 
+
+list1.bg_all_cell_header = True
 # range type
    # vertical
 print(csr.move(16,"up"),end="")
