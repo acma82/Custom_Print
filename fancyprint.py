@@ -52,33 +52,52 @@ class Square(enum.Enum):
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 # Screen Functions                                                                                                                             -
 #-----------------------------------------------------------------------------------------------------------------------------------------------
+def clean():
+   '''
+----------------------------------------------------------------------------      
+   It cleans the terminal and return the cursor to home.
+   It uses ansi code.
+----------------------------------------------------------------------------
+   '''
+   print("\033[2J",end="")  # clean the terminal
+   print("\033[H",end="")   # return home the cursor
+
+
 if os.name == 'nt' and platform.release() == '10':
-    # Fix ANSI color in Windows 10 version 10.0.14393 (Windows Anniversary Update)
-    import ctypes
-    kernel32 = ctypes.windll.kernel32
-    kernel32.SetConsoleMode(kernel32.GetStdHandle(-11), 7)
-    def clear():
-      '''
+   # Fix ANSI color in Windows 10 version 10.0.14393 (Windows Anniversary Update)
+   import ctypes
+   kernel32 = ctypes.windll.kernel32
+   kernel32.SetConsoleMode(kernel32.GetStdHandle(-11), 7)
+   def clear():
+     '''
    ----------------------------------------------------------------------------      
-      It cleans the terminal and return to home the cursor
-      It uses the system command
+      It cleans the terminal and return the cursor  to home.
+      It uses the system command.
    ----------------------------------------------------------------------------
-      '''
-      os.system("cls")
+     '''
+     os.system("cls")
+   
+   def resize(rows:int=25, cols:int=80)->None:
+      os.system(f"mode con:cols={cols} lines={rows}")
+
 else:
    def clear():
       '''
    ----------------------------------------------------------------------------      
-      It cleans the terminal and return to home the cursor
-      It uses the system command
+      It cleans the terminal and return the cursor to home.
+      It uses the system command.
    ----------------------------------------------------------------------------
       '''
       os.system("clear")
+   
+   def resize(rows:int=25, cols:int=80)->None:
+      os.system(f"resize -s {rows} {cols}")
+
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 def dimensions():
    '''
 ----------------------------------------------------------------------------      
-   It returns the size of the actual terminal: cols, rows
+   It returns the size of the actual terminal: cols, rows.
 ----------------------------------------------------------------------------
    '''
    cols, rows = os.get_terminal_size()
@@ -88,21 +107,13 @@ def dimensions():
 def erase():
    '''
 ----------------------------------------------------------------------------      
-   It cleans the terminal and the cursor remain in the same position
-   It uses ansi
+   It cleans the terminal and the cursor remain in the same position.
+   It uses ansi code.
 ----------------------------------------------------------------------------
    '''
    print("\033[2J",end="")
 
-def clean():
-   '''
-----------------------------------------------------------------------------      
-   It cleans the terminal and return to home the cursor
-   It uses ansi
-----------------------------------------------------------------------------
-   '''
-   print("\033[2J",end="")  # clean the terminal
-   print("\033[H",end="")   # return home the cursor
+
 
 
 #-----------------------------------------------------------------------------------------------------------------------------------------------
@@ -1759,12 +1770,19 @@ class Cursor():
       
       return posi
 
+   def set_blink(self):
+      return "\033[5m"
 
+   def reset_blink(self):
+      return "\033[25m"
 
+   def set_reverse(self):
+      return "\033[7m"
 
-
-
-
+   def reset_reverse(self):
+      return "\033[27m"
+   
+   
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 #-----------------------------------------------------------------------------------------------------------------------------------------------
@@ -1777,8 +1795,8 @@ class FancyMessage():
       self.bg = 4
       self.fg = 231
 
-      self.left_indent = 0
-      self.right_indent = 0
+      self.left_indent = 2
+      self.right_indent = 2
 
       self.length = Length_bg.ALL_ROW
       self.lines = 1
@@ -1971,7 +1989,6 @@ class Draw(Cursor):            # Inheritance the Cursor Class here.
          for n in range(size):
             print(self.body,end="")
             
-         
          print(self.head,end="")
 
       elif (layout.lower() == Layout.VERTICAL):
