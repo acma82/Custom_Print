@@ -64,6 +64,8 @@ def clean():
 
 
 if os.name == 'nt' and platform.release() == '10':
+   OS_Windows = True
+   OS_Linux = False
    # Fix ANSI color in Windows 10 version 10.0.14393 (Windows Anniversary Update)
    import ctypes
    kernel32 = ctypes.windll.kernel32
@@ -77,10 +79,22 @@ if os.name == 'nt' and platform.release() == '10':
      '''
      os.system("cls")
    
+   # it may disable the scroll bar on the Command Prompt or the Windows PowerShell
+   # to enable the scroll bar, got to Properties-> Layout-> Screen Buffer Size-> Set Height to 1000
+   
    def resize(rows:int=25, cols:int=80)->None:
-      os.system(f"mode con:cols={cols} lines={rows}")
+      '''
+   ----------------------------------------------------------------------------      
+      It resizes the terminal.
+   ----------------------------------------------------------------------------
+      '''
+      #os.system(f"mode con:cols={cols} lines={rows}")
+      os.system(f"mode {cols}, {rows}")
 
-else:
+
+elif (os.name == 'posix'):
+   OS_Windows = False
+   OS_Linux = True
    def clear():
       '''
    ----------------------------------------------------------------------------      
@@ -91,7 +105,33 @@ else:
       os.system("clear")
    
    def resize(rows:int=25, cols:int=80)->None:
+      '''
+   ----------------------------------------------------------------------------      
+      It resizes the terminal.
+   ----------------------------------------------------------------------------
+      '''
       os.system(f"resize -s {rows} {cols}")
+
+
+else:
+   def clear():
+      '''
+   ----------------------------------------------------------------------------      
+      It cleans the terminal and return the cursor to home.
+      It uses the system command.
+   ----------------------------------------------------------------------------
+      '''
+      print("\033[2J",end="")  # clean the terminal
+      print("\033[H",end="")   # return home the cursor
+
+   def resize(rows:int=25, cols:int=80)->None:
+      '''
+   ----------------------------------------------------------------------------      
+      It resizes the terminal.
+   ----------------------------------------------------------------------------
+      '''
+      os.system(f"resize -s {rows} {cols}")
+
 
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 def dimensions():
@@ -285,7 +325,7 @@ def ins_newline(nl=0):
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 # Set Settings for the Font: Bold, Background, and Foreground                                                                                  -
 #-----------------------------------------------------------------------------------------------------------------------------------------------
-def set_font(bold=False,bg=-1,fg=-1):
+def set_font(bold=False,bg=-1,fg=-1,italic=False,underline=False,strike=False,blink=False):
    '''
 ----------------------------------------------------------------------------
    import fancyprint as fp
@@ -352,6 +392,11 @@ def set_font(bold=False,bg=-1,fg=-1):
    else:
       settings = reset
 
+
+   if (italic == True):    settings = settings + "\033[3m"
+   if (underline == True): settings = settings + "\033[4m"
+   if (blink == True):     settings = settings + "\033[5m"
+   if (strike == True):    settings = settings + "\033[9m"
    return settings
 
 
@@ -830,8 +875,9 @@ def get_total_length(self,my_list):
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 def print_title(self,my_list):
 
-   if self.msg_title == "": return     
-   else:                    settings = set_font(self.bold_title,self.bg_title, self.fg_title)
+   if self.msg_title == "": return
+   else: 
+      settings = set_font(self.bold_title,self.bg_title, self.fg_title,self.italic_title,self.underline_title,self.strike_title,self.blink_title)
 
       # check for the length of the message
    total_length = get_total_length(self,my_list)
@@ -874,8 +920,9 @@ def print_title(self,my_list):
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 def print_notefoot(self,my_list):
    
-   if self.msg_footnote == "": return     
-   else:                       settings = set_font(self.bold_footnote,self.bg_footnote, self.fg_footnote)
+   if self.msg_footnote == "": return
+   else: 
+      settings = set_font(self.bold_footnote,self.bg_footnote, self.fg_footnote,self.italic_footnote,self.underline_footnote,self.strike_footnote,self.blink_footnote)
 
    # check for the length of the message
    total_length = get_total_length(self,my_list)
@@ -963,7 +1010,8 @@ def print_single_element(self,my_list):
    print_title(self,my_list)
    
    # get all the settings for the list
-   set_d = set_font(self.bold_data, self.bg_data, self.fg_data)
+   
+   set_d = set_font(self.bold_data, self.bg_data, self.fg_data,self.italic_data,self.underline_data,self.strike_data,self.blink_data)
    set_v = set_font(self.bold_vertical_line, self.bg_vertical_line, self.fg_vertical_line)  
   
    # print the top horizontal line
@@ -1021,7 +1069,7 @@ def print_multiple_horizontal_items(self,my_list):
    print_title(self,my_list)
   
    # get all the settings for the list
-   set_d = set_font(self.bold_data, self.bg_data, self.fg_data)
+   set_d = set_font(self.bold_data, self.bg_data, self.fg_data,self.italic_data,self.underline_data,self.strike_data,self.blink_data)   
    set_v = set_font(self.bold_vertical_line, self.bg_vertical_line, self.fg_vertical_line)
    
    # drawing the top horizontal line
@@ -1163,22 +1211,18 @@ def get_odd_even_space_adj(length,len_dato):
 # Print Matrix List                                                                                                                            -
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 def print_matrix_list(self,my_list):
-   # d  :data,   v: vertical,   hcl: left_corner_header,   mch:middle_corner_header,
-   # rch:right_corner_header,   t:title(header)
-   #reset = "\033[0m"
+   # d  :data,   v: vertical,   hcl: left_corner_header,   mch:middle_corner_header, rch:right_corner_header,   t:title(header)
    # get all the settings for the list
-   set_d = set_font(self.bold_data, self.bg_data, self.fg_data)
+   set_d = set_font(self.bold_data, self.bg_data, self.fg_data,self.italic_data,self.underline_data,self.strike_data,self.blink_data)
    set_v = set_font(self.bold_vertical_line, self.bg_vertical_line, self.fg_vertical_line)
    set_hchr_v = set_font(self.bold_vertical_header_line_chr,\
                                     self.bg_vertical_header_line_chr,self.fg_vertical_header_line_chr)
 
-
-   # set_c = set_font(self.bold_corner_chr, self.bg_corner_line, self.fg_corner_line)
-   set_t = set_font(self.bold_header,self.bg_header,self.fg_header)
+   set_t = set_font(self.bold_header, self.bg_header, self.fg_header,self.italic_header,self.underline_header,self.strike_header,self.blink_header)   
    total_length = get_total_length(self,my_list)
 
    # print title  
-   print_title(self,my_list)  
+   print_title(self,my_list)
    # this is the last part and we need to start printing the matrix
    if len(my_list[0]) == 1:
       # we are dealing with only one column    
@@ -1502,14 +1546,20 @@ class FancyFormat():
       self.set_fill_chr = "----"                 # to fill the empty spots when the list is not complete    
       self.update_list = False                   # if we want to save the data as it's presented, but string each element in list
       
-
+      #set_font(bold=False,bg=-1,fg=-1,italic=False,underline=False,strike=False,blink=False):
       #-------------------------------------------------------------------------------------------------------------------------------------------
       # Title Section
       self.msg_title   = ""                      # string value
       self.bold_title  = False                   # two values False and True (0 and 1)
       self.bg_title    = -1                      # values -1 to 255
-      self.fg_title    = -1                      # values -1 to 255    
+      self.fg_title    = -1                      # values -1 to 255
       self.align_title = "justify"               # 4 values: justify(j),left(l), center(c), and right(r)
+
+      self.italic_title    = False               # two values False and True (0 and 1)
+      self.underline_title = False               # two values False and True (0 and 1)
+      self.strike_title    = False               # two values False and True (0 and 1)
+      self.blink_title     = False               # two values False and True (0 and 1)
+
     
       #-------------------------------------------------------------------------------------------------------------------------------------------
       # Footnote Section
@@ -1518,6 +1568,11 @@ class FancyFormat():
       self.bg_footnote   = -1                    # values -1 to 255
       self.fg_footnote   = -1                    # values -1 to 255    
       self.align_footnote= "justify"             # 4 values: justify(j),left(l), center(c), and right(r)
+
+      self.italic_footnote    = False            # two values False and True (0 and 1)
+      self.underline_footnote = False            # two values False and True (0 and 1)
+      self.strike_footnote    = False            # two values False and True (0 and 1)
+      self.blink_footnote     = False            # two values False and True (0 and 1)
       
       #-------------------------------------------------------------------------------------------------------------------------------------------
       # Data Section
@@ -1528,6 +1583,11 @@ class FancyFormat():
       self.align_data = "justify"                # 4 values: justify(j),left(l), center(c), and right(r)    
       self.horizontal_separator_line_on = False  # horizontal line for all the rows, only for matrix list. 1 shows it and 0 hides it
                                                  # two values False and True (0 and 1)
+
+      self.italic_data    = False                # two values False and True (0 and 1)
+      self.underline_data = False                # two values False and True (0 and 1)
+      self.strike_data    = False                # two values False and True (0 and 1)
+      self.blink_data     = False                # two values False and True (0 and 1)
 
       #-------------------------------------------------------------------------------------------------------------------------------------------
       # Horizontal Line Section
@@ -1582,6 +1642,12 @@ class FancyFormat():
       self.bg_all_cell_header = True             # how long will be the bg (all the cell or only the header)
       self.fg_header    = -1                     # values -1 to 255
       self.align_header = "justify"              # 4 values: justify(j),left(l), center(c), and right(r)
+
+      self.italic_header    = False              # two values False and True (0 and 1)
+      self.underline_header = False              # two values False and True (0 and 1)
+      self.strike_header    = False              # two values False and True (0 and 1)
+      self.blink_header     = False              # two values False and True (0 and 1)
+
 
       self.left_vertical_header_line_chr = "|"   # small_bullet u'\u2022'
       self.right_vertical_header_line_chr = "|"  # circle_bullet u'\u2B24'
@@ -1769,20 +1835,57 @@ class Cursor():
          posi = f"\033[{str(row)};{str(col)}H"
       
       return posi
-
-   def set_blink(self):
-      return "\033[5m"
-
-   def reset_blink(self):
-      return "\033[25m"
-
-   def set_reverse(self):
-      return "\033[7m"
-
-   def reset_reverse(self):
-      return "\033[27m"
    
+   def reset_all(self): return "\033[0m"
+
+   def set_bold(self):   return "\033[1m"
+   def reset_bold(self): return "\033[22m"
+
+   def set_dim(self):   return "\033[2"
+   def reset_dim(self): return "\033[22m"
+
+   def set_italic(self):   return "\033[3m"
+   def reset_italic(self): return "\033[23m"
+
+   def set_underline(self):   return "\033[4m"
+   def reset_underline(self): return "\033[24m"
+
+   def set_blink(self):   return "\033[5m"
+   def reset_blink(self): return "\033[25m"
+
+   def set_reverse(self):   return "\033[7m"
+   def reset_reverse(self): return "\033[27m"
    
+   def set_hidden(self):   return "\033[8m"
+   def reset_hidden(self): return "\033[28m"
+
+   def set_strike(self):   return "\033[9m"
+   def reset_strike(self): return "\033[29m"
+   
+
+
+
+
+
+
+#-----------------------------------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------------------------
+# Font Customize Class for Fancy Message Class                                                                                                 -
+#-----------------------------------------------------------------------------------------------------------------------------------------------
+# pending this class
+class FontCustomization():
+   def __init__(self):
+      self.set_bold = False
+      self.set_bg = 4
+      self.set_fg = 231
+      self.set_italic = False
+      self.set_underline = False
+      self.set_blink = False
+      self.set_strike = False
+
+
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 #-----------------------------------------------------------------------------------------------------------------------------------------------
@@ -1794,6 +1897,10 @@ class FancyMessage():
       self.bold = False
       self.bg = 4
       self.fg = 231
+      self.italic = False
+      self.underline = False
+      self.blink = False
+      self.strike = False
 
       self.left_indent = 2
       self.right_indent = 2
@@ -1813,8 +1920,8 @@ class FancyMessage():
          while n>0:
             print(bg_format_line_color)
             n -= 1
-   
-      color = set_font(self.bold, self.bg, self.fg)
+      # set_font(bold=False,bg=-1,fg=-1,italic=False,underline=False,strike=False,blink=False):
+      color = set_font(self.bold, self.bg, self.fg,self.italic,self.underline,self.blink, self.strike)
       tncols, tnrows = os.get_terminal_size()
       space_available = tncols - self.left_indent - self.right_indent
       msg_type = "single_line"; new_msg = ""
@@ -1927,7 +2034,7 @@ class FancyMessage():
             for n in range(adj_diff_space[nl]+self.right_indent):
                print(" ",end="")
 
-         elif (self.length == Length_bg.ONLY_WORD):            
+         elif (self.length == Length_bg.ONLY_WORD):
             if (self.adj_bg_msg_to_space_available == True):    
                for n in range(space_available -  number_letter_line_list[nl]):
                   print(" ",end="")
@@ -1956,7 +2063,7 @@ class FancyMessage():
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 class Draw(Cursor):            # Inheritance the Cursor Class here.   
    def __init__(self):         # Initializing Draw Class as self
-      super().__init__()       # Super Class to use all (vars and funs) from Cursor Clase
+      super().__init__()       # Super Class to use all (vars and funs) from Cursor Class
                                # with the Initialization Draw Class(self), ex. self.gotoxy(x,y)
       # Corner Section 
       self.top_left_corner_chr = "+"             # chr for the top left corner
