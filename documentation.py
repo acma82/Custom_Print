@@ -1,3 +1,4 @@
+import sys
 import fancyprint as fp
 
 lst = fp.FancyFormat()
@@ -12,6 +13,8 @@ elif (fp.OS_Linux == False and fp.OS_Windows == True): pass
 else:                                                  pass
 
 fp.clear()
+
+
 
 #------------------------------------------------------------------------------------------------
 # All Functions and Classes in fancyprint Module                                                -
@@ -114,9 +117,22 @@ font_funs = [[" Font Functions "],["fp.bg_ansi_colors(bold=False, fg=-1)"],["fp.
              ["set_font(bold=True,bg=22,fg=231)"],["reset_font()"],["ins_space(sp)"],["isn_newline(nl)"]]
 lst.print_fancy_format(font_funs)
 fp.ins_newline(2)
+
+#------------------------------------------------------------------------------------------------
+# reset_font()                                                                                  -
+#------------------------------------------------------------------------------------------------
+
+#------------------------------------------------------------------------------------------------
+# ins_space()                                                                                   -
+#------------------------------------------------------------------------------------------------
+
+#------------------------------------------------------------------------------------------------
+# ins_newline()                                                                                 -
+#------------------------------------------------------------------------------------------------
+
 #------------------------------------------------------------------------------------------------
 # bg_ansi_colors                                                                                -
-#------------------------------4------------------------------------------------------------------
+#------------------------------------------------------------------------------------------------
 green_msg.print_fancy_msg(font_funs[1][0])
 message = '''
    import fancyprint as fp
@@ -129,6 +145,7 @@ message = '''
    1.- The option bold for the font (True/False).
    2.- The option fg to visualize the background colors with a specific
          foreground color.
+
 
    Colors range from -1 to 256.
    To set the default color use -1 or 256.
@@ -157,7 +174,7 @@ message =    '''
    2.- The option bg to visualize the foreground colors with a specific
          background color.
 
-   Colors range from -1 to 256.
+   Colors range from -1 to 256.# lst = fp.FancyFormat()
    To set the default color use -1 or 256.
 
    Example:
@@ -171,8 +188,11 @@ print(f"{fp.set_font(fg=118)}  For more reference check 02_fg_ansi_colosr.py fil
 # Explanation of the Functions                                                                  -
 #------------------------------------------------------------------------------------------------
 lst.bg_all_cell_header = True; lst.underline_header = False
-classes_methods = [["Classes","Mehtods"],["FancyFormat","print_fancy_format()"],
-                   ["Cursor", ],[]]#[f"{fp.ins_space(10)}",]]
+classes_methods = [["Classes","Mehtods"],["FancyFormat","print_fa"]]# lst = fp.FancyFormat()
+blue_msg  = fp.FancyMessage()  # for titles
+green_msg = fp.FancyMessage()  # for subtitles
+darkg_msg= fp.FancyMessage()   # for warning
+crs = fp.Cursor()
 lst.print_fancy_format(classes_methods)
 
 
@@ -180,9 +200,7 @@ lst.print_fancy_format(classes_methods)
 
 #------------------------------------------------------------------------------------------------
 # print("\033[2m")
-input(f"{fp.set_font(bold=True)}{crs.set_reverse()}{crs.set_blink()} Enter to Continue: ")
-#print(f"{crs.reset_reverse()} {crs.reset_blink()}")
-print(crs.reset_all())
+input(f"{fp.bold_on()}{fp.reverse_on()}{fp.blink_on()} Enter to Continue: {fp.off_all()}")
 fp.resize(nrows, ncols)
 
 # print("\033[22m")
@@ -191,4 +209,44 @@ if (fp.OS_Linux == True and fp.OS_Windows == False): fp.resize(nrows, ncols) #fp
 elif (fp.OS_Linux == False and fp.OS_Windows == True): pass
 else:                                                  pass
 
-print("\033[2;1;4;9m Miguel Angel Aguialr Cuesta")
+
+import sys
+# import fancyprint as fp
+
+lst = fp.FancyFormat()
+font = fp.FontCustomization()
+font.set_bg = 22
+font.set_fg = 231
+font.set_bold = True
+font.set_italic = True
+title = ''' All Functions, Classes and Methods in fancyprint Module  '''  
+blue_msg  = fp.FancyMessage(font)  # for titles
+blue_msg.print_fancy_msg(title)
+font.set_bg = 90
+
+purple_msg  = fp.FancyMessage(font)  # for titles
+purple_msg.print_fancy_msg(title)
+
+blue_msg.fg = 0
+blue_msg.bg = 231
+blue_msg.print_fancy_msg(title)
+
+
+print()
+print(f"{fp.bg_on(22)} Miguelito {fp.fg_on(13)} I am here {fp.bold_on()} Hello Again. {fp.off_all()}")
+print()
+print(f"{fp.bold_on()}{fp.bg_on(90)} Miguelito  I am here {fp.fg_on(11)} Hello Again. {fp.reset_font()}")
+print(f"{fp.reverse_on()}Miguel Angel{fp.reverse_off()}")
+
+for i in range(0, 16):
+   for j in range(0, 16):
+      code = str(i * 16 + j)
+      sys.stdout.write(u"\u001b[38;5;" + code + "m " + code.ljust(4))
+   print (u"\u001b[0m")
+
+
+for i in range(0, 16):
+    for j in range(0, 16):
+        code = str(i * 16 + j)
+        sys.stdout.write(u"\u001b[48;5;" + code + "m " + code.ljust(4))
+    print (u"\u001b[0m")

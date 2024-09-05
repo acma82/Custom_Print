@@ -155,6 +155,34 @@ def erase():
 
 
 
+def off_all():      return "\033[0m"
+
+def bold_on():      return "\033[1m"
+def bold_off():     return "\033[22m"
+
+def dim_on():       return "\033[2"
+def dim_off():      return "\033[22m"
+
+def italic_on():    return "\033[3m"
+def italic_off():   return "\033[23m"
+
+def underline_on(): return "\033[4m"
+def underline_off():return "\033[24m"
+
+def blink_on():     return "\033[5m"
+def blink_off():    return "\033[25m"
+
+def reverse_on():   return "\033[7m"
+def reverse_off():  return "\033[27m"
+
+def hidden_on():    return "\033[8m"
+def hidden_off():   return "\033[28m"
+
+def strike_on():    return "\033[9m"
+def strike_off():   return "\033[29m"
+
+def bg_on(bg:int):  return f"\033[48;5;{str(bg)}m"
+def fg_on(fg:int):  return f"\033[38;5;{str(fg)}m"
 
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 # Linux Background Color Option List                                                                                                           -
@@ -1836,35 +1864,7 @@ class Cursor():
       
       return posi
    
-   def reset_all(self): return "\033[0m"
-
-   def set_bold(self):   return "\033[1m"
-   def reset_bold(self): return "\033[22m"
-
-   def set_dim(self):   return "\033[2"
-   def reset_dim(self): return "\033[22m"
-
-   def set_italic(self):   return "\033[3m"
-   def reset_italic(self): return "\033[23m"
-
-   def set_underline(self):   return "\033[4m"
-   def reset_underline(self): return "\033[24m"
-
-   def set_blink(self):   return "\033[5m"
-   def reset_blink(self): return "\033[25m"
-
-   def set_reverse(self):   return "\033[7m"
-   def reset_reverse(self): return "\033[27m"
    
-   def set_hidden(self):   return "\033[8m"
-   def reset_hidden(self): return "\033[28m"
-
-   def set_strike(self):   return "\033[9m"
-   def reset_strike(self): return "\033[29m"
-   
-
-
-
 
 
 
@@ -1892,15 +1892,17 @@ class FontCustomization():
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 # Fancy Message Class (Single line or a Paragraph Text in the Terminal)                                                                        -
 #-----------------------------------------------------------------------------------------------------------------------------------------------
+#class FancyMessage(FontCustomization):
 class FancyMessage():
-   def __init__(self):
-      self.bold = False
-      self.bg = 4
-      self.fg = 231
-      self.italic = False
-      self.underline = False
-      self.blink = False
-      self.strike = False
+   font_customization = FontCustomization()
+   def __init__(self,obj=font_customization):
+      self.bold      = obj.set_bold        #False
+      self.bg        = obj.set_bg          # 4
+      self.fg        = obj.set_fg          # 231
+      self.italic    = obj.set_italic      # False
+      self.underline = obj.set_underline   # False
+      self.blink     = obj.set_blink       # False
+      self.strike    = obj.set_strike      # False
 
       self.left_indent = 2
       self.right_indent = 2
