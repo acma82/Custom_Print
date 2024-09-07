@@ -155,35 +155,6 @@ def erase():
 
 
 
-def off_all():      return "\033[0m"
-
-def bold_on():      return "\033[1m"
-def bold_off():     return "\033[22m"
-
-def dim_on():       return "\033[2"
-def dim_off():      return "\033[22m"
-
-def italic_on():    return "\033[3m"
-def italic_off():   return "\033[23m"
-
-def underline_on(): return "\033[4m"
-def underline_off():return "\033[24m"
-
-def blink_on():     return "\033[5m"
-def blink_off():    return "\033[25m"
-
-def reverse_on():   return "\033[7m"
-def reverse_off():  return "\033[27m"
-
-def hidden_on():    return "\033[8m"
-def hidden_off():   return "\033[28m"
-
-def strike_on():    return "\033[9m"
-def strike_off():   return "\033[29m"
-
-def bg_on(bg:int):  return f"\033[48;5;{str(bg)}m"
-def fg_on(fg:int):  return f"\033[38;5;{str(fg)}m"
-
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 # Linux Background Color Option List                                                                                                           -
 #----------------------------------------------------------------------------------------------------------------------------------------------- 
@@ -305,7 +276,7 @@ def fg_ansi_colors(bold=False, bg=-1):
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 # Move Right n Times The CursorInsert Empty Spaces                                                                                                                          -
 #-----------------------------------------------------------------------------------------------------------------------------------------------
-def ins_space(n_space=0):
+def ins_space(n_space=1):
    '''
 ----------------------------------------------------------------------------
    import fancyprint as fp
@@ -330,7 +301,7 @@ def ins_space(n_space=0):
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 # Insert Newlines, nl                                                                                                                          -
 #-----------------------------------------------------------------------------------------------------------------------------------------------
-def ins_newline(nl=0):
+def ins_newline(nl=1):
    '''
 ----------------------------------------------------------------------------
    import fancyprint as fp
@@ -349,11 +320,12 @@ def ins_newline(nl=0):
       nl -= 1      
       print("")
 
-
+def terminal_bell():
+   print("\a")
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 # Set Settings for the Font: Bold, Background, and Foreground                                                                                  -
 #-----------------------------------------------------------------------------------------------------------------------------------------------
-def set_font(bold=False,bg=-1,fg=-1,italic=False,underline=False,strike=False,blink=False):
+def set_font(bold=False,bg=-1,fg=-1,italic=False,underline=False,strike=False,blinking=False,dim=False,hidden=False,inverse=False):
    '''
 ----------------------------------------------------------------------------
    import fancyprint as fp
@@ -373,60 +345,61 @@ def set_font(bold=False,bg=-1,fg=-1,italic=False,underline=False,strike=False,bl
                {fp.set_font(1,90,7)} Language.{fp.reset_font()}")
 ----------------------------------------------------------------------------
 '''
-  # bg_color, fg_color, and bold are int values but we convert then to str values
+   # bg_color and fg_color, are int values but we convert then to str values
    reset = "\033[0m"
    if bg < 0 or bg > 255:
       bgc = "reset"
    else:
-      bgc = str(bg)    
+      bgc = str(bg)
 
    if fg < 0 or fg > 255:
       fgc = "reset"
    else:
-      fgc = str(fg)  
+      fgc = str(fg)
 
 
-   if (bold == True):
-      if (bgc == "reset" and fgc == "reset"):
-         settings = reset + "\033[1m"
-
-      elif bgc == "reset" and fgc != "reset":
-         settings = reset+"\033[1;38;5;"+fgc+"m"
-      
-      elif bgc != "reset" and fgc == "reset":
-         settings = reset+"\033[1;48;5;"+bgc+"m"
-
-      elif bgc != "reset" and fgc != "reset":
-         settings = reset+"\033[1;48;5;"+bgc+";38;5;"+fgc+"m"
-
-      else:
-         settings = reset
-
-   elif (bold == False):
-      if (bgc == "reset" and fgc == "reset"):
-         settings = reset
-
-      elif bgc == "reset" and fgc != "reset":
-         settings = reset+"\033[0;38;5;"+fgc+"m"
-      
-      elif bgc != "reset" and fgc == "reset":
-         settings = reset+"\033[0;48;5;"+bgc+"m"
-
-      elif bgc != "reset" and fgc != "reset":
-         settings = reset+"\033[0;48;5;"+bgc+";38;5;"+fgc+"m"
-
-      else:
-         settings = reset
-   else:
+   if (bgc == "reset" and fgc == "reset"):
       settings = reset
 
+   elif bgc == "reset" and fgc != "reset":
+      settings = reset+"\033[38;5;"+fgc+"m"
+   
+   elif bgc != "reset" and fgc == "reset":
+      settings = reset+"\033[48;5;"+bgc+"m"
 
+   elif bgc != "reset" and fgc != "reset":
+      settings = reset+"\033[48;5;"+bgc+";38;5;"+fgc+"m"
+
+   else:
+      settings = reset
+   
+
+   if   (bold == True and dim == False): settings = settings + "\033[1m"
+   elif (bold == True and dim == True):  settings = settings + "\033[1m"
+   elif (bold == False and dim == True): settings = settings + "\033[2m"
+   else: # (bold == False and dim == False): 
+      pass
+      
    if (italic == True):    settings = settings + "\033[3m"
-   if (underline == True): settings = settings + "\033[4m"
-   if (blink == True):     settings = settings + "\033[5m"
-   if (strike == True):    settings = settings + "\033[9m"
-   return settings
+   else:                   settings = settings + "\033[23m"
 
+   if (underline == True): settings = settings + "\033[4m"
+   else:                   settings = settings + "\033[24m"
+
+   if (blinking == True):  settings = settings + "\033[5m"
+   else:                   settings = settings + "\033[25m"
+
+   if (hidden == True):    settings = settings + "\033[8m"
+   else:                   settings = settings + "\033[28m"
+
+   if (strike == True):    settings = settings + "\033[9m"
+   else:                   settings = settings + "\033[29m"
+
+   if (inverse == True):   settings = settings + "\033[7m"
+   else:                   settings = settings + "\033[27m"
+
+   return settings
+   
 
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 # Reset Settings for the Font: Bold, Background, and Foreground                                                                                -
@@ -905,7 +878,7 @@ def print_title(self,my_list):
 
    if self.msg_title == "": return
    else: 
-      settings = set_font(self.bold_title,self.bg_title, self.fg_title,self.italic_title,self.underline_title,self.strike_title,self.blink_title)
+      settings = set_font(self.bold_title,self.bg_title, self.fg_title,self.italic_title,self.underline_title,self.strike_title,self.blinking_title,self.dim_title,self.hidden_title,self.inverse_title)
 
       # check for the length of the message
    total_length = get_total_length(self,my_list)
@@ -950,7 +923,7 @@ def print_notefoot(self,my_list):
    
    if self.msg_footnote == "": return
    else: 
-      settings = set_font(self.bold_footnote,self.bg_footnote, self.fg_footnote,self.italic_footnote,self.underline_footnote,self.strike_footnote,self.blink_footnote)
+      settings = set_font(self.bold_footnote,self.bg_footnote, self.fg_footnote,self.italic_footnote,self.underline_footnote,self.strike_footnote,self.blinking_footnote,self.dim_footnote,self.hidden_footnote,self.inverse_footnote)
 
    # check for the length of the message
    total_length = get_total_length(self,my_list)
@@ -1039,7 +1012,7 @@ def print_single_element(self,my_list):
    
    # get all the settings for the list
    
-   set_d = set_font(self.bold_data, self.bg_data, self.fg_data,self.italic_data,self.underline_data,self.strike_data,self.blink_data)
+   set_d = set_font(self.bold_data, self.bg_data, self.fg_data,self.italic_data,self.underline_data,self.strike_data,self.blinking_data,self.dim_data,self.hidden_data,self.inverse_data)
    set_v = set_font(self.bold_vertical_line, self.bg_vertical_line, self.fg_vertical_line)  
   
    # print the top horizontal line
@@ -1097,7 +1070,7 @@ def print_multiple_horizontal_items(self,my_list):
    print_title(self,my_list)
   
    # get all the settings for the list
-   set_d = set_font(self.bold_data, self.bg_data, self.fg_data,self.italic_data,self.underline_data,self.strike_data,self.blink_data)   
+   set_d = set_font(self.bold_data, self.bg_data, self.fg_data,self.italic_data,self.underline_data,self.strike_data,self.blinking_data,self.dim_data,self.hidden_data,self.inverse_data)
    set_v = set_font(self.bold_vertical_line, self.bg_vertical_line, self.fg_vertical_line)
    
    # drawing the top horizontal line
@@ -1241,12 +1214,12 @@ def get_odd_even_space_adj(length,len_dato):
 def print_matrix_list(self,my_list):
    # d  :data,   v: vertical,   hcl: left_corner_header,   mch:middle_corner_header, rch:right_corner_header,   t:title(header)
    # get all the settings for the list
-   set_d = set_font(self.bold_data, self.bg_data, self.fg_data,self.italic_data,self.underline_data,self.strike_data,self.blink_data)
+   set_d = set_font(self.bold_data, self.bg_data, self.fg_data,self.italic_data,self.underline_data,self.strike_data,self.blinking_data,self.dim_data,self.hidden_data,self.inverse_data)
    set_v = set_font(self.bold_vertical_line, self.bg_vertical_line, self.fg_vertical_line)
    set_hchr_v = set_font(self.bold_vertical_header_line_chr,\
                                     self.bg_vertical_header_line_chr,self.fg_vertical_header_line_chr)
 
-   set_t = set_font(self.bold_header, self.bg_header, self.fg_header,self.italic_header,self.underline_header,self.strike_header,self.blink_header)   
+   set_t = set_font(self.bold_header, self.bg_header, self.fg_header,self.italic_header,self.underline_header,self.strike_header,self.blinking_header,self.dim_header,self.hidden_header,self.inverse_header)   
    total_length = get_total_length(self,my_list)
 
    # print title  
@@ -1566,15 +1539,14 @@ class FancyFormat():
       # defining variable names                  # values to take                                                                                #
       #-------------------------------------------------------------------------------------------------------------------------------------------
       # General Use  
-      self.adj_margin = 0                        # lines to be add between the terminal and the title
-      self.adj_top_space  = 0                    # lines to be added between title and top list
-      self.adj_indent = 2                        # space from the terminal to the box
-      self.adj_space = 2                         # space from left to right side inside the box
-      self.adj_bottom_space  = 0                 # lines to be added between bottom list and footnote
-      self.set_fill_chr = "----"                 # to fill the empty spots when the list is not complete    
-      self.update_list = False                   # if we want to save the data as it's presented, but string each element in list
-      
-      #set_font(bold=False,bg=-1,fg=-1,italic=False,underline=False,strike=False,blink=False):
+      self.adj_margin      = 0                 # lines to be add between the terminal and the title
+      self.adj_top_space   = 0                 # lines to be added between title and top list
+      self.adj_indent      = 2                 # space from the terminal to the box
+      self.adj_space       = 2                 # space from left to right side inside the box
+      self.adj_bottom_space= 0                 # lines to be added between bottom list and footnote
+      self.set_fill_chr    = "----"            # to fill the empty spots when the list is not complete
+      self.update_list     = False             # if we want to save the data as it's presented, but string each element in list
+                  
       #-------------------------------------------------------------------------------------------------------------------------------------------
       # Title Section
       self.msg_title   = ""                      # string value
@@ -1586,8 +1558,10 @@ class FancyFormat():
       self.italic_title    = False               # two values False and True (0 and 1)
       self.underline_title = False               # two values False and True (0 and 1)
       self.strike_title    = False               # two values False and True (0 and 1)
-      self.blink_title     = False               # two values False and True (0 and 1)
-
+      self.blinking_title  = False               # two values False and True (0 and 1)
+      self.dim_title       = False               # two values False and True (0 and 1)
+      self.hidden_title    = False               # two values False and True (0 and 1)
+      self.inverse_title   = False               # two values False and True (0 and 1)
     
       #-------------------------------------------------------------------------------------------------------------------------------------------
       # Footnote Section
@@ -1600,8 +1574,12 @@ class FancyFormat():
       self.italic_footnote    = False            # two values False and True (0 and 1)
       self.underline_footnote = False            # two values False and True (0 and 1)
       self.strike_footnote    = False            # two values False and True (0 and 1)
-      self.blink_footnote     = False            # two values False and True (0 and 1)
-      
+      self.blinking_footnote  = False            # two values False and True (0 and 1)
+      self.dim_footnote       = False            # two values False and True (0 and 1)
+      self.hidden_footnote    = False            # two values False and True (0 and 1)
+      self.inverse_footnote   = False            # two values False and True (0 and 1)
+
+
       #-------------------------------------------------------------------------------------------------------------------------------------------
       # Data Section
       self.bold_data  = False                    # two values False and True (0 and 1)
@@ -1615,7 +1593,10 @@ class FancyFormat():
       self.italic_data    = False                # two values False and True (0 and 1)
       self.underline_data = False                # two values False and True (0 and 1)
       self.strike_data    = False                # two values False and True (0 and 1)
-      self.blink_data     = False                # two values False and True (0 and 1)
+      self.blinking_data  = False                # two values False and True (0 and 1)
+      self.dim_data       = False                # two values False and True (0 and 1)
+      self.hidden_data    = False                # two values False and True (0 and 1)
+      self.inverse_data   = False                # two values False and True (0 and 1)
 
       #-------------------------------------------------------------------------------------------------------------------------------------------
       # Horizontal Line Section
@@ -1674,8 +1655,10 @@ class FancyFormat():
       self.italic_header    = False              # two values False and True (0 and 1)
       self.underline_header = False              # two values False and True (0 and 1)
       self.strike_header    = False              # two values False and True (0 and 1)
-      self.blink_header     = False              # two values False and True (0 and 1)
-
+      self.blinking_header  = False              # two values False and True (0 and 1)
+      self.dim_header       = False              # two values False and True (0 and 1)
+      self.hidden_header    = False              # two values False and True (0 and 1)
+      self.inverse_header   = False              # two values False and True (0 and 1)
 
       self.left_vertical_header_line_chr = "|"   # small_bullet u'\u2022'
       self.right_vertical_header_line_chr = "|"  # circle_bullet u'\u2B24'
@@ -1808,7 +1791,6 @@ class FancyFormat():
       # ----------------------------------------------------------------------------------------------------------------------------------------          
       else:
          print(list_type+": ",data_list) 
-  
 
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 #-----------------------------------------------------------------------------------------------------------------------------------------------
@@ -1866,7 +1848,132 @@ class Cursor():
    
    
 
+#-----------------------------------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------------------------
+# Font Style Class. Manipulate Font In The Terminal                                                                                            -
+#-----------------------------------------------------------------------------------------------------------------------------------------------
+# ansi codes 
+# reset_all : "\033[0m"         Terminal_Bell : "\a"              
+# bold_on   : "\033[1m"         underline_on  : "\033[4m"         hidden_on    : "\033[8m"
+# bold_off  : "\033[22m"        underline_off : "\033[24m"        hidden_off   : "\033[28m"
+# dim_on    : "\033[2m"         blinking_on   : "\033[5m"         strike_on    : "\033[9m"
+# dim_off   : "\033[22m"        blinking_off  : "\033[25m"        strike_off   : "\033[29m"
+# italic_on : "\033[3m"         reverse_on    : "\033[7m"         background   : "\033[48;5;{str(bg)}m"
+# italic_off: "\033[23m"        reverse_off   : "\033[27m"        foreground   : "\033[38;5;{str(fg)}m"
+# backspace : "\b"              horizontal tab: "\t"              vertical tab : "\v"
 
+class FontStyle():   
+   def __init__(self):
+      self.bg = -1
+      self.fg = -1
+      self.bold  = False      
+      self.dim   = False
+      self.italic= False
+      self.underline = False
+      self.blinking  = False
+      self.inverse   = False
+      self.hidden = False
+      self.strike    = False
+      self.indent    = 0
+      self.next_line = True
+
+      
+   def set_font(self)->str:
+      '''
+   --------------------------"Cursor","FontStyle","FancyMessage","FancyFormat"--------------------------------------------------
+   Explanation update needed here
+         import fancyprint as fp
+
+      fs = fp.FontStyle()
+
+      This function changes the attributes of the font (bold, bg, fg).
+      
+      Colors range from -1 to 256.
+      To set the default color use -1 or 256.
+      
+      Example:
+               print(fp.set_font(1,11,21)+ " Python is " + fp.set_font(0,1)+
+                  " Wonderful."+fp.reset_font())
+               
+               print(f"{fp.set_font(bold=0, bg=22, fg=0)} Python
+                  {fp.set_font(1,90,7)} Language.{fp.reset_font()}")
+   ----------------------------------------------------------------------------
+   '''
+   # bg_color and fg_color, are int values but we convert then to str values
+      reset = "\033[0m"
+      if self.bg < 0 or self.bg > 255:
+         bgc = "reset"
+      else:
+         bgc = str(self.bg)
+
+      if self.fg < 0 or self.fg > 255:
+         fgc = "reset"
+      else:
+         fgc = str(self.fg)
+
+
+      if (bgc == "reset" and fgc == "reset"):
+         settings = reset
+
+      elif bgc == "reset" and fgc != "reset":
+         settings = reset+"\033[38;5;"+fgc+"m"
+      
+      elif bgc != "reset" and fgc == "reset":
+         settings = reset+"\033[48;5;"+bgc+"m"
+
+      elif bgc != "reset" and fgc != "reset":
+         settings = reset+"\033[48;5;"+bgc+";38;5;"+fgc+"m"
+
+      else:
+         settings = reset
+      
+
+      if   (self.bold == True and self.dim == False): settings = settings + "\033[1m"
+      elif (self.bold == True and self.dim == True):  settings = settings + "\033[1m"
+      elif (self.bold == False and self.dim == True): settings = settings + "\033[2m"
+      else: # (bold == False and dim == False): 
+         pass
+         
+      if (self.italic == True):    settings = settings + "\033[3m"
+      else:                        settings =  settings + "\033[23m"
+
+      if (self.underline == True): settings = settings + "\033[4m"
+      else:                        settings = settings + "\033[24m"
+
+      if (self.blinking == True):  settings = settings + "\033[5m"
+      else:                        settings = settings + "\033[25m"
+
+      if (self.inverse == True):   settings = settings + "\033[7m"
+      else:                        settings = settings + "\033[27m"
+
+      if (self.hidden == True):    settings = settings + "\033[8m"
+      else:                        settings = settings + "\033[28m"
+
+      if (self.strike == True):    settings = settings + "\033[9m"
+      else:                        settings = settings + "\033[29m"
+      
+
+      if self.indent <= 0: pass
+      else: settings = settings + f"\033[{str(self.indent)}C"
+
+      return settings
+   
+   def print_style(self, msg)->None:
+      settings = self.set_font()
+      if self.next_line   == True:  print(settings+str(msg)+"\033[0m")
+      elif self.next_line == False: print(settings+str(msg)+"\033[0m",end="")
+      else:
+         print(settings+str(msg)+"\033[0m")
+
+   def get_style(self)->str:   return self.set_font()
+
+   def reset_style(self)->str: return "\033[0m"
+
+   
 
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 #-----------------------------------------------------------------------------------------------------------------------------------------------
@@ -1877,14 +1984,16 @@ class Cursor():
 # pending this class
 class FontCustomization():
    def __init__(self):
-      self.set_bold = False
-      self.set_bg = 4
-      self.set_fg = 231
-      self.set_italic = False
-      self.set_underline = False
-      self.set_blink = False
-      self.set_strike = False
-
+      self.bg = 4
+      self.fg = 231
+      self.bold   = False      
+      self.dim    = False
+      self.italic = False
+      self.underline = False
+      self.blinking  = False
+      self.inverse   = False
+      self.hidden = False
+      self.strike = False
 
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 #-----------------------------------------------------------------------------------------------------------------------------------------------
@@ -1896,19 +2005,24 @@ class FontCustomization():
 class FancyMessage():
    font_customization = FontCustomization()
    def __init__(self,obj=font_customization):
-      self.bold      = obj.set_bold        #False
-      self.bg        = obj.set_bg          # 4
-      self.fg        = obj.set_fg          # 231
-      self.italic    = obj.set_italic      # False
-      self.underline = obj.set_underline   # False
-      self.blink     = obj.set_blink       # False
-      self.strike    = obj.set_strike      # False
-
+      self.bg        = obj.bg          # 4
+      self.fg        = obj.fg          # 231      
+      self.bold      = obj.bold        # False
+      self.dim       = obj.dim         # False
+      self.italic    = obj.italic      # False
+      self.underline = obj.underline   # False
+      self.blinking  = obj.blinking    # False
+      self.inverse   = obj.inverse     # False
+      self.hidden    = obj.hidden      # False
+      self.strike    = obj.strike      # False
+      
       self.left_indent = 2
       self.right_indent = 2
 
       self.length = Length_bg.ALL_ROW
       self.lines = 1
+      self.top_lines = 1
+      self.bottom_lines = 1
       self.adj_bg_lines_to_right_indent = False     # True or False
       self.adj_bg_msg_to_space_available = False    # False, True or None
 
@@ -1917,13 +2031,14 @@ class FancyMessage():
       if (isinstance(data, str)): msg=data
       else:                       msg=str(data)
 
-      def print_bg_lines(bg_format_line_color="\0m"):
-         n = self.lines
+      def print_bg_lines(lines, bg_format_line_color="\0m"):
+         n = lines
          while n>0:
             print(bg_format_line_color)
             n -= 1
-      # set_font(bold=False,bg=-1,fg=-1,italic=False,underline=False,strike=False,blink=False):
-      color = set_font(self.bold, self.bg, self.fg,self.italic,self.underline,self.blink, self.strike)
+      # def set_font(bold=False,bg=-1,fg=-1,italic=False,underline=False,strike=False,blinking=False,dim=False,hidden=False,inverse=False):      
+      color = set_font(self.bold, self.bg, self.fg,self.italic,self.underline,self.strike,self.blinking,self.dim,self.hidden,self.inverse)
+      color2= set_font(bg=self.bg, fg=self.fg, inverse=self.inverse)
       tncols, tnrows = os.get_terminal_size()
       space_available = tncols - self.left_indent - self.right_indent
       msg_type = "single_line"; new_msg = ""
@@ -2011,38 +2126,44 @@ class FancyMessage():
       # self.adj_bg_lines_to_right_indent by default = False
       # self.adj_bg_msg_to_space_available by default = False
       if (self.length == Length_bg.ALL_ROW):
-         bg_format_line_color = f"{color}{ins_space(tncols)}{reset_font()}"
-         start_line = f"{color}{ins_space(self.left_indent)}"
+         bg_format_line_color = f"{color2}{ins_space(tncols)}{reset_font()}"
+         start_line = f"{color2}{ins_space(self.left_indent)}" # change color for color2 to delete at the beginning the strike, and/or underline option(s)
 
       elif (self.length == Length_bg.ONLY_WORD):         
-         if (self.adj_bg_lines_to_right_indent == True):    bg_format_line_color = f"{color}{move_right(self.left_indent)}{ins_space(space_available)}{reset_font()}"
-         elif (self.adj_bg_lines_to_right_indent == False): bg_format_line_color = f"{move_right(self.left_indent)}{color}{ins_space(longest_line)}{reset_font()}"         
-         start_line = f"{move_right(self.left_indent)}{color}"
+         if (self.adj_bg_lines_to_right_indent == True):    bg_format_line_color = f"{color2}{move_right(self.left_indent)}{ins_space(space_available)}{reset_font()}"  # change color for color2
+         elif (self.adj_bg_lines_to_right_indent == False): bg_format_line_color = f"{move_right(self.left_indent)}{color2}{ins_space(longest_line)}{reset_font()}"     # change color for color2
+         start_line = f"{move_right(self.left_indent)}{color2}" # change color for color2
 
       else: pass
 
       carry = 0; last_one = len(number_letter_line_list) - 1
-      print_bg_lines(bg_format_line_color) # bg_line
-      print(start_line,end="")
+      print_bg_lines(self.top_lines, bg_format_line_color) # bg_line
+      
 
+      print(start_line,end="")
+      
       # start printing the message
       for nl in range(len(number_letter_line_list)):
          for n in range(number_letter_line_list[nl]):
-            print(f"{new_msg[carry+n]}",end="")
-         
+            print(f"{color}{new_msg[carry+n]}",end="")  # added color because the color2 can be slightly different
+            # if (new_msg[carry+n] != " "):                  # to don't print the strike or underline in the empty spaces
+            #    print(f"{color}{new_msg[carry+n]}",end="")  # added color because the color2 can be slightly different
+            # else:
+            #    print(f"{color2}{new_msg[carry+n]}",end="")  # added color because the color2 can be slightly different
+
          carry += number_letter_line_list[nl]
 
          if (self.length == Length_bg.ALL_ROW):
             for n in range(adj_diff_space[nl]+self.right_indent):
-               print(" ",end="")
+               print(color2+" ",end="")                 # to delete at the end the strike, and/or underline option(s)
 
          elif (self.length == Length_bg.ONLY_WORD):
             if (self.adj_bg_msg_to_space_available == True):    
                for n in range(space_available -  number_letter_line_list[nl]):
-                  print(" ",end="")
+                  print(color2+" ",end="")              # to delete the strike we add color2
             elif (self.adj_bg_msg_to_space_available == False):
                for n in range(longest_line-number_letter_line_list[nl]):
-                  print(" ",end="")
+                  print(color2+" ",end="")
             elif (self.adj_bg_msg_to_space_available == None): pass
 
             print(f"{reset_font()}",end="")
@@ -2053,7 +2174,9 @@ class FancyMessage():
          if (last_one == nl): pass
          else:                print(start_line,end="")
       # end printing the message
-      print_bg_lines(bg_format_line_color) # bg_line
+      print_bg_lines(self.bottom_lines, bg_format_line_color) # bg_line
+
+
 
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 #-----------------------------------------------------------------------------------------------------------------------------------------------
@@ -2112,4 +2235,3 @@ class Draw(Cursor):            # Inheritance the Cursor Class here.
 if (__name__ == "__main__"):
   fg_ansi_colors()
   bg_ansi_colors()
-

@@ -15,6 +15,7 @@ os.system("resize -s 44 95")
 # SETTINGS FOR THE Fancy_Format Class:
    # general use
 list1.adj_indent = 6
+list1.inverse_data = True
 #list1.update_list = 1
 
 # title
@@ -29,6 +30,7 @@ list1.bg_header = 55
 list1.fg_data    = 1
 list1.bold_header = 1
 list1.bg_all_cell_header = False
+
 print()
 #------------------------------------------------------------------------------------------------------
 # Printing from right to left  <--                                                                    -
@@ -90,7 +92,7 @@ list1.horizontal_line_under_header_on = True
 list1.bg_header = 55
 list1.fg_data    = 1 
 
-
+list1.blink_header = True
 list1.bg_all_cell_header = True
 # range type
    # vertical
@@ -112,6 +114,7 @@ list1.print_fancy_format(x)
 # dictionary type
 list1.msg_title = " Dictionary "; list1.msg_footnote =" Case 6 "
 dict_tags = {"NAME":"Miguel", "LAST_1":"Aguilar", "LAST_2":"Cuesta"}
+fun.terminal_bell()
 list1.print_fancy_format(dict_tags)
 fun.ins_newline(2)
 

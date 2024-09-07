@@ -14,6 +14,8 @@ list1.bg_all_cell_header = False
 list1.adj_indent = 6
 list1.horizontal_line_under_header_on = False
 #list1.update_list = 1
+list1.bold_header = True
+# list1.inverse_header = True
 
 print()
 
