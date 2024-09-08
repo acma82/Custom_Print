@@ -10,22 +10,21 @@ crs = fp.Cursor()
 
 ncols, nrows = fp.dimensions()
 myrows = 93; mycols = 94
-if (fp.OS_Linux == True and fp.OS_Windows == False): fp.resize(rows=myrows, cols=mycols) #fp.resize(44, 90)
-elif (fp.OS_Linux == False and fp.OS_Windows == True): pass
+if (fp.OS_Linux == True and fp.OS_Windows == False):   fp.resize(rows=myrows, cols=mycols) #fp.resize(44, 90)
+elif (fp.OS_Linux == False and fp.OS_Windows == True): fp.resize(rows=myrows, cols=mycols) #fp.resize(44, 90)
 else:                                                  pass
 
-fp.clear()
 
-screen_funs = [[" Screen Functions "],["clean"],["clear"],["erase"],["dimensions"],
+screen_funs = [[" Screen_Functions "],["clean"],["clear"],["erase"],["dimensions"],
                ["resize"]]
 miscellaneous_functions = [[" Help_Functions "],["ins_space"],["ins_newline"],["terminal_bell"],
-                          ["bg_ansi_colors"],["fg_ansi_colors"],]
+                          ["bg_ansi_colors"],["fg_ansi_colors"],["set_font"],["reset_font"]]
 
 help_classes = [[" Help_Classes "],["Align"],["Layout"],["Move"],["Length"],["Square"]]
 classes_methods_fancyprint = [["Cursor", "FontStyle",   "FancyMessage",    "FancyFormat"        ,"Draw"],
                               ["jump",   "get_style",   "print_fancy_msg", "print_fancy_format", "line"],
                               ["move",   "reset_style", "----",            "----",               "square"],
-                              ["gotoxy", "print_style", "----",            "----",               "letter"],
+                              ["gotoxy", "print_style", "----",      "----",               "----"],
                               ["moveTo", "----",        "----",            "----",               "----"]]
 
 # classes_methods_fancyprint = [["Cursor", "FontStyle",   "FancyMessage",    "FancyFormat",       ],
@@ -34,25 +33,20 @@ classes_methods_fancyprint = [["Cursor", "FontStyle",   "FancyMessage",    "Fanc
 #                               ["gotoxy", "print_style", "----",            "----",              ],
 #                               ["moveTo", "----",        "----",            "----",              ]]
 
-cmdl_argv = []
-for argv in sys.argv:
-   cmdl_argv.append(argv.capitalize())
 
-print()
+
 
 #------------------------------------------------------------------------------------------------
 # Welcome Message Function for fancyprint Module                                                -
 #------------------------------------------------------------------------------------------------
-def welcome():
+def welcome_message():
    welcome_msg = "Documentation For fancyprint Module....!"
    li = int(((mycols)-(len(welcome_msg)))/2)
    blue_msg.left_indent = li
    blue_msg.bold = True
    blue_msg.italic = True
    blue_msg.print_fancy_msg(welcome_msg)
-
-
-
+   fp.ins_newline()
 
    lst.bg_all_cell_header = False
    lst.bold_header = True
@@ -69,12 +63,12 @@ def welcome():
    lst.print_fancy_format(miscellaneous_functions)
 
    lst.adj_indent = 64
-   crs.jump(qty=9,direction=fp.Move.UP)
+   crs.jump(qty=11,direction=fp.Move.UP)
    lst.print_fancy_format(help_classes)
 
 
    lst.adj_indent = 2
-   fp.ins_newline(2)
+   fp.ins_newline(3)
 
 
    blue_msg.length = fp.Length_bg.ONLY_WORD
@@ -88,7 +82,7 @@ def welcome():
    lst.print_fancy_format(classes_methods_fancyprint)
    fp.ins_newline(2)
 
-   print("  To display help for specific function or method, just pass the name of it as a parameter\n    when running this script.")
+   print("  To display help for specific function or method, just pass the name as a parameter\n    when running this script.")
    fp.ins_newline(1)
    print("  Example: python documentation.py clean")
    fp.ins_newline(1)
@@ -116,12 +110,25 @@ def welcome():
    
    message = "  python documentation.py all  "
    blue_msg.print_fancy_msg(message)
-   
+   fp.ins_newline(1)
 
-def screen_func_msg():
+   red_msg.bold = True
+   red_msg.top_lines = 1
+   message = "Note:"
+   red_msg.bottom_lines = 0
+   red_msg.print_fancy_msg(message)
+   red_msg.bold = False
+   red_msg.top_lines = 0
+   red_msg.bottom_lines = 1   
+   message = '''     The names for the functions, classes, and methods are not case sensitive.
+
+     For example: python documentation.py screen_functions '''
+   red_msg.print_fancy_msg(message)
+   
 #------------------------------------------------------------------------------------------------
 #  All Screen Functions in fancyprint Module                                                    -
 #------------------------------------------------------------------------------------------------
+def clean_function():
    green_msg.bg = 2;  green_msg.fg = 0; green_msg.bold = True
    #------------------------------------------------------------------------------------------------
    # clean                                                                                         -
@@ -132,52 +139,109 @@ def screen_func_msg():
    '''
    green_msg.print_fancy_msg(screen_funs[1][0])
    print(message)
+   print(f"{fp.ins_space(6)}{fp.set_font(1,90,231)} Example: {fp.reset_font()}")
+   print(f"{fp.ins_space(16)}import fancyprint as fp")
+   print(f"{fp.ins_space(16)}fp.clear()\n")
 
+def clear_function():
    #------------------------------------------------------------------------------------------------
    # clear                                                                                         -
    #------------------------------------------------------------------------------------------------
+   green_msg.bg = 2;  green_msg.fg = 0; green_msg.bold = True
    message = '''
       It cleans the terminal and return the cursor  to home.
       It uses the system command.
    '''
    green_msg.print_fancy_msg(screen_funs[2][0])
    print(message)
+   print(f"{fp.ins_space(6)}{fp.set_font(1,90,231)} Example: {fp.reset_font()}")
+   print(f"{fp.ins_space(16)}import fancyprint as fp")
+   print(f"{fp.ins_space(16)}fp.clear()\n")
 
+def erase_function():
    #------------------------------------------------------------------------------------------------
    # erase                                                                                         -
    #------------------------------------------------------------------------------------------------
+   green_msg.bg = 2;  green_msg.fg = 0; green_msg.bold = True
    menssage = '''
       It cleans the terminal and the cursor remain in the same position.
       It uses ansi code.
    '''
    green_msg.print_fancy_msg(screen_funs[3][0])
    print(menssage)
+   print(f"{fp.ins_space(6)}{fp.set_font(1,90,231)} Example: {fp.reset_font()}")
+   print(f"{fp.ins_space(16)}import fancyprint as fp")
+   print(f"{fp.ins_space(16)}fp.erase()\n")
 
+def dimensions_function():
    #------------------------------------------------------------------------------------------------
    # dimensions                                                                                    -
    #------------------------------------------------------------------------------------------------
+   green_msg.bg = 2;  green_msg.fg = 0; green_msg.bold = True
    menssage ='''
       It returns the size of the actual terminal: cols, rows.
       '''
-   green_msg.print_fancy_msg("ncols, nrows = "+screen_funs[4][0])
+   green_msg.print_fancy_msg(screen_funs[4][0])
    print(menssage)
+   print(f"{fp.ins_space(6)}{fp.set_font(1,90,231)} Example: {fp.reset_font()}")
+   print(f"{fp.ins_space(16)}import fancyprint as fp")
+   print(f"{fp.ins_space(16)}ncols, nrows = fp.dimensions()\n")
 
-
+def resize_function():
    #------------------------------------------------------------------------------------------------
    # resize                                                                                        -
    #------------------------------------------------------------------------------------------------
+   green_msg.bg = 2;  green_msg.fg = 0; green_msg.bold = True
    message = '''
-         It resizes the terminal.
+         It resizes the terminal
          '''
    green_msg.print_fancy_msg(screen_funs[5][0])
    print(message)
+   print(f"{fp.ins_space(6)}{fp.set_font(1,90,231)} Example: {fp.reset_font()}")
+   print(f"{fp.ins_space(16)}import fancyprint as fp")
+   print(f"{fp.ins_space(16)}fp.resize(rows = n_rows, cols = n_cols)\n")
+
+def screen_functions():
+   clean_function()
+   clear_function()
+   erase_function()
+   dimensions_function()
+   resize_function()
 
 
 
+#------------------------------------------------------------------------------------------------
+# Start the Documentation for fancyprint Module                                                 -
+#------------------------------------------------------------------------------------------------
+
+fp.clear()
+cmdl_argv = []
+for argv in sys.argv:
+   cmdl_argv.append(argv.lower())
+
+# print(cmdl_argv)
+# print(len(cmdl_argv))
+
+if (len(cmdl_argv) == 1):
+   welcome_message()
+else:
+   if ("screen_functions" in cmdl_argv):
+      screen_functions()
+   elif ("clean" in cmdl_argv):
+      clean_function()
+   elif ("clear" in cmdl_argv):
+      clear_function()
+   elif ("erase" in cmdl_argv):
+      erase_function()
+   elif ("dimensions" in cmdl_argv):
+      dimensions_function()
+   elif ("resize" in cmdl_argv):
+      resize_function()
+   else:
+      pass
 
 
-welcome()
-# screen_func_msg()
+
 exit()
 
 
@@ -222,7 +286,7 @@ def note_ref(bg, file_name):
    darkg_msg.print_fancy_msg(message)
    darkg_msg.italic = False
    print()
-
+fp.resize(ncols, nrows)
 note_ref(bg=22, file_name="00_screen_funs.py")
 
 #------------------------------------------------------------------------------------------------

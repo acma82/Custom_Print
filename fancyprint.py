@@ -4,7 +4,6 @@
 import os
 import enum
 import platform
-import dataclasses
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 # For Help:
 #   inside the python interpreter
@@ -63,7 +62,7 @@ def clean():
    print("\033[H",end="")   # return home the cursor
 
 
-if os.name == 'nt' and platform.release() == '10':
+if os.name == 'nt' and (platform.release() == '10' or platform.release == "11"):
    OS_Windows = True
    OS_Linux = False
    # Fix ANSI color in Windows 10 version 10.0.14393 (Windows Anniversary Update)
