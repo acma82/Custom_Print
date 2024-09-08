@@ -2,14 +2,23 @@ import sys
 import fancyprint as fp
 lst = fp.FancyFormat()
 blue_msg  = fp.FancyMessage()  # for titles
+
 green_msg = fp.FancyMessage()  # for subtitles
-darkg_msg = fp.FancyMessage()  # for warning
+green_msg.bg = 2;  green_msg.fg = 0; green_msg.bold = True
+
+darkg_msg = fp.FancyMessage()  # for script examples
+darkg_msg.bg = 22; darkg_msg.bold = True
+
 red_msg   = fp.FancyMessage()   # Note
+red_msg.bg = 124; red_msg.bold = True
+
 simple_msg= fp.FancyMessage()
+simple_msg.bg =-1
+
 crs = fp.Cursor()
 
 ncols, nrows = fp.dimensions()
-myrows = 93; mycols = 94
+myrows = 90; mycols = 95
 if (fp.OS_Linux == True and fp.OS_Windows == False):   fp.resize(rows=myrows, cols=mycols) #fp.resize(44, 90)
 elif (fp.OS_Linux == False and fp.OS_Windows == True): fp.resize(rows=myrows, cols=mycols) #fp.resize(44, 90)
 else:                                                  pass
@@ -87,7 +96,7 @@ def welcome_message():
    print("  Example: python documentation.py clean")
    fp.ins_newline(1)
 
-   red_msg.bg = 124; red_msg.bold = True
+   
    message = "Note: "
    red_msg.bottom_lines = 0
    red_msg.print_fancy_msg(message)
@@ -129,7 +138,6 @@ def welcome_message():
 #  All Screen Functions in fancyprint Module                                                    -
 #------------------------------------------------------------------------------------------------
 def clean_function():
-   green_msg.bg = 2;  green_msg.fg = 0; green_msg.bold = True
    #------------------------------------------------------------------------------------------------
    # clean                                                                                         -
    #------------------------------------------------------------------------------------------------
@@ -147,7 +155,6 @@ def clear_function():
    #------------------------------------------------------------------------------------------------
    # clear                                                                                         -
    #------------------------------------------------------------------------------------------------
-   green_msg.bg = 2;  green_msg.fg = 0; green_msg.bold = True
    message = '''
       It cleans the terminal and return the cursor  to home.
       It uses the system command.
@@ -162,7 +169,6 @@ def erase_function():
    #------------------------------------------------------------------------------------------------
    # erase                                                                                         -
    #------------------------------------------------------------------------------------------------
-   green_msg.bg = 2;  green_msg.fg = 0; green_msg.bold = True
    menssage = '''
       It cleans the terminal and the cursor remain in the same position.
       It uses ansi code.
@@ -177,7 +183,6 @@ def dimensions_function():
    #------------------------------------------------------------------------------------------------
    # dimensions                                                                                    -
    #------------------------------------------------------------------------------------------------
-   green_msg.bg = 2;  green_msg.fg = 0; green_msg.bold = True
    menssage ='''
       It returns the size of the actual terminal: cols, rows.
       '''
@@ -191,7 +196,6 @@ def resize_function():
    #------------------------------------------------------------------------------------------------
    # resize                                                                                        -
    #------------------------------------------------------------------------------------------------
-   green_msg.bg = 2;  green_msg.fg = 0; green_msg.bold = True
    message = '''
          It resizes the terminal
          '''
@@ -207,7 +211,11 @@ def screen_functions():
    erase_function()
    dimensions_function()
    resize_function()
-
+   message = "For further reference check script:"   
+   darkg_msg.print_fancy_msg(message)
+   simple_msg.left_indent = 16
+   simple_msg.print_fancy_msg("00_screen_funcs.py")
+   simple_msg.left_indent = 2
 
 
 #------------------------------------------------------------------------------------------------
@@ -219,27 +227,30 @@ cmdl_argv = []
 for argv in sys.argv:
    cmdl_argv.append(argv.lower())
 
-# print(cmdl_argv)
-# print(len(cmdl_argv))
+print(cmdl_argv)
+print(len(cmdl_argv))
+flag_control = 0
 
 if (len(cmdl_argv) == 1):
    welcome_message()
 else:
    if ("screen_functions" in cmdl_argv):
       screen_functions()
-   elif ("clean" in cmdl_argv):
+      flag_control = 1
+   elif ("clean" in cmdl_argv and flag_control == 0):
       clean_function()
-   elif ("clear" in cmdl_argv):
+   elif ("clear" in cmdl_argv and flag_control == 0):
       clear_function()
-   elif ("erase" in cmdl_argv):
+   elif ("erase" in cmdl_argv and flag_control == 0):
       erase_function()
-   elif ("dimensions" in cmdl_argv):
+   elif ("dimensions" in cmdl_argv and flag_control == 0):
       dimensions_function()
-   elif ("resize" in cmdl_argv):
+   elif ("resize" in cmdl_argv and flag_control == 0):
       resize_function()
    else:
       pass
 
+   # if 
 
 
 exit()
