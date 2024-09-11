@@ -2004,8 +2004,8 @@ class FontCustomization():
 class FancyMessage():
    font_customization = FontCustomization()
    def __init__(self,obj=font_customization):
-      self.bg        = obj.bg          # 4
-      self.fg        = obj.fg          # 231      
+      self.bg    = obj.bg          # 4
+      self.fg    = obj.fg          # 231      
       self.bold      = obj.bold        # False
       self.dim       = obj.dim         # False
       self.italic    = obj.italic      # False
@@ -2019,25 +2019,23 @@ class FancyMessage():
       self.right_indent = 2
 
       self.length = Length_bg.ALL_ROW
-      self.lines = 1
       self.top_lines = 1
       self.bottom_lines = 1
       self.adj_bg_lines_to_right_indent = False     # True or False
       self.adj_bg_msg_to_space_available = False    # False, True or None
 
-
-   def print_fancy_msg(self,data="Message"):
+   def get_msg_attribute(self,data="Message",all_attribute=False):
       if (isinstance(data, str)): msg=data
       else:                       msg=str(data)
 
-      def print_bg_lines(lines, bg_format_line_color="\0m"):
-         n = lines
-         while n>0:
-            print(bg_format_line_color)
-            n -= 1
+      # def print_bg_lines(lines, bg_format_line_color="\0m"):
+      #    n = lines
+      #    while n>0:
+      #       print(bg_format_line_color)
+      #       n -= 1
       # def set_font(bold=False,bg=-1,fg=-1,italic=False,underline=False,strike=False,blinking=False,dim=False,hidden=False,inverse=False):      
-      color = set_font(self.bold, self.bg, self.fg,self.italic,self.underline,self.strike,self.blinking,self.dim,self.hidden,self.inverse)
-      color2= set_font(bg=self.bg, fg=self.fg, inverse=self.inverse)
+      # color = set_font(self.bold, self.bg, self.fg,self.italic,self.underline,self.strike,self.blinking,self.dim,self.hidden,self.inverse)
+      # color2= set_font(bg=self.bg, fg=self.fg, inverse=self.inverse)
       tncols, tnrows = os.get_terminal_size()
       space_available = tncols - self.left_indent - self.right_indent
       msg_type = "single_line"; new_msg = ""
@@ -2119,8 +2117,25 @@ class FancyMessage():
 
             for n in number_letter_line_list:
                adj_diff_space.append(space_available - n)
-
+      if (all_attribute == True):
+         return tncols, space_available, number_letter_line_list, adj_diff_space, new_msg, len(number_letter_line_list)
+      else:
+         return len(number_letter_line_list)
       #------------------------------------------------------------------------------------------------------------------------------------------------
+   def print_fancy_msg(self,data="Message"):
+      def print_bg_lines(lines, bg_format_line_color="\0m"):
+         n = lines
+         while n>0:
+            print(bg_format_line_color)
+            n -= 1
+
+      tncols, space_available, number_letter_line_list, adj_diff_space, new_msg, n_lines = FancyMessage.get_msg_attribute(self,data,True)
+      color = set_font(self.bold, self.bg, self.fg,self.italic,self.underline,self.strike,self.blinking,self.dim,self.hidden,self.inverse)
+      color2= set_font(bg=self.bg, fg=self.fg, inverse=self.inverse)
+
+      # from here we need: tncols, space_available, number_letter_line_list, adj_diff_space, new_msg
+
+      
       longest_line = max(number_letter_line_list)
       # self.adj_bg_lines_to_right_indent by default = False
       # self.adj_bg_msg_to_space_available by default = False
@@ -2135,14 +2150,14 @@ class FancyMessage():
 
       else: pass
 
-      carry = 0; last_one = len(number_letter_line_list) - 1
+      carry = 0; last_one = n_lines - 1
       print_bg_lines(self.top_lines, bg_format_line_color) # bg_line
       
 
       print(start_line,end="")
       
       # start printing the message
-      for nl in range(len(number_letter_line_list)):
+      for nl in range(n_lines):
          for n in range(number_letter_line_list[nl]):
             print(f"{color}{new_msg[carry+n]}",end="")  # added color because the color2 can be slightly different
             # if (new_msg[carry+n] != " "):                  # to don't print the strike or underline in the empty spaces
