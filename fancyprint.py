@@ -2004,8 +2004,8 @@ class FontCustomization():
 class FancyMessage():
    font_customization = FontCustomization()
    def __init__(self,obj=font_customization):
-      self.bg    = obj.bg          # 4
-      self.fg    = obj.fg          # 231      
+      self.bg        = obj.bg          # 4
+      self.fg        = obj.fg          # 231      
       self.bold      = obj.bold        # False
       self.dim       = obj.dim         # False
       self.italic    = obj.italic      # False
@@ -2120,7 +2120,7 @@ class FancyMessage():
       if (all_attribute == True):
          return tncols, space_available, number_letter_line_list, adj_diff_space, new_msg, len(number_letter_line_list)
       else:
-         return len(number_letter_line_list)
+         return len(number_letter_line_list), space_available
       #------------------------------------------------------------------------------------------------------------------------------------------------
    def print_fancy_msg(self,data="Message"):
       def print_bg_lines(lines, bg_format_line_color="\0m"):
