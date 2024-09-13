@@ -1,22 +1,25 @@
 import sys
 import fancyprint as fp
 lst = fp.FancyFormat()
+#----------------------------------------------------------------------------------------------------------------------------------------------
+# Difining all the clases
 blue_msg  = fp.FancyMessage()  # for titles
 
 green_msg = fp.FancyMessage()  # for subtitles
 green_msg.bg = 2;  green_msg.fg = 0; green_msg.bold = True
 
-darkg_msg = fp.FancyMessage()  # for script examples
-darkg_msg.bg = 22; darkg_msg.bold = True
-
-red_msg   = fp.FancyMessage()   # Note
-red_msg.bg = 124; red_msg.bold = True
+msg = fp.FancyMessage()   # Note
+msg.right_indent = 5
 
 simple_msg= fp.FancyMessage()
-simple_msg.bg =-1
+simple_msg.bg =-1; simple_msg.fg = -1
+simple_msg.right_indent = 5
+
 
 crs = fp.Cursor()
 
+#----------------------------------------------------------------------------------------------------------------------------------------------
+# Variables
 ncols, nrows = fp.dimensions()
 myrows = 90; mycols = 95
 if (fp.OS_Linux == True and fp.OS_Windows == False):   fp.resize(rows=myrows, cols=mycols) #fp.resize(44, 90)
@@ -41,13 +44,45 @@ classes_methods_fancyprint = [["Cursor", "FontStyle",   "FancyMessage",    "Fanc
 #                               ["move",   "reset_style", "----",            "----",              ],
 #                               ["gotoxy", "print_style", "----",            "----",              ],
 #                               ["moveTo", "----",        "----",            "----",              ]]
+#----------------------------------------------------------------------------------------------------------------------------------------------
+def message_with_note(obj:fp.FancyMessage, note_msg:str="Warning", bg_note:int=231, fg_note:int=0,\
+                      align_note=fp.Align.CENTER, body_msg:str="Body", fg_body_msg:int=231, bg_body:int=23)->None:
+   # save original values
+   li_obj = obj.left_indent; fg_obj = obj.fg #; tl = obj.top_lines; bl = obj.bottom_lines
+   bold_obj = obj.bold; bg_obj = obj.bg
+   # option for the body
+   obj.bg = bg_body; obj.fg = fg_body_msg; obj.left_indent = 1 + len(note_msg) + 1
+
+   # settings for the body_msg
+   obj.left_indent = 1 + len(note_msg) + 2
+   n_lines, space_available = msg.get_msg_attribute(body_msg)
 
 
+   # n_lines, space_available, tncols are variables for reference to calculate the message space. comment these 2 lines, they are only for reference
+   # tncols, nrows = fp.dimensions()
+   # print(f"n_lines: {n_lines} space_available: {space_available}  total_number_of_cols: {tncols}\n")
+   
+   obj.print_fancy_msg(body_msg)
+   # settings for the note
+   if (align_note == fp.Align.LEFT):
+      print(f"{crs.move(qty=n_lines+obj.bottom_lines, direction=fp.Move.UP)}{fp.set_font(1,bg_note,fg_note)}{note_msg}")
+   elif (align_note == fp.Align.CENTER):
+      print(f"{crs.move(qty=n_lines+msg.bottom_lines, direction=fp.Move.UP)}{crs.move(qty=1,direction=fp.Move.RIGHT)}{fp.set_font(1,bg_note,fg_note)}{note_msg}")
+   elif (align_note == fp.Align.RIGHT):
+      print(f"{crs.move(qty=n_lines+msg.bottom_lines, direction=fp.Move.UP)}{crs.move(qty=2,direction=fp.Move.RIGHT)}{fp.set_font(1,bg_note,fg_note)}{note_msg}")
+   else:
+      print(f"{crs.move(qty=n_lines+obj.bottom_lines, direction=fp.Move.UP)}{fp.set_font(1,bg_note,fg_note)}{note_msg}")
+
+   crs.jump(qty=n_lines+obj.bottom_lines,direction=fp.Move.DOWN)
+   print(f"{fp.reset_font()}")
+
+   # putting back original values
+   obj.left_indent = li_obj; obj.fg = fg_obj; obj.bg = bg_obj; obj.bold = bold_obj; 
 
 
-#------------------------------------------------------------------------------------------------
-# Welcome Message Function for fancyprint Module                                                -
-#------------------------------------------------------------------------------------------------
+#----------------------------------------------------------------------------------------------------------------------------------------------
+# Welcome Message Function for fancyprint Module                                                                                              -
+#----------------------------------------------------------------------------------------------------------------------------------------------
 def welcome_message():
    welcome_msg = "Documentation For fancyprint Module....!"
    li = int(((mycols)-(len(welcome_msg)))/2)
@@ -93,46 +128,49 @@ def welcome_message():
 
    print("  To display help for specific function or method, just pass the name as a parameter\n    when running this script.")
    fp.ins_newline(1)
-   print("  Example: python documentation.py clean")
+   print(f" {fp.set_font(1,231,0)} Example 1: {fp.reset_font()} python documentation.py clean")
    fp.ins_newline(1)
 
+   note=" Note: "
+#                  20                  40                  60                  80   85   90
+   message_note = '''
+It is possible to display help for more than one function or method at the same    
+time, it just need to be specified. If it's preferred, it can display all the      
+methods for a specific class or a combination of them.'''
    
-   message = "Note: "
-   red_msg.bottom_lines = 0
-   red_msg.print_fancy_msg(message)
-   red_msg.bold = False
-   message = '''     It is possible to display help for more than one function or method at the same time,
-     it just need to be specified. If it's preferred, it can display all the methods for a     specific class or a combination of them.'''
-     
-   red_msg.fg = 15
-   red_msg.top_lines = 0; red_msg.bottom_lines = 1
-   red_msg.print_fancy_msg(message)
+   message_with_note(obj=msg, note_msg=note, body_msg=message_note, bg_note=4, fg_note=231)
+   
+   print(f" {fp.set_font(1,231,0)} Example 2: {fp.reset_font()} python documentation.py clean terminal_bell get_style Cursor")
+   fp.ins_newline(2)
+   print(f" {fp.set_font(1,231,0)} Example 3: {fp.reset_font()} python documentation.py help_functions")
+   message = '''
+     In example 2, notice that we are calling a mix of functions, methods and a class.
+  For the class, it will call all the methods that this contain as shown in the tables
+  above. Cursor Class contains four methos, jump, move, gotoxy, and moveTo and
+  so on for the rest of the following classes.
+ 
+  In example 3, we are calling help for all the function that this table contains.
 
-   print("\n  Example:")
-   print("         python documentation.py clean terminal_bell get_style Cursor")
+  It's possible to display the complete documentation by passing \"all\" as parameter.
+'''
    fp.ins_newline(1)
-   simple_msg.bg = -1
-
-   menssage = "It's possible to display the complete documentation by passing \"all\" as parameter."
-   simple_msg.print_fancy_msg(menssage)
-   simple_msg.top_lines = 0
-   
+   simple_msg.print_fancy_msg(message)
    message = "  python documentation.py all  "
    blue_msg.print_fancy_msg(message)
    fp.ins_newline(1)
 
-   red_msg.bold = True
-   red_msg.top_lines = 1
-   message = "Note:"
-   red_msg.bottom_lines = 0
-   red_msg.print_fancy_msg(message)
-   red_msg.bold = False
-   red_msg.top_lines = 0
-   red_msg.bottom_lines = 1   
-   message = '''     The names for the functions, classes, and methods are not case sensitive.
+   # red_msg.bold = True
+   # red_msg.top_lines = 1
+   # message = "Note:"
+   # red_msg.bottom_lines = 0
+   # red_msg.print_fancy_msg(message)
+   # red_msg.bold = False
+   # red_msg.top_lines = 0
+   # red_msg.bottom_lines = 1   
+   # message = '''     The names for the functions, classes, and methods are not case sensitive.
 
-     For example: python documentation.py screen_functions '''
-   red_msg.print_fancy_msg(message)
+   #   For example: python documentation.py screen_functions '''
+   # red_msg.print_fancy_msg(message)
    
 #------------------------------------------------------------------------------------------------
 #  All Screen Functions in fancyprint Module                                                    -
@@ -218,17 +256,16 @@ def screen_functions():
    simple_msg.left_indent = 2
 
 
-#------------------------------------------------------------------------------------------------
-# Start the Documentation for fancyprint Module                                                 -
-#------------------------------------------------------------------------------------------------
-
+#----------------------------------------------------------------------------------------------------------------------------------------------
+# Start the Documentation for fancyprint Module                                                                                               -
+#----------------------------------------------------------------------------------------------------------------------------------------------
 fp.clear()
 cmdl_argv = []
 for argv in sys.argv:
    cmdl_argv.append(argv.lower())
 
-print(cmdl_argv)
-print(len(cmdl_argv))
+# print(cmdl_argv)
+# print(len(cmdl_argv))
 flag_control = 0
 
 if (len(cmdl_argv) == 1):

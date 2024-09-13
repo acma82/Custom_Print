@@ -2001,38 +2001,45 @@ class FontCustomization():
 # Fancy Message Class (Single line or a Paragraph Text in the Terminal)                                                                        -
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 #class FancyMessage(FontCustomization):
-class FancyMessage():
+#class FancyMessage():
+class FancyMessage(Cursor):
    font_customization = FontCustomization()
    def __init__(self,obj=font_customization):
-      self.bg        = obj.bg          # 4
-      self.fg        = obj.fg          # 231      
-      self.bold      = obj.bold        # False
-      self.dim       = obj.dim         # False
-      self.italic    = obj.italic      # False
-      self.underline = obj.underline   # False
-      self.blinking  = obj.blinking    # False
-      self.inverse   = obj.inverse     # False
-      self.hidden    = obj.hidden      # False
-      self.strike    = obj.strike      # False
-      
-      self.left_indent = 2
-      self.right_indent = 2
+      super().__init__()       # Super Class to use all (vars and funs) from Cursor Class
+                               # with the Initialization Draw Class(self), ex. self.gotoxy(x,y)
+      self.bg        = obj.bg;          self.underline = obj.underline   # 4         False
+      self.fg        = obj.fg;          self.blinking  = obj.blinking    # 231       False
+      self.bold      = obj.bold;        self.inverse   = obj.inverse     # False     False
+      self.dim       = obj.dim;         self.hidden    = obj.hidden;     # False     False
+      self.italic    = obj.italic;      self.strike    = obj.strike      # False     False
+            
+      self.left_indent = 2;             self.right_indent = 2
+      self.top_lines = 1;               self.bottom_lines = 1
 
-      self.length = Length_bg.ALL_ROW
-      self.top_lines = 1
-      self.bottom_lines = 1
+      self.length = Length_bg.ALL_ROW     
       self.adj_bg_lines_to_right_indent = False     # True or False
       self.adj_bg_msg_to_space_available = False    # False, True or None
+      #--------------------------------------------------------------------
+      # here will go all the variables for the print_fancy_note
+      self.align_note = Align.JUSTIFY;   self.help_lines = False;      self.position_note = 1 
+      self.bg_note = 231;                self.fg_note = 0;             self.bold_note  = 1
+      self.dim_note = False;             self.italic_note = False;     self.underline_note = False
+      self.blinking_note = False;        self.inverse_note = False;    self.hidden_note = False
+      self.strike_note = False;          self.left_space_note = 2;     self.right_space_note = 2
+      # here will go all the variables for the print_fancy_Message_with_title
+      self.align_title = Align.JUSTIFY;  self.lines_title_body = 1;    self.strike_title = False
+      self.bg_title = 231;               self.fg_title = 0;            self.bold_title  = 1
+      self.dim_title = False;            self.italic_title = False;    self.underline_title = False
+      self.blinking_title = False;       self.inverse_title = False;   self.hidden_title = False
+       
+      self.align_footnote = Align.RIGHT;  self.lines_body_footnote = 1;    self.strike_footnote = False
+      self.bg_footnote = 231;               self.fg_footnote = 0;            self.bold_footnote  = 1
+      self.dim_footnote = False;            self.italic_footnote = False;    self.underline_footnote = False
+      self.blinking_footnote = False;       self.inverse_footnote = False;   self.hidden_footnote = False
+      
 
-   def get_msg_attribute(self,data="Message",all_attribute=False):
-      if (isinstance(data, str)): msg=data
-      else:                       msg=str(data)
-
-      # def print_bg_lines(lines, bg_format_line_color="\0m"):
-      #    n = lines
-      #    while n>0:
-      #       print(bg_format_line_color)
-      #       n -= 1
+   def get_msg_attribute(self,data:str="Message",all_attribute:bool=False):
+      msg = str(data)
       # def set_font(bold=False,bg=-1,fg=-1,italic=False,underline=False,strike=False,blinking=False,dim=False,hidden=False,inverse=False):      
       # color = set_font(self.bold, self.bg, self.fg,self.italic,self.underline,self.strike,self.blinking,self.dim,self.hidden,self.inverse)
       # color2= set_font(bg=self.bg, fg=self.fg, inverse=self.inverse)
@@ -2120,8 +2127,9 @@ class FancyMessage():
       if (all_attribute == True):
          return tncols, space_available, number_letter_line_list, adj_diff_space, new_msg, len(number_letter_line_list)
       else:
-         return len(number_letter_line_list), space_available
-      #------------------------------------------------------------------------------------------------------------------------------------------------
+         return len(number_letter_line_list), space_available, tncols
+      
+   #---------------------------------------------------------------------------------------------------------------------------------------------------
    def print_fancy_msg(self,data="Message"):
       def print_bg_lines(lines, bg_format_line_color="\0m"):
          n = lines
@@ -2159,17 +2167,13 @@ class FancyMessage():
       # start printing the message
       for nl in range(n_lines):
          for n in range(number_letter_line_list[nl]):
-            print(f"{color}{new_msg[carry+n]}",end="")  # added color because the color2 can be slightly different
-            # if (new_msg[carry+n] != " "):                  # to don't print the strike or underline in the empty spaces
-            #    print(f"{color}{new_msg[carry+n]}",end="")  # added color because the color2 can be slightly different
-            # else:
-            #    print(f"{color2}{new_msg[carry+n]}",end="")  # added color because the color2 can be slightly different
+            print(f"{color}{new_msg[carry+n]}",end="")       # added color because the color2 can be slightly different
 
          carry += number_letter_line_list[nl]
 
          if (self.length == Length_bg.ALL_ROW):
             for n in range(adj_diff_space[nl]+self.right_indent):
-               print(color2+" ",end="")                 # to delete at the end the strike, and/or underline option(s)
+               print(color2+" ",end="")                        # to delete at the end the strike, and/or underline option(s)
 
          elif (self.length == Length_bg.ONLY_WORD):
             if (self.adj_bg_msg_to_space_available == True):    
@@ -2190,8 +2194,106 @@ class FancyMessage():
       # end printing the message
       print_bg_lines(self.bottom_lines, bg_format_line_color) # bg_line
 
+   #---------------------------------------------------------------------------------------------------------------------------------------------------
+   def print_fancy_note(self, note_msg:str="Warning", body_msg:str="Paragraph Body")->None:
+      # save original values
+      li_obj = self.left_indent     
+      # settings for the body_msg
+      self.left_indent = self.left_space_note + len(note_msg) + self.right_space_note
+      n_lines, space_available, tncols = self.get_msg_attribute(body_msg)
+
+      self.print_fancy_msg(body_msg)
+
+      total_back_lines = self.top_lines + n_lines + self.bottom_lines # (2+8+2) = 12
+      if   (self.position_note >= (total_back_lines)): lines_back = 0
+      elif (self.position_note <= 0):                  lines_back = total_back_lines
+      else:                                            lines_back = total_back_lines - self.position_note 
+
+      # settings for the note
+      settings_note = set_font(bold=self.bold_note, bg=self.bg_note, fg=self.fg_note, italic=self.italic_note, underline=self.underline_note,\
+                               strike=self.strike_note, blinking=self.blinking_note, dim=self.dim_note, hidden=self.hidden_note, inverse=self.inverse_note)
+      if (self.align_note == Align.LEFT):
+         print(f"{self.move(qty=lines_back, direction=Move.UP)}{settings_note}{note_msg}",end="")
+
+      elif (self.align_note == Align.CENTER):
+         myq = int((self.left_space_note+self.right_space_note)/2)
+         print(f"{self.move(qty=lines_back, direction=Move.UP)}{self.move(qty=myq,direction=Move.RIGHT)}{settings_note}{note_msg}",end="")
+                
+      elif (self.align_note == Align.RIGHT):
+         myq = self.left_space_note + self.right_space_note
+         print(f"{self.move(qty=lines_back, direction=Move.UP)}{self.move(qty=myq,direction=Move.RIGHT)}{settings_note}{note_msg}",end="")
+      
+      else:  # JUSTIFY
+         print(f"{self.move(qty=lines_back, direction=Move.UP)}{self.move(qty=self.left_space_note,direction=Move.RIGHT)}{settings_note}{note_msg}")         
+      
+      self.jump(qty=lines_back-1, direction=Move.DOWN)
+      print(f"{reset_font()}",end="")
+
+      # putting back original values
+      self.left_indent = li_obj
+      # n_lines, space_available, tncols are variables for reference to calculate the message      
+      if (self.help_lines == True):
+         print(f"  Body_Lines:{n_lines}  Space_Available:{space_available}  N.Cols: {tncols}  N.Lines:{total_back_lines}")
+         #print("Note:Cols & Lines start from 0\n")
+      
+   #---------------------------------------------------------------------------------------------------------------------------------------------------   
+   def print_fancy_article(self, title_msg:str=None, body_msg:str="Paragraph Body",footnote_msg:str=None)->None:
+      # save original values
+      li_obj = self.left_indent; bl_obj = self.bottom_lines;  tl_obj = self.top_lines
+      fg_obj = self.fg; bg_obj = self.bg
+      
+      # settings for title
+      n_lines, space_available, tncols = self.get_msg_attribute(body_msg)
+      if title_msg != None:
+         self.fg = self.fg_title  # working with the font color
+         self.bottom_lines = 0      
+         if   (self.align_title == Align.LEFT):   pass
+         elif (self.align_title == Align.CENTER): self.left_indent = int((space_available - len(title_msg))/2)
+         elif (self.align_title == Align.RIGHT):  self.left_indent = space_available - len(title_msg)
+         else:                                    pass # JUSTIFY
+         
+         self.print_fancy_msg(title_msg)
+         # settings for body (we recovered left_indent, and change bottom_lines and change top_lines)      
+         self.top_lines = self.lines_title_body
+         
+         if (footnote_msg != None): self.bottom_lines = self.lines_body_footnote
+         else:                      self.bottom_lines = bl_obj
+         self.left_indent = li_obj
+         self.fg = fg_obj  # returning the color for the body
+         self.print_fancy_msg(body_msg)
+               
+      else:
+         # self.top_lines = self.lines_body_footnote         
+         if (footnote_msg !=None): self.bottom_lines = self.lines_body_footnote
+         else:                     self.bottom_lines = bl_obj
+         self.print_fancy_msg(body_msg)
+
+      
+      
+      
+      if (footnote_msg != None):
+
+         # settings for footnote (recovered bottom_lines and change top_lines)
+         if   (self.align_footnote == Align.LEFT):   pass
+         elif (self.align_footnote == Align.CENTER): self.left_indent = int((space_available - len(footnote_msg))/2)
+         elif (self.align_footnote == Align.RIGHT):  self.left_indent = space_available - len(footnote_msg)
+         else:                                       pass # JUSTIFY      
+         self.top_lines = 0
+         self.bottom_lines = bl_obj
+         self.print_fancy_msg(footnote_msg)
+
+      else:
+         pass
 
 
+      # putting back original values
+      self.top_lines = tl_obj
+      self.left_indent = li_obj
+      self.bottom_lines = bl_obj
+
+      #n_lines, space_available, tncols = self.get_msg_attribute(body_msg)
+
+   
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 #-----------------------------------------------------------------------------------------------------------------------------------------------
