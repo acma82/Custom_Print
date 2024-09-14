@@ -2,81 +2,165 @@ import fancyprint as fp
 msg = fp.FancyMessage()
 crs = fp.Cursor()
 
-#---------------------------------------------------------------------------------------
-# Another Way to Use FancyMessage Class with Some Manipulation                         -
-#---------------------------------------------------------------------------------------
-# def message_with_note(obj:fp.FancyMessage, note_msg:str="Warning", bg_note:int=231, fg_note:int=0,\
-#                       align_note=fp.Align.CENTER, body_msg:str="Body", fg_body_msg:int=231, bg_body:int=23)->None:
-#    # save original values
-#    li_obj = obj.left_indent; fg_obj = obj.fg
-#    bold_obj = obj.bold; bg_obj = obj.bg
-#    # option for the body
-#    obj.bg = bg_body; obj.fg = fg_body_msg
 
-#    # settings for the body_msg
-#    obj.left_indent = 1 + len(note_msg) + 1
-#    n_lines, space_available, tncols = msg.get_msg_attribute(body_msg)
+# Example 1
+
+title = " To Find a Kiss of Yours "
+poem = '''
+1898 - 1936, translated by Sarah Arvio
+
+To find a kiss of yours
+what would I give
+A kiss that strayed from your lips
+dead to love
+
+My lips taste
+the dirt of shadows     
+
+To gaze at your dark eyes
+what would I give
+Dawns of rainbow garnet  
+fanning open before God— 
+
+The stars blinded them
+one morning in May
+
+And to kiss your pure thighs
+what would I give
+Raw rose crystal  
+sediment of the sun
+'''
+ncols, nrows = fp.dimensions()
+fp.resize(35, 100)
+fp.clean()
+msg.position_note = 3  # by default is on row 1
+msg.print_fancy_note(note_msg=title,body_msg=poem)
+msg.left_indent = len(title) + msg.left_space_note + msg.right_space_note
+msg.bold = 1; msg.italic = True; msg.fg = 190
+msg.print_fancy_msg("Author: Federico García Lorca")
+input("enter to exit:")
+fp.resize(nrows,ncols)
+# Note that the counter start in the bg color. Adding more bottom_lines
+# and top_lines, the number of position_note increases as well.
 
 
-#    # n_lines, space_available, tncols are variables for reference to calculate the message
-#    # comment these 2 lines, they are only for reference
-#    # tncols, nrows = fp.dimensions()
-#    print(f"n_lines: {n_lines} space_available: {space_available}  total_number_of_cols: {tncols}\n")
-   
-#    obj.print_fancy_msg(body_msg)
-#    # settings for the note
-#    if (align_note == fp.Align.LEFT):
-#       print(f"{crs.move(qty=n_lines+obj.bottom_lines, direction=fp.Move.UP)}{fp.set_font(1,bg_note,fg_note)}{note_msg}")
-#    elif (align_note == fp.Align.CENTER):
-#       print(f"{crs.move(qty=n_lines+msg.bottom_lines, direction=fp.Move.UP)}{crs.move(qty=1,direction=fp.Move.RIGHT)}{fp.set_font(1,bg_note,fg_note)}{note_msg}")
-#    elif (align_note == fp.Align.RIGHT):
-#       print(f"{crs.move(qty=n_lines+msg.bottom_lines, direction=fp.Move.UP)}{crs.move(qty=2,direction=fp.Move.RIGHT)}{fp.set_font(1,bg_note,fg_note)}{note_msg}")
-#    else:
-#       print(f"{crs.move(qty=n_lines+obj.bottom_lines, direction=fp.Move.UP)}{fp.set_font(1,bg_note,fg_note)}{note_msg}")
 
-#    crs.jump(qty=n_lines+obj.bottom_lines,direction=fp.Move.DOWN)
-#    print(f"{fp.reset_font()}")
 
-#    # putting back original values
-#    obj.left_indent = li_obj; obj.fg = fg_obj; obj.bg = bg_obj; obj.bold = bold_obj; 
 
-   
-note = " Warning: "
-#12345678901234567890123456789012345678901234567890123456789012345678901234567890
-warning_body = f'''
-"What is love?" is a question that has been asked in many novels, poems,      80
-plays, and songs. The answer to the question may vary and could change        80
-within a lifetime for each individual. Love is often considered complex, and  80
-many philosophers and scientists have hypothesized about what it means.       80
-                        
-            Working with Python 3.12 and GNU/Linux/AlmaLinux 9.4
 
-https://www.betterhelp.com/advice/love/how-to-last-through-the-5-stages-of-love'''
 
-# msg.top_lines = 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Example 2
+# Comment Example 1 and uncoment Solution 1 and run the script
+# This example deal in case our terminal is not big enough to fit 
+# all the message in the actual size. 
+# Note: Ansi Code for position change as the terminal size change.
+#       position_note will not work if the screen is not big enough,
+#       but it will work if we use any of the solution presente (1 or 2)
+
+# Solution 1: 
+# make bigger the termial
+# position_note = 5
+# make terminal: resize -s 12 100
+# Notice that the note is note is not on position 5
+# make terminal: resize -s 30 100
+# now it works the note is on positon 5
+
+
+# Solution 2: 
+# Comment the solution 1 and uncoment solution 2
+# Break the Message in two part as show below
+# make terminal: resize -s 12 100
+# break the poem in 2 parts. you need to update the 
+# left_space_note with the size of the title (note) and 
+# add the left_indent for the second part to work.
+# As we print in the terminal the enumeration for 
+# rows and cols change that is why it does not work.
+# solution 1 is better approach
+
+Author = " Jean Toomer 1894 - 1967 "
+title = " Her Lips Are Copper Wire "
+poem = f'''
+whisper of yellow globes
+gleaming on lamp-posts that sway
+like bootleg licker drinkers in the fog
+
+and let your breath be moist against me
+like bright beads on yellow globes
+
+telephone the power-house
+that the main wires are insulate
+
+(her words play softly up and down
+dewy corridors of billboards)
+
+then with your tongue remove the tape
+and press your lips to mine
+till they are incandescent
+'''
+
+
+poemP1 = '''
+whisper of yellow globes
+gleaming on lamp-posts that sway
+like bootleg licker drinkers in the fog
+
+and let your breath be moist against me
+like bright beads on yellow globes
+'''
+poemP2 ='''
+telephone the power-house
+that the main wires are insulate
+
+(her words play softly up and down
+dewy corridors of billboards)
+
+then with your tongue remove the tape
+and press your lips to mine
+till they are incandescent
+'''
+
+
+# # Solution 1
+# msg.italic = True
+# back = msg.left_space_note
+# msg.left_space_note = len(title) + back
+# msg.bottom_lines = 0
+# msg.left_space_note = back
 # msg.bottom_lines = 1
-# msg.right_indent = 2
-# message_with_note(obj=msg, note_msg=note, bg_note=90, fg_note=231, align_note=None, body_msg=warning_body, fg_body_msg=21, bg_body=231)
-# fp.ins_newline(2)
-#message_with_note(obj=msg, note_msg=note, body_msg=warning_body)
-# msg.print_fancy_msg("Printing with the original values of the FancyMessage Class. Note that the Function \
-#        message_with_note does not alter the values.")
-# fp.ins_newline(2)
+# msg.position_note = 5
+# msg.print_fancy_note(title, poem)
+# msg.top_lines = 1; msg.bold = True
+# msg.fg = 222
+# msg.left_indent = len (title) + msg.left_space_note + 1# + msg.right_space_note
+# msg.print_fancy_msg(Author)
 
 
-# msg.left_space_note = 2
-# msg.right_space_note = 6
+# # Solution 2
+# msg.italic = True
+# back = msg.left_space_note
+# msg.left_space_note = len(title) + back
+# msg.bottom_lines = 0
+# msg.left_space_note = back
+# msg.bottom_lines = 1
+# msg.position_note = 5
+# msg.print_fancy_note(title, poemP1)
+# msg.left_space_note = msg.left_indent + len(title)
+# msg.print_fancy_note("",poemP2)
+# msg.top_lines = 1; msg.bold = True
+# msg.fg = 222
+# msg.left_indent = len (title) + msg.left_space_note + 1# + msg.right_space_note
+# msg.print_fancy_msg(Author)
 
-
-# msg.align_note = fp.Align.LEFT
-# msg.align_note = fp.Align.RIGHT
-# msg.align_note = fp.Align.CENTER
-# msg.align_note = fp.Align.JUSTIFY
-# msg.position_note = 4
-# msg.italic_note = True
-# msg.top_lines = 2
-msg.bottom_lines = 2
-# msg.help_lines = True
-
-msg.print_fancy_note(" Note: ",warning_body )
-# print(msg.left_indent)

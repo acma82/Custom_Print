@@ -19,25 +19,25 @@ import platform
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 # Layout is used for the Range, Set, Frozenset.                                                                                                -
 #-----------------------------------------------------------------------------------------------------------------------------------------------
-class Layout(enum.StrEnum):
-   HORIZONTAL = "horizontal"
-   VERTICAL =   "vertical"
-
 class Move(enum.StrEnum):
    UP    = "up"
    RIGHT = "right"
    DOWN  = "down"
    LEFT  = "left"
-  
-class Length_bg(enum.Enum):
-   ALL_ROW   = 1
-   ONLY_WORD = 2
 
 class Align(enum.StrEnum):
    LEFT     = "left"
    CENTER   = "center"
    RIGHT    = "right"
    JUSTIFY  = "justify"
+
+class Layout(enum.StrEnum):
+   HORIZONTAL = "horizontal"
+   VERTICAL =   "vertical"
+  
+class Length_bg(enum.Enum):
+   ALL_ROW   = 1
+   ONLY_WORD = 2
 
 class Square(enum.Enum):   
    DASH_LINE   = 1
@@ -280,14 +280,14 @@ def ins_space(n_space=1):
 ----------------------------------------------------------------------------
    import fancyprint as fp
    
-   fp.move_right(int)
+   fp.ins_space(x)
 
    This function inserts x number of spaces between words.
    
    Example:
-           print(f"Hello{fp.move_right(40)}There")
-   
-           print("Hello"+fp.move_right(40)+"There")
+           print(f"Hello{fp.ins_space(40)}There")
+           
+           print("Hello"+fp.ins_space(40)+"There")
 ----------------------------------------------------------------------------
 '''
    space = ""
@@ -2021,21 +2021,25 @@ class FancyMessage(Cursor):
       self.adj_bg_msg_to_space_available = False    # False, True or None
       #--------------------------------------------------------------------
       # here will go all the variables for the print_fancy_note
-      self.align_note = Align.JUSTIFY;   self.help_lines = False;      self.position_note = 1 
-      self.bg_note = 231;                self.fg_note = 0;             self.bold_note  = 1
-      self.dim_note = False;             self.italic_note = False;     self.underline_note = False
-      self.blinking_note = False;        self.inverse_note = False;    self.hidden_note = False
-      self.strike_note = False;          self.left_space_note = 2;     self.right_space_note = 2
-      # here will go all the variables for the print_fancy_Message_with_title
-      self.align_title = Align.JUSTIFY;  self.lines_title_body = 1;    self.strike_title = False
-      self.bg_title = 231;               self.fg_title = 0;            self.bold_title  = 1
-      self.dim_title = False;            self.italic_title = False;    self.underline_title = False
-      self.blinking_title = False;       self.inverse_title = False;   self.hidden_title = False
+      self.align_note = Align.JUSTIFY;   self.help_lines = False;          self.position_note = 1 
+      self.bg_note = 231;                self.fg_note = 0;                 self.bold_note  = 1
+      self.dim_note = False;             self.italic_note = False;         self.underline_note = False
+      self.blinking_note = False;        self.inverse_note = False;        self.hidden_note = False
+      self.strike_note = False;          self.left_space_note = 2;         self.right_space_note = 2
+      
+      # here will go all the variables for the print_fancy_Message_letter
+      self.align_title = Align.LEFT;  self.title_indent = 2 # title_indent works with Align.JUSTIFY
+      self.lines_title_body = 1;         self.strike_title = False
+      self.bg_title = 231;               self.fg_title = 0;                self.bold_title  = 1
+      self.dim_title = False;            self.italic_title = False;        self.underline_title = False
+      self.blinking_title = False;       self.inverse_title = False;       self.hidden_title = False
+      
        
-      self.align_footnote = Align.RIGHT;  self.lines_body_footnote = 1;    self.strike_footnote = False
-      self.bg_footnote = 231;               self.fg_footnote = 0;            self.bold_footnote  = 1
-      self.dim_footnote = False;            self.italic_footnote = False;    self.underline_footnote = False
-      self.blinking_footnote = False;       self.inverse_footnote = False;   self.hidden_footnote = False
+      self.align_footnote = Align.RIGHT;  self.footnote_indent = 2 # footnote_indent works with Align.JUSTIFY
+      self.lines_body_footnote = 1;       self.strike_footnote = False
+      self.bg_footnote = 231;             self.fg_footnote = 0;            self.bold_footnote  = 1
+      self.dim_footnote = False;          self.italic_footnote = False;    self.underline_footnote = False
+      self.blinking_footnote = False;     self.inverse_footnote = False;   self.hidden_footnote = False
       
 
    def get_msg_attribute(self,data:str="Message",all_attribute:bool=False):
@@ -2199,7 +2203,10 @@ class FancyMessage(Cursor):
       # save original values
       li_obj = self.left_indent     
       # settings for the body_msg
-      self.left_indent = self.left_space_note + len(note_msg) + self.right_space_note
+      if (note_msg == None): len_note_msg = 0; note_msg = ""
+      else: len_note_msg = len(note_msg)
+
+      self.left_indent = self.left_space_note + len_note_msg + self.right_space_note
       n_lines, space_available, tncols = self.get_msg_attribute(body_msg)
 
       self.print_fancy_msg(body_msg)
@@ -2233,53 +2240,72 @@ class FancyMessage(Cursor):
       self.left_indent = li_obj
       # n_lines, space_available, tncols are variables for reference to calculate the message      
       if (self.help_lines == True):
-         print(f"  Body_Lines:{n_lines}  Space_Available:{space_available}  N.Cols: {tncols}  N.Lines:{total_back_lines}")
-         #print("Note:Cols & Lines start from 0\n")
+         print(f"{ins_space(self.left_indent)}Body_Lines:{n_lines}  Space_Available:{space_available}  N.Cols: {tncols}  N.Lines:{total_back_lines}")
+         
       
    #---------------------------------------------------------------------------------------------------------------------------------------------------   
-   def print_fancy_article(self, title_msg:str=None, body_msg:str="Paragraph Body",footnote_msg:str=None)->None:
+   def print_fancy_header(self, title_msg:str=None, body_msg:str="Paragraph Body",footnote_msg:str=None)->None:
       # save original values
-      li_obj = self.left_indent; bl_obj = self.bottom_lines;  tl_obj = self.top_lines
-      fg_obj = self.fg; bg_obj = self.bg
+      li_obj = self.left_indent;      bl_obj = self.bottom_lines;  
+      tl_obj = self.top_lines
+      bg_obj      = self.bg;          underline_ojb = self.underline  # 4         False
+      fg_obj      = self.fg;          blinking_obj  = self.blinking   # 231       False
+      bold_obj    = self.bold;        inverse_obj   = self.inverse    # False     False
+      dim_obj     = self.dim;         hidden_obj    = self.hidden     # False     False
+      italic_obj  = self.italic;      strike_obj    = self.strike     # False     False
       
       # settings for title
       n_lines, space_available, tncols = self.get_msg_attribute(body_msg)
       if title_msg != None:
-         self.fg = self.fg_title  # working with the font color
-         self.bottom_lines = 0      
+         # working with the font color         
+         self.bg     = self.bg_title;          self.underline = self.underline_title   # 4         False
+         self.fg     = self.fg_title;          self.blinking  = self.blinking_title    # 231       False
+         self.bold   = self.bold_title;        self.inverse   = self.inverse_title     # False     False
+         self.dim    = self.dim_title;         self.hidden    = self.hidden_title;     # False     False
+         self.italic = self.italic_title;      self.strike    = self.strike_title      # False     False
+         
          if   (self.align_title == Align.LEFT):   pass
-         elif (self.align_title == Align.CENTER): self.left_indent = int((space_available - len(title_msg))/2)
-         elif (self.align_title == Align.RIGHT):  self.left_indent = space_available - len(title_msg)
-         else:                                    pass # JUSTIFY
-         
+         elif (self.align_title == Align.CENTER): self.left_indent = int((self.left_indent + space_available - len(title_msg))/2)
+         elif (self.align_title == Align.RIGHT):  self.left_indent = self.left_indent + space_available - len(title_msg) - 1 # 1 for not jumping line and finished
+         else:                                    self.left_indent = self.title_indent # JUSTIFY                             # at the ending of right indent
+
+         self.bottom_lines = self.lines_title_body
          self.print_fancy_msg(title_msg)
-         # settings for body (we recovered left_indent, and change bottom_lines and change top_lines)      
-         self.top_lines = self.lines_title_body
+         # settings for body (we recovered left_indent, and change bottom_lines and change top_lines)               
          
-         if (footnote_msg != None): self.bottom_lines = self.lines_body_footnote
+         if (footnote_msg != None): self.bottom_lines = 0 # self.lines_body_footnote
          else:                      self.bottom_lines = bl_obj
          self.left_indent = li_obj
+         self.bg     = bg_obj;          self.underline = underline_ojb   # 4         False
+         self.fg     = fg_obj;          self.blinking  = blinking_obj    # 231       False
+         self.bold   = bold_obj;        self.inverse   = inverse_obj     # False     False
+         self.dim    = dim_obj;         self.hidden    = hidden_obj;     # False     False
+         self.italic = italic_obj;      self.strike    = strike_obj      # False     False
+
+         if (title_msg != None): self.top_lines = 0
+         else:                   self.top_lines = tl_obj   
          self.fg = fg_obj  # returning the color for the body
          self.print_fancy_msg(body_msg)
                
-      else:
-         # self.top_lines = self.lines_body_footnote         
+      else:         
          if (footnote_msg !=None): self.bottom_lines = self.lines_body_footnote
          else:                     self.bottom_lines = bl_obj
-         self.print_fancy_msg(body_msg)
-
-      
-      
+         self.print_fancy_msg(body_msg)      
       
       if (footnote_msg != None):
 
          # settings for footnote (recovered bottom_lines and change top_lines)
          if   (self.align_footnote == Align.LEFT):   pass
-         elif (self.align_footnote == Align.CENTER): self.left_indent = int((space_available - len(footnote_msg))/2)
-         elif (self.align_footnote == Align.RIGHT):  self.left_indent = space_available - len(footnote_msg)
-         else:                                       pass # JUSTIFY      
-         self.top_lines = 0
+         elif (self.align_footnote == Align.CENTER): self.left_indent = int((self.left_indent + space_available - len(footnote_msg))/2)
+         elif (self.align_footnote == Align.RIGHT):  self.left_indent = self.left_indent + space_available - len(footnote_msg) - 1 # 1 for not jumping line and finished
+         else:                                       self.left_indent = self.footnote_indent # JUSTIFY                             # at the ending of right indent
+         self.top_lines = self.lines_body_footnote
          self.bottom_lines = bl_obj
+         self.bg     = self.bg_footnote;          self.underline = self.underline_footnote   # 4         False
+         self.fg     = self.fg_footnote;          self.blinking  = self.blinking_footnote    # 231       False
+         self.bold   = self.bold_footnote;        self.inverse   = self.inverse_footnote     # False     False
+         self.dim    = self.dim_footnote;         self.hidden    = self.hidden_footnote;     # False     False
+         self.italic = self.italic_footnote;      self.strike    = self.strike_footnote      # False     False
          self.print_fancy_msg(footnote_msg)
 
       else:
@@ -2287,11 +2313,15 @@ class FancyMessage(Cursor):
 
 
       # putting back original values
-      self.top_lines = tl_obj
-      self.left_indent = li_obj
-      self.bottom_lines = bl_obj
-
-      #n_lines, space_available, tncols = self.get_msg_attribute(body_msg)
+      self.top_lines = tl_obj;       self.left_indent = li_obj;       #  self.bottom_lines = bl_obj
+      self.bg     = bg_obj;          self.underline = underline_ojb   # 4         False
+      self.fg     = fg_obj;          self.blinking  = blinking_obj    # 231       False
+      self.bold   = bold_obj;        self.inverse   = inverse_obj     # False     False
+      self.dim    = dim_obj;         self.hidden    = hidden_obj;     # False     False
+      self.italic = italic_obj;      self.strike    = strike_obj      # False     False
+      # n_lines, space_available, tncols are variables for reference to calculate the message      
+      if (self.help_lines == True):
+         print(f"{ins_space(self.left_indent)}Body_Lines:{n_lines}  Space_Available:{space_available}  N.Cols: {tncols}")
 
    
 #-----------------------------------------------------------------------------------------------------------------------------------------------

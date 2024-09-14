@@ -3,82 +3,95 @@ msg = fp.FancyMessage()
 crs = fp.Cursor()
 
 #---------------------------------------------------------------------------------------
-# Another Way to Use FancyMessage Class with Some Manipulation                         -
+# Start the Script                                                                     -
 #---------------------------------------------------------------------------------------
-def message_with_title(obj:fp.FancyMessage, title_msg:str="Title", align_title:str=fp.Align.CENTER, fg_title:int=0,\
-                       underline_title:bool=False, body_msg:str="Body", fg_body_msg:int=21, bg:int=231)->None:
-   
-   # save original data
-   li_obj = obj.left_indent; fg_obj = obj.fg; tl = obj.top_lines; bl = obj.bottom_lines
-   bold_obj = obj.bold; italic_obj = obj.italic; underline_obj = obj.underline; bg_obj = obj.bg
-   # option for the title
-   obj.bold = True; obj.italic = True
-   if (underline_title == True): obj.underline = True
-   else:                         obj.underline = False
-   
-   # setting for title
-   obj.top_lines = 1; obj.bottom_lines = 0; obj.bg = bg; obj.fg = fg_title
-
-   n_lines, space_available, tncols = msg.get_msg_attribute(body_msg)
-   obj.bold = True; obj.bottom_lines = 1
-   
-   # n_lines, space_available, tncols are variables for reference to calculate the message
-   # comment these 2 lines, they are only for reference   
-   print(f"n_lines: {n_lines} space_available: {space_available}  total_number_of_cols: {tncols}\n")
-
-   if   (align_title == fp.Align.LEFT):   pass
-   elif (align_title == fp.Align.CENTER): obj.left_indent = int((space_available - len(title_msg))/2)
-   elif (align_title == fp.Align.RIGHT):  obj.left_indent = space_available - len(title_msg)
-   else:                                  pass
-   obj.print_fancy_msg(title_msg)
-
-   # setting for body_msg
-   obj.top_lines = 1; obj.bottom_lines = 1
-   obj.bold = False; obj.left_indent = li_obj
-   obj.bold = False; obj.italic = False; obj.underline = False
-   obj.fg = fg_body_msg; obj.top_lines = 0
-   
-   obj.print_fancy_msg(body_msg)# title = "Love Poem"
-
-
-   
-
-# #---------------------------------------------------------------------------------------
-# # Start the Script                                                                     -
-# #---------------------------------------------------------------------------------------
-# fp.ins_newline(2)
-# msg.left_indent = 4; msg.right_indent = 4
-# #                                                                                       # 87 space_available
-title = "Love Poem"
-footnote = "FootNote"
+fp.ins_newline(2)
+title = " Love Poem "
+footnote = " FootNote "
+#        0         0         0         0         0         0         0        80_space_available
 body = f'''
-"What is love?" is a question that has been asked in many novels, poems, plays, and  87
-songs. The answer to the question may vary and could change within a lifetime for    87
-each individual. Love is often considered complex, and many philosophers and         87
-scientists have hypothesized about what it means.
+"What is love?" is a question that has been asked in many novels, poems, plays,
+and songs. The answer to the question may vary and could change within a lifet-
+ime for each individual. Love is often considered complex, and many philosophe-
+rs and scientists have hypothesized about what it means.
 
 https://www.betterhelp.com/advice/love/how-to-last-through-the-5-stages-of-love'''
 
-# message_with_title(obj=msg, title_msg=title, align_title=fp.Align.RIGHT, fg_title=0,\
-#                    underline_title=True, body_msg=warning_body, fg_body_msg=21, bg=231)
-# fp.ins_newline(2)
-# message_with_title(obj=msg)
-# fp.ins_newline(2)
-# msg.print_fancy_msg("Printing with the original values of the FancyMessage Class. Note that the Function message_with_title does not alter the values")
-# fp.ins_newline(2)
-msg.lines_title_body = 1
-msg.lines_body_footnote = 1
-msg.top_lines = 2
-msg.bottom_lines = 2
-msg.align_title = fp.Align.CENTER
-msg.align_title = fp.Align.RIGHT
+#        0         0         0         0         0         0         0         0         01234
+biography1 = '''
+Jean Toomer was born on December 26, 1894, in Washington, D.C., the son of Nathan Toomer, a 
+Georgian farmer, and Nina Pinchback. His grandfather, Pinckney Benton Stewart Pinchback, was
+the first African American governor in the United States, serving in Louisiana during 
+Reconstruction from 1872-73. Toomer began college at the University of Wisconsin in 1914, but
+transferred to the College of the City of New York and studied there until 1917. Toomer spent
+the next four years writing and publishing poetry and prose in Broom, The Liberator, The 
+Little Review, and other journals.
+He actively participated in literary society and was acquainted with such prominent figures as
+the critic Kenneth Burke, the photographer Alfred Steiglitz, and the poet Hart Crane. 
 
-msg.fg_title = 11
-# msg.lines_body_footnote = 4
-msg.print_fancy_article(title_msg=title, body_msg=body, footnote_msg=footnote)
+In 1921, Toomer took a teaching job in Georgia and remained there for four months. The trip 
+represented his journey back to his Southern roots. His experience inspired his book Cane 
+(Boni & Liveright, 1923), which describes the Georgian people and landscape and is regarded
+as an influential work in Modernist literature. About the book, Rudolph P. Byrd and Henry 
+Louis Gates Jr. wrote,'''
+
+biography2 = '''
+Cane, a compelling, haunting amalgam of fiction, poetry, and drama  unified formally and 
+thematically and replete with leitmotifs, would elevate Toomer, virtually overnight, to the
+status of a canonical writer in two branches of American modernism: the writers and critics
+who compose the New Critics and the “Lost Generation” and those who compose the New Negro 
+movement or the Harlem Renaissance.
+'''
+
+biography3 = '''
+In the early 1920s, Toomer became interested in Unitism, a religion founded by the Armenian guru George Ivanovich Gurdjieff. The doctrine taught unity, transcendence,
+and mastery of self through yoga, all of which appealed to Toomer. After studying with Gurdjieff in France, Toomer began to preach his teachings in Harlem and to offer
+workshops in other parts of the country. In 1936, Toomer moved to Doylestown, Pennsylvania and eventually distanced himself from Gurdjieff, taking up, instead, a 
+new interest in Quakerism.
+
+Toomer, devoted to seeking spiritual enlightenment, also questioned theboundaries of race. His longing for a national identity free from 
+divisions by race or class, as illustrated by his Whitmanesque long poem“Blue Meridian.” About his quest, Elizabeth Alexander wrote, in her poem,
+“Toomer”: “I did not wish to \'rise above\' / or \'move beyond\' my race. I wished / to contemplate who I was beyond / my body, this container of flesh.”
+Toomer died after numerous ailments in Doylestown, Pennsylvania, on March 30, 1967.'''
+
+
+# msg.bottom_lines = 0
+# msg.top_lines = 0
+
+msg.align_title = fp.Align.LEFT
+# msg.align_footnote = fp.Align.LEFT
+
+# msg.align_title = fp.Align.RIGHT
+msg.align_footnote = fp.Align.RIGHT
+
+# msg.align_title = fp.Align.CENTER
+# msg.align_footnote = fp.Align.CENTER
+
+
+
+# msg.adj_bg_lines_to_right_indent = False
+# msg.adj_bg_msg_to_space_available = None # True # False    # False, True or None
+
+msg.left_indent = 3; msg.right_indent = 3
+# msg.length = fp.Length_bg.ONLY_WORD
+# msg.inverse_title = True
+msg.print_fancy_header(title_msg=title, body_msg=biography1, footnote_msg=None)
+msg.print_fancy_header(title_msg=None, body_msg=biography2, footnote_msg=None)
+msg.help_lines = True
+msg.print_fancy_letter(title_msg=None, body_msg=biography3, footnote_msg=footnote)
+fp.ins_newline(3)
+
+msg.left_indent = 10; msg.right_indent = 10
+msg.help_lines = False
+msg.lines_title_body = 0
+msg.lines_body_footnote = 0
+msg.align_title = fp.Align.JUSTIFY;     msg.title_indent = 20
+msg.align_footnote = fp.Align.JUSTIFY;  msg.footnote_indent = 70
+msg.print_fancy_header(title_msg=title, body_msg=body, footnote_msg=None)
 fp.ins_newline(2)
-msg.print_fancy_article(title_msg=title, body_msg=body, footnote_msg=None)
+msg.print_fancy_header(title_msg=None, body_msg=body, footnote_msg=footnote)
 fp.ins_newline(2)
-msg.print_fancy_article(title_msg=None, body_msg=body, footnote_msg=footnote)
+msg.print_fancy_header(title_msg=None, body_msg=body, footnote_msg=None)
 fp.ins_newline(2)
-msg.print_fancy_article(title_msg=None, body_msg=body, footnote_msg=None)
+msg.help_lines = True
+msg.print_fancy_header(title_msg="", body_msg=body, footnote_msg="")
