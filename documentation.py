@@ -25,6 +25,13 @@ simple_msg.right_indent = 5
 
 crs = fp.Cursor()
 
+fst = fp.FontStyle() 
+fst.bold = True; 
+fst.fg = 0
+fst.bg = 231
+fst.indent = 2
+fst.next_line = False
+
 #----------------------------------------------------------------------------------------------------------------------------------------------
 # Variables
 ncols, nrows = fp.dimensions()
@@ -39,7 +46,7 @@ screen_funs = [[" Screen_Functions "],["clean"],["clear"],["erase"],["dimensions
 miscellaneous_functions = [[" Miscellaneous_Functions "],["ins_space"],["ins_newline"],["terminal_bell"],
                           ["bg_ansi_colors"],["fg_ansi_colors"],["set_font"],["reset_font"]]
 
-help_classes = [[" Help_Classes "],["Move"],["Align"],["Layout"],["Length"],["Square"]]
+help_classes = [[" Help_Classes "],["Move"],["Align"],["Layout"],["Length"],["Style_Line"]]
 classes_methods_fancyprint = [["Cursor", "FontStyle",   "FancyMessage",    "FancyFormat"        ,"Draw"],
                               ["jump",   "get_style",   "print_fancy_msg", "print_fancy_format", "line"],
                               ["move",   "reset_style", "print_fancy_note",            "----",   "Arrow"],
@@ -96,12 +103,15 @@ def Welcome_Message():
    lst.align_footnote = fp.Align.RIGHT; lst.fg_data = 11 
    lst.bg_all_cell_header = True
 
-   lst.print_fancy_format(classes_methods_fancyprint)
+   lst.horizontal_separator_line_on = True
+   lst.print_fancy_format(classes_methods_fancyprint,fp.Line_Style.SINGLE)
    fp.ins_newline(2)
 
    print("  To display help for specific function or method, just pass the name as a parameter\n    when running this script.")
    fp.ins_newline(1)
-   print(f" {fp.set_font(1,231,0)} Example 1: {fp.reset_font()} python documentation.py clean")
+   fst.print_style(" Example 1: ")
+   print(" python documentation.py clean")
+   #print(f" {fp.set_font(1,231,0)} Example 1: {fp.reset_font()} python documentation.py clean")
    fp.ins_newline(1)
 
    note=" Note: "
@@ -114,11 +124,15 @@ methods for a specific class or a combination of them.'''
    blue_msg.bold = False
    blue_msg.print_fancy_note(note_msg=note, body_msg=message_note)
    fp.ins_newline(1)
-   print(f" {fp.set_font(1,231,0)} Example 2: {fp.reset_font()} python documentation.py clean terminal_bell get_style Cursor")
+   fst.print_style(" Example 1: ")
+   print(" python documentation.py clean terminal_bell get_style Cursor")
+   #print(f" {fp.set_font(1,231,0)} Example 2: {fp.reset_font()} python documentation.py clean terminal_bell get_style Cursor")
    
    fp.ins_newline(2)
    
-   print(f" {fp.set_font(1,231,0)} Example 3: {fp.reset_font()} python documentation.py help_functions")
+   fst.print_style(" Example 3: ")
+   print(" python documentation.py help_functions")
+   # print(f" {fp.set_font(1,231,0)} Example 3: {fp.reset_font()} python documentation.py help_functions")
    
    message = '''     
      In example 2, notice that we are calling a mix of functions, methods and a class.
@@ -379,162 +393,10 @@ else:
       else:
          pass
 
-
-
-exit()
-
-
-#------------------------------------------------------------------------------------------------
-# All Functions and Classes in fancyprint Module                                                -
-#------------------------------------------------------------------------------------------------
-
-#------------------------------------------------------------------------------------------------
-# reference for clean, clear, erase, dimensions and resize                                      -
-#------------------------------------------------------------------------------------------------
-def note_ref(bg, file_name):
-   darkg_msg.bg = bg; darkg_msg.bold = True
-   message = "Note:"
-   darkg_msg.print_fancy_msg(message)
-   darkg_msg.bold = False; darkg_msg.italic = True
-   crs.jump(1,direction=fp.Move.UP)
-   message = f'''
-   For more reference, check {file_name} file.
-             ''' 
-   darkg_msg.print_fancy_msg(message)
-   darkg_msg.italic = False
-   print()
-fp.resize(ncols, nrows)
-note_ref(bg=22, file_name="00_screen_funs.py")
-
-#------------------------------------------------------------------------------------------------
-# reset_font()                                                                                  -
-#------------------------------------------------------------------------------------------------
-
-#------------------------------------------------------------------------------------------------
-# ins_space()                                                                                   -
-#------------------------------------------------------------------------------------------------
-
-#------------------------------------------------------------------------------------------------
-# ins_newline()                                                                                 -
-#------------------------------------------------------------------------------------------------
-
-#------------------------------------------------------------------------------------------------
-# bg_ansi_colors                                                                                -
-#------------------------------------------------------------------------------------------------
-green_msg.print_fancy_msg(font_funs[1][0])
-message = '''
-   import fancyprint as fp
-   
-   fp.bg_ansi_colors(bool, int)
-   
-   This function displays all background colors available in the fancyprint
-      module. Two options for better visualization:
-   
-   1.- The option bold for the font (True/False).
-   2.- The option fg to visualize the background colors with a specific
-         foreground color.
-
-
-   Colors range from -1 to 256.
-   To set the default color use -1 or 256.
-
-   Example:
-            fp.bg_ansi_colors(0,22)
-            fp.bg_ansi_colors(fg=0, bold=1)
-'''
-print(message)
-print(f"{fp.set_font(fg=118)}  For more reference check 01_bg_ansi_colosr.py file.\n")
-#note_ref("01_bg_ansi_colors.py")
-
-#------------------------------------------------------------------------------------------------
-# fg_ansi_colors                                                                                -
-#------------------------------------------------------------------------------------------------
-green_msg.print_fancy_msg(font_funs[2][0])
-message =    '''
-   import fancyprint as fp
-
-   fl.fg_ansi_colors(bool, int)
-   
-   This function displays all foreground colors available in the fancyprint
-      module. Two options for better visualization:
-   
-   1.- The option bold helps for font.
-   2.- The option bg to visualize the foreground colors with a specific
-         background color.
-
-   Colors range from -1 to 256.# lst = fp.FancyFormat()
-   To set the default color use -1 or 256.
-
-   Example:
-            fl.fg_ansi_colors(0,22)
-            fl.fg_ansi_colors(bg=32, bold=0)
-'''
-print(message)
-#note_ref("02_fg_ansi_colors.py")
-print(f"{fp.set_font(fg=118)}  For more reference check 02_fg_ansi_colosr.py file.\n")
-#------------------------------------------------------------------------------------------------
-# Explanation of the Functions                                                                  -
-#------------------------------------------------------------------------------------------------
-lst.bg_all_cell_header = True; lst.underline_header = False
-classes_methods = [["Classes","Mehtods"],["FancyFormat","print_fa"]]# lst = fp.FancyFormat()
-blue_msg  = fp.FancyMessage()  # for titles
-green_msg = fp.FancyMessage()  # for subtitles
-darkg_msg= fp.FancyMessage()   # for warning
-crs = fp.Cursor()
-lst.print_fancy_format(classes_methods)
-
-
-
-
-#------------------------------------------------------------------------------------------------
-# print("\033[2m")
-input(f"{fp.bold_on()}{fp.reverse_on()}{fp.blink_on()} Enter to Continue: {fp.off_all()}")
-fp.resize(nrows, ncols)
-
-# print("\033[22m")
-ncols, nrows = fp.dimensions()
-if (fp.OS_Linux == True and fp.OS_Windows == False): fp.resize(nrows, ncols) #fp.resize(44, 90)
-elif (fp.OS_Linux == False and fp.OS_Windows == True): pass
-else:                                                  pass
-
-
-import sys
-# import fancyprint as fp
-
-lst = fp.FancyFormat()
-font = fp.FontCustomization()
-font.set_bg = 22
-font.set_fg = 231
-font.set_bold = True
-font.set_italic = True
-title = ''' All Functions, Classes and Methods in fancyprint Module  '''  
-blue_msg  = fp.FancyMessage(font)  # for titles
-blue_msg.print_fancy_msg(title)
-font.set_bg = 90
-
-purple_msg  = fp.FancyMessage(font)  # for titles
-purple_msg.print_fancy_msg(title)
-
-blue_msg.fg = 0
-blue_msg.bg = 231
-blue_msg.print_fancy_msg(title)
-
-
-print()
-print(f"{fp.bg_on(22)} Miguelito {fp.fg_on(13)} I am here {fp.bold_on()} Hello Again. {fp.off_all()}")
-print()
-print(f"{fp.bold_on()}{fp.bg_on(90)} Miguelito  I am here {fp.fg_on(11)} Hello Again. {fp.reset_font()}")
-print(f"{fp.reverse_on()}Miguel Angel{fp.reverse_off()}")
-
-for i in range(0, 16):
-   for j in range(0, 16):
-      code = str(i * 16 + j)
-      sys.stdout.write(u"\u001b[38;5;" + code + "m " + code.ljust(4))
-   print (u"\u001b[0m")
-
-
-for i in range(0, 16):
-    for j in range(0, 16):
-        code = str(i * 16 + j)
-        sys.stdout.write(u"\u001b[48;5;" + code + "m " + code.ljust(4))
-    print (u"\u001b[0m")
+lst.msg_title = ""
+lst.msg_footnote = ""
+lst.fg_data = -1
+lst.adj_indent = 30
+lst.adj_top_margin = 4
+lst.adj_bottom_margin = 4
+lst.print_fancy_format("Report Bugs \u2192 acma82@yahoo.com", fp.Line_Style.DOUBLE)
