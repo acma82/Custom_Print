@@ -156,7 +156,7 @@ def erase():
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 # Linux Background Color Option List                                                                                                           -
 #----------------------------------------------------------------------------------------------------------------------------------------------- 
-def bg_ansi_colors(bold=False, fg=-1):
+def bg_ansi_colors(bold=False, fg=-1, n_lines=0):
    '''
 ----------------------------------------------------------------------------
    import fancyprint as fp
@@ -205,9 +205,11 @@ def bg_ansi_colors(bold=False, fg=-1):
       else:
          ctrl = 0
          if fg_color == "-1":
-            print(f"\033[{b};48;5;{color}m {msg} {reset}{color}")
+            if n_lines > 0: print(f"\033[{b};48;5;{color}m {msg} {reset}{color}"); ins_newline(n_lines)
+            else:             print(f"\033[{b};48;5;{color}m {msg} {reset}{color}")
          else:
-            print(f"\033[{b};48;5;{color};38;5;{fg_color}m {msg} {reset}{color}")
+            if n_lines > 0: print(f"\033[{b};48;5;{color};38;5;{fg_color}m {msg} {reset}{color}"); ins_newline(n_lines)
+            else:                 print(f"\033[{b};48;5;{color};38;5;{fg_color}m {msg} {reset}{color}")
    
    print("\x1B[0m Font Color Number: -1")
 
@@ -215,7 +217,7 @@ def bg_ansi_colors(bold=False, fg=-1):
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 # Linux Foreground Color Option List                                                                                                           -
 #-----------------------------------------------------------------------------------------------------------------------------------------------
-def fg_ansi_colors(bold=False, bg=-1):
+def fg_ansi_colors(bold=False, bg=-1, n_lines=0):
    '''
 ----------------------------------------------------------------------------
    import fancyprint as fp
@@ -264,9 +266,11 @@ def fg_ansi_colors(bold=False, bg=-1):
       else:
          ctrl = 0
          if bg_color == "-1":
-            print(f"\033[{b};38;5;{color}m {msg} {reset}{color}")
+            if (n_lines > 0): print(f"\033[{b};38;5;{color}m {msg} {reset}{color}"); ins_newline(n_lines)
+            else:              print(f"\033[{b};38;5;{color}m {msg} {reset}{color}")
          else:
-            print(f"\033[{b};48;5;{bg_color};38;5;{color}m {msg} {reset}{color}")
+            if (n_lines > 0): print(f"\033[{b};48;5;{bg_color};38;5;{color}m {msg} {reset}{color}"); ins_newline(n_lines)
+            else:              print(f"\033[{b};48;5;{bg_color};38;5;{color}m {msg} {reset}{color}")
    
    print("\x1B[0m Font Color Number: -1")
 

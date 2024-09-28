@@ -33,18 +33,22 @@ fst.indent = 2
 fst.next_line = False
 
 #----------------------------------------------------------------------------------------------------------------------------------------------
+def adj_screen(y, x):
+   if (fp.OS_Linux == True and fp.OS_Windows == False):   fp.resize(rows=y, cols=x) #fp.resize(44, 90)
+   elif (fp.OS_Linux == False and fp.OS_Windows == True): fp.resize(rows=y, cols=x) #fp.resize(44, 90)
+   else:                                                  pass
+
 # Variables
 ncols, nrows = fp.dimensions()
 myrows = 90; mycols = 100
-if (fp.OS_Linux == True and fp.OS_Windows == False):   fp.resize(rows=myrows, cols=mycols) #fp.resize(44, 90)
-elif (fp.OS_Linux == False and fp.OS_Windows == True): fp.resize(rows=myrows, cols=mycols) #fp.resize(44, 90)
-else:                                                  pass
+adj_screen(myrows, mycols)
+
 
 
 screen_funs = [[" Screen_Functions "],["clean"],["clear"],["erase"],["dimensions"],
                ["resize"]]
-miscellaneous_functions = [[" Miscellaneous_Functions "],["ins_space"],["ins_newline"],["terminal_bell"],
-                          ["bg_ansi_colors"],["fg_ansi_colors"],["set_font"],["reset_font"]]
+internal_functions = [[" Internal_Functions "],["ins_space"],["ins_newline"],
+                      ["ansi_colors"],["terminal_bell"]]
 
 help_classes = [[" Help_Classes "],["Move"],["Align"],["Layout"],["Length"],["Style_Line"]]
 classes_methods_fancyprint = [["Cursor", "FontStyle",   "FancyMessage",    "FancyFormat"        ,"Draw"],
@@ -82,12 +86,12 @@ def Welcome_Message():
 
    lst.adj_indent = 34
    crs.jump(qty=9,direction=fp.Move.UP)
-   lst.print_fancy_format(miscellaneous_functions)
+   lst.print_fancy_format(internal_functions)
 
    # lst.bg_header = 90; lst.fg_header = 231
    
-   lst.adj_indent = 72
-   crs.jump(qty=11,direction=fp.Move.UP)
+   lst.adj_indent = 68
+   crs.jump(qty=9,direction=fp.Move.UP)
    lst.print_fancy_format(help_classes)
 
 
@@ -124,7 +128,7 @@ methods for a specific class or a combination of them.'''
    blue_msg.bold = False
    blue_msg.print_fancy_note(note_msg=note, body_msg=message_note)
    fp.ins_newline(1)
-   fst.print_style(" Example 1: ")
+   fst.print_style(" Example 2: ")
    print(" python documentation.py clean terminal_bell get_style Cursor")
    #print(f" {fp.set_font(1,231,0)} Example 2: {fp.reset_font()} python documentation.py clean terminal_bell get_style Cursor")
    
@@ -136,11 +140,11 @@ methods for a specific class or a combination of them.'''
    
    message = '''     
      In example 2, notice that we are calling a mix of functions, methods and a class.
-  For the class, it will call all the methods that this contain as shown in the tables
-  above. Cursor Class contains four methos, jump, move, gotoxy, and moveTo and
+  For the class, it will call all the methods that this class contains as shown in the
+  tables above. Cursor Class contains four methos, jump, move, gotoxy, and moveTo and
   so on for the rest of the following classes.
  
-  In example 3, we are calling help for all the function that this table contains.
+  In example 3, we are calling help for all the functions that this class contains.
 
   It's possible to display the complete documentation by passing \"all\" as parameter.
 '''
@@ -149,8 +153,13 @@ methods for a specific class or a combination of them.'''
    simple_msg.print_fancy_msg(message)
    message = "  python documentation.py all  "
    blue_msg.print_fancy_msg(message)
-   blue_msg.length = fp.Length_bg.ALL_ROW
-   fp.ins_newline(1)
+   blue_msg.length = fp.Length_bg.ALL_ROW   
+   lst.msg_title = "";        lst.msg_footnote = ""
+   lst.fg_data = -1;          lst.adj_indent = 30
+   lst.adj_top_margin = 2;    lst.adj_bottom_margin = 2
+   # lst.print_fancy_format("Report Bugs \u2192 acma82@yahoo.com", fp.Line_Style.DOUBLE)
+   lst.print_fancy_format("Bugs \u2192 acma.mex@gmail.com", fp.Line_Style.DOUBLE)
+
 
 #---------------------------------------------------------------------------------------------------
 #  Screen_Functions in fancyprint Module                                                           -
@@ -238,74 +247,85 @@ def Resize_Function():
    print(f"{fp.ins_space(16)}fp.resize(rows = n_rows, cols = n_cols)\n")
 
 #---------------------------------------------------------------------------------------------------
-#  Miscellaneous_Functions in fancyprint Module                                                           -
+#  internal_functions in fancyprint Module                                                           -
 #---------------------------------------------------------------------------------------------------
-def Miscellaneous_Functions():   
-   blue_msg.print_fancy_msg("Miscellaneous Functions")
+def Internal_Functions():   
+   blue_msg.print_fancy_msg("Internal Functions")
    Ins_Space_Function()
    Ins_Newline_Function()
+   Ansi_Color_Function()   
    Terminal_Bell_Function()
-   BG_Ansi_Colors_Function()
+   
 
 def Ins_Space_Function():
    #------------------------------------------------------------------------------------------------
    # ins_space                                                                                     -
    #------------------------------------------------------------------------------------------------
-
+   green_msg.print_fancy_msg(internal_functions[1][0])
    message = f'''
       This function inserts x number of spaces between words.
 
-               import fancyprint as fp
-               fp.ins_space(x)
+               fancy_print.ins_space(x)
 
-      {fp.set_font(1,231,0)} Example: {fp.reset_font()}
-               print("Hello"+fp.ins_space(40)+"There")
+      {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp      
+                  print("Hello"+fp.ins_space(20)+"There")
 
+      {fp.set_font(1,231,90)} \u25CF Output {fp.reset_font()}  Hello                    There
       '''
    
-   green_msg.print_fancy_msg(miscellaneous_functions[1][0])
    print(message)
-   print(f"{fp.ins_space(6)}{fp.set_font(1,231,90)} \u25CF Reference \u2192 ins_space.py {fp.reset_font()}\n")
+   # print(f"{fp.ins_space(6)}{fp.set_font(1,231,90)} \u25CF Reference \u2192 ins_space.py {fp.reset_font()}\n")
 
 def Ins_Newline_Function():
    #------------------------------------------------------------------------------------------------
    # ins_newline                                                                                   -
    #------------------------------------------------------------------------------------------------
+   green_msg.print_fancy_msg(internal_functions[2][0])
    message = f'''
       This function inserts x number of lines.
 
-               import fancyprint as fp
-               fp.ins_newline(x)
+               fancy_print.ins_newline(x)
 
-      {fp.set_font(1,231,0)} Example: {fp.reset_font()}
-               print("Python 3.12")
-               fp.ins_newline(3)
-               print("is amazing...!")
+      {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
+                  print("Python 3.12")
+                  fp.ins_newline(2)
+                  print("is amazing...!")
+              
+      {fp.set_font(1,231,90)} \u25CF Output {fp.reset_font()}  Python 3.12
+
+               
+                  is amazing...!
       '''
-   green_msg.print_fancy_msg(miscellaneous_functions[2][0])
    print(message)
    
-def Terminal_Bell_Function():
-   #------------------------------------------------------------------------------------------------
-   # terminal_bell                                                                                 -
-   #------------------------------------------------------------------------------------------------
-   message = f'''
-      This function makes sound of the terminal bell.
 
-               import fancyprint as fp
-
-      {fp.set_font(1,231,0)} Example: {fp.reset_font()}
-               fp.terminal_bell()
-      '''
-   green_msg.print_fancy_msg(miscellaneous_functions[3][0])
-   print(message)
-
-def BG_Ansi_Colors_Function():
+def Ansi_Color_Function():
    #------------------------------------------------------------------------------------------------
-   # bg_ansi_colors                                                                                -
+   # ansi_colors                                                                                -
    #------------------------------------------------------------------------------------------------
+   green_msg.print_fancy_msg(internal_functions[3][0])
+   print("\n  bg colors available in the ansi code \n")
+
+   for i in range(0, 16):
+      for j in range(0, 16):
+         code = str(i * 16 + j)
+         sys.stdout.write(u"\u001b[48;5;" + code + "m " + code.ljust(4))
+      print (u"\u001b[0m")
+   
+   fp.ins_newline(2)
+   print("  fg colors available in the ansi code \n")
+   for i in range(0, 16):
+      for j in range(0, 16):
+         code = str(i * 16 + j)
+         sys.stdout.write(u"\u001b[38;5;" + code + "m " + code.ljust(4))
+      print (u"\u001b[0m")
+
    message =f'''
-      This function displays all background colors available in the fancyprint
+      
+      There are two functions that works with ansi colors. 
+      set_font() and reset_font()
+      
+      function displays all background colors available in the fancyprint
          module. Two options for better visualization:
    
       1.- The option bold for the font (True/False).
@@ -324,26 +344,23 @@ def BG_Ansi_Colors_Function():
               fp.bg_ansi_colors(0,22)
               fp.bg_ansi_colors(fg=0, bold=1)
 '''
-   green_msg.print_fancy_msg(miscellaneous_functions[4][0])
+   
    print(message)
+   
 
-   for i in range(0, 16):
-      for j in range(0, 16):
-         code = str(i * 16 + j)
-         sys.stdout.write(u"\u001b[48;5;" + code + "m " + code.ljust(4))
-      print (u"\u001b[0m")
-
-def FG_Ansi_Colors_Function():
-   for i in range(0, 16):
-      for j in range(0, 16):
-         code = str(i * 16 + j)
-         sys.stdout.write(u"\u001b[38;5;" + code + "m " + code.ljust(4))
-      print (u"\u001b[0m")
-
+def Terminal_Bell_Function():
    #------------------------------------------------------------------------------------------------
-   # fg_ansi_colors                                                                                -
+   # terminal_bell                                                                                 -
    #------------------------------------------------------------------------------------------------
+   message = f'''
+      This function makes sound of the terminal bell.               
 
+      {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
+                  fp.terminal_bell()
+      '''
+   green_msg.print_fancy_msg(internal_functions[5][0])
+   print(message)
+   fp.terminal_bell()
 
 #---------------------------------------------------------------------------------------------------
 # Help_Fucntions                                                                                   -
@@ -356,11 +373,12 @@ def FG_Ansi_Colors_Function():
 # Start the Documentation for fancyprint Module                                                                                               -
 #----------------------------------------------------------------------------------------------------------------------------------------------
 fp.clear()
+ctrl = 0
 cmdl_argv = []
 for argv in sys.argv:
    cmdl_argv.append(argv.lower())
 
-flag_screen_functions = False; flag_miscellaneous_functions=False; flag_help_classes = False
+flag_screen_functions = False; flag_internal_functions=False; flag_help_classes = False
 flag_cursor = False;           flag_font_style = False;   flag_fancy_message = False
 flag_fancy_format = False;     flag_draw = False
 
@@ -369,14 +387,14 @@ if (len(cmdl_argv) == 1):
 
 elif ("all" in cmdl_argv):
    Screen_Functions()
-   Miscellaneous_Functions()
+   Internal_Functions()
    fp.terminal_bell()
    
 
 else:
    for fun in cmdl_argv:
       if ("screen_functions" in fun):          Screen_Functions();        flag_screen_functions = True
-      elif ("miscellaneous_functions" in fun): Miscellaneous_Functions(); flag_miscellaneous_functions = True
+      elif ("internal_functions" in fun): internal_functions(); flag_internal_functions = True
       
 
       elif ("clean" == fun and flag_screen_functions == False):      Clean_Function()
@@ -386,17 +404,16 @@ else:
       elif ("resize" == fun and flag_screen_functions == False):     Resize_Function()
       
 
-      elif ("ins_space" == fun and flag_miscellaneous_functions == False):      Ins_Space_Function()
-      elif ("ins_newline" == fun and flag_miscellaneous_functions == False):    Ins_Newline_Function()
-      elif ("terminal_bell" == fun and flag_miscellaneous_functions == False):  Terminal_Bell_Function()
-      elif ("bg_ansi_colors" == fun and flag_miscellaneous_functions == False): BG_Ansi_Colors_Function()
-      else:
-         pass
+      elif ("ins_space" == fun and flag_internal_functions == False):      Ins_Space_Function()
+      elif ("ins_newline" == fun and flag_internal_functions == False):    Ins_Newline_Function()
+      elif ("terminal_bell" == fun and flag_internal_functions == False):  Terminal_Bell_Function()
+      elif ("ansi_colors" == fun and flag_internal_functions == False):    Ansi_Color_Function()
+      else: pass
+         
 
-lst.msg_title = ""
-lst.msg_footnote = ""
-lst.fg_data = -1
-lst.adj_indent = 30
-lst.adj_top_margin = 4
-lst.adj_bottom_margin = 4
-lst.print_fancy_format("Report Bugs \u2192 acma82@yahoo.com", fp.Line_Style.DOUBLE)
+fp.ins_newline(3)
+input("  Press Enter to Continue: ")
+adj_screen(nrows, ncols)
+
+# fp.clear()
+# fp.clean()green_msg.print_fancy_msg(screen_funs[5][0])

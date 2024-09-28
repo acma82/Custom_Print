@@ -23,4 +23,4 @@ mns = f'''
 print(mns)
 
 #fp.bg_ansi_colors(0,22)
-fp.bg_ansi_colors(fg=0, bold=True)
+fp.bg_ansi_colors(fg=0, bold=True, n_lines=2)
