@@ -168,8 +168,12 @@ print_hort_chr(u'\u2588',u"\u2586",0)  # right bottom corner and horizontal line
 print("\n")
 
 
-
-
+print("\033[1m")
+print(" \u23A1               \u23A7  ")
+print(" \u23A2               \u23AA  ")
+print(" \u23A2               \u23A8  ")
+print(" \u23A2               \u23AA  ")
+print(" \u23A3               \u23A9  ")
 # #----------------------------------------------------------------------------------------------------------------------------------------------------
 # print("\n")
 # print("\033[1;48;5;231;38;5;21m  TRIANGLE_LINE  \033[0m")

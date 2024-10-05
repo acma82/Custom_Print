@@ -40,11 +40,13 @@ class Length_bg(enum.Enum):
    ONLY_WORD = 2
 
 class Line_Style(enum.Enum):
-   CUSTOMIZED  = 1
-   SINGLE      = 2
-   BOLD        = 3
-   HEAVY       = 4
-   DOUBLE      = 5
+   CUSTOMIZED   = 1   
+   SINGLE       = 2
+   SINGLE_BOLD  = 3
+   SINGLE_HEAVY = 4
+   DOUBLE       = 5
+   DASH         = 6
+   SQR_BRACKETS = 7
    
 
 #-----------------------------------------------------------------------------------------------------------------------------------------------
@@ -156,7 +158,7 @@ def erase():
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 # Linux Background Color Option List                                                                                                           -
 #----------------------------------------------------------------------------------------------------------------------------------------------- 
-def bg_ansi_colors(bold=False, fg=-1, n_lines=0):
+def bg_ansi_colors(bold=False, fg=-1, n_line=0):
    '''
 ----------------------------------------------------------------------------
    import fancyprint as fp
@@ -205,10 +207,10 @@ def bg_ansi_colors(bold=False, fg=-1, n_lines=0):
       else:
          ctrl = 0
          if fg_color == "-1":
-            if n_lines > 0: print(f"\033[{b};48;5;{color}m {msg} {reset}{color}"); ins_newline(n_lines)
+            if n_line > 0: print(f"\033[{b};48;5;{color}m {msg} {reset}{color}"); ins_newline(n_line)
             else:             print(f"\033[{b};48;5;{color}m {msg} {reset}{color}")
          else:
-            if n_lines > 0: print(f"\033[{b};48;5;{color};38;5;{fg_color}m {msg} {reset}{color}"); ins_newline(n_lines)
+            if n_line > 0: print(f"\033[{b};48;5;{color};38;5;{fg_color}m {msg} {reset}{color}"); ins_newline(n_line)
             else:                 print(f"\033[{b};48;5;{color};38;5;{fg_color}m {msg} {reset}{color}")
    
    print("\x1B[0m Font Color Number: -1")
@@ -217,7 +219,7 @@ def bg_ansi_colors(bold=False, fg=-1, n_lines=0):
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 # Linux Foreground Color Option List                                                                                                           -
 #-----------------------------------------------------------------------------------------------------------------------------------------------
-def fg_ansi_colors(bold=False, bg=-1, n_lines=0):
+def fg_ansi_colors(bold=False, bg=-1, n_line=0):
    '''
 ----------------------------------------------------------------------------
    import fancyprint as fp
@@ -266,10 +268,10 @@ def fg_ansi_colors(bold=False, bg=-1, n_lines=0):
       else:
          ctrl = 0
          if bg_color == "-1":
-            if (n_lines > 0): print(f"\033[{b};38;5;{color}m {msg} {reset}{color}"); ins_newline(n_lines)
+            if (n_line > 0): print(f"\033[{b};38;5;{color}m {msg} {reset}{color}"); ins_newline(n_line)
             else:              print(f"\033[{b};38;5;{color}m {msg} {reset}{color}")
          else:
-            if (n_lines > 0): print(f"\033[{b};48;5;{bg_color};38;5;{color}m {msg} {reset}{color}"); ins_newline(n_lines)
+            if (n_line > 0): print(f"\033[{b};48;5;{bg_color};38;5;{color}m {msg} {reset}{color}"); ins_newline(n_line)
             else:              print(f"\033[{b};48;5;{bg_color};38;5;{color}m {msg} {reset}{color}")
    
    print("\x1B[0m Font Color Number: -1")
@@ -433,13 +435,13 @@ def reset_font():
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 # Move Cursor to the Right. This function is used as the indentation for the print                                                             -
 #-----------------------------------------------------------------------------------------------------------------------------------------------
-def move_right(n=0,option=False):
+def move_right(n=0,option_space=False):
    '''
 ----------------------------------------------------------------------------
    This function moves the cursor n spaces to the right.   
 ----------------------------------------------------------------------------
    '''
-   if (option == True):
+   if (option_space == True):
       sp = ins_space(n)
    else:
       sp = f"\033[{str(n)}C"
@@ -1678,7 +1680,7 @@ class FancyFormat():
       #-------------------------------------------------------------------------------------------------------------------------------------------
       # Under Line Header Section  Only for Matrix List
       # attributes for the line below the header text
-      self.horizontal_line_under_header_on = True      # horizontal line between headers and the firs data row. 1 shows it and 0 hides it
+      self.horizontal_line_under_header_on = False     # horizontal line between headers and the firs data row. 1 shows it and 0 hides it
       self.horizontal_line_under_header_chr = "-"      # chr to be printed for theheader line
       self.bold_under_line_header = False              # values -1 to 255
       self.bg_under_line_header = -1                   # values -1 to 255
@@ -1741,7 +1743,7 @@ class FancyFormat():
             self.horizontal_line_under_header_chr = "\u2500";    self.left_corner_under_line_header_chr = "\u251C"
             self.right_corner_under_line_header_chr = "\u2524";  self.middle_corner_under_line_header_chr = "\u253C"
          
-         elif (style == Line_Style.BOLD):
+         elif (style == Line_Style.SINGLE_BOLD):
             # Horizontal Line Section
             self.top_horizontal_line_chr = "\u2501";      self.bottom_horizontal_line_chr="\u2501";     self.horizontal_line_chr = "\u2501"
             #-------------------------------------------------------------------------------------------------------------------------------------------
@@ -1762,7 +1764,7 @@ class FancyFormat():
             self.horizontal_line_under_header_chr = "\u2501";    self.left_corner_under_line_header_chr = "\u2523"
             self.right_corner_under_line_header_chr = "\u252B";  self.middle_corner_under_line_header_chr = "\u254B"
  
-         elif (style == Line_Style.HEAVY):
+         elif (style == Line_Style.SINGLE_HEAVY):
             # Horizontal Line Section
             self.top_horizontal_line_chr = "\u2586";      self.bottom_horizontal_line_chr="\u2586";     self.horizontal_line_chr = "\u2586"
             #-------------------------------------------------------------------------------------------------------------------------------------------
@@ -1805,7 +1807,28 @@ class FancyFormat():
             self.horizontal_line_under_header_chr = "\u2550";    self.left_corner_under_line_header_chr = "\u2560"
             self.right_corner_under_line_header_chr = "\u2563";  self.middle_corner_under_line_header_chr = "\u256C"
 
- 
+         elif (style == Line_Style.SQUARE_BRACKETS):
+            # Horizontal Line Section
+            self.top_horizontal_line_chr = " ";      self.bottom_horizontal_line_chr=" ";     self.horizontal_line_chr = " "
+            #-------------------------------------------------------------------------------------------------------------------------------------------
+            # Vertical Line Section
+            self.left_vertical_line_chr  = "\u2502";      self.middle_vertical_line_chr = " ";     self.right_vertical_line_chr = "\u2502"
+            #-------------------------------------------------------------------------------------------------------------------------------------------
+            # Outside Corner Section
+            self.top_left_corner_chr = "\u250C";  self.top_right_corner_chr = "\u2510"; self.bottom_right_corner_chr="\u2518"; self.bottom_left_corner_chr="\u2514"
+            #-------------------------------------------------------------------------------------------------------------------------------------------
+            # Middle Corner Section
+            self.middle_top_corner_chr =  " ";   self.middle_bottom_corner_chr = " "; self.middle_inner_corner_chr =  " "
+            self.left_lateral_corner_chr =  "\u2502"; self.right_lateral_corner_chr = "\u2502"
+            #-------------------------------------------------------------------------------------------------------------------------------------------
+            # Header Section  Only for Matrix List
+            self.left_vertical_header_line_chr = "\u2502"; self.right_vertical_header_line_chr = "\u2502"; self.middle_vertical_header_line_chr = " "
+            #-------------------------------------------------------------------------------------------------------------------------------------------
+            # Under Line Header Section  Only for Matrix List
+            self.horizontal_line_under_header_chr = " ";    self.left_corner_under_line_header_chr = "\u2502"
+            self.right_corner_under_line_header_chr = "\u2502";  self.middle_corner_under_line_header_chr = " "
+
+
          else: pass
 
 
@@ -2475,20 +2498,43 @@ class Draw(Cursor):            # Inheritance the Cursor Class here.
    def __init__(self):         # Initializing Draw Class as self
       super().__init__()       # Super Class to use all (vars and funs) from Cursor Class
                                # with the Initialization Draw Class(self), ex. self.gotoxy(x,y)
+      # square or rectangle
+      # Horizontal Line Section
+      self.top_horizontal_line_chr="-";  self.bottom_horizontal_line_chr="-"
+      # Vertical Line Section    
+      self.left_vertical_line_chr="|";   self.right_vertical_line_chr="|"
       # Corner Section 
-      self.top_left_corner_chr = "+"             # chr for the top left corner
-      self.top_right_corner_chr = "+"            # chr for the top right corner
-      self.bottom_right_corner_chr="+"           # chr for the bottom right corner
-      self.bottom_left_corner_chr="+"            # chr for the bottom left corner
-      self.bold_corner_chr = False               # two values False and True (0 and 1)
-      self.bg_corner_line = -1                   # values -1 to 255
-      self.fg_corner_line = -1                   # values -1 to 255
+      self.top_left_corner_chr="+";      self.top_right_corner_chr="+";       self.bottom_right_corner_chr="+";  self.bottom_left_corner_chr="+"     
+      # Corner General 
+      self.adj_height = 2
+      self.adj_width  = 2
+      self.bold_draw_chr = False               # two values False and True (0 and 1)
+      self.bg_draw_line = -1                   # values -1 to 255
+      self.fg_draw_line = -1                   # values -1 to 255
+
+      # arrow and line
+      self.tail_chr = "\u2223"#"\u27DD" # "\u251C"
+      self.body_chr = "\u2014"
+      self.head_chr = "\u2AAB" # "\u27A4" #"\u2A65" 279D
+
+      self.body_length = 2
+
+      # general
+      self.adj_indent = 12                     # space from the terminal to the box
+      
+      
+   def arrow(self,body_length=2, direction=Move.RIGHT):
+      self.jump(self.adj_indent, Move.RIGHT)
+      print(self.tail_chr,end="")
+      
+      
+      for n in range(self.body_length):
+         print(self.body_chr,end="")
+
+      print(self.head_chr)
 
 
-      self.body = "\u23BC"
-      self.head = "\u2AAB" # "\u27A4" #"\u2A65" 279D
-      self.tail = "\u27DD" # "\u251C"
-         
+
 
    def line(self,x:int=-1,y:int=-1,size:int=1, layout:Layout=Layout.HORIZONTAL)->None:
       if (layout.lower() == Layout.HORIZONTAL):

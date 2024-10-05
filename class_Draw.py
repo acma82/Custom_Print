@@ -1,33 +1,21 @@
 import fancyprint as fp
+lst = fp.FancyFormat()
 drw = fp.Draw()
 crs = fp.Cursor()
 
-# single line box
-drw.body = '\u2502'
-drw.body     = '\u2500'       # 9,  line
-drw.line(20, 4, 20,layout=fp.Layout.HORIZONTAL)
-print()
+drw.arrow()
 
-drw.tail     = '\u250C'       # 13, left top corner
-drw.head     = '\u2510'       # 14, right top corner
-drw.body     = '\u2500'       # 9,  line
+print("  |-->")
 
-drw.line(-1,-1,25)             # horizontal
-# drw.arrow(-1,1,10)
-print()
-drw.body = '\u2502'
-drw.line(-1,-1,10,"vertical")
+lst.align_data=fp.Align.CENTER
+lst.align_header = fp.Align.CENTER
+lst.horizontal_separator_line_on = True
+lst.horizontal_line_under_header_on = True
 
-# rv = 10
-# crs.jump(qty=9, direction="right")
-# print("*")
+lst1 = [["A","B","C"],["10","8","7"],["0","4","-7"],["-1","-2","7"]]
+lst.print_fancy_format(lst1,fp.Line_Style.SQUARE_BRACKETS)
+lst2 = ["Vector Uno 3D"]
+lst.print_fancy_format(lst2,fp.Line_Style.SQUARE_BRACKETS)
 
-drw.tail  = '\u2514'          # 16, left bottom corner
-drw.head  = '\u2518'          # 15, right bottom corner
-drw.body     = '\u2500'       # 9,  line
-drw.line(-1,-1,25)             # Horizontal
-#drw.arrow(-1,1,10)
-print("\n")
-
-
-# print("\u23FB")
+print("\u254E")
+print("\u2574")
