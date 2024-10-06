@@ -43,14 +43,14 @@ class Length_bg(enum.Enum):
    ONLY_WORD = 2
 
 
-class Line_Style(enum.Enum):
-   CUSTOMIZED   = 1   
-   SINGLE       = 2
-   SINGLE_BOLD  = 3
-   SINGLE_HEAVY = 4
-   DOUBLE       = 5
-   DASH         = 6
-   SQR_BRACKETS = 7
+class Line_Style(enum.StrEnum):
+   CUSTOMIZED   = "customize"
+   SINGLE       = "single"
+   SINGLE_BOLD  = "single_bold"
+   SINGLE_HEAVY = "single_heavy"
+   DOUBLE       = "double"
+   DASH         = "dash"
+   SQR_BRACKETS = "sqr_brackets"
    
 
 #-----------------------------------------------------------------------------------------------------------------------------------------------
@@ -331,6 +331,11 @@ def ins_newline(nl=1):
       print("")
 
 def terminal_bell():
+   '''
+----------------------------------------------------------------------------
+   This function makes sound of the terminal bell.  
+----------------------------------------------------------------------------
+'''
    print("\a")
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 # Set Settings for the Font: Bold, Background, and Foreground                                                                                  -
@@ -684,7 +689,7 @@ def tuple2list(my_tuple):
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 # Get Data Type and Convert It to a List Type                                                                                                  -
 #-----------------------------------------------------------------------------------------------------------------------------------------------
-def data2list(dato):
+def data2list(self,dato):
    data_list = []
    # it is already a list type
    if (isinstance(dato, list)):        return dato
@@ -709,16 +714,17 @@ def data2list(dato):
          data_list.append(str(dato.real)+"+"+str(dato.imag)+"j")
 
    # range type
-   elif (isinstance(dato, range)):     data_list = range2list(dato)
-
+   elif (isinstance(dato, range)):     
+      data_list = range2list(dato,"none",self.set_layout)      
+                                       
    # dictionary type
    elif (isinstance(dato, dict)):      data_list = dict2list(dato)
    
    # set type
-   elif (isinstance(dato, set)):       data_list = set2list(dato)
+   elif (isinstance(dato, set)):       data_list = set2list(dato,"none",self.set_layout)
 
    # frozenset type
-   elif (isinstance(dato, frozenset)): data_list = set2list(dato)
+   elif (isinstance(dato, frozenset)): data_list = set2list(dato,"none",self.set_layout)
    
    # tuple
    elif (isinstance(dato, tuple)):     data_list = tuple2list(dato)
@@ -935,7 +941,8 @@ def print_notefoot(self,my_list):
    
    if self.msg_footnote == "": return
    else: 
-      settings = set_font(self.bold_footnote,self.bg_footnote, self.fg_footnote,self.italic_footnote,self.underline_footnote,self.strike_footnote,self.blinking_footnote,self.dim_footnote,self.hidden_footnote,self.inverse_footnote)
+      settings = set_font(self.bold_footnote,self.bg_footnote, self.fg_footnote,self.italic_footnote,self.underline_footnote,\
+                          self.strike_footnote,self.blinking_footnote,self.dim_footnote,self.hidden_footnote,self.inverse_footnote)
 
    # check for the length of the message
    total_length = get_total_length(self,my_list)
@@ -1098,7 +1105,7 @@ def print_multiple_horizontal_items(self,my_list):
             print_horizontal_segment(self, self.middle_top_corner_chr, self.top_horizontal_line_chr,(len(item) + (2*self.adj_space)), indent, "inner_corner")
             # corner or horizontal depends on what color to get if the corner colors or the horizontal_line
             # last segment, which is only the corner that's why it's 0 on value
-      print_horizontal_segment(self, self.bottom_right_corner_chr, self.top_horizontal_line_chr, 0, indent, "corner") 
+      print_horizontal_segment(self, self.top_right_corner_chr, self.top_horizontal_line_chr, 0, indent, "corner") 
       print() # done top line, jump to next line to print data
 
    else:
@@ -1503,6 +1510,8 @@ def print_matrix_list(self,my_list):
                         # last segment, which is only the corner that's why it's 0 on value
                   print_horizontal_segment(self, self.bottom_right_corner_chr,\
                      self.bottom_horizontal_line_chr, 0, indent, "corner") 
+                  
+                  
                else:
                   pass
             else:     
@@ -1563,6 +1572,7 @@ class FancyFormat():
       self.adj_space       = 2                 # space from left to right side inside the box
       self.adj_bottom_space= 0                 # lines to be added between bottom list and footnote
       self.set_fill_chr    = "----"            # to fill the empty spots when the list is not complete
+      self.set_layout      = Layout.HORIZONTAL # This is only for Range, Set, and SetFrozen type data
       self.update_list     = False             # if we want to save the data as it's presented, but string each element in list
                   
       #-------------------------------------------------------------------------------------------------------------------------------------------
@@ -1710,7 +1720,7 @@ class FancyFormat():
    # Defing a the main function to control the print of the list                                                                                  -
    #-----------------------------------------------------------------------------------------------------------------------------------------------    
    def print_fancy_format(self,data="none",style=Line_Style.CUSTOMIZED):
-      if (style == Line_Style.CUSTOMIZED): pass
+      if (style.lower() == Line_Style.CUSTOMIZED): pass
       else:
          # backup all the default values
          # Horizontal Line Section
@@ -1731,7 +1741,7 @@ class FancyFormat():
          lculhc = self.left_corner_under_line_header_chr; rculhc = self.right_corner_under_line_header_chr; mculhc = self.middle_corner_under_line_header_chr
 
 
-         if (style == Line_Style.SINGLE):
+         if (style.lower() == Line_Style.SINGLE):
             # Horizontal Line Section
             self.top_horizontal_line_chr = "\u2500";      self.bottom_horizontal_line_chr="\u2500";     self.horizontal_line_chr = "\u2500"
             #-------------------------------------------------------------------------------------------------------------------------------------------
@@ -1752,7 +1762,7 @@ class FancyFormat():
             self.horizontal_line_under_header_chr = "\u2500";    self.left_corner_under_line_header_chr = "\u251C"
             self.right_corner_under_line_header_chr = "\u2524";  self.middle_corner_under_line_header_chr = "\u253C"
          
-         elif (style == Line_Style.SINGLE_BOLD):
+         elif (style.lower() == Line_Style.SINGLE_BOLD):
             # Horizontal Line Section
             self.top_horizontal_line_chr = "\u2501";      self.bottom_horizontal_line_chr="\u2501";     self.horizontal_line_chr = "\u2501"
             #-------------------------------------------------------------------------------------------------------------------------------------------
@@ -1773,7 +1783,7 @@ class FancyFormat():
             self.horizontal_line_under_header_chr = "\u2501";    self.left_corner_under_line_header_chr = "\u2523"
             self.right_corner_under_line_header_chr = "\u252B";  self.middle_corner_under_line_header_chr = "\u254B"
  
-         elif (style == Line_Style.SINGLE_HEAVY):
+         elif (style.lower() == Line_Style.SINGLE_HEAVY):
             # Horizontal Line Section
             self.top_horizontal_line_chr = "\u2586";      self.bottom_horizontal_line_chr="\u2586";     self.horizontal_line_chr = "\u2586"
             #-------------------------------------------------------------------------------------------------------------------------------------------
@@ -1795,7 +1805,7 @@ class FancyFormat():
             self.right_corner_under_line_header_chr = "\u2588";  self.middle_corner_under_line_header_chr = "\u2586"
 
 
-         elif (style == Line_Style.DOUBLE):
+         elif (style.lower() == Line_Style.DOUBLE):
             # Horizontal Line Section
             self.top_horizontal_line_chr = "\u2550";      self.bottom_horizontal_line_chr="\u2550";     self.horizontal_line_chr = "\u2550"
             #-------------------------------------------------------------------------------------------------------------------------------------------
@@ -1816,7 +1826,7 @@ class FancyFormat():
             self.horizontal_line_under_header_chr = "\u2550";    self.left_corner_under_line_header_chr = "\u2560"
             self.right_corner_under_line_header_chr = "\u2563";  self.middle_corner_under_line_header_chr = "\u256C"
 
-         elif (style == Line_Style.SQR_BRACKETS):
+         elif (style.lower() == Line_Style.SQR_BRACKETS):
             # Horizontal Line Section
             self.top_horizontal_line_chr = " ";      self.bottom_horizontal_line_chr=" ";     self.horizontal_line_chr = " "
             #-------------------------------------------------------------------------------------------------------------------------------------------
@@ -1837,8 +1847,8 @@ class FancyFormat():
             self.horizontal_line_under_header_chr = " ";    self.left_corner_under_line_header_chr = "\u2502"
             self.right_corner_under_line_header_chr = "\u2502";  self.middle_corner_under_line_header_chr = " "
 
-         elif (style == Line_Style.DASH):
-            data_list = data2list(data)
+         elif (style.lower() == Line_Style.DASH):
+            data_list = data2list(self,data)
             my_length = get_total_length(self, data_list)
             print(my_length)
    
@@ -1846,7 +1856,7 @@ class FancyFormat():
          else: pass
 
 
-      data_list = data2list(data)
+      data_list = data2list(self, data)
       my_list = []
       # convert all elements in the list to strigs only because the int type will cause problems with len command    
       #-----------------------------------------------------------------------------------------------------------------------------------------
@@ -1999,7 +2009,7 @@ class Cursor():
       return movement
 
 
-   def gotoxy(self,x=0,y=0):
+   def jumpTo(self,x=0,y=0):
       '''
    ----------------------------------------------------------------------------
       This function moves the cursor to a specific position (x,y)

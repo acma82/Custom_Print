@@ -397,17 +397,68 @@ def Terminal_Bell_Function():
 #---------------------------------------------------------------------------------------------------
 def Help_Classes():
    blue_msg.print_fancy_msg("Help Classes")
-
+   Move_Class()
+   Layout_Class()
+   Length_Class()
+   Style_Line_Class()
 
 def Move_Class():
    #------------------------------------------------------------------------------------------------
    # Move                                                                                          -
    #------------------------------------------------------------------------------------------------
    green_msg.print_fancy_msg(help_classes[1][0])
-   # UP    = "up"
-   # RIGHT = "right"
-   # DOWN  = "down"
-   # LEFT  = "left"
+   message = f'''
+      This class is used with the Cursor Class and it contains 4 options.
+
+      {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
+
+      {fp.ins_space(10)}  fp.Move.RIGHT
+      {fp.ins_space(10)}  fp.Move.LEFT
+      {fp.ins_space(10)}  fp.Move.UP
+      {fp.ins_space(10)}  fp.Move.DOWN
+      
+      Note: These options can be replaced for the original value as display below:
+
+      {fp.ins_space(10)}  fp.Move.RIGHT  \u2192  \"right\"
+      {fp.ins_space(10)}  fp.Move.LEFT   \u2192  \"left\"
+      {fp.ins_space(10)}  fp.Move.UP     \u2192  \"up\"
+      {fp.ins_space(10)}  fp.Move.DOWN   \u2192  \"down\"        
+
+'''
+   print(message)
+
+def Align_Class():
+   #------------------------------------------------------------------------------------------------
+   # Align                                                                                         -
+   #------------------------------------------------------------------------------------------------
+   # Works wiht FancyFormat
+   green_msg.print_fancy_msg(help_classes[2][0])
+   
+
+
+def Layout_Class():
+   #------------------------------------------------------------------------------------------------
+   # Layout                                                                                        -
+   #------------------------------------------------------------------------------------------------
+   # works with FancyFormat, range, set, setfrozen obj.set_layout = fp.Layout.VERTICAL
+   # works with Draw (line, arrow)
+   green_msg.print_fancy_msg(help_classes[3][0])
+   
+def Length_Class():
+   #------------------------------------------------------------------------------------------------
+   # Length                                                                                        -
+   #------------------------------------------------------------------------------------------------
+   # FancyMessage   
+   green_msg.print_fancy_msg(help_classes[4][0])
+
+def Style_Line_Class():
+   #------------------------------------------------------------------------------------------------
+   # Style_Line                                                                                    -
+   #------------------------------------------------------------------------------------------------
+   # FancyFormat   
+   green_msg.print_fancy_msg(help_classes[5][0])
+
+
 
 #----------------------------------------------------------------------------------------------------------------------------------------------
 # Start the Documentation for fancyprint Module                                                                                               -
@@ -452,7 +503,10 @@ else:
 
 
       elif ("move" == fun and flag_help_classes == False):                Move_Class()
-
+      elif ("align" == fun and flag_help_classes == False):               Align_Class()
+      elif ("layout" == fun and flag_help_classes == False):              Layout_Class()
+      elif ("length" == fun and flag_help_classes == False):              Length_Class()
+      elif ("style_line" == fun and flag_help_classes == False):          Style_Line_Class()
 
 
       else: pass

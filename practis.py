@@ -40,3 +40,22 @@ print("\n")
 lista.bg_all_cell_data = False
 lista.bg_all_cell_header = False
 lista.print_fancy_format(my_data)
+
+
+# set data
+set_tags = {1,3,5,7,9}
+lista.set_layout = fp.Layout.VERTICAL
+lista.print_fancy_format(data=set_tags,style=fp.Line_Style.SINGLE)
+
+lista.set_layout = fp.Layout.HORIZONTAL
+r = range(0,10,2)
+print(r)
+lista.update_list = True
+lista.print_fancy_format(data=r,style=fp.Line_Style.SINGLE)
+print(r)
+
+
+my_data = [[1,2,3,4],[1,2,0],[0]]
+print(my_data)
+lista.print_fancy_format(data=my_data,style=fp.Line_Style.SINGLE)
+print(my_data)

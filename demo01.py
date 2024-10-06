@@ -47,60 +47,9 @@ list1.right_vertical_header_line_chr  = u"\u2551"  # 23
 
 list1.print_fancy_format(sp_list)
 
-#------------------------------------------------------------------------------------------------
-# The end of the double line square                                                             -
-#--------------------------#   # bg_color, fg_color, and bold are int values but we convert then to str values
-#    reset = "\033[0m"
-#    if bg < 0 or bg > 255:
-#       bgc = "reset"
-#    else:
-#       bgc = str(bg)    
-
-#    if fg < 0 or fg > 255:
-#       fgc = "reset"
-#    else:
-#       fgc = str(fg)  
 
 
-#    if (bold == True):
-#       if (bgc == "reset" and fgc == "reset"):
-#          settings = reset + "\033[1m"
 
-#       elif bgc == "reset" and fgc != "reset":
-#          settings = reset+"\033[1;38;5;"+fgc+"m"
-      
-#       elif bgc != "reset" and fgc == "reset":
-#          settings = reset+"\033[1;48;5;"+bgc+"m"
-
-#       elif bgc != "reset" and fgc != "reset":
-#          settings = reset+"\033[1;48;5;"+bgc+";38;5;"+fgc+"m"
-
-#       else:
-#          settings = reset
-
-#    elif (bold == False):
-#       if (bgc == "reset" and fgc == "reset"):
-#          settings = reset
-
-#       elif bgc == "reset" and fgc != "reset":
-#          settings = reset+"\033[0;38;5;"+fgc+"m"
-      
-#       elif bgc != "reset" and fgc == "reset":
-#          settings = reset+"\033[0;48;5;"+bgc+"m"
-
-#       elif bgc != "reset" and fgc != "reset":
-#          settings = reset+"\033[0;48;5;"+bgc+";38;5;"+fgc+"m"
-
-#       else:
-#          settings = resetprint(f"{fs.get_style()}hello there{fs.reset_style()}")
-#       settings = reset
-
-
-#    if (italic == True):    settings = settings + "\033[3m"
-#    if (underline == True): settings = settings + "\033[4m"
-#    if (blinking == True):  settings = settings + "\033[5m"
-#    if (strike == True):    settings = settings + "\033[9m"
-#    return settings----------------------------------------------------------------------
 # title
 list1.bg_title = 11; list1.fg_title = 21; list1.bold_title = 1; list1.align_title = "l"
 # footnote

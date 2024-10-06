@@ -26,7 +26,7 @@ print(fp.set_font(1,11,21)+ " Python is " + fp.set_font(0,1) +\
 
 # print(fp.set_font(blinking=True) + "Hello" + fp.reset_font())
 
-lst.print_fancy_format("Miguel",fp.Line_Style.DASH)
+lst.print_fancy_format("Miguel","DASH")
 
 
 def str2list(my_str):

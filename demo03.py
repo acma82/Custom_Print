@@ -41,7 +41,7 @@ list1.align_data = "left"
 list1.bg_data = 55
 list1.fg_data = 256
 
-list1.adj_margin = 2
+list1.adj_top_margin = 2
 
 my_list = [["Header 1","Header 2","Header 3","Header 4"],["R2C1","R2C2","R2C3","R2C4"],
            ["R3C1","R3C2","R3C3","R3C4"],["R4C1","R4C2","R4C3","R4C4"]]

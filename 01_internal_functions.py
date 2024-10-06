@@ -29,3 +29,6 @@ color3 = fp.set_font(1,14,0)
 fp.ins_newline(1)
 print(f"{color1} Python {color2}{fp.ins_space(12)}{color3} Amazing...! {fp.reset_font()}")
 fp.ins_newline(1)
+
+
+

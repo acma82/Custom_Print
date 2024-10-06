@@ -7,7 +7,7 @@ my_list = [["Header 1","Header 2","Header 3","Header 4"],
            ["Data 9","Data A","Data B"]]
 
 # General Use, all its variable available
-list1.adj_margin = 2                         # 1
+list1.adj_top_margin = 2                     # 1
 list1.adj_top_space = 1                      # 2
 list1.adj_indent = 6                         # 3
 list1.adj_space = 4                          # 4

@@ -10,13 +10,13 @@ print(f"{crs.move(15,"right")}First One",end="")
 print(f"{crs.move(15,"right")}Second One",end="")
 print(f"{crs.move(qty=20,direction="left")}Hello")
 
-crs.gotoxy(0,0)
+crs.jumpTo(0,0)
 print("Start Here*")
 
 print(f"{crs.moveTo(15,40)}hello again")
 
 crs.jump(8,"down")
 
-crs.gotoxy(-1,-1)
+crs.jumpTo(-1,-1)
 print("adios",end="")
 print(f"{crs.move(qty=20,direction=fp.Move.RIGHT)}BYE")
