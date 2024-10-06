@@ -25,19 +25,23 @@ class Move(enum.StrEnum):
    DOWN  = "down"
    LEFT  = "left"
 
+
 class Align(enum.StrEnum):
    LEFT     = "left"
    CENTER   = "center"
    RIGHT    = "right"
    JUSTIFY  = "justify"
 
+
 class Layout(enum.StrEnum):
    HORIZONTAL = "horizontal"
    VERTICAL =   "vertical"
-  
+
+
 class Length_bg(enum.Enum):
    ALL_ROW   = 1
    ONLY_WORD = 2
+
 
 class Line_Style(enum.Enum):
    CUSTOMIZED   = 1   
@@ -163,21 +167,22 @@ def bg_ansi_colors(bold=False, fg=-1, n_line=0):
 ----------------------------------------------------------------------------
    import fancyprint as fp
    
-   fp.bg_ansi_colors(bool, int)
+   fp.bg_ansi_colors(bool, int, int)
    
    This function displays all background colors available in the fancyprint
-      module. Two options for better visualization:
+      module. Three options for better visualization:
    
    1.- The option bold for the font (True/False).
    2.- The option fg to visualize the background colors with a specific
          foreground color.
+   3.- It insert lines to have space between them.
 
    Colors range from -1 to 256.
    To set the default color use -1 or 256.
 
    Example:
-            fp.bg_ansi_colors(0,22)
-            fp.bg_ansi_colors(fg=0, bold=1)
+            fp.bg_ansi_colors(0,22,1)
+            fp.bg_ansi_colors(fg=0, bold=1, n_line=1)
 ----------------------------------------------------------------------------
 '''
 
@@ -213,7 +218,7 @@ def bg_ansi_colors(bold=False, fg=-1, n_line=0):
             if n_line > 0: print(f"\033[{b};48;5;{color};38;5;{fg_color}m {msg} {reset}{color}"); ins_newline(n_line)
             else:                 print(f"\033[{b};48;5;{color};38;5;{fg_color}m {msg} {reset}{color}")
    
-   print("\x1B[0m Font Color Number: -1")
+   print("\x1B[0m  bg default color  -1")
 
 
 #-----------------------------------------------------------------------------------------------------------------------------------------------
@@ -224,7 +229,7 @@ def fg_ansi_colors(bold=False, bg=-1, n_line=0):
 ----------------------------------------------------------------------------
    import fancyprint as fp
 
-   fl.fg_ansi_colors(bool, int)
+   fl.fg_ansi_colors(bool, int, int)
    
    This function displays all foreground colors available in the fancyprint
       module. Two options for better visualization:
@@ -232,13 +237,14 @@ def fg_ansi_colors(bold=False, bg=-1, n_line=0):
    1.- The option bold helps for font.
    2.- The option bg to visualize the foreground colors with a specific
          background color.
+   3.- It insert lines to have space between them.
 
    Colors range from -1 to 256.
    To set the default color use -1 or 256.
 
    Example:
-            fl.fg_ansi_colors(0,22)
-            fl.fg_ansi_colors(bg=32, bold=0)
+            fl.fg_ansi_colors(0,22,1)
+            fl.fg_ansi_colors(bg=32, bold=0, n_line=1)
 ----------------------------------------------------------------------------
 '''
 
@@ -274,7 +280,7 @@ def fg_ansi_colors(bold=False, bg=-1, n_line=0):
             if (n_line > 0): print(f"\033[{b};48;5;{bg_color};38;5;{color}m {msg} {reset}{color}"); ins_newline(n_line)
             else:              print(f"\033[{b};48;5;{bg_color};38;5;{color}m {msg} {reset}{color}")
    
-   print("\x1B[0m Font Color Number: -1")
+   print("\x1B[0m  fg default color  -1")
 
 
 #-----------------------------------------------------------------------------------------------------------------------------------------------
@@ -813,13 +819,15 @@ def get_total_length(self,my_list):
       # the *2 is because there are 2 adj_space one each size (left and right)
       # the +2 is because there are 2 vertical lines (left and right)
       my_length = len(my_list[0]) + (self.adj_space*2) + self.adj_indent + 2
+      
 
    elif (list_dimensions == "one_item_one_row"):  # [[item]]
       # the *2 is because there are 2 adj_space one each size (left and right)
       # the adj_indent is because we have an indentation space at the begining
       # the +2 is because there are 2 vertical lines (left and right)
       my_length = len(my_list[0][0]) + (self.adj_space*2) + self.adj_indent + 2 
-  
+      
+
    elif (list_dimensions == "multiple_items_one_row") or (list_dimensions == "multiple_items_no_row"):
       # [1,2,3,4,5]  or [[1,2,3,4,5]]
       for item in my_list:
@@ -845,6 +853,7 @@ def get_total_length(self,my_list):
          # the *2 is because there are 2 adj_space one each size (left and right), self.adj_space
          # the +2 is because there are 2 vertical lines (left and right)
          my_length += self.adj_indent + (self.adj_space*2) + 2
+         
       
       else:
          # we have a matrix list something like this [[10,20,30],[40,50,60],[70,80,90]]. awsome.
@@ -1807,7 +1816,7 @@ class FancyFormat():
             self.horizontal_line_under_header_chr = "\u2550";    self.left_corner_under_line_header_chr = "\u2560"
             self.right_corner_under_line_header_chr = "\u2563";  self.middle_corner_under_line_header_chr = "\u256C"
 
-         elif (style == Line_Style.SQUARE_BRACKETS):
+         elif (style == Line_Style.SQR_BRACKETS):
             # Horizontal Line Section
             self.top_horizontal_line_chr = " ";      self.bottom_horizontal_line_chr=" ";     self.horizontal_line_chr = " "
             #-------------------------------------------------------------------------------------------------------------------------------------------
@@ -1828,6 +1837,11 @@ class FancyFormat():
             self.horizontal_line_under_header_chr = " ";    self.left_corner_under_line_header_chr = "\u2502"
             self.right_corner_under_line_header_chr = "\u2502";  self.middle_corner_under_line_header_chr = " "
 
+         elif (style == Line_Style.DASH):
+            data_list = data2list(data)
+            my_length = get_total_length(self, data_list)
+            print(my_length)
+   
 
          else: pass
 
@@ -2363,7 +2377,7 @@ class FancyMessage(Cursor):
    #---------------------------------------------------------------------------------------------------------------------------------------------------
    def print_fancy_note(self, note_msg:str="Warning", body_msg:str="Paragraph Body")->None:
       # save original values
-      li_obj = self.left_indent     
+      li_obj = self.left_indent
       # settings for the body_msg
       if (note_msg == None): len_note_msg = 0; note_msg = ""
       else: len_note_msg = len(note_msg)
