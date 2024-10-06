@@ -54,10 +54,10 @@ internal_functions = [[" Internal_Functions "],["ins_space"],["ins_newline"], ["
 help_classes       = [[" Help_Classes "],["Move"],["Align"],["Layout"],["Length"],["Style_Line"]]
 
 classes_methods_fancyprint = [["Cursor", "FontStyle",   "FancyMessage",    "FancyFormat"        ,"Draw"],
-                              ["jump",   "get_style",   "print_fancy_msg", "print_fancy_format", "line"],
-                              ["move",   "reset_style", "print_fancy_note",            "----",   "arrow"],
-                              ["gotoxy", "print_style", "print_fancy_header",      "----",       "box"],
-                              ["moveTo", "----",        "----",            "----",               "brakets"]]
+                              ["jumpTo",   "get_style",   "print_fancy_msg", "print_fancy_format", "line"],
+                              ["jumpxy",   "reset_style", "print_fancy_note",            "----",   "arrow"],
+                              ["moveTo", "print_style", "print_fancy_header",      "----",       "box"],
+                              ["movexy", "----",        "----",            "----",               "brakets"]]
 
 # classes_methods_fancyprint = [["Cursor", "FontStyle",   "FancyMessage",    "FancyFormat",       ],
 #                               ["jump",   "get_style",   "print_fancy_msg", "print_fancy_format" ],
@@ -87,13 +87,13 @@ def Welcome_Message():
    
 
    lst.adj_indent = 34
-   crs.jump(qty=8,direction=fp.Move.UP)
+   crs.jumpTo(qty=8,direction=fp.Move.UP)
    lst.print_fancy_format(internal_functions)
 
    # lst.bg_header = 90; lst.fg_header = 231
    
    lst.adj_indent = 68
-   crs.jump(qty=7,direction=fp.Move.UP)
+   crs.jumpTo(qty=7,direction=fp.Move.UP)
    lst.print_fancy_format(help_classes)
 
 
@@ -416,7 +416,7 @@ def Move_Class():
       {fp.ins_space(10)}  fp.Move.LEFT
       {fp.ins_space(10)}  fp.Move.UP
       {fp.ins_space(10)}  fp.Move.DOWN
-      
+   
       Note: These options can be replaced for the original value as display below:
 
       {fp.ins_space(10)}  fp.Move.RIGHT  \u2192  \"right\"
@@ -431,10 +431,29 @@ def Align_Class():
    #------------------------------------------------------------------------------------------------
    # Align                                                                                         -
    #------------------------------------------------------------------------------------------------
-   # Works wiht FancyFormat
+   # Works with FancyFormat (print_fancy_format)
+   # works with FancyMessage (print_fancy_note, print_fancy_header)
    green_msg.print_fancy_msg(help_classes[2][0])
-   
+   message = f'''
 
+      Aligns Class is used with the FancyFormat Class and FancyMessage Class.
+      It contains 4 options.
+
+      {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
+
+      {fp.ins_space(10)}  fp.Align.RIGHT
+      {fp.ins_space(10)}  fp.Align.LEFT
+      {fp.ins_space(10)}  fp.Align.CENTER
+      {fp.ins_space(10)}  fp.Align.JUSTIFY
+      
+      Note: These options can be replaced for the original value as display below:
+
+      {fp.ins_space(10)}  fp.Move.RIGHT    \u2192  \"right\"    \u2192  \"r\"
+      {fp.ins_space(10)}  fp.Move.LEFT     \u2192  \"left\"     \u2192  \"l"
+      {fp.ins_space(10)}  fp.Move.CENTER   \u2192  \"center\"   \u2192  \"c\"
+      {fp.ins_space(10)}  fp.Move.JUSTIFY  \u2192  \"justify\"  \u2192  \"j\"
+'''   
+   print(message)
 
 def Layout_Class():
    #------------------------------------------------------------------------------------------------
@@ -443,13 +462,40 @@ def Layout_Class():
    # works with FancyFormat, range, set, setfrozen obj.set_layout = fp.Layout.VERTICAL
    # works with Draw (line, arrow)
    green_msg.print_fancy_msg(help_classes[3][0])
-   
+   message = f'''
+      
+      Layout Class is used on FancyFormat only for the range, set, frozenset type of variables.
+      Layout also is uded with Draw Class. It contains 2 options.
+      
+      {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
+
+      {fp.ins_space(10)}  fp.Layout.HORIZONTAL
+      {fp.ins_space(10)}  fp.Layout.VERTICAL
+      
+      Note: These options can be replaced for the original value as display below:
+
+      {fp.ins_space(10)}  fp.Layout.HORIZONTAL   \u2192  \"horizontal\"
+      {fp.ins_space(10)}  fp.Layout.VERTICAL     \u2192  \"vertical\"
+
+'''
+   print(message)
 def Length_Class():
    #------------------------------------------------------------------------------------------------
    # Length                                                                                        -
    #------------------------------------------------------------------------------------------------
    # FancyMessage   
    green_msg.print_fancy_msg(help_classes[4][0])
+   message = f'''
+   
+      Length Class is used with FancyMessage Class and there 2 options.
+
+      {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
+
+      {fp.ins_space(10)}  fp.Length.ALL_ROW
+      {fp.ins_space(10)}  fp.Length.ONLY_WORD
+            
+'''
+   print(message)
 
 def Style_Line_Class():
    #------------------------------------------------------------------------------------------------
@@ -457,8 +503,124 @@ def Style_Line_Class():
    #------------------------------------------------------------------------------------------------
    # FancyFormat   
    green_msg.print_fancy_msg(help_classes[5][0])
+   message = f'''
+   
+      Style_Line Class is used with FancyFormat Class and Draw Class. There are 7 options.
+
+      {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
+
+      {fp.ins_space(10)}  fp.Style_Line.CUSTOMIZED
+      {fp.ins_space(10)}  fp.Style_Line.SINGLE
+      {fp.ins_space(10)}  fp.Style_Line.SINGLE_BOLD
+      {fp.ins_space(10)}  fp.Style_Line.SINGLE_HEAVY
+      {fp.ins_space(10)}  fp.Style_Line.DOUBLE
+      {fp.ins_space(10)}  fp.Style_Line.DASH
+      {fp.ins_space(10)}  fp.Style_Line.SQR_BRACKETS
+      
+      Note: These options can be replaced for the original value as display below:
+
+      {fp.ins_space(10)}  fp.Style_Line.CUSTOMIZED     \u2192  \"customized\"  
+      {fp.ins_space(10)}  fp.Style_Line.SINGLE         \u2192  \"single\"   
+      {fp.ins_space(10)}  fp.Style_Line.SINGLE_BOLD    \u2192  \"single_bold\" 
+      {fp.ins_space(10)}  fp.Style_Line.SINGLE_HEAVY   \u2192  \"single_heavy\"
+      {fp.ins_space(10)}  fp.Style_Line.DOUBLE         \u2192  \"double\"
+      {fp.ins_space(10)}  fp.Style_Line.DASH           \u2192  \"dash\"
+      {fp.ins_space(10)}  fp.Style_Line.SQR_BRACKETS   \u2192  \"sq_brackets\"
+   '''
+   print(message)
 
 
+#---------------------------------------------------------------------------------------------------
+# Cursor Class                                                                                     -
+#---------------------------------------------------------------------------------------------------
+def Cursor_Class():
+   blue_msg.print_fancy_msg("Cursor Classes")
+   JumpTo_Method()
+   Jumpxy_Method()
+   MoveTo_Method()
+   Movexy_Method()  
+   message = "This methods only works with the actual size of the terminal, if you try\
+ to go beyond thesize of the terminal, it may not work properly."
+   white_msg.print_fancy_note("Note:", message)
+
+   message = "\u25CF Reference \u2192  02_Cursor_Move_Class.py"
+   dark_green_msg.print_fancy_msg(message)
+   
+def JumpTo_Method():
+   green_msg.print_fancy_msg(classes_methods_fancyprint[1][0])
+   message = f'''
+   
+      jumpTo method is used to jump rows or columns for the cursor in the terminal.
+      The difference between move and jump is that move return the code, while jump
+      execute the code.
+
+      {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
+      {fp.ins_space(10)}  crs = fp.Cursor()
+      {fp.ins_space(10)}  crs.jumpTo(qty=2,  direction = fp.Move.DOWN);        print("I am down")
+      {fp.ins_space(10)}  crs.jumpTo(qty=20, direction = "right");             print("I am right")
+      {fp.ins_space(10)}  crs.jumpTo(1, fp.Move.UP);                           print("I am up")
+      {fp.ins_space(10)}  crs.jumpTo(5, "down");                               print("GoodBye...!")
+
+   '''
+   print(message)
+
+
+def Jumpxy_Method():
+   green_msg.print_fancy_msg(classes_methods_fancyprint[2][0])
+   message = f'''
+   
+      jumpxy method is used to jump to especific coordinate on the terminal.
+      The difference between jumpxy and movexy is that jumpxy execute the code
+      while the movexy returns the code.
+
+      {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
+      {fp.ins_space(10)}  crs = fp.Cursor()
+      {fp.ins_space(10)}  crs.jumpToxy(0,0);     print("*** Start Here ***")
+      {fp.ins_space(10)}  crs.jumpToxy(20, 5);   print("GoodBye...!")      
+
+   '''
+   print(message)
+
+
+def MoveTo_Method():
+   green_msg.print_fancy_msg(classes_methods_fancyprint[3][0])
+   message = f'''
+   
+      moveTo method is used to move rows or columns for the cursor in the terminal.
+      The difference between move and jump is that move return the code, while jump
+      execute the code.
+
+      {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
+      {fp.ins_space(10)}  crs = fp.Cursor()
+      '''
+   
+   message2 = '''                  print(f"{crs.moveTo(15,"right")} First One",  end="")
+
+                  print(f"{crs.moveTo(15,"right")} Second One", end="")
+            
+                  print(f"{crs.moveTo(qty=20,direction="left")} Hello")
+   
+   '''
+   print(message)
+   print(message2)
+
+def Movexy_Method():
+   green_msg.print_fancy_msg(classes_methods_fancyprint[4][0])
+   message = f'''
+   
+      movexy method is used to move to especific coordinate on the terminal.
+      The difference between jumpxy and movexy is that jumpxy execute the code
+      while the movexy returns the code.
+
+
+      {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
+      {fp.ins_space(10)}  crs = fp.Cursor()
+   '''
+   message2 = '''                  print(f"{crs.movexy(15,40)}hello again")
+
+      '''
+   print(message)
+   print(message2)
 
 #----------------------------------------------------------------------------------------------------------------------------------------------
 # Start the Documentation for fancyprint Module                                                                                               -
@@ -487,6 +649,7 @@ else:
       if ("screen_functions" in fun):     Screen_Functions();    flag_screen_functions = True
       elif ("internal_functions" in fun): Internal_Functions();  flag_internal_functions = True
       elif ("help_classes" in fun):       Help_Classes();        flag_help_classes = True
+      elif ("cursor" in fun):             Cursor_Class();        flag_cursor = True
       
 
       elif ("clean" == fun and flag_screen_functions == False):           Clean_Function()
@@ -507,6 +670,12 @@ else:
       elif ("layout" == fun and flag_help_classes == False):              Layout_Class()
       elif ("length" == fun and flag_help_classes == False):              Length_Class()
       elif ("style_line" == fun and flag_help_classes == False):          Style_Line_Class()
+
+      
+      elif ("jumpto" == fun and flag_cursor == False):                      JumpTo_Method()
+      elif ("jumpxy" == fun and flag_cursor == False):                      Jumpxy_Method()
+      elif ("moveto" == fun and flag_cursor == False):                      MoveTo_Method()
+      elif ("movexy" == fun and flag_cursor == False):                      Movexy_Method()
 
 
       else: pass

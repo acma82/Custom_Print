@@ -44,13 +44,13 @@ class Length_bg(enum.Enum):
 
 
 class Line_Style(enum.StrEnum):
-   CUSTOMIZED   = "customize"
+   CUSTOMIZED   = "customized"
    SINGLE       = "single"
    SINGLE_BOLD  = "single_bold"
    SINGLE_HEAVY = "single_heavy"
    DOUBLE       = "double"
    DASH         = "dash"
-   SQR_BRACKETS = "sqr_brackets"
+   SQ_BRACKETS = "sq_brackets"
    
 
 #-----------------------------------------------------------------------------------------------------------------------------------------------
@@ -165,24 +165,7 @@ def erase():
 def bg_ansi_colors(bold=False, fg=-1, n_line=0):
    '''
 ----------------------------------------------------------------------------
-   import fancyprint as fp
-   
-   fp.bg_ansi_colors(bool, int, int)
-   
-   This function displays all background colors available in the fancyprint
-      module. Three options for better visualization:
-   
-   1.- The option bold for the font (True/False).
-   2.- The option fg to visualize the background colors with a specific
-         foreground color.
-   3.- It insert lines to have space between them.
-
-   Colors range from -1 to 256.
-   To set the default color use -1 or 256.
-
-   Example:
-            fp.bg_ansi_colors(0,22,1)
-            fp.bg_ansi_colors(fg=0, bold=1, n_line=1)
+   This function displays all background colors available with ansi code.
 ----------------------------------------------------------------------------
 '''
 
@@ -227,24 +210,7 @@ def bg_ansi_colors(bold=False, fg=-1, n_line=0):
 def fg_ansi_colors(bold=False, bg=-1, n_line=0):
    '''
 ----------------------------------------------------------------------------
-   import fancyprint as fp
-
-   fl.fg_ansi_colors(bool, int, int)
-   
-   This function displays all foreground colors available in the fancyprint
-      module. Two options for better visualization:
-   
-   1.- The option bold helps for font.
-   2.- The option bg to visualize the foreground colors with a specific
-         background color.
-   3.- It insert lines to have space between them.
-
-   Colors range from -1 to 256.
-   To set the default color use -1 or 256.
-
-   Example:
-            fl.fg_ansi_colors(0,22,1)
-            fl.fg_ansi_colors(bg=32, bold=0, n_line=1)
+   This function displays all foreground colors available with ansi code
 ----------------------------------------------------------------------------
 '''
 
@@ -289,17 +255,14 @@ def fg_ansi_colors(bold=False, bg=-1, n_line=0):
 def ins_space(n_space=1):
    '''
 ----------------------------------------------------------------------------
-   import fancyprint as fp
-   
-   fp.ins_space(x)
+   This function inserts x number of spaces.
+----------------------------------------------------------------------------   
+   Example: 
+            import fancyprint as fp  
+            fp.ins_space(x)
+            print(f"Hello{fp.ins_space(40)}There")
 
-   This function inserts x number of spaces between words.
-   
-   Example:
-           print(f"Hello{fp.ins_space(40)}There")
-           
-           print("Hello"+fp.ins_space(40)+"There")
-----------------------------------------------------------------------------
+
 '''
    space = ""
    while n_space > 0:
@@ -314,18 +277,16 @@ def ins_space(n_space=1):
 def ins_newline(nl=1):
    '''
 ----------------------------------------------------------------------------
-   import fancyprint as fp
-
-   fp.ins_newline(int)
-
-   This function inserts x number of lines.    
-   
-   Example:
+   This function inserts x number of lines.
+----------------------------------------------------------------------------   
+   example:
+           import fancyprint as fp 
            print("Python 3")
            fp.ins_newline(3)
            print("is amazing...!")
-----------------------------------------------------------------------------
-'''
+
+   '''
+   
    while nl > 0:
       nl -= 1      
       print("")
@@ -1986,30 +1947,30 @@ class FancyFormat():
 # Cursor Class. Manipulate Cursor Around The Terminal                                                                                          -
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 class Cursor():   
-   def jump(self,qty=0, direction=Move.DOWN):
+   def jumpTo(self,qty=0, direction=Move.DOWN):
       '''
    ----------------------------------------------------------------------------
       Moves the cursor n position to the Direction Specified
    ----------------------------------------------------------------------------
       '''
-      print(Cursor.move(self, qty, direction),end="")
+      print(Cursor.moveTo(self, qty, direction),end="")
 
 
-   def move(self,qty=0, direction=Move.DOWN):
+   def moveTo(self,qty=0, direction=Move.DOWN):
       '''
    ----------------------------------------------------------------------------
       Moves the cursor n position to the Direction Specified
    ----------------------------------------------------------------------------
       '''
-      if   direction == Move.UP    or direction.lower() == "up":    movement = f"\033[{str(qty)}A"
-      elif direction == Move.DOWN  or direction.lower() == "down":  movement = f"\033[{str(qty)}B"
-      elif direction == Move.RIGHT or direction.lower() == "right": movement = f"\033[{str(qty)}C"
-      elif direction == Move.LEFT  or direction.lower() == "left":  movement = f"\033[{str(qty)}D"
-      else:                                                    movement = ""
+      if   direction == Move.UP    :  movement = f"\033[{str(qty)}A"
+      elif direction == Move.DOWN  :  movement = f"\033[{str(qty)}B"
+      elif direction == Move.RIGHT :  movement = f"\033[{str(qty)}C"
+      elif direction == Move.LEFT  :  movement = f"\033[{str(qty)}D"
+      else:                           movement = ""
       return movement
 
 
-   def jumpTo(self,x=0,y=0):
+   def jumpxy(self,x=0,y=0):
       '''
    ----------------------------------------------------------------------------
       This function moves the cursor to a specific position (x,y)
@@ -2018,16 +1979,16 @@ class Cursor():
       print(Cursor.moveTo(self, y, x),end="")
 
    
-   def moveTo(self,row=0,col=0):
+   def movexy(self,x=0, y=0):
       '''
    ----------------------------------------------------------------------------
-      Moves the cursor to a specific position (row, col)
+      Moves the cursor to a specific position (x, y)
    ----------------------------------------------------------------------------
       '''
-      if (row<=-1 or col<=-1):
+      if (y<=-1 or x<=-1):
          posi = ""
       else:
-         posi = f"\033[{str(row)};{str(col)}H"
+         posi = f"\033[{str(y)};{str(x)}H"
       
       return posi
    
@@ -2405,21 +2366,21 @@ class FancyMessage(Cursor):
       # settings for the note
       settings_note = set_font(bold=self.bold_note, bg=self.bg_note, fg=self.fg_note, italic=self.italic_note, underline=self.underline_note,\
                                strike=self.strike_note, blinking=self.blinking_note, dim=self.dim_note, hidden=self.hidden_note, inverse=self.inverse_note)
-      if (self.align_note == Align.LEFT):
-         print(f"{self.move(qty=lines_back, direction=Move.UP)}{settings_note}{note_msg}",end="")
+      if (self.align_note == Align.LEFT or self.align_note == "l"):
+         print(f"{self.moveTo(qty=lines_back, direction=Move.UP)}{settings_note}{note_msg}",end="")
 
-      elif (self.align_note == Align.CENTER):
+      elif (self.align_note == Align.CENTER or self.align_note == "c"):
          myq = int((self.left_space_note+self.right_space_note)/2)
-         print(f"{self.move(qty=lines_back, direction=Move.UP)}{self.move(qty=myq,direction=Move.RIGHT)}{settings_note}{note_msg}",end="")
+         print(f"{self.moveTo(qty=lines_back, direction=Move.UP)}{self.moveTo(qty=myq,direction=Move.RIGHT)}{settings_note}{note_msg}",end="")
                 
-      elif (self.align_note == Align.RIGHT):
+      elif (self.align_note == Align.RIGHT or self.align_note == "r"):
          myq = self.left_space_note + self.right_space_note
-         print(f"{self.move(qty=lines_back, direction=Move.UP)}{self.move(qty=myq,direction=Move.RIGHT)}{settings_note}{note_msg}",end="")
+         print(f"{self.moveTo(qty=lines_back, direction=Move.UP)}{self.moveTo(qty=myq,direction=Move.RIGHT)}{settings_note}{note_msg}",end="")
       
       else:  # JUSTIFY
-         print(f"{self.move(qty=lines_back, direction=Move.UP)}{self.move(qty=self.left_space_note,direction=Move.RIGHT)}{settings_note}{note_msg}")         
+         print(f"{self.moveTo(qty=lines_back, direction=Move.UP)}{self.moveTo(qty=self.left_space_note,direction=Move.RIGHT)}{settings_note}{note_msg}")         
       
-      self.jump(qty=lines_back-1, direction=Move.DOWN)
+      self.jumpTo(qty=lines_back-1, direction=Move.DOWN)
       print(f"{reset_font()}",end="")
 
       # putting back original values
@@ -2450,10 +2411,14 @@ class FancyMessage(Cursor):
          self.dim    = self.dim_title;         self.hidden    = self.hidden_title;     # False     False
          self.italic = self.italic_title;      self.strike    = self.strike_title      # False     False
          
-         if   (self.align_title == Align.LEFT):   pass
-         elif (self.align_title == Align.CENTER): self.left_indent = int((self.left_indent + space_available - len(title_msg))/2)
-         elif (self.align_title == Align.RIGHT):  self.left_indent = self.left_indent + space_available - len(title_msg) - 1 # 1 for not jumping line and finished
-         else:                                    self.left_indent = self.title_indent # JUSTIFY                             # at the ending of right indent
+         if   (self.align_title == Align.LEFT or self.align_title == "l"):
+            pass
+         elif (self.align_title == Align.CENTER or self.align_title == "c"):
+            self.left_indent = int((self.left_indent + space_available - len(title_msg))/2)
+         elif (self.align_title == Align.RIGHT or self.align_title == "r"):
+            self.left_indent = self.left_indent + space_available - len(title_msg) - 1 # 1 for not jumping line and finished
+         else:
+            self.left_indent = self.title_indent # JUSTIFY                             # at the ending of right indent
 
          self.bottom_lines = self.lines_title_body
          self.print_fancy_msg(title_msg)
@@ -2481,10 +2446,15 @@ class FancyMessage(Cursor):
       if (footnote_msg != None):
 
          # settings for footnote (recovered bottom_lines and change top_lines)
-         if   (self.align_footnote == Align.LEFT):   pass
-         elif (self.align_footnote == Align.CENTER): self.left_indent = int((self.left_indent + space_available - len(footnote_msg))/2)
-         elif (self.align_footnote == Align.RIGHT):  self.left_indent = self.left_indent + space_available - len(footnote_msg) - 1 # 1 for not jumping line and finished
-         else:                                       self.left_indent = self.footnote_indent # JUSTIFY                             # at the ending of right indent
+         if   (self.align_footnote == Align.LEFT or self.align_footnote == "l"):
+            pass         
+         elif (self.align_footnote == Align.CENTER or self.align_footnote == "c"):
+            self.left_indent = int((self.left_indent + space_available - len(footnote_msg))/2)
+         elif (self.align_footnote == Align.RIGHT or self.align_footnote == "r"):
+            self.left_indent = self.left_indent + space_available - len(footnote_msg) - 1 # 1 for not jumping line and finished
+         else:
+            self.left_indent = self.footnote_indent # JUSTIFY                             # at the ending of right indent
+
          self.top_lines = self.lines_body_footnote
          self.bottom_lines = bl_obj
          self.bg     = self.bg_footnote;          self.underline = self.underline_footnote   # 4         False
@@ -2548,7 +2518,7 @@ class Draw(Cursor):            # Inheritance the Cursor Class here.
       
       
    def arrow(self,body_length=2, direction=Move.RIGHT):
-      self.jump(self.adj_indent, Move.RIGHT)
+      self.jumpTo(self.adj_indent, Move.RIGHT)
       print(self.tail_chr,end="")
       
       

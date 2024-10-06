@@ -78,7 +78,7 @@ msg.left_indent = 3; msg.right_indent = 3
 msg.print_fancy_header(title_msg=title, body_msg=biography1, footnote_msg=None)
 msg.print_fancy_header(title_msg=None, body_msg=biography2, footnote_msg=None)
 msg.help_lines = True
-msg.print_fancy_letter(title_msg=None, body_msg=biography3, footnote_msg=footnote)
+msg.print_fancy_header(title_msg=None, body_msg=biography3, footnote_msg=footnote)
 fp.ins_newline(3)
 
 msg.left_indent = 10; msg.right_indent = 10
