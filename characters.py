@@ -1,3 +1,4 @@
+import fancyprint as fp
 def insp(n_space=0):
    space = ""
    while n_space > 0:
@@ -100,17 +101,5 @@ print(" \u23A2               \u23AA  ")
 print(" \u23A3               \u23A9  ")
 print()
 
-#----------------------------------------------------------------------------------------------------------------------------------------------------
-# lines
-def print_line(c):
-   print("     ",end="")
-   for n in range(10):
-      print(c,end="")
-   print()
 
 
-chars_lines = ["\u2500","-"] 
-
-
-for ch in chars_lines:
-   print_line(ch)

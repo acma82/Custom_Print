@@ -20,6 +20,8 @@ white_msg.bg_body = 231; white_msg.fg_body = 21; white_msg.bold_body = True
 msg = fp.FancyMessage()   # Note
 msg.right_indent = 5
 
+simple_msg = fp.FancyFormat()
+
 
 crs = fp.Cursor()
 
@@ -697,6 +699,47 @@ def Reset_Style_Method():
 #---------------------------------------------------------------------------------------------------
 def FancyMessage_Class():
    blue_msg.print_fancy_message("FancyMessage Class")
+   simple_msg.adj_top_margin = 1;                   simple_msg.align_title = fp.Align.JUSTIFY
+   simple_msg.bg_title = 231;                       simple_msg.fg_title = 0
+   simple_msg.msg_title = " Note Default Values "; simple_msg.bold_title = True
+
+   # Note Default Values
+   default_values = ["note_msg = \" Note: \" "]
+   simple_msg.print_fancy_format(default_values,fp.Line_Style.NONE)
+
+   
+   # Title Default Values
+   simple_msg.msg_title = " Title Default Values "
+   default_values = [["align_title = Align.LEFT"]]   
+   simple_msg.print_fancy_format(default_values,fp.Line_Style.NONE)
+
+
+   # Body Default Values
+   simple_msg.msg_title = " Body Default Values "
+   default_values = [["bg_body     = 4",     "strike_body = False",    "underline_body = False"],
+                  ["fg_body     = 231",   "italic_body = False",    "blinking_body  = False"],
+                  ["dim_body    = False", "hidden_body = False",    "inverse_body   = False"],
+                  ["bold_body   = False", "body_msg    = Body Msg", "help_lines     = False"]]
+   simple_msg.print_fancy_format(default_values,fp.Line_Style.NONE)
+
+
+   # Footnote Default Values
+   simple_msg.msg_title = " Footnote Default Values "
+   default_values = ["align_footnote = Align.RIGHT"]
+
+   # Indentation and Lines Default Values
+   simple_msg.msg_title = " Default Indent and Line Values "
+   default_values = [["left_indent  = 2 ", "bottom_lines = 1", "length = Length_bg.ALL_ROW"],
+                       ["right_indent = 2",  "top_lines    = 1", "adj_bg_lines_to_right_indent  = False "],
+                       [" "," ",                                 "adj_bg_msg_to_space_available = False"]] 
+   simple_msg.print_fancy_format(default_values,fp.Line_Style.NONE)
+    
+   
+   
+   
+
+
+
    Print_Fancy_Message_Method()
    Print_Fancy_Note_Method()
    Reset_Fancy_Message_Method()

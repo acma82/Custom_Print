@@ -8,12 +8,12 @@ fp.terminal_bell()
 
 
 # bg_ansi_colors function
-fp.ins_newline(1);      blue_msg.print_fancy_msg(" Background Available in Ansi Code...! ")
+fp.ins_newline(1);      blue_msg.print_fancy_message(" Background Available in Ansi Code...! ")
 fp.ins_newline(1);      fp.bg_ansi_colors(bold=True, fg=0, n_line=1)
 
 
 # fg_ansi_colors function
-fp.ins_newline(2);      blue_msg.print_fancy_msg(" Foreground Available in Ansi Code...! ")
+fp.ins_newline(2);      blue_msg.print_fancy_message(" Foreground Available in Ansi Code...! ")
 fp.ins_newline(2);      fp.fg_ansi_colors(bold=True, bg=-1, n_line=1)
 
 

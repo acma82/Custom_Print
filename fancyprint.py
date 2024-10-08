@@ -2358,20 +2358,23 @@ class FancyMessage(Cursor):
       self.bold_body      = False;      self.inverse_body   = obj.inverse     # False     False
       self.dim_body       = False;      self.hidden_body    = obj.hidden;     # False     False
       self.italic_body    = False;      self.strike_body    = obj.strike      # False     False
-            
+      
+      self.body_msg = "Body Msg";       self.help_lines = False
+
       self.left_indent = 2;             self.right_indent = 2
       self.top_lines = 1;               self.bottom_lines = 1
 
-      self.length = Length_bg.ALL_ROW     
+      self.length = Length_bg.ALL_ROW 
+      # These two options don't do anything when length = Length_bg.All_ROW   
       self.adj_bg_lines_to_right_indent = False     # True or False
-      self.adj_bg_msg_to_space_available = False    # False, True or None
+      self.adj_bg_msg_to_space_available = False    # True or False
 
-      self.body_msg = "Paragraph Body"
+      
 
       #--------------------------------------------------------------------
       # Note Settings Here, print_fancy_note
-      self.note_msg = "Warning"
-      self.align_note = Align.JUSTIFY;   self.help_lines = False;          self.position_note = 0 
+      self.note_msg = " Note: "
+      self.align_note = Align.JUSTIFY;   self.position_note = 0 
       self.bg_note = 231;                self.fg_note = 0;                 self.bold_note  = False
       self.dim_note = False;             self.italic_note = False;         self.underline_note = False
       self.blinking_note = False;        self.inverse_note = False;        self.hidden_note = False
@@ -2481,7 +2484,7 @@ class FancyMessage(Cursor):
          return len(number_letter_line_list), space_available, tncols
       
    #---------------------------------------------------------------------------------------------------------------------------------------------------
-   def send_msg_terminal(self,data="Message",type_option="paragraph"):
+   def send_msg_terminal(self,data="Message"):
       def print_bg_lines(lines, bg_format_line_color="\0m"):
          n = lines
          while n>0:

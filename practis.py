@@ -34,42 +34,53 @@ my_data = [["Name",  "Last",   "Age", "Key"],\
            ["Hello", "Bye",     99, "012345"]]
 
 
-lista.print_fancy_format(my_data,fp.Line_Style.DASH)
+# lista.print_fancy_format(my_data,fp.Line_Style.DASH)
 
 print()
 
-# lista.print_fancy_format(my_data)
 
-# print()
-
-# lista.print_fancy_format(my_data,fp.Line_Style.NONE)
-
-# lista.bg_all_cell_data = True    # default
-# lista.bg_all_cell_header = True  # default
-# lista.print_fancy_format(my_data)
-
-# print("\n")
-
-# lista.bg_all_cell_data = False
-# lista.bg_all_cell_header = False
-# lista.print_fancy_format(my_data)
+#----------------------------------------------------------------------------------------------------------------------------------------------------
+# lines
+# indent, tail, body, head, length=1
+def print_horizontal_line(lst):   
+   print(fp.ins_space(lst[0]) + lst[1],end="")   
+   for n in range(lst[4]): print(lst[2],end="")
+   print(lst[3])
 
 
-# # set data
-# set_tags = {1,3,5,7,9}
-# lista.set_layout = fp.Layout.VERTICAL
-# lista.print_fancy_format(data=set_tags,style=fp.Line_Style.SINGLE)
+def print_vertical_line(lst):
+   print(fp.ins_space(lst[0])+lst[1])
+   for n in range(lst[4]): print(fp.ins_space(lst[0]) + lst[2])
+   print(fp.ins_space(lst[0]) + lst[3])
 
-# lista.set_layout = fp.Layout.HORIZONTAL
-# r = range(0,10,2)
-# print(r)
-# lista.update_list = True
-# lista.print_fancy_format(data=r,style=fp.Line_Style.SINGLE)
-# print(r)
+print("\033[1;48;5;90;38;5;231m")
+# indent, tail, body, head, length=1
+chars_lines = [[2,"-","-","-",10],
+               [2,"\u2015","\u2015","\u2015",10],
+               [2,"\u25C0","-","\u25B6",10],
+               [2,"\u25C0","\u2015","\u25B6",10],
+
+               [2,"\u2731","\u2015","\u273D",10],               
+
+               [2,"\u273D","-","\u25B6",10],
+               [2,"\u25C0","-","\u25CF",10],
+               [2,"\u273D","\u2015","\u25B6",10]] 
+
+for ch in chars_lines:
+   print_horizontal_line(ch)
 
 
-# my_data = [[1,2,3,4],[1,2,0],[0]]
-# print(my_data)
-# lista.print_fancy_format(data=my_data,style=fp.Line_Style.SINGLE)
-# print(my_data)
+
+# indent, tail, body, head, length=1
+chars_lines = [[2,"|","|","|",5],
+               [4,"\u25B2","\u254E","\u25BC",5],
+               [6,"\u273D","\u254E","\u25BC",5],
+               [8,"\u25B2","\u254E","\u25BC",5],
+               [10,"\u25B2","\u2503","\u253B",5],
+               [12,"\u25B2","\u2502","\u2534",5]] 
+
+for ch in chars_lines:   
+   print_vertical_line(ch)
+
+
 
