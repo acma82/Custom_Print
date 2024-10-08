@@ -6,23 +6,19 @@ lst = fp.FancyFormat()
 blue_msg  = fp.FancyMessage()  # for titles
 
 green_msg = fp.FancyMessage()  # for subtitles
-green_msg.bg = 2;  green_msg.fg = 0; green_msg.bold = True
+green_msg.bg_body = 2;  green_msg.fg_body = 0; green_msg.bold_body = True
 
 dark_green_msg = fp.FancyMessage()
-dark_green_msg.bg = 22; dark_green_msg.bold = True
+dark_green_msg.bg_body = 22; dark_green_msg.bold_body = True
 
 purple_msg = fp.FancyMessage()
-purple_msg.bg = 90; purple_msg.fg = 231
+purple_msg.bg_body = 90; purple_msg.fg_body = 231
 
 white_msg = fp.FancyMessage()
-white_msg.bg = 231; white_msg.fg = 21; white_msg.bold = True
+white_msg.bg_body = 231; white_msg.fg_body = 21; white_msg.bold_body = True
 
 msg = fp.FancyMessage()   # Note
 msg.right_indent = 5
-
-simple_msg= fp.FancyMessage()
-simple_msg.bg =-1; simple_msg.fg = -1
-simple_msg.right_indent = 5
 
 
 crs = fp.Cursor()
@@ -53,11 +49,11 @@ internal_functions = [[" Internal_Functions "],["ins_space"],["ins_newline"], ["
 
 help_classes       = [[" Help_Classes "],["Move"],["Align"],["Layout"],["Length"],["Style_Line"]]
 
-classes_methods_fancyprint = [["Cursor", "FontStyle",   "FancyMessage",    "FancyFormat"        ,"Draw"],
-                              ["jumpTo",   "get_style",   "print_fancy_msg", "print_fancy_format", "line"],
-                              ["jumpxy",   "reset_style", "print_fancy_note",            "----",   "arrow"],
-                              ["moveTo", "print_style", "print_fancy_header",      "----",       "box"],
-                              ["movexy", "----",        "----",            "----",               "brakets"]]
+classes_methods_fancyprint = [["Cursor",  "FontStyle",    "FancyMessage",        "FancyFormat"        ,"Draw"],
+                              ["jumpTo",  "start_style",  "print_fancy_message", "print_fancy_format", "line"],
+                              ["jumpxy",  "stop_style",   "print_fancy_note",    "reset_fancy_format", "arrow"],
+                              ["moveTo",  "print_style",  "reset_fancy_message", "----",               "box"],
+                              ["movexy",  "reset_style",  "reset_fancy_note",    "----",               "brakets"]]
 
 # classes_methods_fancyprint = [["Cursor", "FontStyle",   "FancyMessage",    "FancyFormat",       ],
 #                               ["jump",   "get_style",   "print_fancy_msg", "print_fancy_format" ],
@@ -73,7 +69,7 @@ def Welcome_Message():
    blue_msg.left_indent = li
    blue_msg.bold = True
    blue_msg.italic = True
-   blue_msg.print_fancy_msg(welcome_msg)
+   blue_msg.print_fancy_message(welcome_msg)
    fp.ins_newline()
 
    lst.bg_all_cell_header = False
@@ -102,11 +98,11 @@ def Welcome_Message():
 
 
    blue_msg.length = fp.Length_bg.ONLY_WORD
-   blue_msg.print_fancy_msg("  Classes and Methods in fancyprint Module ")
+   blue_msg.print_fancy_message("  Classes and Methods in fancyprint Module ")
    lst.msg_title = " Clasess ";         lst.bg_title = 90; lst.fg_title = 231
    lst.bold_title = True;               lst.align_title = fp.Align.LEFT
-   lst.msg_footnote = "Methods";        lst.fg_footnote = 11; 
-   lst.align_footnote = fp.Align.RIGHT; lst.fg_data = 11 
+   lst.msg_footnote = "Methods";        lst.align_footnote = fp.Align.RIGHT
+   lst.fg_footnote = 11;  lst.fg_data = 11
    lst.bg_all_cell_header = True
 
    lst.horizontal_separator_line_on = True
@@ -115,8 +111,8 @@ def Welcome_Message():
 
    print("  To display help for specific function or method, just pass the name as a parameter\n    when running this script.")
    fp.ins_newline(1)
-   fst.print_style(" Example 1: ")
-   print(" python documentation.py clean")
+   fst.print_style(" Example 1:")
+   print(" python documentation.py clean\n")
    #print(f" {fp.set_font(1,231,0)} Example 1: {fp.reset_font()} python documentation.py clean")
    fp.ins_newline(1)
 
@@ -128,12 +124,16 @@ time, it just need to be specified. If it's preferred, it can display all the
 methods for a specific class or a combination of them.'''
    blue_msg.length = fp.Length_bg.ALL_ROW
    blue_msg.bold = False
-   blue_msg.print_fancy_note(note_msg=note, body_msg=message_note)
+   blue_msg.note_msg = note
+   blue_msg.position_note = 2
+   blue_msg.bold_note = True
+   blue_msg.print_fancy_note(body_msg=message_note)
 
    fp.ins_newline(1); fst.print_style(" Example 2: "); print(" python documentation.py clean terminal_bell get_style Cursor")
       
    fp.ins_newline(2); fst.print_style(" Example 3: "); print(" python documentation.py help_functions")
    
+   fp.ins_newline(2)
    message = '''     
      In example 2, notice that we are calling a mix of functions, methods and a class.
   For the class, it will call all the methods that this class contains as shown in the
@@ -144,12 +144,16 @@ methods for a specific class or a combination of them.'''
 
   It's possible to display the complete documentation by passing \"all\" as parameter.
 '''
-   fp.ins_newline(1); blue_msg.length = fp.Length_bg.ONLY_WORD; simple_msg.print_fancy_msg(message)
-
+   blue_msg.left_indent = 2
+   blue_msg.print_fancy_message(message)
+   fp.ins_newline(2)
+   blue_msg.length = fp.Length_bg.ONLY_WORD; 
+   blue_msg.left_indent = li
    message = "  python documentation.py all  "
-   blue_msg.print_fancy_msg(message)
+   blue_msg.print_fancy_message(message)
    
    blue_msg.length = fp.Length_bg.ALL_ROW   
+   blue_msg.left_indent = 2
    lst.msg_title = "";        lst.msg_footnote = ""
    lst.fg_data = -1;          lst.adj_indent = 30
    lst.adj_top_margin = 2;    lst.adj_bottom_margin = 2
@@ -163,7 +167,7 @@ methods for a specific class or a combination of them.'''
 def Screen_Functions():
    blue_msg.bold = True
    blue_msg.italic = True
-   blue_msg.print_fancy_msg("Screen Functions")
+   blue_msg.print_fancy_message("Screen Functions")
    Clean_Function()
    Clear_Function()
    Erase_Function()
@@ -171,7 +175,7 @@ def Screen_Functions():
    Resize_Function()
    fp.ins_newline(3)
    message = "\u25CF Reference \u2192  00_screen_functions.py"
-   dark_green_msg.print_fancy_msg(message)
+   dark_green_msg.print_fancy_message(message)
 
 
 def Clean_Function():
@@ -182,7 +186,7 @@ def Clean_Function():
       It cleans the terminal and return the cursor to home.
       It uses ansi code.
    '''
-   green_msg.print_fancy_msg(screen_funs[1][0])
+   green_msg.print_fancy_message(screen_funs[1][0])
    print(message)
    print(f"{fp.ins_space(6)}{fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp")
    print(f"{fp.ins_space(18)}fp.clear()\n")
@@ -195,7 +199,7 @@ def Clear_Function():
       It cleans the terminal and return the cursor  to home.
       It uses the system command.
    '''
-   green_msg.print_fancy_msg(screen_funs[2][0])
+   green_msg.print_fancy_message(screen_funs[2][0])
    print(message)
    print(f"{fp.ins_space(6)}{fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp")
    print(f"{fp.ins_space(18)}fp.clear()\n")
@@ -208,7 +212,7 @@ def Erase_Function():
       It cleans the terminal and the cursor remain in the same position.
       It uses ansi code.
    '''
-   green_msg.print_fancy_msg(screen_funs[3][0])
+   green_msg.print_fancy_message(screen_funs[3][0])
    print(menssage)
    print(f"{fp.ins_space(6)}{fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp")
    print(f"{fp.ins_space(18)}fp.erase()\n")
@@ -220,7 +224,7 @@ def Dimensions_Function():
    menssage ='''
       It returns the size of the actual terminal: cols, rows.
       '''
-   green_msg.print_fancy_msg(screen_funs[4][0])
+   green_msg.print_fancy_message(screen_funs[4][0])
    print(menssage)
    print(f"{fp.ins_space(6)}{fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp")
    print(f"{fp.ins_space(18)}ncols, nrows = fp.dimensions()\n")
@@ -232,7 +236,7 @@ def Resize_Function():
    message = '''
       It resizes the terminal
          '''
-   green_msg.print_fancy_msg(screen_funs[5][0])
+   green_msg.print_fancy_message(screen_funs[5][0])
    print(message)
    print(f"{fp.ins_space(6)}{fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp")
    print(f"{fp.ins_space(18)}fp.resize(rows = n_rows, cols = n_cols)\n")
@@ -241,20 +245,20 @@ def Resize_Function():
 #  internal_functions in fancyprint Module                                                           -
 #---------------------------------------------------------------------------------------------------
 def Internal_Functions():   
-   blue_msg.print_fancy_msg("Internal Functions")
+   blue_msg.print_fancy_message("Internal Functions")
    Ins_Space_Function()
    Ins_Newline_Function()
    Ansi_Color_Function()   
    Terminal_Bell_Function()
    message = "\u25CF Reference \u2192  01_ansi_colors.py"
-   dark_green_msg.print_fancy_msg(message)
+   dark_green_msg.print_fancy_message(message)
    
 
 def Ins_Space_Function():
    #------------------------------------------------------------------------------------------------
    # ins_space                                                                                     -
    #------------------------------------------------------------------------------------------------
-   green_msg.print_fancy_msg(internal_functions[1][0])
+   green_msg.print_fancy_message(internal_functions[1][0])
    message = f'''
       This function inserts x number of spaces between words.
 
@@ -273,7 +277,7 @@ def Ins_Newline_Function():
    #------------------------------------------------------------------------------------------------
    # ins_newline                                                                                   -
    #------------------------------------------------------------------------------------------------
-   green_msg.print_fancy_msg(internal_functions[2][0])
+   green_msg.print_fancy_message(internal_functions[2][0])
    message = f'''
       This function inserts x number of lines.
 
@@ -296,7 +300,7 @@ def Ansi_Color_Function():
    #------------------------------------------------------------------------------------------------
    # ansi_colors                                                                                -
    #------------------------------------------------------------------------------------------------
-   green_msg.print_fancy_msg(internal_functions[3][0]+": fancy_print contains 4 functions that make use of ansi code.")
+   green_msg.print_fancy_message(internal_functions[3][0]+": fancy_print contains 4 functions that make use of ansi code.")
    print("\n  bg colors available in the ansi code \n")
 
    for i in range(0, 16):
@@ -388,7 +392,7 @@ def Terminal_Bell_Function():
       {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
                   fp.terminal_bell()
       '''
-   green_msg.print_fancy_msg(internal_functions[4][0])
+   green_msg.print_fancy_message(internal_functions[4][0])
    print(message)
    fp.terminal_bell()
 
@@ -396,7 +400,7 @@ def Terminal_Bell_Function():
 # Help_Fucntions                                                                                   -
 #---------------------------------------------------------------------------------------------------
 def Help_Classes():
-   blue_msg.print_fancy_msg("Help Classes")
+   blue_msg.print_fancy_message("Help Classes")
    Move_Class()
    Layout_Class()
    Length_Class()
@@ -406,7 +410,7 @@ def Move_Class():
    #------------------------------------------------------------------------------------------------
    # Move                                                                                          -
    #------------------------------------------------------------------------------------------------
-   green_msg.print_fancy_msg(help_classes[1][0])
+   green_msg.print_fancy_message(help_classes[1][0])
    message = f'''
       This class is used with the Cursor Class and it contains 4 options.
 
@@ -433,7 +437,7 @@ def Align_Class():
    #------------------------------------------------------------------------------------------------
    # Works with FancyFormat (print_fancy_format)
    # works with FancyMessage (print_fancy_note, print_fancy_header)
-   green_msg.print_fancy_msg(help_classes[2][0])
+   green_msg.print_fancy_message(help_classes[2][0])
    message = f'''
 
       Aligns Class is used with the FancyFormat Class and FancyMessage Class.
@@ -461,7 +465,7 @@ def Layout_Class():
    #------------------------------------------------------------------------------------------------
    # works with FancyFormat, range, set, setfrozen obj.set_layout = fp.Layout.VERTICAL
    # works with Draw (line, arrow)
-   green_msg.print_fancy_msg(help_classes[3][0])
+   green_msg.print_fancy_message(help_classes[3][0])
    message = f'''
       
       Layout Class is used on FancyFormat only for the range, set, frozenset type of variables.
@@ -484,7 +488,7 @@ def Length_Class():
    # Length                                                                                        -
    #------------------------------------------------------------------------------------------------
    # FancyMessage   
-   green_msg.print_fancy_msg(help_classes[4][0])
+   green_msg.print_fancy_message(help_classes[4][0])
    message = f'''
    
       Length Class is used with FancyMessage Class and there 2 options.
@@ -502,7 +506,7 @@ def Style_Line_Class():
    # Style_Line                                                                                    -
    #------------------------------------------------------------------------------------------------
    # FancyFormat   
-   green_msg.print_fancy_msg(help_classes[5][0])
+   green_msg.print_fancy_message(help_classes[5][0])
    message = f'''
    
       Style_Line Class is used with FancyFormat Class and Draw Class. There are 7 options.
@@ -516,7 +520,8 @@ def Style_Line_Class():
       {fp.ins_space(10)}  fp.Style_Line.DOUBLE
       {fp.ins_space(10)}  fp.Style_Line.DASH
       {fp.ins_space(10)}  fp.Style_Line.SQR_BRACKETS
-      
+      {fp.ins_space(10)}  fp.Style_Line.NONE
+
       Note: These options can be replaced for the original value as display below:
 
       {fp.ins_space(10)}  fp.Style_Line.CUSTOMIZED     \u2192  \"customized\"  
@@ -524,8 +529,9 @@ def Style_Line_Class():
       {fp.ins_space(10)}  fp.Style_Line.SINGLE_BOLD    \u2192  \"single_bold\" 
       {fp.ins_space(10)}  fp.Style_Line.SINGLE_HEAVY   \u2192  \"single_heavy\"
       {fp.ins_space(10)}  fp.Style_Line.DOUBLE         \u2192  \"double\"
-      {fp.ins_space(10)}  fp.Style_Line.DASH           \u2192  \"dash\"
+      {fp.ins_space(10)}  fp.Style_Line.DASH           \u2192  \"dash\"      
       {fp.ins_space(10)}  fp.Style_Line.SQR_BRACKETS   \u2192  \"sq_brackets\"
+      {fp.ins_space(10)}  fp.Style_Line.NONE           \u2192  \"none\"
    '''
    print(message)
 
@@ -534,7 +540,7 @@ def Style_Line_Class():
 # Cursor Class                                                                                     -
 #---------------------------------------------------------------------------------------------------
 def Cursor_Class():
-   blue_msg.print_fancy_msg("Cursor Classes")
+   blue_msg.print_fancy_message("Cursor Class")
    JumpTo_Method()
    Jumpxy_Method()
    MoveTo_Method()
@@ -544,10 +550,10 @@ def Cursor_Class():
    white_msg.print_fancy_note("Note:", message)
 
    message = "\u25CF Reference \u2192  02_Cursor_Move_Class.py"
-   dark_green_msg.print_fancy_msg(message)
+   dark_green_msg.print_fancy_message(message)
    
 def JumpTo_Method():
-   green_msg.print_fancy_msg(classes_methods_fancyprint[1][0])
+   green_msg.print_fancy_message(classes_methods_fancyprint[1][0])
    message = f'''
    
       jumpTo method is used to jump rows or columns for the cursor in the terminal.
@@ -566,7 +572,7 @@ def JumpTo_Method():
 
 
 def Jumpxy_Method():
-   green_msg.print_fancy_msg(classes_methods_fancyprint[2][0])
+   green_msg.print_fancy_message(classes_methods_fancyprint[2][0])
    message = f'''
    
       jumpxy method is used to jump to especific coordinate on the terminal.
@@ -583,7 +589,7 @@ def Jumpxy_Method():
 
 
 def MoveTo_Method():
-   green_msg.print_fancy_msg(classes_methods_fancyprint[3][0])
+   green_msg.print_fancy_message(classes_methods_fancyprint[3][0])
    message = f'''
    
       moveTo method is used to move rows or columns for the cursor in the terminal.
@@ -605,7 +611,7 @@ def MoveTo_Method():
    print(message2)
 
 def Movexy_Method():
-   green_msg.print_fancy_msg(classes_methods_fancyprint[4][0])
+   green_msg.print_fancy_message(classes_methods_fancyprint[4][0])
    message = f'''
    
       movexy method is used to move to especific coordinate on the terminal.
@@ -621,6 +627,92 @@ def Movexy_Method():
       '''
    print(message)
    print(message2)
+
+
+
+#---------------------------------------------------------------------------------------------------
+# FontStyle Class                                                                                  -
+#---------------------------------------------------------------------------------------------------
+def FontStyle_Class():
+   blue_msg.print_fancy_message("FontStyle Class")
+   font_style_options = [["bold","bg","fg","italic"],
+                        ["dim","underline","blinking","inverse"],
+                        ["hidden","strike","indent","next_line"]]
+   lst.msg_title = "FontStyle Class Variables"
+   lst.bg_header = -1; lst.fg_header = -1
+   lst.print_fancy_format(font_style_options,fp.Line_Style.NONE)
+
+   Start_Stop_Style_Method()
+   Print_Style_Method()
+   Reset_Style_Method()
+
+   message = "\u25CF Reference \u2192  03_FontStyle_Class.py"
+   dark_green_msg.print_fancy_message(message)
+
+def Start_Stop_Style_Method():
+   message = classes_methods_fancyprint[1][1] + " and "+ classes_methods_fancyprint[2][1]
+   green_msg.print_fancy_message(message)
+   message = f'''
+   
+      {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
+      {fp.ins_space(10)}  fs = fp.FontStyle
+      {fp.ins_space(10)}  fs.bg = 14
+      {fp.ins_space(10)}  print(fs.start_style() + " FontStyle Class " + fs.stop_style())
+
+   '''
+   print(message)
+
+def Print_Style_Method():
+   green_msg.print_fancy_message(classes_methods_fancyprint[3][1])
+
+   message = f'''
+   
+      {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
+      {fp.ins_space(10)}  fs = fp.FontStyle
+      {fp.ins_space(10)}  fs.bg = 14
+      {fp.ins_space(10)}  fs.print_style(" FontStyle Class ")
+      {fp.ins_space(10)}  print("  Normal Font...!")
+
+   '''
+   print(message)
+
+def Reset_Style_Method():
+   green_msg.print_fancy_message(classes_methods_fancyprint[4][1])
+   message = f'''
+   
+      {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
+      {fp.ins_space(10)}  fs = fp.FontStyle
+      {fp.ins_space(10)}  fs.bg = 14
+      {fp.ins_space(10)}  fs.print("  FontStyle Class ")
+      {fp.ins_space(10)}  fs.reset_style()
+      {fp.ins_space(10)}  fs.print("  Default Values ")
+
+   '''
+   print(message)
+
+
+
+#---------------------------------------------------------------------------------------------------
+# FancyMessage Class                                                                               -
+#---------------------------------------------------------------------------------------------------
+def FancyMessage_Class():
+   blue_msg.print_fancy_message("FancyMessage Class")
+   Print_Fancy_Message_Method()
+   Print_Fancy_Note_Method()
+   Reset_Fancy_Message_Method()
+   Reset_Fancy_Note_Method()
+
+def Print_Fancy_Message_Method():
+   green_msg.print_fancy_message(classes_methods_fancyprint[1][2])
+
+def Print_Fancy_Note_Method():
+   green_msg.print_fancy_message(classes_methods_fancyprint[2][2])
+
+def Reset_Fancy_Message_Method():
+   green_msg.print_fancy_message(classes_methods_fancyprint[3][2])
+
+def Reset_Fancy_Note_Method():
+   green_msg.print_fancy_message(classes_methods_fancyprint[4][2])
 
 #----------------------------------------------------------------------------------------------------------------------------------------------
 # Start the Documentation for fancyprint Module                                                                                               -
@@ -638,18 +730,26 @@ flag_fancy_format = False;     flag_draw = False
 if (len(cmdl_argv) == 1):
    Welcome_Message()
 
-elif ("all" in cmdl_argv):
+elif ("all" in cmdl_argv):  
    Screen_Functions()
    Internal_Functions()
-   fp.terminal_bell()
+   Help_Classes()
+   Cursor_Class()
+   FontStyle_Class()
+   FancyMessage_Class()
+
    
 
 else:
+   blue_msg.bold = True
+   blue_msg.italic = True
    for fun in cmdl_argv:
       if ("screen_functions" in fun):     Screen_Functions();    flag_screen_functions = True
       elif ("internal_functions" in fun): Internal_Functions();  flag_internal_functions = True
       elif ("help_classes" in fun):       Help_Classes();        flag_help_classes = True
       elif ("cursor" in fun):             Cursor_Class();        flag_cursor = True
+      elif ("fontstyle" in fun):          FontStyle_Class();     flag_font_style = True
+      elif ("fancymessage" in fun):       FancyMessage_Class();  flag_fancy_message = True
       
 
       elif ("clean" == fun and flag_screen_functions == False):           Clean_Function()
@@ -672,10 +772,22 @@ else:
       elif ("style_line" == fun and flag_help_classes == False):          Style_Line_Class()
 
       
-      elif ("jumpto" == fun and flag_cursor == False):                      JumpTo_Method()
-      elif ("jumpxy" == fun and flag_cursor == False):                      Jumpxy_Method()
-      elif ("moveto" == fun and flag_cursor == False):                      MoveTo_Method()
-      elif ("movexy" == fun and flag_cursor == False):                      Movexy_Method()
+      elif ("jumpto" == fun and flag_cursor == False):                    JumpTo_Method()
+      elif ("jumpxy" == fun and flag_cursor == False):                    Jumpxy_Method()
+      elif ("moveto" == fun and flag_cursor == False):                    MoveTo_Method()
+      elif ("movexy" == fun and flag_cursor == False):                    Movexy_Method()
+
+
+      elif ("start_style" == fun and flag_font_style == False):           Start_Stop_Style_Method()
+      elif ("stop_style"  == fun and flag_font_style == False):           Start_Stop_Style_Method()
+      elif ("print_style" == fun and flag_font_style == False):           Print_Style_Method()
+      elif ("reset_style" == fun and flag_font_style == False):           Reset_Style_Method()
+
+
+      elif ("print_fancy_message" == fun  and flag_fancy_message == False):  Print_Fancy_Message_Method()
+      elif ("print_fancy_note"    == fun  and flag_fancy_message == False):  Print_Fancy_Note_Method()
+      elif ("reset_fancy_message" == fun  and flag_fancy_message == False):  Reset_Fancy_Message_Method()
+      elif ("reset_fancy_note"    == fun  and flag_fancy_message == False):  Reset_Fancy_Note_Method() 
 
 
       else: pass
@@ -686,4 +798,4 @@ input("  Press Enter to Continue: ")
 adj_screen(nrows, ncols)
 
 # fp.clear()
-# fp.clean()green_msg.print_fancy_msg(screen_funs[5][0])
+# fp.clean()green_msg.print_fancy_message(screen_funs[5][0])

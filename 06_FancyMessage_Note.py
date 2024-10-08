@@ -1,11 +1,10 @@
 import fancyprint as fp
 msg = fp.FancyMessage()
-crs = fp.Cursor()
 
 
 # Example 1
 
-title = " To Find a Kiss of Yours "
+msg.note_msg = " To Find a Kiss of Yours "
 poem = '''
 1898 - 1936, translated by Sarah Arvio
 
@@ -32,14 +31,30 @@ sediment of the sun
 '''
 ncols, nrows = fp.dimensions()
 fp.resize(35, 100)
-fp.clean()
-msg.position_note = 3  # by default is on row 1
-msg.print_fancy_note(note_msg=title,body_msg=poem)
-msg.left_indent = len(title) + msg.left_space_note + msg.right_space_note
-msg.bold = 1; msg.italic = True; msg.fg = 190
-msg.print_fancy_msg("Author: Federico García Lorca")
+fp.clear()
+#msg.help_lines = True
+msg.top_lines = 2
+msg.bottom_lines = 2
+msg.position_note = 12  # by default is on row 0
+msg.align_note = fp.Align.CENTER
+msg.left_space_note = 6; msg.right_space_note = 6
+msg.left_indent = 25; msg.right_indent = 25
+msg.print_fancy_note(body_msg=poem)
+
+msg.left_indent = len(msg.note_msg) + msg.left_space_note + msg.right_space_note
+
+msg.bold_body = 11; msg.italic_body = True; msg.fg_body = 190
+msg.top_lines = 0; msg.bottom_lines = 1
+
+msg.print_fancy_message("Author: Federico García Lorca")
+
+print("\n")
+
 input("enter to exit:")
+
 fp.resize(nrows,ncols)
+
+
 # Note that the counter start in the bg color. Adding more bottom_lines
 # and top_lines, the number of position_note increases as well.
 
