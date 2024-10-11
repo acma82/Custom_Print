@@ -8,7 +8,6 @@ paragraph2 = " First paragraph, Last paragraph   Come, \" The highway if full of
 fast and folks are smoking anything that  will burn. \""
 
 paragraph3 = '''
-
  I should probably collect a list of the best
  romantic poems ever written, and maybe I will.
  This is not that. I mostly talk about writing
@@ -18,11 +17,10 @@ paragraph3 = '''
  traffic from this keyword, because everybody
  is interested in romantic poetry! When you
  want to tell her how you feel, but do not
- have the words to express all that emotion...! 
+ have the words to express all that emotion...!
+'''
 
- '''
-
-paragraph4 = '''\
+paragraph4 = '''
     +---------------------------------------------------+
     |    I should probably collect a list of the best   |
     |    romantic poems ever written, and maybe I will. |
@@ -42,12 +40,12 @@ paragraph4 = '''\
 msg.left_indent = 15; msg.right_indent = 20    # it's for the string 
 
 msg.top_lines = 1                             # how many lines above and below the string
-msg.lines_title_body = 1
+msg.lines_title_body = 0
 msg.title_msg = "Title"
 msg.bg_title = 14
 msg.fg_title = 0
 msg.bold_title = True
-msg.align_title = fp.Align.CENTER
+msg.align_title = fp.Align.RIGHT
 # msg.title_indent = 6
 
 
@@ -69,7 +67,9 @@ msg.footnote_msg = "FootNote"
 msg.bg_footnote = 14
 msg.fg_footnote = 0
 msg.bold_footnote = True
-msg.bottom_lines = 1
+msg.bottom_lines = 0
+msg.top_lines = 0
+msg.lines_body_footnote = 0
 msg.align_footnote = fp.Align.RIGHT
 
 

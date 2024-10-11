@@ -2374,7 +2374,7 @@ class FancyMessage(Cursor):
       #--------------------------------------------------------------------
       # Note Settings Here, print_fancy_note
       self.note_msg = " Note: "
-      self.align_note = Align.JUSTIFY;   self.position_note = 0 
+      self.align_note = Align.JUSTIFY;   self.position_note = 1 
       self.bg_note = 231;                self.fg_note = 0;                 self.bold_note  = False
       self.dim_note = False;             self.italic_note = False;         self.underline_note = False
       self.blinking_note = False;        self.inverse_note = False;        self.hidden_note = False
@@ -2382,14 +2382,14 @@ class FancyMessage(Cursor):
       
       # Title Settings Here, print_fancy_message
       self.align_title = Align.LEFT;     self.title_indent = 2;            self.title_msg = "" # title_indent works with Align.JUSTIFY
-      self.lines_title_body = 0;         self.strike_title = False
+      self.lines_title_body = 1;         self.strike_title = False
       self.bg_title = 4;                 self.fg_title = 231;              self.bold_title  = False
       self.dim_title = False;            self.italic_title = False;        self.underline_title = False
       self.blinking_title = False;       self.inverse_title = False;       self.hidden_title = False
       
       # Footnote Settings Here, print_fancy_message
       self.align_footnote = Align.RIGHT;  self.footnote_indent = 2;        self.footnote_msg = "" # footnote_indent works with Align.JUSTIFY
-      self.lines_body_footnote = 0;       self.strike_footnote = False
+      self.lines_body_footnote = 1;       self.strike_footnote = False
       self.bg_footnote = 4;               self.fg_footnote = 231;          self.bold_footnote  = False
       self.dim_footnote = False;          self.italic_footnote = False;    self.underline_footnote = False
       self.blinking_footnote = False;     self.inverse_footnote = False;   self.hidden_footnote = False
@@ -2485,12 +2485,15 @@ class FancyMessage(Cursor):
       
    #---------------------------------------------------------------------------------------------------------------------------------------------------
    def send_msg_terminal(self,data="Message"):
-      def print_bg_lines(lines, bg_format_line_color="\0m"):
-         n = lines
-         while n>0:
-            print(bg_format_line_color)
-            n -= 1
-
+      def print_bg_lines(lines, bg_format_line_color="\033[0m"):
+         if (lines == 0):
+            print("\033[0m",end="")
+         else:
+            n = lines
+            while n>0:
+               print(bg_format_line_color)            
+               n -= 1
+      
 
       tncols, space_available, number_letter_line_list, adj_diff_space, new_msg, n_lines = FancyMessage.get_msg_attribute(self,data,True)
 
@@ -2551,8 +2554,10 @@ class FancyMessage(Cursor):
          print()
          if (last_one == nl): pass
          else:                print(start_line,end="")
+      
       # end printing the message
       print_bg_lines(self.bottom_lines, bg_format_line_color) # bg_line
+
 
    #---------------------------------------------------------------------------------------------------------------------------------------------------
    def print_fancy_note(self, body_msg:str="Paragraph Body")->None:
@@ -2565,13 +2570,14 @@ class FancyMessage(Cursor):
       self.left_indent = self.left_space_note + len_note_msg + self.right_space_note
       n_lines, space_available, tncols = self.get_msg_attribute(body_msg)
 
-      self.send_msg_terminal(body_msg)
-
+      
       total_back_lines = self.top_lines + n_lines + self.bottom_lines # (2+8+2) = 12
       if   (self.position_note >= (total_back_lines)): lines_back = 0
       elif (self.position_note <= 0):                  lines_back = total_back_lines
       else:                                            lines_back = total_back_lines - self.position_note 
       
+      self.send_msg_terminal(body_msg)
+
       # settings for the note
       settings_note = set_font(bold=self.bold_note, bg=self.bg_note, fg=self.fg_note, italic=self.italic_note, underline=self.underline_note,\
                                strike=self.strike_note, blinking=self.blinking_note, dim=self.dim_note, hidden=self.hidden_note, inverse=self.inverse_note)
@@ -2592,7 +2598,7 @@ class FancyMessage(Cursor):
       
       self.jumpTo(qty=lines_back-1, direction=Move.DOWN)
       print(f"{reset_font()}",end="")
-      print()
+      
       # putting back original values
       self.left_indent = li_obj
       # n_lines, space_available, tncols are variables for reference to calculate the message      
@@ -2639,6 +2645,12 @@ class FancyMessage(Cursor):
 
          self.bottom_lines = self.lines_title_body
          self.send_msg_terminal(self.title_msg)
+         # This is necessary because when is right alignment, it jumps automatically to the next row
+         if (self.align_title == Align.RIGHT and self.title_msg != ""):
+            print("\033[1A",end="")
+            print(f"{ins_space(tncols)}")
+            print("\033[1A",end="")
+
          # settings for body (we recovered left_indent, and change bottom_lines and change top_lines)               
          
          if not (self.footnote_msg == ""):
@@ -2660,11 +2672,11 @@ class FancyMessage(Cursor):
                
       else:         
          if not self.footnote_msg == "":   self.bottom_lines = self.lines_body_footnote
-         else:                             self.bottom_lines = bl_obj
+         else:                             self.bottom_lines = bl_obj       
          
-         
-         self.send_msg_terminal(body_msg)      
-      
+         self.send_msg_terminal(body_msg)     
+
+
       if not self.footnote_msg == "":
 
 
@@ -2689,7 +2701,16 @@ class FancyMessage(Cursor):
          self.bold_body   = self.bold_footnote;        self.inverse_body   = self.inverse_footnote     # False     False
          self.dim_body    = self.dim_footnote;         self.hidden_body    = self.hidden_footnote;     # False     False
          self.italic_body = self.italic_footnote;      self.strike_body    = self.strike_footnote      # False     False
+         
          self.send_msg_terminal(self.footnote_msg)
+         
+         # This is necessary because when is right alignment, it jumps automatically to the next row
+         if (self.align_footnote == Align.RIGHT and self.footnote_msg != ""):
+            print("\033[1A",end="")
+            print(f"{ins_space(tncols)}")
+            print("\033[1A",end="")
+
+      
 
       else:
          pass
@@ -2705,7 +2726,15 @@ class FancyMessage(Cursor):
       self.footnote_msg = fnm_obj;        self.title_msg      = ti_obj
       # n_lines, space_available, tncols are variables for reference to calculate the message      
       if (self.help_lines == True):
-         print(f"{ins_space(self.left_indent)}Body_Lines:{n_lines}  Space_Available:{space_available}  N.Cols: {tncols}")
+         total_lines = n_lines + self.top_lines + self.bottom_lines
+
+         if (self.title_msg != ""):
+            total_lines += 1 + self.lines_title_body
+         
+         if (self.footnote_msg != ""):
+            total_lines += 1 + self.lines_body_footnote
+
+         print(f"{ins_space(self.left_indent)}Body_Lines:{n_lines}  Space_Available:{space_available}  N.Cols: {tncols}  N.Lines:{total_lines}")
 
    
 #-----------------------------------------------------------------------------------------------------------------------------------------------
