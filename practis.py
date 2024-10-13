@@ -1,86 +1,264 @@
 import fancyprint as fp
 lista = fp.FancyFormat()
+pen = fp.Pen()
+pen.bg_draw_line = 14
+pen.fg_draw_line = 0
+# pen.bold_draw_line = True
 
-# lista.bg_header = 99
-# lista.fg_header = 231
-# lista.bg_data   = 22
-# lista.fg_data   = 231
+#print("\033[1;48;4;90;38;4;231m")
+#pen.adj_indent = 4
 
-lista.bg_title    = 11
-lista.fg_title    = 21
-lista.bold_title  = True
-lista.msg_title   = " Welcome...! "
-lista.align_title = fp.Align.RIGHT
-
-#lista.align_footnote = "r"; 
-lista.bg_footnote    = 6
-lista.fg_footnote    = 0
-lista.bold_footnote  = True
-lista.msg_footnote   = " GoodBye...! "
-lista.align_footnote = fp.Align.LEFT
-
-lista.align_header = fp.Align.CENTER
-lista.align_data = fp.Align.CENTER
-
-lista.horizontal_line_under_header_on = True
-lista.horizontal_separator_line_on = True
-
-# my_data = ["Miguel Angel Aguilar Cuesta"]
-# my_data = [["Miguel","Angel","Aguilar","Cuesta"]]
-# my_data = ["Miguel","Angel","Aguilar","Cuesta"]
-# my_data = [["Miguel"],["Amgel"],["Aguilar"],["Cuesta"],["ACMA_1982_07_18"]]
-my_data = [["Name",  "Last",   "Age", "Key"],\
-           ["Miguel","Aguilar", 42, "ACMA_1982_07_18"],\
-           ["Hello", "Bye",     99, "012345"]]
+# pen.draw_line(size=4,  layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.RIGHT,       arrow=fp.ARROW.FILLED, line=fp.LINE.DASH)
+# pen.draw_line(size=4,  layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.LEFT,        arrow=fp.ARROW.FILLED, line=fp.LINE.DASH)
+# pen.draw_line(size=4, layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.RIGHT_LEFT,  arrow=fp.ARROW.FILLED, line=fp.LINE.DASH)
+# pen.draw_line(size=4, layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.NONE,        arrow=fp.ARROW.FILLED, line=fp.LINE.DASH)
 
 
-# lista.print_fancy_format(my_data,fp.Line_Style.DASH)
+# pen.adj_indent = 14
+# pen.draw_line(size=4,  layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.RIGHT,       arrow=fp.ARROW.FILLED, line=fp.LINE.DDASH)
+# pen.draw_line(size=4,  layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.LEFT,        arrow=fp.ARROW.FILLED, line=fp.LINE.DDASH)
+# pen.draw_line(size=4, layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.RIGHT_LEFT,  arrow=fp.ARROW.FILLED, line=fp.LINE.DDASH)
+# pen.draw_line(size=4, layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.NONE,        arrow=fp.ARROW.FILLED, line=fp.LINE.DDASH)
 
-print()
-
-
-#----------------------------------------------------------------------------------------------------------------------------------------------------
-# lines
-# indent, tail, body, head, length=1
-def print_horizontal_line(lst):   
-   print(fp.ins_space(lst[0]) + lst[1],end="")   
-   for n in range(lst[4]): print(lst[2],end="")
-   print(lst[3])
-
-
-def print_vertical_line(lst):
-   print(fp.ins_space(lst[0])+lst[1])
-   for n in range(lst[4]): print(fp.ins_space(lst[0]) + lst[2])
-   print(fp.ins_space(lst[0]) + lst[3])
-
-print("\033[1;48;5;90;38;5;231m")
-# indent, tail, body, head, length=1
-chars_lines = [[2,"-","-","-",10],
-               [2,"\u2015","\u2015","\u2015",10],
-               [2,"\u25C0","-","\u25B6",10],
-               [2,"\u25C0","\u2015","\u25B6",10],
-
-               [2,"\u2731","\u2015","\u273D",10],               
-
-               [2,"\u273D","-","\u25B6",10],
-               [2,"\u25C0","-","\u25CF",10],
-               [2,"\u273D","\u2015","\u25B6",10]] 
-
-for ch in chars_lines:
-   print_horizontal_line(ch)
+# pen.adj_indent = 24
+# pen.draw_line(size=4,  layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.RIGHT,       arrow=fp.ARROW.FILLED, line=fp.LINE.SOLID)
+# pen.draw_line(size=4,  layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.LEFT,        arrow=fp.ARROW.FILLED, line=fp.LINE.SOLID)
+# pen.draw_line(size=4, layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.RIGHT_LEFT,  arrow=fp.ARROW.FILLED, line=fp.LINE.SOLID)
+# pen.draw_line(size=4, layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.NONE,        arrow=fp.ARROW.FILLED, line=fp.LINE.SOLID)
 
 
+# pen.adj_indent = 44
+# pen.draw_line(size=4,  layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.RIGHT,       arrow=fp.ARROW.FILLED, line=fp.LINE.SPACE)
+# pen.draw_line(size=4,  layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.LEFT,        arrow=fp.ARROW.FILLED, line=fp.LINE.SPACE)
+# pen.draw_line(size=4, layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.RIGHT_LEFT,  arrow=fp.ARROW.FILLED, line=fp.LINE.SPACE)
+# pen.draw_line(size=4, layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.NONE,        arrow=fp.ARROW.FILLED, line=fp.LINE.SPACE)
 
-# indent, tail, body, head, length=1
-chars_lines = [[2,"|","|","|",5],
-               [4,"\u25B2","\u254E","\u25BC",5],
-               [6,"\u273D","\u254E","\u25BC",5],
-               [8,"\u25B2","\u254E","\u25BC",5],
-               [10,"\u25B2","\u2503","\u253B",5],
-               [12,"\u25B2","\u2502","\u2534",5]] 
 
-for ch in chars_lines:   
-   print_vertical_line(ch)
+# pen.draw_line(size=4,  layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.RIGHT,       arrow=fp.ARROW.EMPTY, line=fp.LINE.DASH)
+# pen.draw_line(size=4,  layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.LEFT,        arrow=fp.ARROW.EMPTY, line=fp.LINE.DASH)
+# pen.draw_line(size=4, layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.RIGHT_LEFT,  arrow=fp.ARROW.EMPTY, line=fp.LINE.DASH)
+# pen.draw_line(size=4, layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.NONE,        arrow=fp.ARROW.EMPTY, line=fp.LINE.DASH)
 
+
+# pen.adj_indent = 14
+# pen.draw_line(size=4,  layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.RIGHT,       arrow=fp.ARROW.EMPTY, line=fp.LINE.DDASH)
+# pen.draw_line(size=4,  layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.LEFT,        arrow=fp.ARROW.EMPTY, line=fp.LINE.DDASH)
+# pen.draw_line(size=4, layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.RIGHT_LEFT,  arrow=fp.ARROW.EMPTY, line=fp.LINE.DDASH)
+# pen.draw_line(size=4, layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.NONE,        arrow=fp.ARROW.EMPTY, line=fp.LINE.DDASH)
+
+# pen.adj_indent = 24
+# pen.draw_line(size=4,  layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.RIGHT,       arrow=fp.ARROW.EMPTY, line=fp.LINE.SOLID)
+# pen.draw_line(size=4,  layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.LEFT,        arrow=fp.ARROW.EMPTY, line=fp.LINE.SOLID)
+# pen.draw_line(size=4, layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.RIGHT_LEFT,  arrow=fp.ARROW.EMPTY, line=fp.LINE.SOLID)
+# pen.draw_line(size=4, layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.NONE,        arrow=fp.ARROW.EMPTY, line=fp.LINE.SOLID)
+
+
+# pen.adj_indent = 44
+# pen.draw_line(size=4,  layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.RIGHT,       arrow=fp.ARROW.EMPTY, line=fp.LINE.SPACE)
+# pen.draw_line(size=4,  layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.LEFT,        arrow=fp.ARROW.EMPTY, line=fp.LINE.SPACE)
+# pen.draw_line(size=4, layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.RIGHT_LEFT,  arrow=fp.ARROW.EMPTY, line=fp.LINE.SPACE)
+# pen.draw_line(size=4, layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.NONE,        arrow=fp.ARROW.EMPTY, line=fp.LINE.SPACE)
+
+
+# pen.draw_line(size=4,  layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.RIGHT,       arrow=fp.ARROW.DEFAULT, line=fp.LINE.DASH)
+# pen.draw_line(size=4,  layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.LEFT,        arrow=fp.ARROW.DEFAULT, line=fp.LINE.DASH)
+# pen.draw_line(size=4, layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.RIGHT_LEFT,  arrow=fp.ARROW.DEFAULT, line=fp.LINE.DASH)
+# pen.draw_line(size=4, layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.NONE,        arrow=fp.ARROW.DEFAULT, line=fp.LINE.DASH)
+
+
+# pen.adj_indent = 14
+# pen.draw_line(size=4,  layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.RIGHT,       arrow=fp.ARROW.DEFAULT, line=fp.LINE.DDASH)
+# pen.draw_line(size=4,  layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.LEFT,        arrow=fp.ARROW.DEFAULT, line=fp.LINE.DDASH)
+# pen.draw_line(size=4, layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.RIGHT_LEFT,  arrow=fp.ARROW.DEFAULT, line=fp.LINE.DDASH)
+# pen.draw_line(size=4, layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.NONE,        arrow=fp.ARROW.DEFAULT, line=fp.LINE.DDASH)
+
+pen.adj_indent = 24
+pen.draw_line(size=4,  layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.RIGHT,       arrow=fp.ARROW.DEFAULT, line=fp.LINE.SOLID)
+pen.draw_line(size=4,  layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.LEFT,        arrow=fp.ARROW.DEFAULT, line=fp.LINE.SOLID)
+pen.draw_line(size=4, layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.RIGHT_LEFT,  arrow=fp.ARROW.DEFAULT, line=fp.LINE.SOLID)
+pen.draw_line(size=4, layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.NONE,        arrow=fp.ARROW.DEFAULT, line=fp.LINE.SOLID)
+
+
+pen.adj_indent = 44
+pen.draw_line(size=4,  layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.RIGHT,       arrow=fp.ARROW.DEFAULT, line=fp.LINE.SPACE)
+pen.draw_line(size=4,  layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.LEFT,        arrow=fp.ARROW.DEFAULT, line=fp.LINE.SPACE)
+pen.draw_line(size=4, layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.RIGHT_LEFT,  arrow=fp.ARROW.DEFAULT, line=fp.LINE.SPACE)
+pen.draw_line(size=4, layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.NONE,        arrow=fp.ARROW.DEFAULT, line=fp.LINE.SPACE)
+
+
+pen.adj_indent = 44
+pen.draw_line(size=4,  layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.RIGHT,       arrow=fp.ARROW.DEFAULT, line=fp.LINE.DEFAULT)
+pen.draw_line(size=4,  layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.LEFT,        arrow=fp.ARROW.DEFAULT, line=fp.LINE.DEFAULT)
+pen.draw_line(size=4, layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.RIGHT_LEFT,  arrow=fp.ARROW.DEFAULT, line=fp.LINE.DEFAULT)
+pen.draw_line(size=4, layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.NONE,        arrow=fp.ARROW.DEFAULT, line=fp.LINE.DEFAULT)
+
+
+pen.adj_indent = 14
+pen.draw_line(size=4,  layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.RIGHT,       arrow=fp.ARROW.NONE, line=fp.LINE.DDASH)
+pen.draw_line(size=4,  layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.LEFT,        arrow=fp.ARROW.NONE, line=fp.LINE.DDASH)
+pen.draw_line(size=4, layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.RIGHT_LEFT,   arrow=fp.ARROW.NONE, line=fp.LINE.DDASH)
+pen.draw_line(size=4, layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.NONE,         arrow=fp.ARROW.NONE, line=fp.LINE.DDASH)
+
+pen.adj_indent = 24
+pen.draw_line(size=4,  layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.RIGHT,       arrow=fp.ARROW.NONE, line=fp.LINE.SOLID)
+pen.draw_line(size=4,  layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.LEFT,        arrow=fp.ARROW.NONE, line=fp.LINE.SOLID)
+pen.draw_line(size=4, layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.RIGHT_LEFT,   arrow=fp.ARROW.NONE, line=fp.LINE.SOLID)
+pen.draw_line(size=4, layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.NONE,         arrow=fp.ARROW.NONE, line=fp.LINE.SOLID)
+
+
+pen.adj_indent = 44
+pen.draw_line(size=4,  layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.RIGHT,       arrow=fp.ARROW.NONE, line=fp.LINE.SPACE)
+pen.draw_line(size=4,  layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.LEFT,        arrow=fp.ARROW.NONE, line=fp.LINE.SPACE)
+pen.draw_line(size=4, layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.RIGHT_LEFT,   arrow=fp.ARROW.NONE, line=fp.LINE.SPACE)
+pen.draw_line(size=4, layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.NONE,         arrow=fp.ARROW.NONE, line=fp.LINE.SPACE)
+
+
+pen.adj_indent = 44
+pen.draw_line(size=4,  layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.RIGHT,       arrow=fp.ARROW.NONE, line=fp.LINE.DEFAULT)
+pen.draw_line(size=4,  layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.LEFT,        arrow=fp.ARROW.NONE, line=fp.LINE.DEFAULT)
+pen.draw_line(size=4, layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.RIGHT_LEFT,   arrow=fp.ARROW.NONE, line=fp.LINE.DEFAULT)
+pen.draw_line(size=4, layout=fp.Layout.HORIZONTAL,  direction=fp.DIRECTION.NONE,         arrow=fp.ARROW.NONE, line=fp.LINE.DEFAULT)
+
+print("")
+
+# pen.draw_line(20)
+
+
+
+# pen.adj_indent = 2
+# pen.draw_line(size=4,  layout=fp.Layout.VERTICAL,  direction=fp.DIRECTION.UP,       arrow=fp.ARROW.FILLED, line=fp.LINE.DASH)
+# pen.adj_indent = 4
+# pen.draw_line(size=4,  layout=fp.Layout.VERTICAL,  direction=fp.DIRECTION.DOWN,     arrow=fp.ARROW.FILLED, line=fp.LINE.DASH)
+# pen.adj_indent = 6
+# pen.draw_line(size=4,  layout=fp.Layout.VERTICAL,  direction=fp.DIRECTION.UP_DOWN,  arrow=fp.ARROW.FILLED, line=fp.LINE.DASH)
+# pen.adj_indent = 8
+# pen.draw_line(size=4,  layout=fp.Layout.VERTICAL,  direction=fp.DIRECTION.NONE,     arrow=fp.ARROW.FILLED, line=fp.LINE.DASH)
+
+
+# pen.adj_indent = 2
+# pen.draw_line(size=4,  layout=fp.Layout.VERTICAL,  direction=fp.DIRECTION.UP,      arrow=fp.ARROW.FILLED, line=fp.LINE.DDASH)
+# pen.adj_indent = 4
+# pen.draw_line(size=4,  layout=fp.Layout.VERTICAL,  direction=fp.DIRECTION.DOWN,    arrow=fp.ARROW.FILLED, line=fp.LINE.DDASH)
+# pen.adj_indent = 6
+# pen.draw_line(size=4, layout=fp.Layout.VERTICAL,  direction=fp.DIRECTION.UP_DOWN,  arrow=fp.ARROW.FILLED, line=fp.LINE.DDASH)
+# pen.adj_indent = 8
+# pen.draw_line(size=4, layout=fp.Layout.VERTICAL,  direction=fp.DIRECTION.NONE,     arrow=fp.ARROW.FILLED, line=fp.LINE.DDASH)
+
+# pen.adj_indent = 2
+# pen.draw_line(size=4,  layout=fp.Layout.VERTICAL,  direction=fp.DIRECTION.UP,       arrow=fp.ARROW.FILLED, line=fp.LINE.SOLID)
+# pen.adj_indent = 4
+# pen.draw_line(size=4,  layout=fp.Layout.VERTICAL,  direction=fp.DIRECTION.DOWN,     arrow=fp.ARROW.FILLED, line=fp.LINE.SOLID)
+# pen.adj_indent = 6
+# pen.draw_line(size=4,  layout=fp.Layout.VERTICAL,  direction=fp.DIRECTION.UP_DOWN,  arrow=fp.ARROW.FILLED, line=fp.LINE.SOLID)
+# pen.adj_indent = 8
+# pen.draw_line(size=4,  layout=fp.Layout.VERTICAL,  direction=fp.DIRECTION.NONE,     arrow=fp.ARROW.FILLED, line=fp.LINE.SOLID)
+
+
+# pen.adj_indent = 2
+# pen.draw_line(size=4,  layout=fp.Layout.VERTICAL,  direction=fp.DIRECTION.UP,       arrow=fp.ARROW.FILLED, line=fp.LINE.SPACE)
+# pen.adj_indent = 4
+# pen.draw_line(size=4,  layout=fp.Layout.VERTICAL,  direction=fp.DIRECTION.DOWN,     arrow=fp.ARROW.FILLED, line=fp.LINE.SPACE)
+# pen.adj_indent = 6
+# pen.draw_line(size=4, layout=fp.Layout.VERTICAL,  direction=fp.DIRECTION.UP_DOWN,   arrow=fp.ARROW.FILLED, line=fp.LINE.SPACE)
+# pen.adj_indent = 8
+# pen.draw_line(size=4, layout=fp.Layout.VERTICAL,  direction=fp.DIRECTION.NONE,      arrow=fp.ARROW.FILLED, line=fp.LINE.SPACE)
+
+
+# pen.adj_indent = 2
+# pen.draw_line(size=4,  layout=fp.Layout.VERTICAL,  direction=fp.DIRECTION.UP,       arrow=fp.ARROW.EMPTY, line=fp.LINE.DASH)
+# pen.adj_indent = 4
+# pen.draw_line(size=4,  layout=fp.Layout.VERTICAL,  direction=fp.DIRECTION.DOWN,     arrow=fp.ARROW.EMPTY, line=fp.LINE.DASH)
+# pen.adj_indent = 6
+# pen.draw_line(size=4, layout=fp.Layout.VERTICAL,  direction=fp.DIRECTION.UP_DOWN,   arrow=fp.ARROW.EMPTY, line=fp.LINE.DASH)
+# pen.adj_indent = 8
+# pen.draw_line(size=4, layout=fp.Layout.VERTICAL,  direction=fp.DIRECTION.NONE,      arrow=fp.ARROW.EMPTY, line=fp.LINE.DASH)
+
+
+# pen.adj_indent = 2
+# pen.draw_line(size=4,  layout=fp.Layout.VERTICAL,  direction=fp.DIRECTION.UP,       arrow=fp.ARROW.EMPTY, line=fp.LINE.DDASH)
+# pen.adj_indent = 4
+# pen.draw_line(size=4,  layout=fp.Layout.VERTICAL,  direction=fp.DIRECTION.DOWN,     arrow=fp.ARROW.EMPTY, line=fp.LINE.DDASH)
+# pen.adj_indent = 6
+# pen.draw_line(size=4, layout=fp.Layout.VERTICAL,  direction=fp.DIRECTION.UP_DOWN,   arrow=fp.ARROW.EMPTY, line=fp.LINE.DDASH)
+# pen.adj_indent = 8
+# pen.draw_line(size=4, layout=fp.Layout.VERTICAL,  direction=fp.DIRECTION.NONE,      arrow=fp.ARROW.EMPTY, line=fp.LINE.DDASH)
+
+# pen.adj_indent = 2
+# pen.draw_line(size=4,  layout=fp.Layout.VERTICAL,  direction=fp.DIRECTION.UP,       arrow=fp.ARROW.EMPTY, line=fp.LINE.SOLID)
+# pen.adj_indent = 4
+# pen.draw_line(size=4,  layout=fp.Layout.VERTICAL,  direction=fp.DIRECTION.DOWN,     arrow=fp.ARROW.EMPTY, line=fp.LINE.SOLID)
+# pen.adj_indent = 6
+# pen.draw_line(size=4, layout=fp.Layout.VERTICAL,  direction=fp.DIRECTION.UP_DOWN,   arrow=fp.ARROW.EMPTY, line=fp.LINE.SOLID)
+# pen.adj_indent = 8
+# pen.draw_line(size=4, layout=fp.Layout.VERTICAL,  direction=fp.DIRECTION.NONE,      arrow=fp.ARROW.EMPTY, line=fp.LINE.SOLID)
+
+
+# pen.adj_indent = 2
+# pen.draw_line(size=4,  layout=fp.Layout.VERTICAL,  direction=fp.DIRECTION.UP,       arrow=fp.ARROW.EMPTY, line=fp.LINE.SPACE)
+# pen.adj_indent = 4
+# pen.draw_line(size=4,  layout=fp.Layout.VERTICAL,  direction=fp.DIRECTION.DOWN,     arrow=fp.ARROW.EMPTY, line=fp.LINE.SPACE)
+# pen.adj_indent = 6
+# pen.draw_line(size=4, layout=fp.Layout.VERTICAL,  direction=fp.DIRECTION.UP_DOWN,   arrow=fp.ARROW.EMPTY, line=fp.LINE.SPACE)
+# pen.adj_indent = 8
+# pen.draw_line(size=4, layout=fp.Layout.VERTICAL,  direction=fp.DIRECTION.NONE,      arrow=fp.ARROW.EMPTY, line=fp.LINE.SPACE)
+
+# pen.adj_indent = 2
+# pen.draw_line(size=4,  layout=fp.Layout.VERTICAL,  direction=fp.DIRECTION.UP,       arrow=fp.ARROW.DEFAULT, line=fp.LINE.DASH)
+# pen.adj_indent = 4
+# pen.draw_line(size=4,  layout=fp.Layout.VERTICAL,  direction=fp.DIRECTION.DOWN,     arrow=fp.ARROW.DEFAULT, line=fp.LINE.DASH)
+# pen.adj_indent = 6
+# pen.draw_line(size=4, layout=fp.Layout.VERTICAL,  direction=fp.DIRECTION.UP_DOWN,   arrow=fp.ARROW.DEFAULT, line=fp.LINE.DASH)
+# pen.adj_indent = 8
+# pen.draw_line(size=4, layout=fp.Layout.VERTICAL,  direction=fp.DIRECTION.NONE,      arrow=fp.ARROW.DEFAULT, line=fp.LINE.DASH)
+
+
+# pen.adj_indent = 2
+# pen.draw_line(size=4,  layout=fp.Layout.VERTICAL,  direction=fp.DIRECTION.UP,       arrow=fp.ARROW.DEFAULT, line=fp.LINE.DDASH)
+# pen.adj_indent = 4
+# pen.draw_line(size=4,  layout=fp.Layout.VERTICAL,  direction=fp.DIRECTION.DOWN,     arrow=fp.ARROW.DEFAULT, line=fp.LINE.DDASH)
+# pen.adj_indent = 6
+# pen.draw_line(size=4, layout=fp.Layout.VERTICAL,  direction=fp.DIRECTION.UP_DOWN,   arrow=fp.ARROW.DEFAULT, line=fp.LINE.DDASH)
+# pen.adj_indent = 8
+# pen.draw_line(size=4, layout=fp.Layout.VERTICAL,  direction=fp.DIRECTION.NONE,      arrow=fp.ARROW.DEFAULT, line=fp.LINE.DDASH)
+
+# pen.adj_indent = 2
+# pen.draw_line(size=4,  layout=fp.Layout.VERTICAL,  direction=fp.DIRECTION.UP,       arrow=fp.ARROW.DEFAULT, line=fp.LINE.SOLID)
+# pen.adj_indent = 4
+# pen.draw_line(size=4,  layout=fp.Layout.VERTICAL,  direction=fp.DIRECTION.DOWN,     arrow=fp.ARROW.DEFAULT, line=fp.LINE.SOLID)
+# pen.adj_indent = 6
+# pen.draw_line(size=4, layout=fp.Layout.VERTICAL,  direction=fp.DIRECTION.UP_DOWN,   arrow=fp.ARROW.DEFAULT, line=fp.LINE.SOLID)
+# pen.adj_indent = 8
+# pen.draw_line(size=4, layout=fp.Layout.VERTICAL,  direction=fp.DIRECTION.NONE,      arrow=fp.ARROW.DEFAULT, line=fp.LINE.SOLID)
+
+
+# pen.adj_indent = 2
+# pen.draw_line(size=4,  layout=fp.Layout.VERTICAL,  direction=fp.DIRECTION.UP,       arrow=fp.ARROW.DEFAULT, line=fp.LINE.SPACE)
+# pen.adj_indent = 4
+# pen.draw_line(size=4,  layout=fp.Layout.VERTICAL,  direction=fp.DIRECTION.DOWN,     arrow=fp.ARROW.DEFAULT, line=fp.LINE.SPACE)
+# pen.adj_indent = 6
+# pen.draw_line(size=4, layout=fp.Layout.VERTICAL,  direction=fp.DIRECTION.UP_DOWN,   arrow=fp.ARROW.DEFAULT, line=fp.LINE.SPACE)
+# pen.adj_indent = 8
+# pen.draw_line(size=4, layout=fp.Layout.VERTICAL,  direction=fp.DIRECTION.NONE,      arrow=fp.ARROW.DEFAULT, line=fp.LINE.SPACE)
+
+
+# pen.adj_indent = 2
+# pen.draw_line(size=4,  layout=fp.Layout.VERTICAL,  direction=fp.DIRECTION.UP,       arrow=fp.ARROW.DEFAULT, line=fp.LINE.DEFAULT)
+# pen.adj_indent = 4
+# pen.draw_line(size=4,  layout=fp.Layout.VERTICAL,  direction=fp.DIRECTION.DOWN,     arrow=fp.ARROW.DEFAULT, line=fp.LINE.DEFAULT)
+# pen.adj_indent = 6
+# pen.draw_line(size=4, layout=fp.Layout.VERTICAL,  direction=fp.DIRECTION.UP_DOWN,   arrow=fp.ARROW.DEFAULT, line=fp.LINE.DEFAULT)
+# pen.adj_indent = 8
+# pen.draw_line(size=4, layout=fp.Layout.VERTICAL,  direction=fp.DIRECTION.NONE,      arrow=fp.ARROW.DEFAULT, line=fp.LINE.DEFAULT)
+
+# pen.adj_indent = 1
+# pen.draw_line(5,fp.Layout.VERTICAL)
+
+
+pen.bold_draw_line = True
+lista.adj_indent = 0
+lista.print_fancy_format("012")
+print("+-+")
+pen.adj_indent = 0
+pen.draw_rectangle(100,25,fp.Line_Style.DASH)
 
 
