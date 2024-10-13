@@ -1994,20 +1994,22 @@ class FancyFormat():
             self.horizontal_line_under_header_chr = " ";    self.left_corner_under_line_header_chr = "\u2502"
             self.right_corner_under_line_header_chr = "\u2502";  self.middle_corner_under_line_header_chr = " "
 
+
+   
          elif (style.lower() == Line_Style.DASH):
             # Horizontal Line Section
-            self.top_horizontal_line_chr = "\u002D";      self.bottom_horizontal_line_chr="\u002D";     self.horizontal_line_chr = "\u002D"
+            self.top_horizontal_line_chr = "\u002D";       self.bottom_horizontal_line_chr="\u002D";       self.horizontal_line_chr = "\u002D"
             #-------------------------------------------------------------------------------------------------------------------------------------------
             # Vertical Line Section
-            self.left_vertical_line_chr  = "\u254E";      self.middle_vertical_line_chr = "\u254E";     self.right_vertical_line_chr = "\u254E" #06"
+            self.left_vertical_line_chr  = "\u254E";       self.middle_vertical_line_chr = "\u254E";       self.right_vertical_line_chr = "\u254E"
             #-------------------------------------------------------------------------------------------------------------------------------------------
             # Outside Corner Section
-            self.top_left_corner_chr = "\u002B";          self.top_right_corner_chr = "\u002B"
-            self.bottom_right_corner_chr="\u002B";        self.bottom_left_corner_chr="\u002B"
+            self.top_left_corner_chr = "\u002B";           self.top_right_corner_chr = "\u002B"
+            self.bottom_right_corner_chr="\u002B";         self.bottom_left_corner_chr="\u002B"
             #-------------------------------------------------------------------------------------------------------------------------------------------
             # Middle Corner Section
-            self.middle_top_corner_chr =  "\u002B";   self.middle_bottom_corner_chr = "\u002B"; self.middle_inner_corner_chr =  "\u002B"
-            self.left_lateral_corner_chr =  "\u002B"; self.right_lateral_corner_chr = "\u002B"
+            self.middle_top_corner_chr =  "\u002B";        self.middle_bottom_corner_chr = "\u002B";       self.middle_inner_corner_chr =  "\u002B"
+            self.left_lateral_corner_chr =  "\u002B";      self.right_lateral_corner_chr = "\u002B"
             #-------------------------------------------------------------------------------------------------------------------------------------------
             # Header Section  Only for Matrix List
             self.left_vertical_header_line_chr = "\u254E"; self.right_vertical_header_line_chr = "\u254E"; self.middle_vertical_header_line_chr = "\u254E"
@@ -2016,26 +2018,25 @@ class FancyFormat():
             self.horizontal_line_under_header_chr = "\u002D";          self.left_corner_under_line_header_chr = "\u002B"
             self.right_corner_under_line_header_chr = "\u002B";        self.middle_corner_under_line_header_chr = "\u002B"
 
-            # data_list = data2list(self,data)
-            # my_length = get_total_length(self, data_list)
-            # print(my_length)
    
+
          elif (style.lower() == Line_Style.NONE):
             # Horizontal Line Section
-            self.top_horizontal_line_chr = " ";      self.bottom_horizontal_line_chr=" ";     self.horizontal_line_chr = " "
+            self.top_horizontal_line_chr = " ";             self.bottom_horizontal_line_chr=" ";           self.horizontal_line_chr = " "
             #-------------------------------------------------------------------------------------------------------------------------------------------
             # Vertical Line Section
-            self.left_vertical_line_chr  = " ";      self.middle_vertical_line_chr = " ";     self.right_vertical_line_chr = " "
+            self.left_vertical_line_chr  = " ";             self.middle_vertical_line_chr = " ";           self.right_vertical_line_chr = " "
             #-------------------------------------------------------------------------------------------------------------------------------------------
             # Outside Corner Section
-            self.top_left_corner_chr = " ";  self.top_right_corner_chr = " "; self.bottom_right_corner_chr=" "; self.bottom_left_corner_chr=" "
+            self.top_left_corner_chr = " ";                 self.top_right_corner_chr = " "
+            self.bottom_right_corner_chr=" ";               self.bottom_left_corner_chr=" "
             #-------------------------------------------------------------------------------------------------------------------------------------------
             # Middle Corner Section
-            self.middle_top_corner_chr =  " ";   self.middle_bottom_corner_chr = " "; self.middle_inner_corner_chr =  " "
-            self.left_lateral_corner_chr =  " "; self.right_lateral_corner_chr = " "
+            self.middle_top_corner_chr =  " ";              self.middle_bottom_corner_chr = " ";           self.middle_inner_corner_chr =  " "
+            self.left_lateral_corner_chr =  " ";            self.right_lateral_corner_chr = " "
             #-------------------------------------------------------------------------------------------------------------------------------------------
             # Header Section  Only for Matrix List
-            self.left_vertical_header_line_chr = " "; self.right_vertical_header_line_chr = " "; self.middle_vertical_header_line_chr = " "
+            self.left_vertical_header_line_chr = " ";       self.right_vertical_header_line_chr = " ";     self.middle_vertical_header_line_chr = " "
             #-------------------------------------------------------------------------------------------------------------------------------------------
             # Under Line Header Section  Only for Matrix List
             self.horizontal_line_under_header_chr = " ";    self.left_corner_under_line_header_chr = " "
@@ -2369,40 +2370,17 @@ class FontStyle():
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 #-----------------------------------------------------------------------------------------------------------------------------------------------
-# Font Customize Class for Fancy Message Class                                                                                                 -
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-# pending this class
-class FontCustomization():
-   def __init__(self):
-      self.bg = 4
-      self.fg = 231
-      self.bold   = False      
-      self.dim    = False
-      self.italic = False
-      self.underline = False
-      self.blinking  = False
-      self.inverse   = False
-      self.hidden = False
-      self.strike = False
-
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-#-----------------------------------------------------------------------------------------------------------------------------------------------
 # Fancy Message Class (Single line or a Paragraph Text in the Terminal)                                                                        -
 #-----------------------------------------------------------------------------------------------------------------------------------------------
-#class FancyMessage(FontCustomization):
-#class FancyMessage():
 class FancyMessage(Cursor):
-   font_customization = FontCustomization()
-   def __init__(self,obj=font_customization):
+   def __init__(self):
       super().__init__()       # Super Class to use all (vars and funs) from Cursor Class
                                # with the Initialization Draw Class(self), ex. self.gotoxy(x,y)
-      self.bg_body        = 4;          self.underline_body = obj.underline   # 4         False
-      self.fg_body        = 231;        self.blinking_body  = obj.blinking    # 231       False
-      self.bold_body      = False;      self.inverse_body   = obj.inverse     # False     False
-      self.dim_body       = False;      self.hidden_body    = obj.hidden;     # False     False
-      self.italic_body    = False;      self.strike_body    = obj.strike      # False     False
+      self.bg_body        = 4;          self.underline_body = False     # 4         False
+      self.fg_body        = 231;        self.blinking_body  = False     # 231       False
+      self.bold_body      = False;      self.inverse_body   = False     # False     False
+      self.dim_body       = False;      self.hidden_body    = False     # False     False
+      self.italic_body    = False;      self.strike_body    = False     # False     False
       
       self.body_msg = "Body Msg";       self.help_lines = False
 
@@ -2554,7 +2532,8 @@ class FancyMessage(Cursor):
       # self.adj_bg_msg_to_space_available by default = False
       if (self.length == Length_bg.ALL_ROW):
          bg_format_line_color = f"{color2}{ins_space(tncols)}{reset_font()}"
-         start_line = f"{color2}{ins_space(self.left_indent)}" # change color for color2 to delete at the beginning the strike, and/or underline option(s)
+         # change color for color2 to delete at the beginning the strike, and/or underline option(s)
+         start_line = f"{color2}{ins_space(self.left_indent)}"
 
       elif (self.length == Length_bg.ONLY_WORD):         
          if (self.adj_bg_lines_to_right_indent == True):
@@ -2683,8 +2662,8 @@ class FancyMessage(Cursor):
             sp = space_available - len(self.title_msg) # 1 for not jumping line and finished
             self.title_msg = ins_space(sp) + self.title_msg
 
-         else:
-            self.title_msg = ins_space(self.title_indent) + self.title_msg             # JUSTIFY
+         else:                   # Align.JUSTIFY
+            self.title_msg = ins_space(self.title_indent) + self.title_msg
 
             
 
@@ -2762,14 +2741,15 @@ class FancyMessage(Cursor):
 
 
       # putting back original values
-      self.top_lines = tl_obj;       self.left_indent = li_obj;       #  self.bottom_lines = bl_obj
+      self.top_lines = tl_obj;            self.left_indent = li_obj;            #  self.bottom_lines = bl_obj
       self.bg_body     = bg_obj;          self.underline_body = underline_ojb   # 4         False
       self.fg_body     = fg_obj;          self.blinking_body  = blinking_obj    # 231       False
       self.bold_body   = bold_obj;        self.inverse_body   = inverse_obj     # False     False
       self.dim_body    = dim_obj;         self.hidden_body    = hidden_obj;     # False     False
       self.italic_body = italic_obj;      self.strike_body    = strike_obj      # False     False
       self.footnote_msg = fnm_obj;        self.title_msg      = ti_obj
-      # n_lines, space_available, tncols are variables for reference to calculate the message      
+
+      # n_lines, space_available, tncols are variables for reference to calculate the message
       if (self.help_lines == True):
          total_lines = n_lines + self.top_lines + self.bottom_lines
 
@@ -2790,7 +2770,7 @@ class FancyMessage(Cursor):
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 # Class Draw Pictures Around The Terminal                                                                                                      -
 #-----------------------------------------------------------------------------------------------------------------------------------------------
-class Pen(Cursor):            # Inheritance the Cursor Class here.   
+class Pen(Cursor):             # Inheritance the Cursor Class here.   
    def __init__(self):         # Initializing Draw Class as self
       super().__init__()       # Super Class to use all (vars and funs) from Cursor Class
                                # with the Initialization Draw Class(self), ex. self.gotoxy(x,y)
@@ -2800,7 +2780,8 @@ class Pen(Cursor):            # Inheritance the Cursor Class here.
       # Vertical Line Section    
       self.left_vertical_line_chr="|";   self.right_vertical_line_chr="|"
       # Corner Section 
-      self.top_left_corner_chr="+";      self.top_right_corner_chr="+";       self.bottom_right_corner_chr="+";  self.bottom_left_corner_chr="+"     
+      self.top_left_corner_chr="+";      self.top_right_corner_chr="+"
+      self.bottom_right_corner_chr="+";  self.bottom_left_corner_chr="+"     
       
       # line and arrow
       # Horizontal arrows and lines
@@ -2818,29 +2799,33 @@ class Pen(Cursor):            # Inheritance the Cursor Class here.
       self.bold_draw_line = False
       self.bg_draw_line = -1                   # values -1 to 255
       self.fg_draw_line = -1                   # values -1 to 255
+      self.refill_bg_color = False
       
 
 
       
    def draw_line(self,size=3, layout=Layout.HORIZONTAL, direction=DIRECTION.RIGHT_LEFT, arrow=ARROW.DEFAULT, line=LINE.DEFAULT):
       # Horizontal Option
-      def _print_horiz_arrow_line(settings, indent, tail, body, head):         
+      def _print_horiz_arrow_line(settings, indent, tail, body, head):
          self.jumpTo(qty = indent, direction = Move.RIGHT)
          print(f"{settings}{tail}",end="")
          for n in range(size-2): print(body,end="")
          print(head)
          reset_font()
 
-      def _print_vert_arrow_line(settings, indent, tail, body, head):            
+      def _print_vert_arrow_line(settings, indent, tail, body, head):
             self.jumpTo(qty = indent, direction = Move.RIGHT)
             print(f"{settings}{tail}")
             for n in range(size-2): print(f"{self.moveTo(qty = indent, direction = Move.RIGHT)}{body}")
             print(f"{self.moveTo(qty=indent, direction=Move.RIGHT)}{head}")
             reset_font()
 
+     
+      settings = set_font(self.bold_draw_line, self.bg_draw_line, self.fg_draw_line)
+      tail = ""; body = ""; head = ""
+      
       if size <= 2: size = 3
 
-      tail = ""; body = ""; head = ""
       # Working with horizontal line
       if (layout == Layout.HORIZONTAL):
          if   (line == LINE.DASH):  body = "-"
@@ -2883,7 +2868,7 @@ class Pen(Cursor):            # Inheritance the Cursor Class here.
             tail = body
             head = body
 
-         settings = set_font(self.bold_draw_line, self.bg_draw_line, self.fg_draw_line)
+         
          _print_horiz_arrow_line(settings, self.adj_indent, tail, body, head)
 
            
@@ -2930,7 +2915,7 @@ class Pen(Cursor):            # Inheritance the Cursor Class here.
             tail = self.vertical_tail_chr # body
             head = self.vertical_head_chr # body
          
-         settings = set_font(self.bold_draw_line, self.bg_draw_line, self.fg_draw_line)
+         
          _print_vert_arrow_line(settings, self.adj_indent, tail, body, head)
 
 
@@ -2943,67 +2928,232 @@ class Pen(Cursor):            # Inheritance the Cursor Class here.
       if length <= 2: length = 3   # length = largo, width = alto
       if width  <= 2: width  = 3
       
-      square = []
+      if self.refill_bg_color == True:
+         square = []
 
-      sq_in = FancyFormat()
-      # General
-      sq_in.adj_indent = self.adj_indent
-      sq_in.adj_space  = 0
+         sq_in = FancyFormat()
+         # General
+         sq_in.adj_indent = self.adj_indent
+         sq_in.adj_space  = 0
 
-      # Data section      
-      sq_in.bg_data = self.bg_draw_line
-      sq_in.fg_data = self.fg_draw_line
-      sq_in.bg_all_cell_data   = True
+         # Data section      
+         sq_in.bg_data = self.bg_draw_line
+         sq_in.fg_data = self.fg_draw_line
+         sq_in.bg_all_cell_data   = True
 
-      # Horizontal Line Section
-      sq_in.top_horizontal_line_chr    = self.top_horizontal_line_chr
-      sq_in.bottom_horizontal_line_chr = self.bottom_horizontal_line_chr
-      sq_in.top_horizontal_line_on = True
-      sq_in.bottom_horizontal_line_on = True
+         # Horizontal Line Section
+         sq_in.top_horizontal_line_chr    = self.top_horizontal_line_chr
+         sq_in.bottom_horizontal_line_chr = self.bottom_horizontal_line_chr
+         sq_in.top_horizontal_line_on = True
+         sq_in.bottom_horizontal_line_on = True
 
-      
-      sq_in.bold_horizontal_line = self.bold_draw_line          # two values False and True (0 and 1)
-      sq_in.bg_horizontal_line = self.bg_draw_line               # values -1 to 255
-      sq_in.fg_horizontal_line = self.fg_draw_line               # values -1 to 255
+         
+         sq_in.bold_horizontal_line = self.bold_draw_line          # two values False and True (0 and 1)
+         sq_in.bg_horizontal_line = self.bg_draw_line               # values -1 to 255
+         sq_in.fg_horizontal_line = self.fg_draw_line               # values -1 to 255
 
-      # Vertical Line Section    
-      sq_in.bold_vertical_line = self.bold_draw_line
-      sq_in.bg_vertical_line = self.bg_draw_line                 # values -1 to 255
-      sq_in.fg_vertical_line = self.fg_draw_line                 # values -1 to 255
-      sq_in.left_vertical_line_chr  = self.left_vertical_line_chr
-      sq_in.right_vertical_line_chr = self.right_vertical_line_chr
-      
-      # Corner Section 
-      sq_in.top_left_corner_chr     = self.top_left_corner_chr
-      sq_in.top_right_corner_chr    = self.top_right_corner_chr
-      sq_in.bottom_right_corner_chr = self.bottom_right_corner_chr
-      sq_in.bottom_left_corner_chr  = self.bottom_left_corner_chr
-      
-      sq_in.bold_corner_chr = self.bold_draw_line
-      sq_in.bg_corner_chr   = self.bg_draw_line    # values -1 to 255
-      sq_in.fg_corner_chr   = self.fg_draw_line    # values -1 to 255
-      
-      # Line Under Header and Header Section
-      sq_in.bg_header = self.bg_draw_line
-      sq_in.fg_header = self.fg_draw_line      
-      sq_in.horizontal_line_under_header_on = False
-      sq_in.bg_all_cell_header = True
-      sq_in.bg_vertical_header_line_chr = self.bg_draw_line
-      sq_in.fg_vertical_header_line_chr = self.fg_draw_line
-      
-      for n in range(width-2):
-         square.append([ins_space(length-2)])
+         # Vertical Line Section    
+         sq_in.bold_vertical_line = self.bold_draw_line
+         sq_in.bg_vertical_line = self.bg_draw_line                 # values -1 to 255
+         sq_in.fg_vertical_line = self.fg_draw_line                 # values -1 to 255
+         sq_in.left_vertical_line_chr  = self.left_vertical_line_chr
+         sq_in.right_vertical_line_chr = self.right_vertical_line_chr
+         
+         # Corner Section 
+         sq_in.top_left_corner_chr     = self.top_left_corner_chr
+         sq_in.top_right_corner_chr    = self.top_right_corner_chr
+         sq_in.bottom_right_corner_chr = self.bottom_right_corner_chr
+         sq_in.bottom_left_corner_chr  = self.bottom_left_corner_chr
+         
+         sq_in.bold_corner_chr = self.bold_draw_line
+         sq_in.bg_corner_chr   = self.bg_draw_line    # values -1 to 255
+         sq_in.fg_corner_chr   = self.fg_draw_line    # values -1 to 255
+         
+         # Line Under Header and Header Section
+         sq_in.bg_header = self.bg_draw_line
+         sq_in.fg_header = self.fg_draw_line      
+         sq_in.horizontal_line_under_header_on = False
+         sq_in.bg_all_cell_header = True
+         sq_in.bg_vertical_header_line_chr = self.bg_draw_line
+         sq_in.fg_vertical_header_line_chr = self.fg_draw_line
+         
+         for n in range(width-2):
+            square.append([ins_space(length-2)])
+
+         # print_fancy_format(self,data="none",style=Line_Style.CUSTOMIZED)
+         sq_in.print_fancy_format(square, style)
+
+      else:
+         def _print_horiz_sq_line(settings, indent, size, tail, body, head):
+            self.jumpTo(qty = indent, direction = Move.RIGHT)
+            print(f"{settings}{tail}",end="")
+            for n in range(size-2): print(body,end="")
+            print(head)
+            reset_font()
+
+         def _print_vert_sq_line(settings, indent, size, tail, body, head):
+               self.jumpTo(qty = indent, direction = Move.RIGHT)
+               print(f"{settings}{tail}")
+               for n in range(size-2): print(f"{self.moveTo(qty = indent, direction = Move.RIGHT)}{body}")
+               print(f"{self.moveTo(qty=indent, direction=Move.RIGHT)}{head}")
+               reset_font()
 
 
+         
+         if (style.lower() == Line_Style.CUSTOMIZED): pass
+         else:
+            # backup all the default values
+            # Horizontal Line Section
+            thlc = self.top_horizontal_line_chr;    bhlc = self.bottom_horizontal_line_chr
+            # Vertical Line Section    
+            lvlc = self.left_vertical_line_chr;     rvlc = self.right_vertical_line_chr
+            # Corner Section 
+            tlcc = self.top_left_corner_chr;        trcc = self.top_right_corner_chr
+            brcc = self.bottom_right_corner_chr;    blcc = self.bottom_left_corner_chr   
+            #---------------------------------------------------------------------------------------------------------------
+            # start drwaing the rectangle                                                                                  -
+            #---------------------------------------------------------------------------------------------------------------
+            if (style.lower() == Line_Style.SINGLE):
+               # Horizontal Line Section
+               self.top_horizontal_line_chr = "\u2500";      self.bottom_horizontal_line_chr="\u2500"
+               #------------------------------------------------------------------------------------------------------------
+               # Vertical Line Section
+               self.left_vertical_line_chr  = "\u2502";      self.right_vertical_line_chr = "\u2502"
+               #------------------------------------------------------------------------------------------------------------
+               # Outside Corner Section
+               self.top_left_corner_chr = "\u250C";          self.top_right_corner_chr = "\u2510"
+               self.bottom_right_corner_chr="\u2518";        self.bottom_left_corner_chr="\u2514"
+            
+
+            elif (style.lower() == Line_Style.SINGLE_BOLD):
+               # Horizontal Line Section
+               self.top_horizontal_line_chr = "\u2501";      self.bottom_horizontal_line_chr="\u2501"
+               #------------------------------------------------------------------------------------------------------------
+               # Vertical Line Section
+               self.left_vertical_line_chr  = "\u2503";      self.right_vertical_line_chr = "\u2503"
+               #------------------------------------------------------------------------------------------------------------
+               # Outside Corner Section
+               self.top_left_corner_chr = "\u250F";          self.top_right_corner_chr = "\u2513"
+               self.bottom_right_corner_chr="\u251B";        self.bottom_left_corner_chr="\u2517"
+               #------------------------------------------------------------------------------------------------------------
+         
+
+            elif (style.lower() == Line_Style.SINGLE_HEAVY):
+               # Horizontal Line Section
+               self.top_horizontal_line_chr = "\u2586";      self.bottom_horizontal_line_chr="\u2586"
+               #------------------------------------------------------------------------------------------------------------
+               # Vertical Line Section
+               self.left_vertical_line_chr  = "\u2588";      self.right_vertical_line_chr = "\u2588"
+               #------------------------------------------------------------------------------------------------------------
+               # Outside Corner Section
+               self.top_left_corner_chr = "\u2586";          self.top_right_corner_chr = "\u2586"
+               self.bottom_right_corner_chr="\u2588";        self.bottom_left_corner_chr="\u2588"
+               #------------------------------------------------------------------------------------------------------------
+         
+
+            elif (style.lower() == Line_Style.DOUBLE):
+               # Horizontal Line Section
+               self.top_horizontal_line_chr = "\u2550";      self.bottom_horizontal_line_chr="\u2550"
+               #------------------------------------------------------------------------------------------------------------
+               # Vertical Line Section
+               self.left_vertical_line_chr  = "\u2551";      self.right_vertical_line_chr = "\u2551"
+               #------------------------------------------------------------------------------------------------------------
+               # Outside Corner Section
+               self.top_left_corner_chr = "\u2554";          self.top_right_corner_chr = "\u2557"
+               self.bottom_right_corner_chr="\u255D";        self.bottom_left_corner_chr="\u255A"
+               #------------------------------------------------------------------------------------------------------------
+         
+
+            elif (style.lower() == Line_Style.SQ_BRACKETS):
+               # Horizontal Line Section
+               self.top_horizontal_line_chr = " ";           self.bottom_horizontal_line_chr=" "
+               #------------------------------------------------------------------------------------------------------------
+               # Vertical Line Section
+               self.left_vertical_line_chr  = "\u2502";      self.right_vertical_line_chr = "\u2502"
+               #------------------------------------------------------------------------------------------------------------
+               # Outside Corner Section
+               self.top_left_corner_chr = "\u250C";          self.top_right_corner_chr = "\u2510"
+               self.bottom_right_corner_chr="\u2518";        self.bottom_left_corner_chr="\u2514"
+               #------------------------------------------------------------------------------------------------------------
+         
+            elif (style.lower() == Line_Style.DASH):
+               # Horizontal Line Section
+               self.top_horizontal_line_chr = "\u002D";      self.bottom_horizontal_line_chr="\u002D"
+               #------------------------------------------------------------------------------------------------------------
+               # Vertical Line Section
+               self.left_vertical_line_chr  = "\u254E";      self.right_vertical_line_chr = "\u254E"
+               #------------------------------------------------------------------------------------------------------------
+               # Outside Corner Section
+               self.top_left_corner_chr = "\u002B";          self.top_right_corner_chr = "\u002B"
+               self.bottom_right_corner_chr="\u002B";        self.bottom_left_corner_chr="\u002B"
+         
+
+            elif (style.lower() == Line_Style.NONE):
+               # Horizontal Line Section
+               self.top_horizontal_line_chr = " ";           self.bottom_horizontal_line_chr=" "
+               #------------------------------------------------------------------------------------------------------------
+               # Vertical Line Section
+               self.left_vertical_line_chr  = " ";           self.right_vertical_line_chr = " "
+               #------------------------------------------------------------------------------------------------------------
+               # Outside Corner Section
+               self.top_left_corner_chr = " ";               self.top_right_corner_chr = " "
+               self.bottom_right_corner_chr=" ";             self.bottom_left_corner_chr=" "
+               #------------------------------------------------------------------------------------------------------------
+         
+         
+            else: pass
+        
+         #-------------------------------------------------------------------------------------------------------------------
+         # def draw_rectangle(self,length=3, width=3, style=Line_Style.DASH):
+         settings = set_font(self.bold_draw_line, self.bg_draw_line, self.fg_draw_line)
 
 
-      sq_in.print_fancy_format(square, style)  #def print_fancy_format(self,data="none",style=Line_Style.CUSTOMIZED)
+         # top horizontal line
+         tail = self.top_left_corner_chr
+         body = self.top_horizontal_line_chr
+         head = self.top_right_corner_chr
+         _print_horiz_sq_line(settings, self.adj_indent, length, tail, body, head)
 
-      
+
+         # left vertical line
+         self.jumpTo(qty=1, direction=Move.UP)
+         tail = self.top_left_corner_chr
+         body = self.left_vertical_line_chr
+         head = self.bottom_left_corner_chr
+         _print_vert_sq_line(settings, self.adj_indent, width, tail, body, head)
+
+
+         # bottom horizontal line
+         self.jumpTo(qty=1, direction=Move.UP)
+         tail = self.bottom_left_corner_chr
+         body = self.bottom_horizontal_line_chr
+         head = self.bottom_right_corner_chr
+         _print_horiz_sq_line(settings, self.adj_indent, length, tail, body, head)
+
+
+         # right vertical line
+         self.jumpTo(qty=width,  direction=Move.UP)         
+         tail = self.top_right_corner_chr
+         body = self.right_vertical_line_chr
+         head = self.bottom_right_corner_chr
+         _print_vert_sq_line(settings, (length+self.adj_indent-1), width, tail, body, head)
+
+
+         if (style == Line_Style.CUSTOMIZED): pass
+         else:
+            # putting back all the default values
+            # Horizontal Line Section
+            self.top_horizontal_line_chr = thlc;    self.bottom_horizontal_line_chr = bhlc
+            # Vertical Line Section    
+            self.left_vertical_line_chr = lvlc;     self.right_vertical_line_chr = rvlc
+            # Corner Section 
+            self.top_left_corner_chr = tlcc;        self.top_right_corner_chr = trcc
+            self.bottom_right_corner_chr = brcc;    self.bottom_left_corner_chr = blcc
+         #---------------------------------------------------------------------------------------------------------------
 
 
 
 # if we are going to use this script as only module, delete this code
 if (__name__ == "__main__"):
-  fg_ansi_colors()
-  bg_ansi_colors()
+  fg_ansi_colors(bold=True, bg=-1, n_line=1)
+  bg_ansi_colors(bold=True, fg=0, n_line=1)
