@@ -2015,8 +2015,8 @@ class FancyFormat():
             self.left_vertical_header_line_chr = "\u254E"; self.right_vertical_header_line_chr = "\u254E"; self.middle_vertical_header_line_chr = "\u254E"
             #-------------------------------------------------------------------------------------------------------------------------------------------
             # Under Line Header Section  Only for Matrix List
-            self.horizontal_line_under_header_chr = "\u002D";          self.left_corner_under_line_header_chr = "\u002B"
-            self.right_corner_under_line_header_chr = "\u002B";        self.middle_corner_under_line_header_chr = "\u002B"
+            self.horizontal_line_under_header_chr = "\u002D";   self.left_corner_under_line_header_chr = "\u002B"
+            self.right_corner_under_line_header_chr = "\u002B"; self.middle_corner_under_line_header_chr = "\u002B"
 
    
 
@@ -2820,7 +2820,7 @@ class Pen(Cursor):             # Inheritance the Cursor Class here.
             print(f"{self.moveTo(qty=indent, direction=Move.RIGHT)}{head}")
             reset_font()
 
-     
+      
       settings = set_font(self.bold_draw_line, self.bg_draw_line, self.fg_draw_line)
       tail = ""; body = ""; head = ""
       
@@ -2923,11 +2923,11 @@ class Pen(Cursor):             # Inheritance the Cursor Class here.
          return
       
 
-
    def draw_rectangle(self,length=3, width=3, style=Line_Style.DASH):
       if length <= 2: length = 3   # length = largo, width = alto
-      if width  <= 2: width  = 3
-      
+      if width  <= 2: width  = 3      
+
+      # refill bg option
       if self.refill_bg_color == True:
          square = []
 
@@ -2965,7 +2965,7 @@ class Pen(Cursor):             # Inheritance the Cursor Class here.
          sq_in.bottom_right_corner_chr = self.bottom_right_corner_chr
          sq_in.bottom_left_corner_chr  = self.bottom_left_corner_chr
          
-         sq_in.bold_corner_chr = self.bold_draw_line
+         sq_in.bold_corner_chr = self.bold_draw_line  # values True/False
          sq_in.bg_corner_chr   = self.bg_draw_line    # values -1 to 255
          sq_in.fg_corner_chr   = self.fg_draw_line    # values -1 to 255
          
@@ -2982,7 +2982,8 @@ class Pen(Cursor):             # Inheritance the Cursor Class here.
 
          # print_fancy_format(self,data="none",style=Line_Style.CUSTOMIZED)
          sq_in.print_fancy_format(square, style)
-
+      
+      # NO refill bg option
       else:
          def _print_horiz_sq_line(settings, indent, size, tail, body, head):
             self.jumpTo(qty = indent, direction = Move.RIGHT)
@@ -2997,8 +2998,7 @@ class Pen(Cursor):             # Inheritance the Cursor Class here.
                for n in range(size-2): print(f"{self.moveTo(qty = indent, direction = Move.RIGHT)}{body}")
                print(f"{self.moveTo(qty=indent, direction=Move.RIGHT)}{head}")
                reset_font()
-
-
+         
          
          if (style.lower() == Line_Style.CUSTOMIZED): pass
          else:
@@ -3105,6 +3105,7 @@ class Pen(Cursor):             # Inheritance the Cursor Class here.
         
          #-------------------------------------------------------------------------------------------------------------------
          # def draw_rectangle(self,length=3, width=3, style=Line_Style.DASH):
+         # def set_font(bold=False,bg=-1,fg=-1,italic=False,underline=False,strike=False,blinking=False,dim=False,hidden=False,inverse=False):
          settings = set_font(self.bold_draw_line, self.bg_draw_line, self.fg_draw_line)
 
 
