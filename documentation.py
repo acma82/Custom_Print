@@ -22,7 +22,9 @@ msg = fp.FancyMessage()   # Note
 msg.right_indent = 5
 
 simple_msg = fp.FancyFormat()
-
+simple_msg.adj_top_margin = 1;    simple_msg.align_title = fp.Align.JUSTIFY
+simple_msg.bg_title = 231;        simple_msg.fg_title = 0
+simple_msg.bold_title = True
 
 crs = fp.Cursor()
 
@@ -103,6 +105,9 @@ def Welcome_Message():
 
 
    lst.adj_indent = 2
+   #print(f"{crs.moveTo(qty=45, direction=fp.Move.RIGHT)}{fp.set_font(True,-1,230)} {fp.Unicode.FACE} {fp.reset_font()}")
+   
+   
    fp.ins_newline(3)
 
 
@@ -121,8 +126,7 @@ def Welcome_Message():
    print("  To display help for specific function or method, just pass the name as a parameter\n    when running this script.")
    fp.ins_newline(1)
    fst.print_style(" Example 1:")
-   print(" python documentation.py clean\n")
-   #print(f" {fp.set_font(1,231,0)} Example 1: {fp.reset_font()} python documentation.py clean")
+   print(" python documentation.py clean\n")   
    fp.ins_newline(1)
 
    note=" Note: "
@@ -133,10 +137,10 @@ time, it just need to be specified. If it's preferred, it can display all the
 methods for a specific class or a combination of them.'''
    blue_msg.length = fp.Length_bg.ALL_ROW
    blue_msg.bold_body = False
-   blue_msg.note_msg = note
+   blue_msg.msg_note = note
    blue_msg.position_note = 2
    blue_msg.bold_note = True
-   blue_msg.print_fancy_note(body_msg=message_note)
+   blue_msg.print_fancy_note(message_note)
 
    fp.ins_newline(1); fst.print_style(" Example 2: "); print(" python documentation.py clean terminal_bell get_style Cursor")
       
@@ -532,9 +536,9 @@ def Unicode_Class():
       {fp.ins_chr(10)}  fp.Unicode.BLACK_CIRCLE 
       {fp.ins_chr(10)}  fp.Unicode.WHITE_CIRCLE 
       
-
-
       This class helps to set some unicode characters when using the Pen Class.
+
+      For more reference {fp.Unicode.EM_DASH}{fp.Unicode.BLAKC_RIGHT_POINT_TRIANGLE} https://www.unicode.org/charts/nameslist/
 '''   
    print(message)
 
@@ -738,18 +742,16 @@ def _display_body_args():
    default_values = [["bg_body     = 4",       "italic_body = False",        "blinking_body  = False"],
                      ["fg_body     = 231",     "strike_body = False",        "underline_body = False"],
                      ["dim_body    = False",   "hidden_body = False",        "inverse_body   = False"],                     
-                     ["bold_body   = False",   "body_msg    = \"Body Msg\"", "help_lines     = False"]]
+                     ["bold_body   = False",   "msg_body    = \"Body Msg\"", "help_lines     = False"]]
    simple_msg.print_fancy_format(default_values,fp.Line_Style.NONE)
 
 
 def FancyMessage_Class():
    blue_msg.print_fancy_message("FancyMessage Class")
-   simple_msg.adj_top_margin = 1;    simple_msg.align_title = fp.Align.JUSTIFY
-   simple_msg.bg_title = 231;        simple_msg.fg_title = 0
-   simple_msg.bold_title = True
 
 
-   print("\nDiagram Description\n")
+
+   print(f"\n     {fp.set_font(True,231,0)} Diagram Description {fp.reset_font()}\n")
    ex_msg = fp.FancyMessage()
    ex_msg.bg_body = 229;           ex_msg.bg_title = 229;            ex_msg.bg_footnote = 229
    ex_msg.fg_body=0;               ex_msg.fg_title = 21;             ex_msg.fg_footnote = 21
@@ -758,7 +760,7 @@ def FancyMessage_Class():
    ex_msg.left_indent = 15;        ex_msg.right_indent = 15;         ex_msg.align_title = fp.Align.CENTER
    ex_msg.top_lines = 3;           ex_msg.bottom_lines = 3;          ex_msg.align_footnote = fp.Align.CENTER
    ex_msg.lines_title_body = 3;    ex_msg.lines_body_footnote=3      
-   ex_msg.title_msg ="TITLE";      ex_msg.footnote_msg = "FOOTNOTE"; ex_msg.help_lines = True
+   ex_msg.msg_title ="TITLE";      ex_msg.msg_footnote = "FOOTNOTE"; ex_msg.help_lines = True
 
 
    ex_fst = fp.FontStyle()
@@ -782,7 +784,7 @@ the 1970s BBC comedy sketch series Monty Python's Flying Circus.
    pen.draw_line(size=3, tail=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_RIGHT, body=" left indent  ",\
                  head=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL)
    
-   pen.draw_line(size=3, tail="\u2500", body=f"{fp.ins_chr(30,"\u2500")} body_msg {fp.ins_chr(27,"\u2500")}",\
+   pen.draw_line(size=3, tail="\u2500", body=f"{fp.ins_chr(30,"\u2500")} msg_body {fp.ins_chr(27,"\u2500")}",\
                  head=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL)
    
    pen.draw_line(size=3, tail=" ", body="right indent ",\
@@ -829,11 +831,12 @@ Python was first released on February 20, 1991. Python was named after
 the 1970s BBC comedy sketch series Monty Python's Flying Circus.
 '''
 
-   ex_msg.bold_note = True;   ex_msg.fg_note = 231
-   ex_msg.position_note = 5;  ex_msg.bg_note = 90
+   ex_msg.bold_note = True;    ex_msg.fg_note = 231
+   ex_msg.position_note = 5;   ex_msg.bg_note = 90
    ex_msg.left_space_note = 5; ex_msg.right_space_note = 4
-   ex_msg.right_indent = 10
-   
+   ex_msg.right_indent = 10;   ex_msg.msg_note = " Python "
+   #ex_msg.adj_bg_lines_to_right_indent = True;  ex_msg.adj_bg_msg_to_space_available = False;  ex_msg.length = fp.Length_bg.ONLY_WORD
+
    ex_msg.print_fancy_note(message)
 
    crs.jumpTo(qty=10, direction=fp.Move.UP)
@@ -841,17 +844,17 @@ the 1970s BBC comedy sketch series Monty Python's Flying Circus.
    pen.draw_line(size=3, tail=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_RIGHT, body=" A ",\
                  head=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL)
    
-   pen.draw_line(size=3, tail="", body=" NOTE  ",\
+   pen.draw_line(size=3, tail="", body="msg_note",\
                  head=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL)
    
    pen.draw_line(size=3, tail=" ", body="B ",\
                  head=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL)
    
 
-   pen.draw_line(size=3, tail="\u2500", body=f"{fp.ins_chr(30,"\u2500")} body_msg {fp.ins_chr(27,"\u2500")}",\
+   pen.draw_line(size=3, tail="\u2500", body=f"{fp.ins_chr(30,"\u2500")} msg_body {fp.ins_chr(27,"\u2500")}",\
                  head=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL)
    
-   pen.draw_line(size=3, tail="", body="right indent ",\
+   pen.draw_line(size=3, tail="", body="right indent",\
                  head=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_LEFT)
    
    print()
@@ -893,24 +896,38 @@ the 1970s BBC comedy sketch series Monty Python's Flying Circus.
    message = '''All the above variables are being used by both methods, print_fancy_message and
 print_fancy_note.
 '''
-
    white_msg.print_fancy_note(message)
 
-   fp.ins_newline(2)
+   fp.ins_newline(1)
 
    message = f'''
-     length
-            ALL_ROW ->
-            ONLY_WORD->
-     adj_bg_lines_to_right_indent  ->
-            True :
-            False:
-     adj_bg_msg_to_space_available ->
-            True :
-            False:
+     {fp.set_font(True,-1,14)}length{fp.set_font(False)}
+         This is the width of the terminal and it has 2 options.
+
+         ALL_ROW  :  It will do the background color to the complete row in the terminal
+         ONLY_WORD:  It will do the background color to only the text ignoring the 
+                        left_indent and right_indent
+     
+     {fp.set_font(True,-1,14)}adj_bg_lines_to_right_indent{fp.set_font(False)}
+         This applies to the top_lines and bottom_lines
+
+         True : This will do the background color to the space available (74)
+         False: This will do the background color to the longest line in the msg_body
+
+     {fp.set_font(True,-1,14)}adj_bg_msg_to_space_available{fp.set_font(False)}
+         This applies to the lines of text in the msg_body
+
+         True : This will do the background to the space available (74)
+         False: This will do the background to the longest line in all the msg_body
 
 '''
    print(message)
+
+   message = '''adj_bg_lines_to_right_indent and adj_bg_msg_to_space_available only take action when
+
+   length = Length_bg.ONLY_WORD
+'''
+   white_msg.print_fancy_note(message)
 
    Print_Fancy_Message_Method()
    Print_Fancy_Note_Method()
@@ -926,7 +943,7 @@ def Print_Fancy_Message_Method():
                      ["dim_title   = False",     "hidden_title  = False",      "inverse_title    = False"],
                      ["bold_title  = False",     "                     ",      "                       "],
                      ["                   ",     "                     ",      "                       "],
-                     ["title_msg   = \"\"",      "title_indent  = 2",          "align_title      = Align.LEFT"],
+                     ["msg_title   = \"\"",      "title_indent  = 2",          "align_title      = Align.LEFT"],
                      ["                 ",        "                ",          "lines_title_body = 1"]]
 
    simple_msg.print_fancy_format(default_values,fp.Line_Style.NONE)
@@ -940,7 +957,7 @@ def Print_Fancy_Message_Method():
    default_values = [["bg_footnote     = 4",       "italic_footnote = False",        "blinking_footnote  = False"],
                      ["fg_footnote     = 231",     "strike_footnote = False",        "underline_footnote = False"],
                      ["dim_footnote    = False",   "hidden_footnote = False",        "inverse_footnote   = False"],                     
-                     ["bold_footnote   = False",   "footnote_msg    = \"\" ",         "                         "],
+                     ["bold_footnote   = False",   "msg_footnote    = \"\" ",         "                         "],
                      ["                       ",   "                       ",         "                         "],
                      ["footnote_indent = 2",       "lines_body_footnote = 1",         "align_footnote = Align.RIGHT"]]
 
@@ -959,8 +976,8 @@ def Print_Fancy_Message_Method():
    '''
    print(message)
    fmsg = fp.FancyMessage()
-   fmsg.title_msg = " Title "
-   fmsg.footnote_msg = "Footnote"
+   fmsg.msg_title = " Title "
+   fmsg.msg_footnote = "Footnote"
    #fmsg.align_footnote = fp.Align.CENTER
    paragraph = " This is a short paragraph.....!"
    fmsg.help_lines = True
@@ -968,7 +985,7 @@ def Print_Fancy_Message_Method():
    
    fp.ins_newline(2)
    message = '''footnote_indent works with align_footnote. When the align_footnote is set to
-Align.Justify, then footnote_indent controls the position of the footnote_msg.
+Align.Justify, then footnote_indent controls the position of the msg_footnote.
 
 The same situation applies for title_indent and align_title.
 '''
@@ -984,7 +1001,7 @@ def Print_Fancy_Note_Method():
                      ["dim_note  = False",          "hidden_note   = False",    "inverse_note   = False"],
                      ["bold_note = False",           "                     ",    "                     "],
                      ["                 ",          "                     ",    "                      "],
-                     ["note_msg  = \" Note: \"",    "position_note    = 1",     "                      "],
+                     ["msg_note  = \" Note: \"",    "position_note    = 1",     "                      "],
                      ["left_space_note = 2    ",    "right_space_note = 2",     "align_note = Align.JUSTIFY"]]
    simple_msg.msg_title = " Note Default Values "
    simple_msg.print_fancy_format(default_values,fp.Line_Style.NONE)
@@ -1014,9 +1031,87 @@ and print_fancy_note.
    fmsg.help_lines = True
    fmsg.print_fancy_note(message)
 
+#---------------------------------------------------------------------------------------------------
+# FancyFormat Class                                                                                -
+#---------------------------------------------------------------------------------------------------
+def FancyFormat_Class():
+   blue_msg.print_fancy_message(classes_methods_fancyprint[0][2] + " Class")
+
+   Print_Fancy_Format_Method()
+   Reset_Fancy_Format_Method()
+
+
+def Print_Fancy_Format_Method():
+   green_msg.print_fancy_message(classes_methods_fancyprint[1][2])
+   print("\n print_fancy_format will print any type of variable into a fancy list style\n")
+
+   # General Use Default Values
+   simple_msg.msg_title = " General Use Default Values "
+   default_values = [["adj_top_margin    = 0",     "set_fill_chr = \"----\""],
+                     ["adj_bottom_margin = 0",     "set_layout   = Layout.HORIZONTAL"],
+                     ["adj_top_space     = 0",     "update_list  = False"],
+                     ["adj_bottom_space  = 0",     "                    "],
+                     ["adj_indent        = 2",     "                    "],
+                     ["adj_space         = 2",     "                    "]]
+   simple_msg.print_fancy_format(default_values,fp.Line_Style.NONE)
+
+   message = f'''
+     {fp.set_font(True,-1,14)}adj_top_margin{fp.set_font(False)}
+     {fp.set_font(True,-1,14)}adj_bottom_margin{fp.set_font(False)}
+     {fp.set_font(True,-1,14)}adj_top_space{fp.set_font(False)}
+     {fp.set_font(True,-1,14)}adj_bottom_space{fp.set_font(False)}
+     {fp.set_font(True,-1,14)}adj_indent{fp.set_font(False)}
+     {fp.set_font(True,-1,14)}adj_space{fp.set_font(False)}
+     {fp.set_font(True,-1,14)}set_fill_chr{fp.set_font(False)}
+     {fp.set_font(True,-1,14)}set_layout{fp.set_font(False)}
+     {fp.set_font(True,-1,14)}update_list{fp.set_font(False)}
+         
+'''
+   print(message)
 
    
+   # Title Default Values
+   # simple_msg.msg_title = " Title Default Values "
+   # default_values = [["bg_title    = 4    ",     "italic_title  = False",      "blinking_title   = False"],
+   #                   ["fg_title    = 231  ",     "strike_title  = False",      "underline_title  = False"],
+   #                   ["dim_title   = False",     "hidden_title  = False",      "inverse_title    = False"],
+   #                   ["bold_title  = False",     "                     ",      "                       "],
+   #                   ["                   ",     "                     ",      "                       "],
+   #                   ["msg_title   = \"\"",      "title_indent  = 2",          "align_title      = Align.LEFT"],
+   #                   ["                 ",        "                ",          "lines_title_body = 1"]]
 
+   # simple_msg.print_fancy_format(default_values,fp.Line_Style.NONE)
+
+
+
+   # # Footnote Default Values
+   # simple_msg.msg_title = " Footnote Default Values "
+   # default_values = [["bg_footnote     = ",       "italic_footnote = False",        "blinking_footnote  = False"],
+   #                   ["fg_footnote     = ",     "strike_footnote = False",        "underline_footnote = False"],
+   #                   ["dim_footnote    = False",   "hidden_footnote = False",        "inverse_footnote   = False"],                     
+   #                   ["bold_footnote   = False",   "msg_footnote    = \"\" ",         "                         "],
+   #                   ["                       ",   "                       ",         "                         "],
+   #                   ["footnote_indent = 2",       "lines_body_footnote = 1",         "align_footnote = Align.RIGHT"]]
+
+   # simple_msg.print_fancy_format(default_values,fp.Line_Style.NONE)
+
+def Reset_Fancy_Format_Method():
+   green_msg.print_fancy_message(classes_methods_fancyprint[2][2])
+
+   print("\n It will set all the variables in print_fancy_format method to their default values")
+   message = f'''
+  
+      {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
+      {fp.ins_chr(10)}  fmsg = fp.FancyMessage()      
+      {fp.ins_chr(10)}  fmsg.bold_note = True
+      {fp.ins_chr(10)}  fmsg.bg_body = 90      
+      {fp.ins_chr(10)}  message = \"There are variables that are being used by both methods.....\"      
+      {fp.ins_chr(10)}  fmsg.print_fancy_mesage(paragraph)
+      {fp.ins_chr(10)}  fmsg.reset_fancy_format()
+      {fp.ins_chr(10)}  fmsg.print_fancy_mesage(paragraph)
+
+   '''   
+   print(message)
 #----------------------------------------------------------------------------------------------------------------------------------------------
 # Start the Documentation for fancyprint Module                                                                                               -
 #----------------------------------------------------------------------------------------------------------------------------------------------
@@ -1028,7 +1123,7 @@ for argv in sys.argv:
 
 flag_screen_functions = False; flag_internal_functions=False; flag_help_classes = False
 flag_cursor = False;           flag_font_style = False;   flag_fancy_message = False
-flag_fancy_format = False;     flag_draw = False
+flag_fancy_format = False;     flag_pen = False
 
 if (len(cmdl_argv) == 1):
    Welcome_Message()
@@ -1040,6 +1135,7 @@ elif ("all" in cmdl_argv):
    Cursor_Class()
    FontStyle_Class()
    FancyMessage_Class()
+   FancyFormat_Class()
 
    
 
@@ -1053,7 +1149,7 @@ else:
       elif ("cursor" in fun):             Cursor_Class();        flag_cursor = True
       elif ("fontstyle" in fun):          FontStyle_Class();     flag_font_style = True
       elif ("fancymessage" in fun):       FancyMessage_Class();  flag_fancy_message = True
-      
+      elif ("fancyformat" in fun):        FancyFormat_Class();   flag_fancy_format = True
 
       elif ("clean" == fun and flag_screen_functions == False):           Clean_Function()
       elif ("clear" == fun and flag_screen_functions == False):           Clear_Function()
@@ -1091,6 +1187,9 @@ else:
       elif ("print_fancy_message" == fun  and flag_fancy_message == False):  Print_Fancy_Message_Method()
       elif ("print_fancy_note"    == fun  and flag_fancy_message == False):  Print_Fancy_Note_Method()
 
+      
+      elif ("print_fancy_format"  == fun  and flag_fancy_format  == False):  Print_Fancy_Format_Method()
+      elif ("reset_fancy_format"  == fun  and flag_fancy_format  == False):  Reset_Fancy_Format_Method()
 
 
       else: pass

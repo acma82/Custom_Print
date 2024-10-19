@@ -2,7 +2,7 @@ import os
 import fancyprint as fun
 list1 = fun.FancyFormat()
 csr = fun.Cursor()
-draw = fun.Draw()
+draw = fun.Pen()
 msg = fun.FancyMessage()
 
 
@@ -41,7 +41,7 @@ list1.msg_title = " bool ";    list1.msg_footnote =" Case 0 "; my_list0 = True
 list1.print_fancy_format(my_list0)
 
 # int type
-print(csr.move(6,"up"))
+print(csr.moveTo(6,"up"))
 list1.adj_indent = 2
 list1.msg_title = " int ";     list1.msg_footnote =" Case 1 "; my_list0 = 2547
 list1.print_fancy_format(my_list0)
@@ -56,14 +56,14 @@ list1.msg_title = " str "; list1.msg_footnote =" Case 4 "; my_list0 = "Hello The
 list1.print_fancy_format(my_list0)
 
 # float type
-print(csr.move(5,"up"),end="")
+print(csr.moveTo(5,"up"),end="")
 list1.adj_indent = 48
 list1.msg_title = " float ";   list1.msg_footnote =" Case 2 "
 my_list0 = 25.987;    list1.print_fancy_format(my_list0)
 
 
 # complex type
-print(csr.move(5,"up"),end="")
+print(csr.moveTo(5,"up"),end="")
 list1.adj_indent = 25
 list1.msg_title = " complex "; list1.msg_footnote =" Case 3 "; my_list0 = 45.8+698j
 list1.print_fancy_format(my_list0)
@@ -96,7 +96,7 @@ list1.blink_header = True
 list1.bg_all_cell_header = True
 # range type
    # vertical
-print(csr.move(16,"up"),end="")
+print(csr.moveTo(16,"up"),end="")
 list1.adj_indent = 65
 x = range(0,16,2); l = fun.range2list(x,"Header","vertical")#fun.Layout.VERTICAL)
 list1.msg_title = " Range Data"; list1.msg_footnote =" Case 5 "; 
@@ -104,7 +104,7 @@ list1.print_fancy_format(l)
 
 
    # horizontal
-print(csr.move(14,"up"),end="")
+print(csr.moveTo(14,"up"),end="")
 list1.adj_indent = 8
 x = range(0,16,2)
 list1.msg_title = " Range Data"; list1.msg_footnote =" Case 5 "
@@ -120,7 +120,7 @@ fun.ins_newline(2)
 
 
 mensaje = f"{fun.ins_chr(44)}THE END"
-msg.print_fancy_msg(mensaje)
+msg.print_fancy_message(mensaje)
 
 input("Enter to Continue: ")
 os.system(f"resize -s {nrows} {ncols}")

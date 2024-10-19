@@ -2,7 +2,7 @@ import os
 import fancyprint as fun
 list1 = fun.FancyFormat()
 csr = fun.Cursor()
-draw = fun.Draw()
+draw = fun.Pen()
 msg = fun.FancyMessage()
 
 
@@ -55,7 +55,7 @@ list1.bg_title = 11; list1.fg_title = 21; list1.bold_title = 1; list1.align_titl
 # footnote
 list1.align_footnote = "r"; list1.fg_footnote = 226; list1.bg_footnote = 6; list1.bold_footnote = 1
 # header
-list1.inner_vertical_header_line_chr = u'\u2022'  # matrix list only    
+list1.middle_vertical_header_line_chr = u'\u2022'  # matrix list only    
 list1.horizontal_line_under_header_on = 1         # horizontal line between headers and the firs data row. 1 shows it and 0 hides it
 list1.horizontal_line_under_header_chr = "-"      # chr to be printed for theheader line
 list1.bg_header = 55
@@ -75,7 +75,7 @@ list1.right_vertical_header_line_chr  = "|"    # 23
 list1.top_horizontal_line_chr = "-"            # 
 
 # set vertical
-print(csr.move(qty=19,direction=fun.Move.UP), end="")
+print(csr.moveTo(qty=19,direction=fun.Move.UP), end="")
 list1.msg_title = " Set Data "; list1.msg_footnote =" Case 7 "
 set_tags = {1,3,5,7,9}; list1.adj_indent = 70  
 new_set = fun.set2list(set_tags, "Header", fun.Layout.VERTICAL)
@@ -85,14 +85,14 @@ list1.print_fancy_format(new_set)
 # Frozenset vertical
 list1.msg_title = " FrozenSet Data "; list1.msg_footnote =" Case 8 "
 vowelsT = ("a", "e", "i", "o", "u"); frozenset_Tuple = frozenset(vowelsT)
-print(csr.move(qty=11,direction=fun.Move.UP), end="")
+print(csr.moveTo(qty=11,direction=fun.Move.UP), end="")
 list1.adj_indent = 47
 vowellist = fun.set2list(frozenset_Tuple,"header",fun.Layout.VERTICAL)
 list1.print_fancy_format(vowellist)
 
 
 # set horizontal
-print(csr.move(qty=11,direction=fun.Move.UP), end="")
+print(csr.moveTo(qty=11,direction=fun.Move.UP), end="")
 list1.adj_indent = 6
 list1.msg_title = " Set Data "; list1.msg_footnote =" Case 7 "
 list1.print_fancy_format(set_tags)
@@ -108,7 +108,7 @@ list1.print_fancy_format(vowellist)
 fun.ins_newline(4)
 
 mensaje = f"{fun.ins_chr(44)}THE END"
-msg.print_fancy_msg(mensaje)
+msg.print_fancy_message(mensaje)
 
 input("Enter to Continue: ")
 os.system(f"resize -s {nrows} {ncols}")

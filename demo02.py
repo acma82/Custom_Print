@@ -2,7 +2,7 @@ import os
 import fancyprint as fun
 list1 = fun.FancyFormat()
 csr = fun.Cursor()
-draw = fun.Draw()
+draw = fun.Pen()
 
 
 ncols, nrows = fun.dimensions()
@@ -59,7 +59,7 @@ list1.bg_title = 11; list1.fg_title = 0; list1.bold_title = 1; list1.align_title
 # footnote
 list1.align_footnote = "r"; list1.fg_footnote = 226; list1.bg_footnote = 6; list1.bold_footnote = 1
 # header
-list1.inner_vertical_header_line_chr = u'\u2022'  # matrix list only    
+list1.middle_vertical_header_line_chr = u'\u2022'  # matrix list only    
 list1.horizontal_line_under_header_on = 1         # horizontal line between headers and the firs data row. 1 shows it and 0 hides it
 list1.horizontal_line_under_header_chr = "-"      # chr to be printed for theheader line
 list1.bg_header = 55
@@ -89,30 +89,30 @@ tupleData6 = ("Header 0","hell","hi",[1,2])             # this is a simple tuple
 tupleData7 = (("Header 0"),("hell"),("hi"),([1,2]))     # this is a simple tuples w/ string    Case 5
 
 
-#csr.jump(20, "up");
+#csr.jumpTo(20, "up");
 list1.adj_indent = 8;  list1.msg_title = " Case 1 "
 list1.msg_footnote = "('',)";   list1.print_fancy_format(tupleData1)
 
-csr.jump(5, "up" );   list1.adj_indent = 20; list1.msg_title = " Case 2 "
+csr.jumpTo(5, "up" );   list1.adj_indent = 20; list1.msg_title = " Case 2 "
 list1.msg_footnote = "('apple',)";   list1.print_fancy_format(tupleData2)
 
-csr.jump(5, "up" );   list1.adj_indent = 36; list1.msg_title = " Case 3 "
+csr.jumpTo(5, "up" );   list1.adj_indent = 36; list1.msg_title = " Case 3 "
 list1.msg_footnote = "(('apple',))";   list1.print_fancy_format(tupleData2)
 
 
 
-csr.jump(5, "up" );   list1.adj_indent = 52; list1.msg_title = " Case 4 "
+csr.jumpTo(5, "up" );   list1.adj_indent = 52; list1.msg_title = " Case 4 "
 list1.msg_footnote = " One Col ";   list1.print_fancy_format(tupleData4)
 
 
-csr.jump(9, "up" );   list1.adj_indent = 69; list1.msg_title = " Case 4 "
+csr.jumpTo(9, "up" );   list1.adj_indent = 69; list1.msg_title = " Case 4 "
 list1.msg_footnote = " Tuple Table Type";   list1.print_fancy_format(tupleData5)
 
 print()
 list1.adj_indent = 8; list1.msg_title = " Case 5 "
 list1.msg_footnote = " One Row";   list1.print_fancy_format(tupleData6)
 
-csr.jump(5, "up" );   list1.adj_indent = 52; list1.msg_title = " Case 5 "
+csr.jumpTo(5, "up" );   list1.adj_indent = 52; list1.msg_title = " Case 5 "
 list1.msg_footnote = " Tuple Table Type";   list1.print_fancy_format(tupleData5)
 print()
 

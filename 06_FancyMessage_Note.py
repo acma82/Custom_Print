@@ -1,10 +1,10 @@
 import fancyprint as fp
 msg = fp.FancyMessage()
-
+crs = fp.Cursor()
 
 # Example 1
 
-msg.note_msg = " To Find a Kiss of Yours "
+msg.msg_note = " To Find a Kiss of Yours "
 poem = '''
 1898 - 1936, translated by Sarah Arvio
 
@@ -40,12 +40,14 @@ msg.align_note = fp.Align.CENTER
 msg.left_space_note = 6; msg.right_space_note = 6
 msg.left_indent = 25; msg.right_indent = 20
 # msg.help_lines = True
-msg.print_fancy_note(body_msg=poem)
+msg.print_fancy_note(msg_body=poem)
 
-msg.left_indent = len(msg.note_msg) + msg.left_space_note + msg.right_space_note
+msg.left_indent = len(msg.msg_note) + msg.left_space_note + msg.right_space_note
+
 
 msg.bold_body = 11; msg.italic_body = True; msg.fg_body = 190
 msg.top_lines = 0; msg.bottom_lines = 1
+crs.jumpTo(qty=1, direction=fp.Move.UP)
 
 msg.print_fancy_message("Author: Federico García Lorca")
 

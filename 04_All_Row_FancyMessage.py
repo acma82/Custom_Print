@@ -41,7 +41,7 @@ msg.left_indent = 15; msg.right_indent = 20    # it's for the string
 
 msg.top_lines = 1                             # how many lines above and below the string
 msg.lines_title_body = 0
-msg.title_msg = "Title"
+msg.msg_title = "Title"
 msg.bg_title = 14
 msg.fg_title = 0
 msg.bold_title = True
@@ -63,7 +63,7 @@ msg.fg_body = 0
 
 # footnote
 msg.lines_body_footnote = 1
-msg.footnote_msg = "FootNote"
+msg.msg_footnote = "FootNote"
 msg.bg_footnote = 14
 msg.fg_footnote = 0
 msg.bold_footnote = True
