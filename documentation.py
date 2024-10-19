@@ -47,7 +47,7 @@ def adj_screen(y, x):
 
 # Variables
 ncols, nrows = fp.dimensions()
-myrows = 90; mycols = 100
+myrows = 92; mycols = 100
 adj_screen(myrows, mycols)
 
 
@@ -782,7 +782,7 @@ the 1970s BBC comedy sketch series Monty Python's Flying Circus.
    pen.draw_line(size=3, tail=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_RIGHT, body=" left indent  ",\
                  head=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL)
    
-   pen.draw_line(size=3, tail="\u2500", body=f"{fp.ins_chr(30,"\u2500")}  BODY  {fp.ins_chr(29,"\u2500")}",\
+   pen.draw_line(size=3, tail="\u2500", body=f"{fp.ins_chr(30,"\u2500")} body_msg {fp.ins_chr(27,"\u2500")}",\
                  head=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL)
    
    pen.draw_line(size=3, tail=" ", body="right indent ",\
@@ -818,6 +818,7 @@ the 1970s BBC comedy sketch series Monty Python's Flying Circus.
   
    crs.jumpTo(qty=2, direction=fp.Move.DOWN)
    pen.adj_indent = 0
+   fp.ins_newline(3)
    
    # Note Description
    message = '''
@@ -830,14 +831,60 @@ the 1970s BBC comedy sketch series Monty Python's Flying Circus.
 
    ex_msg.bold_note = True;   ex_msg.fg_note = 231
    ex_msg.position_note = 5;  ex_msg.bg_note = 90
-   ex_msg.print_fancy_note(message)   
+   ex_msg.left_space_note = 5; ex_msg.right_space_note = 4
+   ex_msg.right_indent = 10
+   
+   ex_msg.print_fancy_note(message)
 
+   crs.jumpTo(qty=10, direction=fp.Move.UP)
+
+   pen.draw_line(size=3, tail=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_RIGHT, body=" A ",\
+                 head=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL)
+   
+   pen.draw_line(size=3, tail="", body=" NOTE  ",\
+                 head=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL)
+   
+   pen.draw_line(size=3, tail=" ", body="B ",\
+                 head=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL)
+   
+
+   pen.draw_line(size=3, tail="\u2500", body=f"{fp.ins_chr(30,"\u2500")} body_msg {fp.ins_chr(27,"\u2500")}",\
+                 head=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL)
+   
+   pen.draw_line(size=3, tail="", body="right indent ",\
+                 head=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_LEFT)
+   
+   print()
+   crs.jumpTo(qty=3, direction=fp.Move.UP)
+   pen.adj_indent = 35
+   pen.draw_line(size=3, layout=fp.Layout.VERTICAL, tail=fp.Unicode.BOX_DRAWINGS_LIGHT_DOWN_AND_HORIZONTAL,\
+                 body=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL, head=fp.Unicode.BOX_DRAWINGS_LIGHT_UP_AND_HORIZONTAL)
+   crs.jumpTo(qty=2, direction=fp.Move.UP)
+   print(f"{crs.moveTo(22,fp.Move.RIGHT)}top_lines --{fp.Unicode.BLAKC_RIGHT_POINT_TRIANGLE}")
+   crs.jumpTo(6,fp.Move.DOWN)
+
+
+   pen.draw_line(size=3, layout=fp.Layout.VERTICAL, tail=fp.Unicode.BOX_DRAWINGS_LIGHT_DOWN_AND_HORIZONTAL,\
+                 body=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL, head=fp.Unicode.BOX_DRAWINGS_LIGHT_UP_AND_HORIZONTAL)
+   crs.jumpTo(qty=2, direction=fp.Move.UP)
+   print(f"{crs.moveTo(19,fp.Move.RIGHT)}bottom_lines --{fp.Unicode.BLAKC_RIGHT_POINT_TRIANGLE}")
+   
+
+   crs.jumpTo(qty=1, direction=fp.Move.UP)
+   crs.jumpTo(qty=40, direction=fp.Move.RIGHT)
+
+   print(f"A --{fp.Unicode.BLAKC_RIGHT_POINT_TRIANGLE} left_space_note",end=",  ")
+   print(f"B --{fp.Unicode.BLAKC_RIGHT_POINT_TRIANGLE} right_space_note")
+
+   crs.jumpTo(qty=3, direction=fp.Move.DOWN)
 
    # Indentation and Lines Default Values
    simple_msg.msg_title = " Default Indent and Line Values "
-   default_values = [["left_indent  = 2 ", "bottom_lines = 1", "length = Length_bg.ALL_ROW"],
-                     ["right_indent = 2",  "top_lines    = 1", "adj_bg_lines_to_right_indent  = False "],
-                     [" "," ",                                 "adj_bg_msg_to_space_available = False"]] 
+   default_values = [["top_lines    = 1", "length = Length_bg.ALL_ROW"],
+                     ["bottom_lines = 1", "adj_bg_lines_to_right_indent  = False "],
+                     ["right_indent = 2", "adj_bg_msg_to_space_available = False"]] 
+   
+
    simple_msg.print_fancy_format(default_values,fp.Line_Style.NONE)
     
    _display_body_args()
@@ -845,11 +892,25 @@ the 1970s BBC comedy sketch series Monty Python's Flying Circus.
 
    message = '''All the above variables are being used by both methods, print_fancy_message and
 print_fancy_note.
-
 '''
+
    white_msg.print_fancy_note(message)
 
    fp.ins_newline(2)
+
+   message = f'''
+     length
+            ALL_ROW ->
+            ONLY_WORD->
+     adj_bg_lines_to_right_indent  ->
+            True :
+            False:
+     adj_bg_msg_to_space_available ->
+            True :
+            False:
+
+'''
+   print(message)
 
    Print_Fancy_Message_Method()
    Print_Fancy_Note_Method()
