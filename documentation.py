@@ -54,15 +54,15 @@ adj_screen(myrows, mycols)
 
 screen_funs        = [[" Screen_Functions "],["clean"],["clear"],["erase"],["dimensions"], ["resize"]]
 
-internal_functions = [[" Internal_Functions "],["ins_space"],["ins_newline"], ["ansi_colors"], ["terminal_bell"]]
+internal_functions = [[" Internal_Functions "],["ins_chr"],["ins_newline"], ["ansi_colors"], ["terminal_bell"]]
 
-help_classes       = [[" Help_Classes "],["Line"],["Move"],["Align"],["Arrow"],["Layout"],["Length"],["Direction"],["Style_Line"]]
+help_classes       = [[" Help_Classes "],["Move"],["Align"],["Layout"],["Length"],["Unicode"],["Line_Style"]]
 
-classes_methods_fancyprint = [["Cursor",  "FontStyle",    "FancyMessage",          "FancyFormat"        ,  "Draw"],
-                              ["jumpTo",  "start_style",  "print_fancy_message",   "print_fancy_format",   "line"],
-                              ["jumpxy",  "stop_style",   "print_fancy_note",      "reset_fancy_format",   "arrow"],
-                              ["moveTo",  "print_style",  "----             ",      "----             ",   "box"],
-                              ["movexy",  "reset_style",  "----             ",      "----             ",   "brakets"]]
+classes_methods_fancyprint = [["Cursor",  "FontStyle",    "FancyMessage",          "FancyFormat"        ,  "Pen"],
+                              ["jumpTo",  "start_style",  "print_fancy_message",   "print_fancy_format",   "draw_line"],
+                              ["jumpxy",  "stop_style",   "print_fancy_note",      "reset_fancy_format",   "draw_box"],
+                              ["moveTo",  "print_style",  "----             ",      "----             ",   "----"],
+                              ["movexy",  "reset_style",  "----             ",      "----             ",   "----"]]
 
 # classes_methods_fancyprint = [["Cursor", "FontStyle",   "FancyMessage",    "FancyFormat",       ],
 #                               ["jump",   "get_style",   "print_fancy_msg", "print_fancy_format" ],
@@ -197,8 +197,8 @@ def Clean_Function():
    '''
    green_msg.print_fancy_message(screen_funs[1][0])
    print(message)
-   print(f"{fp.ins_space(6)}{fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp")
-   print(f"{fp.ins_space(18)}fp.clear()\n")
+   print(f"{fp.ins_chr(6)}{fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp")
+   print(f"{fp.ins_chr(18)}fp.clear()\n")
 
 def Clear_Function():
    #------------------------------------------------------------------------------------------------
@@ -210,8 +210,8 @@ def Clear_Function():
    '''
    green_msg.print_fancy_message(screen_funs[2][0])
    print(message)
-   print(f"{fp.ins_space(6)}{fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp")
-   print(f"{fp.ins_space(18)}fp.clear()\n")
+   print(f"{fp.ins_chr(6)}{fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp")
+   print(f"{fp.ins_chr(18)}fp.clear()\n")
 
 def Erase_Function():
    #------------------------------------------------------------------------------------------------
@@ -223,8 +223,8 @@ def Erase_Function():
    '''
    green_msg.print_fancy_message(screen_funs[3][0])
    print(menssage)
-   print(f"{fp.ins_space(6)}{fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp")
-   print(f"{fp.ins_space(18)}fp.erase()\n")
+   print(f"{fp.ins_chr(6)}{fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp")
+   print(f"{fp.ins_chr(18)}fp.erase()\n")
 
 def Dimensions_Function():
    #------------------------------------------------------------------------------------------------
@@ -235,8 +235,8 @@ def Dimensions_Function():
       '''
    green_msg.print_fancy_message(screen_funs[4][0])
    print(menssage)
-   print(f"{fp.ins_space(6)}{fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp")
-   print(f"{fp.ins_space(18)}ncols, nrows = fp.dimensions()\n")
+   print(f"{fp.ins_chr(6)}{fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp")
+   print(f"{fp.ins_chr(18)}ncols, nrows = fp.dimensions()\n")
 
 def Resize_Function():
    #------------------------------------------------------------------------------------------------
@@ -247,15 +247,15 @@ def Resize_Function():
          '''
    green_msg.print_fancy_message(screen_funs[5][0])
    print(message)
-   print(f"{fp.ins_space(6)}{fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp")
-   print(f"{fp.ins_space(18)}fp.resize(rows = n_rows, cols = n_cols)\n")
+   print(f"{fp.ins_chr(6)}{fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp")
+   print(f"{fp.ins_chr(18)}fp.resize(rows = n_rows, cols = n_cols)\n")
 
 #---------------------------------------------------------------------------------------------------
 #  internal_functions in fancyprint Module                                                           -
 #---------------------------------------------------------------------------------------------------
 def Internal_Functions():   
    blue_msg.print_fancy_message("Internal Functions")
-   Ins_Space_Function()
+   ins_chr_Function()
    Ins_Newline_Function()
    Ansi_Color_Function()   
    Terminal_Bell_Function()
@@ -263,24 +263,24 @@ def Internal_Functions():
    dark_green_msg.print_fancy_message(message)
    
 
-def Ins_Space_Function():
+def ins_chr_Function():
    #------------------------------------------------------------------------------------------------
-   # ins_space                                                                                     -
+   # ins_chr                                                                                     -
    #------------------------------------------------------------------------------------------------
    green_msg.print_fancy_message(internal_functions[1][0])
    message = f'''
       This function inserts x number of spaces between words.
 
-               fancy_print.ins_space(x)
+               fancy_print.ins_chr(x)
 
       {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp      
-                  print("Hello"+fp.ins_space(20)+"There")
+                  print("Hello"+fp.ins_chr(20)+"There")
 
       {fp.set_font(1,231,90)} \u25CF Output {fp.reset_font()}  Hello                    There
       '''
    
    print(message)
-   # print(f"{fp.ins_space(6)}{fp.set_font(1,231,90)} \u25CF Reference \u2192 ins_space.py {fp.reset_font()}\n")
+   # print(f"{fp.ins_chr(6)}{fp.set_font(1,231,90)} \u25CF Reference \u2192 ins_chr.py {fp.reset_font()}\n")
 
 def Ins_Newline_Function():
    #------------------------------------------------------------------------------------------------
@@ -412,67 +412,36 @@ def Terminal_Bell_Function():
 #---------------------------------------------------------------------------------------------------
 def Help_Classes():
    blue_msg.print_fancy_message("Help Classes")
-   Line_Class()   
    Move_Class()
    Align_Class()
-   Arrow_Class()
    Layout_Class()
    Length_Class()
-   Direction_Class()
+   Unicode_Class()
    Style_Line_Class()
 
-def Line_Class():
-   #------------------------------------------------------------------------------------------------
-   # Line                                                                                          -
-   #------------------------------------------------------------------------------------------------
-   green_msg.print_fancy_message(help_classes[1][0])
-   message = f'''
-      Direction Class is used with the Pen Class.
-      It contains 5 options.
-
-      {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
-
-      {fp.ins_space(10)}  fp.Line.DEFAULT
-      {fp.ins_space(10)}  fp.Line.DASH
-      {fp.ins_space(10)}  fp.Line.DDASH
-      {fp.ins_space(10)}  fp.Line.SOLID
-      {fp.ins_space(10)}  fp.Line.SPACE      
-      
-      Note: These options can be replaced for the original value as display below:
-
-      {fp.ins_space(10)}  fp.Line.DEFAULT   \u2192  \"default\"
-      {fp.ins_space(10)}  fp.Line.DASH      \u2192  \"dash\"
-      {fp.ins_space(10)}  fp.Line.DDASH     \u2192  \"ddash\"
-      {fp.ins_space(10)}  fp.Line.SOLID     \u2192  \"solid\"
-      {fp.ins_space(10)}  fp.Line.SPACE     \u2192  \"space\"
-      
-
-      This class helps to set the direction of the arrow when using the Pen Class.
-'''   
-   print(message)
 
 
 def Move_Class():
    #------------------------------------------------------------------------------------------------
    # Move                                                                                          -
    #------------------------------------------------------------------------------------------------
-   green_msg.print_fancy_message(help_classes[2][0])
+   green_msg.print_fancy_message(help_classes[0][0])
    message = f'''
       This class is used with the Cursor Class and it contains 4 options.
 
       {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
 
-      {fp.ins_space(10)}  fp.Move.RIGHT
-      {fp.ins_space(10)}  fp.Move.LEFT
-      {fp.ins_space(10)}  fp.Move.UP
-      {fp.ins_space(10)}  fp.Move.DOWN
+      {fp.ins_chr(10)}  fp.Move.RIGHT
+      {fp.ins_chr(10)}  fp.Move.LEFT
+      {fp.ins_chr(10)}  fp.Move.UP
+      {fp.ins_chr(10)}  fp.Move.DOWN
    
       Note: These options can be replaced for the original value as display below:
 
-      {fp.ins_space(10)}  fp.Move.RIGHT  \u2192  \"right\"
-      {fp.ins_space(10)}  fp.Move.LEFT   \u2192  \"left\"
-      {fp.ins_space(10)}  fp.Move.UP     \u2192  \"up\"
-      {fp.ins_space(10)}  fp.Move.DOWN   \u2192  \"down\"        
+      {fp.ins_chr(10)}  fp.Move.RIGHT  \u2192  \"right\"
+      {fp.ins_chr(10)}  fp.Move.LEFT   \u2192  \"left\"
+      {fp.ins_chr(10)}  fp.Move.UP     \u2192  \"up\"
+      {fp.ins_chr(10)}  fp.Move.DOWN   \u2192  \"down\"        
 
 '''
    print(message)
@@ -483,53 +452,27 @@ def Align_Class():
    #------------------------------------------------------------------------------------------------
    # Works with FancyFormat (print_fancy_format)
    # works with FancyMessage (print_fancy_note, print_fancy_header)
-   green_msg.print_fancy_message(help_classes[3][0])
+   green_msg.print_fancy_message(help_classes[1][0])
    message = f'''
       Aligns Class is used with the FancyFormat Class and FancyMessage Class.
       It contains 4 options.
 
       {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
 
-      {fp.ins_space(10)}  fp.Align.RIGHT
-      {fp.ins_space(10)}  fp.Align.LEFT
-      {fp.ins_space(10)}  fp.Align.CENTER
-      {fp.ins_space(10)}  fp.Align.JUSTIFY
+      {fp.ins_chr(10)}  fp.Align.RIGHT
+      {fp.ins_chr(10)}  fp.Align.LEFT
+      {fp.ins_chr(10)}  fp.Align.CENTER
+      {fp.ins_chr(10)}  fp.Align.JUSTIFY
       
       Note: These options can be replaced for the original value as display below:
 
-      {fp.ins_space(10)}  fp.Move.RIGHT    \u2192  \"right\"    \u2192  \"r\"
-      {fp.ins_space(10)}  fp.Move.LEFT     \u2192  \"left\"     \u2192  \"l"
-      {fp.ins_space(10)}  fp.Move.CENTER   \u2192  \"center\"   \u2192  \"c\"
-      {fp.ins_space(10)}  fp.Move.JUSTIFY  \u2192  \"justify\"  \u2192  \"j\"
+      {fp.ins_chr(10)}  fp.Move.RIGHT    \u2192  \"right\"    \u2192  \"r\"
+      {fp.ins_chr(10)}  fp.Move.LEFT     \u2192  \"left\"     \u2192  \"l"
+      {fp.ins_chr(10)}  fp.Move.CENTER   \u2192  \"center\"   \u2192  \"c\"
+      {fp.ins_chr(10)}  fp.Move.JUSTIFY  \u2192  \"justify\"  \u2192  \"j\"
 '''   
    print(message)
 
-def Arrow_Class():
-   #------------------------------------------------------------------------------------------------
-   # Arrow                                                                                         -
-   #------------------------------------------------------------------------------------------------
-   green_msg.print_fancy_message(help_classes[4][0])
-   message = f'''
-      Arrow Class is used with the Pen Class.
-      It contains 4 options.
-
-      {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
-
-      {fp.ins_space(10)}  fp.Arrow.DEFAULT
-      {fp.ins_space(10)}  fp.Arrow.EMPTY
-      {fp.ins_space(10)}  fp.Arrow.FILLED
-      {fp.ins_space(10)}  fp.Arrow.NONE
-      
-      Note: These options can be replaced for the original value as display below:
-
-      {fp.ins_space(10)}  fp.Arrow.DEFAULT  \u2192  \"default\"
-      {fp.ins_space(10)}  fp.Arrow.EMPTY    \u2192  \"empty\"
-      {fp.ins_space(10)}  fp.Arrow.FILLED   \u2192  \"filled\"
-      {fp.ins_space(10)}  fp.Arrow.NONE     \u2192  \"none\"
-
-      This class helps to describe the tail and the head for drawing a line using Pen Class.
-'''   
-   print(message)
 
 def Layout_Class():
    #------------------------------------------------------------------------------------------------
@@ -537,20 +480,20 @@ def Layout_Class():
    #------------------------------------------------------------------------------------------------
    # works with FancyFormat, range, set, setfrozen obj.set_layout = fp.Layout.VERTICAL
    # works with Draw (line, arrow)
-   green_msg.print_fancy_message(help_classes[5][0])
+   green_msg.print_fancy_message(help_classes[2][0])
    message = f'''     
       Layout Class is used on FancyFormat only for the range, set, frozenset type of variables.
       Layout also is uded with Draw Class. It contains 2 options.
       
       {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
 
-      {fp.ins_space(10)}  fp.Layout.HORIZONTAL
-      {fp.ins_space(10)}  fp.Layout.VERTICAL
+      {fp.ins_chr(10)}  fp.Layout.HORIZONTAL
+      {fp.ins_chr(10)}  fp.Layout.VERTICAL
       
       Note: These options can be replaced for the original value as display below:
 
-      {fp.ins_space(10)}  fp.Layout.HORIZONTAL   \u2192  \"horizontal\"
-      {fp.ins_space(10)}  fp.Layout.VERTICAL     \u2192  \"vertical\"
+      {fp.ins_chr(10)}  fp.Layout.HORIZONTAL   \u2192  \"horizontal\"
+      {fp.ins_chr(10)}  fp.Layout.VERTICAL     \u2192  \"vertical\"
 
 '''
    print(message)
@@ -559,50 +502,39 @@ def Length_Class():
    # Length                                                                                        -
    #------------------------------------------------------------------------------------------------
    # FancyMessage   
-   green_msg.print_fancy_message(help_classes[6][0])
+   green_msg.print_fancy_message(help_classes[3][0])
    message = f'''
       Length Class is used with FancyMessage Class and there 2 options.
 
       {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
 
-      {fp.ins_space(10)}  fp.Length.ALL_ROW
-      {fp.ins_space(10)}  fp.Length.ONLY_WORD
+      {fp.ins_chr(10)}  fp.Length.ALL_ROW
+      {fp.ins_chr(10)}  fp.Length.ONLY_WORD
             
 '''
    print(message)
 
 
-def Direction_Class():
+def Unicode_Class():
    #------------------------------------------------------------------------------------------------
-   # Direction                                                                                     -
-   #------------------------------------------------------------------------------------------------
-   # FancyMessage   
-   green_msg.print_fancy_message(help_classes[7][0])
+   # Unicode chrs                                                                                  -
+   #------------------------------------------------------------------------------------------------     
+   green_msg.print_fancy_message(help_classes[4][0])
    message = f'''
-      Direction Class is used with the Pen Class.
-      It contains 7 options.
+      Unicode Class is used with the Pen Class.
+      It contains a few chr code to use Unicode.
 
       {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
 
-      {fp.ins_space(10)}  fp.Direction.UP
-      {fp.ins_space(10)}  fp.Direction.DOWN
-      {fp.ins_space(10)}  fp.Direction.RIGHT
-      {fp.ins_space(10)}  fp.Direction.LEFT
-      {fp.ins_space(10)}  fp.Direction.UP_DOWN
-      {fp.ins_space(10)}  fp.Direction.RIGHT_LEFT
-      {fp.ins_space(10)}  fp.Direction.NONE
+      {fp.ins_chr(10)}  fp.Unicode.BLACK_DIAMOND
+      {fp.ins_chr(10)}  fp.Unicode.WHITE_DIAMOND
 
-      Note: These options can be replaced for the original value as display below:
+      {fp.ins_chr(10)}  fp.Unicode.BLACK_CIRCLE 
+      {fp.ins_chr(10)}  fp.Unicode.WHITE_CIRCLE 
+      
 
-      {fp.ins_space(10)}  fp.Direction.UP          \u2192  \"up\"
-      {fp.ins_space(10)}  fp.Direction.DOWN        \u2192  \"down\"
-      {fp.ins_space(10)}  fp.Direction.RIGHT       \u2192  \"right\"
-      {fp.ins_space(10)}  fp.Direction.LEFT        \u2192  \"left\"
-      {fp.ins_space(10)}  fp.Direction.UP_DOWN     \u2192  \"up_down\"
-      {fp.ins_space(10)}  fp.Direction.RIGHT_LEFT  \u2192  \"right_left\"
-      {fp.ins_space(10)}  fp.Direction.NONE        \u2192  \"none\"
 
-      This class helps to set the direction of the arrow when using the Pen Class.
+      This class helps to set some unicode characters when using the Pen Class.
 '''   
    print(message)
 
@@ -612,31 +544,31 @@ def Style_Line_Class():
    # Style_Line                                                                                    -
    #------------------------------------------------------------------------------------------------
    # FancyFormat   
-   green_msg.print_fancy_message(help_classes[8][0])
+   green_msg.print_fancy_message(help_classes[5][0])
    message = f'''
       Style_Line Class is used with FancyFormat Class and Draw Class. There are 7 options.
 
       {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
 
-      {fp.ins_space(10)}  fp.Style_Line.CUSTOMIZED
-      {fp.ins_space(10)}  fp.Style_Line.SINGLE
-      {fp.ins_space(10)}  fp.Style_Line.SINGLE_BOLD
-      {fp.ins_space(10)}  fp.Style_Line.SINGLE_HEAVY
-      {fp.ins_space(10)}  fp.Style_Line.DOUBLE
-      {fp.ins_space(10)}  fp.Style_Line.DASH
-      {fp.ins_space(10)}  fp.Style_Line.SQR_BRACKETS
-      {fp.ins_space(10)}  fp.Style_Line.NONE
+      {fp.ins_chr(10)}  fp.Style_Line.CUSTOMIZED
+      {fp.ins_chr(10)}  fp.Style_Line.SINGLE
+      {fp.ins_chr(10)}  fp.Style_Line.SINGLE_BOLD
+      {fp.ins_chr(10)}  fp.Style_Line.SINGLE_HEAVY
+      {fp.ins_chr(10)}  fp.Style_Line.DOUBLE
+      {fp.ins_chr(10)}  fp.Style_Line.DASH
+      {fp.ins_chr(10)}  fp.Style_Line.SQR_BRACKETS
+      {fp.ins_chr(10)}  fp.Style_Line.NONE
 
       Note: These options can be replaced for the original value as display below:
 
-      {fp.ins_space(10)}  fp.Style_Line.CUSTOMIZED     \u2192  \"customized\"  
-      {fp.ins_space(10)}  fp.Style_Line.SINGLE         \u2192  \"single\"   
-      {fp.ins_space(10)}  fp.Style_Line.SINGLE_BOLD    \u2192  \"single_bold\" 
-      {fp.ins_space(10)}  fp.Style_Line.SINGLE_HEAVY   \u2192  \"single_heavy\"
-      {fp.ins_space(10)}  fp.Style_Line.DOUBLE         \u2192  \"double\"
-      {fp.ins_space(10)}  fp.Style_Line.DASH           \u2192  \"dash\"      
-      {fp.ins_space(10)}  fp.Style_Line.SQR_BRACKETS   \u2192  \"sq_brackets\"
-      {fp.ins_space(10)}  fp.Style_Line.NONE           \u2192  \"none\"
+      {fp.ins_chr(10)}  fp.Style_Line.CUSTOMIZED     \u2192  \"customized\"  
+      {fp.ins_chr(10)}  fp.Style_Line.SINGLE         \u2192  \"single\"   
+      {fp.ins_chr(10)}  fp.Style_Line.SINGLE_BOLD    \u2192  \"single_bold\" 
+      {fp.ins_chr(10)}  fp.Style_Line.SINGLE_HEAVY   \u2192  \"single_heavy\"
+      {fp.ins_chr(10)}  fp.Style_Line.DOUBLE         \u2192  \"double\"
+      {fp.ins_chr(10)}  fp.Style_Line.DASH           \u2192  \"dash\"      
+      {fp.ins_chr(10)}  fp.Style_Line.SQR_BRACKETS   \u2192  \"sq_brackets\"
+      {fp.ins_chr(10)}  fp.Style_Line.NONE           \u2192  \"none\"
    '''
    print(message)
 
@@ -666,11 +598,11 @@ def JumpTo_Method():
       execute the code.
 
       {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
-      {fp.ins_space(10)}  crs = fp.Cursor()
-      {fp.ins_space(10)}  crs.jumpTo(qty=2,  direction = fp.Move.DOWN);        print("I am down")
-      {fp.ins_space(10)}  crs.jumpTo(qty=20, direction = "right");             print("I am right")
-      {fp.ins_space(10)}  crs.jumpTo(1, fp.Move.UP);                           print("I am up")
-      {fp.ins_space(10)}  crs.jumpTo(5, "down");                               print("GoodBye...!")
+      {fp.ins_chr(10)}  crs = fp.Cursor()
+      {fp.ins_chr(10)}  crs.jumpTo(qty=2,  direction = fp.Move.DOWN);        print("I am down")
+      {fp.ins_chr(10)}  crs.jumpTo(qty=20, direction = "right");             print("I am right")
+      {fp.ins_chr(10)}  crs.jumpTo(1, fp.Move.UP);                           print("I am up")
+      {fp.ins_chr(10)}  crs.jumpTo(5, "down");                               print("GoodBye...!")
 
    '''
    print(message)
@@ -685,9 +617,9 @@ def Jumpxy_Method():
       while the movexy returns the code.
 
       {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
-      {fp.ins_space(10)}  crs = fp.Cursor()
-      {fp.ins_space(10)}  crs.jumpToxy(0,0);     print("*** Start Here ***")
-      {fp.ins_space(10)}  crs.jumpToxy(20, 5);   print("GoodBye...!")      
+      {fp.ins_chr(10)}  crs = fp.Cursor()
+      {fp.ins_chr(10)}  crs.jumpToxy(0,0);     print("*** Start Here ***")
+      {fp.ins_chr(10)}  crs.jumpToxy(20, 5);   print("GoodBye...!")      
 
    '''
    print(message)
@@ -702,7 +634,7 @@ def MoveTo_Method():
       execute the code.
 
       {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
-      {fp.ins_space(10)}  crs = fp.Cursor()
+      {fp.ins_chr(10)}  crs = fp.Cursor()
       '''
    
    message2 = '''                  print(f"{crs.moveTo(15,"right")} First One",  end="")
@@ -725,7 +657,7 @@ def Movexy_Method():
 
 
       {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
-      {fp.ins_space(10)}  crs = fp.Cursor()
+      {fp.ins_chr(10)}  crs = fp.Cursor()
    '''
    message2 = '''                  print(f"{crs.movexy(15,40)}hello again")
 
@@ -760,9 +692,9 @@ def Start_Stop_Style_Method():
    message = f'''
    
       {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
-      {fp.ins_space(10)}  fs = fp.FontStyle
-      {fp.ins_space(10)}  fs.bg = 14
-      {fp.ins_space(10)}  print(fs.start_style() + " FontStyle Class " + fs.stop_style())
+      {fp.ins_chr(10)}  fs = fp.FontStyle
+      {fp.ins_chr(10)}  fs.bg = 14
+      {fp.ins_chr(10)}  print(fs.start_style() + " FontStyle Class " + fs.stop_style())
 
    '''
    print(message)
@@ -773,10 +705,10 @@ def Print_Style_Method():
    message = f'''
    
       {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
-      {fp.ins_space(10)}  fs = fp.FontStyle
-      {fp.ins_space(10)}  fs.bg = 14
-      {fp.ins_space(10)}  fs.print_style(" FontStyle Class ")
-      {fp.ins_space(10)}  print("  Normal Font...!")
+      {fp.ins_chr(10)}  fs = fp.FontStyle
+      {fp.ins_chr(10)}  fs.bg = 14
+      {fp.ins_chr(10)}  fs.print_style(" FontStyle Class ")
+      {fp.ins_chr(10)}  print("  Normal Font...!")
 
    '''
    print(message)
@@ -786,11 +718,11 @@ def Reset_Style_Method():
    message = f'''
    
       {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
-      {fp.ins_space(10)}  fs = fp.FontStyle
-      {fp.ins_space(10)}  fs.bg = 14
-      {fp.ins_space(10)}  fs.print("  FontStyle Class ")
-      {fp.ins_space(10)}  fs.reset_style()
-      {fp.ins_space(10)}  fs.print("  Default Values ")
+      {fp.ins_chr(10)}  fs = fp.FontStyle
+      {fp.ins_chr(10)}  fs.bg = 14
+      {fp.ins_chr(10)}  fs.print("  FontStyle Class ")
+      {fp.ins_chr(10)}  fs.reset_style()
+      {fp.ins_chr(10)}  fs.print("  Default Values ")
 
    '''
    print(message)
@@ -843,39 +775,62 @@ rum Wiskunde & Informatica (CWI) in the Netherlands.
 Python was first released on February 20, 1991. Python was named after
 the 1970s BBC comedy sketch series Monty Python's Flying Circus.
 '''
-# working here
+# Paragraph Description
    ex_msg.print_fancy_message(message)
    
-   crs.jumpTo(qty=14, direction=fp.Move.UP)
-   pen.draw_line(size=15,line=fp.LINE.SPACE)
-   crs.jumpTo(qty=1, direction=fp.Move.UP)
-   crs.jumpTo(qty=2, direction=fp.Move.RIGHT)
-   print("left_indent",end="")
-
-   crs.jumpTo(qty=72, direction=fp.Move.RIGHT)
-   pen.draw_line(size=15)
-   crs.jumpTo(qty=2, direction=fp.Move.UP)
-   crs.jumpTo(qty=86, direction=fp.Move.RIGHT)
-   print("right_indent")
-
-
+   crs.jumpTo(qty=15, direction=fp.Move.UP)
+   pen.draw_line(size=3, tail=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_RIGHT, body=" left indent  ",\
+                 head=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL)
    
-   crs.jumpTo(qty=15, direction=fp.Move.DOWN)
+   pen.draw_line(size=3, tail="\u2500", body=f"{fp.ins_chr(30,"\u2500")}  BODY  {fp.ins_chr(29,"\u2500")}",\
+                 head=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL)
    
-   #pen.adj_indent = 0
-   # crs.jumpTo(qty=20, direction=fp.Move.UP)
-   # crs.jumpTo(qty=32, direction=fp.Move.RIGHT)
-   # ex_fst.print_style("top_lines")
-
-   # crs.jumpTo(qty=17,direction=fp.Move.DOWN)   
-   # crs.jumpTo(qty=41,direction=fp.Move.LEFT)
-   # crs.jumpTo(qty=29, direction=fp.Move.RIGHT)
-   # ex_fst.print_style("bottom_lines")
-
-   # crs.jumpTo(qty=3, direction=fp.Move.DOWN)
-
-# end of the description for FancyMessage Class.
+   pen.draw_line(size=3, tail=" ", body="right indent ",\
+                 head=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_LEFT)
+   print()
+   pen.adj_indent = 45
+   crs.jumpTo(qty=7, direction=fp.Move.UP)
+   crs.jumpTo(qty=45, direction=fp.Move.LEFT)
    
+   pen.draw_line(size=4, layout=fp.Layout.VERTICAL, tail=fp.Unicode.BOX_DRAWINGS_LIGHT_DOWN_AND_HORIZONTAL,\
+                 body=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL, head=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL)
+   
+   pen.draw_line(size=3, layout=fp.Layout.VERTICAL, tail=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL,\
+                 body=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL, head=fp.Unicode.BOX_DRAWINGS_LIGHT_UP_AND_HORIZONTAL)
+   
+   print()
+   crs.jumpTo(qty=6, direction=fp.Move.UP)
+   pen.adj_indent = 29
+   pen.draw_line(size=3, layout=fp.Layout.VERTICAL, tail="       top lines", body= " ", head="lines_title_body")
+
+
+   crs.jumpTo(qty=8, direction=fp.Move.DOWN)
+   pen.adj_indent = 55
+   pen.draw_line(size=4, layout=fp.Layout.VERTICAL, tail=fp.Unicode.BOX_DRAWINGS_LIGHT_DOWN_AND_HORIZONTAL,\
+                 body=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL, head=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL)
+   
+   pen.draw_line(size=3, layout=fp.Layout.VERTICAL, tail=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL,\
+                 body=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL, head=fp.Unicode.BOX_DRAWINGS_LIGHT_UP_AND_HORIZONTAL)
+   
+   pen.adj_indent = 56
+   crs.jumpTo(qty=6, direction=fp.Move.UP)
+   pen.draw_line(size=3, layout=fp.Layout.VERTICAL, tail="lines_body_footnote", body= "\n\n", head="bottom lines") 
+  
+   crs.jumpTo(qty=2, direction=fp.Move.DOWN)
+   pen.adj_indent = 0
+   
+   # Note Description
+   message = '''
+Guido van Rossum, a Dutch programmer, created Python in the late 1980s
+as a hobby project. He started working on it in December 1989 at Cent-
+rum Wiskunde & Informatica (CWI) in the Netherlands.
+Python was first released on February 20, 1991. Python was named after
+the 1970s BBC comedy sketch series Monty Python's Flying Circus.
+'''
+
+   ex_msg.bold_note = True;   ex_msg.fg_note = 231
+   ex_msg.position_note = 5;  ex_msg.bg_note = 90
+   ex_msg.print_fancy_note(message)   
 
 
    # Indentation and Lines Default Values
@@ -933,12 +888,12 @@ def Print_Fancy_Message_Method():
    message = f'''
    
       {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
-      {fp.ins_space(10)}  fmsg = fp.FancyMessage()
-      {fp.ins_space(10)}  fmsg.title = \" Title \"
-      {fp.ins_space(10)}  fmsg.footnote = \" Footnote \"
-      {fp.ins_space(10)}  fmsg.help_lines = True      
-      {fp.ins_space(10)}  paragraph = " This is a short Paragraph.....!
-      {fp.ins_space(10)}  fmsg.print_fancy_mesage(paragraph)
+      {fp.ins_chr(10)}  fmsg = fp.FancyMessage()
+      {fp.ins_chr(10)}  fmsg.title = \" Title \"
+      {fp.ins_chr(10)}  fmsg.footnote = \" Footnote \"
+      {fp.ins_chr(10)}  fmsg.help_lines = True      
+      {fp.ins_chr(10)}  paragraph = " This is a short Paragraph.....!
+      {fp.ins_chr(10)}  fmsg.print_fancy_mesage(paragraph)
 
    '''
    print(message)
@@ -979,11 +934,11 @@ def Print_Fancy_Note_Method():
    message = f'''
   
       {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
-      {fp.ins_space(10)}  fmsg = fp.FancyMessage()      
-      {fp.ins_space(10)}  fmsg.bold_note = True
-      {fp.ins_space(10)}  fmsg.bg_body = 90      
-      {fp.ins_space(10)}  message = \"There are variables that are being used by both methods.....\"
-      {fp.ins_space(10)}  fmsg.print_fancy_mesage(paragraph)
+      {fp.ins_chr(10)}  fmsg = fp.FancyMessage()      
+      {fp.ins_chr(10)}  fmsg.bold_note = True
+      {fp.ins_chr(10)}  fmsg.bg_body = 90      
+      {fp.ins_chr(10)}  message = \"There are variables that are being used by both methods.....\"
+      {fp.ins_chr(10)}  fmsg.print_fancy_mesage(paragraph)
 
    '''   
 
@@ -1046,19 +1001,17 @@ else:
       elif ("resize" == fun and flag_screen_functions == False):          Resize_Function()
       
 
-      elif ("ins_space"     == fun and flag_internal_functions == False):  Ins_Space_Function()
+      elif ("ins_chr"     == fun and flag_internal_functions == False):  ins_chr_Function()
       elif ("ins_newline"   == fun and flag_internal_functions == False):  Ins_Newline_Function()
       elif ("terminal_bell" == fun and flag_internal_functions == False):  Terminal_Bell_Function()
       elif ("ansi_colors"   == fun and flag_internal_functions == False):  Ansi_Color_Function()
 
 
-      elif ("line"       == fun and flag_help_classes == False):  Line_Class()
       elif ("move"       == fun and flag_help_classes == False):  Move_Class()
       elif ("align"      == fun and flag_help_classes == False):  Align_Class()
-      elif ("arrow"      == fun and flag_help_classes == False):  Arrow_Class()
       elif ("layout"     == fun and flag_help_classes == False):  Layout_Class()
       elif ("length"     == fun and flag_help_classes == False):  Length_Class()
-      elif ("direction"  == fun and flag_help_classes == False):  Direction_Class()
+      elif ("unicode"    == fun and flag_help_classes == False):  Unicode_Class()
       elif ("style_line" == fun and flag_help_classes == False):  Style_Line_Class()
 
       

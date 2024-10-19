@@ -22,10 +22,10 @@ fp.ins_newline(2)
 print(fp.set_font(1,11,21) + " Python is " + fp.set_font(0,1) + " Wonderful." + fp.reset_font())
 
 
-# ins_space() function
+# ins_chr() function
 color1 = fp.set_font(1,90,231)
 color2 = fp.set_font(1,231,-1)
 color3 = fp.set_font(1,14,0)
 fp.ins_newline(1)
-print(f"{color1} Python {color2}{fp.ins_space(12)}{color3} Amazing...! {fp.reset_font()}")
+print(f"{color1} Python {color2}{fp.ins_chr(12)}{color3} Amazing...! {fp.reset_font()}")
 fp.ins_newline(1)

@@ -41,19 +41,19 @@ def resize(rows:int=25, cols:int=80)->None:
    '''
 
 
-def ins_space(n_space=1):
+def ins_chr(n_space=1):
    '''
 ----------------------------------------------------------------------------
    import fancyprint as fp
    
-   fp.ins_space(x)
+   fp.ins_chr(x)
 
    This function inserts x number of spaces between words.
    
    Example:
-           print(f"Hello{fp.ins_space(40)}There")
+           print(f"Hello{fp.ins_chr(40)}There")
            
-           print("Hello"+fp.ins_space(40)+"There")
+           print("Hello"+fp.ins_chr(40)+"There")
 ----------------------------------------------------------------------------
 '''
 

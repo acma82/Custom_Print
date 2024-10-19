@@ -78,7 +78,7 @@ list1.print_fancy_format(newl)
 list1.adj_indent = 2
 sp_list = []; n = 0
 while n < 16:
-   sp_list.append([fun.ins_space(85)])
+   sp_list.append([fun.ins_chr(85)])
    n += 1
 
 list1.horizontal_line_under_header_on = False
@@ -119,7 +119,7 @@ list1.print_fancy_format(dict_tags)
 fun.ins_newline(2)
 
 
-mensaje = f"{fun.ins_space(44)}THE END"
+mensaje = f"{fun.ins_chr(44)}THE END"
 msg.print_fancy_msg(mensaje)
 
 input("Enter to Continue: ")

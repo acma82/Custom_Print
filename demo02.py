@@ -21,16 +21,16 @@ print()
 
 high = 0; sp_list = []
 while high < 20:
-   sp_list.append([fun.ins_space(95)])
+   sp_list.append([fun.ins_chr(95)])
    high += 1
 
 # single line square
-mymsg = f"{fun.ins_space(39)}Nice Single Line Frame.{fun.ins_space(39)}"
+mymsg = f"{fun.ins_chr(39)}Nice Single Line Frame.{fun.ins_chr(39)}"
 #fun.send_msg(msg=mymsg,bold=True, fg=0,bg=30,indent=6,lines=1)
 
 list1.bold_title = True; list1.bg_title =22; list1.fg_title = 15
 list1.align_title = "left"
-list1.msg_title = f"{fun.ins_space(40)}Tuple Style Is on {"\U0001F525"}{fun.ins_space(41)}"
+list1.msg_title = f"{fun.ins_chr(40)}Tuple Style Is on {"\U0001F525"}{fun.ins_chr(41)}"
 # list1.adj_top_space = 2
 
 # Corner Section
@@ -121,7 +121,7 @@ list1.adj_indent = 52; list1.msg_title = " Case 6 "
 tupleData9 = (("hello","hello"),("hell",),("hi","bye","good"),[1,2], "hello")
 list1.msg_footnote = " Vars Combination in a Tuple ";   list1.print_fancy_format(tupleData9)
 
-msg = f"{fun.ins_space(44)}THE END.....!{fun.ins_space(44)}"
+msg = f"{fun.ins_chr(44)}THE END.....!{fun.ins_chr(44)}"
 #fun.send_msg(msg=msg, bold=1, bg=22, fg=15, indent=6,lines=1)
 
 #csr.gotoxy(x=0,y=0)

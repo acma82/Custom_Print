@@ -21,13 +21,13 @@ print()
 
 high = 0; sp_list = []
 while high < 19:
-   sp_list.append([fun.ins_space(85)])
+   sp_list.append([fun.ins_chr(85)])
    high += 1
 
 # Double Line Square
 list1.bold_title = True; list1.bg_title =22; list1.fg_title = 15
 list1.align_title = "left"
-list1.msg_title = f"{fun.ins_space(34)}Nice Double Line Frame{fun.ins_space(35)}"
+list1.msg_title = f"{fun.ins_chr(34)}Nice Double Line Frame{fun.ins_chr(35)}"
 # Corner Section
 list1.top_left_corner_chr     = u'\u2554'          # 13
 list1.top_right_corner_chr    = u'\u2557'          # 14
@@ -107,7 +107,7 @@ vowellist = fun.set2list(frozenset_Tuple)
 list1.print_fancy_format(vowellist)
 fun.ins_newline(4)
 
-mensaje = f"{fun.ins_space(44)}THE END"
+mensaje = f"{fun.ins_chr(44)}THE END"
 msg.print_fancy_msg(mensaje)
 
 input("Enter to Continue: ")

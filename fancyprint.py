@@ -54,30 +54,47 @@ class Line_Style(enum.StrEnum):
    NONE         = "none"
 
 
-class DIRECTION(enum.StrEnum):
-   UP         = "up"
-   DOWN       = "down"
-   RIGHT      = "right"
-   LEFT       = "left"
-   UP_DOWN    = "up_down"
-   RIGHT_LEFT = "right_left"
-   NONE       = "none"
-
-
-class ARROW(enum.StrEnum):
-   FILLED  = "fill"
-   EMPTY   = "empty"
-   DEFAULT = "default"
-   NONE    = "none"
-
-
-class LINE(enum.StrEnum):
-   DEFAULT = "default"
-   DASH    = "dash"
-   DDASH   = "double_dash"
-   SOLID   = "solid"   
-   SPACE   = "space"   
+class Unicode(enum.StrEnum):
+   #--------------------------------------------------------------------------------------------
+   # Box Drawings                                                                              -
+   #--------------------------------------------------------------------------------------------
+   BOX_DRAWINGS_LIGHT_HORIZONTAL          = "\N{BOX DRAWINGS LIGHT HORIZONTAL}"
+   BOX_DRAWINGS_LIGHT_VERTICAL_AND_RIGHT  = "\N{BOX DRAWINGS LIGHT VERTICAL AND RIGHT}"
+   BOX_DRAWINGS_LIGHT_VERTICAL_AND_LEFT   = "\N{BOX DRAWINGS LIGHT VERTICAL AND LEFT}"
    
+   BOX_DRAWINGS_LIGHT_VERTICAL            = "\N{BOX DRAWINGS LIGHT VERTICAL}"
+   BOX_DRAWINGS_LIGHT_DOWN_AND_HORIZONTAL = "\N{BOX DRAWINGS LIGHT DOWN AND HORIZONTAL}"
+   BOX_DRAWINGS_LIGHT_UP_AND_HORIZONTAL   = "\N{BOX DRAWINGS LIGHT UP AND HORIZONTAL}"
+
+   
+   BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL ="\N{BOX DRAWINGS LIGHT VERTICAL AND HORIZONTAL}"
+
+  
+   #--------------------------------------------------------------------------------------------
+   # Triangle                                                                                  -
+   #--------------------------------------------------------------------------------------------
+   BLACK_UP_POINTING_TRIANGLE = "\N{BLACK UP-POINTING TRIANGLE}"     # \u25B2  up fill arrow
+   WHITE_UP_POINTING_TRIANGLE = "\N{WHITE UP-POINTING TRIANGLE}"     # \u25B3  up empty arrow
+
+   BLAKC_RIGHT_POINT_TRIANGLE = "\N{BLACK RIGHT-POINTING TRIANGLE}"  # \u25B6  right fill  arrow
+   WHITE_RIGHT_POINT_TRIANGLE = "\N{WHITE RIGHT-POINTING TRIANGLE}"  # \u25B7  right empty arrow
+   
+   BLACK_DOWN_POINTING_TRIANGLE = "\N{BLACK DOWN-POINTING TRIANGLE}" # \u25BC  down fill  arrow
+   WHITE_DOWN_POINTING_TRIANGLE = "\N{BLACK DOWN-POINTING TRIANGLE}" # \u25BD  down empty arrow
+
+   BLACK_LEFT_POINTING_TRIANGLE = "\N{BLACK LEFT-POINTING TRIANGLE}" # \u25C0  left fill arrow
+   WHITE_LEFT_POINTING_TRIANGLE = "\N{WHITE LEFT-POINTING TRIANGLE}" # \u25C1  left empty arrow
+   
+   #--------------------------------------------------------------------------------------------
+   # Miscellaneous                                                                             -
+   #--------------------------------------------------------------------------------------------
+   BLACK_DIAMOND = "\N{BLACK DIAMOND}"
+   WHITE_DIAMOND = "\N{WHITE DIAMOND}"
+   
+   BLACK_CIRCLE = "\N{BLACK CIRCLE}"
+   WHITE_CIRCLE = "\N{WHITE CIRCLE}"
+
+ 
 
 
 
@@ -282,21 +299,24 @@ def fg_ansi_colors(bold=False, bg=-1, n_line=0):
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 # Move Right n Times The CursorInsert Empty Spaces                                                                                                                          -
 #-----------------------------------------------------------------------------------------------------------------------------------------------
-def ins_space(n_space=1):
+def ins_chr(n_space=1, unicode=" "):
    '''
 ----------------------------------------------------------------------------
    This function inserts x number of spaces.
 ----------------------------------------------------------------------------   
    Example: 
             import fancyprint as fp  
-            fp.ins_space(x)
-            print(f"Hello{fp.ins_space(40)}There")
+            fp.ins_chr(x)
+            print(f"Hello{fp.ins_chr(40)}There")
 
 
 '''
+   if (chr == " "):  sp = " "
+   else:             sp = unicode
+   
    space = ""
    while n_space > 0:
-      space +=" "
+      space += sp
       n_space -= 1
    return space
 
@@ -444,7 +464,7 @@ def _move_right(n=0,option_space=False):
 ----------------------------------------------------------------------------
    '''
    if (option_space == True):
-      sp = ins_space(n)
+      sp = ins_chr(n)
    else:
       if (n == 0):
          sp = ""
@@ -2531,16 +2551,16 @@ class FancyMessage(Cursor):
       # self.adj_bg_lines_to_right_indent by default = False
       # self.adj_bg_msg_to_space_available by default = False
       if (self.length == Length_bg.ALL_ROW):
-         bg_format_line_color = f"{color2}{ins_space(tncols)}{reset_font()}"
+         bg_format_line_color = f"{color2}{ins_chr(tncols)}{reset_font()}"
          # change color for color2 to delete at the beginning the strike, and/or underline option(s)
-         start_line = f"{color2}{ins_space(self.left_indent)}"
+         start_line = f"{color2}{ins_chr(self.left_indent)}"
 
       elif (self.length == Length_bg.ONLY_WORD):         
          if (self.adj_bg_lines_to_right_indent == True):
-            bg_format_line_color = f"{color2}{_move_right(self.left_indent)}{ins_space(space_available)}{reset_font()}"  # change color for color2
+            bg_format_line_color = f"{color2}{_move_right(self.left_indent)}{ins_chr(space_available)}{reset_font()}"  # change color for color2
          
          else:                                                  # elif (self.adj_bg_lines_to_right_indent == False):
-            bg_format_line_color = f"{_move_right(self.left_indent)}{color2}{ins_space(longest_line)}{reset_font()}"     # change color for color2
+            bg_format_line_color = f"{_move_right(self.left_indent)}{color2}{ins_chr(longest_line)}{reset_font()}"     # change color for color2
          
          start_line = f"{_move_right(self.left_indent)}{color2}" # change color for color2
 
@@ -2627,7 +2647,7 @@ class FancyMessage(Cursor):
       self.left_indent = li_obj
       # n_lines, space_available, tncols are variables for reference to calculate the message      
       if (self.help_lines == True):
-         print(f"{ins_space(self.left_indent)}Body_Lines:{n_lines}  Space_Available:{space_available}  N.Cols: {tncols}  N.Lines:{total_back_lines}")
+         print(f"{ins_chr(self.left_indent)}Body_Lines:{n_lines}  Space_Available:{space_available}  N.Cols: {tncols}  N.Lines:{total_back_lines}")
          
       
    #---------------------------------------------------------------------------------------------------------------------------------------------------   
@@ -2656,14 +2676,14 @@ class FancyMessage(Cursor):
 
          elif (self.align_title == Align.CENTER or self.align_title == "c"):
             sp = int((space_available - len(self.title_msg))/2)
-            self.title_msg = ins_space(sp) + self.title_msg
+            self.title_msg = ins_chr(sp) + self.title_msg
 
          elif (self.align_title == Align.RIGHT or self.align_title == "r"):
             sp = space_available - len(self.title_msg) # 1 for not jumping line and finished
-            self.title_msg = ins_space(sp) + self.title_msg
+            self.title_msg = ins_chr(sp) + self.title_msg
 
          else:                   # Align.JUSTIFY
-            self.title_msg = ins_space(self.title_indent) + self.title_msg
+            self.title_msg = ins_chr(self.title_indent) + self.title_msg
 
             
 
@@ -2672,7 +2692,7 @@ class FancyMessage(Cursor):
          # This is necessary because when is right alignment, it jumps automatically to the next row
          if (self.align_title == Align.RIGHT and self.title_msg != ""):
             print("\033[1A",end="")
-            print(f"{ins_space(tncols)}")
+            print(f"{ins_chr(tncols)}")
             print("\033[1A",end="")
 
          # settings for body (we recovered left_indent, and change bottom_lines and change top_lines)               
@@ -2709,14 +2729,14 @@ class FancyMessage(Cursor):
 
          elif (self.align_footnote == Align.CENTER or self.align_footnote == "c"):
             sp = int((space_available - len(self.footnote_msg))/2)
-            self.footnote_msg = ins_space(sp) + self.footnote_msg
+            self.footnote_msg = ins_chr(sp) + self.footnote_msg
          
          elif (self.align_footnote == Align.RIGHT or self.align_footnote == "r"):
             sp = space_available - len(self.footnote_msg) # 1 for not jumping line and finished
-            self.footnote_msg = ins_space(sp) + self.footnote_msg
+            self.footnote_msg = ins_chr(sp) + self.footnote_msg
          
          else:
-            self.footnote_msg = ins_space(self.footnote_indent) + self.footnote_msg # JUSTIFY
+            self.footnote_msg = ins_chr(self.footnote_indent) + self.footnote_msg # JUSTIFY
             
          self.top_lines = self.lines_body_footnote
          self.bottom_lines = bl_obj
@@ -2731,7 +2751,7 @@ class FancyMessage(Cursor):
          # This is necessary because when is right alignment, it jumps automatically to the next row
          if (self.align_footnote == Align.RIGHT and self.footnote_msg != ""):
             print("\033[1A",end="")
-            print(f"{ins_space(tncols)}")
+            print(f"{ins_chr(tncols)}")
             print("\033[1A",end="")
 
       
@@ -2759,7 +2779,7 @@ class FancyMessage(Cursor):
          if (self.footnote_msg != ""):
             total_lines += 1 + self.lines_body_footnote
 
-         print(f"{ins_space(self.left_indent)}Body_Lines:{n_lines}  Space_Available:{space_available}  N.Cols: {tncols}  N.Lines:{total_lines}")
+         print(f"{ins_chr(self.left_indent)}Body_Lines:{n_lines}  Space_Available:{space_available}  N.Cols: {tncols}  N.Lines:{total_lines}")
 
    
 #-----------------------------------------------------------------------------------------------------------------------------------------------
@@ -2783,17 +2803,6 @@ class Pen(Cursor):             # Inheritance the Cursor Class here.
       self.top_left_corner_chr="+";      self.top_right_corner_chr="+"
       self.bottom_right_corner_chr="+";  self.bottom_left_corner_chr="+"     
       
-      # line and arrow
-      # Horizontal arrows and lines
-      self.horizontal_tail_chr = "\u251C"
-      self.horizontal_body_chr = "\u2500"
-      self.horizontal_head_chr = "\u2524"
-
-      # Vertical arrows and lines
-      self.vertical_tail_chr = "\u252C"
-      self.vertical_body_chr = "\u2502"
-      self.vertical_head_chr = "\u2534"
-      
       # general
       self.adj_indent = 0                     # space from the terminal to the box
       self.bold_draw_line = False
@@ -2803,124 +2812,28 @@ class Pen(Cursor):             # Inheritance the Cursor Class here.
       
 
 
-      
-   def draw_line(self,size=3, layout=Layout.HORIZONTAL, direction=DIRECTION.RIGHT_LEFT, arrow=ARROW.DEFAULT, line=LINE.DEFAULT):
-      # Horizontal Option
-      def _print_horiz_arrow_line(settings, indent, tail, body, head):
-         self.jumpTo(qty = indent, direction = Move.RIGHT)
+   def draw_line(self, size=0, layout=Layout.HORIZONTAL, tail="\N{BLACK DIAMOND}", body="-", head="\N{BLACK DIAMOND}"):
+      settings = set_font(self.bold_draw_line, self.bg_draw_line, self.fg_draw_line)
+      if (layout.lower() == Layout.HORIZONTAL):
+         self.jumpTo(qty = self.adj_indent, direction = Move.RIGHT)
          print(f"{settings}{tail}",end="")
          for n in range(size-2): print(body,end="")
-         print(head)
+         print(head,end="")
          reset_font()
 
-      def _print_vert_arrow_line(settings, indent, tail, body, head):
-            self.jumpTo(qty = indent, direction = Move.RIGHT)
+
+      elif(layout.lower() == Layout.VERTICAL):
+            self.jumpTo(qty = self.adj_indent, direction = Move.RIGHT)
             print(f"{settings}{tail}")
-            for n in range(size-2): print(f"{self.moveTo(qty = indent, direction = Move.RIGHT)}{body}")
-            print(f"{self.moveTo(qty=indent, direction=Move.RIGHT)}{head}")
+            for n in range(size-2): print(f"{self.moveTo(qty = self.adj_indent, direction = Move.RIGHT)}{body}")
+            print(f"{self.moveTo(qty=self.adj_indent, direction=Move.RIGHT)}{head}")
             reset_font()
 
-      
-      settings = set_font(self.bold_draw_line, self.bg_draw_line, self.fg_draw_line)
-      tail = ""; body = ""; head = ""
-      
-      if size <= 2: size = 3
-
-      # Working with horizontal line
-      if (layout == Layout.HORIZONTAL):
-         if   (line == LINE.DASH):  body = "-"
-         elif (line == LINE.DDASH): body = "="
-         elif (line == LINE.SOLID): body = "\u2015"
-         elif (line == LINE.SPACE):  body = " "
-         else:                      body = self.horizontal_body_chr  # default
-
-
-         if (direction == DIRECTION.RIGHT):
-            tail = body
-            if  (arrow == ARROW.DEFAULT):    head = self.horizontal_head_chr
-            elif(arrow == ARROW.EMPTY):      head = "\u25B7" # right_empty_arrow
-            elif(arrow == ARROW.FILLED):     head = "\u25B6" # right_fill_arrow
-            else:                            head = body     # ARROW.NONE
-            
-         elif (direction == DIRECTION.LEFT): 
-            head = body
-            if  (arrow == ARROW.DEFAULT):    tail = self.horizontal_tail_chr
-            elif(arrow == ARROW.EMPTY):      tail = "\u25C1" # left_empty_arrow
-            elif(arrow == ARROW.FILLED):     tail = "\u25C0"  # left_fill_arrow
-            else:                            tail = body      # ARROW.NONE
-
-
-         elif(direction == DIRECTION.RIGHT_LEFT):
-            if  (arrow == ARROW.DEFAULT):
-               tail = self.horizontal_tail_chr
-               head = self.horizontal_head_chr
-            elif(arrow == ARROW.EMPTY):
-               tail = "\u25C1"
-               head = "\u25B7"
-            elif(arrow == ARROW.FILLED):
-               tail = "\u25C0"
-               head = "\u25B6"
-            else:       # ARROW.NONE
-               tail = body
-               head = body
-
-         else:  # DIRECTION.NONE
-            tail = body
-            head = body
-
-         
-         _print_horiz_arrow_line(settings, self.adj_indent, tail, body, head)
-
-           
-
-      # working with vertical line
-      elif (layout == Layout.VERTICAL):
-         if   (line == LINE.DASH):  body = "|"
-         elif (line == LINE.DDASH): body = "\u2016"
-         elif (line == LINE.SOLID): body = "\u23AA"
-         elif (line == LINE.SPACE): body = " "
-         else:                      body = self.vertical_body_chr  # default
-
-
-         if (direction == DIRECTION.DOWN):
-            tail = body
-            if  (arrow == ARROW.DEFAULT):    head = self.vertical_head_chr
-            elif(arrow == ARROW.EMPTY):      head = "\u25BD" # right_empty_arrow
-            elif(arrow == ARROW.FILLED):     head = "\u25BC" # right_fill_arrow
-            else:                            head = body     # ARROW.NONE
-            
-         elif (direction == DIRECTION.UP): 
-            head = body
-            if  (arrow == ARROW.DEFAULT):    tail = self.vertical_tail_chr
-            elif(arrow == ARROW.EMPTY):      tail = "\u25B3"  # left_empty_arrow
-            elif(arrow == ARROW.FILLED):     tail = "\u25B2"  # left_fill_arrow
-            else:                            tail = body      # ARROW.NONE
-
-
-         elif(direction == DIRECTION.UP_DOWN):
-            if  (arrow == ARROW.DEFAULT):
-               tail = self.vertical_tail_chr
-               head = self.vertical_head_chr
-            elif(arrow == ARROW.EMPTY):
-               tail = "\u25B3"
-               head = "\u25BD"
-            elif(arrow == ARROW.FILLED):
-               tail = "\u25B2"
-               head = "\u25BC"
-            else:       # ARROW.NONE
-               tail = body
-               head = body
-
-         else:  # DIRECTION.NONE
-            tail = self.vertical_tail_chr # body
-            head = self.vertical_head_chr # body
-         
-         
-         _print_vert_arrow_line(settings, self.adj_indent, tail, body, head)
-
-
       else:
-         return
+         pass
+
+
+
       
 
    def draw_rectangle(self,length=3, width=3, style=Line_Style.DASH):
@@ -2978,7 +2891,7 @@ class Pen(Cursor):             # Inheritance the Cursor Class here.
          sq_in.fg_vertical_header_line_chr = self.fg_draw_line
          
          for n in range(width-2):
-            square.append([ins_space(length-2)])
+            square.append([ins_chr(length-2)])
 
          # print_fancy_format(self,data="none",style=Line_Style.CUSTOMIZED)
          sq_in.print_fancy_format(square, style)

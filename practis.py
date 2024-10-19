@@ -256,38 +256,44 @@ pen = fp.Pen()
 # pen.draw_line(5,fp.Layout.VERTICAL)
 
 
-lista.adj_indent = 0
-lista.bold_vertical_line = False
-lista.print_fancy_format("012",fp.Line_Style.SQ_BRACKETS)
-print("\n")
-print(f"{crs.moveTo(25,fp.Move.RIGHT)}Miguel Angel Aguilar Cuesta ( \"ACMA\") ")
-crs.jumpTo(3,fp.Move.UP)
+# lista.adj_indent = 0
+# lista.bold_vertical_line = False
+# lista.print_fancy_format("012",fp.Line_Style.SQ_BRACKETS)
+# print("\n")
+# print(f"{crs.moveTo(25,fp.Move.RIGHT)}Miguel Angel Aguilar Cuesta ( \"ACMA\") ")
+# crs.jumpTo(3,fp.Move.UP)
 
 
-pen.bg_draw_line = 194
-pen.fg_draw_line = 0
-pen.bold_draw_line = True
-pen.adj_indent = 10
-pen.refill_bg_color = True
+# pen.bg_draw_line = 194
+# pen.fg_draw_line = 0
+# pen.bold_draw_line = True
+# pen.adj_indent = 10
+# pen.refill_bg_color = True
 
-# pen.bottom_horizontal_line_chr = "@"
-
-
-pen.draw_rectangle(80,25,fp.Line_Style.SQ_BRACKETS)
-
-lista.print_fancy_format("012","hello")
+# # pen.bottom_horizontal_line_chr = "@"
 
 
+# pen.draw_rectangle(80,25,fp.Line_Style.SQ_BRACKETS)
 
+# lista.print_fancy_format("012","hello")
 
 
 
+pen.draw_line(size=25, layout=fp.Layout.HORIZONTAL, tail="\N{BLACK CIRCLE}",\
+               body="-", head="\u21FE")#head=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_LEFT)
 
 
+pen.draw_line(size=5,layout=fp.Layout.HORIZONTAL)
+print()
+pen.draw_line(size=10, layout=fp.Layout.VERTICAL, tail=fp.Unicode.BLACK_UP_POINTING_TRIANGLE, body="|", head=fp.Unicode.BLACK_DOWN_POINTING_TRIANGLE)
 
 
-
-
+print(fp.set_font(1,14,0))
+print("\N{BLACK CIRCLE}")
+print(fp.reset_font())
+# Box Drawings
+# Geometric Shapes
+# Miscellaneous Symbols
 
 
 

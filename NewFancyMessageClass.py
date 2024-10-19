@@ -13,7 +13,7 @@ class Length_bg(enum.Enum):
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 # Move Right n Times The CursorInsert Empty Spaces                                                                                                                          -
 #-----------------------------------------------------------------------------------------------------------------------------------------------
-def ins_space(n_space=0):
+def ins_chr(n_space=0):
    space = ""
    while n_space > 0:
       space +=" "
@@ -204,12 +204,12 @@ class NewFancyMessage():
 
       #----------------------------------------------------------------------------------------------------------------------------------------------
       # if (self.length == Length_bg.ALL_ROW):
-      #    bg_format_line_color = f"{color}{ins_space(tncols)}{reset_font()}"
+      #    bg_format_line_color = f"{color}{ins_chr(tncols)}{reset_font()}"
       #    print_bg_lines(bg_format_line_color) # bg_line
 
          
       #    carry = 0; last_one = len(number_letter_line_list) - 1
-      #    print(f"{color}{ins_space(self.left_indent)}",end="") # different
+      #    print(f"{color}{ins_chr(self.left_indent)}",end="") # different
 
       #    # start printing the message
       #    for nl in range(len(number_letter_line_list)):
@@ -225,7 +225,7 @@ class NewFancyMessage():
             
       #       print()            
       #       if (last_one == nl): pass
-      #       else:                print(f"{color}{ins_space(self.left_indent)}",end="") # diferent
+      #       else:                print(f"{color}{ins_chr(self.left_indent)}",end="") # diferent
 
       #    print_bg_lines(bg_format_line_color) # bg_line 
 
@@ -233,8 +233,8 @@ class NewFancyMessage():
       
       # elif (self.length == Length_bg.ONLY_WORD):
       #    # self.adj_bg_lines_to_right_indent by default = False
-      #    if (self.adj_bg_lines_to_right_indent == True):    bg_format_line_color = f"{color}{move_right(self.left_indent)}{ins_space(space_available)}{reset_font()}"
-      #    elif (self.adj_bg_lines_to_right_indent == False): bg_format_line_color = f"{move_right(self.left_indent)}{color}{ins_space(longest_line)}{reset_font()}"         
+      #    if (self.adj_bg_lines_to_right_indent == True):    bg_format_line_color = f"{color}{move_right(self.left_indent)}{ins_chr(space_available)}{reset_font()}"
+      #    elif (self.adj_bg_lines_to_right_indent == False): bg_format_line_color = f"{move_right(self.left_indent)}{color}{ins_chr(longest_line)}{reset_font()}"         
       #    print_bg_lines(bg_format_line_color) # bg_line
  
 
@@ -269,14 +269,14 @@ class NewFancyMessage():
       
 
       if (self.length == Length_bg.ALL_ROW):
-         bg_format_line_color = f"{color}{ins_space(tncols)}{reset_font()}"
-         start_line = f"{color}{ins_space(self.left_indent)}" # different
+         bg_format_line_color = f"{color}{ins_chr(tncols)}{reset_font()}"
+         start_line = f"{color}{ins_chr(self.left_indent)}" # different
 
 
       elif (self.length == Length_bg.ONLY_WORD):
          # self.adj_bg_lines_to_right_indent by default = False
-         if (self.adj_bg_lines_to_right_indent == True):    bg_format_line_color = f"{color}{move_right(self.left_indent)}{ins_space(space_available)}{reset_font()}"
-         elif (self.adj_bg_lines_to_right_indent == False): bg_format_line_color = f"{move_right(self.left_indent)}{color}{ins_space(longest_line)}{reset_font()}"         
+         if (self.adj_bg_lines_to_right_indent == True):    bg_format_line_color = f"{color}{move_right(self.left_indent)}{ins_chr(space_available)}{reset_font()}"
+         elif (self.adj_bg_lines_to_right_indent == False): bg_format_line_color = f"{move_right(self.left_indent)}{color}{ins_chr(longest_line)}{reset_font()}"         
          start_line = f"{move_right(self.left_indent)}{color}" # diferente
 
       else: pass
