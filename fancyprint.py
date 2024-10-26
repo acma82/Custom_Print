@@ -301,10 +301,10 @@ def fg_ansi_colors(bold=False, bg=-1, n_line=0):
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 # Move Right n Times The CursorInsert Empty Spaces                                                                                                                          -
 #-----------------------------------------------------------------------------------------------------------------------------------------------
-def ins_chr(n_space=1, unicode=" "):
+def ins_chr(n=1, unicode=" "):
    '''
 ----------------------------------------------------------------------------
-   This function inserts x number of spaces.
+   This function inserts n times the unicode provided.
 ----------------------------------------------------------------------------   
    Example: 
             import fancyprint as fp  
@@ -313,23 +313,22 @@ def ins_chr(n_space=1, unicode=" "):
 
 
 '''
-   if (chr == " "):  sp = " "
-   else:             sp = unicode
+   sp = str(unicode)
    
    space = ""
-   while n_space > 0:
+   while n > 0:
       space += sp
-      n_space -= 1
+      n -= 1
    return space
 
 
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 # Insert Newlines, nl                                                                                                                          -
 #-----------------------------------------------------------------------------------------------------------------------------------------------
-def ins_newline(nl=1):
+def ins_newline(n=1):
    '''
 ----------------------------------------------------------------------------
-   This function inserts x number of lines.
+   This function inserts n new lines.
 ----------------------------------------------------------------------------   
    example:
            import fancyprint as fp 
@@ -339,8 +338,8 @@ def ins_newline(nl=1):
 
    '''
    
-   while nl > 0:
-      nl -= 1      
+   while n > 0:
+      n -= 1      
       print("")
 
 def terminal_bell():
@@ -756,7 +755,7 @@ def data2list(self,dato):
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 # Get List Type                                                                                                                                -
 #-----------------------------------------------------------------------------------------------------------------------------------------------
-def get_list_type(my_list):
+def _get_list_type(my_list):
    if not isinstance(my_list, list):
       return "incorrect_variable_type"                # [Not a List] Case 0
   #-----------------------------------------------------------------------------------------------
@@ -834,9 +833,9 @@ def help():
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 # Get Total Length of the Columns                                                                                                              -
 #-----------------------------------------------------------------------------------------------------------------------------------------------
-def get_total_length(self,my_list):
+def _get_total_length(self,my_list):
    my_length = 0
-   list_dimensions = get_list_type(my_list)
+   list_dimensions = _get_list_type(my_list)
    if (list_dimensions == "one_item_no_row"):     # ["item"]
       # the *2 is because there are 2 adj_space one each size (left and right)
       # the +2 is because there are 2 vertical lines (left and right)
@@ -909,14 +908,14 @@ def get_total_length(self,my_list):
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 # Print Title On Terminal with Its Attributes: Bold, Bg and Fg Color (title)                                                                   -
 #-----------------------------------------------------------------------------------------------------------------------------------------------
-def print_title(self,my_list):
+def _print_title(self,my_list):
 
    if self.msg_title == "": return
    else: 
       settings = set_font(self.bold_title,self.bg_title, self.fg_title,self.italic_title,self.underline_title,self.strike_title,self.blinking_title,self.dim_title,self.hidden_title,self.inverse_title)
 
       # check for the length of the message
-   total_length = get_total_length(self,my_list)
+   total_length = _get_total_length(self,my_list)
 
    
    if (self.align_title.lower() == "left") or (self.align_title.lower() == "l"):
@@ -953,7 +952,7 @@ def print_title(self,my_list):
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 # Print Footnote On Terminal with Its Attributes: Bold, Bg and Fg Color (footnote)                                                             -
 #-----------------------------------------------------------------------------------------------------------------------------------------------
-def print_notefoot(self,my_list):
+def _print_notefoot(self,my_list):
    
    if self.msg_footnote == "": return
    else: 
@@ -961,7 +960,7 @@ def print_notefoot(self,my_list):
                           self.strike_footnote,self.blinking_footnote,self.dim_footnote,self.hidden_footnote,self.inverse_footnote)
 
    # check for the length of the message
-   total_length = get_total_length(self,my_list)
+   total_length = _get_total_length(self,my_list)
 
    ins_newline(self.adj_bottom_space)
 
@@ -997,7 +996,7 @@ def print_notefoot(self,my_list):
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 # Print Horizontal Line                                                                                                                        -
 #-----------------------------------------------------------------------------------------------------------------------------------------------
-def print_horizontal_segment(self,start_chr,end_chr,times,indent,option):
+def _print_horizontal_segment(self,start_chr,end_chr,times,indent,option):
 
    set_v = set_font(self.bold_vertical_line, self.bg_vertical_line, self.fg_vertical_line)
    set_h = set_font(self.bold_horizontal_line, self.bg_horizontal_line, self.fg_horizontal_line)
@@ -1036,14 +1035,14 @@ def print_horizontal_segment(self,start_chr,end_chr,times,indent,option):
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 # Print Single Element                                                                                                                         -
 #-----------------------------------------------------------------------------------------------------------------------------------------------
-def print_single_element(self,my_list):
+def _print_single_element(self,my_list):
    
    if isinstance(my_list[0],list): item = my_list[0][0]
    else:                           item = my_list[0]
 
    ins_newline(self.adj_top_margin)
    # print title  
-   print_title(self,my_list)
+   _print_title(self,my_list)
    
    # get all the settings for the list
    
@@ -1053,9 +1052,9 @@ def print_single_element(self,my_list):
    # print the top horizontal line
    if  self.top_horizontal_line_on == True:
       indent = 1  # to add the space at the beginning ()  
-      print_horizontal_segment(self, self.top_left_corner_chr, self.top_horizontal_line_chr, ((len(item))+(2*self.adj_space)), indent, "corner")
+      _print_horizontal_segment(self, self.top_left_corner_chr, self.top_horizontal_line_chr, ((len(item))+(2*self.adj_space)), indent, "corner")
       indent = 0  # to don't add this space at the end or the middle
-      print_horizontal_segment(self, self.top_right_corner_chr, self.top_horizontal_line_chr, 0, indent, "corner")
+      _print_horizontal_segment(self, self.top_right_corner_chr, self.top_horizontal_line_chr, 0, indent, "corner")
       print()
    else:
       pass
@@ -1086,15 +1085,15 @@ def print_single_element(self,my_list):
    # print the bottom horizontal line
    if  self.bottom_horizontal_line_on == 1:
       indent = 1  # to add the space at the beginning (vertical line chr)
-      print_horizontal_segment(self, self.bottom_left_corner_chr, self.bottom_horizontal_line_chr, ((len(item))+(2*self.adj_space)), indent, "corner")
+      _print_horizontal_segment(self, self.bottom_left_corner_chr, self.bottom_horizontal_line_chr, ((len(item))+(2*self.adj_space)), indent, "corner")
       indent = 0  # to don't add this space at the end or the middle
-      print_horizontal_segment(self, self.bottom_right_corner_chr, self.bottom_horizontal_line_chr, 0, indent, "corner")
+      _print_horizontal_segment(self, self.bottom_right_corner_chr, self.bottom_horizontal_line_chr, 0, indent, "corner")
       print()
 
    else:
       pass
 
-   print_notefoot(self,my_list)
+   _print_notefoot(self,my_list)
    ins_newline(self.adj_bottom_margin)
   
 #-----------------------------------------------------------------------------------------------------------------------------------------------
@@ -1104,7 +1103,7 @@ def print_single_element(self,my_list):
 def print_multiple_horizontal_items(self,my_list):
    ins_newline(self.adj_top_margin)
    # print title
-   print_title(self,my_list)
+   _print_title(self,my_list)
   
    # get all the settings for the list
    set_d = set_font(self.bold_data, self.bg_data, self.fg_data,self.italic_data,self.underline_data,self.strike_data,self.blinking_data,self.dim_data,self.hidden_data,self.inverse_data)
@@ -1115,13 +1114,13 @@ def print_multiple_horizontal_items(self,my_list):
       indent = 1  # to add the space at the beginning (indentation space)    
       for item in my_list:    
          if indent == 1:          # first segment
-            print_horizontal_segment(self, self.top_left_corner_chr, self.top_horizontal_line_chr, (len(item) + (2*self.adj_space)), indent, "corner")
+            _print_horizontal_segment(self, self.top_left_corner_chr, self.top_horizontal_line_chr, (len(item) + (2*self.adj_space)), indent, "corner")
             indent = 0
          else:
-            print_horizontal_segment(self, self.middle_top_corner_chr, self.top_horizontal_line_chr,(len(item) + (2*self.adj_space)), indent, "inner_corner")
+            _print_horizontal_segment(self, self.middle_top_corner_chr, self.top_horizontal_line_chr,(len(item) + (2*self.adj_space)), indent, "inner_corner")
             # corner or horizontal depends on what color to get if the corner colors or the horizontal_line
             # last segment, which is only the corner that's why it's 0 on value
-      print_horizontal_segment(self, self.top_right_corner_chr, self.top_horizontal_line_chr, 0, indent, "corner") 
+      _print_horizontal_segment(self, self.top_right_corner_chr, self.top_horizontal_line_chr, 0, indent, "corner") 
       print() # done top line, jump to next line to print data
 
    else:
@@ -1171,20 +1170,20 @@ def print_multiple_horizontal_items(self,my_list):
       indent = 1
       for item in my_list:    
          if indent == 1:
-            print_horizontal_segment(self, self.bottom_left_corner_chr, self.bottom_horizontal_line_chr, (len(item) + (2*self.adj_space)),\
+            _print_horizontal_segment(self, self.bottom_left_corner_chr, self.bottom_horizontal_line_chr, (len(item) + (2*self.adj_space)),\
                               indent, "corner") # first segment
             indent = 0
 
          else:
             #"horizontal") # middle segments. "corner"
-            print_horizontal_segment(self, self.middle_bottom_corner_chr, self.bottom_horizontal_line_chr, (len(item) + (2*self.adj_space)),\
+            _print_horizontal_segment(self, self.middle_bottom_corner_chr, self.bottom_horizontal_line_chr, (len(item) + (2*self.adj_space)),\
                                 indent, "inner_corner")
             # corner or horizontal depends on what color to get if the corner colors or the horizontal_line
             # last segment, which is only the corner that's why it's 0 on value  
-      print_horizontal_segment(self, self.bottom_right_corner_chr, self.bottom_horizontal_line_chr, 0, indent, "corner") 
+      _print_horizontal_segment(self, self.bottom_right_corner_chr, self.bottom_horizontal_line_chr, 0, indent, "corner") 
       print()
 
-   print_notefoot(self,my_list)
+   _print_notefoot(self,my_list)
    ins_newline(self.adj_bottom_margin)
   
 #-----------------------------------------------------------------------------------------------------------------------------------------------
@@ -1258,25 +1257,25 @@ def print_matrix_list(self,my_list):
                                     self.bg_vertical_header_line_chr,self.fg_vertical_header_line_chr)
 
    set_t = set_font(self.bold_header, self.bg_header, self.fg_header,self.italic_header,self.underline_header,self.strike_header,self.blinking_header,self.dim_header,self.hidden_header,self.inverse_header)   
-   total_length = get_total_length(self,my_list)
+   total_length = _get_total_length(self,my_list)
 
    ins_newline(self.adj_top_margin)
    # print title  
-   print_title(self,my_list)
+   _print_title(self,my_list)
    # this is the last part and we need to start printing the matrix
    if len(my_list[0]) == 1:
       # we are dealing with only one column    
       #-------------------------------------------------------------------------------------------------------------------------------------------
-      #print_horizontal_segment(self,start_chr,end_chr,times,indent,option)
+      #_print_horizontal_segment(self,start_chr,end_chr,times,indent,option)
       # item is the longest column
       length = total_length - (self.adj_indent + (self.adj_space*2) + 2) # length is the longest column length
 
       # print the top horizontal line
       if  self.top_horizontal_line_on == True:
          indent = 1  # to add the space at the beginning ()
-         print_horizontal_segment(self, self.top_left_corner_chr, self.top_horizontal_line_chr, length + (2*self.adj_space), indent, "corner")
+         _print_horizontal_segment(self, self.top_left_corner_chr, self.top_horizontal_line_chr, length + (2*self.adj_space), indent, "corner")
          indent = 0  # to don't add this space at the end or the middle
-         print_horizontal_segment(self, self.top_right_corner_chr, self.top_horizontal_line_chr, 0, indent, "corner")
+         _print_horizontal_segment(self, self.top_right_corner_chr, self.top_horizontal_line_chr, 0, indent, "corner")
          print()
       else:
          pass
@@ -1320,9 +1319,9 @@ def print_matrix_list(self,my_list):
                #if self.horizontal_line_under_header_on == True or self.horizontal_separator_line_on == 1: 
                # the horizontal line between the headers and the firs data row, only for matrix list  
                if self.horizontal_line_under_header_on == True :             
-                  indent = 1; print_horizontal_segment(self, self.left_corner_under_line_header_chr,\
+                  indent = 1; _print_horizontal_segment(self, self.left_corner_under_line_header_chr,\
                            self.horizontal_line_under_header_chr, length + (2*self.adj_space), indent, "horizontal_header")
-                  indent = 0; print_horizontal_segment(self, self.right_corner_under_line_header_chr,\
+                  indent = 0; _print_horizontal_segment(self, self.right_corner_under_line_header_chr,\
                                                 self.horizontal_line_under_header_chr, 0, indent, "horizontal_header")
                   print()
           
@@ -1363,9 +1362,9 @@ def print_matrix_list(self,my_list):
                   if ctrl_header == len(my_list):
                      pass
                   else:
-                     indent = 1; print_horizontal_segment(self, self.left_lateral_corner_chr,\
+                     indent = 1; _print_horizontal_segment(self, self.left_lateral_corner_chr,\
                            self.horizontal_line_chr, length + (2*self.adj_space), indent, "inner_corner")
-                     indent = 0; print_horizontal_segment(self, self.right_lateral_corner_chr,\
+                     indent = 0; _print_horizontal_segment(self, self.right_lateral_corner_chr,\
                            self.horizontal_line_chr, 0, indent, "inner_corner")
                      print()
 
@@ -1373,10 +1372,10 @@ def print_matrix_list(self,my_list):
       # print the bottom horizontal line
       if  self.bottom_horizontal_line_on == 1:
          indent = 1  # to add the space at the beginning (vertical line chr)
-         print_horizontal_segment(self, self.bottom_left_corner_chr, self.bottom_horizontal_line_chr,\
+         _print_horizontal_segment(self, self.bottom_left_corner_chr, self.bottom_horizontal_line_chr,\
                               length + (2*self.adj_space), indent, "corner")
          indent = 0  # to don't add this space at the end or the middle
-         print_horizontal_segment(self, self.bottom_right_corner_chr, self.bottom_horizontal_line_chr,\
+         _print_horizontal_segment(self, self.bottom_right_corner_chr, self.bottom_horizontal_line_chr,\
                               0, indent, "corner")
          print() 
       else:
@@ -1405,13 +1404,13 @@ def print_matrix_list(self,my_list):
          indent = 1  # to add the space at the beginning (indentation space)
          for item in longest_cols:    
             if indent == 1:
-               print_horizontal_segment(self, self.top_left_corner_chr, self.top_horizontal_line_chr, (item+(2*self.adj_space)), indent, "corner")
+               _print_horizontal_segment(self, self.top_left_corner_chr, self.top_horizontal_line_chr, (item+(2*self.adj_space)), indent, "corner")
                indent = 0
             else:   # corner or horizontal affect the color bg fg which variable will take into action
-               print_horizontal_segment(self, self.middle_top_corner_chr, self.top_horizontal_line_chr, (item+(2*self.adj_space)), indent, "inner_corner")
+               _print_horizontal_segment(self, self.middle_top_corner_chr, self.top_horizontal_line_chr, (item+(2*self.adj_space)), indent, "inner_corner")
       
          # last segment, which is only the corner that's why it's 0 on value
-         print_horizontal_segment(self, self.top_right_corner_chr, self.top_horizontal_line_chr, 0, indent, "corner") 
+         _print_horizontal_segment(self, self.top_right_corner_chr, self.top_horizontal_line_chr, 0, indent, "corner") 
          print() # done top line, jump to next line to print data
       else:
          pass
@@ -1454,14 +1453,14 @@ def print_matrix_list(self,my_list):
          # drawing the bottom horizontal line
          for item in longest_cols:    
             if indent == 1:
-               print_horizontal_segment(self, self.left_corner_under_line_header_chr,\
+               _print_horizontal_segment(self, self.left_corner_under_line_header_chr,\
                   self.horizontal_line_under_header_chr, (item+(2*self.adj_space)), indent,"horizontal_header") # first segment
                indent = 0
             else:
-               print_horizontal_segment(self, self.middle_corner_under_line_header_chr,\
+               _print_horizontal_segment(self, self.middle_corner_under_line_header_chr,\
                   self.horizontal_line_under_header_chr, (item+(2*self.adj_space)), indent,"horizontal_header") # middle segments
 
-         print_horizontal_segment(self, self.right_corner_under_line_header_chr,\
+         _print_horizontal_segment(self, self.right_corner_under_line_header_chr,\
                self.horizontal_line_under_header_chr, 0, indent, "horizontal_header") 
             # last segment, which is only the corner that's why it's 0 on value
       
@@ -1514,17 +1513,17 @@ def print_matrix_list(self,my_list):
                         
                   for item in longest_cols:
                      if indent == 1:
-                        # def print_horizontal_segment(self,start_chr,end_chr,times,indent,option):
-                        print_horizontal_segment(self, self.bottom_left_corner_chr, self.bottom_horizontal_line_chr,\
+                        # def _print_horizontal_segment(self,start_chr,end_chr,times,indent,option):
+                        _print_horizontal_segment(self, self.bottom_left_corner_chr, self.bottom_horizontal_line_chr,\
                            (item+(2*self.adj_space)), indent, "corner") # first segment
                         indent = 0
 
                      else:
-                        # def print_horizontal_segment(self,start_chr,end_chr,times,indent,option):
-                        print_horizontal_segment(self, self.middle_bottom_corner_chr, self.bottom_horizontal_line_chr,\
+                        # def _print_horizontal_segment(self,start_chr,end_chr,times,indent,option):
+                        _print_horizontal_segment(self, self.middle_bottom_corner_chr, self.bottom_horizontal_line_chr,\
                            (item+(2*self.adj_space)), indent, "inner_corner")#"horizontal",)#"corner") # middle segments              
                         # last segment, which is only the corner that's why it's 0 on value
-                  print_horizontal_segment(self, self.bottom_right_corner_chr,\
+                  _print_horizontal_segment(self, self.bottom_right_corner_chr,\
                      self.bottom_horizontal_line_chr, 0, indent, "corner") 
                   
                   
@@ -1535,14 +1534,14 @@ def print_matrix_list(self,my_list):
                            # drawing the bottom horizontal line
                for item in longest_cols:
                   if indent == 1:
-                     # def print_horizontal_segment(self,start_chr,end_chr,times,indent,option):
-                     print_horizontal_segment(self, self.left_lateral_corner_chr, self.horizontal_line_chr, (item+(2*self.adj_space)), indent,"inner_corner")
+                     # def _print_horizontal_segment(self,start_chr,end_chr,times,indent,option):
+                     _print_horizontal_segment(self, self.left_lateral_corner_chr, self.horizontal_line_chr, (item+(2*self.adj_space)), indent,"inner_corner")
                      indent = 0              
 
                   else:
-                     print_horizontal_segment(self, self.middle_inner_corner_chr, self.horizontal_line_chr, (item+(2*self.adj_space)), indent, "inner_corner")
+                     _print_horizontal_segment(self, self.middle_inner_corner_chr, self.horizontal_line_chr, (item+(2*self.adj_space)), indent, "inner_corner")
 
-               print_horizontal_segment(self, self.right_lateral_corner_chr, self.horizontal_line_chr, 0, indent, "inner_corner")
+               _print_horizontal_segment(self, self.right_lateral_corner_chr, self.horizontal_line_chr, 0, indent, "inner_corner")
             print()
          ctrl_sep += 1
 
@@ -1554,19 +1553,19 @@ def print_matrix_list(self,my_list):
             for item in longest_cols:
                if indent == 1:
                   # first segment
-                  print_horizontal_segment(self, self.bottom_left_corner_chr, self.bottom_horizontal_line_chr, (item+(2*self.adj_space)), indent, "corner")
+                  _print_horizontal_segment(self, self.bottom_left_corner_chr, self.bottom_horizontal_line_chr, (item+(2*self.adj_space)), indent, "corner")
                   indent = 0
                else:
                   #"horizontal")#"corner") # middle segments
-                  print_horizontal_segment(self, self.middle_bottom_corner_chr, self.bottom_horizontal_line_chr, (item+(2*self.adj_space)), indent, "inner_corner")
+                  _print_horizontal_segment(self, self.middle_bottom_corner_chr, self.bottom_horizontal_line_chr, (item+(2*self.adj_space)), indent, "inner_corner")
                
                   # last segment, which is only the corner that's why it's 0 on value               
-            print_horizontal_segment(self, self.bottom_right_corner_chr, self.bottom_horizontal_line_chr, 0, indent, "corner") 
+            _print_horizontal_segment(self, self.bottom_right_corner_chr, self.bottom_horizontal_line_chr, 0, indent, "corner") 
             print()     # done top line, jump to next line to print data
          else:
             pass
             #----------------------------------------------------------------------------------------------------------------------------------------
-   print_notefoot(self,my_list)
+   _print_notefoot(self,my_list)
    ins_newline(self.adj_bottom_margin)
 
 
@@ -1674,7 +1673,7 @@ class FancyFormat():
       self.fg_corner_chr = -1                   # values -1 to 255
 
       #-------------------------------------------------------------------------------------------------------------------------------------------
-      # Corner Section
+      # Middle Corner Section
       self.middle_top_corner_chr =  "+"          # all the middle corners between top_left_corner_chr and top_right_corner_chr. Only matrix list
       self.middle_bottom_corner_chr = "+"        # all the middle corners between top_left_corner_chr and top_right_corner_chr. Only matrix list
       self.middle_inner_corner_chr =  "+"        # corner inside the matrix and sides but not top(left,right), or bottom(left, right). Only matrix list
@@ -1688,7 +1687,6 @@ class FancyFormat():
 
       #-------------------------------------------------------------------------------------------------------------------------------------------
       # Header Section  Only for Matrix List
-      # attributes for the header text
       self.bold_header  = False                  # two values False and True (0 and 1)
       self.bg_header    = -1                     # values -1 to 255
       self.bg_all_cell_header = True             # how long will be the bg (all the cell or only the header)
@@ -1702,7 +1700,8 @@ class FancyFormat():
       self.dim_header       = False              # two values False and True (0 and 1)
       self.hidden_header    = False              # two values False and True (0 and 1)
       self.inverse_header   = False              # two values False and True (0 and 1)
-
+      
+      # Attributes for the header text
       self.left_vertical_header_line_chr = "|"   # small_bullet u'\u2022'
       self.right_vertical_header_line_chr = "|"  # circle_bullet u'\u2B24'
       self.middle_vertical_header_line_chr = "|" # matrix list only
@@ -2134,18 +2133,18 @@ class FancyFormat():
       my_list = []
       # convert all elements in the list to strigs only because the int type will cause problems with len command    
       #-----------------------------------------------------------------------------------------------------------------------------------------
-      list_type = get_list_type(data_list)
+      list_type = _get_list_type(data_list)
       
       #-----------------------------------------------------------------------------------------------------------------------------------------
       if list_type == "empty_list":                   # []
          data_list.append(" ")
-         print_single_element(self,data_list)
+         _print_single_element(self,data_list)
          
 
       #-----------------------------------------------------------------------------------------------------------------------------------------
       elif list_type == "one_item_no_row":              # ["one"]
          my_list = [str(data_list[0])]
-         print_single_element(self,my_list)
+         _print_single_element(self,my_list)
          
          if self.update_list == True and (isinstance (data, list)):     #  updte the list
             data_list[0] = str(data_list[0][0])
@@ -2153,7 +2152,7 @@ class FancyFormat():
       #-----------------------------------------------------------------------------------------------------------------------------------------
       elif list_type == "one_item_one_row":             # [["one"]]
          my_list = [str(data_list[0][0])]
-         print_single_element(self,my_list)
+         _print_single_element(self,my_list)
          
          if self.update_list == True and (isinstance (data, list)):     #  updte the list
             data_list[0] = str(data_list[0][0])

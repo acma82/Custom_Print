@@ -1119,11 +1119,11 @@ def Diagram1():
   
       {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
       {fp.ins_chr(10)}  f_data = fp.FancyFormat()
-      {fp.ins_chr(10)}  f_data.msg_title      = \"Title\"
-      {fp.ins_chr(10)}  f_data.msg_footnote   = \"footnote\"
-      {fp.ins_chr(10)}  f_data.adj_top_space  = 1
-      {fp.ins_chr(10)}  f_data.adj_top_bottom = 1
-      {fp.ins_chr(10)}  f_data.adj_indent     = 3
+      {fp.ins_chr(10)}  f_data.msg_title        = \"Title\"
+      {fp.ins_chr(10)}  f_data.msg_footnote     = \"footnote\"
+      {fp.ins_chr(10)}  f_data.adj_top_space    = 1
+      {fp.ins_chr(10)}  f_data.adj_bottom_space = 1
+      {fp.ins_chr(10)}  f_data.adj_indent       = 3
       {fp.ins_chr(10)}  data = \"Data Inside The Box\"      
       {fp.ins_chr(10)}  f_data.print_fancy_format(data)
 
