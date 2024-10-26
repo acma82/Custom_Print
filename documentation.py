@@ -281,6 +281,8 @@ def ins_chr_Function():
                   print("Hello"+fp.ins_chr(20)+"There")
 
       {fp.set_font(1,231,90)} \u25CF Output {fp.reset_font()}  Hello                    There
+
+      Note: By default is set to space if character is not specified.
       '''
    
    print(message)
@@ -1035,14 +1037,365 @@ and print_fancy_note.
 # FancyFormat Class                                                                                -
 #---------------------------------------------------------------------------------------------------
 def FancyFormat_Class():
-   blue_msg.print_fancy_message(classes_methods_fancyprint[0][2] + " Class")
-
+   blue_msg.print_fancy_message(classes_methods_fancyprint[0][3] + " Class")
+   Diagram1()
+   Diagram2()
+   Diagram3()
    Print_Fancy_Format_Method()
    Reset_Fancy_Format_Method()
 
 
+def Diagram1():
+   message = f'''
+      {fp.set_font(1,14,0)} Single Data {fp.reset_font()}        
+   '''
+   print(message)
+   
+   d1_lst = fp.FancyFormat()
+   print("$")
+   print("      \u2190 0")
+
+   d1_lst.adj_top_space = 1; d1_lst.adj_bottom_space = 1
+
+   d1_lst.adj_space = 0; d1_lst.adj_indent = 3
+
+   data = "...Data Inside The Box \u2190 data..."
+   d1_lst.msg_title = "Title \u2190 1";       d1_lst.align_title = "center"
+   
+   d1_lst.msg_footnote = "Footnote \u2190 8"; d1_lst.align_footnote = "right"
+
+   #corners
+   d1_lst.top_left_corner_chr = "3"
+   d1_lst.top_right_corner_chr = "4"
+   d1_lst.bottom_right_corner_chr = "5"
+   d1_lst.bottom_left_corner_chr = "6"
+
+   # left and right lines
+   d1_lst.left_vertical_line_chr = "L"
+   d1_lst.right_vertical_line_chr = "R"
+   #d1_lst.top_horizontal_line_chr = "-"
+   d1_lst.bottom_horizontal_line_chr = "*"
+
+
+
+   d1_lst.print_fancy_format(data)
+
+   crs.jumpTo(qty=6, direction=fp.Move.UP)
+   print("      \u2190 2")
+   crs.jumpTo(qty=3, direction=fp.Move.DOWN)
+   print("      \u2190 7")
+   fp.ins_newline(1)
+   print("      \u2190 9")
+
+   
+   crs.jumpTo(qty=8, direction=fp.Move.UP)
+   d1_lst.adj_indent = 50
+   data = "   Data Inside The Box   "
+   d1_lst.msg_title = "Title"; d1_lst.msg_footnote = "Footnote"   
+   d1_lst.print_fancy_format(data,fp.Line_Style.DASH)
+   
+   crs.jumpTo(qty=5, direction=fp.Move.UP)
+   print(",,,")
+   crs.jumpTo(qty=5, direction=fp.Move.DOWN)
+   print("")
+  
+
+   values=[["0 \u2192 adj_top_margin",         " "],
+           ["1 \u2192 msg_title",""            " "],
+           ["2 \u2192 adj_top_space",          "-   \u2192 top_horizontal_line_chr"],
+           ["3 \u2192 top_left_corner_chr",    "... \u2192 adj_space"],
+           ["4 \u2192 top_right_corner_chr",   "*   \u2192 bottom_horizontal_line_chr"],
+           ["5 \u2192 bottom_right_corner_chr",",,, \u2192 adj_indent"],
+           ["6 \u2192 bottom_left_corner_chr", "L   \u2192 left_vertical_line_chr"],
+           ["7 \u2192 adj_bottom_space",       "R   \u2192 right_vertical_line_chr"          ],
+           ["8 \u2192 msg_footnote",           " "          ],
+           ["9 \u2192 adj_bottom_margin",      " "          ]
+          ]
+   simple_msg.msg_title = " Description "
+   simple_msg.print_fancy_format(values,fp.Line_Style.NONE)
+
+
+   message = f'''
+  
+      {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
+      {fp.ins_chr(10)}  f_data = fp.FancyFormat()
+      {fp.ins_chr(10)}  f_data.msg_title      = \"Title\"
+      {fp.ins_chr(10)}  f_data.msg_footnote   = \"footnote\"
+      {fp.ins_chr(10)}  f_data.adj_top_space  = 1
+      {fp.ins_chr(10)}  f_data.adj_top_bottom = 1
+      {fp.ins_chr(10)}  f_data.adj_indent     = 3
+      {fp.ins_chr(10)}  data = \"Data Inside The Box\"      
+      {fp.ins_chr(10)}  f_data.print_fancy_format(data)
+
+   '''      
+   print(message)
+   
+   print(f"{fp.ins_chr(100,"=")}")
+   
+   print()
+   
+def Diagram2():
+   d2_lst = fp.FancyFormat()
+   values = [["Data 1","Data 2","Data 3"]]
+   message = f'''
+      {fp.set_font(1,14,0)} Multiple Horizontal Data {fp.reset_font()}        
+   '''
+   print(message)
+   d2_lst.middle_top_corner_chr = "a"
+   d2_lst.middle_vertical_line_chr = "b"
+   d2_lst.middle_bottom_corner_chr = "c"
+   d2_lst.print_fancy_format(values)
+   
+   crs.jumpTo(qty=3, direction=fp.Move.UP)
+   d2_lst.adj_indent = 50
+   d2_lst.print_fancy_format(values,fp.Line_Style.DASH)
+
+   simple_msg.msg_title = " Description "
+   values = [["a \u2192 middle_top_corner_chr"],
+             ["b \u2192 middle_vertical_line_chr"],
+             ["c \u2192 middle_bottom_corner_chr"]]
+
+   simple_msg.print_fancy_format(values,fp.Line_Style.NONE)
+
+   message = f'''
+  
+      {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
+      {fp.ins_chr(10)}  f_data = fp.FancyFormat()
+      {fp.ins_chr(10)}  data = [["Data 1","Data 2","Data 3"]]
+      {fp.ins_chr(10)}  f_data.print_fancy_format(data)
+
+   '''      
+   print(message)
+   print(f"{fp.ins_chr(100,"=")}")
+
+   values = [["Header"],["Data 1"],["Data 2"],["Data 3"]]
+   message = f'''
+      {fp.set_font(1,14,0)} Multiple Vertical Data {fp.reset_font()}        
+   '''
+   print(message)
+   d2_lst.adj_indent = 2
+   d2_lst.horizontal_line_under_header_on = True
+   d2_lst.horizontal_separator_line_on = True
+
+   d2_lst.horizontal_line_under_header_chr = "d"
+   d2_lst.horizontal_line_chr = "e"
+   
+   d2_lst.left_vertical_header_line_chr = "f"
+   d2_lst.right_vertical_header_line_chr = "g"
+
+   d2_lst.left_corner_under_line_header_chr = "h"
+   d2_lst.right_corner_under_line_header_chr = "i"
+
+   d2_lst.left_lateral_corner_chr = "j"
+   d2_lst.right_lateral_corner_chr = "k"
+
+   d2_lst.print_fancy_format(values)
+
+
+   crs.jumpTo(qty=9, direction=fp.Move.UP)
+   d2_lst.adj_indent = 50
+   d2_lst.print_fancy_format(values,fp.Line_Style.DASH)
+
+   simple_msg.msg_title = " Description "
+   values = [["d \u2192 horizontal_line_under_header_chr"],
+             ["e \u2192 horizontal_line_chr"],
+             ["f \u2192 left_vertical_header_line_chr"],
+             ["g \u2192 right_vertical_header_line_chr"],
+             ["h \u2192 left_corner_under_line_header_chr"],
+             ["i \u2192 right_corner_under_line_header_chr"],
+             ["j \u2192 left_lateral_corner_chr"],
+             ["k \u2192 right_lateral_corner_chr"]]
+   simple_msg.print_fancy_format(values,fp.Line_Style.NONE)
+
+   message = f'''
+  
+      {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
+      {fp.ins_chr(10)}  f_data = fp.FancyFormat()
+      {fp.ins_chr(10)}  f_data.horizontal_line_under_header_on = True
+      {fp.ins_chr(10)}  f_data.horizontal_separator_line_on = True
+      {fp.ins_chr(10)}  data = [["Header"],["Data 1"],["Data 2"],["Data 3"]]
+      {fp.ins_chr(10)}  f_data.print_fancy_format(data)
+
+   '''      
+   print(message)
+
+   print(f"{fp.ins_chr(100,"=")}")
+
+   d3_lst = fp.FancyFormat()
+   values = [["Header 1","Header 2","Header 3"],
+             ["Data 1",  "Data 2",  "Data 3"  ],
+             ["Data 4",  "Data 5",  "Data 6"  ],
+             ["Data 7",  "Data 8"]]
+
+   message = f'''
+      {fp.set_font(1,14,0)} Matrix Data {fp.reset_font()}
+   '''
+   print(message)
+
+   d3_lst.horizontal_line_under_header_on = True
+   d3_lst.horizontal_separator_line_on = True
+   
+   d3_lst.middle_vertical_header_line_chr = "l"
+   d3_lst.middle_corner_under_line_header_chr = "m"
+   d3_lst.middle_inner_corner_chr = "n"
+
+   d3_lst.print_fancy_format(values)
+
+   crs.jumpTo(qty=9, direction=fp.Move.UP)
+   d3_lst.adj_indent = 50
+   d3_lst.print_fancy_format(values,fp.Line_Style.DASH)
+
+
+   simple_msg.msg_title = " Description "
+   values = [["l    \u2192 horizontal_line_under_header_chr"],
+             ["m    \u2192 horizontal_line_chr"],
+             ["n    \u2192 left_vertical_header_line_chr"],
+             ["---- \u2192 set_fill_chr"]]
+
+   simple_msg.print_fancy_format(values,fp.Line_Style.NONE)
+
+   
+   message = f'''
+  
+      {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
+      {fp.ins_chr(10)}  f_data = fp.FancyFormat()
+      {fp.ins_chr(10)}  f_data.horizontal_line_under_header_on = True
+      {fp.ins_chr(10)}  f_data.horizontal_separator_line_on = True
+      {fp.ins_chr(10)}  values = [["Header 1","Header 2","Header 3"],
+      {fp.ins_chr(10)}           ["Data 1",  "Data 2",  "Data 3"  ],
+      {fp.ins_chr(10)}           ["Data 4",  "Data 5",  "Data 6"  ],
+      {fp.ins_chr(10)}           ["Data 7",  "Data 8"]]
+      {fp.ins_chr(10)}  f_data.print_fancy_format(data)
+
+   '''      
+   print(message)
+
+   print(f"{fp.ins_chr(100,"=")}")   
+
+
+def Diagram3():
+   message = f'''
+      {fp.set_font(1,14,0)} Matrix Data Diagram {fp.reset_font()}
+   '''
+   print(message)
+
+   print("$")
+   print("      \u2190 0")
+
+   dt_lst = fp.FancyFormat()
+   dt_lst.adj_top_space = 1; dt_lst.adj_bottom_space = 1
+   dt_lst.adj_space = 0; dt_lst.adj_indent = 3
+   dt_lst.msg_title = "Title \u2190 1"; dt_lst.msg_footnote = "Footnote \u2190 8"
+   dt_lst.align_title = "center"; dt_lst.align_footnote = "right"
+   dt_lst.set_fill_chr = "...------..."
+   dt_lst.horizontal_separator_line_on = True
+   dt_lst.horizontal_line_under_header_on = True
+   
+   # Single Data   
+   dt_lst.top_left_corner_chr = "3"      # corners
+   dt_lst.top_right_corner_chr = "4"
+   dt_lst.bottom_right_corner_chr = "5"
+   dt_lst.bottom_left_corner_chr = "6"
+   dt_lst.left_vertical_line_chr = "L"   # left and right lines
+   dt_lst.right_vertical_line_chr = "R"
+   #d1_lst.top_horizontal_line_chr = "-"
+   dt_lst.bottom_horizontal_line_chr = "*"
+   
+   # Multiple Horizontal Data
+   dt_lst.middle_top_corner_chr = "a"
+   dt_lst.middle_vertical_line_chr = "b"
+   dt_lst.middle_bottom_corner_chr = "c"
+
+   # Multiple Vertical Data
+   dt_lst.horizontal_line_under_header_chr = "d"
+   dt_lst.horizontal_line_chr = "e"
+   dt_lst.left_vertical_header_line_chr = "f"
+   dt_lst.right_vertical_header_line_chr = "g"
+   dt_lst.left_corner_under_line_header_chr = "h"
+   dt_lst.right_corner_under_line_header_chr = "i"
+   dt_lst.left_lateral_corner_chr = "j"
+   dt_lst.right_lateral_corner_chr = "k"
+
+   # Matrix Data
+   dt_lst.middle_vertical_header_line_chr = "l"
+   dt_lst.middle_corner_under_line_header_chr = "m"
+   dt_lst.middle_inner_corner_chr = "n"
+
+   # Some color to visualize a little better
+   dt_lst.bg_horizontal_line = 14
+   dt_lst.bg_corner_chr = 21
+   dt_lst.bg_inner_corner_chr = 90
+   
+   dt_lst.bg_corner_under_line_header = 3
+   dt_lst.fg_corner_under_line_header = 231
+   
+   dt_lst.bg_under_line_header = 191
+   dt_lst.fg_under_line_header = 0
+ 
+   dt_lst.bg_vertical_header_line_chr = 15
+   dt_lst.fg_vertical_header_line_chr = 0
+
+   dt_lst.bg_vertical_line = 85
+   dt_lst.fg_vertical_line = 0
+
+   dt_lst.bg_data = 1
+   dt_lst.fg_data = 231
+
+   values = [["...Head 1...",  "...Head 2...",  "...Head 3..."],
+             ["...Data 1...",  "...Data 2...",  "...Data 3..."  ],
+             ["...Data 4...",  "...Data 5...",  "...Data 6..."  ],
+             ["...Data 7...",  "...Data 8..."]]
+   dt_lst.print_fancy_format(values)
+
+
+   crs.jumpTo(qty=12, direction=fp.Move.UP)
+   print("      \u2190 2")
+   print(",,,")
+   crs.jumpTo(qty=8, direction=fp.Move.DOWN)
+   print("      \u2190 7")
+   fp.ins_newline(1)
+   print("      \u2190 9")
+
+
+
+   values=[["0 \u2192 adj_top_margin",         " "],
+           ["1 \u2192 msg_title",""            " "],
+           ["2 \u2192 adj_top_space",          "-   \u2192 top_horizontal_line_chr"],
+           ["3 \u2192 top_left_corner_chr",    "... \u2192 adj_space"],
+           ["4 \u2192 top_right_corner_chr",   "*   \u2192 bottom_horizontal_line_chr"],
+           ["5 \u2192 bottom_right_corner_chr",",,, \u2192 adj_indent"],
+           ["6 \u2192 bottom_left_corner_chr", "L   \u2192 left_vertical_line_chr"],
+           ["7 \u2192 adj_bottom_space",       "R   \u2192 right_vertical_line_chr"          ],
+           ["8 \u2192 msg_footnote",           " "            ],
+           ["9 \u2192 adj_bottom_margin",      " "            ],
+           ["                          ",      " "            ],
+           ["a \u2192 middle_top_corner_chr",  " "            ],
+           ["b \u2192 middle_vertical_line_chr",  " "         ],
+           ["c \u2192 middle_bottom_corner_chr",  " "         ],
+           ["                                 ",  " "         ],
+           ["d \u2192 horizontal_line_under_header_chr",   " "],
+           ["e \u2192 horizontal_line_chr",                " "],
+           ["f \u2192 left_vertical_header_line_chr",      " "],
+           ["g \u2192 right_vertical_header_line_chr",     " "],
+           ["h \u2192 left_corner_under_line_header_chr",  " "],
+           ["i \u2192 right_corner_under_line_header_chr", " "],
+           ["j \u2192 left_lateral_corner_chr",            " "],
+           ["k \u2192 right_lateral_corner_chr",           " "],
+           ["                                 ",           " "],
+           ["l    \u2192 horizontal_line_under_header_chr"," "],
+           ["m    \u2192 horizontal_line_chr",             " "],
+           ["n    \u2192 left_vertical_header_line_chr",   " "],
+           ["---- \u2192 set_fill_chr",                    " "]
+           ]
+
+
+   simple_msg.msg_title = " Full Description "
+   simple_msg.print_fancy_format(values,fp.Line_Style.NONE)
+
+
+
 def Print_Fancy_Format_Method():
-   green_msg.print_fancy_message(classes_methods_fancyprint[1][2])
+   green_msg.print_fancy_message(classes_methods_fancyprint[1][3])
    print("\n print_fancy_format will print any type of variable into a fancy list style\n")
 
    # General Use Default Values
@@ -1057,61 +1410,148 @@ def Print_Fancy_Format_Method():
 
    message = f'''
      {fp.set_font(True,-1,14)}adj_top_margin{fp.set_font(False)}
+     lines to be add between the terminal and the title.
+
      {fp.set_font(True,-1,14)}adj_bottom_margin{fp.set_font(False)}
+     lines to be add between the end of list or footnote and the terminal.
+     
      {fp.set_font(True,-1,14)}adj_top_space{fp.set_font(False)}
+     lines to be added between title and top list. This only work
+     when title exist.
+     
      {fp.set_font(True,-1,14)}adj_bottom_space{fp.set_font(False)}
+     lines to be added between bottom list and footnote. This only work
+     when a footnote exist.
+     
      {fp.set_font(True,-1,14)}adj_indent{fp.set_font(False)}
+     space from the terminal to the box.
+     
      {fp.set_font(True,-1,14)}adj_space{fp.set_font(False)}
+     space from vertical left line to the data and the space from the data to
+     the vertical right line, inside the box.
+     
      {fp.set_font(True,-1,14)}set_fill_chr{fp.set_font(False)}
+     to fill the empty spots when the list is not complete. This only
+     works when we are dealing with a table list.
+     
      {fp.set_font(True,-1,14)}set_layout{fp.set_font(False)}
+     This is only for Range, Set, and SetFrozen type data. It defines how
+     to print the data, horizontal or vertical.
+     
      {fp.set_font(True,-1,14)}update_list{fp.set_font(False)}
+     if we want to save the data as it's presented, but in string type for 
+     each element in list. This only work when the variable is a list type.
          
 '''
    print(message)
 
-   
    # Title Default Values
-   # simple_msg.msg_title = " Title Default Values "
-   # default_values = [["bg_title    = 4    ",     "italic_title  = False",      "blinking_title   = False"],
-   #                   ["fg_title    = 231  ",     "strike_title  = False",      "underline_title  = False"],
-   #                   ["dim_title   = False",     "hidden_title  = False",      "inverse_title    = False"],
-   #                   ["bold_title  = False",     "                     ",      "                       "],
-   #                   ["                   ",     "                     ",      "                       "],
-   #                   ["msg_title   = \"\"",      "title_indent  = 2",          "align_title      = Align.LEFT"],
-   #                   ["                 ",        "                ",          "lines_title_body = 1"]]
+   default_values = [["msg_title   = \"\"",     "align_title     = \"justify\"",    "blinking_title  = False"],
+                     ["bold_title  = False",    "italic_title    = False",          "dim_title       = False"],
+                     ["bg_title    = -1",       "underline_title = False",          "hidden_title    = False"],
+                     ["fg_title    = -1",       "strike_title    = False",          "inverse_title   = False"]]
 
-   # simple_msg.print_fancy_format(default_values,fp.Line_Style.NONE)
+   simple_msg.msg_title = " Title Default Values "
+   simple_msg.print_fancy_format(default_values, fp.Line_Style.NONE)
 
 
 
-   # # Footnote Default Values
-   # simple_msg.msg_title = " Footnote Default Values "
-   # default_values = [["bg_footnote     = ",       "italic_footnote = False",        "blinking_footnote  = False"],
-   #                   ["fg_footnote     = ",     "strike_footnote = False",        "underline_footnote = False"],
-   #                   ["dim_footnote    = False",   "hidden_footnote = False",        "inverse_footnote   = False"],                     
-   #                   ["bold_footnote   = False",   "msg_footnote    = \"\" ",         "                         "],
-   #                   ["                       ",   "                       ",         "                         "],
-   #                   ["footnote_indent = 2",       "lines_body_footnote = 1",         "align_footnote = Align.RIGHT"]]
 
-   # simple_msg.print_fancy_format(default_values,fp.Line_Style.NONE)
+   # Footnote Default Values
+   default_values = [["msg_footnote   = \"\"",     "align_footnote     = \"justify\"",    "blinking_footnote  = False"],
+                     ["bold_footnote  = False",    "italic_footnote    = False",          "dim_footnote       = False"],
+                     ["bg_footnote    = -1",       "underline_footnote = False",          "hidden_footnote    = False"],
+                     ["fg_footnote    = -1",       "strike_footnote    = False",          "inverse_footnote   = False"]]
+
+   simple_msg.msg_title = " Footnote Default Values "
+   simple_msg.print_fancy_format(default_values, fp.Line_Style.NONE)
+
+
+   # Data Default Values
+   default_values = [["bg_all_cell_data = True",     "align_data     = \"justify\"",    "blinking_data  = False"],
+                     ["bold_data        = False",    "italic_data    = False",          "dim_data       = False"],
+                     ["bg_data          = -1",       "underline_data = False",          "hidden_data    = False"],
+                     ["fg_data          = -1",       "strike_data    = False",          "inverse_data   = False"]]
+
+   simple_msg.msg_title = " Data Default Values "
+   simple_msg.print_fancy_format(default_values, fp.Line_Style.NONE)
+
+   message = f'''
+     {fp.set_font(True,-1,14)}bg_all_cell_data{fp.set_font(False)}
+     It defines how long will be the bg in the data (all the cell or only the data)
+         
+'''
+   print(message)
+
+
+   # Header Default Values
+   default_values = [["bg_all_cell_header = True",     "align_header     = \"justify\"",    "blinking_header  = False"],
+                     ["bold_header        = False",    "italic_header    = False",          "dim_header       = False"],
+                     ["bg_header          = -1",       "underline_header = False",          "hidden_header    = False"],
+                     ["fg_header          = -1",       "strike_header    = False",          "inverse_header   = False"]]
+
+   simple_msg.msg_title = " Header Default Values "
+   simple_msg.print_fancy_format(default_values, fp.Line_Style.NONE)
+
+   message = f'''
+     {fp.set_font(True,-1,14)}bg_all_cell_header{fp.set_font(False)}
+     It defines how long will be the bg in the header (all the cell or only the header)
+         
+'''
+   print(message)
+
+
+# Horizontal Line Section
+   default_values = ["  "]
+   simple_msg.msg_title = " Horizontal Line Default Values "
+   simple_msg.print_fancy_format(default_values, fp.Line_Style.NONE)
+
+# Vertical Line Section
+   simple_msg.msg_title = " Vertical Line Default Values "
+   simple_msg.print_fancy_format(default_values, fp.Line_Style.NONE)
+
+# Corner Section
+   simple_msg.msg_title = " Corner Default Values "
+   simple_msg.print_fancy_format(default_values, fp.Line_Style.NONE)
+
+# Middle Corner Section
+   simple_msg.msg_title = " Middle Corner Default Values "
+   simple_msg.print_fancy_format(default_values, fp.Line_Style.NONE)
+
+# Attributes for the header text
+   simple_msg.msg_title = " Header Chr Default Values "
+   simple_msg.print_fancy_format(default_values, fp.Line_Style.NONE)
+
+# Under Line Header Section
+   simple_msg.msg_title = " Under Line Header Default Values "
+   simple_msg.print_fancy_format(default_values, fp.Line_Style.NONE)
+
+
 
 def Reset_Fancy_Format_Method():
-   green_msg.print_fancy_message(classes_methods_fancyprint[2][2])
+   green_msg.print_fancy_message(classes_methods_fancyprint[2][3])
 
    print("\n It will set all the variables in print_fancy_format method to their default values")
    message = f'''
   
       {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
-      {fp.ins_chr(10)}  fmsg = fp.FancyMessage()      
-      {fp.ins_chr(10)}  fmsg.bold_note = True
-      {fp.ins_chr(10)}  fmsg.bg_body = 90      
-      {fp.ins_chr(10)}  message = \"There are variables that are being used by both methods.....\"      
-      {fp.ins_chr(10)}  fmsg.print_fancy_mesage(paragraph)
+      {fp.ins_chr(10)}  fmsg = fp.FancyFormat()      
+      {fp.ins_chr(10)}  message = \"Data Text Here.....\"      
+      {fp.ins_chr(10)}  fmsg.bg_data = 90
+      {fp.ins_chr(10)}  fmsg.print_fancy_format(message)
       {fp.ins_chr(10)}  fmsg.reset_fancy_format()
-      {fp.ins_chr(10)}  fmsg.print_fancy_mesage(paragraph)
+      {fp.ins_chr(10)}  fmsg.print_fancy_mesage(message)
 
-   '''   
+   '''      
    print(message)
+
+   fmsg = fp.FancyFormat()
+   message  = "Data Text Here......"
+   fmsg.bg_data = 90
+   fmsg.print_fancy_format(message)
+   fmsg.reset_fancy_format()
+   print("\n")
+   fmsg.print_fancy_format(message)
 #----------------------------------------------------------------------------------------------------------------------------------------------
 # Start the Documentation for fancyprint Module                                                                                               -
 #----------------------------------------------------------------------------------------------------------------------------------------------

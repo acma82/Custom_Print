@@ -1585,7 +1585,7 @@ class FancyFormat():
       self.adj_bottom_margin = 0               # lines to be add between the end of list or footnote and terminal
       self.adj_top_space   = 0                 # lines to be added between title and top list
       self.adj_indent      = 2                 # space from the terminal to the box
-      self.adj_space       = 2                 # space from left to right side inside the box
+      self.adj_space       = 2                 # space from left to right inside inside the box
       self.adj_bottom_space= 0                 # lines to be added between bottom list and footnote
       self.set_fill_chr    = "----"            # to fill the empty spots when the list is not complete
       self.set_layout      = Layout.HORIZONTAL # This is only for Range, Set, and SetFrozen type data
@@ -1598,7 +1598,6 @@ class FancyFormat():
       self.bg_title    = -1                      # values -1 to 255
       self.fg_title    = -1                      # values -1 to 255
       self.align_title = "justify"               # 4 values: justify(j),left(l), center(c), and right(r)
-
       self.italic_title    = False               # two values False and True (0 and 1)
       self.underline_title = False               # two values False and True (0 and 1)
       self.strike_title    = False               # two values False and True (0 and 1)
@@ -1656,7 +1655,7 @@ class FancyFormat():
       #-------------------------------------------------------------------------------------------------------------------------------------------
       # Vertical Line Section    
       self.left_vertical_line_chr  = "|"         # used for the left vertical line only
-      self.middle_vertical_line_chr = "|"         # all the vertical line in the middle between left and right. Only matrix
+      self.middle_vertical_line_chr = "|"        # all the vertical line in the middle between left and right. Only matrix
       self.right_vertical_line_chr = "|"         # used for the right vertical line only
     
 
@@ -1678,10 +1677,10 @@ class FancyFormat():
       # Corner Section
       self.middle_top_corner_chr =  "+"          # all the middle corners between top_left_corner_chr and top_right_corner_chr. Only matrix list
       self.middle_bottom_corner_chr = "+"        # all the middle corners between top_left_corner_chr and top_right_corner_chr. Only matrix list
-      self.middle_inner_corner_chr =  "|"        # corner inside the matrix and sides but not top(left,right), or bottom(left, right). Only matrix list
+      self.middle_inner_corner_chr =  "+"        # corner inside the matrix and sides but not top(left,right), or bottom(left, right). Only matrix list
       
-      self.left_lateral_corner_chr =  "|"        # chr only for matrix list
-      self.right_lateral_corner_chr = "|"        # chr only for matrix list    
+      self.left_lateral_corner_chr =  "+"        # chr only for matrix list
+      self.right_lateral_corner_chr = "+"        # chr only for matrix list    
       
       self.bold_inner_corner_chr = False         # two values False and True (0 and 1)
       self.bg_inner_corner_chr = -1              # values -1 to 255
