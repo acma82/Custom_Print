@@ -878,7 +878,7 @@ def _get_total_length(self,my_list):
       
       else:
          # we have a matrix list something like this [[10,20,30],[40,50,60],[70,80,90]]. awsome.
-         max_rows, max_cols = get_number_rows_cols_list(my_list)
+         max_rows, max_cols = _get_number_rows_cols_list(my_list)
          n_cols = []; tempo_cols = []
 
          # we create the transpose of the list but we save their lens in the transpose rather than the data
@@ -1100,7 +1100,7 @@ def _print_single_element(self,my_list):
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 # Print Multiple Horizontal Items (One Row OR No Row)                                                                                          -
 #-----------------------------------------------------------------------------------------------------------------------------------------------
-def print_multiple_horizontal_items(self,my_list):
+def _print_multiple_horizontal_items(self,my_list):
    ins_newline(self.adj_top_margin)
    # print title
    _print_title(self,my_list)
@@ -1190,7 +1190,7 @@ def print_multiple_horizontal_items(self,my_list):
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 # Get Number of Rows and Cols of the List                                                                                                      -
 #-----------------------------------------------------------------------------------------------------------------------------------------------
-def get_number_rows_cols_list(my_list):
+def _get_number_rows_cols_list(my_list):
    n_rows = len(my_list)
    n_cols = 0
 
@@ -1204,8 +1204,8 @@ def get_number_rows_cols_list(my_list):
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 # Complete Information in the List, if need it                                                                                                 -
 #-----------------------------------------------------------------------------------------------------------------------------------------------
-def complete_info_list(self,my_list):
-   n_rows, n_cols = get_number_rows_cols_list(my_list)
+def _complete_info_list(self,my_list):
+   n_rows, n_cols = _get_number_rows_cols_list(my_list)
    row_tempo_list = []; matrix_update = []
 
    for row in range(n_rows):
@@ -1221,7 +1221,7 @@ def complete_info_list(self,my_list):
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 # Get the Odd or Even Space Adjustment for the Word                                                                                            -
 #-----------------------------------------------------------------------------------------------------------------------------------------------
-def get_odd_even_space_adj(length,len_dato):
+def _get_odd_even_space_adj(length,len_dato):
    sp_start = 0; sp_end=0
    odd_l = length%2
    odd_len_dato = len_dato%2
@@ -1248,7 +1248,7 @@ def get_odd_even_space_adj(length,len_dato):
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 # Print Matrix List                                                                                                                            -
 #-----------------------------------------------------------------------------------------------------------------------------------------------
-def print_matrix_list(self,my_list):
+def _print_matrix_list(self,my_list):
    # d  :data,   v: vertical,   hcl: left_corner_header,   mch:middle_corner_header, rch:right_corner_header,   t:title(header)
    # get all the settings for the list
    set_d = set_font(self.bold_data, self.bg_data, self.fg_data,self.italic_data,self.underline_data,self.strike_data,self.blinking_data,self.dim_data,self.hidden_data,self.inverse_data)
@@ -1298,7 +1298,7 @@ def print_matrix_list(self,my_list):
       
                elif (self.align_header.lower() == "center") or (self.align_header.lower() == "c"):
                   # add the extra space for the word odd or even space adjustment for start and the end
-                  oe_sp_start, oe_sp_end = get_odd_even_space_adj(length,len(dato)) 
+                  oe_sp_start, oe_sp_end = _get_odd_even_space_adj(length,len(dato)) 
                   print(_move_right(self.adj_indent) + set_hchr_v + self.left_vertical_header_line_chr + set_t +\
                         _move_right(self.adj_space+oe_sp_start,self.bg_all_cell_header)+ dato +\
                         _move_right(self.adj_space+oe_sp_end,self.bg_all_cell_header) +\
@@ -1338,7 +1338,7 @@ def print_matrix_list(self,my_list):
       
                elif (self.align_data.lower() == "center") or (self.align_data.lower() == "c"):
                   # add the extra space for the word odd or even space adjustment for start and the end
-                  oe_sp_start, oe_sp_end = get_odd_even_space_adj(length,len(dato)) 
+                  oe_sp_start, oe_sp_end = _get_odd_even_space_adj(length,len(dato)) 
                   print(_move_right(self.adj_indent) + set_v + self.left_vertical_line_chr + set_d +\
                         _move_right(self.adj_space+oe_sp_start,self.bg_all_cell_data)+ dato +\
                         _move_right(self.adj_space+oe_sp_end,self.bg_all_cell_data) + set_v +\
@@ -1385,7 +1385,7 @@ def print_matrix_list(self,my_list):
       # Awsome...!                                                                                                                                -
       #--------------------------------------------------------------------------------------------------------------------------------------------
    else:
-      max_rows, max_cols = get_number_rows_cols_list(my_list)
+      max_rows, max_cols = _get_number_rows_cols_list(my_list)
       n_cols = []; tempo_cols = []
       # we create the transpose of the list but we save their lens in the transpose rather than the data
       for c in range(max_cols):
@@ -1430,7 +1430,7 @@ def print_matrix_list(self,my_list):
     
          elif (self.align_header.lower() == "center") or (self.align_header.lower() == "c"):
             # add the extra space for the word odd or even space adjustment for start and the end
-            oe_sp_start, oe_sp_end = get_odd_even_space_adj(longest_cols[ctrl_col],len(dato))
+            oe_sp_start, oe_sp_end = _get_odd_even_space_adj(longest_cols[ctrl_col],len(dato))
             print(vertical + set_t + _move_right(self.adj_space+oe_sp_start,self.bg_all_cell_header) + dato +\
                   _move_right(self.adj_space+oe_sp_end,self.bg_all_cell_header) + reset_font(),end="")
     
@@ -1489,7 +1489,7 @@ def print_matrix_list(self,my_list):
       
             elif (self.align_data.lower() == "center") or (self.align_data.lower() == "c"):
                # add the extra space for the word odd or even space adjustment for start and the end
-               oe_sp_start, oe_sp_end = get_odd_even_space_adj(longest_cols[ctrl_col],len(dato)) 
+               oe_sp_start, oe_sp_end = _get_odd_even_space_adj(longest_cols[ctrl_col],len(dato)) 
                print(vertical + set_d + _move_right(self.adj_space+oe_sp_start,self.bg_all_cell_data) + dato +\
                      _move_right(self.adj_space+oe_sp_end,self.bg_all_cell_data) + reset_font(),end="")
       
@@ -2165,7 +2165,7 @@ class FancyFormat():
             for n in row:
                my_list.append(str(n))        
      
-         print_multiple_horizontal_items(self,my_list)
+         _print_multiple_horizontal_items(self,my_list)
 
          # if we want to save the new list to into the old one as string
          if self.update_list == True and (isinstance (data, list)):
@@ -2179,7 +2179,7 @@ class FancyFormat():
          for n in (data_list):
             my_list.append(str(n))
 
-         print_multiple_horizontal_items(self,my_list)
+         _print_multiple_horizontal_items(self,my_list)
 
          # if we want to save the new list to into the old one as string
          if self.update_list == True and (isinstance (data, list)):
@@ -2194,7 +2194,7 @@ class FancyFormat():
          for n in (data_list):
             my_list.append(str(n))
 
-         print_multiple_horizontal_items(self,my_list)
+         _print_multiple_horizontal_items(self,my_list)
 
          # if we want to save the new list to into the old one as string
          if self.update_list == True and (isinstance (data, list)):
@@ -2213,9 +2213,9 @@ class FancyFormat():
             tempo_list2.append(tempo_list1)
             tempo_list1 = []
 
-         my_list = complete_info_list(self,tempo_list2)  # make it complete
+         my_list = _complete_info_list(self,tempo_list2)  # make it complete
          #print(my_list)
-         print_matrix_list(self,my_list)
+         _print_matrix_list(self,my_list)
 
            # if we want to save the new list to into the old one as string
          if self.update_list == True and (isinstance (data, list)):
@@ -2274,19 +2274,19 @@ class Cursor():
       Moves the cursor n position to the Direction Specified
    ----------------------------------------------------------------------------
       '''
-      if   direction == Move.UP    :  
+      if direction.lower() == Move.UP or direction.lower() == "u":
          if qty == 0: movement = ""
          else:        movement = f"\033[{str(qty)}A"
 
-      elif direction == Move.DOWN  :
+      elif direction.lower() == Move.DOWN  or direction.lower() == "d":
          if qty == 0: movement = ""
          else:        movement = f"\033[{str(qty)}B"
 
-      elif direction == Move.RIGHT :
+      elif direction.lower() == Move.RIGHT or direction.lower() == "r":
          if qty == 0: movement = ""
          else:        movement = f"\033[{str(qty)}C"
 
-      elif direction == Move.LEFT  :
+      elif direction.lower() == Move.LEFT or direction.lower() == "l":
          if qty == 0: movement = ""
          else:        movement = f"\033[{str(qty)}D"
 
@@ -2300,7 +2300,7 @@ class Cursor():
       This function moves the cursor to a specific position (x,y)
    ----------------------------------------------------------------------------
       '''
-      print(Cursor.moveTo(self, y, x),end="")
+      print(Cursor.movexy(self, y, x),end="")
 
    
    def movexy(self,x=0, y=0):

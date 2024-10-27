@@ -431,7 +431,7 @@ def Move_Class():
    #------------------------------------------------------------------------------------------------
    # Move                                                                                          -
    #------------------------------------------------------------------------------------------------
-   green_msg.print_fancy_message(help_classes[0][0])
+   green_msg.print_fancy_message(help_classes[1][0])
    message = f'''
       This class is used with the Cursor Class and it contains 4 options.
 
@@ -458,7 +458,7 @@ def Align_Class():
    #------------------------------------------------------------------------------------------------
    # Works with FancyFormat (print_fancy_format)
    # works with FancyMessage (print_fancy_note, print_fancy_header)
-   green_msg.print_fancy_message(help_classes[1][0])
+   green_msg.print_fancy_message(help_classes[2][0])
    message = f'''
       Aligns Class is used with the FancyFormat Class and FancyMessage Class.
       It contains 4 options.
@@ -486,7 +486,7 @@ def Layout_Class():
    #------------------------------------------------------------------------------------------------
    # works with FancyFormat, range, set, setfrozen obj.set_layout = fp.Layout.VERTICAL
    # works with Draw (line, arrow)
-   green_msg.print_fancy_message(help_classes[2][0])
+   green_msg.print_fancy_message(help_classes[3][0])
    message = f'''     
       Layout Class is used on FancyFormat only for the range, set, frozenset type of variables.
       Layout also is uded with Draw Class. It contains 2 options.
@@ -508,7 +508,7 @@ def Length_Class():
    # Length                                                                                        -
    #------------------------------------------------------------------------------------------------
    # FancyMessage   
-   green_msg.print_fancy_message(help_classes[3][0])
+   green_msg.print_fancy_message(help_classes[4][0])
    message = f'''
       Length Class is used with FancyMessage Class and there 2 options.
 
@@ -525,7 +525,7 @@ def Unicode_Class():
    #------------------------------------------------------------------------------------------------
    # Unicode chrs                                                                                  -
    #------------------------------------------------------------------------------------------------     
-   green_msg.print_fancy_message(help_classes[4][0])
+   green_msg.print_fancy_message(help_classes[5][0])
    message = f'''
       Unicode Class is used with the Pen Class.
       It contains a few chr code to use Unicode.
@@ -550,7 +550,7 @@ def Style_Line_Class():
    # Style_Line                                                                                    -
    #------------------------------------------------------------------------------------------------
    # FancyFormat   
-   green_msg.print_fancy_message(help_classes[5][0])
+   green_msg.print_fancy_message(help_classes[6][0])
    message = f'''
       Style_Line Class is used with FancyFormat Class and Draw Class. There are 7 options.
 

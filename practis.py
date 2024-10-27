@@ -6,7 +6,7 @@ pen = fp.Pen()
 # pen.bg_draw_line = 14
 # pen.fg_draw_line = 0
 # pen.bold_draw_line = True
-
+crs.jumpTo(4,"D")
 
 
 pen.draw_line(size=25, layout=fp.Layout.HORIZONTAL, tail="\N{BLACK CIRCLE}",\
@@ -29,3 +29,12 @@ print(f"\u2014{fp.Unicode.BLAKC_RIGHT_POINT_TRIANGLE}")
 
 
 
+def hello(arg1="hello"):
+   if arg1.lower() == "hello":
+      print(arg1)
+   else:
+      print("good bye")
+
+
+crs.jumpTo(4,"d")
+hello("HELLo")
