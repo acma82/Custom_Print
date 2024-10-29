@@ -42,15 +42,16 @@ pen.bold_draw_line = True
 
 
 #----------------------------------------------------------------------------------------------------------------------------------------------
-def adj_screen(y, x):
-   if (fp.OS_Linux == True and fp.OS_Windows == False):   fp.resize(rows=y, cols=x) #fp.resize(44, 90)
-   elif (fp.OS_Linux == False and fp.OS_Windows == True): fp.resize(rows=y, cols=x) #fp.resize(44, 90)
-   else:                                                  pass
-
 # Variables
 ncols, nrows = fp.dimensions()
-myrows = 92; mycols = 100
-adj_screen(myrows, mycols)
+
+if (fp.OS_Linux == True and fp.OS_Windows == False):   myrows = 92;  mycols = 100
+elif (fp.OS_Linux == False and fp.OS_Windows == True): myrows = 920; mycols = 100
+else:                                                  pass
+
+
+fp.resize(myrows, mycols)
+
 
 
 
@@ -62,7 +63,7 @@ help_classes       = [[" Help_Classes "],["Move"],["Align"],["Layout"],["Length"
 
 classes_methods_fancyprint = [["Cursor",  "FontStyle",    "FancyMessage",          "FancyFormat"        ,  "Pen"],
                               ["jumpTo",  "start_style",  "print_fancy_message",   "print_fancy_format",   "draw_line"],
-                              ["jumpxy",  "stop_style",   "print_fancy_note",      "reset_fancy_format",   "draw_box"],
+                              ["jumpxy",  "stop_style",   "print_fancy_note",      "reset_fancy_format",   "draw_rectangle"],
                               ["moveTo",  "print_style",  "----             ",      "----             ",   "----"],
                               ["movexy",  "reset_style",  "----             ",      "----             ",   "----"]]
 
@@ -1637,7 +1638,4 @@ else:
 
 fp.ins_newline(3)
 input("  Press Enter to Continue: ")
-adj_screen(nrows, ncols)
-
-# fp.clear()
-# fp.clean()green_msg.print_fancy_message(screen_funs[5][0])
+fp.resize(nrows, ncols)

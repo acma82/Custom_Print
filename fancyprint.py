@@ -134,6 +134,7 @@ if os.name == 'nt' and (platform.release() == '10' or platform.release == "11"):
    
    # it may disable the scroll bar on the Command Prompt or the Windows PowerShell
    # to enable the scroll bar, got to Properties-> Layout-> Screen Buffer Size-> Set Height to 1000
+   # use Command Prompt or Windows PowerShell
    
    def resize(rows:int=25, cols:int=80)->None:
       '''
@@ -1583,9 +1584,11 @@ class FancyFormat():
       self.adj_top_margin  = 0                 # lines to be add between the terminal and the title
       self.adj_bottom_margin = 0               # lines to be add between the end of list or footnote and terminal
       self.adj_top_space   = 0                 # lines to be added between title and top list
+      self.adj_bottom_space= 0                 # lines to be added between bottom list and footnote
+
       self.adj_indent      = 2                 # space from the terminal to the box
       self.adj_space       = 2                 # space from left to right inside inside the box
-      self.adj_bottom_space= 0                 # lines to be added between bottom list and footnote
+      
       self.set_fill_chr    = "----"            # to fill the empty spots when the list is not complete
       self.set_layout      = Layout.HORIZONTAL # This is only for Range, Set, and SetFrozen type data
       self.update_list     = False             # if we want to save the data as it's presented, but string each element in list
@@ -1663,7 +1666,7 @@ class FancyFormat():
       self.fg_vertical_line = -1                 # values -1 to 255
 
       #-------------------------------------------------------------------------------------------------------------------------------------------
-      # Corner Section 
+      # External Corner Section 
       self.top_left_corner_chr = "+"             # chr for the top left corner
       self.top_right_corner_chr = "+"            # chr for the top right corner
       self.bottom_right_corner_chr="+"           # chr for the bottom right corner
@@ -1701,7 +1704,7 @@ class FancyFormat():
       self.hidden_header    = False              # two values False and True (0 and 1)
       self.inverse_header   = False              # two values False and True (0 and 1)
       
-      # Attributes for the header text
+      # Attributes for the header lines
       self.left_vertical_header_line_chr = "|"   # small_bullet u'\u2022'
       self.right_vertical_header_line_chr = "|"  # circle_bullet u'\u2B24'
       self.middle_vertical_header_line_chr = "|" # matrix list only
@@ -2860,12 +2863,12 @@ class Pen(Cursor):             # Inheritance the Cursor Class here.
                                # with the Initialization Draw Class(self), ex. self.gotoxy(x,y)
       # square or rectangle
       # Horizontal Line Section
-      self.top_horizontal_line_chr="-";  self.bottom_horizontal_line_chr="-"
+      self.top_horizontal_line_chr = "-";  self.bottom_horizontal_line_chr = "-"
       # Vertical Line Section    
-      self.left_vertical_line_chr="|";   self.right_vertical_line_chr="|"
+      self.left_vertical_line_chr = "|";   self.right_vertical_line_chr = "|"
       # Corner Section 
-      self.top_left_corner_chr="+";      self.top_right_corner_chr="+"
-      self.bottom_right_corner_chr="+";  self.bottom_left_corner_chr="+"     
+      self.top_left_corner_chr     = "+";  self.top_right_corner_chr   = "+"
+      self.bottom_right_corner_chr = "+";  self.bottom_left_corner_chr = "+"     
       
       # general
       self.adj_indent = 0                     # space from the terminal to the box

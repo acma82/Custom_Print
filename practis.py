@@ -1,40 +1,47 @@
 import fancyprint as fp
-lista = fp.FancyFormat()
-crs = fp.Cursor()
 pen = fp.Pen()
 
-# pen.bg_draw_line = 14
-# pen.fg_draw_line = 0
-# pen.bold_draw_line = True
-crs.jumpTo(4,"D")
+tlb = fp.FancyFormat()
+lst = [["Header 1","Header 2","Header 3","Header 4"],
+       ["R2C1","R2C2","R2C3","R2C4"],
+       ["R3C1","R3C2","R3C3","R3C4"],
+       ["R4C1","R4C2"]]
+
+tlb.msg_title = " Title "
+tlb.bold_title = True
+tlb.fg_title = 21
+tlb.bg_title = 231
+tlb.align_title = fp.Align.CENTER
+
+tlb.bg_header = 90
+tlb.fg_header = 231
+tlb.horizontal_line_under_header_on = True
+
+tlb.align_data = fp.Align.CENTER
+tlb.fg_data = 14
+
+tlb.msg_footnote = " Footnote "
+tlb.align_footnote = fp.Align.RIGHT
+tlb.bold_footnote = True
+tlb.bg_footnote = 231
+tlb.fg_footnote = 21
+
+print("\n")
+
+tlb.print_fancy_format(lst)
+
+print("\n")
+lst = [["Header"],["R2C1"],["R3C1"],["R4C1"]]
+tlb.print_fancy_format(lst, fp.Line_Style.SINGLE)
+fp.ins_newline(3)
 
 
-pen.draw_line(size=25, layout=fp.Layout.HORIZONTAL, tail="\N{BLACK CIRCLE}",\
-               body=fp.Unicode.EM_DASH, head="\u21FE")#head=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_LEFT)
+pen.adj_indent = 8
 
-
-pen.draw_line(size=5,layout=fp.Layout.HORIZONTAL)
+pen.draw_line(size=20, layout=fp.Layout.HORIZONTAL, tail=fp.Unicode.BLACK_LEFT_POINTING_TRIANGLE,
+              body=fp.Unicode.EM_DASH, head=fp.Unicode.BLAKC_RIGHT_POINT_TRIANGLE)
 print()
-pen.draw_line(size=10, layout=fp.Layout.VERTICAL, tail=fp.Unicode.BLACK_UP_POINTING_TRIANGLE, body="\u2502", head=fp.Unicode.BLACK_DOWN_POINTING_TRIANGLE)
-
-
-print(fp.set_font(1,14,0))
-print("\N{BLACK CIRCLE}")
-print(fp.reset_font())
-# Box Drawings
-# Geometric Shapes
-# Miscellaneous Symbols
-
-print(f"\u2014{fp.Unicode.BLAKC_RIGHT_POINT_TRIANGLE}")
-
-
-
-def hello(arg1="hello"):
-   if arg1.lower() == "hello":
-      print(arg1)
-   else:
-      print("good bye")
-
-
-crs.jumpTo(4,"d")
-hello("HELLo")
+pen.adj_indent = 14
+pen.bg_draw_line = 90; pen.fg_draw_line = 231
+pen.refill_bg_color = True
+pen.draw_rectangle(length=8, width=4, style=fp.Line_Style.DOUBLE)
