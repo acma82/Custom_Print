@@ -42,10 +42,10 @@ list1.align_data = "center"
 # Horizontal Line Section, all its variable available
 list1.top_horizontal_line_chr = "."           # 9
 list1.top_horizontal_line_on = 1                          # By default is 1
-list1.horizontal_separator_line_on = 1
+list1.middle_horizontal_line_on = 1
 list1.bottom_horizontal_line_chr = "="        # 10        # u'\u2550'
 list1.bottom_horizontal_line_on = 1                       # By default is 1
-list1.horizontal_line_chr = "-"                           # u'\u2500'
+list1.middle_horizontal_line_chr = "-"                           # u'\u2500'
 # when using UniCode as u"\u2500" bold is not reflected unles is a normal character
 list1.bold_horizontal_line = 1
 list1.bg_horizontal_line = 21
@@ -65,8 +65,8 @@ list1.top_left_corner_chr = "A"                # 13
 list1.top_right_corner_chr = "B"               # 14
 list1.bottom_right_corner_chr = "C"            # 15
 list1.bottom_left_corner_chr = "D"             # 16
-list1.bg_corner_line = 1
-list1.fg_corner_line = 7
+list1.bg_corner_chr = 1
+list1.fg_corner_chr = 7
 list1.bold_corner_chr = 1
 
 

@@ -23,7 +23,7 @@ list1.bg_title = 11; list1.fg_title = 0; list1.bold_title = 1; list1.align_title
 # footnote
 list1.align_footnote = "r"; list1.fg_footnote = 226; list1.bg_footnote = 6; list1.bold_footnote = 1
 # header
-list1.inner_vertical_header_line_chr = u'\u2022'  # matrix list only    
+list1.middle_vertical_header_line_chr = u'\u2022'  # matrix list only    
 list1.horizontal_line_under_header_on = 1         # horizontal line between headers and the firs data row. 1 shows it and 0 hides it
 list1.horizontal_line_under_header_chr = "-"      # chr to be printed for theheader line
 list1.bg_header = 55
@@ -92,7 +92,7 @@ list1.horizontal_line_under_header_on = True
 list1.bg_header = 55
 list1.fg_data    = 1 
 
-list1.blink_header = True
+list1.blinking_header = True
 list1.bg_all_cell_header = True
 # range type
    # vertical

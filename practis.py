@@ -45,3 +45,21 @@ pen.adj_indent = 14
 pen.bg_draw_line = 90; pen.fg_draw_line = 231
 pen.refill_bg_color = True
 pen.draw_rectangle(length=8, width=4, style=fp.Line_Style.DOUBLE)
+
+
+paragraph = '''
+ Guido van Rossum, a Dutch programmer, created Python in the late 1980s
+as a hobby project. He started working on it in December 1989 at Cent-
+rum Wiskunde & Informatica (CWI) in the Netherlands.
+
+Python was first released on February 20, 1991. Python was named after
+the 1970s BBC comedy sketch series Monty Python's Flying Circus.
+'''
+
+msg = fp.FancyMessage()
+msg.msg_title = "TITLE"
+msg.msg_footnote = "FOOTNOTE"
+msg.print_fancy_message(paragraph)
+fp.ins_newline(2)
+msg.msg_note = "Python"
+msg.print_fancy_note(paragraph)

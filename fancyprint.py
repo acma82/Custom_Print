@@ -1317,7 +1317,7 @@ def _print_matrix_list(self,my_list):
                         self.right_vertical_header_line_chr + reset_font(),end="")
                print()
                # the horizontal line between the headers and the firs data row, only for matrix list
-               #if self.horizontal_line_under_header_on == True or self.horizontal_separator_line_on == 1: 
+               #if self.horizontal_line_under_header_on == True or self.middle_horizontal_line_on == 1: 
                # the horizontal line between the headers and the firs data row, only for matrix list  
                if self.horizontal_line_under_header_on == True :             
                   indent = 1; _print_horizontal_segment(self, self.left_corner_under_line_header_chr,\
@@ -1358,15 +1358,15 @@ def _print_matrix_list(self,my_list):
          
                print()
                # the horizontal line for all the rows, only for matrix list. 1 shows it and 0 hides it
-               if self.horizontal_separator_line_on == 1: 
+               if self.middle_horizontal_line_on == 1: 
                   ctrl_header += 1
                   if ctrl_header == len(my_list):
                      pass
                   else:
                      indent = 1; _print_horizontal_segment(self, self.left_lateral_corner_chr,\
-                           self.horizontal_line_chr, length + (2*self.adj_space), indent, "inner_corner")
+                           self.middle_horizontal_line_chr, length + (2*self.adj_space), indent, "inner_corner")
                      indent = 0; _print_horizontal_segment(self, self.right_lateral_corner_chr,\
-                           self.horizontal_line_chr, 0, indent, "inner_corner")
+                           self.middle_horizontal_line_chr, 0, indent, "inner_corner")
                      print()
 
       #-------------------------------------------------------------------------------------------------------------------------------------------
@@ -1506,7 +1506,7 @@ def _print_matrix_list(self,my_list):
             ctrl_col += 1        
          print(set_v+self.right_vertical_line_chr+reset_font())
 
-         if self.horizontal_separator_line_on == 1:
+         if self.middle_horizontal_line_on == 1:
             if (ctrl_sep == len(my_list)-1):
                # drawing the bottom horizontal line
                if  self.bottom_horizontal_line_on == 1:
@@ -1536,17 +1536,17 @@ def _print_matrix_list(self,my_list):
                for item in longest_cols:
                   if indent == 1:
                      # def _print_horizontal_segment(self,start_chr,end_chr,times,indent,option):
-                     _print_horizontal_segment(self, self.left_lateral_corner_chr, self.horizontal_line_chr, (item+(2*self.adj_space)), indent,"inner_corner")
+                     _print_horizontal_segment(self, self.left_lateral_corner_chr, self.middle_horizontal_line_chr, (item+(2*self.adj_space)), indent,"inner_corner")
                      indent = 0              
 
                   else:
-                     _print_horizontal_segment(self, self.middle_inner_corner_chr, self.horizontal_line_chr, (item+(2*self.adj_space)), indent, "inner_corner")
+                     _print_horizontal_segment(self, self.middle_inner_corner_chr, self.middle_horizontal_line_chr, (item+(2*self.adj_space)), indent, "inner_corner")
 
-               _print_horizontal_segment(self, self.right_lateral_corner_chr, self.horizontal_line_chr, 0, indent, "inner_corner")
+               _print_horizontal_segment(self, self.right_lateral_corner_chr, self.middle_horizontal_line_chr, 0, indent, "inner_corner")
             print()
          ctrl_sep += 1
 
-      if self.horizontal_separator_line_on == 0:                        
+      if self.middle_horizontal_line_on == 0:                        
          #-----------------------------------------------------------------------------------------------------------------------------------------
          if  self.bottom_horizontal_line_on == 1:
             indent = 1  # to add the space at the beginning (indentation space)
@@ -1631,8 +1631,7 @@ class FancyFormat():
       self.bg_data    = -1                       # values -1 to 255
       self.bg_all_cell_data = True               # how long will be the bg (all the cell or only the data)
       self.fg_data    = -1                       # values -1 to 255
-      self.align_data = "justify"                # 4 values: justify(j),left(l), center(c), and right(r)    
-      self.horizontal_separator_line_on = False  # horizontal line for all the rows, only for matrix list. 1 shows it and 0 hides it
+      self.align_data = "justify"                # 4 values: justify(j),left(l), center(c), and right(r)      
                                                  # two values False and True (0 and 1)
 
       self.italic_data    = False                # two values False and True (0 and 1)
@@ -1649,7 +1648,8 @@ class FancyFormat():
       self.top_horizontal_line_on = True
       self.bottom_horizontal_line_chr="-"        # chr used to print the horizontal segment for the bottom line
       self.bottom_horizontal_line_on = True      # two values False and True (0 and 1)
-      self.horizontal_line_chr = "-"             # chr used to print the horizontal segment horizontal. Only matrix list
+      self.middle_horizontal_line_chr = "-"      # chr used to print the horizontal segment horizontal. Only matrix list
+      self.middle_horizontal_line_on = False     # horizontal line for all the rows, only for matrix list. 1 shows it and 0 hides it
 
       self.bold_horizontal_line = False          # two values False and True (0 and 1)
       self.bg_horizontal_line = -1               # values -1 to 255
@@ -1786,7 +1786,7 @@ class FancyFormat():
       self.bg_all_cell_data = True               # how long will be the bg (all the cell or only the data)
       self.fg_data    = -1                       # values -1 to 255
       self.align_data = "justify"                # 4 values: justify(j),left(l), center(c), and right(r)    
-      self.horizontal_separator_line_on = False  # horizontal line for all the rows, only for matrix list. 1 shows it and 0 hides it
+      self.middle_horizontal_line_on = False  # horizontal line for all the rows, only for matrix list. 1 shows it and 0 hides it
                                                 # two values False and True (0 and 1)
 
       self.italic_data    = False                # two values False and True (0 and 1)
@@ -1803,7 +1803,7 @@ class FancyFormat():
       self.top_horizontal_line_on = True
       self.bottom_horizontal_line_chr="-"        # chr used to print the horizontal segment for the bottom line
       self.bottom_horizontal_line_on = True      # two values False and True (0 and 1)
-      self.horizontal_line_chr = "-"             # chr used to print the horizontal segment horizontal. Only matrix list
+      self.middle_horizontal_line_chr = "-"             # chr used to print the horizontal segment horizontal. Only matrix list
 
       self.bold_horizontal_line = False          # two values False and True (0 and 1)
       self.bg_horizontal_line = -1               # values -1 to 255
@@ -1894,7 +1894,7 @@ class FancyFormat():
       else:
          # backup all the default values
          # Horizontal Line Section
-         thlc = self.top_horizontal_line_chr;    bhlc = self.bottom_horizontal_line_chr;     hlc = self.horizontal_line_chr
+         thlc = self.top_horizontal_line_chr;    bhlc = self.bottom_horizontal_line_chr;     hlc = self.middle_horizontal_line_chr
          
          # Vertical Line Section    
          lvlc = self.left_vertical_line_chr;     mvlc = self.middle_vertical_line_chr;       rvlc = self.right_vertical_line_chr
@@ -1923,7 +1923,7 @@ class FancyFormat():
 
          if (style.lower() == Line_Style.SINGLE):            
             # Horizontal Line Section
-            self.top_horizontal_line_chr = "\u2500";            self.bottom_horizontal_line_chr="\u2500";     self.horizontal_line_chr = "\u2500"
+            self.top_horizontal_line_chr = "\u2500";            self.bottom_horizontal_line_chr="\u2500";     self.middle_horizontal_line_chr = "\u2500"
 
             
             # Vertical Line Section
@@ -1952,7 +1952,7 @@ class FancyFormat():
 
          elif (style.lower() == Line_Style.SINGLE_BOLD):
             # Horizontal Line Section
-            self.top_horizontal_line_chr = "\u2501";      self.bottom_horizontal_line_chr="\u2501";     self.horizontal_line_chr = "\u2501"
+            self.top_horizontal_line_chr = "\u2501";      self.bottom_horizontal_line_chr="\u2501";     self.middle_horizontal_line_chr = "\u2501"
             
             
             # Vertical Line Section
@@ -1982,7 +1982,7 @@ class FancyFormat():
 
          elif (style.lower() == Line_Style.SINGLE_HEAVY):
             # Horizontal Line Section
-            self.top_horizontal_line_chr = "\u2586";      self.bottom_horizontal_line_chr="\u2586";     self.horizontal_line_chr = "\u2586"
+            self.top_horizontal_line_chr = "\u2586";      self.bottom_horizontal_line_chr="\u2586";     self.middle_horizontal_line_chr = "\u2586"
             
 
             # Vertical Line Section
@@ -2012,7 +2012,7 @@ class FancyFormat():
 
          elif (style.lower() == Line_Style.DOUBLE):
             # Horizontal Line Section
-            self.top_horizontal_line_chr = "\u2550";      self.bottom_horizontal_line_chr="\u2550";     self.horizontal_line_chr = "\u2550"
+            self.top_horizontal_line_chr = "\u2550";      self.bottom_horizontal_line_chr="\u2550";     self.middle_horizontal_line_chr = "\u2550"
             
 
             # Vertical Line Section
@@ -2042,7 +2042,7 @@ class FancyFormat():
 
          elif (style.lower() == Line_Style.SQ_BRACKETS):
             # Horizontal Line Section
-            self.top_horizontal_line_chr = " ";           self.bottom_horizontal_line_chr=" ";          self.horizontal_line_chr = " "
+            self.top_horizontal_line_chr = " ";           self.bottom_horizontal_line_chr=" ";          self.middle_horizontal_line_chr = " "
             
             
             # Vertical Line Section
@@ -2073,7 +2073,7 @@ class FancyFormat():
    
          elif (style.lower() == Line_Style.DASH):
             # Horizontal Line Section
-            self.top_horizontal_line_chr = "\u002D";       self.bottom_horizontal_line_chr="\u002D";       self.horizontal_line_chr = "\u002D"
+            self.top_horizontal_line_chr = "\u002D";       self.bottom_horizontal_line_chr="\u002D";       self.middle_horizontal_line_chr = "\u002D"
             
             
             # Vertical Line Section
@@ -2104,7 +2104,7 @@ class FancyFormat():
 
          elif (style.lower() == Line_Style.NONE):
             # Horizontal Line Section
-            self.top_horizontal_line_chr = " ";             self.bottom_horizontal_line_chr=" ";           self.horizontal_line_chr = " "
+            self.top_horizontal_line_chr = " ";             self.bottom_horizontal_line_chr=" ";           self.middle_horizontal_line_chr = " "
             
             
             # Vertical Line Section
@@ -2234,7 +2234,7 @@ class FancyFormat():
       else:
          # putting back all the default values
          # Horizontal Line Section
-         self.top_horizontal_line_chr = thlc;    self.bottom_horizontal_line_chr = bhlc;     self.horizontal_line_chr = hlc
+         self.top_horizontal_line_chr = thlc;    self.bottom_horizontal_line_chr = bhlc;     self.middle_horizontal_line_chr = hlc
          # Vertical Line Section    
          self.left_vertical_line_chr = lvlc;     self.middle_vertical_line_chr = mvlc;       self.right_vertical_line_chr = rvlc
          # Corner Section 

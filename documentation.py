@@ -67,11 +67,6 @@ classes_methods_fancyprint = [["Cursor",  "FontStyle",    "FancyMessage",       
                               ["moveTo",  "print_style",  "----             ",      "----             ",   "----"],
                               ["movexy",  "reset_style",  "----             ",      "----             ",   "----"]]
 
-# classes_methods_fancyprint = [["Cursor", "FontStyle",   "FancyMessage",    "FancyFormat",       ],
-#                               ["jump",   "get_style",   "print_fancy_msg", "print_fancy_format" ],
-#                               ["move",   "reset_style", "----",            "----",              ],
-#                               ["gotoxy", "print_style", "----",            "----",              ],
-#                               ["moveTo", "----",        "----",            "----",              ]]
 #----------------------------------------------------------------------------------------------------------------------------------------------
 # Welcome Message Function for fancyprint Module                                                                                              -
 #----------------------------------------------------------------------------------------------------------------------------------------------
@@ -120,7 +115,7 @@ def Welcome_Message():
    lst.fg_footnote = 11;  lst.fg_data = 11
    lst.bg_all_cell_header = True
 
-   lst.horizontal_separator_line_on = True
+   lst.middle_horizontal_line_on = True
    lst.print_fancy_format(classes_methods_fancyprint,fp.Line_Style.SINGLE)
    fp.ins_newline(2)
 
@@ -1176,10 +1171,10 @@ def Diagram2():
    print(message)
    d2_lst.adj_indent = 2
    d2_lst.horizontal_line_under_header_on = True
-   d2_lst.horizontal_separator_line_on = True
+   d2_lst.middle_horizontal_line_on = True
 
    d2_lst.horizontal_line_under_header_chr = "d"
-   d2_lst.horizontal_line_chr = "e"
+   d2_lst.middle_horizontal_line_chr = "e"
    
    d2_lst.left_vertical_header_line_chr = "f"
    d2_lst.right_vertical_header_line_chr = "g"
@@ -1199,7 +1194,7 @@ def Diagram2():
 
    simple_msg.msg_title = " Description "
    values = [["d \u2192 horizontal_line_under_header_chr"],
-             ["e \u2192 horizontal_line_chr"],
+             ["e \u2192 middle_horizontal_line_chr"],
              ["f \u2192 left_vertical_header_line_chr"],
              ["g \u2192 right_vertical_header_line_chr"],
              ["h \u2192 left_corner_under_line_header_chr"],
@@ -1213,7 +1208,7 @@ def Diagram2():
       {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
       {fp.ins_chr(10)}  f_data = fp.FancyFormat()
       {fp.ins_chr(10)}  f_data.horizontal_line_under_header_on = True
-      {fp.ins_chr(10)}  f_data.horizontal_separator_line_on = True
+      {fp.ins_chr(10)}  f_data.middle_horizontal_line_on = True
       {fp.ins_chr(10)}  data = [["Header"],["Data 1"],["Data 2"],["Data 3"]]
       {fp.ins_chr(10)}  f_data.print_fancy_format(data)
 
@@ -1234,7 +1229,7 @@ def Diagram2():
    print(message)
 
    d3_lst.horizontal_line_under_header_on = True
-   d3_lst.horizontal_separator_line_on = True
+   d3_lst.middle_horizontal_line_on = True
    
    d3_lst.middle_vertical_header_line_chr = "l"
    d3_lst.middle_corner_under_line_header_chr = "m"
@@ -1249,7 +1244,7 @@ def Diagram2():
 
    simple_msg.msg_title = " Description "
    values = [["l    \u2192 horizontal_line_under_header_chr"],
-             ["m    \u2192 horizontal_line_chr"],
+             ["m    \u2192 middle_horizontal_line_chr"],
              ["n    \u2192 left_vertical_header_line_chr"],
              ["---- \u2192 set_fill_chr"]]
 
@@ -1261,7 +1256,7 @@ def Diagram2():
       {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
       {fp.ins_chr(10)}  f_data = fp.FancyFormat()
       {fp.ins_chr(10)}  f_data.horizontal_line_under_header_on = True
-      {fp.ins_chr(10)}  f_data.horizontal_separator_line_on = True
+      {fp.ins_chr(10)}  f_data.middle_horizontal_line_on = True
       {fp.ins_chr(10)}  values = [["Header 1","Header 2","Header 3"],
       {fp.ins_chr(10)}           ["Data 1",  "Data 2",  "Data 3"  ],
       {fp.ins_chr(10)}           ["Data 4",  "Data 5",  "Data 6"  ],
@@ -1289,7 +1284,7 @@ def Diagram3():
    dt_lst.msg_title = "Title \u2190 1"; dt_lst.msg_footnote = "Footnote \u2190 8"
    dt_lst.align_title = "center"; dt_lst.align_footnote = "right"
    dt_lst.set_fill_chr = "...------..."
-   dt_lst.horizontal_separator_line_on = True
+   dt_lst.middle_horizontal_line_on = True
    dt_lst.horizontal_line_under_header_on = True
    
    # Single Data   
@@ -1299,7 +1294,6 @@ def Diagram3():
    dt_lst.bottom_left_corner_chr = "6"
    dt_lst.left_vertical_line_chr = "L"   # left and right lines
    dt_lst.right_vertical_line_chr = "R"
-   #d1_lst.top_horizontal_line_chr = "-"
    dt_lst.bottom_horizontal_line_chr = "*"
    
    # Multiple Horizontal Data
@@ -1309,7 +1303,7 @@ def Diagram3():
 
    # Multiple Vertical Data
    dt_lst.horizontal_line_under_header_chr = "d"
-   dt_lst.horizontal_line_chr = "e"
+   dt_lst.middle_horizontal_line_chr = "e"
    dt_lst.left_vertical_header_line_chr = "f"
    dt_lst.right_vertical_header_line_chr = "g"
    dt_lst.left_corner_under_line_header_chr = "h"
@@ -1375,7 +1369,7 @@ def Diagram3():
            ["c \u2192 middle_bottom_corner_chr",  " "         ],
            ["                                 ",  " "         ],
            ["d \u2192 horizontal_line_under_header_chr",   " "],
-           ["e \u2192 horizontal_line_chr",                " "],
+           ["e \u2192 middle_horizontal_line_chr",         " "],
            ["f \u2192 left_vertical_header_line_chr",      " "],
            ["g \u2192 right_vertical_header_line_chr",     " "],
            ["h \u2192 left_corner_under_line_header_chr",  " "],
@@ -1384,7 +1378,7 @@ def Diagram3():
            ["k \u2192 right_lateral_corner_chr",           " "],
            ["                                 ",           " "],
            ["l    \u2192 horizontal_line_under_header_chr"," "],
-           ["m    \u2192 horizontal_line_chr",             " "],
+           ["m    \u2192 middle_horizontal_line_chr",      " "],
            ["n    \u2192 left_vertical_header_line_chr",   " "],
            ["---- \u2192 set_fill_chr",                    " "]
            ]
@@ -1486,28 +1480,44 @@ def Print_Fancy_Format_Method():
 
 
    # Header Default Values
+   simple_msg.msg_title = " Header Default Values "
    default_values = [["bg_all_cell_header = True",     "align_header     = \"justify\"",    "blinking_header  = False"],
                      ["bold_header        = False",    "italic_header    = False",          "dim_header       = False"],
                      ["bg_header          = -1",       "underline_header = False",          "hidden_header    = False"],
                      ["fg_header          = -1",       "strike_header    = False",          "inverse_header   = False"]]
-
-   simple_msg.msg_title = " Header Default Values "
-   simple_msg.print_fancy_format(default_values, fp.Line_Style.NONE)
-
    message = f'''
      {fp.set_font(True,-1,14)}bg_all_cell_header{fp.set_font(False)}
      It defines how long will be the bg in the header (all the cell or only the header)
          
 '''
+   simple_msg.print_fancy_format(default_values, fp.Line_Style.NONE)
    print(message)
 
 
 # Horizontal Line Section
-   default_values = ["  "]
-   simple_msg.msg_title = " Horizontal Line Default Values "
+   simple_msg.msg_title = " Horizontal Line Default Values "   
+   default_values = [["top_horizontal_line_chr    = \"-\"" ,  "top_horizontal_line_on = True"    ],
+                     ["middle_horizontal_line_chr = \"-\"" ,  "middle_horizontal_line_on = False"],
+                     ["bottom_horizontal_line_chr = \"-\"" ,  "bottom_horizontal_line_on = True" ],
+                     ["                                  " ,  "                                " ],
+                     ["bold_horizontal_line = False"       ,  "bg_horizontal_line = -1"          ],
+                     ["fg_horizontal_line = -1"            ,  "                       "          ]]
+   
+   
+   message = f'''
+     {fp.set_font(True,-1,14)}Refer to Matrix Data Diagram{fp.set_font(False)}
+     - \u2192 This is controled by \u2192 top_horizontal_line_on
+     e \u2192 This is controled by \u2192 middle_horizontal_line_on
+     * \u2192 This is controled by \u2192 bottom_horizontal_line_on
+         
+'''
    simple_msg.print_fancy_format(default_values, fp.Line_Style.NONE)
-
+   print(message)
+   
+      
+   
 # Vertical Line Section
+   default_values = []
    simple_msg.msg_title = " Vertical Line Default Values "
    simple_msg.print_fancy_format(default_values, fp.Line_Style.NONE)
 
