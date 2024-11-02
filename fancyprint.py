@@ -73,11 +73,11 @@ class Unicode(enum.StrEnum):
    #--------------------------------------------------------------------------------------------
    # Triangle                                                                                  -
    #--------------------------------------------------------------------------------------------
-   BLACK_UP_POINTING_TRIANGLE = "\N{BLACK UP-POINTING TRIANGLE}"     # \u25B2  up fill arrow
-   WHITE_UP_POINTING_TRIANGLE = "\N{WHITE UP-POINTING TRIANGLE}"     # \u25B3  up empty arrow
+   BLACK_UP_POINTING_TRIANGLE   = "\N{BLACK UP-POINTING TRIANGLE}"     # \u25B2  up fill arrow
+   WHITE_UP_POINTING_TRIANGLE   = "\N{WHITE UP-POINTING TRIANGLE}"     # \u25B3  up empty arrow
 
-   BLAKC_RIGHT_POINT_TRIANGLE = "\N{BLACK RIGHT-POINTING TRIANGLE}"  # \u25B6  right fill  arrow
-   WHITE_RIGHT_POINT_TRIANGLE = "\N{WHITE RIGHT-POINTING TRIANGLE}"  # \u25B7  right empty arrow
+   BLAKC_RIGHT_POINT_TRIANGLE   = "\N{BLACK RIGHT-POINTING TRIANGLE}"  # \u25B6  right fill  arrow
+   WHITE_RIGHT_POINT_TRIANGLE   = "\N{WHITE RIGHT-POINTING TRIANGLE}"  # \u25B7  right empty arrow
    
    BLACK_DOWN_POINTING_TRIANGLE = "\N{BLACK DOWN-POINTING TRIANGLE}" # \u25BC  down fill  arrow
    WHITE_DOWN_POINTING_TRIANGLE = "\N{BLACK DOWN-POINTING TRIANGLE}" # \u25BD  down empty arrow
@@ -92,8 +92,8 @@ class Unicode(enum.StrEnum):
    BLACK_DIAMOND = "\N{BLACK DIAMOND}"
    WHITE_DIAMOND = "\N{WHITE DIAMOND}"
    
-   BLACK_CIRCLE = "\N{BLACK CIRCLE}"
-   WHITE_CIRCLE = "\N{WHITE CIRCLE}"
+   BLACK_CIRCLE  = "\N{BLACK CIRCLE}"
+   WHITE_CIRCLE  = "\N{WHITE CIRCLE}"
    
    FACE = "(" + chr(0x25D5) + chr(0x25E1) + chr(0x25D5) + ")"
  
@@ -191,7 +191,7 @@ else:
 def dimensions():
    '''
 ----------------------------------------------------------------------------      
-   It returns the size of the actual terminal: cols, rows.
+   It returns the size of the actual terminal: cols, rows = dimensions()
 ----------------------------------------------------------------------------
    '''
    cols, rows = os.get_terminal_size()
@@ -305,12 +305,12 @@ def fg_ansi_colors(bold=False, bg=-1, n_line=0):
 def ins_chr(n=1, unicode=" "):
    '''
 ----------------------------------------------------------------------------
-   This function inserts n times the unicode provided.
+   ins_chr(n=x, unicode=" ")
+      This function inserts n times the unicode provided.
 ----------------------------------------------------------------------------   
    Example: 
-            import fancyprint as fp  
-            fp.ins_chr(x)
-            print(f"Hello{fp.ins_chr(40)}There")
+            import fancyprint as fp              
+            print(f"Hello{fp.ins_chr(40,".")}There")
 
 
 '''
@@ -329,7 +329,8 @@ def ins_chr(n=1, unicode=" "):
 def ins_newline(n=1):
    '''
 ----------------------------------------------------------------------------
-   This function inserts n new lines.
+   ins_newline(n=1)
+      This function inserts n new lines.
 ----------------------------------------------------------------------------   
    example:
            import fancyprint as fp 
@@ -346,7 +347,8 @@ def ins_newline(n=1):
 def terminal_bell():
    '''
 ----------------------------------------------------------------------------
-   This function makes sound of the terminal bell.  
+   terminal_bell()
+      This function makes sound of the terminal bell.  
 ----------------------------------------------------------------------------
 '''
    print("\a")
@@ -358,7 +360,7 @@ def set_font(bold=False,bg=-1,fg=-1,italic=False,underline=False,strike=False,bl
 ----------------------------------------------------------------------------
    import fancyprint as fp
 
-   fl.set_font(bool, int, int)
+   fp.set_font(bool, int, int)
 
    This function changes the attributes of the font (bold, bg, fg).
    
@@ -439,14 +441,12 @@ def reset_font():
 
    fp.set_font()
 
-   This function resets the font attributes to the defaults (bold, bg, fg).
+   This function resets the font attributes to the default ones.
    
    Example:
             print(fp.set_font(1,11,21)+ " Python is " + fp.set_font(0,1)+
                " Wonderful."+fp.reset_font())
             
-            print(f"{fp.set_font(bold=0, bg=22, fg=0)} Python
-               {fp.set_font(1,90,7)} Language.{fp.reset_font()}")
 
             print(fp.set_font(1,11,21)+ " Python is ")
             print(" Wonderful.")
@@ -1581,25 +1581,25 @@ class FancyFormat():
       # defining variable names                  # values to take                                                                                #
       #-------------------------------------------------------------------------------------------------------------------------------------------
       # General Use  
-      self.adj_top_margin  = 0                 # lines to be add between the terminal and the title
-      self.adj_bottom_margin = 0               # lines to be add between the end of list or footnote and terminal
-      self.adj_top_space   = 0                 # lines to be added between title and top list
-      self.adj_bottom_space= 0                 # lines to be added between bottom list and footnote
+      self.adj_top_margin    = 0                 # lines to be add between the terminal and the title
+      self.adj_bottom_margin = 0                 # lines to be add between the end of list or footnote and terminal
+      self.adj_top_space     = 0                 # lines to be added between title and top list
+      self.adj_bottom_space  = 0                 # lines to be added between bottom list and footnote
 
-      self.adj_indent      = 2                 # space from the terminal to the box
-      self.adj_space       = 2                 # space from left to right inside inside the box
+      self.adj_indent        = 2                 # space from the terminal to the box
+      self.adj_space         = 2                 # space from left to right inside inside the box
       
-      self.set_fill_chr    = "----"            # to fill the empty spots when the list is not complete
-      self.set_layout      = Layout.HORIZONTAL # This is only for Range, Set, and SetFrozen type data
-      self.update_list     = False             # if we want to save the data as it's presented, but string each element in list
+      self.set_fill_chr      = "----"            # to fill the empty spots when the list is not complete
+      self.set_layout        = Layout.HORIZONTAL # This is only for Range, Set, and Frozenset type data
+      self.update_list       = False             # if we want to save the data as it's presented, but string each element in list
                   
       #-------------------------------------------------------------------------------------------------------------------------------------------
       # Title Section
-      self.msg_title   = ""                      # string value
-      self.bold_title  = False                   # two values False and True (0 and 1)
-      self.bg_title    = -1                      # values -1 to 255
-      self.fg_title    = -1                      # values -1 to 255
-      self.align_title = "justify"               # 4 values: justify(j),left(l), center(c), and right(r)
+      self.msg_title       = ""                  # string value
+      self.bold_title      = False               # two values False and True (0 and 1)
+      self.bg_title        = -1                  # values -1 to 255
+      self.fg_title        = -1                  # values -1 to 255
+      self.align_title     = "justify"           # 4 values: justify(j),left(l), center(c), and right(r)
       self.italic_title    = False               # two values False and True (0 and 1)
       self.underline_title = False               # two values False and True (0 and 1)
       self.strike_title    = False               # two values False and True (0 and 1)
@@ -1610,11 +1610,11 @@ class FancyFormat():
     
       #-------------------------------------------------------------------------------------------------------------------------------------------
       # Footnote Section
-      self.msg_footnote  = ""                    # string value
-      self.bold_footnote = False                 # two values False and True (0 and 1)
-      self.bg_footnote   = -1                    # values -1 to 255
-      self.fg_footnote   = -1                    # values -1 to 255    
-      self.align_footnote= "justify"             # 4 values: justify(j),left(l), center(c), and right(r)
+      self.msg_footnote       = ""               # string value
+      self.bold_footnote      = False            # two values False and True (0 and 1)
+      self.bg_footnote        = -1               # values -1 to 255
+      self.fg_footnote        = -1               # values -1 to 255    
+      self.align_footnote     = "justify"        # 4 values: justify(j),left(l), center(c), and right(r)
 
       self.italic_footnote    = False            # two values False and True (0 and 1)
       self.underline_footnote = False            # two values False and True (0 and 1)
@@ -1627,124 +1627,126 @@ class FancyFormat():
 
       #-------------------------------------------------------------------------------------------------------------------------------------------
       # Data Section
-      self.bold_data  = False                    # two values False and True (0 and 1)
-      self.bg_data    = -1                       # values -1 to 255
+      self.bold_data        = False              # two values False and True (0 and 1)
+      self.bg_data          = -1                 # values -1 to 255
       self.bg_all_cell_data = True               # how long will be the bg (all the cell or only the data)
-      self.fg_data    = -1                       # values -1 to 255
-      self.align_data = "justify"                # 4 values: justify(j),left(l), center(c), and right(r)      
+      self.fg_data          = -1                 # values -1 to 255
+      self.align_data       = "justify"          # 4 values: justify(j),left(l), center(c), and right(r)      
                                                  # two values False and True (0 and 1)
 
-      self.italic_data    = False                # two values False and True (0 and 1)
-      self.underline_data = False                # two values False and True (0 and 1)
-      self.strike_data    = False                # two values False and True (0 and 1)
-      self.blinking_data  = False                # two values False and True (0 and 1)
-      self.dim_data       = False                # two values False and True (0 and 1)
-      self.hidden_data    = False                # two values False and True (0 and 1)
-      self.inverse_data   = False                # two values False and True (0 and 1)
+      self.italic_data      = False              # two values False and True (0 and 1)
+      self.underline_data   = False              # two values False and True (0 and 1)
+      self.strike_data      = False              # two values False and True (0 and 1)
+      self.blinking_data    = False              # two values False and True (0 and 1)
+      self.dim_data         = False              # two values False and True (0 and 1)
+      self.hidden_data      = False              # two values False and True (0 and 1)
+      self.inverse_data     = False              # two values False and True (0 and 1)
 
       #-------------------------------------------------------------------------------------------------------------------------------------------
       # Horizontal Line Section
-      self.top_horizontal_line_chr = "-"         # chr used to print the horizontal segment for the top line
-      self.top_horizontal_line_on = True
-      self.bottom_horizontal_line_chr="-"        # chr used to print the horizontal segment for the bottom line
-      self.bottom_horizontal_line_on = True      # two values False and True (0 and 1)
+      self.top_horizontal_line_chr    = "-"      # chr used to print the horizontal segment for the top line
+      self.top_horizontal_line_on     = True
+      self.bottom_horizontal_line_chr ="-"       # chr used to print the horizontal segment for the bottom line
+      self.bottom_horizontal_line_on  = True     # two values False and True (0 and 1)
       self.middle_horizontal_line_chr = "-"      # chr used to print the horizontal segment horizontal. Only matrix list
-      self.middle_horizontal_line_on = False     # horizontal line for all the rows, only for matrix list. 1 shows it and 0 hides it
+      self.middle_horizontal_line_on  = False    # horizontal line for all the rows, only for matrix list. 1 shows it and 0 hides it
 
       self.bold_horizontal_line = False          # two values False and True (0 and 1)
-      self.bg_horizontal_line = -1               # values -1 to 255
-      self.fg_horizontal_line = -1               # values -1 to 255
+      self.bg_horizontal_line   = -1             # values -1 to 255
+      self.fg_horizontal_line   = -1             # values -1 to 255
       #-------------------------------------------------------------------------------------------------------------------------------------------
       # Vertical Line Section    
-      self.left_vertical_line_chr  = "|"         # used for the left vertical line only
+      self.left_vertical_line_chr   = "|"        # used for the left vertical line only
       self.middle_vertical_line_chr = "|"        # all the vertical line in the middle between left and right. Only matrix
-      self.right_vertical_line_chr = "|"         # used for the right vertical line only
+      self.right_vertical_line_chr  = "|"        # used for the right vertical line only
     
 
       self.bold_vertical_line = False            # two values False and True (0 and 1)
-      self.bg_vertical_line = -1                 # values -1 to 255
-      self.fg_vertical_line = -1                 # values -1 to 255
+      self.bg_vertical_line   = -1               # values -1 to 255
+      self.fg_vertical_line   = -1               # values -1 to 255
 
       #-------------------------------------------------------------------------------------------------------------------------------------------
       # External Corner Section 
-      self.top_left_corner_chr = "+"             # chr for the top left corner
-      self.top_right_corner_chr = "+"            # chr for the top right corner
-      self.bottom_right_corner_chr="+"           # chr for the bottom right corner
-      self.bottom_left_corner_chr="+"            # chr for the bottom left corner
+      self.top_left_corner_chr     = "+"         # chr for the top left corner
+      self.top_right_corner_chr    = "+"         # chr for the top right corner
+      self.bottom_right_corner_chr = "+"         # chr for the bottom right corner
+      self.bottom_left_corner_chr  = "+"         # chr for the bottom left corner
+
       self.bold_corner_chr = False               # two values False and True (0 and 1)
-      self.bg_corner_chr = -1                   # values -1 to 255
-      self.fg_corner_chr = -1                   # values -1 to 255
+      self.bg_corner_chr   = -1                  # values -1 to 255
+      self.fg_corner_chr   = -1                  # values -1 to 255
 
       #-------------------------------------------------------------------------------------------------------------------------------------------
       # Middle Corner Section
-      self.middle_top_corner_chr =  "+"          # all the middle corners between top_left_corner_chr and top_right_corner_chr. Only matrix list
+      self.middle_top_corner_chr    = "+"        # all the middle corners between top_left_corner_chr and top_right_corner_chr. Only matrix list
       self.middle_bottom_corner_chr = "+"        # all the middle corners between top_left_corner_chr and top_right_corner_chr. Only matrix list
-      self.middle_inner_corner_chr =  "+"        # corner inside the matrix and sides but not top(left,right), or bottom(left, right). Only matrix list
+      self.middle_inner_corner_chr  = "+"        # corner inside the matrix and sides but not top(left,right), or bottom(left, right). Only matrix list
       
-      self.left_lateral_corner_chr =  "+"        # chr only for matrix list
+      self.left_lateral_corner_chr  = "+"        # chr only for matrix list
       self.right_lateral_corner_chr = "+"        # chr only for matrix list    
       
       self.bold_inner_corner_chr = False         # two values False and True (0 and 1)
-      self.bg_inner_corner_chr = -1              # values -1 to 255
-      self.fg_inner_corner_chr = -1              # values -1 to 255
+      self.bg_inner_corner_chr   = -1            # values -1 to 255
+      self.fg_inner_corner_chr   = -1            # values -1 to 255
 
       #-------------------------------------------------------------------------------------------------------------------------------------------
       # Header Section  Only for Matrix List
-      self.bold_header  = False                  # two values False and True (0 and 1)
-      self.bg_header    = -1                     # values -1 to 255
+      self.bold_header        = False            # two values False and True (0 and 1)
+      self.bg_header          = -1               # values -1 to 255
       self.bg_all_cell_header = True             # how long will be the bg (all the cell or only the header)
-      self.fg_header    = -1                     # values -1 to 255
-      self.align_header = "justify"              # 4 values: justify(j),left(l), center(c), and right(r)
+      self.fg_header          = -1               # values -1 to 255
+      self.align_header       = "justify"        # 4 values: justify(j),left(l), center(c), and right(r)
 
-      self.italic_header    = False              # two values False and True (0 and 1)
-      self.underline_header = False              # two values False and True (0 and 1)
-      self.strike_header    = False              # two values False and True (0 and 1)
-      self.blinking_header  = False              # two values False and True (0 and 1)
-      self.dim_header       = False              # two values False and True (0 and 1)
-      self.hidden_header    = False              # two values False and True (0 and 1)
-      self.inverse_header   = False              # two values False and True (0 and 1)
+      self.italic_header      = False            # two values False and True (0 and 1)
+      self.underline_header   = False            # two values False and True (0 and 1)
+      self.strike_header      = False            # two values False and True (0 and 1)
+      self.blinking_header    = False            # two values False and True (0 and 1)
+      self.dim_header         = False            # two values False and True (0 and 1)
+      self.hidden_header      = False            # two values False and True (0 and 1)
+      self.inverse_header     = False            # two values False and True (0 and 1)
       
       # Attributes for the header lines
-      self.left_vertical_header_line_chr = "|"   # small_bullet u'\u2022'
-      self.right_vertical_header_line_chr = "|"  # circle_bullet u'\u2B24'
-      self.middle_vertical_header_line_chr = "|" # matrix list only
+      self.left_vertical_header_line_chr   = "|"   # small_bullet u'\u2022'
+      self.right_vertical_header_line_chr  = "|"   # circle_bullet u'\u2B24'
+      self.middle_vertical_header_line_chr = "|"   # matrix list only
 
-      self.bold_vertical_header_line_chr = False # two values False and True (0 and 1)
-      self.bg_vertical_header_line_chr = -1      # values -1 to 255
-      self.fg_vertical_header_line_chr = -1      # values -1 to 255
+      self.bold_vertical_header_line_chr = False   # two values False and True (0 and 1)
+      self.bg_vertical_header_line_chr   = -1      # values -1 to 255
+      self.fg_vertical_header_line_chr   = -1      # values -1 to 255
 
       #-------------------------------------------------------------------------------------------------------------------------------------------
       # Under Line Header Section  Only for Matrix List
       # attributes for the line below the header text
-      self.horizontal_line_under_header_on = False     # horizontal line between headers and the firs data row. 1 shows it and 0 hides it
+      self.horizontal_line_under_header_on  = False    # horizontal line between headers and the firs data row. 1 shows it and 0 hides it
       self.horizontal_line_under_header_chr = "-"      # chr to be printed for theheader line
+
       self.bold_under_line_header = False              # values -1 to 255
-      self.bg_under_line_header = -1                   # values -1 to 255
-      self.fg_under_line_header = -1                   # values -1 to 255
+      self.bg_under_line_header   = -1                 # values -1 to 255
+      self.fg_under_line_header   = -1                 # values -1 to 255
       
       
       # attributes for the header corners (left, middles and right)    
-      self.left_corner_under_line_header_chr = "+"     # only for header line
-      self.right_corner_under_line_header_chr = "+"    # only for header line
+      self.left_corner_under_line_header_chr   = "+"   # only for header line
+      self.right_corner_under_line_header_chr  = "+"   # only for header line
       self.middle_corner_under_line_header_chr = "+"   # only for header line
-      self.bold_corner_under_line_header = False       # two values False and True (0 and 1)
-      self.bg_corner_under_line_header = -1            # values -1 to 255
-      self.fg_corner_under_line_header = -1            # values -1 to 255
+      self.bold_corner_under_line_header       = False # two values False and True (0 and 1)
+      self.bg_corner_under_line_header         = -1    # values -1 to 255
+      self.fg_corner_under_line_header         = -1    # values -1 to 255
 
    def reset_fancy_format(self):
       #-------------------------------------------------------------------------------------------------------------------------------------------
       # defining variable names                  # values to take                                                                                #
       #-------------------------------------------------------------------------------------------------------------------------------------------
       # General Use  
-      self.adj_top_margin  = 0                 # lines to be add between the terminal and the title
-      self.adj_bottom_margin = 0               # lines to be add between the end of list or footnote and terminal
-      self.adj_top_space   = 0                 # lines to be added between title and top list
-      self.adj_bottom_space= 0                 # lines to be added between bottom list and footnote
-      self.adj_indent      = 2                 # space from the terminal to the box
-      self.adj_space       = 2                 # space from left to right side inside the box
-      self.set_fill_chr    = "----"            # to fill the empty spots when the list is not complete
-      self.set_layout      = Layout.HORIZONTAL # This is only for Range, Set, and SetFrozen type data
-      self.update_list     = False             # if we want to save the data as it's presented, but string each element in list
+      self.adj_top_margin    = 0                 # lines to be add between the terminal and the title
+      self.adj_bottom_margin = 0                 # lines to be add between the end of list or footnote and terminal
+      self.adj_top_space     = 0                 # lines to be added between title and top list
+      self.adj_bottom_space  = 0                 # lines to be added between bottom list and footnote
+      self.adj_indent        = 2                 # space from the terminal to the box
+      self.adj_space         = 2                 # space from left to right side inside the box
+      self.set_fill_chr      = "----"            # to fill the empty spots when the list is not complete
+      self.set_layout        = Layout.HORIZONTAL # This is only for Range, Set, and Frozenset type data
+      self.update_list       = False             # if we want to save the data as it's presented, but string each element in list
                   
       #-------------------------------------------------------------------------------------------------------------------------------------------
       # Title Section
@@ -1782,12 +1784,11 @@ class FancyFormat():
       #-------------------------------------------------------------------------------------------------------------------------------------------
       # Data Section
       self.bold_data  = False                    # two values False and True (0 and 1)
-      self.bg_data    = -1                       # values -1 to 255
-      self.bg_all_cell_data = True               # how long will be the bg (all the cell or only the data)
+      self.bg_data    = -1                       # values -1 to 255      
       self.fg_data    = -1                       # values -1 to 255
       self.align_data = "justify"                # 4 values: justify(j),left(l), center(c), and right(r)    
-      self.middle_horizontal_line_on = False  # horizontal line for all the rows, only for matrix list. 1 shows it and 0 hides it
-                                                # two values False and True (0 and 1)
+      self.middle_horizontal_line_on = False     # horizontal line for all the rows, only for matrix list. 1 shows it and 0 hides it
+      self.bg_all_cell_data          = True      # how long will be the bg (all the cell or only the data)
 
       self.italic_data    = False                # two values False and True (0 and 1)
       self.underline_data = False                # two values False and True (0 and 1)
@@ -1799,15 +1800,15 @@ class FancyFormat():
 
       #-------------------------------------------------------------------------------------------------------------------------------------------
       # Horizontal Line Section
-      self.top_horizontal_line_chr = "-"         # chr used to print the horizontal segment for the top line
-      self.top_horizontal_line_on = True
-      self.bottom_horizontal_line_chr="-"        # chr used to print the horizontal segment for the bottom line
-      self.bottom_horizontal_line_on = True      # two values False and True (0 and 1)
-      self.middle_horizontal_line_chr = "-"             # chr used to print the horizontal segment horizontal. Only matrix list
+      self.top_horizontal_line_chr    = "-"      # chr used to print the horizontal segment for the top line
+      self.top_horizontal_line_on     = True
+      self.bottom_horizontal_line_chr ="-"       # chr used to print the horizontal segment for the bottom line
+      self.bottom_horizontal_line_on  = True     # two values False and True (0 and 1)
+      self.middle_horizontal_line_chr = "-"      # chr used to print the horizontal segment horizontal. Only matrix list
 
-      self.bold_horizontal_line = False          # two values False and True (0 and 1)
-      self.bg_horizontal_line = -1               # values -1 to 255
-      self.fg_horizontal_line = -1               # values -1 to 255
+      self.bold_horizontal_line = False         # two values False and True (0 and 1)
+      self.bg_horizontal_line   = -1            # values -1 to 255
+      self.fg_horizontal_line   = -1            # values -1 to 255
       #-------------------------------------------------------------------------------------------------------------------------------------------
       # Vertical Line Section    
       self.left_vertical_line_chr  = "|"         # used for the left vertical line only
@@ -2861,21 +2862,25 @@ class Pen(Cursor):             # Inheritance the Cursor Class here.
    def __init__(self):         # Initializing Draw Class as self
       super().__init__()       # Super Class to use all (vars and funs) from Cursor Class
                                # with the Initialization Draw Class(self), ex. self.gotoxy(x,y)
-      # square or rectangle
+      # General Section
+      self.adj_indent = 0                 # space from the terminal to the box
+      self.bold_draw_line = False
+      self.bg_draw_line = -1
+      self.fg_draw_line = -1
+      self.refill_bg_color = False
+    
+      # Rectangle Section
+
       # Horizontal Line Section
       self.top_horizontal_line_chr = "-";  self.bottom_horizontal_line_chr = "-"
+      
       # Vertical Line Section    
       self.left_vertical_line_chr = "|";   self.right_vertical_line_chr = "|"
+
       # Corner Section 
       self.top_left_corner_chr     = "+";  self.top_right_corner_chr   = "+"
       self.bottom_right_corner_chr = "+";  self.bottom_left_corner_chr = "+"     
       
-      # general
-      self.adj_indent = 0                     # space from the terminal to the box
-      self.bold_draw_line = False
-      self.bg_draw_line = -1                   # values -1 to 255
-      self.fg_draw_line = -1                   # values -1 to 255
-      self.refill_bg_color = False
       
 
 

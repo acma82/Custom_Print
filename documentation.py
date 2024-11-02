@@ -1043,7 +1043,7 @@ def FancyFormat_Class():
 
 def Diagram1():
    message = f'''
-      {fp.set_font(1,14,0)} Single Data {fp.reset_font()}        
+      {fp.set_font(1,14,0)} Single Data/Figure 1 {fp.reset_font()}        
    '''
    print(message)
    
@@ -1134,7 +1134,7 @@ def Diagram2():
    d2_lst = fp.FancyFormat()
    values = [["Data 1","Data 2","Data 3"]]
    message = f'''
-      {fp.set_font(1,14,0)} Multiple Horizontal Data {fp.reset_font()}        
+      {fp.set_font(1,14,0)} Multiple Horizontal Data/Figure 2 {fp.reset_font()}        
    '''
    print(message)
    d2_lst.middle_top_corner_chr = "a"
@@ -1166,7 +1166,7 @@ def Diagram2():
 
    values = [["Header"],["Data 1"],["Data 2"],["Data 3"]]
    message = f'''
-      {fp.set_font(1,14,0)} Multiple Vertical Data {fp.reset_font()}        
+      {fp.set_font(1,14,0)} Multiple Vertical Data/Figure 3 {fp.reset_font()}        
    '''
    print(message)
    d2_lst.adj_indent = 2
@@ -1224,7 +1224,7 @@ def Diagram2():
              ["Data 7",  "Data 8"]]
 
    message = f'''
-      {fp.set_font(1,14,0)} Matrix Data {fp.reset_font()}
+      {fp.set_font(1,14,0)} Matrix Data/Figure 4 {fp.reset_font()}
    '''
    print(message)
 
@@ -1271,7 +1271,7 @@ def Diagram2():
 
 def Diagram3():
    message = f'''
-      {fp.set_font(1,14,0)} Matrix Data Diagram {fp.reset_font()}
+      {fp.set_font(1,14,0)} Full Matrix Data Diagram/Figure 5 {fp.reset_font()}
    '''
    print(message)
 
@@ -1404,36 +1404,36 @@ def Print_Fancy_Format_Method():
    simple_msg.print_fancy_format(default_values,fp.Line_Style.NONE)
 
    message = f'''
-     {fp.set_font(True,-1,14)}adj_top_margin{fp.set_font(False)}
+     {fp.set_font(False,-1,14)}adj_top_margin{fp.set_font()}
      lines to be add between the terminal and the title.
 
-     {fp.set_font(True,-1,14)}adj_bottom_margin{fp.set_font(False)}
+     {fp.set_font(False,-1,14)}adj_bottom_margin{fp.set_font()}
      lines to be add between the end of list or footnote and the terminal.
      
-     {fp.set_font(True,-1,14)}adj_top_space{fp.set_font(False)}
+     {fp.set_font(False,-1,14)}adj_top_space{fp.set_font()}
      lines to be added between title and top list. This only work
      when title exist.
      
-     {fp.set_font(True,-1,14)}adj_bottom_space{fp.set_font(False)}
+     {fp.set_font(False,-1,14)}adj_bottom_space{fp.set_font()}
      lines to be added between bottom list and footnote. This only work
      when a footnote exist.
      
-     {fp.set_font(True,-1,14)}adj_indent{fp.set_font(False)}
+     {fp.set_font(False,-1,14)}adj_indent{fp.set_font()}
      space from the terminal to the box.
      
-     {fp.set_font(True,-1,14)}adj_space{fp.set_font(False)}
+     {fp.set_font(False,-1,14)}adj_space{fp.set_font()}
      space from vertical left line to the data and the space from the data to
      the vertical right line, inside the box.
      
-     {fp.set_font(True,-1,14)}set_fill_chr{fp.set_font(False)}
+     {fp.set_font(False,-1,14)}set_fill_chr{fp.set_font()}
      to fill the empty spots when the list is not complete. This only
      works when we are dealing with a table list.
      
-     {fp.set_font(True,-1,14)}set_layout{fp.set_font(False)}
+     {fp.set_font(False,-1,14)}set_layout{fp.set_font()}
      This is only for Range, Set, and SetFrozen type data. It defines how
      to print the data, horizontal or vertical.
      
-     {fp.set_font(True,-1,14)}update_list{fp.set_font(False)}
+     {fp.set_font(False,-1,14)}update_list{fp.set_font()}
      if we want to save the data as it's presented, but in string type for 
      each element in list. This only work when the variable is a list type.
          
@@ -1472,7 +1472,7 @@ def Print_Fancy_Format_Method():
    simple_msg.print_fancy_format(default_values, fp.Line_Style.NONE)
 
    message = f'''
-     {fp.set_font(True,-1,14)}bg_all_cell_data{fp.set_font(False)}
+     {fp.set_font(False,-1,14)}bg_all_cell_data{fp.set_font()}
      It defines how long will be the bg in the data (all the cell or only the data)
          
 '''
@@ -1486,7 +1486,7 @@ def Print_Fancy_Format_Method():
                      ["bg_header          = -1",       "underline_header = False",          "hidden_header    = False"],
                      ["fg_header          = -1",       "strike_header    = False",          "inverse_header   = False"]]
    message = f'''
-     {fp.set_font(True,-1,14)}bg_all_cell_header{fp.set_font(False)}
+     {fp.set_font(False,-1,14)}bg_all_cell_header{fp.set_font()}
      It defines how long will be the bg in the header (all the cell or only the header)
          
 '''
@@ -1505,11 +1505,11 @@ def Print_Fancy_Format_Method():
    
    
    message = f'''
-     {fp.set_font(True,-1,14)}Refer to Matrix Data Diagram{fp.set_font(False)}
-     - \u2192 This is controled by \u2192 top_horizontal_line_on
-     e \u2192 This is controled by \u2192 middle_horizontal_line_on
-     * \u2192 This is controled by \u2192 bottom_horizontal_line_on
-         
+     {fp.set_font(False,-1,14)} top_horizontal_line_on {fp.set_font()}   controls \u2192  -
+     {fp.set_font(False,-1,14)} middle_horizontal_line_on {fp.set_font()}controls \u2192  e
+     {fp.set_font(False,-1,14)} bottom_horizontal_line_on {fp.set_font()}controls \u2192  *
+
+     {fp.set_font(False,1,231)} Refer to Figure 5 {fp.set_font()}
 '''
    simple_msg.print_fancy_format(default_values, fp.Line_Style.NONE)
    print(message)
@@ -1517,25 +1517,97 @@ def Print_Fancy_Format_Method():
       
    
 # Vertical Line Section
-   default_values = []
-   simple_msg.msg_title = " Vertical Line Default Values "
+   simple_msg.msg_title = " Vertical Line Default Values"
+   default_values = [["left_vertical_line_chr   = \"|\" ",  "bold_vertical_line = False"],
+                     ["middle_vertical_line_chr = \"|\" ",  "bg_vertical_line = -1"     ],
+                     ["right_vertical_line_chr  = \"|\" ",  "fg_vertical_line = -1"     ]]
+   
+   message = f'''     {fp.set_font(False,1,231)} Refer to Figure 1 {fp.set_font()}
+'''
+   
    simple_msg.print_fancy_format(default_values, fp.Line_Style.NONE)
+   print(message)
 
 # Corner Section
    simple_msg.msg_title = " Corner Default Values "
+   default_values = [["top_left_corner_chr     = \"+\"  ",  "bold_corner_chr = False"],
+                     ["top_right_corner_chr    = \"+\"  ",  "bg_corner_chr = -1 "    ],
+                     ["bottom_right_corner_chr = \"+\"  ",  "fg_corner_chr = -1 "    ],
+                     ["bottom_left_corner_chr  = \"+\"  ",  "                   "    ]]
+      
+   
+   message = f'''     {fp.set_font(False,1,231)} Refer to Figure 1 {fp.set_font()}
+'''
    simple_msg.print_fancy_format(default_values, fp.Line_Style.NONE)
+   print(message)
 
 # Middle Corner Section
    simple_msg.msg_title = " Middle Corner Default Values "
+   default_values = [["middle_top_corner_chr    = \"+\" ",  "bold_inner_corner_chr = False"],
+                     ["middle_inner_corner_chr  = \"+\" ",  "bg_inner_corner_chr   = -1"   ],
+                     ["middle_bottom_corner_chr = \"+\" ",  "fg_inner_corner_chr   = -1"   ],
+                     ["left_lateral_corner_chr  = \"+\" ",  "   "                          ],
+                     ["right_lateral_corner_chr = \"+\" ",  "   "                          ]]
+   
+   message = f'''     {fp.set_font(False,1,231)} Refer to Figure 5 {fp.set_font()}
+'''
+   
    simple_msg.print_fancy_format(default_values, fp.Line_Style.NONE)
+   print(message)
 
-# Attributes for the header text
-   simple_msg.msg_title = " Header Chr Default Values "
-   simple_msg.print_fancy_format(default_values, fp.Line_Style.NONE)
 
-# Under Line Header Section
-   simple_msg.msg_title = " Under Line Header Default Values "
+# Header Vertical Lines for the Header Section
+   simple_msg.msg_title = " Vertical Header Lines Default Values "
+   # Data Default Values
+   default_values =[["left_vertical_header_line_chr   = \"|\"", "bold_vertical_header_line_chr = False"],
+                    ["middle_vertical_header_line_chr = \"|\"", "bg_vertical_header_line_chr   = -1"   ],
+                    ["right_vertical_header_line_chr  = \"|\"", "fg_vertical_header_line_chr   = -1"   ]]
+   
+   message = f'''     {fp.set_font(False,1,231)} Refer to Figure 5 {fp.set_font()}
+'''
    simple_msg.print_fancy_format(default_values, fp.Line_Style.NONE)
+   print(message)
+
+
+# Under Line Header and Attributes for the Under Line Header Section
+   simple_msg.msg_title = " Horizontal Under Header Line Default Values "
+   default_values = [["horizontal_line_under_header_on  = False", "bold_under_line_header = False"],
+                     ["horizontal_line_under_header_chr = \"-\"", "bg_under_line_header   = -1"],
+                     ["                                        ", "fg_under_line_header   = -1"]]
+   
+   message = f'''
+     {fp.set_font(False,-1,14)} horizontal_line_under_header_on {fp.set_font()}controls \u2192  d
+
+     {fp.set_font(False,1,231)} Refer to Figure 5 {fp.set_font()}
+'''
+
+   simple_msg.print_fancy_format(default_values, fp.Line_Style.NONE)
+   print(message)
+
+
+# Header Under line Corners for the Header Section
+   simple_msg.msg_title = " Horizontal Corner Under Header Line Default Values "
+   default_values = [["left_corner_under_line_header_chr   = \"+\"", "bold_corner_under_line_header = False"],
+                     ["middle_corner_under_line_header_chr = \"-\"", "bg_corner_under_line_header   = -1"],
+                     ["right_corner_under_line_header_chr  = \"+\"", "fg_corner_under_line_header   = -1"]]
+   message = f'''     {fp.set_font(False,1,231)} Refer to Figure 5 {fp.set_font()}
+'''
+   simple_msg.print_fancy_format(default_values, fp.Line_Style.NONE)
+   print(message)
+
+
+
+   message = f'''
+     {fp.set_font(True,231,0)} Note: {fp.reset_font()}
+     {fp.set_font(False,-1,11)} bg {fp.set_font(bg=-1,fg=14)}and {fp.set_font(False,-1,11)}fg {fp.set_font(bg=-1,fg=14)}accepts int values from -1 to 256. {fp.set_font()}
+     {fp.set_font(False,-1,14)} where -1 and 256 are the default value from the system {fp.set_font()}
+   
+     {fp.set_font(False,1,231)} Refer to set_font() internal function or FontStyle class. {fp.set_font()}    
+'''
+
+   simple_msg.print_fancy_format(default_values, fp.Line_Style.NONE)
+   print(message)
+
 
 
 
@@ -1563,6 +1635,50 @@ def Reset_Fancy_Format_Method():
    fmsg.reset_fancy_format()
    print("\n")
    fmsg.print_fancy_format(message)
+
+
+#---------------------------------------------------------------------------------------------------
+# Pen Class                                                                                        -
+#---------------------------------------------------------------------------------------------------
+def Pen_Class():
+   blue_msg.print_fancy_message(classes_methods_fancyprint[0][4] + " Class")
+
+   simple_msg.msg_title = " General Use Default Values "
+   default_values = [["adj_indent      = 0",     "bold_draw_line = False"],
+                     ["refill_bg_color = False", "bg_draw_line   = -1"],
+                     ["                       ", "fg_draw_line   = -1"]]
+   
+   simple_msg.print_fancy_format(default_values, fp.Line_Style.NONE)
+   
+   simple_msg.msg_title = " Rectangle Default Values "
+   default_values = [["\033[1;38;5;14mHorizontal Lines\033[0m",                    "  "],
+                     ["top_horizontal_line_chr = \"-\"       ",   "bottom_horizontal_line_chr = \"-\""],
+                     ["                                      ",   "                                  "],
+                     ["\033[1;38;5;14mVertical Lines\033[0m  ",   "                                  "],
+                     ["right_vertical_line_chr = \"|\"       ",   "left_vertical_line_chr = \"|\"    "],
+                     ["                                      ",   "                                  "],
+                     ["\033[1;38;5;14mCorner Lines\033[0m    ",   "                                  "],
+                     ["top_left_corner_chr     = \"+\"       ",   "top_right_corner_chr   = \"+\"    "],
+                     ["bottom_right_corner_chr = \"+\"       ",   "bottom_left_corner_chr = \"+\"    "]]
+   
+   simple_msg.print_fancy_format(default_values, fp.Line_Style.NONE)
+   #message = f'''     {fp.set_font(False,1,231)} Refer to Figure 5 {fp.set_font()}
+#'''
+   #print(message)
+
+
+   Draw_Line_Method()
+   Draw_Rectangle_Method()
+
+def Draw_Line_Method():
+   green_msg.print_fancy_message(classes_methods_fancyprint[1][4])
+   print("drw line method")
+
+def Draw_Rectangle_Method():
+   green_msg.print_fancy_message(classes_methods_fancyprint[2][4])
+   print("draw rectangle method")
+
+
 #----------------------------------------------------------------------------------------------------------------------------------------------
 # Start the Documentation for fancyprint Module                                                                                               -
 #----------------------------------------------------------------------------------------------------------------------------------------------
@@ -1587,6 +1703,7 @@ elif ("all" in cmdl_argv):
    FontStyle_Class()
    FancyMessage_Class()
    FancyFormat_Class()
+   Pen_Class()
 
    
 
@@ -1601,6 +1718,7 @@ else:
       elif ("fontstyle" in fun):          FontStyle_Class();     flag_font_style = True
       elif ("fancymessage" in fun):       FancyMessage_Class();  flag_fancy_message = True
       elif ("fancyformat" in fun):        FancyFormat_Class();   flag_fancy_format = True
+      elif ("pen" in fun):                Pen_Class();           flag_pen = True
 
       elif ("clean" == fun and flag_screen_functions == False):           Clean_Function()
       elif ("clear" == fun and flag_screen_functions == False):           Clear_Function()
@@ -1642,6 +1760,8 @@ else:
       elif ("print_fancy_format"  == fun  and flag_fancy_format  == False):  Print_Fancy_Format_Method()
       elif ("reset_fancy_format"  == fun  and flag_fancy_format  == False):  Reset_Fancy_Format_Method()
 
+      elif ("draw_line" == fun and flag_pen == False):        Draw_Line_Method()
+      elif ("draw_rectangle" == fun and flag_pen == False):   Draw_Rectangle_Method()
 
       else: pass
          
