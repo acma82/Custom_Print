@@ -1616,6 +1616,9 @@ def _print_matrix_list(self,my_list):
 # Help fancyprint Module Help                                                                                                                  -
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 def help():
+   '''
+   Display Help...!
+   '''
    tbl = ["python3.12 documentation_fpm.py"]
            
    lista = FancyFormat()
@@ -1802,6 +1805,9 @@ class FancyFormat():
 
 
    def reset_fancy_format(self):
+      '''
+      It reset all the attributes of the class
+      '''
       #-------------------------------------------------------------------------------------------------------------------------------------------
       # defining variable names                  # values to take                                                                                #
       #-------------------------------------------------------------------------------------------------------------------------------------------
@@ -1965,6 +1971,11 @@ class FancyFormat():
    # Defing a the main function to control the print of the list                                                                                  -
    #-----------------------------------------------------------------------------------------------------------------------------------------------    
    def print_fancy_format(self,data="none",style=Line_Style.CUSTOMIZED):
+      '''
+      It print the data in a fancy format
+
+      print_fancy_format(data, style)
+      '''
       if (style.lower() == Line_Style.CUSTOMIZED): pass
       else:
          # backup all the default values
@@ -2776,6 +2787,12 @@ class FancyMessage(Cursor):
    # Print Fancy Note                                                                                                                                 -
    #---------------------------------------------------------------------------------------------------------------------------------------------------
    def print_fancy_note(self, msg_body:str="Paragraph Body")->None:
+      '''
+      It print the fancy note with the attributes defined
+
+      print_fancy_note(msg_body)
+
+      '''
       # save original values
       li_obj = self.left_indent
 
@@ -2825,6 +2842,12 @@ class FancyMessage(Cursor):
       
    #---------------------------------------------------------------------------------------------------------------------------------------------------   
    def print_fancy_message(self, msg_body:str="Paragraph Body")->None:
+      '''
+      It print the fancy message with the attributes defined
+
+      print_fancy_message(msg_body)
+
+      '''
       # save original values      
       li_obj = self.left_indent;      bold_obj    = self.bold_body;            blinking_obj  = self.blinking_body
       tl_obj = self.top_lines;        italic_obj  = self.italic_body;          underline_ojb = self.underline_body
@@ -2991,6 +3014,12 @@ class Pen(Cursor):                      # Inheritance the Cursor Class here.
       
 
    def draw_line(self, size=0, layout=Layout.HORIZONTAL, tail="\N{BLACK DIAMOND}", body="-", head="\N{BLACK DIAMOND}"):
+      '''
+      It draw a line with the parameters specified
+
+      draw_line(size=0, layout=Layout.HORIZONTAL, tail="\N{BLACK DIAMOND}", body="-", head="\N{BLACK DIAMOND}"
+
+      '''
 
       settings = set_font(self.bold_draw_line, self.bg_draw_line, self.fg_draw_line)
 
@@ -3015,6 +3044,12 @@ class Pen(Cursor):                      # Inheritance the Cursor Class here.
 
 
    def draw_rectangle(self,length=3, width=3, style=Line_Style.DASH):
+      '''
+      It draw a rectangle with the parameters specified
+
+      draw_rectangle(self,length=3, width=3, style=Line_Style.DASH)
+
+      '''
       if length <= 2: length = 3   # length = largo, width = alto
       if width  <= 2: width  = 3      
 
