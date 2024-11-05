@@ -105,7 +105,7 @@ class Unicode(enum.StrEnum):
 def clean():
    '''
 ----------------------------------------------------------------------------      
-   It cleans the terminal and return the cursor to home.
+   It cleans the terminal and returns the cursor to home.
 ----------------------------------------------------------------------------
    '''
    print("\033[2J",end="")  # clean the terminal
@@ -122,7 +122,7 @@ if os.name == 'nt' and (platform.release() == '10' or platform.release == "11"):
    def clear():
      '''
    ----------------------------------------------------------------------------      
-      It cleans the terminal and return the cursor  to home.
+      It cleans the terminal and returns the cursor to home.
    ----------------------------------------------------------------------------
      '''
      os.system("cls")
@@ -134,7 +134,7 @@ if os.name == 'nt' and (platform.release() == '10' or platform.release == "11"):
    def resize(rows:int=25, cols:int=80)->None:
       '''
    ----------------------------------------------------------------------------      
-      It resizes the terminal.
+      It resizes the terminal size.
    ----------------------------------------------------------------------------
       '''
       #os.system(f"mode con:cols={cols} lines={rows}")
@@ -147,7 +147,7 @@ elif (os.name == 'posix'):
    def clear():
       '''
    ----------------------------------------------------------------------------      
-      It cleans the terminal and return the cursor to home.
+      It cleans the terminal and returns the cursor to home.
    ----------------------------------------------------------------------------
       '''
       os.system("clear")
@@ -155,7 +155,7 @@ elif (os.name == 'posix'):
    def resize(rows:int=25, cols:int=80)->None:
       '''
    ----------------------------------------------------------------------------      
-      It resizes the terminal.
+      It resizes the terminal size.
    ----------------------------------------------------------------------------
       '''
       os.system(f"resize -s {rows} {cols}")
@@ -165,7 +165,7 @@ else:
    def clear():
       '''
    ----------------------------------------------------------------------------      
-      It cleans the terminal and return the cursor to home.
+      It cleans the terminal and returns the cursor to home.
    ----------------------------------------------------------------------------
       '''
       print("\033[2J",end="")  # clean the terminal
@@ -174,7 +174,7 @@ else:
    def resize(rows:int=25, cols:int=80)->None:
       '''
    ----------------------------------------------------------------------------      
-      It resizes the terminal.
+      It resizes the terminal size.
    ----------------------------------------------------------------------------
       '''
       os.system(f"resize -s {rows} {cols}")
@@ -184,7 +184,7 @@ else:
 def dimensions():
    '''
 ----------------------------------------------------------------------------      
-   It returns the size of the actual terminal: cols, rows = dimensions()
+   It returns the dimensions of the terminal: cols, rows = dimensions()
 ----------------------------------------------------------------------------
    '''
    cols, rows = os.get_terminal_size()
@@ -194,7 +194,7 @@ def dimensions():
 def erase():
    '''
 ----------------------------------------------------------------------------      
-   It cleans the terminal and the cursor remain in the same position.
+   It erases the terminal and leaves the cursor in the current position.
 ----------------------------------------------------------------------------
    '''
    print("\033[2J",end="")
@@ -468,14 +468,6 @@ def reset_font():
 
    This function resets the font attributes to the default ones.
    
-   Example:
-            print(fp.set_font(1,11,21)+ " Python is " + fp.set_font(0,1)+
-               " Wonderful."+fp.reset_font())
-            
-
-            print(fp.set_font(1,11,21)+ " Python is ")
-            print(" Wonderful.")
-            print(fp.reset_font()+"Bye")   
 ----------------------------------------------------------------------------
 '''
    return "\033[0m"
@@ -1617,13 +1609,37 @@ def _print_matrix_list(self,my_list):
             #----------------------------------------------------------------------------------------------------------------------------------------
    _print_notefoot(self,my_list)
    ins_newline(self.adj_bottom_margin)
+
+
+
+#-----------------------------------------------------------------------------------------------------------------------------------------------
+# Help fancyprint Module Help                                                                                                                  -
+#-----------------------------------------------------------------------------------------------------------------------------------------------
+def help():
+   tbl = ["python3.12 documentation_fpm.py"]
+           
+   lista = FancyFormat()
+   lista.bg_title = 11; lista.fg_title = 21; lista.align_title = "c"; lista.bold_title = 1
+   lista.msg_title = " Help...! "
+   lista.bg_header =22; lista.fg_header = 7
+   lista.horizontal_line_under_header_on = 1
+      
+   lista.print_fancy_format(tbl)
+   message = '''
+   Run the Script Documentation_fpm.py for help and reference.
+
+   fpm \u2192 fancy print module
+
+'''
+   print(message)
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 #  The of Functions Used by the FancyFormat Class                                                                                              -
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 
 
+
 #-----------------------------------------------------------------------------------------------------------------------------------------------
-# Defing a class without initial parameters                                                                                                    -
+# Fancy Format Class, Defing the Class Without Initial Parameters                                                                              -
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 class FancyFormat():
    def __init__(self):
@@ -3255,26 +3271,6 @@ class Pen(Cursor):                      # Inheritance the Cursor Class here.
 
 
 
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-# Help fancyprint Module Help                                                                                                                  -
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-def help():
-   tbl = ["python3.12 documentation_fpm.py"]
-           
-   lista = FancyFormat()
-   lista.bg_title = 11; lista.fg_title = 21; lista.align_title = "c"; lista.bold_title = 1
-   lista.msg_title = " Help...! "
-   lista.bg_header =22; lista.fg_header = 7
-   lista.horizontal_line_under_header_on = 1
-      
-   lista.print_fancy_format(tbl)
-   message = '''
-   Run the Script Documentation_fpm.py for help and reference.
-
-   fpm \u2192 fancy print module
-
-'''
-   print(message)
 
 # if we are going to use this script as only module, delete this code
 if (__name__ == "__main__"):
