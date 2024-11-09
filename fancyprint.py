@@ -1,3 +1,6 @@
+'''
+Fancy Print For Any Type of Variable
+'''
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 # Required Modules                                                                                                                             -
 #-----------------------------------------------------------------------------------------------------------------------------------------------
@@ -480,7 +483,7 @@ def reset_font():
 def bool2list(my_bool):
    '''
    ----------------------------------------------------------------------------
-   Convert a Bool to a String List
+   It Converts a Bool to a String List
    ----------------------------------------------------------------------------
    '''
    tempo_list = []
@@ -495,7 +498,7 @@ def bool2list(my_bool):
 def int2list(my_int):
    '''
    ----------------------------------------------------------------------------
-   Convert a Integer Number to a String List
+   It Converts a Integer Number to a String List
    ----------------------------------------------------------------------------
    '''
    tempo_list = []
@@ -510,7 +513,7 @@ def int2list(my_int):
 def float2list(my_float):
    '''
    ----------------------------------------------------------------------------
-   Convert a Float Number to a String List
+   It Converts a Float Number to a String List
    ----------------------------------------------------------------------------
    '''
    
@@ -526,7 +529,7 @@ def float2list(my_float):
 def complex2list(my_complex):
    '''
    ----------------------------------------------------------------------------
-   Convert a Complex Number to a String List
+   It Converts a Complex Number to a String List
    ----------------------------------------------------------------------------
    '''
    tempo_list = []
@@ -541,7 +544,7 @@ def complex2list(my_complex):
 def str2list(my_str):
    '''
    ----------------------------------------------------------------------------
-   Convert a String to a String List
+   It Converts a String to a String List
    ----------------------------------------------------------------------------
    '''
    tempo_list = []
@@ -556,7 +559,7 @@ def str2list(my_str):
 def dict2list(my_dict, key_title="key", value_title="value"):
    '''
    ----------------------------------------------------------------------------
-   Convert a Dictionay to a String List
+   It Converts a Dictionay to a String List
    ----------------------------------------------------------------------------
    '''
    my_key_list = []; my_data_list = []
@@ -591,7 +594,7 @@ def dict2list(my_dict, key_title="key", value_title="value"):
 def set2list(my_set:set, set_header = "none", layout:Layout=Layout.HORIZONTAL):
    '''
    ----------------------------------------------------------------------------
-   Convert a Set or a Frozenset to a String List
+   It Converts a Set or a Frozenset to a String List
    ----------------------------------------------------------------------------
    '''
    # set and frozenset values are printed in aleatory order all the time
@@ -646,7 +649,7 @@ def set2list(my_set:set, set_header = "none", layout:Layout=Layout.HORIZONTAL):
 def range2list(my_range:range, range_header = "none", layout:Layout=Layout.HORIZONTAL):
    '''
    ----------------------------------------------------------------------------
-   Convert a Range to a String List
+   It Converts a Range to a String List
    ----------------------------------------------------------------------------
    '''   
    tempo_list = []
@@ -678,7 +681,7 @@ def range2list(my_range:range, range_header = "none", layout:Layout=Layout.HORIZ
 def tuple2list(my_tuple):
    '''
    ----------------------------------------------------------------------------
-   Convert a Tuple to a String List
+   It Converts a Tuple to a String List
    ----------------------------------------------------------------------------
    '''   
    tempo_list = []
@@ -757,7 +760,7 @@ def tuple2list(my_tuple):
 def data2list(self,dato):
    '''
    ----------------------------------------------------------------------------
-   Convert Any Type of Variable to a a String List Type
+   It Converts Any Type of Variable to a a String List Type
    ----------------------------------------------------------------------------
    '''  
    data_list = []
@@ -1617,7 +1620,7 @@ def _print_matrix_list(self,my_list):
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 def help():
    '''
-   Display Help...!
+   It Displays Help...!
    '''
    tbl = ["python3.12 documentation_fpm.py"]
            
@@ -1806,7 +1809,7 @@ class FancyFormat():
 
    def reset_fancy_format(self):
       '''
-      It reset all the attributes of the class
+      It resets all the attributes of the class
       '''
       #-------------------------------------------------------------------------------------------------------------------------------------------
       # defining variable names                  # values to take                                                                                #
@@ -1972,7 +1975,7 @@ class FancyFormat():
    #-----------------------------------------------------------------------------------------------------------------------------------------------    
    def print_fancy_format(self,data="none",style=Line_Style.CUSTOMIZED):
       '''
-      It print the data in a fancy format
+      It prints the data in a fancy format
 
       print_fancy_format(data, style)
       '''
@@ -2609,7 +2612,7 @@ class FancyMessage(Cursor):
       self.blinking_footnote = False;     self.inverse_footnote = False;    self.hidden_footnote = False
       
 
-   def get_msg_attribute(self,data:str="Message",all_attribute:bool=False):
+   def _get_msg_attribute(self,data:str="Message",all_attribute:bool=False):
       msg = str(data)
       tncols, tnrows = os.get_terminal_size()
       
@@ -2708,18 +2711,18 @@ class FancyMessage(Cursor):
    #---------------------------------------------------------------------------------------------------------------------------------------------------
    # Send the Data To the Terminal                                                                                                                    -   
    #---------------------------------------------------------------------------------------------------------------------------------------------------
-   def send_msg_terminal(self,data="Message"):
-      def print_bg_lines(lines, bg_format_line_color="\033[0m"):
+   def _send_msg_terminal(self,data="Message"):
+      def _print_bg_lines(lines, bg_format_line_color="\033[0m"):
          if (lines == 0):
             print("\033[0m",end="")
          else:
             n = lines
             while n>0:
-               print(bg_format_line_color)            
+               print(bg_format_line_color)
                n -= 1
       
 
-      tncols, space_available, number_letter_line_list, adj_diff_space, new_msg, n_lines = FancyMessage.get_msg_attribute(self,data,True)
+      tncols, space_available, number_letter_line_list, adj_diff_space, new_msg, n_lines = FancyMessage._get_msg_attribute(self,data,True)
 
       color = set_font(self.bold_body, self.bg_body, self.fg_body, self.italic_body, self.underline_body, self.strike_body,
                        self.blinking_body, self.dim_body, self.hidden_body, self.inverse_body)
@@ -2748,7 +2751,7 @@ class FancyMessage(Cursor):
       else: pass
 
       carry = 0; last_one = n_lines - 1
-      print_bg_lines(self.top_lines, bg_format_line_color)     # bg_line
+      _print_bg_lines(self.top_lines, bg_format_line_color)     # bg_line
       
 
       print(start_line,end="")
@@ -2781,18 +2784,22 @@ class FancyMessage(Cursor):
          else:                print(start_line,end="")
       
       # end printing the message
-      print_bg_lines(self.bottom_lines, bg_format_line_color)   # bg_line
+      _print_bg_lines(self.bottom_lines, bg_format_line_color)   # bg_line
 
    #---------------------------------------------------------------------------------------------------------------------------------------------------
    # Print Fancy Note                                                                                                                                 -
    #---------------------------------------------------------------------------------------------------------------------------------------------------
-   def print_fancy_note(self, msg_body:str="Paragraph Body")->None:
+   def print_fancy_note(self, msg_body:str="")->None:
       '''
-      It print the fancy note with the attributes defined
+      It prints the fancy note with the attributes defined
 
       print_fancy_note(msg_body)
 
       '''
+      if (msg_body == ""):
+         msg_body = self.msg_body
+
+
       # save original values
       li_obj = self.left_indent
 
@@ -2801,7 +2808,7 @@ class FancyMessage(Cursor):
       else:                     len_msg_note = len(self.msg_note)
 
       self.left_indent = self.left_space_note + len_msg_note + self.right_space_note
-      n_lines, space_available, tncols = self.get_msg_attribute(msg_body)
+      n_lines, space_available, tncols = self._get_msg_attribute(msg_body)
 
       
       total_back_lines = self.top_lines + n_lines + self.bottom_lines
@@ -2809,7 +2816,7 @@ class FancyMessage(Cursor):
       elif (self.position_note <= 0):                  lines_back = total_back_lines
       else:                                            lines_back = total_back_lines - self.position_note 
       
-      self.send_msg_terminal(msg_body)
+      self._send_msg_terminal(msg_body)
 
       # settings for the note
       settings_note = set_font(bold=self.bold_note, bg=self.bg_note, fg=self.fg_note, italic=self.italic_note,\
@@ -2841,13 +2848,18 @@ class FancyMessage(Cursor):
          
       
    #---------------------------------------------------------------------------------------------------------------------------------------------------   
-   def print_fancy_message(self, msg_body:str="Paragraph Body")->None:
+   def print_fancy_message(self, msg_body:str="")->None:
       '''
-      It print the fancy message with the attributes defined
+      It prints the fancy message with the attributes defined
 
       print_fancy_message(msg_body)
 
       '''
+
+      if (msg_body == ""):
+         msg_body = self.msg_body
+
+
       # save original values      
       li_obj = self.left_indent;      bold_obj    = self.bold_body;            blinking_obj  = self.blinking_body
       tl_obj = self.top_lines;        italic_obj  = self.italic_body;          underline_ojb = self.underline_body
@@ -2860,7 +2872,7 @@ class FancyMessage(Cursor):
       dim_obj = self.dim_body
       
       # settings for title
-      n_lines, space_available, tncols = self.get_msg_attribute(msg_body)
+      n_lines, space_available, tncols = self._get_msg_attribute(msg_body)
       if not self.msg_title == "": #!= None:
          # working with the font color         
          self.bg_body     = self.bg_title;          self.underline_body = self.underline_title
@@ -2886,7 +2898,7 @@ class FancyMessage(Cursor):
             
 
          self.bottom_lines = self.lines_title_body
-         self.send_msg_terminal(self.msg_title)
+         self._send_msg_terminal(self.msg_title)
          # This is necessary because when is right alignment, it jumps automatically to the next row
          if (self.align_title == Align.RIGHT and self.msg_title != ""):
             print("\033[1A",end="")
@@ -2910,13 +2922,13 @@ class FancyMessage(Cursor):
          else:                   self.top_lines = tl_obj   
          self.fg_body = fg_obj  # returning the color for the body
          
-         self.send_msg_terminal(msg_body)
+         self._send_msg_terminal(msg_body)
                
       else:         
          if not self.msg_footnote == "":   self.bottom_lines = self.lines_body_footnote
          else:                             self.bottom_lines = bl_obj       
          
-         self.send_msg_terminal(msg_body)     
+         self._send_msg_terminal(msg_body)     
 
 
       if not self.msg_footnote == "":
@@ -2944,7 +2956,7 @@ class FancyMessage(Cursor):
          self.dim_body    = self.dim_footnote;         self.hidden_body    = self.hidden_footnote
          self.italic_body = self.italic_footnote;      self.strike_body    = self.strike_footnote
          
-         self.send_msg_terminal(self.msg_footnote)
+         self._send_msg_terminal(self.msg_footnote)
          
          # This is necessary because when is right alignment, it jumps automatically to the next row
          if (self.align_footnote == Align.RIGHT and self.msg_footnote != ""):
@@ -3015,7 +3027,7 @@ class Pen(Cursor):                      # Inheritance the Cursor Class here.
 
    def draw_line(self, size=0, layout=Layout.HORIZONTAL, tail="\N{BLACK DIAMOND}", body="-", head="\N{BLACK DIAMOND}"):
       '''
-      It draw a line with the parameters specified
+      It draws a line with the parameters specified
 
       draw_line(size=0, layout=Layout.HORIZONTAL, tail="\N{BLACK DIAMOND}", body="-", head="\N{BLACK DIAMOND}"
 
@@ -3045,7 +3057,7 @@ class Pen(Cursor):                      # Inheritance the Cursor Class here.
 
    def draw_rectangle(self,length=3, width=3, style=Line_Style.DASH):
       '''
-      It draw a rectangle with the parameters specified
+      It draws a rectangle with the parameters specified
 
       draw_rectangle(self,length=3, width=3, style=Line_Style.DASH)
 
