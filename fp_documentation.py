@@ -1,3 +1,4 @@
+#!/usr/bin/python3.12
 '''
 Documentation for fancyprint module...!
 python3.12 fp_docs.py
@@ -153,7 +154,11 @@ def  Welcome_Message():
     message_note = '''
     It is possible to display help for more than one function or method at the same    
     time, it just needs to be specified. If it's preferred, it can display all the      
-    methods for a specific class or a combination of them.'''
+    methods for a specific class or a combination of them.
+    
+    fancymodule requires python3.12 or greater.
+
+    '''
     blue_msg.length    = fp.Length_bg.ALL_ROW
     blue_msg.bold_body = False
     blue_msg.msg_note  = note
