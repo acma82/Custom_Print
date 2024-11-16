@@ -458,7 +458,7 @@ def Help_Classes():
     Layout_Class()
     Length_Class()
     Unicode_Class()
-    Style_Line_Class()
+    Line_Style_Class()
 
 
 def Move_Class():
@@ -581,7 +581,7 @@ def Unicode_Class():
     print(message)
 
 
-def Style_Line_Class():
+def Line_Style_Class():
    #------------------------------------------------------------------------------------------------
    # Style_Line                                                                                    -
    #------------------------------------------------------------------------------------------------
@@ -592,14 +592,16 @@ def Style_Line_Class():
 
       {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
 
-      {fp.ins_chr(10)}  fp.Style_Line.CUSTOMIZED
-      {fp.ins_chr(10)}  fp.Style_Line.SINGLE
-      {fp.ins_chr(10)}  fp.Style_Line.SINGLE_BOLD
-      {fp.ins_chr(10)}  fp.Style_Line.SINGLE_HEAVY
-      {fp.ins_chr(10)}  fp.Style_Line.DOUBLE
-      {fp.ins_chr(10)}  fp.Style_Line.DASH
-      {fp.ins_chr(10)}  fp.Style_Line.SQR_BRACKETS
-      {fp.ins_chr(10)}  fp.Style_Line.NONE
+      {fp.ins_chr(10)}  fp.Line_Style.CUSTOMIZED
+      {fp.ins_chr(10)}  fp.Line_Style.SINGLE
+      {fp.ins_chr(10)}  fp.Line_Style.SINGLE_BOLD
+      {fp.ins_chr(10)}  fp.Line_Style.SINGLE_HEAVY
+      {fp.ins_chr(10)}  fp.Line_Style.DOUBLE
+      {fp.ins_chr(10)}  fp.Line_Style.DASH
+      {fp.ins_chr(10)}  fp.Line_Style.SQR_BRACKETS
+      {fp.ins_chr(10)}  fp.Line_Style.DOUBLE_SPACE
+      {fp.ins_chr(10)}  fp.Line_Style.NONE_SPACE
+      {fp.ins_chr(10)}  fp.Line_Style.NONE
 
       Note: These options can be replaced for the original values as display below:
 
@@ -610,7 +612,33 @@ def Style_Line_Class():
       {fp.ins_chr(10)}  fp.Style_Line.DOUBLE         \u2192  \"double\"
       {fp.ins_chr(10)}  fp.Style_Line.DASH           \u2192  \"dash\"      
       {fp.ins_chr(10)}  fp.Style_Line.SQR_BRACKETS   \u2192  \"sq_brackets\"
-      {fp.ins_chr(10)}  fp.Style_Line.NONE           \u2192  \"none\"
+      {fp.ins_chr(10)}  fp.Line_Style.DOUBLE_SPACE   \u2192  \"double_space\"
+      {fp.ins_chr(10)}  fp.Line_Style.NONE_SPACE     \u2192  \"none_space\"
+      {fp.ins_chr(10)}  fp.Line_Style.NONE           \u2192  \"none\"
+
+      {fp.set_font(True,231,0)}   Note:  {fp.reset_font()}  Options{fp.set_font(True,-1,14)} DOUBLE_SPACE, NONE_SPACE, {fp.reset_font()} and {fp.set_font(True,-1,14)} NONE, {fp.reset_font()} use colors to visualize
+                  the difference between them as shown in the example below.
+
+      {fp.set_font(True,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
+      {fp.ins_chr(10)}  tbl = fp.FancyFormat()
+
+      {fp.ins_chr(10)}  tbl.bg_header   = 23;              tbl.bg_data   = 231
+      {fp.ins_chr(10)}  tbl.fg_header   = 231;             tbl.fg_data   = 21
+      {fp.ins_chr(10)}  tbl.bold_header = True;            tbl.bold_data = True
+    
+      {fp.ins_chr(10)}  tbl.bg_horizontal_line  = 1;       tbl.bg_corner_under_line_header = 1
+      {fp.ins_chr(10)}  tbl.bg_vertical_line    = 1;       tbl.bg_under_line_header        = 1
+      {fp.ins_chr(10)}  tbl.bg_inner_corner_chr = 1;       tbl.bg_vertical_header_line_chr = 1
+      {fp.ins_chr(10)}  tbl.bg_corner_chr       = 1;
+
+      {fp.ins_chr(10)}  lst = [["Header 1", "Header 2", "Header 3", "Header 4"],
+      {fp.ins_chr(10)}         ["Data 1",   "Data 2",   "Data 3",   "Data 4"  ],
+      {fp.ins_chr(10)}         ["Data 5",   "Data 6",   "Data 7",   "Data 8"  ]]
+
+      {fp.ins_chr(10)}  tbl.print_fancy_format(data=lst, style=fp.Line_Style.NONE)
+      {fp.ins_chr(10)}  tbl.print_fancy_format(data=lst, style=fp.Line_Style.DOUBLE_SPACE)
+      {fp.ins_chr(10)}  tbl.print_fancy_format(data=lst, style=fp.Line_Style.NONE_SPACE)
+           
    '''
     print(message)
     print()
@@ -1975,7 +2003,7 @@ else:
         elif ("layout"     == fun and flag_help_classes == False):             Layout_Class()
         elif ("length"     == fun and flag_help_classes == False):             Length_Class()
         elif ("unicode"    == fun and flag_help_classes == False):             Unicode_Class()
-        elif ("style_line" == fun and flag_help_classes == False):             Style_Line_Class()
+        elif ("line_style" == fun and flag_help_classes == False):             Line_Style_Class()
 
 
         elif ("jumpto" == fun and flag_cursor == False):                       JumpTo_Method()

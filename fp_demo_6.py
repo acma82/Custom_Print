@@ -24,13 +24,13 @@ if __name__ == "__main__":
            ["Data 1",   "Data 2",   "Data 3",   "Data 4"  ],
            ["Data 5",   "Data 6",   "Data 7",   "Data 8"  ]]
         
-    lst = [["Header 1", "Header 2", "Header 3", "Header 4", "Header 5"],
-           ["Data 1",   "Data 2",   "Data 3",   "Data 4",  "Data 5"],
-           ["Data 6",   "Data 6",   "Data 7",   "Data 8",  "Data 9"]]
+#     lst = [["Header 1", "Header 2", "Header 3", "Header 4", "Header 5"],
+#            ["Data 1",   "Data 2",   "Data 3",   "Data 4",  "Data 5"],
+#            ["Data 6",   "Data 6",   "Data 7",   "Data 8",  "Data 9"]]
     
-    lst = [["Header 1", "Header 2", "Header 3", "Header 4", "Header 5", "HEADER"],
-           ["Data 1",   "Data 2",   "Data 3",   "Data 4",  "Data 5",    "DATA"],
-           ["Data 6",   "Data 6",   "Data 7",   "Data 8",  "Data 9",    "DATA"]]
+#     lst = [["Header 1", "Header 2", "Header 3", "Header 4", "Header 5", "HEADER"],
+#            ["Data 1",   "Data 2",   "Data 3",   "Data 4",  "Data 5",    "DATA"],
+#            ["Data 6",   "Data 6",   "Data 7",   "Data 8",  "Data 9",    "DATA"]]
 
     tbl.print_fancy_format(data=lst, style=fp.Line_Style.NONE)
     
@@ -49,13 +49,18 @@ if __name__ == "__main__":
     tbl.fg_data = 21
     tbl.bold_data = True
     tbl.adj_top_margin = 2
+
     # tbl.align_data = fp.Align.LEFT
     # tbl.align_header = fp.Align.RIGHT
+    
     # tbl.horizontal_line_under_header_on = True
     # tbl.middle_horizontal_line_on = True
     # tbl.top_horizontal_line_on = False
     # tbl.bottom_horizontal_line_on = False
-    tbl.adj_space = 4
+    
+    tbl.adj_indent = 4
+    tbl.adj_space  = 4
+
     # tbl.bg_all_cell_data = False
     # tbl.bg_all_cell_header = False
 
