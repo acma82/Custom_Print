@@ -11,7 +11,8 @@ draw  = fun.Pen()
 
 
 ncols, nrows = fun.dimensions()
-os.system("resize -s 44 110")
+fun.resize(45, 120)
+
 
 # setting for the format
 # general use
@@ -31,15 +32,15 @@ while high < 20:
     high += 1
 
 # single line square
-mymsg = f"{fun.ins_chr(39)}Nice Single Line Frame.{fun.ins_chr(39)}"
+mymsg = f"{fun.ins_chr(35)}Nice Single Line Frame.{fun.ins_chr(35)}"
 
 
 list1.bold_title  = True
 list1.bg_title    = 22
 list1.fg_title    = 15
 list1.align_title = "left"
-list1.msg_title   = f"{fun.ins_chr(40)}Tuple Style Is on {"\U0001F525"}{fun.ins_chr(41)}"
-
+list1.msg_title   = f"{fun.ins_chr(39)}Tuple Style Is on \N{FIRE}{fun.ins_chr(40)}" # {"\U0001F525"} fire number
+list1.print_fancy_format(mymsg,fun.Line_Style.SINGLE)
 
 # Corner Section
 list1.top_left_corner_chr     = '\u250C'          # 13
