@@ -55,8 +55,10 @@ class Line_Style(enum.StrEnum):
    DOUBLE       = "double"
    DASH         = "dash"
    SQ_BRACKETS  = "sq_brackets"
+   DOUBLE_SPACE = "double_space"
+   NONE_SPACE   = "none_space"
    NONE         = "none"
-
+   
 
 class Unicode(enum.StrEnum):
    #--------------------------------------------------------------------------------------------
@@ -1365,9 +1367,9 @@ def _print_matrix_list(self,my_list):
                # if self.horizontal_line_under_header_on == True or self.middle_horizontal_line_on == 1: 
                # the horizontal line between the headers and the first data row, only for matrix list  
                if self.horizontal_line_under_header_on == True :             
-                  indent = 1; _print_horizontal_segment(self, self.left_corner_under_line_header_chr,\
+                  indent = 1; _print_horizontal_segment(self, self.left_corner_line_under_header_chr,\
                            self.horizontal_line_under_header_chr, length + (2*self.adj_space), indent, "horizontal_header")
-                  indent = 0; _print_horizontal_segment(self, self.right_corner_under_line_header_chr,\
+                  indent = 0; _print_horizontal_segment(self, self.right_corner_line_under_header_chr,\
                                                 self.horizontal_line_under_header_chr, 0, indent, "horizontal_header")
                   print()
           
@@ -1499,14 +1501,14 @@ def _print_matrix_list(self,my_list):
          # drawing the bottom horizontal line
          for item in longest_cols:    
             if indent == 1:
-               _print_horizontal_segment(self, self.left_corner_under_line_header_chr,\
+               _print_horizontal_segment(self, self.left_corner_line_under_header_chr,\
                   self.horizontal_line_under_header_chr, (item+(2*self.adj_space)), indent,"horizontal_header") # first segment
                indent = 0
             else:
-               _print_horizontal_segment(self, self.middle_corner_under_line_header_chr,\
+               _print_horizontal_segment(self, self.middle_corner_line_under_header_chr,\
                   self.horizontal_line_under_header_chr, (item+(2*self.adj_space)), indent,"horizontal_header") # middle segments
 
-         _print_horizontal_segment(self, self.right_corner_under_line_header_chr,\
+         _print_horizontal_segment(self, self.right_corner_line_under_header_chr,\
                self.horizontal_line_under_header_chr, 0, indent, "horizontal_header") 
             # last segment, which is only the corner that's why it's 0 on value
       
@@ -1799,9 +1801,9 @@ class FancyFormat():
       
       
       # attributes for the header corners (left, middles and right)    
-      self.left_corner_under_line_header_chr   = "+"   # only for header line
-      self.right_corner_under_line_header_chr  = "+"   # only for header line
-      self.middle_corner_under_line_header_chr = "+"   # only for header line
+      self.left_corner_line_under_header_chr   = "+"   # only for header line
+      self.right_corner_line_under_header_chr  = "+"   # only for header line
+      self.middle_corner_line_under_header_chr = "+"   # only for header line
       self.bold_corner_under_line_header       = False # two values False and True (0 and 1)
       self.bg_corner_under_line_header         = -1    # values -1 to 255
       self.fg_corner_under_line_header         = -1    # values -1 to 255
@@ -1960,9 +1962,9 @@ class FancyFormat():
       
       
       # attributes for the header corners (left, middles and right)    
-      self.left_corner_under_line_header_chr   = "+"   # only for header line
-      self.right_corner_under_line_header_chr  = "+"   # only for header line
-      self.middle_corner_under_line_header_chr = "+"   # only for header line
+      self.left_corner_line_under_header_chr   = "+"   # only for header line
+      self.right_corner_line_under_header_chr  = "+"   # only for header line
+      self.middle_corner_line_under_header_chr = "+"   # only for header line
 
       self.bold_corner_under_line_header = False       # two values False and True (0 and 1)
       self.bg_corner_under_line_header   = -1          # values -1 to 255
@@ -1980,6 +1982,14 @@ class FancyFormat():
 
       print_fancy_format(data, style)
       '''
+
+      data_list = data2list(self, data)
+      my_list = []
+      # convert all elements in the list to strigs only because the int type will cause problems with len command    
+      #-----------------------------------------------------------------------------------------------------------------------------------------
+      list_type = _get_list_type(data_list)
+      #-----------------------------------------------------------------------------------------------------------------------------------------
+      
       if (style.lower() == Line_Style.CUSTOMIZED): pass
       else:
          # backup all the default values
@@ -2006,9 +2016,9 @@ class FancyFormat():
          hluhc = self.horizontal_line_under_header_chr                 
          
          # attributes for the header corners (left, middles and right)    
-         lculhc = self.left_corner_under_line_header_chr
-         rculhc = self.right_corner_under_line_header_chr
-         mculhc = self.middle_corner_under_line_header_chr
+         lculhc = self.left_corner_line_under_header_chr
+         rculhc = self.right_corner_line_under_header_chr
+         mculhc = self.middle_corner_line_under_header_chr
 
 
          if (style.lower() == Line_Style.SINGLE):            
@@ -2036,8 +2046,8 @@ class FancyFormat():
             self.right_vertical_header_line_chr  = "\u2502"
 
             # Under Line Header Section  Only for Matrix List
-            self.horizontal_line_under_header_chr   = "\u2500";          self.left_corner_under_line_header_chr   = "\u251C"
-            self.right_corner_under_line_header_chr = "\u2524";          self.middle_corner_under_line_header_chr = "\u253C"
+            self.horizontal_line_under_header_chr   = "\u2500";          self.left_corner_line_under_header_chr   = "\u251C"
+            self.right_corner_line_under_header_chr = "\u2524";          self.middle_corner_line_under_header_chr = "\u253C"
          
 
          elif (style.lower() == Line_Style.SINGLE_BOLD):
@@ -2066,8 +2076,8 @@ class FancyFormat():
    
 
             # Under Line Header Section  Only for Matrix List
-            self.horizontal_line_under_header_chr   = "\u2501";          self.left_corner_under_line_header_chr   = "\u2523"
-            self.right_corner_under_line_header_chr = "\u252B";          self.middle_corner_under_line_header_chr = "\u254B"
+            self.horizontal_line_under_header_chr   = "\u2501";          self.left_corner_line_under_header_chr   = "\u2523"
+            self.right_corner_line_under_header_chr = "\u252B";          self.middle_corner_line_under_header_chr = "\u254B"
  
 
          elif (style.lower() == Line_Style.SINGLE_HEAVY):
@@ -2096,8 +2106,8 @@ class FancyFormat():
             
             
             # Under Line Header Section  Only for Matrix List
-            self.horizontal_line_under_header_chr   = "\u2586";          self.left_corner_under_line_header_chr   = "\u2588"
-            self.right_corner_under_line_header_chr = "\u2588";          self.middle_corner_under_line_header_chr = "\u2586"
+            self.horizontal_line_under_header_chr   = "\u2586";          self.left_corner_line_under_header_chr   = "\u2588"
+            self.right_corner_line_under_header_chr = "\u2588";          self.middle_corner_line_under_header_chr = "\u2586"
 
 
          elif (style.lower() == Line_Style.DOUBLE):
@@ -2126,8 +2136,8 @@ class FancyFormat():
             
             
             # Under Line Header Section  Only for Matrix List
-            self.horizontal_line_under_header_chr   = "\u2550";          self.left_corner_under_line_header_chr   = "\u2560"
-            self.right_corner_under_line_header_chr = "\u2563";          self.middle_corner_under_line_header_chr = "\u256C"
+            self.horizontal_line_under_header_chr   = "\u2550";          self.left_corner_line_under_header_chr   = "\u2560"
+            self.right_corner_line_under_header_chr = "\u2563";          self.middle_corner_line_under_header_chr = "\u256C"
 
 
          elif (style.lower() == Line_Style.SQ_BRACKETS):
@@ -2156,8 +2166,8 @@ class FancyFormat():
    
             
             # Under Line Header Section  Only for Matrix List
-            self.horizontal_line_under_header_chr   = " ";               self.left_corner_under_line_header_chr   = "\u2502"
-            self.right_corner_under_line_header_chr = "\u2502";          self.middle_corner_under_line_header_chr = " "
+            self.horizontal_line_under_header_chr   = " ";               self.left_corner_line_under_header_chr   = "\u2502"
+            self.right_corner_line_under_header_chr = "\u2502";          self.middle_corner_line_under_header_chr = " "
 
 
    
@@ -2187,10 +2197,116 @@ class FancyFormat():
             
             
             # Under Line Header Section  Only for Matrix List
-            self.horizontal_line_under_header_chr   = "\u002D";          self.left_corner_under_line_header_chr   = "\u002B"
-            self.right_corner_under_line_header_chr = "\u002B";          self.middle_corner_under_line_header_chr = "\u002B"
+            self.horizontal_line_under_header_chr   = "\u002D";          self.left_corner_line_under_header_chr   = "\u002B"
+            self.right_corner_line_under_header_chr = "\u002B";          self.middle_corner_line_under_header_chr = "\u002B"
 
+
+
+         elif (style.lower() == Line_Style.DOUBLE_SPACE):
+            # Horizontal Line Section
+            self.top_horizontal_line_chr = " ";             self.bottom_horizontal_line_chr = " ";         self.middle_horizontal_line_chr = " "
+            
+            
+            # Vertical Line Section
+            self.left_vertical_line_chr  = "  ";             self.middle_vertical_line_chr = "  ";           self.right_vertical_line_chr = "  "
+            
+            
+            # Outside Corner Section
+            self.top_left_corner_chr     = "  ";             self.top_right_corner_chr   = "  "
+            self.bottom_right_corner_chr = "  ";             self.bottom_left_corner_chr = "  "
    
+            
+            # Middle Corner Section
+            self.middle_top_corner_chr   = "  ";             self.middle_bottom_corner_chr = "  ";            self.middle_inner_corner_chr = "  "
+            self.left_lateral_corner_chr = "  ";             self.right_lateral_corner_chr = "  "
+            
+            
+            # Header Section  Only for Matrix List
+            self.left_vertical_header_line_chr   = "  "
+            self.right_vertical_header_line_chr  = "  "
+            self.middle_vertical_header_line_chr = "  "
+            
+            
+            # Under Line Header Section  Only for Matrix List
+            self.horizontal_line_under_header_chr   = " ";      self.left_corner_line_under_header_chr   = "  "
+            self.right_corner_line_under_header_chr = "  ";      self.middle_corner_line_under_header_chr = "  "
+
+
+
+         elif (style.lower() == Line_Style.NONE_SPACE):
+            # Horizontal Line Section
+            self.top_horizontal_line_chr = " ";             self.bottom_horizontal_line_chr = " ";        self.middle_horizontal_line_chr = " "
+            
+            
+            # Vertical Line Section
+            self.left_vertical_line_chr  = "  ";             self.middle_vertical_line_chr = "";           self.right_vertical_line_chr = "  "
+            
+            
+            # Outside Corner Section
+            self.top_left_corner_chr     = "  ";             self.top_right_corner_chr   = "  "
+            self.bottom_right_corner_chr = "  ";             self.bottom_left_corner_chr = "  "
+   
+            
+            # Middle Corner Section
+            self.middle_top_corner_chr   = "";               self.middle_bottom_corner_chr = ""
+            
+
+            
+
+            self.left_lateral_corner_chr  = "  "
+            self.middle_inner_corner_chr = ""
+            self.right_lateral_corner_chr = "  "
+            
+            
+            # Header Section  Only for Matrix List
+            self.left_vertical_header_line_chr   = "  "
+            self.right_vertical_header_line_chr  = "  "
+            self.middle_vertical_header_line_chr = ""
+
+
+            # Under Line Header Section  Only for Matrix List
+            n_rows = 0; n_cols = 0
+            #list_type = get_list_type(my_list)
+
+            if list_type == "incorrect_variable_type" or list_type == "empty_list":
+               pass
+
+            elif list_type == "one_item_no_row": # Done  ["dato"]
+               n_cols = 1; n_rows = 1
+
+            elif list_type == "one_item_one_row": # Done [["dato"]]
+               n_cols = 1; n_rows = 1
+
+            elif list_type == "multiple_items_no_row": # Done ["Hello","bye","good"]
+               n_rows = 1
+               n_cols = sum(1 for num in data_list)
+
+            elif list_type == "multiple_items_one_row": # Done [["Hello","bye","good"]]
+               n_rows = 1
+
+               for n in data_list[0]:
+                  n_cols += 1  
+
+            # Done [["Hello"],["bye"],["good"]] or [["Hello","mio"],["bye"],["good","hh"]]
+            elif list_type == "multiple_items_multiple_rows":
+               n_rows = len(data_list); n_cols = 0; lengths = []
+
+               for r in data_list:
+                  lengths.append(len(r))
+               n_cols = max(lengths)
+
+            if (n_cols == 0 or n_cols == 1):
+               self.horizontal_line_under_header_chr    = "  "
+               self.middle_corner_line_under_header_chr = "  "
+               self.right_corner_line_under_header_chr  = "  "
+               self.left_corner_line_under_header_chr   = "  "
+            else:
+               self.horizontal_line_under_header_chr    = " "
+               self.middle_corner_line_under_header_chr = ""
+               self.right_corner_line_under_header_chr  = "  "
+               self.left_corner_line_under_header_chr   = "  "
+            
+
 
          elif (style.lower() == Line_Style.NONE):
             # Horizontal Line Section
@@ -2218,18 +2334,14 @@ class FancyFormat():
             
             
             # Under Line Header Section  Only for Matrix List
-            self.horizontal_line_under_header_chr   = " ";      self.left_corner_under_line_header_chr   = " "
-            self.right_corner_under_line_header_chr = " ";      self.middle_corner_under_line_header_chr = " "
+            self.horizontal_line_under_header_chr   = " ";      self.left_corner_line_under_header_chr   = " "
+            self.right_corner_line_under_header_chr = " ";      self.middle_corner_line_under_header_chr = " "
 
          else: pass
 
 
-      data_list = data2list(self, data)
-      my_list = []
-      # convert all elements in the list to strigs only because the int type will cause problems with len command    
       #-----------------------------------------------------------------------------------------------------------------------------------------
-      list_type = _get_list_type(data_list)
-      
+      # Checking the list_type
       #-----------------------------------------------------------------------------------------------------------------------------------------
       if list_type == "empty_list":                   # []
          data_list.append(" ")
@@ -2351,9 +2463,9 @@ class FancyFormat():
          self.horizontal_line_under_header_chr = hluhc
          
          # attributes for the header corners (left, middles and right)    
-         self.left_corner_under_line_header_chr   = lculhc
-         self.right_corner_under_line_header_chr  = rculhc
-         self.middle_corner_under_line_header_chr = mculhc
+         self.left_corner_line_under_header_chr   = lculhc
+         self.right_corner_line_under_header_chr  = rculhc
+         self.middle_corner_line_under_header_chr = mculhc
 
 
 

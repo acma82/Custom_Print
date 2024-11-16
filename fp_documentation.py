@@ -1,7 +1,7 @@
 #!/usr/bin/python3.12
 '''
 Documentation for fancyprint module...!
-python3.12 fp_docs.py
+python3.12 fp_documentation.py
 '''
 
 import sys
@@ -146,7 +146,7 @@ def  Welcome_Message():
     print("  To display help for a specific function or method, just pass the name as a parameter\n    when running this script.")
     fp.ins_newline(1)
     fst.print_style(" Example 1:")
-    print(" python documentation_fpm.py clean\n")   
+    print(" python fp_documentation.py clean\n")   
     fp.ins_newline(1)
 
     note=" Note: "
@@ -166,10 +166,10 @@ def  Welcome_Message():
 
     fp.ins_newline(1)
     fst.print_style(" Example 2: ")
-    print(" python documentation_fpm.py clean terminal_bell get_style Cursor")    
+    print(" python fp_documentation.py clean terminal_bell get_style Cursor")    
     fp.ins_newline(2)
     fst.print_style(" Example 3: ")
-    print(" python documentation_fpm.py help_classes")
+    print(" python fp_documentation.py help_classes")
     fp.ins_newline(2)
 
     message = '''     
@@ -187,7 +187,7 @@ def  Welcome_Message():
     fp.ins_newline(2)
     blue_msg.length = fp.Length_bg.ONLY_WORD; 
     blue_msg.left_indent = li
-    message = "  python documentation.py all  "
+    message = "  python fp_documentation.py all  "
     blue_msg.print_fancy_message(message)
  
     blue_msg.length       = fp.Length_bg.ALL_ROW   
@@ -205,7 +205,7 @@ def  Welcome_Message():
 
     fancymodule requires python3.12 or greater.
 
-    https://github.com/acma82/Fancy_Print/blob/main/
+    https://github.com/acma82/Fancy_Print/
 
     '''
 
@@ -1217,9 +1217,9 @@ def Diagram2():
       {fp.set_font(1,14,0)} Multiple Horizontal Data/Figure 2 {fp.reset_font()}        
    '''
     print(message)
-    d2_lst.middle_top_corner_chr = "a"
-    d2_lst.middle_vertical_line_chr = "b"
-    d2_lst.middle_bottom_corner_chr = "c"
+    d2_lst.middle_top_corner_chr = "!"
+    d2_lst.middle_vertical_line_chr = "|"
+    d2_lst.middle_bottom_corner_chr = "?"
     d2_lst.print_fancy_format(values)
    
     crs.jumpTo(qty=3, direction=fp.Move.UP)
@@ -1227,9 +1227,9 @@ def Diagram2():
     d2_lst.print_fancy_format(values,fp.Line_Style.DASH)
 
     simple_msg.msg_title = " Description "
-    values = [["a \u2192 middle_top_corner_chr"],
-             ["b \u2192 middle_vertical_line_chr"],
-             ["c \u2192 middle_bottom_corner_chr"]]
+    values = [["! \u2192 middle_top_corner_chr"],
+             ["| \u2192 middle_vertical_line_chr"],
+             ["? \u2192 middle_bottom_corner_chr"]]
 
     simple_msg.print_fancy_format(values,fp.Line_Style.NONE)
 
@@ -1253,17 +1253,17 @@ def Diagram2():
     d2_lst.horizontal_line_under_header_on = True
     d2_lst.middle_horizontal_line_on = True
 
-    d2_lst.horizontal_line_under_header_chr = "d"
-    d2_lst.middle_horizontal_line_chr = "e"
+    d2_lst.horizontal_line_under_header_chr = "\u2022"
+    d2_lst.middle_horizontal_line_chr = "="
    
-    d2_lst.left_vertical_header_line_chr = "f"
-    d2_lst.right_vertical_header_line_chr = "g"
+    d2_lst.left_vertical_header_line_chr = "l"
+    d2_lst.right_vertical_header_line_chr = "r"
 
-    d2_lst.left_corner_under_line_header_chr = "h"
-    d2_lst.right_corner_under_line_header_chr = "i"
+    d2_lst.left_corner_line_under_header_chr = "A"
+    d2_lst.right_corner_line_under_header_chr = "B"
 
-    d2_lst.left_lateral_corner_chr = "j"
-    d2_lst.right_lateral_corner_chr = "k"
+    d2_lst.left_lateral_corner_chr = "C"
+    d2_lst.right_lateral_corner_chr = "E"
 
     d2_lst.print_fancy_format(values)
 
@@ -1273,14 +1273,14 @@ def Diagram2():
     d2_lst.print_fancy_format(values,fp.Line_Style.DASH)
 
     simple_msg.msg_title = " Description "
-    values = [["d \u2192 horizontal_line_under_header_chr"],
-             ["e \u2192 middle_horizontal_line_chr"],
-             ["f \u2192 left_vertical_header_line_chr"],
-             ["g \u2192 right_vertical_header_line_chr"],
-             ["h \u2192 left_corner_under_line_header_chr"],
-             ["i \u2192 right_corner_under_line_header_chr"],
-             ["j \u2192 left_lateral_corner_chr"],
-             ["k \u2192 right_lateral_corner_chr"]]
+    values = [["\u2022 \u2192 horizontal_line_under_header_chr"],
+              ["= \u2192 middle_horizontal_line_chr"],
+              ["l \u2192 left_vertical_header_line_chr"],
+              ["r \u2192 right_vertical_header_line_chr"],
+              ["A \u2192 left_corner_line_under_header_chr"],
+              ["B \u2192 right_corner_line_under_header_chr"],
+              ["C \u2192 left_lateral_corner_chr"],
+              ["E \u2192 right_lateral_corner_chr"]]
     simple_msg.print_fancy_format(values,fp.Line_Style.NONE)
 
     message = f'''
@@ -1311,10 +1311,12 @@ def Diagram2():
     d3_lst.horizontal_line_under_header_on = True
     d3_lst.middle_horizontal_line_on = True
    
-    d3_lst.middle_vertical_header_line_chr = "l"
-    d3_lst.middle_corner_under_line_header_chr = "m"
-    d3_lst.middle_inner_corner_chr = "n"
-
+    d3_lst.middle_vertical_header_line_chr = "M"
+    d3_lst.middle_corner_line_under_header_chr = "m"
+    d3_lst.middle_inner_corner_chr = "D"
+    
+    d3_lst.set_fill_chr = "////"
+    
     d3_lst.print_fancy_format(values)
 
     crs.jumpTo(qty=9, direction=fp.Move.UP)
@@ -1323,10 +1325,11 @@ def Diagram2():
 
 
     simple_msg.msg_title = " Description "
-    values = [["l    \u2192 horizontal_line_under_header_chr"],
-             ["m    \u2192 middle_horizontal_line_chr"],
-             ["n    \u2192 left_vertical_header_line_chr"],
-             ["---- \u2192 set_fill_chr"]]
+    values = [["M    \u2192 middle_vertical_header_line_chr"],
+              ["m    \u2192 middle_corner_line_under_header_chr"],
+              ["D    \u2192 middle_inner_corner_chr"],
+              ["|    \u2192 middle_vertical_line_chr"],
+              ["//// \u2192 set_fill_chr"]]
 
     simple_msg.print_fancy_format(values,fp.Line_Style.NONE)
 
@@ -1359,67 +1362,92 @@ def Diagram3():
     print("      \u2190 0")
 
     dt_lst = fp.FancyFormat()
-    dt_lst.adj_top_space = 1; dt_lst.adj_bottom_space = 1
-    dt_lst.adj_space = 0; dt_lst.adj_indent = 3
-    dt_lst.msg_title = "Title \u2190 1"; dt_lst.msg_footnote = "Footnote \u2190 8"
-    dt_lst.align_title = "center"; dt_lst.align_footnote = "right"
-    dt_lst.set_fill_chr = "...------..."
+    dt_lst.adj_top_space = 1;              dt_lst.adj_bottom_space = 1
+    dt_lst.adj_space     = 0;              dt_lst.adj_indent       = 3
+
+    dt_lst.msg_title   = " Title \u2190 1 "; dt_lst.msg_footnote = " Footnote \u2190 8 "
+    dt_lst.align_title = "center";         dt_lst.align_footnote = "right"
+    dt_lst.bg_title    = 6;                dt_lst.bg_footnote    = 55
+    dt_lst.fg_title    = 0;                dt_lst.fg_footnote    = 231
+    dt_lst.bold_title  = True;             dt_lst.bold_footnote  = True
+    dt_lst.set_fill_chr = "...//////..."
     dt_lst.middle_horizontal_line_on = True
     dt_lst.horizontal_line_under_header_on = True
 
     # Single Data   
-    dt_lst.top_left_corner_chr = "3"      # corners
-    dt_lst.top_right_corner_chr = "4"
-    dt_lst.bottom_right_corner_chr = "5"
-    dt_lst.bottom_left_corner_chr = "6"
-    dt_lst.left_vertical_line_chr = "L"   # left and right lines
-    dt_lst.right_vertical_line_chr = "R"
+    dt_lst.top_left_corner_chr = " 3 "      # corners
+    dt_lst.top_right_corner_chr = " 4 "
+    dt_lst.bottom_right_corner_chr = " 5 "
+    dt_lst.bottom_left_corner_chr  = " 6 "
+    dt_lst.left_vertical_line_chr  = " L "   # left and right lines
+    dt_lst.right_vertical_line_chr = " R "
+    #dt_lst.top_horizontal_line_chr ="."
     dt_lst.bottom_horizontal_line_chr = "*"
 
     # Multiple Horizontal Data
-    dt_lst.middle_top_corner_chr = "a"
-    dt_lst.middle_vertical_line_chr = "b"
-    dt_lst.middle_bottom_corner_chr = "c"
+    dt_lst.middle_top_corner_chr = " ! "
+    dt_lst.middle_vertical_line_chr = " | "
+    dt_lst.middle_bottom_corner_chr = " ? "
 
     # Multiple Vertical Data
-    dt_lst.horizontal_line_under_header_chr = "d"
-    dt_lst.middle_horizontal_line_chr = "e"
-    dt_lst.left_vertical_header_line_chr = "f"
-    dt_lst.right_vertical_header_line_chr = "g"
-    dt_lst.left_corner_under_line_header_chr = "h"
-    dt_lst.right_corner_under_line_header_chr = "i"
-    dt_lst.left_lateral_corner_chr = "j"
-    dt_lst.right_lateral_corner_chr = "k"
+    dt_lst.horizontal_line_under_header_chr = "\u2022"
+    dt_lst.middle_horizontal_line_chr = "="
+    dt_lst.left_vertical_header_line_chr = " l "
+    dt_lst.right_vertical_header_line_chr = " r "
+    dt_lst.left_corner_line_under_header_chr = " A "
+    dt_lst.right_corner_line_under_header_chr = " B "
+
+    dt_lst.left_lateral_corner_chr = " C "
+    dt_lst.right_lateral_corner_chr = " E "
 
     # Matrix Data
-    dt_lst.middle_vertical_header_line_chr = "l"
-    dt_lst.middle_corner_under_line_header_chr = "m"
-    dt_lst.middle_inner_corner_chr = "n"
+    dt_lst.middle_vertical_header_line_chr = " M "
+    dt_lst.middle_corner_line_under_header_chr = " m "
+    dt_lst.middle_inner_corner_chr = " D "
 
     # Some color to visualize a little better
-    dt_lst.bg_horizontal_line = 14
-    dt_lst.bg_corner_chr = 21
-    dt_lst.bg_inner_corner_chr = 90
+    dt_lst.bg_horizontal_line = 21
+ 
+    
+    dt_lst.bg_corner_chr = 1
+    dt_lst.fg_corner_chr = 231
+    dt_lst.bold_corner_chr = True
 
-    dt_lst.bg_corner_under_line_header = 3
+    dt_lst.bg_inner_corner_chr = 52
+    dt_lst.fg_inner_corner_chr = 231
+    dt_lst.bold_inner_corner_chr = True
+
+
+    dt_lst.bg_corner_under_line_header = 90
     dt_lst.fg_corner_under_line_header = 231
+    dt_lst.bold_corner_under_line_header = True
 
-    dt_lst.bg_under_line_header = 191
-    dt_lst.fg_under_line_header = 0
+    dt_lst.bg_under_line_header = 23
+    dt_lst.fg_under_line_header = 231
+    dt_lst.bold_under_line_header = True
 
     dt_lst.bg_vertical_header_line_chr = 15
     dt_lst.fg_vertical_header_line_chr = 0
+    dt_lst.bold_vertical_header_line_chr = True
 
-    dt_lst.bg_vertical_line = 85
+    dt_lst.bg_vertical_line = 191
     dt_lst.fg_vertical_line = 0
+    dt_lst.bold_vertical_line = True
+    
+    dt_lst.bg_header = 206
+    dt_lst.fg_header = 0
+    dt_lst.bold_header = True
 
-    dt_lst.bg_data = 1
-    dt_lst.fg_data = 231
+    dt_lst.bg_data = 7
+    dt_lst.fg_data = 4
+    dt_lst.bold_data = True
 
-    values = [["...Head 1...",  "...Head 2...",  "...Head 3..."],
-             ["...Data 1...",  "...Data 2...",  "...Data 3..."  ],
-             ["...Data 4...",  "...Data 5...",  "...Data 6..."  ],
-             ["...Data 7...",  "...Data 8..."]]
+
+
+    values = [["...Head 1...",  "...Head 2...",  "...Head 3...",     "...Head 4..."  ],
+              ["...Data 1...",  "...Data 2...",  "...Data 3...",     "...Data 4..."  ],
+              ["...Data 5...",  "...Data 6...",  "...Data 7...",     "...Data 8..."  ],
+              ["...Data 9...",  "...Data A..."]]
     dt_lst.print_fancy_format(values)
 
 
@@ -1435,32 +1463,36 @@ def Diagram3():
 
     values=[["0 \u2192 adj_top_margin",         " "],
            ["1 \u2192 msg_title",""            " "],
-           ["2 \u2192 adj_top_space",          "-   \u2192 top_horizontal_line_chr"],
+           ["2 \u2192 adj_top_space",          "--- \u2192 top_horizontal_line_chr"],
            ["3 \u2192 top_left_corner_chr",    "... \u2192 adj_space"],
            ["4 \u2192 top_right_corner_chr",   "*   \u2192 bottom_horizontal_line_chr"],
            ["5 \u2192 bottom_right_corner_chr",",,, \u2192 adj_indent"],
            ["6 \u2192 bottom_left_corner_chr", "L   \u2192 left_vertical_line_chr"],
            ["7 \u2192 adj_bottom_space",       "R   \u2192 right_vertical_line_chr"          ],
-           ["8 \u2192 msg_footnote",           " "            ],
-           ["9 \u2192 adj_bottom_margin",      " "            ],
-           ["                          ",      " "            ],
-           ["a \u2192 middle_top_corner_chr",  " "            ],
-           ["b \u2192 middle_vertical_line_chr",  " "         ],
-           ["c \u2192 middle_bottom_corner_chr",  " "         ],
-           ["                                 ",  " "         ],
-           ["d \u2192 horizontal_line_under_header_chr",   " "],
-           ["e \u2192 middle_horizontal_line_chr",         " "],
-           ["f \u2192 left_vertical_header_line_chr",      " "],
-           ["g \u2192 right_vertical_header_line_chr",     " "],
-           ["h \u2192 left_corner_under_line_header_chr",  " "],
-           ["i \u2192 right_corner_under_line_header_chr", " "],
-           ["j \u2192 left_lateral_corner_chr",            " "],
-           ["k \u2192 right_lateral_corner_chr",           " "],
-           ["                                 ",           " "],
-           ["l    \u2192 horizontal_line_under_header_chr"," "],
-           ["m    \u2192 middle_horizontal_line_chr",      " "],
-           ["n    \u2192 left_vertical_header_line_chr",   " "],
-           ["---- \u2192 set_fill_chr",                    " "]
+           ["8 \u2192 msg_footnote",                         " "],
+           ["9 \u2192 adj_bottom_margin",                    " "],
+           ["                          ",                    " "],
+           ["! \u2192 middle_top_corner_chr",                " "],
+           ["| \u2192 middle_vertical_line_chr",             " "],
+           ["? \u2192 middle_bottom_corner_chr",             " "],
+           ["                                 ",             " "],
+           ["\u2022 \u2192 horizontal_line_under_header_chr"," "],
+           ["= \u2192 middle_horizontal_line_chr",           " "],
+           ["                          ",                    " "],
+           ["l \u2192 left_vertical_header_line_chr",        " "],
+           ["r \u2192 right_vertical_header_line_chr",       " "],
+           ["                          ",                    " "],
+           ["A \u2192 left_corner_line_under_header_chr",    " "],
+           ["B \u2192 right_corner_line_under_header_chr",   " "],
+           ["                          ",                    " "],
+           ["C \u2192 left_lateral_corner_chr",              " "],
+           ["E \u2192 right_lateral_corner_chr",             " "],
+           ["                                 ",             " "],
+           ["M \u2192 middle_vertical_header_line_chr",      " "],
+           ["m \u2192 middle_corner_line_under_header_chr",  " "],
+           ["D \u2192 middle_inner_corner_chr",              " "],
+           ["                          ",                    " "],
+           ["//// \u2192 set_fill_chr",                      " "]
            ]
 
 
@@ -1735,9 +1767,9 @@ def Print_Fancy_Format_Method():
 
     # Header Under line Corners for the Header Section
     simple_msg.msg_title = " Horizontal Corner Under Header Line Default Values "
-    default_values = [["left_corner_under_line_header_chr   = \"+\"", "bold_corner_under_line_header = False"],
-                     ["middle_corner_under_line_header_chr = \"-\"", "bg_corner_under_line_header   = -1"],
-                     ["right_corner_under_line_header_chr  = \"+\"", "fg_corner_under_line_header   = -1"]]
+    default_values = [["left_corner_line_under_header_chr   = \"+\"", "bold_corner_under_line_header = False"],
+                     ["middle_corner_line_under_header_chr = \"-\"", "bg_corner_under_line_header   = -1"],
+                     ["right_corner_line_under_header_chr  = \"+\"", "fg_corner_under_line_header   = -1"]]
     message = f'''     {fp.set_font(False,1,231)} Refer to Figure 5 {fp.set_font()}
 '''
     simple_msg.print_fancy_format(default_values, fp.Line_Style.NONE)

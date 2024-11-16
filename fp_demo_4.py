@@ -32,9 +32,9 @@ list1.middle_bottom_corner_chr   = "\u2534"
 list1.middle_inner_corner_chr    = '\u253C'
 list1.middle_vertical_line_chr   = '\u2502'
 
-list1.middle_corner_under_line_header_chr = '\u253C'
-list1.left_corner_under_line_header_chr   = '\u251C'
-list1.right_corner_under_line_header_chr  = '\u2524'
+list1.middle_corner_line_under_header_chr = '\u253C'
+list1.left_corner_line_under_header_chr   = '\u251C'
+list1.right_corner_line_under_header_chr  = '\u2524'
 
 list1.left_lateral_corner_chr  = '\u251C'
 list1.right_lateral_corner_chr = '\u2524'

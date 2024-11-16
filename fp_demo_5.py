@@ -106,9 +106,9 @@ list1.bold_under_line_header = 1
 list1.bg_under_line_header   = 22
 list1.fg_under_line_header   = 7
 
-list1.left_corner_under_line_header_chr   = "0"  # 24
-list1.middle_corner_under_line_header_chr = "1"  # 30
-list1.right_corner_under_line_header_chr  = "2"  # 25
+list1.left_corner_line_under_header_chr   = "0"  # 24
+list1.middle_corner_line_under_header_chr = "1"  # 30
+list1.right_corner_line_under_header_chr  = "2"  # 25
 list1.bold_corner_under_line_header = 1
 list1.bg_corner_under_line_header   = 55
 list1.fg_corner_under_line_header   = 7
