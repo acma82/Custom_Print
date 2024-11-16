@@ -30,7 +30,6 @@ class Move(enum.StrEnum):    # python3.12.1
    LEFT  = "left"
 
 
-#class Align(str, enum.Enum):
 class Align(enum.StrEnum):
    LEFT     = "left"
    CENTER   = "center"
@@ -38,7 +37,6 @@ class Align(enum.StrEnum):
    JUSTIFY  = "justify"
 
 
-#class Layout(str, enum.Enum):
 class Layout(enum.StrEnum):
    HORIZONTAL = "horizontal"
    VERTICAL =   "vertical"
@@ -49,7 +47,6 @@ class Length_bg(enum.Enum):
    ONLY_WORD = 2
 
 
-#class Line_Style(str, enum.Enum):
 class Line_Style(enum.StrEnum):
    CUSTOMIZED   = "customized"
    SINGLE       = "single"
@@ -61,8 +58,7 @@ class Line_Style(enum.StrEnum):
    NONE         = "none"
 
 
-class Unicode(str, enum.Enum):
-#class Unicode(enum.StrEnum):
+class Unicode(enum.StrEnum):
    #--------------------------------------------------------------------------------------------
    # Box Drawings                                                                              -
    #--------------------------------------------------------------------------------------------
