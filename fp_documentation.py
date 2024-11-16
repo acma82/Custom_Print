@@ -155,8 +155,6 @@ def  Welcome_Message():
     It is possible to display help for more than one function or method at the same    
     time, it just needs to be specified. If it's preferred, it can display all the      
     methods for a specific class or a combination of them.
-    
-    fancymodule requires python3.12 or greater.
 
     '''
     blue_msg.length    = fp.Length_bg.ALL_ROW
@@ -202,7 +200,15 @@ def  Welcome_Message():
     lst.adj_bottom_margin = 2
 
     fp.ins_newline(2)
-    message = "fancyprint module has been tested on RedHat 9, Centos Stream 9, AlmaLinux 9, and Windows 10."
+    message = '''
+    fancyprint module has been tested on RedHat 9, Centos Stream 9, AlmaLinux 9, and Windows 10.
+
+    fancymodule requires python3.12 or greater.
+
+    https://github.com/acma82/Fancy_Print/blob/main/
+
+    '''
+
     blue_msg.bg_body   = 231
     blue_msg.fg_body   = 0
     blue_msg.bold_body = True
