@@ -55,9 +55,11 @@ class Line_Style(enum.StrEnum):
    DOUBLE       = "double"
    DASH         = "dash"
    SQ_BRACKETS  = "sq_brackets"
-   DOUBLE_SPACE = "double_space"
-   NONE_SPACE   = "none_space"
    NONE         = "none"
+
+   DOUBLE_SPACE_COL_COLOR = "double_space_col_color"
+   NO_SPACE_COL_COLOR     = "no_space_col_color"
+   
    
 
 class Unicode(enum.StrEnum):
@@ -2202,7 +2204,7 @@ class FancyFormat():
 
 
 
-         elif (style.lower() == Line_Style.DOUBLE_SPACE):
+         elif (style.lower() == Line_Style.DOUBLE_SPACE_COL_COLOR):
             # Horizontal Line Section
             self.top_horizontal_line_chr = " ";             self.bottom_horizontal_line_chr = " ";         self.middle_horizontal_line_chr = " "
             
@@ -2233,7 +2235,7 @@ class FancyFormat():
 
 
 
-         elif (style.lower() == Line_Style.NONE_SPACE):
+         elif (style.lower() == Line_Style.NO_SPACE_COL_COLOR):
             # Horizontal Line Section
             self.top_horizontal_line_chr = " ";             self.bottom_horizontal_line_chr = " ";        self.middle_horizontal_line_chr = " "
             
@@ -2263,6 +2265,10 @@ class FancyFormat():
             self.right_vertical_header_line_chr  = "  "
             self.middle_vertical_header_line_chr = ""
 
+
+            self.right_corner_line_under_header_chr  = "  "
+            self.left_corner_line_under_header_chr   = "  "
+            self.horizontal_line_under_header_chr    = " "
 
             # Under Line Header Section  Only for Matrix List
             n_rows = 0; n_cols = 0
@@ -2296,16 +2302,10 @@ class FancyFormat():
                n_cols = max(lengths)
 
             if (n_cols == 0 or n_cols == 1):
-               self.horizontal_line_under_header_chr    = "  "
                self.middle_corner_line_under_header_chr = "  "
-               self.right_corner_line_under_header_chr  = "  "
-               self.left_corner_line_under_header_chr   = "  "
             else:
-               self.horizontal_line_under_header_chr    = " "
                self.middle_corner_line_under_header_chr = ""
-               self.right_corner_line_under_header_chr  = "  "
-               self.left_corner_line_under_header_chr   = "  "
-            
+               
 
 
          elif (style.lower() == Line_Style.NONE):
