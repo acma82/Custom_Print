@@ -10,7 +10,7 @@ import platform
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 # For Help:
 #   inside the python interpreter
-   
+
 #   import fancyprint as fp
 #   fun = fp.FancyPrint()
   
@@ -57,10 +57,9 @@ class Line_Style(enum.StrEnum):
    SQ_BRACKETS  = "sq_brackets"
    NONE         = "none"
 
-   DOUBLE_SPACE_COL_COLOR = "double_space_col_color"
-   NO_SPACE_COL_COLOR     = "no_space_col_color"
-   
-   
+   SPACE_COL_COLOR    = "space_col_color"
+   NO_SPACE_COL_COLOR = "no_space_col_color"
+
 
 class Unicode(enum.StrEnum):
    #--------------------------------------------------------------------------------------------
@@ -69,14 +68,12 @@ class Unicode(enum.StrEnum):
    BOX_DRAWINGS_LIGHT_HORIZONTAL          = "\N{BOX DRAWINGS LIGHT HORIZONTAL}"
    BOX_DRAWINGS_LIGHT_VERTICAL_AND_RIGHT  = "\N{BOX DRAWINGS LIGHT VERTICAL AND RIGHT}"
    BOX_DRAWINGS_LIGHT_VERTICAL_AND_LEFT   = "\N{BOX DRAWINGS LIGHT VERTICAL AND LEFT}"
-   
+
    BOX_DRAWINGS_LIGHT_VERTICAL            = "\N{BOX DRAWINGS LIGHT VERTICAL}"
    BOX_DRAWINGS_LIGHT_DOWN_AND_HORIZONTAL = "\N{BOX DRAWINGS LIGHT DOWN AND HORIZONTAL}"
    BOX_DRAWINGS_LIGHT_UP_AND_HORIZONTAL   = "\N{BOX DRAWINGS LIGHT UP AND HORIZONTAL}"
 
-   
    BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL ="\N{BOX DRAWINGS LIGHT VERTICAL AND HORIZONTAL}"
-
   
    #--------------------------------------------------------------------------------------------
    # Triangle                                                                                  -
@@ -93,19 +90,18 @@ class Unicode(enum.StrEnum):
    BLACK_LEFT_POINTING_TRIANGLE = "\N{BLACK LEFT-POINTING TRIANGLE}" # \u25C0  left fill arrow
    WHITE_LEFT_POINTING_TRIANGLE = "\N{WHITE LEFT-POINTING TRIANGLE}" # \u25C1  left empty arrow
 
-   EM_DASH = "\N{EM DASH}"   
+   EM_DASH = "\N{EM DASH}"
    #--------------------------------------------------------------------------------------------
    # Miscellaneous                                                                             -
    #--------------------------------------------------------------------------------------------
    BLACK_DIAMOND = "\N{BLACK DIAMOND}"
    WHITE_DIAMOND = "\N{WHITE DIAMOND}"
-   
+
    BLACK_CIRCLE  = "\N{BLACK CIRCLE}"
    WHITE_CIRCLE  = "\N{WHITE CIRCLE}"
-   
+
    FACE = "(" + chr(0x25D5) + chr(0x25E1) + chr(0x25D5) + ")"
  
-
 
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 # Screen Functions                                                                                                                             -
@@ -2204,7 +2200,7 @@ class FancyFormat():
 
 
 
-         elif (style.lower() == Line_Style.DOUBLE_SPACE_COL_COLOR):
+         elif (style.lower() == Line_Style.SPACE_COL_COLOR):
             # Horizontal Line Section
             self.top_horizontal_line_chr = " ";             self.bottom_horizontal_line_chr = " ";         self.middle_horizontal_line_chr = " "
             
@@ -2778,7 +2774,7 @@ class FancyMessage(Cursor):
                
          if (space_available > longest_line):
             for n in number_letter_line_list:
-               adj_diff_space.append(space_available-n)               
+               adj_diff_space.append(space_available-n)
 
          else:
             for line in range(len(number_letter_line_list)):
@@ -2787,10 +2783,10 @@ class FancyMessage(Cursor):
                   
                else:
                   quotient = int(number_letter_line_list[line]/space_available)
-                  residue  = number_letter_line_list[line]%space_available                  
+                  residue  = number_letter_line_list[line]%space_available
                   n = quotient
 
-                  while n > 0:                     
+                  while n > 0:
                      quotient_number_letter_line_list.append(space_available)
                      n -= 1
 
@@ -2799,16 +2795,15 @@ class FancyMessage(Cursor):
 
             ctrl = 0; first_time = 0
             for r in number_letter_line_list:
-               if (r > space_available):                  
+               if (r > space_available):
                   last_one = carry_number_letter_line_list[ctrl] - 1
 
                   for n in range(carry_number_letter_line_list[ctrl]):
-                     if (last_one == n):                        
+                     if (last_one == n):
                         result_multi_lines.append(residue_number_letter_line_list[ctrl])
                         ctrl += 1
                      else:
                         result_multi_lines.append(space_available)
-                     
                else:
                   result_multi_lines.append(r)
             number_letter_line_list = result_multi_lines
@@ -2816,10 +2811,10 @@ class FancyMessage(Cursor):
             for n in number_letter_line_list:
                adj_diff_space.append(space_available - n)
       if (all_attribute == True):
-         return tncols, space_available, number_letter_line_list, adj_diff_space, new_msg, len(number_letter_line_list)
+         return tnrows, tncols, space_available, number_letter_line_list, adj_diff_space, new_msg, len(number_letter_line_list)
       else:
          return len(number_letter_line_list), space_available, tncols
-      
+
 
    #---------------------------------------------------------------------------------------------------------------------------------------------------
    # Send the Data To the Terminal                                                                                                                    -   
@@ -2835,7 +2830,7 @@ class FancyMessage(Cursor):
                n -= 1
       
 
-      tncols, space_available, number_letter_line_list, adj_diff_space, new_msg, n_lines = FancyMessage._get_msg_attribute(self,data,True)
+      tnrows, tncols, space_available, number_letter_line_list, adj_diff_space, new_msg, n_lines = FancyMessage._get_msg_attribute(self,data,True)
 
       color = set_font(self.bold_body, self.bg_body, self.fg_body, self.italic_body, self.underline_body, self.strike_body,
                        self.blinking_body, self.dim_body, self.hidden_body, self.inverse_body)
@@ -2917,11 +2912,11 @@ class FancyMessage(Cursor):
       li_obj = self.left_indent
 
       # settings for the msg_body
-      if (self.msg_note == ""): len_msg_note = 0; msg_note = ""
+      if (self.msg_note == ""): len_msg_note = 0
       else:                     len_msg_note = len(self.msg_note)
 
       self.left_indent = self.left_space_note + len_msg_note + self.right_space_note
-      n_lines, space_available, tncols = self._get_msg_attribute(msg_body)
+      n_lines, space_available, tncols = self._get_msg_attribute(msg_body, False)
 
       
       total_back_lines = self.top_lines + n_lines + self.bottom_lines
@@ -2960,7 +2955,7 @@ class FancyMessage(Cursor):
          print(f"{ins_chr(self.left_indent)}Body_Lines:{n_lines}  Space_Available:{space_available}  N.Cols: {tncols}  N.Lines:{total_back_lines}")
          
       
-   #---------------------------------------------------------------------------------------------------------------------------------------------------   
+   #---------------------------------------------------------------------------------------------------------------------------------------------------
    def print_fancy_message(self, msg_body:str="")->None:
       '''
       It prints the fancy message with the attributes defined
@@ -3077,8 +3072,6 @@ class FancyMessage(Cursor):
             print(f"{ins_chr(tncols)}")
             print("\033[1A",end="")
 
-      
-
       else:
          pass
 
@@ -3104,7 +3097,84 @@ class FancyMessage(Cursor):
 
          print(f"{ins_chr(self.left_indent)}Body_Lines:{n_lines}  Space_Available:{space_available}  N.Cols: {tncols}  N.Lines:{total_lines}")
 
-   
+
+#---------------------------------------------------------------------------------------------------------------------------------------------------
+   def get_message_attributes(self, msg_body:str="", print_attributes=True)->list:
+      tnrows, tncols, space_available, number_letter_line_list, adj_diff_space, new_msg_list, n_lines = FancyMessage._get_msg_attribute(self,msg_body,True)
+
+      if (msg_body == ""):  msg_body = self.msg_body
+
+      smallest_line = min(number_letter_line_list)
+      longest_line  = max(number_letter_line_list)
+      words = msg_body.split()
+      counter_words = len(words)
+      total_characters = sum(number_letter_line_list)
+      screen_size_xy = [tncols,tnrows]
+
+
+      result_lst = [["Attributes",                 "Values"],
+                    ["Screen Size_xy",             screen_size_xy],                    
+                    ["Left Indent",                self.left_indent],
+                    ["Right Indent",               self.right_indent],
+                    ["Space Available",            space_available],
+                    ["Longest Line",               longest_line],
+                    ["Smallest Line",              smallest_line],
+                    ["List Line Lengths",          number_letter_line_list],
+                    ["List Line Spaces",           adj_diff_space],
+                    ["Words Into a List",          "\'words\'"],
+                    ["Total Number of Lines",      n_lines],
+                    ["Total Number of Words",      counter_words],
+                    ["Total Number of Characters", total_characters]]
+
+      new_msg_list = [["Position","Word"]]
+      cnt = 0
+      for n in words:
+         new_msg_list.append([cnt, n])
+         cnt += 1
+
+      if print_attributes == True:
+         tbl = FancyFormat()
+         # Title
+         tbl.msg_title = "  get_message_attributes(message, True)  "
+         tbl.align_title = Align.LEFT
+         tbl.bold_title   = True;   tbl.bg_title = 231
+         tbl.italic_title = True;   tbl.fg_title = 21
+            # bg colors
+         tbl.bg_horizontal_line = 21
+         tbl.bg_vertical_line   = 21
+         tbl.bg_corner_chr      = 21
+
+         tbl.bg_inner_corner_chr  = 21
+         tbl.bg_under_line_header = 21
+
+         tbl.bg_corner_under_line_header = 21
+         tbl.bg_vertical_header_line_chr = 21
+    
+         tbl.bg_header = 90
+         tbl.fg_header = 231
+         tbl.bold_header = True
+    
+         tbl.bg_data = 231
+         tbl.fg_data = 0
+         tbl.bold_data = True
+    
+    
+         tbl.adj_top_margin = 2
+         tbl.adj_indent = 4
+         tbl.adj_space  = 4
+
+         tbl.horizontal_line_under_header_on = True         
+         tbl.adj_bottom_margin = 1
+         tbl.print_fancy_format(data=result_lst, style=Line_Style.SPACE_COL_COLOR)         
+         tbl.adj_top_margin = 1
+         tbl.msg_title = "  Words of The Message Into a List  "
+         tbl.print_fancy_format(new_msg_list)
+         
+            
+
+      return result_lst, new_msg_list
+      
+
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 #-----------------------------------------------------------------------------------------------------------------------------------------------

@@ -33,7 +33,9 @@ if __name__ == "__main__":
             ["Data 6",   "Data 6",   "Data 7",   "Data 8",  "Data 9",    "DATA"]]
 
     # tbl.print_fancy_format(data=lst, style=fp.Line_Style.NONE)
-    
+    #-----------------------------------------------------------------------------------
+    # Red                                                                              -
+    #-----------------------------------------------------------------------------------
     # bg colors
     tbl.bg_horizontal_line = 1
     tbl.bg_corner_chr = 1
@@ -127,10 +129,6 @@ if __name__ == "__main__":
     tbl.middle_corner_line_under_header_chr = ""
     tbl.print_fancy_format(data=lst3, style=fp.Line_Style.CUSTOMIZED)
 
-
-#   tbl.horizontal_line_under_header_chr    = " "
-
-
     lst = [["Header 1"], ["Header 2"], ["Header 3"], ["Header 4"]]
     tbl.print_fancy_format(data=lst, style=fp.Line_Style.CUSTOMIZED)
 
@@ -139,7 +137,8 @@ if __name__ == "__main__":
     tbl.print_fancy_format(data=lst, style=fp.Line_Style.CUSTOMIZED)
 
     #-----------------------------------------------------------------------------------
-
+    # Blue                                                                             -
+    #-----------------------------------------------------------------------------------
     tbl1 = fp.FancyFormat()
     # bg colors
     tbl1.bg_horizontal_line = 21
@@ -162,15 +161,6 @@ if __name__ == "__main__":
     
     
     tbl1.adj_top_margin = 2
-
-    # tbl.align_data = fp.Align.LEFT
-    # tbl.align_header = fp.Align.RIGHT
-    
-    # tbl.horizontal_line_under_header_on = True
-    # tbl.middle_horizontal_line_on = True
-    # tbl.top_horizontal_line_on = False
-    # tbl.bottom_horizontal_line_on = False
-    
     tbl1.adj_indent = 4
     tbl1.adj_space  = 4
 
@@ -178,12 +168,12 @@ if __name__ == "__main__":
     # tbl.bg_all_cell_header = False
 
     tbl1.print_fancy_format(data=lst, style=fp.Line_Style.NONE)
-    tbl1.print_fancy_format(data=lst, style=fp.Line_Style.DOUBLE_SPACE_COL_COLOR)
+    tbl1.print_fancy_format(data=lst, style=fp.Line_Style.SPACE_COL_COLOR)
     tbl1.print_fancy_format(data=lst, style=fp.Line_Style.NO_SPACE_COL_COLOR)
     tbl1.print_fancy_format(data=lst, style=fp.Line_Style.DOUBLE)
 
     tbl1.print_fancy_format(data=lst2, style=fp.Line_Style.NONE)
-    tbl1.print_fancy_format(data=lst2, style=fp.Line_Style.DOUBLE_SPACE_COL_COLOR)
+    tbl1.print_fancy_format(data=lst2, style=fp.Line_Style.SPACE_COL_COLOR)
     tbl1.print_fancy_format(data=lst2, style=fp.Line_Style.NO_SPACE_COL_COLOR)
     tbl1.print_fancy_format(data=lst4, style=fp.Line_Style.DOUBLE)
 
@@ -191,11 +181,11 @@ if __name__ == "__main__":
     tbl1.horizontal_line_under_header_on = True
     tbl1.middle_horizontal_line_on = True
     tbl1.print_fancy_format(data=lst, style=fp.Line_Style.NONE)
-    tbl1.print_fancy_format(data=lst, style=fp.Line_Style.DOUBLE_SPACE_COL_COLOR)
+    tbl1.print_fancy_format(data=lst, style=fp.Line_Style.SPACE_COL_COLOR)
     tbl1.print_fancy_format(data=lst, style=fp.Line_Style.NO_SPACE_COL_COLOR)
     tbl1.print_fancy_format(data=lst, style=fp.Line_Style.DOUBLE)
 
     tbl1.print_fancy_format(data=lst2, style=fp.Line_Style.NONE)
-    tbl1.print_fancy_format(data=lst2, style=fp.Line_Style.DOUBLE_SPACE_COL_COLOR)
+    tbl1.print_fancy_format(data=lst2, style=fp.Line_Style.SPACE_COL_COLOR)
     tbl1.print_fancy_format(data=lst2, style=fp.Line_Style.NO_SPACE_COL_COLOR)
     tbl1.print_fancy_format(data=lst4, style=fp.Line_Style.DOUBLE)
