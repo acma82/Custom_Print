@@ -1,9 +1,9 @@
 '''
 Demo 4 for fancyprint module...!
 '''
-import fancyprint
+import custom_print
 
-list1 = fancyprint.FancyFormat()
+list1 = custom_print.FancyFormat()
 
 # title
 list1.bg_title    = 11

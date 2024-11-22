@@ -2,9 +2,9 @@
 Demo 5 for fancyprint module...!
 '''
 
-import fancyprint as fl
+import custom_print as cp
 
-list1 = fl.FancyFormat()
+list1 = cp.FancyFormat()
 
 my_list = [["Header 1","Header 2","Header 3","Header 4"],
            ["Data 1","Data 2","Data 3","Data 4"],
@@ -51,7 +51,7 @@ list1.middle_horizontal_line_on  = 1
 list1.bottom_horizontal_line_chr = "="        # 10        # u'\u2550'
 list1.bottom_horizontal_line_on  = 1                       # By default is 1
 list1.middle_horizontal_line_chr = "-"                           # u'\u2500'
-# when using UniCode as u"\u2500" bold is not reflected unles is a normal character
+# when using UniCode as u"\u2500" bold is not recpected unles is a normal character
 list1.bold_horizontal_line = 1
 list1.bg_horizontal_line   = 21
 list1.fg_horizontal_line   = 11

@@ -5,9 +5,9 @@ Method Available:
     print_fancy_message(self, msg_body:str="Paragraph Body")->None    
 '''
 
-import fancyprint as fp
-msg = fp.FancyMessage()
-crs = fp.Cursor()
+import custom_print as cp
+msg = cp.FancyMessage()
+crs = cp.Cursor()
 
 paragraph1 = "First paragraph,  Last  paragraph "
 
@@ -54,7 +54,7 @@ msg.msg_title   = "Title"
 msg.bg_title    = 14
 msg.fg_title    = 0
 msg.bold_title  = True
-msg.align_title = fp.Align.RIGHT
+msg.align_title = cp.Align.RIGHT
 msg.lines_title_body = 0
 
 # body
@@ -77,24 +77,24 @@ msg.bottom_lines  = 0
 msg.top_lines     = 0
 msg.lines_body_footnote = 0
 msg.lines_body_footnote = 1
-msg.align_footnote = fp.Align.RIGHT
+msg.align_footnote = cp.Align.RIGHT
 
 
 # msg.help_lines = True
 msg.adj_bg_lines_to_right_indent =  False   # True make all the way to the space available
 msg.adj_bg_msg_to_space_available = False   # True make all the way to the space available
-# These two options are only available when using the msg.length = fp.Length_bg.ONLY_WORD
+# These two options are only available when using the msg.length = cp.Length_bg.ONLY_WORD
 
 
 msg.print_fancy_message(paragraph1)
 
-fp.ins_newline(2)
+cp.ins_newline(2)
 msg.print_fancy_message(paragraph2)
 
 
-fp.ins_newline(2)
+cp.ins_newline(2)
 msg.print_fancy_message(paragraph3)
 
 
-fp.ins_newline(2)
+cp.ins_newline(2)
 msg.print_fancy_message(paragraph4)

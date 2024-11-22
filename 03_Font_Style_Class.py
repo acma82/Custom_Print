@@ -7,8 +7,8 @@ Methods Available:
     stop_style()
 '''
 
-import fancyprint as fp
-fs = fp.FontStyle()
+import custom_print as cp
+fs = cp.FontStyle()
 
 fs.fg        = 231
 fs.bg        = 90
@@ -22,19 +22,19 @@ fs.italic    = True
 # fs.hidden = True
 # fs.next_line = False
 
-fp.ins_newline(2)
+cp.ins_newline(2)
 fs.print_style(" FontStyle ")
 print("  Normal Font...!")
 
 
 
-fp.ins_newline(2)
+cp.ins_newline(2)
 print(f"{fs.start_style()} Font Style {fs.stop_style()}")
 print(fs.start_style() + " Font Style " + fs.stop_style())
 
 
-fp.ins_newline(2)
+cp.ins_newline(2)
 fs.reset_style()
 fs.print_style("Default Style ")
-fp.ins_newline(2)
+cp.ins_newline(2)
 print(f"{fs.start_style()} Default Style {fs.stop_style()}")

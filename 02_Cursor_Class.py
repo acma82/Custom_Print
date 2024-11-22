@@ -8,18 +8,20 @@ Method Available:
     movexy(self,x=0, y=0)
 '''
 
-import fancyprint as fp
-crs = fp.Cursor()
+from custom_print import Cursor
+from custom_print import clear
+from custom_print import Move
+crs = Cursor()
 
-fp.clear()
+clear()
 # jumpTo method
-crs.jumpTo(qty=2, direction = fp.Move.DOWN)
+crs.jumpTo(qty=2, direction = Move.DOWN)
 print("I am down")
 
 crs.jumpTo(qty=20, direction= "right")
 print("I am right")
 
-crs.jumpTo(1,fp.Move.UP)
+crs.jumpTo(1,Move.UP)
 print("I am up")
 crs.jumpTo(5,"down")
 
@@ -43,4 +45,4 @@ print(f"{crs.movexy(15,40)}hello again")
 crs.jumpTo(8,"down")
 crs.jumpxy(-1,-1)
 print("adios",end="")
-print(f"{crs.moveTo(qty=20,direction=fp.Move.RIGHT)}BYE")
+print(f"{crs.moveTo(qty=20,direction=Move.RIGHT)}BYE")

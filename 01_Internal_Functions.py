@@ -13,40 +13,40 @@ Internal Functions Available
     
     
 '''
-import fancyprint as fp
+import custom_print as cp
 
-blue_msg = fp.FancyMessage()
+blue_msg = cp.FancyMessage()
 blue_msg.bold = True
 blue_msg.bg   = 14
 blue_msg.fg   = 0
 
 # terminal bell
-fp.terminal_bell()
+cp.terminal_bell()
 
 
 # bg_ansi_colors function
-fp.ins_newline(1)
+cp.ins_newline(1)
 blue_msg.print_fancy_message(" Background Available in Ansi Code...! ")
-fp.ins_newline(1)
-fp.bg_ansi_colors(bold=True, fg=0, n_line=1)
+cp.ins_newline(1)
+cp.bg_ansi_colors(bold=True, fg=0, n_line=1)
 
 
 # fg_ansi_colors function
-fp.ins_newline(2)
+cp.ins_newline(2)
 blue_msg.print_fancy_message(" Foreground Available in Ansi Code...! ")
-fp.ins_newline(2)
-fp.fg_ansi_colors(bold=True, bg=-1, n_line=1)
+cp.ins_newline(2)
+cp.fg_ansi_colors(bold=True, bg=-1, n_line=1)
 
 
 # set_font() and reset_font() functions
-fp.ins_newline(2)
-print(fp.set_font(1,11,21) + " Python is " + fp.set_font(0,1) + " Wonderful." + fp.reset_font())
+cp.ins_newline(2)
+print(cp.set_font(1,11,21) + " Python is " + cp.set_font(0,1) + " Wonderful." + cp.reset_font())
 
 
 # ins_chr() function
-color1 = fp.set_font(1,90,231)
-color2 = fp.set_font(1,231,-1)
-color3 = fp.set_font(1,14,0)
-fp.ins_newline(1)
-print(f"{color1} Python {color2}{fp.ins_chr(12)}{color3} Amazing...! {fp.reset_font()}")
-fp.ins_newline(1)
+color1 = cp.set_font(1,90,231)
+color2 = cp.set_font(1,231,-1)
+color3 = cp.set_font(1,14,0)
+cp.ins_newline(1)
+print(f"{color1} Python {color2}{cp.ins_chr(12)}{color3} Amazing...! {cp.reset_font()}")
+cp.ins_newline(1)

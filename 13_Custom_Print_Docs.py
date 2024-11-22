@@ -1,45 +1,45 @@
 #!/usr/bin/python3.12
 '''
 Documentation for fancyprint module...!
-python3.12 fp_documentation.py
+python3.12 cp_documentation.py
 '''
 
 import sys
-import fancyprint as fp
+import custom_print as cp
 
-lst = fp.FancyFormat()
+lst = cp.FancyFormat()
 
 # Difining all the clases
-blue_msg  = fp.FancyMessage()  # for titles
+blue_msg  = cp.FancyMessage()  # for titles
 
-green_msg = fp.FancyMessage()  # for subtitles
+green_msg = cp.FancyMessage()  # for subtitles
 green_msg.bg_body = 2
 green_msg.fg_body = 0
 green_msg.bold_body = True
 
 
-purple_msg = fp.FancyMessage() # Messages
+purple_msg = cp.FancyMessage() # Messages
 purple_msg.bg_body = 90
 purple_msg.fg_body = 231
 
 
-white_msg = fp.FancyMessage()  # Notes
+white_msg = cp.FancyMessage()  # Notes
 white_msg.bg_body = 231
 white_msg.fg_body = 21
 white_msg.bold_note = True
 white_msg.bold_body = True
 
-msg = fp.FancyMessage()       # Note
+msg = cp.FancyMessage()       # Note
 msg.right_indent = 5
 
-simple_msg = fp.FancyFormat() # Tables, default values
+simple_msg = cp.FancyFormat() # Tables, default values
 simple_msg.adj_top_margin = 1
-simple_msg.align_title    = fp.Align.JUSTIFY
+simple_msg.align_title    = cp.Align.JUSTIFY
 simple_msg.bg_title   = 231
 simple_msg.fg_title   = 0
 simple_msg.bold_title = True
 
-red_msg = fp.FancyMessage()   # For wrong parameters
+red_msg = cp.FancyMessage()   # For wrong parameters
 red_msg.bg_body = 1
 red_msg.fg_body = 231
 red_msg.bg_note = 1
@@ -49,11 +49,11 @@ red_msg.bold_body = True
 red_msg.bold_note = True
 
 # Cursor Object
-crs = fp.Cursor()
+crs = cp.Cursor()
 
 
 # FontStyle Object
-fst = fp.FontStyle()
+fst = cp.FontStyle()
 fst.bold = True
 fst.fg   = 0
 fst.bg   = 231
@@ -62,7 +62,7 @@ fst.next_line = False
 
 
 # Pen Object
-pen = fp.Pen()
+pen = cp.Pen()
 pen.bg_draw_line = 229
 pen.fg_draw_line = 128
 pen.bold_draw_line = True
@@ -70,14 +70,14 @@ pen.bold_draw_line = True
 
 #---------------------------------------------------------------------------------------------------
 # Variables
-ncols, nrows = fp.dimensions()
+ncols, nrows = cp.dimensions()
 
-if (fp.OS_Linux == True and fp.OS_Windows == False):   myrows = 92;  mycols = 100
-elif (fp.OS_Linux == False and fp.OS_Windows == True): myrows = 920; mycols = 100
+if (cp.OS_Linux == True and cp.OS_Windows == False):   myrows = 92;  mycols = 100
+elif (cp.OS_Linux == False and cp.OS_Windows == True): myrows = 920; mycols = 100
 else:                                                  pass
 
 
-fp.resize(myrows, mycols)
+cp.resize(myrows, mycols)
 
 
 
@@ -104,7 +104,7 @@ def  Welcome_Message():
     blue_msg.bold_body   = True
     blue_msg.italic_body = True
     blue_msg.print_fancy_message(welcome_msg)
-    fp.ins_newline()
+    cp.ins_newline()
 
     lst.bg_all_cell_header = False
     lst.bold_header = True
@@ -114,40 +114,40 @@ def  Welcome_Message():
     lst.print_fancy_format(screen_funs)
 
     lst.adj_indent = 34
-    crs.jumpTo(qty=8,direction=fp.Move.UP)
+    crs.jumpTo(qty=8,direction=cp.Move.UP)
     lst.print_fancy_format(internal_functions)
 
     lst.adj_indent = 68
-    crs.jumpTo(qty=7,direction=fp.Move.UP)
+    crs.jumpTo(qty=7,direction=cp.Move.UP)
     lst.print_fancy_format(help_classes)
     lst.adj_indent = 2
 
 
-    fp.ins_newline(3)
+    cp.ins_newline(3)
 
 
-    blue_msg.length = fp.Length_bg.ONLY_WORD
+    blue_msg.length = cp.Length_bg.ONLY_WORD
     blue_msg.print_fancy_message("  Classes and Methods in fancyprint Module ")
     lst.msg_title      = " Clasess "
     lst.bg_title       = 90
     lst.fg_title       = 231
     lst.bold_title     = True
-    lst.align_title    = fp.Align.LEFT
+    lst.align_title    = cp.Align.LEFT
     lst.msg_footnote   = "Methods"
-    lst.align_footnote = fp.Align.RIGHT
+    lst.align_footnote = cp.Align.RIGHT
     lst.fg_footnote    = 11
     lst.fg_data        = 11
     lst.bg_all_cell_header = True
     lst.middle_horizontal_line_on = True
 
-    lst.print_fancy_format(classes_methods_fancyprint,fp.Line_Style.SINGLE)
-    fp.ins_newline(2)
+    lst.print_fancy_format(classes_methods_fancyprint,cp.Line_Style.SINGLE)
+    cp.ins_newline(2)
 
     print("  To display help for a specific function or method, just pass the name as a parameter\n    when running this script.")
-    fp.ins_newline(1)
+    cp.ins_newline(1)
     fst.print_style(" Example 1:")
-    print(" python fp_documentation.py clean\n")   
-    fp.ins_newline(1)
+    print(" python cp_documentation.py clean\n")   
+    cp.ins_newline(1)
 
     note=" Note: "
     #                  20                  40                  60                  80   85   90
@@ -157,20 +157,20 @@ def  Welcome_Message():
     methods for a specific class or a combination of them.
 
     '''
-    blue_msg.length    = fp.Length_bg.ALL_ROW
+    blue_msg.length    = cp.Length_bg.ALL_ROW
     blue_msg.bold_body = False
     blue_msg.msg_note  = note
     blue_msg.position_note = 2
     blue_msg.bold_note     = True
     blue_msg.print_fancy_note(message_note)
 
-    fp.ins_newline(1)
+    cp.ins_newline(1)
     fst.print_style(" Example 2: ")
-    print(" python fp_documentation.py clean terminal_bell get_style Cursor")    
-    fp.ins_newline(2)
+    print(" python cp_documentation.py clean terminal_bell get_style Cursor")    
+    cp.ins_newline(2)
     fst.print_style(" Example 3: ")
-    print(" python fp_documentation.py help_classes")
-    fp.ins_newline(2)
+    print(" python cp_documentation.py help_classes")
+    cp.ins_newline(2)
 
     message = '''     
     In example 2, notice that we are calling a mix of functions, methods and a class.
@@ -184,13 +184,13 @@ def  Welcome_Message():
     '''
     blue_msg.left_indent = 2
     blue_msg.print_fancy_message(message)
-    fp.ins_newline(2)
-    blue_msg.length = fp.Length_bg.ONLY_WORD; 
+    cp.ins_newline(2)
+    blue_msg.length = cp.Length_bg.ONLY_WORD; 
     blue_msg.left_indent = li
-    message = "  python fp_documentation.py all  "
+    message = "  python cp_documentation.py all  "
     blue_msg.print_fancy_message(message)
  
-    blue_msg.length       = fp.Length_bg.ALL_ROW   
+    blue_msg.length       = cp.Length_bg.ALL_ROW   
     blue_msg.left_indent  = 2
     lst.msg_title         = ""
     lst.msg_footnote      = ""
@@ -199,7 +199,7 @@ def  Welcome_Message():
     lst.adj_top_margin    = 2
     lst.adj_bottom_margin = 2
 
-    fp.ins_newline(2)
+    cp.ins_newline(2)
     message = '''
     fancyprint module has been tested on RedHat 9, Centos Stream 9, AlmaLinux 9, and Windows 10.
 
@@ -213,7 +213,7 @@ def  Welcome_Message():
     blue_msg.fg_body   = 0
     blue_msg.bold_body = True
     blue_msg.print_fancy_message(message)
-    lst.print_fancy_format("Bugs \u2192 acma.mex@hotmail.com", fp.Line_Style.DOUBLE)
+    lst.print_fancy_format("Bugs \u2192 acma.mex@hotmail.com", cp.Line_Style.DOUBLE)
  
  
 #-- -------------------------------------------------------------------------------------------------
@@ -239,8 +239,8 @@ def Clean_Function():
     '''
     green_msg.print_fancy_message(screen_funs[1][0]+"()")
     print(message)
-    print(f"{fp.ins_chr(6)}{fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp")
-    print(f"{fp.ins_chr(18)}fp.clean()\n")
+    print(f"{cp.ins_chr(6)}{cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp")
+    print(f"{cp.ins_chr(18)}cp.clean()\n")
 
 
 def Clear_Function():
@@ -252,8 +252,8 @@ def Clear_Function():
     '''
     green_msg.print_fancy_message(screen_funs[2][0]+"()")
     print(message)
-    print(f"{fp.ins_chr(6)}{fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp")
-    print(f"{fp.ins_chr(18)}fp.clear()\n")
+    print(f"{cp.ins_chr(6)}{cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp")
+    print(f"{cp.ins_chr(18)}cp.clear()\n")
 
 
 def Erase_Function():
@@ -265,8 +265,8 @@ def Erase_Function():
     '''
     green_msg.print_fancy_message(screen_funs[3][0]+"()")
     print(menssage)
-    print(f"{fp.ins_chr(6)}{fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp")
-    print(f"{fp.ins_chr(18)}fp.erase()\n")
+    print(f"{cp.ins_chr(6)}{cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp")
+    print(f"{cp.ins_chr(18)}cp.erase()\n")
 
 def Dimensions_Function():
    #------------------------------------------------------------------------------------------------
@@ -277,8 +277,8 @@ def Dimensions_Function():
      '''
     green_msg.print_fancy_message(screen_funs[4][0]+"()")
     print(menssage)
-    print(f"{fp.ins_chr(6)}{fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp")
-    print(f"{fp.ins_chr(18)}ncols, nrows = fp.dimensions()\n")
+    print(f"{cp.ins_chr(6)}{cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp")
+    print(f"{cp.ins_chr(18)}ncols, nrows = cp.dimensions()\n")
 
 def Resize_Function():
    #------------------------------------------------------------------------------------------------
@@ -289,9 +289,9 @@ def Resize_Function():
          '''
     green_msg.print_fancy_message(screen_funs[5][0]+"(rows=25, cols=80)")
     print(message)
-    print(f"{fp.ins_chr(6)}{fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp")
-    print(f"{fp.ins_chr(18)}fp.resize(rows=20, cols=120)")
-    fp.ins_newline(2)
+    print(f"{cp.ins_chr(6)}{cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp")
+    print(f"{cp.ins_chr(18)}cp.resize(rows=20, cols=120)")
+    cp.ins_newline(2)
 
 #---------------------------------------------------------------------------------------------------
 #  internal_functions in fancyprint Module                                                           -
@@ -312,10 +312,10 @@ def Ins_Chr_Function():
     message = f'''
       This function inserts n times the unicode provided, by default it is set to space.
 
-      {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp      
-                  print("Hello"+fp.ins_chr(20)+"There")
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp      
+                  print("Hello"+cp.ins_chr(20)+"There")
 
-      {fp.set_font(1,231,90)} \u25CF Output {fp.reset_font()}  Hello                    There
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}  Hello                    There
 
       '''
    
@@ -330,12 +330,12 @@ def Ins_Newline_Function():
     message = f'''
       This function inserts n new lines.
 
-      {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp
                   print("Python 3.12")
-                  fp.ins_newline(2)
+                  cp.ins_newline(2)
                   print("is amazing...!")
               
-      {fp.set_font(1,231,90)} \u25CF Output {fp.reset_font()}  Python 3.12
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}  Python 3.12
 
                
                   is amazing...!
@@ -356,7 +356,7 @@ def Ansi_Color_Function():
             sys.stdout.write(u"\u001b[48;5;" + code + "m " + code.ljust(4))
         print (u"\u001b[0m")
     
-    fp.ins_newline(2)
+    cp.ins_newline(2)
     print("  fg colors available in the ansi code \n")
     for i in range(0, 16):
         for j in range(0, 16):
@@ -376,8 +376,8 @@ def Ansi_Color_Function():
        3.- The n_line option to insert lines between the colors.
  
        
-       {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
-                   fp.bg_ansi_colors(bold=True, fg=22, n_line=1)
+       {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp
+                   cp.bg_ansi_colors(bold=True, fg=22, n_line=1)
     '''
     print(message)
  
@@ -391,8 +391,8 @@ def Ansi_Color_Function():
        3.- The n_line option to insert lines between the colors.
  
        
-       {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
-                   fp.fg_ansi_colors(bold=True, bg=22, n_line=1)
+       {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp
+                   cp.fg_ansi_colors(bold=True, bg=22, n_line=1)
     '''
     print(message)
  
@@ -415,13 +415,13 @@ def Ansi_Color_Function():
  
       The best way to use this function is to pass only the first 3 parameters like the example.
  
-       {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
-                   print(fp.set_font(1,11,21) + " Python is " + fp.set_font(0,1) +
-                         " Wonderful." + fp.reset_font())
+       {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp
+                   print(cp.set_font(1,11,21) + " Python is " + cp.set_font(0,1) +
+                         " Wonderful." + cp.reset_font())
  
 ''' 
     print(message)
-    print(f"      {fp.set_font(1,231,90)} \u25CF Output {fp.reset_font()}  {fp.set_font(1,11,21)} Python is {fp.set_font(0,1)} Wonderful. {fp.reset_font()}")
+    print(f"      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}  {cp.set_font(1,11,21)} Python is {cp.set_font(0,1)} Wonderful. {cp.reset_font()}")
     print()
     message = '''Colors range goes from -1 to 256.
 To  set the default color from the system use -1 or 256, for both bg and fg.
@@ -441,12 +441,12 @@ def Terminal_Bell_Function():
     message = f'''
       This function makes the sound of the terminal bell.               
 
-      {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
-                  fp.terminal_bell()
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp
+                  cp.terminal_bell()
       '''
     green_msg.print_fancy_message(internal_functions[4][0]+"()")
     print(message)
-    fp.terminal_bell()
+    cp.terminal_bell()
 
 #---------------------------------------------------------------------------------------------------
 # Help_Fucntions                                                                                   -
@@ -469,19 +469,19 @@ def Move_Class():
     message = f'''
       This class is used with the Cursor class and it contains 4 options.
 
-      {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp
 
-      {fp.ins_chr(10)}  fp.Move.RIGHT
-      {fp.ins_chr(10)}  fp.Move.LEFT
-      {fp.ins_chr(10)}  fp.Move.UP
-      {fp.ins_chr(10)}  fp.Move.DOWN
+      {cp.ins_chr(10)}  cp.Move.RIGHT
+      {cp.ins_chr(10)}  cp.Move.LEFT
+      {cp.ins_chr(10)}  cp.Move.UP
+      {cp.ins_chr(10)}  cp.Move.DOWN
    
       Note: These options can be replaced for the original values as display below:
 
-      {fp.ins_chr(10)}  fp.Move.RIGHT  \u2192  \"right\"  \u2192  \"r\"
-      {fp.ins_chr(10)}  fp.Move.LEFT   \u2192  \"left\"   \u2192  \"l\"
-      {fp.ins_chr(10)}  fp.Move.UP     \u2192  \"up\"     \u2192  \"u\"
-      {fp.ins_chr(10)}  fp.Move.DOWN   \u2192  \"down\"   \u2192  \"d\"
+      {cp.ins_chr(10)}  cp.Move.RIGHT  \u2192  \"right\"  \u2192  \"r\"
+      {cp.ins_chr(10)}  cp.Move.LEFT   \u2192  \"left\"   \u2192  \"l\"
+      {cp.ins_chr(10)}  cp.Move.UP     \u2192  \"up\"     \u2192  \"u\"
+      {cp.ins_chr(10)}  cp.Move.DOWN   \u2192  \"down\"   \u2192  \"d\"
 
 '''
     print(message)
@@ -496,19 +496,19 @@ def Align_Class():
     message = f'''
       This class is used with the FancyFormat class and FancyMessage class. It contains 4 options.
 
-      {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp
 
-      {fp.ins_chr(10)}  fp.Align.RIGHT
-      {fp.ins_chr(10)}  fp.Align.LEFT
-      {fp.ins_chr(10)}  fp.Align.CENTER
-      {fp.ins_chr(10)}  fp.Align.JUSTIFY
+      {cp.ins_chr(10)}  cp.Align.RIGHT
+      {cp.ins_chr(10)}  cp.Align.LEFT
+      {cp.ins_chr(10)}  cp.Align.CENTER
+      {cp.ins_chr(10)}  cp.Align.JUSTIFY
       
       Note: These options can be replaced for the original values as display below:
 
-      {fp.ins_chr(10)}  fp.Move.RIGHT    \u2192  \"right\"    \u2192  \"r\"
-      {fp.ins_chr(10)}  fp.Move.LEFT     \u2192  \"left\"     \u2192  \"l"
-      {fp.ins_chr(10)}  fp.Move.CENTER   \u2192  \"center\"   \u2192  \"c\"
-      {fp.ins_chr(10)}  fp.Move.JUSTIFY  \u2192  \"justify\"  \u2192  \"j\"
+      {cp.ins_chr(10)}  cp.Move.RIGHT    \u2192  \"right\"    \u2192  \"r\"
+      {cp.ins_chr(10)}  cp.Move.LEFT     \u2192  \"left\"     \u2192  \"l"
+      {cp.ins_chr(10)}  cp.Move.CENTER   \u2192  \"center\"   \u2192  \"c\"
+      {cp.ins_chr(10)}  cp.Move.JUSTIFY  \u2192  \"justify\"  \u2192  \"j\"
 
 '''   
     print(message)
@@ -518,21 +518,21 @@ def Layout_Class():
    #------------------------------------------------------------------------------------------------
    # Layout                                                                                        -
    #------------------------------------------------------------------------------------------------
-   # works with FancyFormat, range, set, setfrozen obj.set_layout = fp.Layout.VERTICAL
+   # works with FancyFormat, range, set, setfrozen obj.set_layout = cp.Layout.VERTICAL
    # works with Draw (line, arrow)
     green_msg.print_fancy_message(help_classes[3][0])
     message = f'''     
       This class is used with FancyFormat class and Pen class. It contains 2 options.
             
-      {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp
 
-      {fp.ins_chr(10)}  fp.Layout.HORIZONTAL
-      {fp.ins_chr(10)}  fp.Layout.VERTICAL
+      {cp.ins_chr(10)}  cp.Layout.HORIZONTAL
+      {cp.ins_chr(10)}  cp.Layout.VERTICAL
       
       Note: These options can be replaced for the original values as display below:
 
-      {fp.ins_chr(10)}  fp.Layout.HORIZONTAL   \u2192  \"horizontal\"
-      {fp.ins_chr(10)}  fp.Layout.VERTICAL     \u2192  \"vertical\"
+      {cp.ins_chr(10)}  cp.Layout.HORIZONTAL   \u2192  \"horizontal\"
+      {cp.ins_chr(10)}  cp.Layout.VERTICAL     \u2192  \"vertical\"
 
 '''
     print(message)
@@ -547,10 +547,10 @@ def Length_Class():
     message = f'''
       Length Class is used with FancyMessage Class and there 2 options.
 
-      {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp
 
-      {fp.ins_chr(10)}  fp.Length.ALL_ROW
-      {fp.ins_chr(10)}  fp.Length.ONLY_WORD
+      {cp.ins_chr(10)}  cp.Length.ALL_ROW
+      {cp.ins_chr(10)}  cp.Length.ONLY_WORD
             
 '''
     print(message)
@@ -565,17 +565,17 @@ def Unicode_Class():
       This class is to insert some unicode characters.
       Unicode Class is used with the Pen Class.      
 
-      {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp
 
-      {fp.ins_chr(10)}  fp.Unicode.BLACK_DIAMOND
-      {fp.ins_chr(10)}  fp.Unicode.WHITE_DIAMOND
+      {cp.ins_chr(10)}  cp.Unicode.BLACK_DIAMOND
+      {cp.ins_chr(10)}  cp.Unicode.WHITE_DIAMOND
 
-      {fp.ins_chr(10)}  fp.Unicode.BLACK_CIRCLE 
-      {fp.ins_chr(10)}  fp.Unicode.WHITE_CIRCLE 
+      {cp.ins_chr(10)}  cp.Unicode.BLACK_CIRCLE 
+      {cp.ins_chr(10)}  cp.Unicode.WHITE_CIRCLE 
       
       This class helps to set some unicode characters when using the Pen Class.
 
-      For more reference {fp.Unicode.EM_DASH}{fp.Unicode.BLAKC_RIGHT_POINT_TRIANGLE} https://www.unicode.org/charts/nameslist/
+      For more reference {cp.Unicode.EM_DASH}{cp.Unicode.BLAKC_RIGHT_POINT_TRIANGLE} https://www.unicode.org/charts/nameslist/
 
 '''   
     print(message)
@@ -590,54 +590,54 @@ def Line_Style_Class():
     message = f'''
       Style_Line Class is used with FancyFormat Class and Pen Class. There are 8 options.
 
-      {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp
 
-      {fp.ins_chr(10)}  fp.Line_Style.CUSTOMIZED
-      {fp.ins_chr(10)}  fp.Line_Style.SINGLE
-      {fp.ins_chr(10)}  fp.Line_Style.SINGLE_BOLD
-      {fp.ins_chr(10)}  fp.Line_Style.SINGLE_HEAVY
-      {fp.ins_chr(10)}  fp.Line_Style.DOUBLE
-      {fp.ins_chr(10)}  fp.Line_Style.DASH
-      {fp.ins_chr(10)}  fp.Line_Style.SQR_BRACKETS
-      {fp.ins_chr(10)}  fp.Line_Style.DOUBLE_SPACE
-      {fp.ins_chr(10)}  fp.Line_Style.NONE_SPACE
-      {fp.ins_chr(10)}  fp.Line_Style.NONE
+      {cp.ins_chr(10)}  cp.Line_Style.CUSTOMIZED
+      {cp.ins_chr(10)}  cp.Line_Style.SINGLE
+      {cp.ins_chr(10)}  cp.Line_Style.SINGLE_BOLD
+      {cp.ins_chr(10)}  cp.Line_Style.SINGLE_HEAVY
+      {cp.ins_chr(10)}  cp.Line_Style.DOUBLE
+      {cp.ins_chr(10)}  cp.Line_Style.DASH
+      {cp.ins_chr(10)}  cp.Line_Style.SQR_BRACKETS
+      {cp.ins_chr(10)}  cp.Line_Style.DOUBLE_SPACE
+      {cp.ins_chr(10)}  cp.Line_Style.NONE_SPACE
+      {cp.ins_chr(10)}  cp.Line_Style.NONE
 
       Note: These options can be replaced for the original values as display below:
 
-      {fp.ins_chr(10)}  fp.Style_Line.CUSTOMIZED     \u2192  \"customized\"  
-      {fp.ins_chr(10)}  fp.Style_Line.SINGLE         \u2192  \"single\"   
-      {fp.ins_chr(10)}  fp.Style_Line.SINGLE_BOLD    \u2192  \"single_bold\" 
-      {fp.ins_chr(10)}  fp.Style_Line.SINGLE_HEAVY   \u2192  \"single_heavy\"
-      {fp.ins_chr(10)}  fp.Style_Line.DOUBLE         \u2192  \"double\"
-      {fp.ins_chr(10)}  fp.Style_Line.DASH           \u2192  \"dash\"      
-      {fp.ins_chr(10)}  fp.Style_Line.SQR_BRACKETS   \u2192  \"sq_brackets\"
-      {fp.ins_chr(10)}  fp.Line_Style.DOUBLE_SPACE   \u2192  \"double_space\"
-      {fp.ins_chr(10)}  fp.Line_Style.NONE_SPACE     \u2192  \"none_space\"
-      {fp.ins_chr(10)}  fp.Line_Style.NONE           \u2192  \"none\"
+      {cp.ins_chr(10)}  cp.Style_Line.CUSTOMIZED     \u2192  \"customized\"  
+      {cp.ins_chr(10)}  cp.Style_Line.SINGLE         \u2192  \"single\"   
+      {cp.ins_chr(10)}  cp.Style_Line.SINGLE_BOLD    \u2192  \"single_bold\" 
+      {cp.ins_chr(10)}  cp.Style_Line.SINGLE_HEAVY   \u2192  \"single_heavy\"
+      {cp.ins_chr(10)}  cp.Style_Line.DOUBLE         \u2192  \"double\"
+      {cp.ins_chr(10)}  cp.Style_Line.DASH           \u2192  \"dash\"      
+      {cp.ins_chr(10)}  cp.Style_Line.SQR_BRACKETS   \u2192  \"sq_brackets\"
+      {cp.ins_chr(10)}  cp.Line_Style.DOUBLE_SPACE   \u2192  \"double_space\"
+      {cp.ins_chr(10)}  cp.Line_Style.NONE_SPACE     \u2192  \"none_space\"
+      {cp.ins_chr(10)}  cp.Line_Style.NONE           \u2192  \"none\"
 
-      {fp.set_font(True,231,0)}   Note:  {fp.reset_font()}  Options{fp.set_font(True,-1,14)} DOUBLE_SPACE, NONE_SPACE, {fp.reset_font()} and {fp.set_font(True,-1,14)} NONE, {fp.reset_font()} use colors to visualize
+      {cp.set_font(True,231,0)}   Note:  {cp.reset_font()}  Options{cp.set_font(True,-1,14)} DOUBLE_SPACE, NONE_SPACE, {cp.reset_font()} and {cp.set_font(True,-1,14)} NONE, {cp.reset_font()} use colors to visualize
                   the difference between them as shown in the example below.
 
-      {fp.set_font(True,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
-      {fp.ins_chr(10)}  tbl = fp.FancyFormat()
+      {cp.set_font(True,231,0)} Example: {cp.reset_font()}  import fancyprint as cp
+      {cp.ins_chr(10)}  tbl = cp.FancyFormat()
 
-      {fp.ins_chr(10)}  tbl.bg_header   = 23;              tbl.bg_data   = 231
-      {fp.ins_chr(10)}  tbl.fg_header   = 231;             tbl.fg_data   = 21
-      {fp.ins_chr(10)}  tbl.bold_header = True;            tbl.bold_data = True
+      {cp.ins_chr(10)}  tbl.bg_header   = 23;              tbl.bg_data   = 231
+      {cp.ins_chr(10)}  tbl.fg_header   = 231;             tbl.fg_data   = 21
+      {cp.ins_chr(10)}  tbl.bold_header = True;            tbl.bold_data = True
     
-      {fp.ins_chr(10)}  tbl.bg_horizontal_line  = 1;       tbl.bg_corner_under_line_header = 1
-      {fp.ins_chr(10)}  tbl.bg_vertical_line    = 1;       tbl.bg_under_line_header        = 1
-      {fp.ins_chr(10)}  tbl.bg_inner_corner_chr = 1;       tbl.bg_vertical_header_line_chr = 1
-      {fp.ins_chr(10)}  tbl.bg_corner_chr       = 1;
+      {cp.ins_chr(10)}  tbl.bg_horizontal_line  = 1;       tbl.bg_corner_under_line_header = 1
+      {cp.ins_chr(10)}  tbl.bg_vertical_line    = 1;       tbl.bg_under_line_header        = 1
+      {cp.ins_chr(10)}  tbl.bg_inner_corner_chr = 1;       tbl.bg_vertical_header_line_chr = 1
+      {cp.ins_chr(10)}  tbl.bg_corner_chr       = 1;
 
-      {fp.ins_chr(10)}  lst = [["Header 1", "Header 2", "Header 3", "Header 4"],
-      {fp.ins_chr(10)}         ["Data 1",   "Data 2",   "Data 3",   "Data 4"  ],
-      {fp.ins_chr(10)}         ["Data 5",   "Data 6",   "Data 7",   "Data 8"  ]]
+      {cp.ins_chr(10)}  lst = [["Header 1", "Header 2", "Header 3", "Header 4"],
+      {cp.ins_chr(10)}         ["Data 1",   "Data 2",   "Data 3",   "Data 4"  ],
+      {cp.ins_chr(10)}         ["Data 5",   "Data 6",   "Data 7",   "Data 8"  ]]
 
-      {fp.ins_chr(10)}  tbl.print_fancy_format(data=lst, style=fp.Line_Style.NONE)
-      {fp.ins_chr(10)}  tbl.print_fancy_format(data=lst, style=fp.Line_Style.DOUBLE_SPACE)
-      {fp.ins_chr(10)}  tbl.print_fancy_format(data=lst, style=fp.Line_Style.NONE_SPACE)
+      {cp.ins_chr(10)}  tbl.print_fancy_format(data=lst, style=cp.Line_Style.NONE)
+      {cp.ins_chr(10)}  tbl.print_fancy_format(data=lst, style=cp.Line_Style.DOUBLE_SPACE)
+      {cp.ins_chr(10)}  tbl.print_fancy_format(data=lst, style=cp.Line_Style.NONE_SPACE)
            
    '''
     print(message)
@@ -665,17 +665,17 @@ def Cursor_Class():
 
    
 def JumpTo_Method():
-    green_msg.print_fancy_message(classes_methods_fancyprint[1][0]+"(qty=0, direction=fp.Move.DOWN)")
+    green_msg.print_fancy_message(classes_methods_fancyprint[1][0]+"(qty=0, direction=cp.Move.DOWN)")
     message = f'''
    
       This method jumps rows or columns for the cursor in the terminal.
 
-      {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
-      {fp.ins_chr(10)}  crs = fp.Cursor()
-      {fp.ins_chr(10)}  crs.jumpTo(qty=2,  direction = fp.Move.DOWN);        print("I am down")
-      {fp.ins_chr(10)}  crs.jumpTo(qty=20, direction = "right");             print("I am right")
-      {fp.ins_chr(10)}  crs.jumpTo(1, fp.Move.UP);                           print("I am up")
-      {fp.ins_chr(10)}  crs.jumpTo(5, "down");                               print("GoodBye...!")
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp
+      {cp.ins_chr(10)}  crs = cp.Cursor()
+      {cp.ins_chr(10)}  crs.jumpTo(qty=2,  direction = cp.Move.DOWN);        print("I am down")
+      {cp.ins_chr(10)}  crs.jumpTo(qty=20, direction = "right");             print("I am right")
+      {cp.ins_chr(10)}  crs.jumpTo(1, cp.Move.UP);                           print("I am up")
+      {cp.ins_chr(10)}  crs.jumpTo(5, "down");                               print("GoodBye...!")
 
    '''
     print(message)
@@ -688,23 +688,23 @@ def Jumpxy_Method():
    
       This method jumps the cursor to specific coordinates in the terminal.
 
-      {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
-      {fp.ins_chr(10)}  crs = fp.Cursor()
-      {fp.ins_chr(10)}  crs.jumpToxy(0,0);     print("*** Start Here ***")
-      {fp.ins_chr(10)}  crs.jumpToxy(20, 5);   print("GoodBye...!")      
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp
+      {cp.ins_chr(10)}  crs = cp.Cursor()
+      {cp.ins_chr(10)}  crs.jumpToxy(0,0);     print("*** Start Here ***")
+      {cp.ins_chr(10)}  crs.jumpToxy(20, 5);   print("GoodBye...!")      
 
    '''
     print(message)
 
 
 def MoveTo_Method():
-    green_msg.print_fancy_message(classes_methods_fancyprint[3][0]+"(qty=0, direction=fp.Move.DOWN)")
+    green_msg.print_fancy_message(classes_methods_fancyprint[3][0]+"(qty=0, direction=cp.Move.DOWN)")
     message = f'''
    
       This method moves rows or columns for the cursor in the terminal.
 
-      {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
-      {fp.ins_chr(10)}  crs = fp.Cursor()
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp
+      {cp.ins_chr(10)}  crs = cp.Cursor()
       '''
    
     message2 = '''                  print(f"{crs.moveTo(15,"right")} First One",  end="")
@@ -725,8 +725,8 @@ def Movexy_Method():
    
       This method moves the cursor to specific coordinates in the terminal.
 
-      {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
-      {fp.ins_chr(10)}  crs = fp.Cursor()
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp
+      {cp.ins_chr(10)}  crs = cp.Cursor()
    '''
     message2 = '''                  print(f"{crs.movexy(15,40)}hello again")
 
@@ -752,7 +752,7 @@ def FontStyle_Class():
                      ["bold   = False",   "indent = False",        "next_lines = True"]]
    
     lst.bg_header = -1; lst.fg_header = -1
-    lst.print_fancy_format(default_values,fp.Line_Style.NONE)
+    lst.print_fancy_format(default_values,cp.Line_Style.NONE)
     message = '''
       indent    → this defines how far we want to start to print the message from the left.
       next_line → this defines where we want to jump the line or not when printing the message.
@@ -771,17 +771,17 @@ def Start_Stop_Style_Method():
     message = f'''
       These methods are used if we will be continuing using the style in many rows.
 
-      {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp'''
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp'''
     print(message)
-    print(fp.ins_chr(18)+"fs = fp.FontStyle()")
-    print(fp.ins_chr(18)+"fs.bg = 21")
-    print(fp.ins_chr(18)+"fs.fg = 231")
-    print(fp.ins_chr(18)+"print(f\"{fs.start_style()} Font Style Line 1")
-    print(fp.ins_chr(18)+"print(f\" Font Style Line 2")
-    print(fp.ins_chr(18)+"print(f\" Font Style Line 3 {fs.stop_style()}")
-    print(fp.ins_chr(18)+"fs.reset_style()")
-    print(fp.ins_chr(18)+"f\"{fs.start_style()} Default Style {fs.stop_style()}")
-    fp.ins_newline(2)
+    print(cp.ins_chr(18)+"fs = cp.FontStyle()")
+    print(cp.ins_chr(18)+"fs.bg = 21")
+    print(cp.ins_chr(18)+"fs.fg = 231")
+    print(cp.ins_chr(18)+"print(f\"{fs.start_style()} Font Style Line 1")
+    print(cp.ins_chr(18)+"print(f\" Font Style Line 2")
+    print(cp.ins_chr(18)+"print(f\" Font Style Line 3 {fs.stop_style()}")
+    print(cp.ins_chr(18)+"fs.reset_style()")
+    print(cp.ins_chr(18)+"f\"{fs.start_style()} Default Style {fs.stop_style()}")
+    cp.ins_newline(2)
 
 
 def Print_Style_Method():
@@ -789,11 +789,11 @@ def Print_Style_Method():
 
     message = f'''
    
-      {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
-      {fp.ins_chr(10)}  fs = fp.FontStyle
-      {fp.ins_chr(10)}  fs.bg = 14
-      {fp.ins_chr(10)}  fs.print_style(msg = " FontStyle Class ")
-      {fp.ins_chr(10)}  print("  Normal Font...!")
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp
+      {cp.ins_chr(10)}  fs = cp.FontStyle
+      {cp.ins_chr(10)}  fs.bg = 14
+      {cp.ins_chr(10)}  fs.print_style(msg = " FontStyle Class ")
+      {cp.ins_chr(10)}  print("  Normal Font...!")
 
    '''
     print(message)
@@ -804,12 +804,12 @@ def Reset_Style_Method():
     green_msg.print_fancy_message(classes_methods_fancyprint[4][1]+"()")
     message = f'''
    
-      {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
-      {fp.ins_chr(10)}  fs = fp.FontStyle
-      {fp.ins_chr(10)}  fs.bg = 14
-      {fp.ins_chr(10)}  fs.print("  FontStyle Class ")
-      {fp.ins_chr(10)}  fs.reset_style()
-      {fp.ins_chr(10)}  fs.print("  Default Values ")
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp
+      {cp.ins_chr(10)}  fs = cp.FontStyle
+      {cp.ins_chr(10)}  fs.bg = 14
+      {cp.ins_chr(10)}  fs.print("  FontStyle Class ")
+      {cp.ins_chr(10)}  fs.reset_style()
+      {cp.ins_chr(10)}  fs.print("  Default Values ")
 
    '''
     print(message)
@@ -827,7 +827,7 @@ def _display_body_args():
                      ["dim_body    = False",   "hidden_body = False",        "inverse_body   = False"],                     
                      ["bold_body   = False",   "msg_body    = \"Body Msg\"", "help_lines     = False"]]
    
-    simple_msg.print_fancy_format(default_values,fp.Line_Style.NONE)
+    simple_msg.print_fancy_format(default_values,cp.Line_Style.NONE)
 
 
 
@@ -836,19 +836,19 @@ def FancyMessage_Class():
 
 
 
-    print(f"\n     {fp.set_font(True,231,0)} Diagram Description {fp.reset_font()}\n")
-    ex_msg = fp.FancyMessage()
+    print(f"\n     {cp.set_font(True,231,0)} Diagram Description {cp.reset_font()}\n")
+    ex_msg = cp.FancyMessage()
     ex_msg.bg_body = 229;             ex_msg.bg_title = 229;            ex_msg.bg_footnote = 229
     ex_msg.fg_body = 0;               ex_msg.fg_title = 21;             ex_msg.fg_footnote = 21
     ex_msg.italic_body = True;        ex_msg.italic_footnote = True;    ex_msg.italic_title = True
     ex_msg.bold_body   = True;        ex_msg.bold_footnote = 1;         ex_msg.bold_title = True
-    ex_msg.left_indent = 15;          ex_msg.right_indent = 15;         ex_msg.align_title = fp.Align.CENTER
-    ex_msg.top_lines   = 3;           ex_msg.bottom_lines = 3;          ex_msg.align_footnote = fp.Align.CENTER
+    ex_msg.left_indent = 15;          ex_msg.right_indent = 15;         ex_msg.align_title = cp.Align.CENTER
+    ex_msg.top_lines   = 3;           ex_msg.bottom_lines = 3;          ex_msg.align_footnote = cp.Align.CENTER
     ex_msg.lines_title_body = 3;      ex_msg.lines_body_footnote=3      
     ex_msg.msg_title ="TITLE";        ex_msg.msg_footnote = "FOOTNOTE"; ex_msg.help_lines = True
 
 
-    ex_fst = fp.FontStyle()
+    ex_fst = cp.FontStyle()
     ex_fst.fg = 128;       ex_fst.bg = 229;      ex_fst.bold = True
     ex_fst.indent = 0
     ex_fst.next_line = False
@@ -864,47 +864,47 @@ the 1970s BBC comedy sketch series Monty Python's Flying Circus.
 # Paragraph Description
     ex_msg.print_fancy_message(message)
    
-    crs.jumpTo(qty=15, direction=fp.Move.UP)
-    pen.draw_line(size=3, tail=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_RIGHT, body=" left indent  ",\
-                 head=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL)
+    crs.jumpTo(qty=15, direction=cp.Move.UP)
+    pen.draw_line(size=3, tail=cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_RIGHT, body=" left indent  ",\
+                 head=cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL)
    
-    pen.draw_line(size=3, tail="\u2500", body=f"{fp.ins_chr(30,"\u2500")} msg_body {fp.ins_chr(27,"\u2500")}",\
-                 head=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL)
+    pen.draw_line(size=3, tail="\u2500", body=f"{cp.ins_chr(30,"\u2500")} msg_body {cp.ins_chr(27,"\u2500")}",\
+                 head=cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL)
    
     pen.draw_line(size=3, tail=" ", body="right indent ",\
-                 head=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_LEFT)
+                 head=cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_LEFT)
     print()
     pen.adj_indent = 45
-    crs.jumpTo(qty=7, direction=fp.Move.UP)
-    crs.jumpTo(qty=45, direction=fp.Move.LEFT)
+    crs.jumpTo(qty=7, direction=cp.Move.UP)
+    crs.jumpTo(qty=45, direction=cp.Move.LEFT)
    
-    pen.draw_line(size=4, layout=fp.Layout.VERTICAL, tail=fp.Unicode.BOX_DRAWINGS_LIGHT_DOWN_AND_HORIZONTAL,\
-                 body=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL, head=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL)
+    pen.draw_line(size=4, layout=cp.Layout.VERTICAL, tail=cp.Unicode.BOX_DRAWINGS_LIGHT_DOWN_AND_HORIZONTAL,\
+                 body=cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL, head=cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL)
    
-    pen.draw_line(size=3, layout=fp.Layout.VERTICAL, tail=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL,\
-                 body=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL, head=fp.Unicode.BOX_DRAWINGS_LIGHT_UP_AND_HORIZONTAL)
+    pen.draw_line(size=3, layout=cp.Layout.VERTICAL, tail=cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL,\
+                 body=cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL, head=cp.Unicode.BOX_DRAWINGS_LIGHT_UP_AND_HORIZONTAL)
    
     print()
-    crs.jumpTo(qty=6, direction=fp.Move.UP)
+    crs.jumpTo(qty=6, direction=cp.Move.UP)
     pen.adj_indent = 29
-    pen.draw_line(size=3, layout=fp.Layout.VERTICAL, tail="       top lines", body= " ", head="lines_title_body")
+    pen.draw_line(size=3, layout=cp.Layout.VERTICAL, tail="       top lines", body= " ", head="lines_title_body")
 
 
-    crs.jumpTo(qty=8, direction=fp.Move.DOWN)
+    crs.jumpTo(qty=8, direction=cp.Move.DOWN)
     pen.adj_indent = 55
-    pen.draw_line(size=4, layout=fp.Layout.VERTICAL, tail=fp.Unicode.BOX_DRAWINGS_LIGHT_DOWN_AND_HORIZONTAL,\
-                 body=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL, head=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL)
+    pen.draw_line(size=4, layout=cp.Layout.VERTICAL, tail=cp.Unicode.BOX_DRAWINGS_LIGHT_DOWN_AND_HORIZONTAL,\
+                 body=cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL, head=cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL)
    
-    pen.draw_line(size=3, layout=fp.Layout.VERTICAL, tail=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL,\
-                 body=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL, head=fp.Unicode.BOX_DRAWINGS_LIGHT_UP_AND_HORIZONTAL)
+    pen.draw_line(size=3, layout=cp.Layout.VERTICAL, tail=cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL,\
+                 body=cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL, head=cp.Unicode.BOX_DRAWINGS_LIGHT_UP_AND_HORIZONTAL)
    
     pen.adj_indent = 56
-    crs.jumpTo(qty=6, direction=fp.Move.UP)
-    pen.draw_line(size=3, layout=fp.Layout.VERTICAL, tail="lines_body_footnote", body= "\n\n", head="bottom lines") 
+    crs.jumpTo(qty=6, direction=cp.Move.UP)
+    pen.draw_line(size=3, layout=cp.Layout.VERTICAL, tail="lines_body_footnote", body= "\n\n", head="bottom lines") 
   
-    crs.jumpTo(qty=2, direction=fp.Move.DOWN)
+    crs.jumpTo(qty=2, direction=cp.Move.DOWN)
     pen.adj_indent = 0
-    fp.ins_newline(3)
+    cp.ins_newline(3)
    
     # Note Description
     message = '''
@@ -923,47 +923,47 @@ the 1970s BBC comedy sketch series Monty Python's Flying Circus.
 
     ex_msg.print_fancy_note(message)
 
-    crs.jumpTo(qty=10, direction=fp.Move.UP)
+    crs.jumpTo(qty=10, direction=cp.Move.UP)
 
-    pen.draw_line(size=3, tail=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_RIGHT, body=" A ",\
-                 head=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL)
+    pen.draw_line(size=3, tail=cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_RIGHT, body=" A ",\
+                 head=cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL)
    
     pen.draw_line(size=3, tail="", body="msg_note",\
-                 head=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL)
+                 head=cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL)
    
     pen.draw_line(size=3, tail=" ", body="B ",\
-                 head=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL)
+                 head=cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL)
    
 
-    pen.draw_line(size=3, tail="\u2500", body=f"{fp.ins_chr(30,"\u2500")} msg_body {fp.ins_chr(27,"\u2500")}",\
-                 head=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL)
+    pen.draw_line(size=3, tail="\u2500", body=f"{cp.ins_chr(30,"\u2500")} msg_body {cp.ins_chr(27,"\u2500")}",\
+                 head=cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL)
    
     pen.draw_line(size=3, tail="", body="right indent",\
-                 head=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_LEFT)
+                 head=cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_LEFT)
    
     print()
-    crs.jumpTo(qty=3, direction=fp.Move.UP)
+    crs.jumpTo(qty=3, direction=cp.Move.UP)
     pen.adj_indent = 35
-    pen.draw_line(size=3, layout=fp.Layout.VERTICAL, tail=fp.Unicode.BOX_DRAWINGS_LIGHT_DOWN_AND_HORIZONTAL,\
-                 body=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL, head=fp.Unicode.BOX_DRAWINGS_LIGHT_UP_AND_HORIZONTAL)
-    crs.jumpTo(qty=2, direction=fp.Move.UP)
-    print(f"{crs.moveTo(22,fp.Move.RIGHT)}top_lines --{fp.Unicode.BLAKC_RIGHT_POINT_TRIANGLE}")
-    crs.jumpTo(6,fp.Move.DOWN)
+    pen.draw_line(size=3, layout=cp.Layout.VERTICAL, tail=cp.Unicode.BOX_DRAWINGS_LIGHT_DOWN_AND_HORIZONTAL,\
+                 body=cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL, head=cp.Unicode.BOX_DRAWINGS_LIGHT_UP_AND_HORIZONTAL)
+    crs.jumpTo(qty=2, direction=cp.Move.UP)
+    print(f"{crs.moveTo(22,cp.Move.RIGHT)}top_lines --{cp.Unicode.BLAKC_RIGHT_POINT_TRIANGLE}")
+    crs.jumpTo(6,cp.Move.DOWN)
 
 
-    pen.draw_line(size=3, layout=fp.Layout.VERTICAL, tail=fp.Unicode.BOX_DRAWINGS_LIGHT_DOWN_AND_HORIZONTAL,\
-                 body=fp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL, head=fp.Unicode.BOX_DRAWINGS_LIGHT_UP_AND_HORIZONTAL)
-    crs.jumpTo(qty=2, direction=fp.Move.UP)
-    print(f"{crs.moveTo(19,fp.Move.RIGHT)}bottom_lines --{fp.Unicode.BLAKC_RIGHT_POINT_TRIANGLE}")
+    pen.draw_line(size=3, layout=cp.Layout.VERTICAL, tail=cp.Unicode.BOX_DRAWINGS_LIGHT_DOWN_AND_HORIZONTAL,\
+                 body=cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL, head=cp.Unicode.BOX_DRAWINGS_LIGHT_UP_AND_HORIZONTAL)
+    crs.jumpTo(qty=2, direction=cp.Move.UP)
+    print(f"{crs.moveTo(19,cp.Move.RIGHT)}bottom_lines --{cp.Unicode.BLAKC_RIGHT_POINT_TRIANGLE}")
    
 
-    crs.jumpTo(qty=1, direction=fp.Move.UP)
-    crs.jumpTo(qty=40, direction=fp.Move.RIGHT)
-   #fp.ins_newline(2)
-    print(f"A --{fp.Unicode.BLAKC_RIGHT_POINT_TRIANGLE} left_space_note",end=",  ")
-    print(f"B --{fp.Unicode.BLAKC_RIGHT_POINT_TRIANGLE} right_space_note")
+    crs.jumpTo(qty=1, direction=cp.Move.UP)
+    crs.jumpTo(qty=40, direction=cp.Move.RIGHT)
+   #cp.ins_newline(2)
+    print(f"A --{cp.Unicode.BLAKC_RIGHT_POINT_TRIANGLE} left_space_note",end=",  ")
+    print(f"B --{cp.Unicode.BLAKC_RIGHT_POINT_TRIANGLE} right_space_note")
 
-    crs.jumpTo(qty=4, direction=fp.Move.DOWN)
+    crs.jumpTo(qty=4, direction=cp.Move.DOWN)
 
    # Indentation and Lines Default Values
     simple_msg.msg_title = " Default Indent and Line Values "
@@ -972,7 +972,7 @@ the 1970s BBC comedy sketch series Monty Python's Flying Circus.
                      ["right_indent = 2", "adj_bg_msg_to_space_available = False"]] 
    
 
-    simple_msg.print_fancy_format(default_values,fp.Line_Style.NONE)
+    simple_msg.print_fancy_format(default_values,cp.Line_Style.NONE)
     
     _display_body_args()
 
@@ -982,23 +982,23 @@ print_fancy_note.
 '''
     white_msg.print_fancy_note(message)
 
-    fp.ins_newline(1)
+    cp.ins_newline(1)
 
     message = f'''
-     {fp.set_font(True,-1,14)}length{fp.set_font(False)}
+     {cp.set_font(True,-1,14)}length{cp.set_font(False)}
          This is the width of the terminal and it has 2 options.
 
          ALL_ROW  :  It will do the background color to the complete row in the terminal
          ONLY_WORD:  It will do the background color to only the text ignoring the 
                         left_indent and right_indent
      
-     {fp.set_font(True,-1,14)}adj_bg_lines_to_right_indent{fp.set_font(False)}
+     {cp.set_font(True,-1,14)}adj_bg_lines_to_right_indent{cp.set_font(False)}
          This applies to the top_lines and bottom_lines
 
          True : This will do the background color to the space available (74)
          False: This will do the background color to the longest line in the msg_body
 
-     {fp.set_font(True,-1,14)}adj_bg_msg_to_space_available{fp.set_font(False)}
+     {cp.set_font(True,-1,14)}adj_bg_msg_to_space_available{cp.set_font(False)}
          This applies to the lines of text in the msg_body
 
          True : This will do the background to the space available (74)
@@ -1020,14 +1020,14 @@ print_fancy_note.
                   Python was first released on February 20, 1991. Python was named after
                   the 1970s BBC comedy sketch series Monty Python's Flying Circus.
 
-      import fancyprint as fp
-      msg = fp.FancyMessage()
+      import fancyprint as cp
+      msg = cp.FancyMessage()
       
       msg.msg_title = "TITLE"
       msg.msg_footnote = "FOOTNOTE"
       
       msg.print_fancy_message(paragraph)
-      fp.ins_newline(2)
+      cp.ins_newline(2)
       
       msg.msg_note = "Python"
       ex_msg.position_note = 5
@@ -1052,7 +1052,7 @@ def Print_Fancy_Message_Method():
                      ["msg_title   = \"\"",      "title_indent  = 2",          "align_title      = Align.LEFT"],
                      ["                 ",        "                ",          "lines_title_body = 1"]]
 
-    simple_msg.print_fancy_format(default_values,fp.Line_Style.NONE)
+    simple_msg.print_fancy_format(default_values,cp.Line_Style.NONE)
    
 
     # Body Default Values
@@ -1067,29 +1067,29 @@ def Print_Fancy_Message_Method():
                      ["                       ",   "                       ",         "                         "],
                      ["footnote_indent = 2",       "lines_body_footnote = 1",         "align_footnote = Align.RIGHT"]]
 
-    simple_msg.print_fancy_format(default_values,fp.Line_Style.NONE)
+    simple_msg.print_fancy_format(default_values,cp.Line_Style.NONE)
    
     message = f'''
    
-      {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
-      {fp.ins_chr(10)}  fmsg = fp.FancyMessage()
-      {fp.ins_chr(10)}  fmsg.title = \" Title \"
-      {fp.ins_chr(10)}  fmsg.footnote = \" Footnote \"
-      {fp.ins_chr(10)}  fmsg.help_lines = True      
-      {fp.ins_chr(10)}  paragraph = " This is a short Paragraph.....!
-      {fp.ins_chr(10)}  fmsg.print_fancy_mesage(paragraph)
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp
+      {cp.ins_chr(10)}  fmsg = cp.FancyMessage()
+      {cp.ins_chr(10)}  fmsg.title = \" Title \"
+      {cp.ins_chr(10)}  fmsg.footnote = \" Footnote \"
+      {cp.ins_chr(10)}  fmsg.help_lines = True      
+      {cp.ins_chr(10)}  paragraph = " This is a short Paragraph.....!
+      {cp.ins_chr(10)}  fmsg.print_fancy_mesage(paragraph)
 
    '''
     print(message)
-    fmsg = fp.FancyMessage()
+    fmsg = cp.FancyMessage()
     fmsg.msg_title = " Title "
     fmsg.msg_footnote = "Footnote"
-    #fmsg.align_footnote = fp.Align.CENTER
+    #fmsg.align_footnote = cp.Align.CENTER
     paragraph = " This is a short paragraph.....!"
     fmsg.help_lines = True
     fmsg.print_fancy_message(paragraph)
    
-    fp.ins_newline(2)
+    cp.ins_newline(2)
     message = '''footnote_indent works with align_footnote. When the align_footnote is set to
 Align.Justify, then footnote_indent controls the position of the msg_footnote.
 
@@ -1110,19 +1110,19 @@ def Print_Fancy_Note_Method():
                      ["msg_note  = \" Note: \"",    "position_note    = 1",     "                      "],
                      ["left_space_note = 2    ",    "right_space_note = 2",     "align_note = Align.JUSTIFY"]]
     simple_msg.msg_title = " Note Default Values "
-    simple_msg.print_fancy_format(default_values,fp.Line_Style.NONE)
+    simple_msg.print_fancy_format(default_values,cp.Line_Style.NONE)
    
     # Body Default Values
     _display_body_args()
    
     message = f'''
   
-      {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
-      {fp.ins_chr(10)}  fmsg = fp.FancyMessage()      
-      {fp.ins_chr(10)}  fmsg.bold_note = True
-      {fp.ins_chr(10)}  fmsg.bg_body = 90      
-      {fp.ins_chr(10)}  message = \"There are variables that are being used by both methods.....\"
-      {fp.ins_chr(10)}  fmsg.print_fancy_mesage(paragraph)
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp
+      {cp.ins_chr(10)}  fmsg = cp.FancyMessage()      
+      {cp.ins_chr(10)}  fmsg.bold_note = True
+      {cp.ins_chr(10)}  fmsg.bg_body = 90      
+      {cp.ins_chr(10)}  message = \"There are variables that are being used by both methods.....\"
+      {cp.ins_chr(10)}  fmsg.print_fancy_mesage(paragraph)
 
    '''   
 
@@ -1130,13 +1130,13 @@ def Print_Fancy_Note_Method():
     message = '''There are variables that are being used by both methods, print_fancy_message
 and print_fancy_note.
 '''
-    fmsg = fp.FancyMessage()
+    fmsg = cp.FancyMessage()
     fmsg.bold_note = True
     fmsg.bg_body = 90
 
     fmsg.help_lines = True
     fmsg.print_fancy_note(message)
-    fp.ins_newline(2)
+    cp.ins_newline(2)
 
 #---------------------------------------------------------------------------------------------------
 # FancyFormat Class                                                                                -
@@ -1152,11 +1152,11 @@ def FancyFormat_Class():
 
 def Diagram1():
     message = f'''
-      {fp.set_font(1,14,0)} Single Data/Figure 1 {fp.reset_font()}        
+      {cp.set_font(1,14,0)} Single Data/Figure 1 {cp.reset_font()}        
    '''
     print(message)
    
-    d1_lst = fp.FancyFormat()
+    d1_lst = cp.FancyFormat()
     print("$")
     print("      \u2190 0")
 
@@ -1184,24 +1184,24 @@ def Diagram1():
 
     d1_lst.print_fancy_format(data)
 
-    crs.jumpTo(qty=6, direction=fp.Move.UP)
+    crs.jumpTo(qty=6, direction=cp.Move.UP)
     print("      \u2190 2")
-    crs.jumpTo(qty=3, direction=fp.Move.DOWN)
+    crs.jumpTo(qty=3, direction=cp.Move.DOWN)
     print("      \u2190 7")
-    fp.ins_newline(1)
+    cp.ins_newline(1)
     print("      \u2190 9")
 
    
-    crs.jumpTo(qty=8, direction=fp.Move.UP)
+    crs.jumpTo(qty=8, direction=cp.Move.UP)
     d1_lst.adj_indent = 50
     data = "   Data Inside The Box   "
     d1_lst.msg_title    = "Title"
     d1_lst.msg_footnote = "Footnote"   
-    d1_lst.print_fancy_format(data,fp.Line_Style.DASH)
+    d1_lst.print_fancy_format(data,cp.Line_Style.DASH)
    
-    crs.jumpTo(qty=5, direction=fp.Move.UP)
+    crs.jumpTo(qty=5, direction=cp.Move.UP)
     print(",,,")
-    crs.jumpTo(qty=5, direction=fp.Move.DOWN)
+    crs.jumpTo(qty=5, direction=cp.Move.DOWN)
     print("")
   
 
@@ -1217,32 +1217,32 @@ def Diagram1():
            ["9 \u2192 adj_bottom_margin",      " "          ]
           ]
     simple_msg.msg_title = " Description "
-    simple_msg.print_fancy_format(values,fp.Line_Style.NONE)
+    simple_msg.print_fancy_format(values,cp.Line_Style.NONE)
 
 
     message = f'''
   
-      {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
-      {fp.ins_chr(10)}  f_data = fp.FancyFormat()
-      {fp.ins_chr(10)}  f_data.msg_title        = \"Title\"
-      {fp.ins_chr(10)}  f_data.msg_footnote     = \"footnote\"
-      {fp.ins_chr(10)}  f_data.adj_top_space    = 1
-      {fp.ins_chr(10)}  f_data.adj_bottom_space = 1
-      {fp.ins_chr(10)}  f_data.adj_indent       = 3
-      {fp.ins_chr(10)}  data = \"Data Inside The Box\"      
-      {fp.ins_chr(10)}  f_data.print_fancy_format(data)
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp
+      {cp.ins_chr(10)}  f_data = cp.FancyFormat()
+      {cp.ins_chr(10)}  f_data.msg_title        = \"Title\"
+      {cp.ins_chr(10)}  f_data.msg_footnote     = \"footnote\"
+      {cp.ins_chr(10)}  f_data.adj_top_space    = 1
+      {cp.ins_chr(10)}  f_data.adj_bottom_space = 1
+      {cp.ins_chr(10)}  f_data.adj_indent       = 3
+      {cp.ins_chr(10)}  data = \"Data Inside The Box\"      
+      {cp.ins_chr(10)}  f_data.print_fancy_format(data)
 
    '''      
     print(message)
    
-    print(f"{fp.ins_chr(100,"=")}")
+    print(f"{cp.ins_chr(100,"=")}")
     print()
    
 def Diagram2():
-    d2_lst = fp.FancyFormat()
+    d2_lst = cp.FancyFormat()
     values = [["Data 1","Data 2","Data 3"]]
     message = f'''
-      {fp.set_font(1,14,0)} Multiple Horizontal Data/Figure 2 {fp.reset_font()}        
+      {cp.set_font(1,14,0)} Multiple Horizontal Data/Figure 2 {cp.reset_font()}        
    '''
     print(message)
     d2_lst.middle_top_corner_chr = "!"
@@ -1250,31 +1250,31 @@ def Diagram2():
     d2_lst.middle_bottom_corner_chr = "?"
     d2_lst.print_fancy_format(values)
    
-    crs.jumpTo(qty=3, direction=fp.Move.UP)
+    crs.jumpTo(qty=3, direction=cp.Move.UP)
     d2_lst.adj_indent = 50
-    d2_lst.print_fancy_format(values,fp.Line_Style.DASH)
+    d2_lst.print_fancy_format(values,cp.Line_Style.DASH)
 
     simple_msg.msg_title = " Description "
     values = [["! \u2192 middle_top_corner_chr"],
              ["| \u2192 middle_vertical_line_chr"],
              ["? \u2192 middle_bottom_corner_chr"]]
 
-    simple_msg.print_fancy_format(values,fp.Line_Style.NONE)
+    simple_msg.print_fancy_format(values,cp.Line_Style.NONE)
 
     message = f'''
   
-      {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
-      {fp.ins_chr(10)}  f_data = fp.FancyFormat()
-      {fp.ins_chr(10)}  data = [["Data 1","Data 2","Data 3"]]
-      {fp.ins_chr(10)}  f_data.print_fancy_format(data)
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp
+      {cp.ins_chr(10)}  f_data = cp.FancyFormat()
+      {cp.ins_chr(10)}  data = [["Data 1","Data 2","Data 3"]]
+      {cp.ins_chr(10)}  f_data.print_fancy_format(data)
 
    '''      
     print(message)
-    print(f"{fp.ins_chr(100,"=")}")
+    print(f"{cp.ins_chr(100,"=")}")
 
     values = [["Header"],["Data 1"],["Data 2"],["Data 3"]]
     message = f'''
-      {fp.set_font(1,14,0)} Multiple Vertical Data/Figure 3 {fp.reset_font()}        
+      {cp.set_font(1,14,0)} Multiple Vertical Data/Figure 3 {cp.reset_font()}        
    '''
     print(message)
     d2_lst.adj_indent = 2
@@ -1296,9 +1296,9 @@ def Diagram2():
     d2_lst.print_fancy_format(values)
 
 
-    crs.jumpTo(qty=9, direction=fp.Move.UP)
+    crs.jumpTo(qty=9, direction=cp.Move.UP)
     d2_lst.adj_indent = 50
-    d2_lst.print_fancy_format(values,fp.Line_Style.DASH)
+    d2_lst.print_fancy_format(values,cp.Line_Style.DASH)
 
     simple_msg.msg_title = " Description "
     values = [["\u2022 \u2192 horizontal_line_under_header_chr"],
@@ -1309,30 +1309,30 @@ def Diagram2():
               ["B \u2192 right_corner_line_under_header_chr"],
               ["C \u2192 left_lateral_corner_chr"],
               ["E \u2192 right_lateral_corner_chr"]]
-    simple_msg.print_fancy_format(values,fp.Line_Style.NONE)
+    simple_msg.print_fancy_format(values,cp.Line_Style.NONE)
 
     message = f'''
   
-      {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
-      {fp.ins_chr(10)}  f_data = fp.FancyFormat()
-      {fp.ins_chr(10)}  f_data.horizontal_line_under_header_on = True
-      {fp.ins_chr(10)}  f_data.middle_horizontal_line_on = True
-      {fp.ins_chr(10)}  data = [["Header"],["Data 1"],["Data 2"],["Data 3"]]
-      {fp.ins_chr(10)}  f_data.print_fancy_format(data)
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp
+      {cp.ins_chr(10)}  f_data = cp.FancyFormat()
+      {cp.ins_chr(10)}  f_data.horizontal_line_under_header_on = True
+      {cp.ins_chr(10)}  f_data.middle_horizontal_line_on = True
+      {cp.ins_chr(10)}  data = [["Header"],["Data 1"],["Data 2"],["Data 3"]]
+      {cp.ins_chr(10)}  f_data.print_fancy_format(data)
 
    '''      
     print(message)
 
-    print(f"{fp.ins_chr(100,"=")}")
+    print(f"{cp.ins_chr(100,"=")}")
 
-    d3_lst = fp.FancyFormat()
+    d3_lst = cp.FancyFormat()
     values = [["Header 1","Header 2","Header 3"],
              ["Data 1",  "Data 2",  "Data 3"  ],
              ["Data 4",  "Data 5",  "Data 6"  ],
              ["Data 7",  "Data 8"]]
 
     message = f'''
-      {fp.set_font(1,14,0)} Matrix Data/Figure 4 {fp.reset_font()}
+      {cp.set_font(1,14,0)} Matrix Data/Figure 4 {cp.reset_font()}
    '''
     print(message)
 
@@ -1347,9 +1347,9 @@ def Diagram2():
     
     d3_lst.print_fancy_format(values)
 
-    crs.jumpTo(qty=9, direction=fp.Move.UP)
+    crs.jumpTo(qty=9, direction=cp.Move.UP)
     d3_lst.adj_indent = 50
-    d3_lst.print_fancy_format(values,fp.Line_Style.DASH)
+    d3_lst.print_fancy_format(values,cp.Line_Style.DASH)
 
 
     simple_msg.msg_title = " Description "
@@ -1359,37 +1359,37 @@ def Diagram2():
               ["|    \u2192 middle_vertical_line_chr"],
               ["//// \u2192 set_fill_chr"]]
 
-    simple_msg.print_fancy_format(values,fp.Line_Style.NONE)
+    simple_msg.print_fancy_format(values,cp.Line_Style.NONE)
 
    
     message = f'''
   
-      {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
-      {fp.ins_chr(10)}  f_data = fp.FancyFormat()
-      {fp.ins_chr(10)}  f_data.horizontal_line_under_header_on = True
-      {fp.ins_chr(10)}  f_data.middle_horizontal_line_on = True
-      {fp.ins_chr(10)}  values = [["Header 1","Header 2","Header 3"],
-      {fp.ins_chr(10)}           ["Data 1",  "Data 2",  "Data 3"  ],
-      {fp.ins_chr(10)}           ["Data 4",  "Data 5",  "Data 6"  ],
-      {fp.ins_chr(10)}           ["Data 7",  "Data 8"]]
-      {fp.ins_chr(10)}  f_data.print_fancy_format(data)
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp
+      {cp.ins_chr(10)}  f_data = cp.FancyFormat()
+      {cp.ins_chr(10)}  f_data.horizontal_line_under_header_on = True
+      {cp.ins_chr(10)}  f_data.middle_horizontal_line_on = True
+      {cp.ins_chr(10)}  values = [["Header 1","Header 2","Header 3"],
+      {cp.ins_chr(10)}           ["Data 1",  "Data 2",  "Data 3"  ],
+      {cp.ins_chr(10)}           ["Data 4",  "Data 5",  "Data 6"  ],
+      {cp.ins_chr(10)}           ["Data 7",  "Data 8"]]
+      {cp.ins_chr(10)}  f_data.print_fancy_format(data)
 
    '''      
     print(message)
 
-    print(f"{fp.ins_chr(100,"=")}")   
+    print(f"{cp.ins_chr(100,"=")}")   
 
 
 def Diagram3():
     message = f'''
-      {fp.set_font(1,14,0)} Full Matrix Data Diagram/Figure 5 {fp.reset_font()}
+      {cp.set_font(1,14,0)} Full Matrix Data Diagram/Figure 5 {cp.reset_font()}
    '''
     print(message)
 
     print("$")
     print("      \u2190 0")
 
-    dt_lst = fp.FancyFormat()
+    dt_lst = cp.FancyFormat()
     dt_lst.adj_top_space = 1;              dt_lst.adj_bottom_space = 1
     dt_lst.adj_space     = 0;              dt_lst.adj_indent       = 3
 
@@ -1479,12 +1479,12 @@ def Diagram3():
     dt_lst.print_fancy_format(values)
 
 
-    crs.jumpTo(qty=12, direction=fp.Move.UP)
+    crs.jumpTo(qty=12, direction=cp.Move.UP)
     print("      \u2190 2")
     print(",,,")
-    crs.jumpTo(qty=8, direction=fp.Move.DOWN)
+    crs.jumpTo(qty=8, direction=cp.Move.DOWN)
     print("      \u2190 7")
-    fp.ins_newline(1)
+    cp.ins_newline(1)
     print("      \u2190 9")
 
 
@@ -1525,51 +1525,51 @@ def Diagram3():
 
 
     simple_msg.msg_title = " Full Description "
-    simple_msg.print_fancy_format(values,fp.Line_Style.NONE)
+    simple_msg.print_fancy_format(values,cp.Line_Style.NONE)
 
     message = f'''
-     {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
-      {fp.ins_chr(10)} tlb = fp.FancyFormat()
+     {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp
+      {cp.ins_chr(10)} tlb = cp.FancyFormat()
       
-      {fp.ins_chr(10)} lst = [["Header 1","Header 2","Header 3","Header 4"],
-      {fp.ins_chr(10)} ["R2C1","R2C2","R2C3","R2C4"],
-      {fp.ins_chr(10)} ["R3C1","R3C2","R3C3","R3C4"],
-      {fp.ins_chr(10)} ["R4C1","R4C2"]]
+      {cp.ins_chr(10)} lst = [["Header 1","Header 2","Header 3","Header 4"],
+      {cp.ins_chr(10)} ["R2C1","R2C2","R2C3","R2C4"],
+      {cp.ins_chr(10)} ["R3C1","R3C2","R3C3","R3C4"],
+      {cp.ins_chr(10)} ["R4C1","R4C2"]]
       
-      {fp.ins_chr(10)} tlb.msg_title	= " Title "
-      {fp.ins_chr(10)} tlb.align_title	= fp.Align.CENTER
-      {fp.ins_chr(10)} tlb.bold_title	= True
-      {fp.ins_chr(10)} tlb.fg_title		= 21
-      {fp.ins_chr(10)} tlb.bg_title	= 231
+      {cp.ins_chr(10)} tlb.msg_title	= " Title "
+      {cp.ins_chr(10)} tlb.align_title	= cp.Align.CENTER
+      {cp.ins_chr(10)} tlb.bold_title	= True
+      {cp.ins_chr(10)} tlb.fg_title		= 21
+      {cp.ins_chr(10)} tlb.bg_title	= 231
       
-      {fp.ins_chr(10)} tlb.bg_header	= 90
-      {fp.ins_chr(10)} tlb.fg_header	= 231
-      {fp.ins_chr(10)} tlb.horizontal_line_under_header_on = True
+      {cp.ins_chr(10)} tlb.bg_header	= 90
+      {cp.ins_chr(10)} tlb.fg_header	= 231
+      {cp.ins_chr(10)} tlb.horizontal_line_under_header_on = True
       
-      {fp.ins_chr(10)} tlb.align_data	= fp.Align.CENTER
-      {fp.ins_chr(10)} tlb.fg_data		= 14
+      {cp.ins_chr(10)} tlb.align_data	= cp.Align.CENTER
+      {cp.ins_chr(10)} tlb.fg_data		= 14
       
-      {fp.ins_chr(10)} tlb.msg_footnote	= " Footnote "
-      {fp.ins_chr(10)} tlb.align_footnote	= fp.Align.RIGHT
-      {fp.ins_chr(10)} tlb.bold_footnote	= True
-      {fp.ins_chr(10)} tlb.bg_footnote	= 231
-      {fp.ins_chr(10)} tlb.fg_footnote	= 21
+      {cp.ins_chr(10)} tlb.msg_footnote	= " Footnote "
+      {cp.ins_chr(10)} tlb.align_footnote	= cp.Align.RIGHT
+      {cp.ins_chr(10)} tlb.bold_footnote	= True
+      {cp.ins_chr(10)} tlb.bg_footnote	= 231
+      {cp.ins_chr(10)} tlb.fg_footnote	= 21
       
-      {fp.ins_chr(10)} tlb.print_fancy_format(lst)
-      {fp.ins_chr(10)} lst = [["Header"],["R2C1"],["R3C1"],["R4C1"]]
-      {fp.ins_chr(10)} tlb.print_fancy_format(lst, fp.Line_Style.SINGLE)
+      {cp.ins_chr(10)} tlb.print_fancy_format(lst)
+      {cp.ins_chr(10)} lst = [["Header"],["R2C1"],["R3C1"],["R4C1"]]
+      {cp.ins_chr(10)} tlb.print_fancy_format(lst, cp.Line_Style.SINGLE)
 '''
    
     print(message)
-    print(f"       {fp.set_font(1,231,90)} \u25CF Output {fp.reset_font()}")
+    print(f"       {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}")
     lst = [["Header 1","Header 2","Header 3","Header 4"],
           ["R2C1","R2C2","R2C3","R2C4"],
           ["R3C1","R3C2","R3C3","R3C4"],
           ["R4C1","R4C2"]]
-    tlb = fp.FancyFormat()
+    tlb = cp.FancyFormat()
 
     tlb.msg_title	= " Title "
-    tlb.align_title	= fp.Align.CENTER
+    tlb.align_title	= cp.Align.CENTER
     tlb.bold_title	= True
     tlb.fg_title		= 21
     tlb.bg_title	= 231
@@ -1578,11 +1578,11 @@ def Diagram3():
     tlb.fg_header	= 231
     tlb.horizontal_line_under_header_on = True
 
-    tlb.align_data	= fp.Align.CENTER
+    tlb.align_data	= cp.Align.CENTER
     tlb.fg_data		= 14
 
     tlb.msg_footnote	= " Footnote "
-    tlb.align_footnote	= fp.Align.RIGHT
+    tlb.align_footnote	= cp.Align.RIGHT
     tlb.bold_footnote	= True
     tlb.bg_footnote	= 231
     tlb.fg_footnote	= 21
@@ -1591,8 +1591,8 @@ def Diagram3():
 
     lst = [["Header"],["R2C1"],["R3C1"],["R4C1"]]
 
-    tlb.print_fancy_format(lst, fp.Line_Style.SINGLE)
-    fp.ins_newline(2)
+    tlb.print_fancy_format(lst, cp.Line_Style.SINGLE)
+    cp.ins_newline(2)
 
 
 
@@ -1609,39 +1609,39 @@ def Print_Fancy_Format_Method():
                      ["adj_bottom_space  = 0",     "                    "],
                      ["adj_indent        = 2",     "                    "],
                      ["adj_space         = 2",     "                    "]]
-    simple_msg.print_fancy_format(default_values,fp.Line_Style.NONE)
+    simple_msg.print_fancy_format(default_values,cp.Line_Style.NONE)
 
     message = f'''
-     {fp.set_font(False,-1,14)}adj_top_margin{fp.set_font()}
+     {cp.set_font(False,-1,14)}adj_top_margin{cp.set_font()}
      lines to be add between the terminal and the title.
 
-     {fp.set_font(False,-1,14)}adj_bottom_margin{fp.set_font()}
+     {cp.set_font(False,-1,14)}adj_bottom_margin{cp.set_font()}
      lines to be add between the end of list or footnote and the terminal.
      
-     {fp.set_font(False,-1,14)}adj_top_space{fp.set_font()}
+     {cp.set_font(False,-1,14)}adj_top_space{cp.set_font()}
      lines to be added between title and top list. This only work
      when title exist.
      
-     {fp.set_font(False,-1,14)}adj_bottom_space{fp.set_font()}
+     {cp.set_font(False,-1,14)}adj_bottom_space{cp.set_font()}
      lines to be added between bottom list and footnote. This only work
      when a footnote exist.
      
-     {fp.set_font(False,-1,14)}adj_indent{fp.set_font()}
+     {cp.set_font(False,-1,14)}adj_indent{cp.set_font()}
      space from the terminal to the box.
      
-     {fp.set_font(False,-1,14)}adj_space{fp.set_font()}
+     {cp.set_font(False,-1,14)}adj_space{cp.set_font()}
      space from vertical left line to the data and the space from the data to
      the vertical right line, inside the box.
      
-     {fp.set_font(False,-1,14)}set_fill_chr{fp.set_font()}
+     {cp.set_font(False,-1,14)}set_fill_chr{cp.set_font()}
      to fill the empty spots when the list is not complete. This only
      works when we are dealing with a table list.
      
-     {fp.set_font(False,-1,14)}set_layout{fp.set_font()}
+     {cp.set_font(False,-1,14)}set_layout{cp.set_font()}
      This is only for Range, Set, and SetFrozen type data. It defines how
      to print the data, horizontal or vertical.
      
-     {fp.set_font(False,-1,14)}update_list{fp.set_font()}
+     {cp.set_font(False,-1,14)}update_list{cp.set_font()}
      if we want to save the data as it's presented, but in string type for 
      each element in list. This only work when the variable is a list type.
          
@@ -1655,7 +1655,7 @@ def Print_Fancy_Format_Method():
                      ["fg_title    = -1",       "strike_title    = False",          "inverse_title   = False"]]
 
     simple_msg.msg_title = " Title Default Values "
-    simple_msg.print_fancy_format(default_values, fp.Line_Style.NONE)
+    simple_msg.print_fancy_format(default_values, cp.Line_Style.NONE)
 
 
 
@@ -1667,7 +1667,7 @@ def Print_Fancy_Format_Method():
                      ["fg_footnote    = -1",       "strike_footnote    = False",          "inverse_footnote   = False"]]
 
     simple_msg.msg_title = " Footnote Default Values "
-    simple_msg.print_fancy_format(default_values, fp.Line_Style.NONE)
+    simple_msg.print_fancy_format(default_values, cp.Line_Style.NONE)
 
 
     # Data Default Values
@@ -1677,10 +1677,10 @@ def Print_Fancy_Format_Method():
                      ["fg_data          = -1",       "strike_data    = False",          "inverse_data   = False"]]
 
     simple_msg.msg_title = " Data Default Values "
-    simple_msg.print_fancy_format(default_values, fp.Line_Style.NONE)
+    simple_msg.print_fancy_format(default_values, cp.Line_Style.NONE)
 
     message = f'''
-     {fp.set_font(False,-1,14)}bg_all_cell_data{fp.set_font()}
+     {cp.set_font(False,-1,14)}bg_all_cell_data{cp.set_font()}
      It defines how long will be the bg in the data (all the cell or only the data)
          
 '''
@@ -1694,11 +1694,11 @@ def Print_Fancy_Format_Method():
                      ["bg_header          = -1",       "underline_header = False",          "hidden_header    = False"],
                      ["fg_header          = -1",       "strike_header    = False",          "inverse_header   = False"]]
     message = f'''
-     {fp.set_font(False,-1,14)}bg_all_cell_header{fp.set_font()}
+     {cp.set_font(False,-1,14)}bg_all_cell_header{cp.set_font()}
      It defines how long will be the bg in the header (all the cell or only the header)
          
 '''
-    simple_msg.print_fancy_format(default_values, fp.Line_Style.NONE)
+    simple_msg.print_fancy_format(default_values, cp.Line_Style.NONE)
     print(message)
 
 
@@ -1713,13 +1713,13 @@ def Print_Fancy_Format_Method():
    
    
     message = f'''
-     {fp.set_font(False,-1,14)} top_horizontal_line_on {fp.set_font()}   controls \u2192  -
-     {fp.set_font(False,-1,14)} middle_horizontal_line_on {fp.set_font()}controls \u2192  e
-     {fp.set_font(False,-1,14)} bottom_horizontal_line_on {fp.set_font()}controls \u2192  *
+     {cp.set_font(False,-1,14)} top_horizontal_line_on {cp.set_font()}   controls \u2192  -
+     {cp.set_font(False,-1,14)} middle_horizontal_line_on {cp.set_font()}controls \u2192  e
+     {cp.set_font(False,-1,14)} bottom_horizontal_line_on {cp.set_font()}controls \u2192  *
 
-     {fp.set_font(False,1,231)} Refer to Figure 5 {fp.set_font()}
+     {cp.set_font(False,1,231)} Refer to Figure 5 {cp.set_font()}
 '''
-    simple_msg.print_fancy_format(default_values, fp.Line_Style.NONE)
+    simple_msg.print_fancy_format(default_values, cp.Line_Style.NONE)
     print(message)
    
       
@@ -1730,10 +1730,10 @@ def Print_Fancy_Format_Method():
                      ["middle_vertical_line_chr = \"|\" ",  "bg_vertical_line = -1"     ],
                      ["right_vertical_line_chr  = \"|\" ",  "fg_vertical_line = -1"     ]]
    
-    message = f'''     {fp.set_font(False,1,231)} Refer to Figure 1 {fp.set_font()}
+    message = f'''     {cp.set_font(False,1,231)} Refer to Figure 1 {cp.set_font()}
 '''
    
-    simple_msg.print_fancy_format(default_values, fp.Line_Style.NONE)
+    simple_msg.print_fancy_format(default_values, cp.Line_Style.NONE)
     print(message)
 
     # Corner Section
@@ -1744,9 +1744,9 @@ def Print_Fancy_Format_Method():
                      ["bottom_left_corner_chr  = \"+\"  ",  "                   "    ]]
       
    
-    message = f'''     {fp.set_font(False,1,231)} Refer to Figure 1 {fp.set_font()}
+    message = f'''     {cp.set_font(False,1,231)} Refer to Figure 1 {cp.set_font()}
 '''
-    simple_msg.print_fancy_format(default_values, fp.Line_Style.NONE)
+    simple_msg.print_fancy_format(default_values, cp.Line_Style.NONE)
     print(message)
 
     # Middle Corner Section
@@ -1757,10 +1757,10 @@ def Print_Fancy_Format_Method():
                      ["left_lateral_corner_chr  = \"+\" ",  "   "                          ],
                      ["right_lateral_corner_chr = \"+\" ",  "   "                          ]]
    
-    message = f'''     {fp.set_font(False,1,231)} Refer to Figure 5 {fp.set_font()}
+    message = f'''     {cp.set_font(False,1,231)} Refer to Figure 5 {cp.set_font()}
 '''
    
-    simple_msg.print_fancy_format(default_values, fp.Line_Style.NONE)
+    simple_msg.print_fancy_format(default_values, cp.Line_Style.NONE)
     print(message)
 
 
@@ -1771,9 +1771,9 @@ def Print_Fancy_Format_Method():
                     ["middle_vertical_header_line_chr = \"|\"", "bg_vertical_header_line_chr   = -1"   ],
                     ["right_vertical_header_line_chr  = \"|\"", "fg_vertical_header_line_chr   = -1"   ]]
    
-    message = f'''     {fp.set_font(False,1,231)} Refer to Figure 5 {fp.set_font()}
+    message = f'''     {cp.set_font(False,1,231)} Refer to Figure 5 {cp.set_font()}
 '''
-    simple_msg.print_fancy_format(default_values, fp.Line_Style.NONE)
+    simple_msg.print_fancy_format(default_values, cp.Line_Style.NONE)
     print(message)
 
 
@@ -1784,12 +1784,12 @@ def Print_Fancy_Format_Method():
                      ["                                        ", "fg_under_line_header   = -1"]]
    
     message = f'''
-     {fp.set_font(False,-1,14)} horizontal_line_under_header_on {fp.set_font()}controls \u2192  d
+     {cp.set_font(False,-1,14)} horizontal_line_under_header_on {cp.set_font()}controls \u2192  d
 
-     {fp.set_font(False,1,231)} Refer to Figure 5 {fp.set_font()}
+     {cp.set_font(False,1,231)} Refer to Figure 5 {cp.set_font()}
 '''
 
-    simple_msg.print_fancy_format(default_values, fp.Line_Style.NONE)
+    simple_msg.print_fancy_format(default_values, cp.Line_Style.NONE)
     print(message)
 
 
@@ -1798,24 +1798,24 @@ def Print_Fancy_Format_Method():
     default_values = [["left_corner_line_under_header_chr   = \"+\"", "bold_corner_under_line_header = False"],
                      ["middle_corner_line_under_header_chr = \"-\"", "bg_corner_under_line_header   = -1"],
                      ["right_corner_line_under_header_chr  = \"+\"", "fg_corner_under_line_header   = -1"]]
-    message = f'''     {fp.set_font(False,1,231)} Refer to Figure 5 {fp.set_font()}
+    message = f'''     {cp.set_font(False,1,231)} Refer to Figure 5 {cp.set_font()}
 '''
-    simple_msg.print_fancy_format(default_values, fp.Line_Style.NONE)
+    simple_msg.print_fancy_format(default_values, cp.Line_Style.NONE)
     print(message)
 
 
 
     message = f'''
-     {fp.set_font(True,231,0)} Note: {fp.reset_font()}
-     {fp.set_font(False,-1,11)} bg {fp.set_font(bg=-1,fg=14)}and {fp.set_font(False,-1,11)}fg {fp.set_font(bg=-1,fg=14)}accepts int values from -1 to 256. {fp.set_font()}
-     {fp.set_font(False,-1,14)} where -1 and 256 are the default value from the system {fp.set_font()}
+     {cp.set_font(True,231,0)} Note: {cp.reset_font()}
+     {cp.set_font(False,-1,11)} bg {cp.set_font(bg=-1,fg=14)}and {cp.set_font(False,-1,11)}fg {cp.set_font(bg=-1,fg=14)}accepts int values from -1 to 256. {cp.set_font()}
+     {cp.set_font(False,-1,14)} where -1 and 256 are the default value from the system {cp.set_font()}
    
-     {fp.set_font(False,1,231)} Refer to set_font() internal function or FontStyle class. {fp.set_font()}    
+     {cp.set_font(False,1,231)} Refer to set_font() internal function or FontStyle class. {cp.set_font()}    
 '''
 
-    simple_msg.print_fancy_format(default_values, fp.Line_Style.NONE)
+    simple_msg.print_fancy_format(default_values, cp.Line_Style.NONE)
     print(message)
-    fp.ins_newline(2)
+    cp.ins_newline(2)
 
 
 
@@ -1826,25 +1826,25 @@ def Reset_Fancy_Format_Method():
     print("\n It will set all the variables in print_fancy_format method to their default values")
     message = f'''
   
-      {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
-      {fp.ins_chr(10)}  fmsg = fp.FancyFormat()      
-      {fp.ins_chr(10)}  message = \"Data Text Here.....\"      
-      {fp.ins_chr(10)}  fmsg.bg_data = 90
-      {fp.ins_chr(10)}  fmsg.print_fancy_format(message)
-      {fp.ins_chr(10)}  fmsg.reset_fancy_format()
-      {fp.ins_chr(10)}  fmsg.print_fancy_mesage(message)
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp
+      {cp.ins_chr(10)}  fmsg = cp.FancyFormat()      
+      {cp.ins_chr(10)}  message = \"Data Text Here.....\"      
+      {cp.ins_chr(10)}  fmsg.bg_data = 90
+      {cp.ins_chr(10)}  fmsg.print_fancy_format(message)
+      {cp.ins_chr(10)}  fmsg.reset_fancy_format()
+      {cp.ins_chr(10)}  fmsg.print_fancy_mesage(message)
 
    '''      
     print(message)
 
-    fmsg = fp.FancyFormat()
+    fmsg = cp.FancyFormat()
     message  = "Data Text Here......"
     fmsg.bg_data = 90
     fmsg.print_fancy_format(message)
     fmsg.reset_fancy_format()
     print("\n")
     fmsg.print_fancy_format(message)
-    fp.ins_newline(2)
+    cp.ins_newline(2)
 
 
 #---------------------------------------------------------------------------------------------------
@@ -1866,7 +1866,7 @@ def Pen_Class():
                      ["refill_bg_color = False", "bg_draw_line   = -1"],
                      ["                       ", "fg_draw_line   = -1"]]
    
-    simple_msg.print_fancy_format(default_values, fp.Line_Style.NONE)
+    simple_msg.print_fancy_format(default_values, cp.Line_Style.NONE)
    
     simple_msg.msg_title = " Rectangle Default Values "
     default_values = [["\033[1;38;5;14mHorizontal Lines\033[0m",                    "  "],
@@ -1879,8 +1879,8 @@ def Pen_Class():
                      ["top_left_corner_chr     = \"+\"       ",   "top_right_corner_chr   = \"+\"    "],
                      ["bottom_right_corner_chr = \"+\"       ",   "bottom_left_corner_chr = \"+\"    "]]
    
-    simple_msg.print_fancy_format(default_values, fp.Line_Style.NONE)
-   #message = f'''     {fp.set_font(False,1,231)} Refer to Figure 5 {fp.set_font()}
+    simple_msg.print_fancy_format(default_values, cp.Line_Style.NONE)
+   #message = f'''     {cp.set_font(False,1,231)} Refer to Figure 5 {cp.set_font()}
 #'''
    #print(message)
 
@@ -1892,52 +1892,52 @@ def Draw_Line_Method():
     green_msg.print_fancy_message(classes_methods_fancyprint[1][4]+"()")
     message = f'''
   
-      {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
-      {fp.ins_chr(10)}  pen = fp.Pen()      
-      {fp.ins_chr(10)}  pen.adj_indent = 8
-      {fp.ins_chr(10)}  pen.draw_line(size=20, layout=fp.Layout.HORIZONTAL,
-                                tail=fp.Unicode.BLACK_LEFT_POINTING_TRIANGLE,
-                                body=fp.Unicode.EM_DASH, head=fp.Unicode.BLAKC_RIGHT_POINT_TRIANGLE)
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp
+      {cp.ins_chr(10)}  pen = cp.Pen()      
+      {cp.ins_chr(10)}  pen.adj_indent = 8
+      {cp.ins_chr(10)}  pen.draw_line(size=20, layout=cp.Layout.HORIZONTAL,
+                                tail=cp.Unicode.BLACK_LEFT_POINTING_TRIANGLE,
+                                body=cp.Unicode.EM_DASH, head=cp.Unicode.BLAKC_RIGHT_POINT_TRIANGLE)
 
-      {fp.set_font(1,231,90)} \u25CF Output {fp.reset_font()}
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
 
       '''
     print(message)
 
-    pen = fp.Pen()
+    pen = cp.Pen()
     pen.adj_indent = 8
-    pen.draw_line(size=20, layout=fp.Layout.HORIZONTAL, tail=fp.Unicode.BLACK_LEFT_POINTING_TRIANGLE,
-                                      body=fp.Unicode.EM_DASH, head=fp.Unicode.BLAKC_RIGHT_POINT_TRIANGLE)
+    pen.draw_line(size=20, layout=cp.Layout.HORIZONTAL, tail=cp.Unicode.BLACK_LEFT_POINTING_TRIANGLE,
+                                      body=cp.Unicode.EM_DASH, head=cp.Unicode.BLAKC_RIGHT_POINT_TRIANGLE)
    
-    fp.ins_newline(2)    
+    cp.ins_newline(2)    
    
 
 def Draw_Rectangle_Method():
     green_msg.print_fancy_message(classes_methods_fancyprint[2][4]+"()")
     message = f'''
-      {fp.set_font(1,231,0)} Example: {fp.reset_font()}  import fancyprint as fp
-      {fp.ins_chr(10)}  pen = fp.Pen()
-      {fp.ins_chr(10)}  pen.adj_indent    = 8
-      {fp.ins_chr(10)}  pen.bg_draw_lines = 90
-      {fp.ins_chr(10)}  pen.fg_draw_lines = 231
-      {fp.ins_chr(10)}  pen.refill_bg_color = True
-      {fp.ins_chr(10)}  pen.draw_rectangle(length=8, width=4, style=fp.Line_Style.DOUBLE)
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp
+      {cp.ins_chr(10)}  pen = cp.Pen()
+      {cp.ins_chr(10)}  pen.adj_indent    = 8
+      {cp.ins_chr(10)}  pen.bg_draw_lines = 90
+      {cp.ins_chr(10)}  pen.fg_draw_lines = 231
+      {cp.ins_chr(10)}  pen.refill_bg_color = True
+      {cp.ins_chr(10)}  pen.draw_rectangle(length=8, width=4, style=cp.Line_Style.DOUBLE)
 
-      {fp.set_font(1,231,90)} \u25CF Output {fp.reset_font()}
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
 
       '''
     print(message)
-    pen = fp.Pen()
+    pen = cp.Pen()
     pen.adj_indent = 8
     pen.bg_draw_line = 90
     pen.fg_draw_line = 231
     pen.refill_bg_color = True
-    pen.draw_rectangle(length=8, width=4, style=fp.Line_Style.DOUBLE)
+    pen.draw_rectangle(length=8, width=4, style=cp.Line_Style.DOUBLE)
 
 #----------------------------------------------------------------------------------------------------------------------------------------------
 # Start the Documentation for fancyprint Module                                                                                               -
 #----------------------------------------------------------------------------------------------------------------------------------------------
-fp.clear()
+cp.clear()
 ctrl = 0
 cmdl_argv = []
 for argv in sys.argv:
@@ -2033,15 +2033,15 @@ else:
         else:
             if (fun != cmdl_argv[0]):
                 red_msg.msg_note = fun
-                red_msg.msg_body = "is NOT a parameter available in fp_docs.py...!"
+                red_msg.msg_body = "is NOT a parameter available in cp_docs.py...!"
                 red_msg.print_fancy_note()
-                fp.ins_newline(2)
+                cp.ins_newline(2)
                 
 
 
 
           
  
-fp.ins_newline(3)
+cp.ins_newline(3)
 input("  Press Enter to Continue: ")
-fp.resize(nrows, ncols)
+cp.resize(nrows, ncols)

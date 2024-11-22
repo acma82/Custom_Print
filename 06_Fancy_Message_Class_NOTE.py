@@ -5,10 +5,10 @@ Method Available:
     print_fancy_message(self, msg_body:str="Paragraph Body")->None    
 '''
 
-import fancyprint as fp
+import custom_print as cp
 
-msg = fp.FancyMessage()
-crs = fp.Cursor()
+msg = cp.FancyMessage()
+crs = cp.Cursor()
 
 # Example 1
 
@@ -37,14 +37,14 @@ what would I give
 Raw rose crystal  
 sediment of the sun
 '''
-ncols, nrows = fp.dimensions()
-fp.resize(35, 100)
-fp.clear()
+ncols, nrows = cp.dimensions()
+cp.resize(35, 100)
+cp.clear()
 #msg.help_lines = True
 msg.top_lines     = 2
 msg.bottom_lines  = 2
 msg.position_note = 12  # by default is on row 0
-msg.align_note    = fp.Align.CENTER
+msg.align_note    = cp.Align.CENTER
 msg.left_space_note = 6
 msg.right_space_note = 6
 msg.left_indent = 25
@@ -61,7 +61,7 @@ msg.fg_body      = 190
 msg.top_lines    = 0
 msg.bottom_lines = 1
 
-crs.jumpTo(qty=1, direction=fp.Move.UP)
+crs.jumpTo(qty=1, direction=cp.Move.UP)
 
 msg.print_fancy_message("Author: Federico García Lorca")
 
@@ -69,7 +69,7 @@ print("\n")
 
 input("enter to exit:")
 
-fp.resize(nrows,ncols)
+cp.resize(nrows,ncols)
 
 
 # Note that the counter start in the bg color. Adding more bottom_lines

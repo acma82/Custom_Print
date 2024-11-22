@@ -3,15 +3,15 @@ Demo 2 for fancyprint module...!
 '''
 
 import os
-import fancyprint as fun
+import custom_print as cp
 
-list1 = fun.FancyFormat()
-csr   = fun.Cursor()
-draw  = fun.Pen()
-msg   = fun.FancyMessage()
+list1 = cp.FancyFormat()
+csr   = cp.Cursor()
+draw  = cp.Pen()
+msg   = cp.FancyMessage()
 
 
-ncols, nrows = fun.dimensions()
+ncols, nrows = cp.dimensions()
 os.system("resize -s 44 95")
 
 # setting for the format
@@ -27,7 +27,7 @@ print()
 high = 0
 sp_list = []
 while high < 19:
-    sp_list.append([fun.ins_chr(85)])
+    sp_list.append([cp.ins_chr(85)])
     high += 1
 
 # Double Line Square
@@ -35,7 +35,7 @@ list1.bold_title  = True
 list1.bg_title    = 22
 list1.fg_title    = 15
 list1.align_title = "left"
-list1.msg_title   = f"{fun.ins_chr(34)}Nice Double Line Frame{fun.ins_chr(35)}"
+list1.msg_title   = f"{cp.ins_chr(34)}Nice Double Line Frame{cp.ins_chr(35)}"
 
 # Corner Section
 list1.top_left_corner_chr     = '\u2554'         # 13
@@ -92,12 +92,12 @@ list1.right_vertical_header_line_chr  = "|"    # 23
 list1.top_horizontal_line_chr = "-"            #
 
 # set vertical
-print(csr.moveTo(qty=19,direction=fun.Move.UP), end="")
+print(csr.moveTo(qty=19,direction=cp.Move.UP), end="")
 list1.msg_title    = " Set Data "
 list1.msg_footnote = " Case 7 "
 set_tags = {1,3,5,7,9}
 list1.adj_indent = 70
-new_set = fun.set2list(set_tags, "Header", fun.Layout.VERTICAL)
+new_set = cp.set2list(set_tags, "Header", cp.Layout.VERTICAL)
 list1.print_fancy_format(new_set)
 
 
@@ -107,14 +107,14 @@ list1.msg_footnote = " Case 8 "
 vowelsT = ("a", "e", "i", "o", "u")
 frozenset_Tuple = frozenset(vowelsT)
 
-print(csr.moveTo(qty=11,direction=fun.Move.UP), end="")
+print(csr.moveTo(qty=11,direction=cp.Move.UP), end="")
 list1.adj_indent = 47
-vowellist = fun.set2list(frozenset_Tuple,"header",fun.Layout.VERTICAL)
+vowellist = cp.set2list(frozenset_Tuple,"header",cp.Layout.VERTICAL)
 list1.print_fancy_format(vowellist)
 
 
 # set horizontal
-print(csr.moveTo(qty=11,direction=fun.Move.UP), end="")
+print(csr.moveTo(qty=11,direction=cp.Move.UP), end="")
 list1.adj_indent   = 6
 list1.msg_title    = " Set Data "
 list1.msg_footnote = " Case 7 "
@@ -127,11 +127,11 @@ list1.msg_title     = " FrozenSet Data "
 list1.msg_footnote  = " Case 8 "
 list1.print_fancy_format(frozenset_Tuple)
 
-vowellist = fun.set2list(frozenset_Tuple)
+vowellist = cp.set2list(frozenset_Tuple)
 list1.print_fancy_format(vowellist)
-fun.ins_newline(4)
+cp.ins_newline(4)
 
-mensaje = f"{fun.ins_chr(44)}THE END"
+mensaje = f"{cp.ins_chr(44)}THE END"
 msg.print_fancy_message(mensaje)
 
 input("Enter to Continue: ")

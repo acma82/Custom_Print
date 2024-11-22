@@ -3,15 +3,15 @@ Demo 3 for fancyprint module...!
 '''
 
 import os
-import fancyprint as fun
+import custom_print as cp
 
-list1 = fun.FancyFormat()
-csr   = fun.Cursor()
-draw  = fun.Pen()
+list1 = cp.FancyFormat()
+csr   = cp.Cursor()
+draw  = cp.Pen()
 
 
-ncols, nrows = fun.dimensions()
-fun.resize(45, 120)
+ncols, nrows = cp.dimensions()
+cp.resize(45, 120)
 
 
 # setting for the format
@@ -28,19 +28,19 @@ print()
 high = 0
 sp_list = []
 while high < 20:
-    sp_list.append([fun.ins_chr(95)])
+    sp_list.append([cp.ins_chr(95)])
     high += 1
 
 # single line square
-mymsg = f"{fun.ins_chr(35)}Nice Single Line Frame.{fun.ins_chr(35)}"
+mymsg = f"{cp.ins_chr(35)}Nice Single Line Frame.{cp.ins_chr(35)}"
 
 
 list1.bold_title  = True
 list1.bg_title    = 22
 list1.fg_title    = 15
 list1.align_title = "left"
-list1.msg_title   = f"{fun.ins_chr(39)}Tuple Style Is on \N{FIRE}{fun.ins_chr(40)}" # {"\U0001F525"} fire number
-list1.print_fancy_format(mymsg,fun.Line_Style.SINGLE)
+list1.msg_title   = f"{cp.ins_chr(39)}Tuple Style Is on \N{FIRE}{cp.ins_chr(40)}" # {"\U0001F525"} fire number
+list1.print_fancy_format(mymsg,cp.Line_Style.SINGLE)
 
 # Corner Section
 list1.top_left_corner_chr     = '\u250C'          # 13
@@ -162,7 +162,7 @@ tupleData9 = (("hello","hello"),("hell",),("hi","bye","good"),[1,2], "hello")
 list1.msg_footnote = " Vars Combination in a Tuple "
 list1.print_fancy_format(tupleData9)
 
-msg = f"{fun.ins_chr(44)}THE END.....!{fun.ins_chr(44)}"
+msg = f"{cp.ins_chr(44)}THE END.....!{cp.ins_chr(44)}"
 
 
 input("Enter to Continue: ")

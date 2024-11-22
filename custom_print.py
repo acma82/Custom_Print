@@ -1,388 +1,378 @@
 '''
-Fancy Print For Any Type of Variable
+custom_print module can handle any type of variable.
 '''
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-# Required Modules                                                                                                                             -
-#-----------------------------------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------
+#12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+#        1         2         3         4         5         6         7         8         9         A         B         C
+#-----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+#-----------------------------------------------------------------------------------------------------------------------
+# Required Modules                                                                                                     -
+#-----------------------------------------------------------------------------------------------------------------------
 import os
 import enum
 import platform
-#-----------------------------------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------
 # For Help:
 #   inside the python interpreter
 
-#   import fancyprint as fp
-#   fun = fp.FancyPrint()
-  
+#   import customprint as cp
+#   fun = cp.FancyPrint()
+
 #   help(fp.bg_ansi_colors(bold=1, fg=22))   for a function of the module
 #   help(fun.fancy_print())                  for a function of the module inside the classs FancyList
 
 #   for the terminal is 80 width with any height for better visualization.
 
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-# Layout is used for the Range, Set, Frozenset.                                                                                                -
-#-----------------------------------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------
+# Layout is used for the Range, Set, Frozenset.                                                                        -
+#-----------------------------------------------------------------------------------------------------------------------
 #class Move(str, enum.Enum): # python3.9.18
 class Move(enum.StrEnum):    # python3.12.1
-   UP    = "up"
-   RIGHT = "right"
-   DOWN  = "down"
-   LEFT  = "left"
+    UP    = "up"
+    RIGHT = "right"
+    DOWN  = "down"
+    LEFT  = "left"
 
 
 class Align(enum.StrEnum):
-   LEFT     = "left"
-   CENTER   = "center"
-   RIGHT    = "right"
-   JUSTIFY  = "justify"
+    LEFT     = "left"
+    CENTER   = "center"
+    RIGHT    = "right"
+    JUSTIFY  = "justify"
 
 
 class Layout(enum.StrEnum):
-   HORIZONTAL = "horizontal"
-   VERTICAL =   "vertical"
+    HORIZONTAL = "horizontal"
+    VERTICAL =   "vertical"
 
 
 class Length_bg(enum.Enum):
-   ALL_ROW   = 1
-   ONLY_WORD = 2
+    ALL_ROW   = 1
+    ONLY_WORD = 2
 
 
 class Line_Style(enum.StrEnum):
-   CUSTOMIZED   = "customized"
-   SINGLE       = "single"
-   SINGLE_BOLD  = "single_bold"
-   SINGLE_HEAVY = "single_heavy"
-   DOUBLE       = "double"
-   DASH         = "dash"
-   SQ_BRACKETS  = "sq_brackets"
-   NONE         = "none"
+    CUSTOMIZED   = "customized"
+    SINGLE       = "single"
+    SINGLE_BOLD  = "single_bold"
+    SINGLE_HEAVY = "single_heavy"
+    DOUBLE       = "double"
+    DASH         = "dash"
+    SQ_BRACKETS  = "sq_brackets"
+    NONE         = "none"
+    SPACE_COL_COLOR    = "space_col_color"
+    NO_SPACE_COL_COLOR = "no_space_col_color"
 
-   SPACE_COL_COLOR    = "space_col_color"
-   NO_SPACE_COL_COLOR = "no_space_col_color"
-
-
+#-----------------------------------------------------------------------------------------------------------------------
 class Unicode(enum.StrEnum):
-   #--------------------------------------------------------------------------------------------
-   # Box Drawings                                                                              -
-   #--------------------------------------------------------------------------------------------
-   BOX_DRAWINGS_LIGHT_HORIZONTAL          = "\N{BOX DRAWINGS LIGHT HORIZONTAL}"
-   BOX_DRAWINGS_LIGHT_VERTICAL_AND_RIGHT  = "\N{BOX DRAWINGS LIGHT VERTICAL AND RIGHT}"
-   BOX_DRAWINGS_LIGHT_VERTICAL_AND_LEFT   = "\N{BOX DRAWINGS LIGHT VERTICAL AND LEFT}"
+    #-------------------------------------------------------------------------------------------------------------------
+    # Box Drawings                                                                                                     -
+    #-------------------------------------------------------------------------------------------------------------------
+    BOX_DRAWINGS_LIGHT_HORIZONTAL          = "\N{BOX DRAWINGS LIGHT HORIZONTAL}"
+    BOX_DRAWINGS_LIGHT_VERTICAL_AND_RIGHT  = "\N{BOX DRAWINGS LIGHT VERTICAL AND RIGHT}"
+    BOX_DRAWINGS_LIGHT_VERTICAL_AND_LEFT   = "\N{BOX DRAWINGS LIGHT VERTICAL AND LEFT}"
 
-   BOX_DRAWINGS_LIGHT_VERTICAL            = "\N{BOX DRAWINGS LIGHT VERTICAL}"
-   BOX_DRAWINGS_LIGHT_DOWN_AND_HORIZONTAL = "\N{BOX DRAWINGS LIGHT DOWN AND HORIZONTAL}"
-   BOX_DRAWINGS_LIGHT_UP_AND_HORIZONTAL   = "\N{BOX DRAWINGS LIGHT UP AND HORIZONTAL}"
+    BOX_DRAWINGS_LIGHT_VERTICAL            = "\N{BOX DRAWINGS LIGHT VERTICAL}"
+    BOX_DRAWINGS_LIGHT_DOWN_AND_HORIZONTAL = "\N{BOX DRAWINGS LIGHT DOWN AND HORIZONTAL}"
+    BOX_DRAWINGS_LIGHT_UP_AND_HORIZONTAL   = "\N{BOX DRAWINGS LIGHT UP AND HORIZONTAL}"
 
-   BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL ="\N{BOX DRAWINGS LIGHT VERTICAL AND HORIZONTAL}"
-  
-   #--------------------------------------------------------------------------------------------
-   # Triangle                                                                                  -
-   #--------------------------------------------------------------------------------------------
-   BLACK_UP_POINTING_TRIANGLE   = "\N{BLACK UP-POINTING TRIANGLE}"     # \u25B2  up fill arrow
-   WHITE_UP_POINTING_TRIANGLE   = "\N{WHITE UP-POINTING TRIANGLE}"     # \u25B3  up empty arrow
+    BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL ="\N{BOX DRAWINGS LIGHT VERTICAL AND HORIZONTAL}"
 
-   BLAKC_RIGHT_POINT_TRIANGLE   = "\N{BLACK RIGHT-POINTING TRIANGLE}"  # \u25B6  right fill  arrow
-   WHITE_RIGHT_POINT_TRIANGLE   = "\N{WHITE RIGHT-POINTING TRIANGLE}"  # \u25B7  right empty arrow
-   
-   BLACK_DOWN_POINTING_TRIANGLE = "\N{BLACK DOWN-POINTING TRIANGLE}" # \u25BC  down fill  arrow
-   WHITE_DOWN_POINTING_TRIANGLE = "\N{BLACK DOWN-POINTING TRIANGLE}" # \u25BD  down empty arrow
+    #-------------------------------------------------------------------------------------------------------------------
+    # Triangle                                                                                                         -
+    #-------------------------------------------------------------------------------------------------------------------
+    BLACK_UP_POINTING_TRIANGLE   = "\N{BLACK UP-POINTING TRIANGLE}"     # \u25B2  up fill arrow
+    WHITE_UP_POINTING_TRIANGLE   = "\N{WHITE UP-POINTING TRIANGLE}"     # \u25B3  up empty arrow
 
-   BLACK_LEFT_POINTING_TRIANGLE = "\N{BLACK LEFT-POINTING TRIANGLE}" # \u25C0  left fill arrow
-   WHITE_LEFT_POINTING_TRIANGLE = "\N{WHITE LEFT-POINTING TRIANGLE}" # \u25C1  left empty arrow
+    BLAKC_RIGHT_POINT_TRIANGLE   = "\N{BLACK RIGHT-POINTING TRIANGLE}"  # \u25B6  right fill  arrow
+    WHITE_RIGHT_POINT_TRIANGLE   = "\N{WHITE RIGHT-POINTING TRIANGLE}"  # \u25B7  right empty arrow
 
-   EM_DASH = "\N{EM DASH}"
-   #--------------------------------------------------------------------------------------------
-   # Miscellaneous                                                                             -
-   #--------------------------------------------------------------------------------------------
-   BLACK_DIAMOND = "\N{BLACK DIAMOND}"
-   WHITE_DIAMOND = "\N{WHITE DIAMOND}"
+    BLACK_DOWN_POINTING_TRIANGLE = "\N{BLACK DOWN-POINTING TRIANGLE}" # \u25BC  down fill  arrow
+    WHITE_DOWN_POINTING_TRIANGLE = "\N{BLACK DOWN-POINTING TRIANGLE}" # \u25BD  down empty arrow
 
-   BLACK_CIRCLE  = "\N{BLACK CIRCLE}"
-   WHITE_CIRCLE  = "\N{WHITE CIRCLE}"
+    BLACK_LEFT_POINTING_TRIANGLE = "\N{BLACK LEFT-POINTING TRIANGLE}" # \u25C0  left fill arrow
+    WHITE_LEFT_POINTING_TRIANGLE = "\N{WHITE LEFT-POINTING TRIANGLE}" # \u25C1  left empty arrow
 
-   FACE = "(" + chr(0x25D5) + chr(0x25E1) + chr(0x25D5) + ")"
- 
+    EM_DASH = "\N{EM DASH}"
+    #-------------------------------------------------------------------------------------------------------------------
+    # Miscellaneous                                                                                                    -
+    #-------------------------------------------------------------------------------------------------------------------
+    BLACK_DIAMOND = "\N{BLACK DIAMOND}"
+    WHITE_DIAMOND = "\N{WHITE DIAMOND}"
 
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-# Screen Functions                                                                                                                             -
-#-----------------------------------------------------------------------------------------------------------------------------------------------
+    BLACK_CIRCLE  = "\N{BLACK CIRCLE}"
+    WHITE_CIRCLE  = "\N{WHITE CIRCLE}"
+
+    FACE = "(" + chr(0x25D5) + chr(0x25E1) + chr(0x25D5) + ")"
+
+
+#-----------------------------------------------------------------------------------------------------------------------
+# Screen Functions                                                                                                     -
+#-----------------------------------------------------------------------------------------------------------------------
 def clean():
-   '''
-----------------------------------------------------------------------------      
-   It cleans the terminal and returns the cursor to home.
-----------------------------------------------------------------------------
-   '''
-   print("\033[2J",end="")  # clean the terminal
-   print("\033[H",end="")   # return home the cursor
+
+    ''' It cleans the terminal and returns the cursor to home. '''
+
+    print("\033[2J",end="")  # clean the terminal
+    print("\033[H",end="")   # return home the cursor
 
 
 if os.name == 'nt' and (platform.release() == '10' or platform.release == "11"):
-   OS_Windows = True
-   OS_Linux = False
-   # Fix ANSI color in Windows 10 version 10.0.14393 (Windows Anniversary Update)
-   import ctypes
-   kernel32 = ctypes.windll.kernel32
-   kernel32.SetConsoleMode(kernel32.GetStdHandle(-11), 7)
-   def clear():
-     '''
-   ----------------------------------------------------------------------------      
-      It cleans the terminal and returns the cursor to home.
-   ----------------------------------------------------------------------------
-     '''
-     os.system("cls")
-   
-   # it may disable the scroll bar on the Command Prompt or the Windows PowerShell
-   # to enable the scroll bar, got to Properties-> Layout-> Screen Buffer Size-> Set Height to 1000
-   # use Command Prompt or Windows PowerShell
-   
-   def resize(rows:int=25, cols:int=80)->None:
-      '''
-   ----------------------------------------------------------------------------      
-      It resizes the terminal size.
-   ----------------------------------------------------------------------------
-      '''
-      #os.system(f"mode con:cols={cols} lines={rows}")
-      os.system(f"mode {cols}, {rows}")
+    OS_Windows = True
+    OS_Linux = False
+    # Fix ANSI color in Windows 10 version 10.0.14393 (Windows Anniversary Update)
+    import ctypes
+    kernel32 = ctypes.windll.kernel32
+    kernel32.SetConsoleMode(kernel32.GetStdHandle(-11), 7)
+    def clear():
+
+        '''  It cleans the terminal and returns the cursor to home.  '''
+
+        os.system("cls")
+
+    # it may disable the scroll bar on the Command Prompt or the Windows PowerShell
+    # to enable the scroll bar, got to Properties-> Layout-> Screen Buffer Size-> Set Height to 1000
+    # use Command Prompt or Windows PowerShell
+
+    def resize(rows:int=25, cols:int=80)->None:
+
+        '''  It resizes the terminal size.  '''
+
+        #os.system(f"mode con:cols={cols} lines={rows}")
+        os.system(f"mode {cols}, {rows}")
 
 
 elif (os.name == 'posix'):
-   OS_Windows = False
-   OS_Linux = True
-   def clear():
-      '''
-   ----------------------------------------------------------------------------      
-      It cleans the terminal and returns the cursor to home.
-   ----------------------------------------------------------------------------
-      '''
-      os.system("clear")
-   
-   def resize(rows:int=25, cols:int=80)->None:
-      '''
-   ----------------------------------------------------------------------------      
-      It resizes the terminal size.
-   ----------------------------------------------------------------------------
-      '''
-      os.system(f"resize -s {rows} {cols}")
+    OS_Windows = False
+    OS_Linux = True
+    def clear():
+
+        '''  It cleans the terminal and returns the cursor to home.  '''
+
+        os.system("clear")
+
+    def resize(rows:int=25, cols:int=80)->None:
+
+        '''  It resizes the terminal size.  '''
+
+        os.system(f"resize -s {rows} {cols}")
 
 
 else:
-   def clear():
-      '''
-   ----------------------------------------------------------------------------      
-      It cleans the terminal and returns the cursor to home.
-   ----------------------------------------------------------------------------
-      '''
-      print("\033[2J",end="")  # clean the terminal
-      print("\033[H",end="")   # return home the cursor
+    def clear():
 
-   def resize(rows:int=25, cols:int=80)->None:
-      '''
-   ----------------------------------------------------------------------------      
-      It resizes the terminal size.
-   ----------------------------------------------------------------------------
-      '''
-      os.system(f"resize -s {rows} {cols}")
+        '''  It cleans the terminal and returns the cursor to home.  '''
+
+        print("\033[2J",end="")  # clean the terminal
+        print("\033[H",end="")   # return home the cursor
+
+    def resize(rows:int=25, cols:int=80)->None:
+
+        '''  It resizes the terminal size.  '''
+
+        os.system(f"resize -s {rows} {cols}")
 
 
-#-----------------------------------------------------------------------------------------------------------------------------------------------
+
+#-----------------------------------------------------------------------------------------------------------------------
 def dimensions():
-   '''
-----------------------------------------------------------------------------      
-   It returns the dimensions of the terminal: cols, rows = dimensions()
-----------------------------------------------------------------------------
-   '''
-   cols, rows = os.get_terminal_size()
-   return cols, rows
+
+    '''  It returns the dimensions of the terminal: cols, rows = dimensions()  '''
+
+    cols, rows = os.get_terminal_size()
+    return cols, rows
 
 
+
+#-----------------------------------------------------------------------------------------------------------------------
 def erase():
-   '''
-----------------------------------------------------------------------------      
-   It erases the terminal and leaves the cursor in the current position.
-----------------------------------------------------------------------------
-   '''
-   print("\033[2J",end="")
+
+    '''  It erases the terminal and leaves the cursor in the current position.  '''
+
+    print("\033[2J",end="")
 
 
 
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-# Linux Background Color Option List                                                                                                           -
-#----------------------------------------------------------------------------------------------------------------------------------------------- 
+#-----------------------------------------------------------------------------------------------------------------------
+# Linux Background Color Option List                                                                                   -
+#-----------------------------------------------------------------------------------------------------------------------
 def bg_ansi_colors(bold=False, fg=-1, n_line=0):
-   '''
-----------------------------------------------------------------------------
-   This function displays all background colors available with ansi code.
-----------------------------------------------------------------------------
-'''
 
-   msg = " bg color number "
-   reset = "\033[0m"; ctrl = 0; space = "   "
+    '''  This function displays all background colors available with ansi code.  '''
 
-   if fg < 0 or fg > 256: fg_color = "-1"
-   else:                  fg_color = str(fg)  
-  
-   if bold == True: b = "1"
-   else:         b = "0" 
-   
-   for color in range(257):
-      if color <= 9:
-         space = "   "
-      elif color <= 99 and color >=10:
-         space = "  "
-      else:
-         space = " "
+    reset = "\033[0m"
+    space = "   "
+    ctrl  = 0
+    msg   = " bg color number " 
     
-      if ctrl <= 1:
-         ctrl += 1
-         if fg_color == "-1":
-            print(f"\033[{b};48;5;{color}m {msg} {reset}{color}",end=space)
-         else:
-            print(f"\033[{b};48;5;{color};38;5;{fg_color}m {msg} {reset}{color}",end=space)
-      else:
-         ctrl = 0
-         if fg_color == "-1":
-            if n_line > 0: print(f"\033[{b};48;5;{color}m {msg} {reset}{color}"); ins_newline(n_line)
-            else:             print(f"\033[{b};48;5;{color}m {msg} {reset}{color}")
-         else:
-            if n_line > 0: print(f"\033[{b};48;5;{color};38;5;{fg_color}m {msg} {reset}{color}"); ins_newline(n_line)
-            else:                 print(f"\033[{b};48;5;{color};38;5;{fg_color}m {msg} {reset}{color}")
-   
-   print("\x1B[0m  bg default color  -1")
+    if fg < 0 or fg > 256: fg_color = "-1"
+    else:                  fg_color = str(fg)
+
+    if bold == True: b = "1"
+    else:            b = "0"
+
+    for color in range(257):
+        if color <= 9:                    space = "   "
+        elif color <= 99 and color >=10:  space = "  "
+        else:                             space = " "
+
+        if ctrl <= 1:
+            ctrl += 1
+            if fg_color == "-1":
+                print(f"\033[{b};48;5;{color}m {msg} {reset}{color}",end=space)
+            else:
+                print(f"\033[{b};48;5;{color};38;5;{fg_color}m {msg} {reset}{color}",end=space)
+        else:
+            ctrl = 0
+            if fg_color == "-1":
+                if n_line > 0:
+                    print(f"\033[{b};48;5;{color}m {msg} {reset}{color}")
+                    ins_newline(n_line)
+                else:
+                    print(f"\033[{b};48;5;{color}m {msg} {reset}{color}")
+
+            else:
+                if n_line > 0:
+                    print(f"\033[{b};48;5;{color};38;5;{fg_color}m {msg} {reset}{color}")
+                    ins_newline(n_line)
+                else:
+                    print(f"\033[{b};48;5;{color};38;5;{fg_color}m {msg} {reset}{color}")
+
+    print("\x1B[0m  bg default color  -1")
 
 
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-# Linux Foreground Color Option List                                                                                                           -
-#-----------------------------------------------------------------------------------------------------------------------------------------------
+
+#-----------------------------------------------------------------------------------------------------------------------
+# Linux Foreground Color Option List                                                                                   -
+#-----------------------------------------------------------------------------------------------------------------------
 def fg_ansi_colors(bold=False, bg=-1, n_line=0):
-   '''
-----------------------------------------------------------------------------
-   This function displays all foreground colors available with ansi code
-----------------------------------------------------------------------------
-'''
 
-   msg = " fg color number "
-   reset = "\033[0m"; ctrl = 0; space = "   "
+    '''  This function displays all foreground colors available with ansi code  '''
 
-   if bg < 0 or bg > 256: bg_color = "-1"
-   else:                  bg_color = str(bg)  
-  
-   if bold == True: b = "1"
-   else:         b = "0" 
+    reset = "\033[0m"
+    space = "   "
+    ctrl  = 0
+    msg   = " fg color number " 
 
-   for color in range(257):
-      if color <= 9:
-         space = "   "
-      elif color <= 99 and color >=10:
-         space = "  "
-      else:
-         space = " "
-    
-      if ctrl <= 1:
-         ctrl += 1
-         if bg_color == "-1":
-            print(f"\033[{b};38;5;{color}m {msg} {reset}{color}",end=space)
-         else:
-            print(f"\033[{b};48;5;{bg_color};38;5;{color}m {msg} {reset}{color}",end=space)
-      else:
-         ctrl = 0
-         if bg_color == "-1":
-            if (n_line > 0): print(f"\033[{b};38;5;{color}m {msg} {reset}{color}"); ins_newline(n_line)
-            else:              print(f"\033[{b};38;5;{color}m {msg} {reset}{color}")
-         else:
-            if (n_line > 0): print(f"\033[{b};48;5;{bg_color};38;5;{color}m {msg} {reset}{color}"); ins_newline(n_line)
-            else:              print(f"\033[{b};48;5;{bg_color};38;5;{color}m {msg} {reset}{color}")
+    if bg < 0 or bg > 256: bg_color = "-1"
+    else:                  bg_color = str(bg)  
    
-   print("\x1B[0m  fg default color  -1")
+    if bold == True: b = "1"
+    else:            b = "0" 
+ 
+    for color in range(257):
+        if color <= 9:
+            space = "   "
+        elif color <= 99 and color >=10:
+            space = "  "
+        else:
+            space = " "
+      
+        if ctrl <= 1:
+            ctrl += 1
+            if bg_color == "-1":
+                print(f"\033[{b};38;5;{color}m {msg} {reset}{color}",end=space)
+            else:
+                print(f"\033[{b};48;5;{bg_color};38;5;{color}m {msg} {reset}{color}",end=space)
+        else:
+            ctrl = 0
+            if bg_color == "-1":
+                if (n_line > 0):
+                    print(f"\033[{b};38;5;{color}m {msg} {reset}{color}")
+                    ins_newline(n_line)
+                else:
+                   print(f"\033[{b};38;5;{color}m {msg} {reset}{color}")
+            else:
+                if (n_line > 0):
+                    print(f"\033[{b};48;5;{bg_color};38;5;{color}m {msg} {reset}{color}")
+                    ins_newline(n_line)
+                else:
+                    print(f"\033[{b};48;5;{bg_color};38;5;{color}m {msg} {reset}{color}")
+    
+    print("\x1B[0m  fg default color  -1")
 
 
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-# Terminal Sounds                                                                                                                              -
-#-----------------------------------------------------------------------------------------------------------------------------------------------
+
+#-----------------------------------------------------------------------------------------------------------------------
+# Terminal Sounds                                                                                                      -
+#-----------------------------------------------------------------------------------------------------------------------
 def terminal_bell():
-   '''
-----------------------------------------------------------------------------
-   terminal_bell()
-      This function makes sound of the terminal bell.  
-----------------------------------------------------------------------------
-'''
-   print("\a")
+
+    '''  terminal_bell()
+         This function makes sound of the terminal bell.  '''
+    
+    print("\a")
 
 
 
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-#  Function Used by the FancyFormat Class                                                                                                      -
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-# Insert A Unicode Character n Times                                                                                                           -
-#-----------------------------------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------
+#  Function Used by the FancyFormat Class                                                                              -
+#-----------------------------------------------------------------------------------------------------------------------
+# Insert A Unicode Character n Times                                                                                   -
+#-----------------------------------------------------------------------------------------------------------------------
 def ins_chr(n=1, unicode=" "):
-   '''
-----------------------------------------------------------------------------
-   ins_chr(n=x, unicode=" ")
-      This function inserts n times the unicode provided.
-----------------------------------------------------------------------------   
-   Example: 
+
+    '''  ins_chr(n=x, unicode=" ")
+         This function inserts n times the unicode provided
+            Example: 
             import fancyprint as fp              
             print(f"Hello{fp.ins_chr(40,".")}There")
-
-
-'''
-   sp = str(unicode)
+    '''
+    sp = str(unicode)
    
-   space = ""
-   while n > 0:
-      space += sp
-      n -= 1
-   return space
+    space = ""
+    while n > 0:
+        space += sp
+        n -= 1
+    return space
 
 
 
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-# Insert n Newlines                                                                                                                            -
-#-----------------------------------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------
+# Insert n Newlines                                                                                                    -
+#-----------------------------------------------------------------------------------------------------------------------
 def ins_newline(n=1):
-   '''
-----------------------------------------------------------------------------
-   ins_newline(n=1)
-      This function inserts n new lines.
-----------------------------------------------------------------------------   
-   example:
+    '''  ins_newline(n=1)
+         This function inserts n new lines.
+         
+         example:
            import fancyprint as fp 
            print("Python 3")
            fp.ins_newline(3)
-           print("is amazing...!")
-
-   '''
+           print("is amazing...!")'''
    
-   while n > 0:
-      n -= 1      
-      print("")
+    while n > 0:
+        n -= 1      
+        print("")
 
 
 
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-# Move Cursor to the Right. This function is used as the indentation for the print                                                             -
-#-----------------------------------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------
+# Move Cursor to the Right. This function is used as the indentation for the print                                     -
+#-----------------------------------------------------------------------------------------------------------------------
 def _move_right(n=0,option_space=False):
-   '''
-----------------------------------------------------------------------------
-   This function moves the cursor n spaces to the right.   
-----------------------------------------------------------------------------
-   '''
-   if (option_space == True):
-      sp = ins_chr(n)
-   else:
-      if (n == 0):
-         sp = ""
-      else:
-         sp = f"\033[{str(n)}C"
-   return sp 
+    
+    '''  This function moves the cursor n spaces to the right.  '''
+    
+    if (option_space == True):
+        sp = ins_chr(n)
+    else:
+        if (n == 0):
+            sp = ""
+        else:
+            sp = f"\033[{str(n)}C"
+    return sp 
 
 
-
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-# Set Settings for the Font: Bold, Background, and Foreground                                                                                  -
-#-----------------------------------------------------------------------------------------------------------------------------------------------
+# hasta aqui is ok all indentation and spaces and headers
+#-----------------------------------------------------------------------------------------------------------------------
+# Set Settings for the Font: Bold, Background, and Foreground                                                          -
+#-----------------------------------------------------------------------------------------------------------------------
 def set_font(bold=False,bg=-1,fg=-1,italic=False,underline=False,strike=False,blinking=False,dim=False,hidden=False,inverse=False):
    '''
 ----------------------------------------------------------------------------
@@ -460,9 +450,9 @@ def set_font(bold=False,bg=-1,fg=-1,italic=False,underline=False,strike=False,bl
    
 
 
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-# Reset Settings for the Font: Bold, Background, and Foreground                                                                                -
-#-----------------------------------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------
+# Reset Settings for the Font: Bold, Background, and Foreground                                                        -
+#-----------------------------------------------------------------------------------------------------------------------
 def reset_font():
    '''
 ----------------------------------------------------------------------------
@@ -478,9 +468,9 @@ def reset_font():
 
 
 
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-# Convert From Bool to List Type                                                                                                               -
-#-----------------------------------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------
+# Convert From Bool to List Type                                                                                       -
+#-----------------------------------------------------------------------------------------------------------------------
 def bool2list(my_bool):
    '''
    ----------------------------------------------------------------------------
@@ -493,9 +483,9 @@ def bool2list(my_bool):
 
 
 
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-# Convert From Integer to List Type                                                                                                            -
-#-----------------------------------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------
+# Convert From Integer to List Type                                                                                    -
+#-----------------------------------------------------------------------------------------------------------------------
 def int2list(my_int):
    '''
    ----------------------------------------------------------------------------
@@ -508,9 +498,9 @@ def int2list(my_int):
 
 
 
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-# Convert From Float to List Type                                                                                                              -
-#-----------------------------------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------
+# Convert From Float to List Type                                                                                      -
+#-----------------------------------------------------------------------------------------------------------------------
 def float2list(my_float):
    '''
    ----------------------------------------------------------------------------
@@ -524,9 +514,9 @@ def float2list(my_float):
 
 
 
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-# Convert From Complex to List Type                                                                                                            -
-#-----------------------------------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------
+# Convert From Complex to List Type                                                                                    -
+#-----------------------------------------------------------------------------------------------------------------------
 def complex2list(my_complex):
    '''
    ----------------------------------------------------------------------------
@@ -539,9 +529,9 @@ def complex2list(my_complex):
 
 
 
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-# Convert From String to List Type                                                                                                             -
-#-----------------------------------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------
+# Convert From String to List Type                                                                                     -
+#-----------------------------------------------------------------------------------------------------------------------
 def str2list(my_str):
    '''
    ----------------------------------------------------------------------------
@@ -554,9 +544,9 @@ def str2list(my_str):
 
 
 
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-# Convert From Dict to List Type                                                                                                               -
-#-----------------------------------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------
+# Convert From Dict to List Type                                                                                       -
+#-----------------------------------------------------------------------------------------------------------------------
 def dict2list(my_dict, key_title="key", value_title="value"):
    '''
    ----------------------------------------------------------------------------
@@ -589,9 +579,9 @@ def dict2list(my_dict, key_title="key", value_title="value"):
 
 
 
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-# Convert From Set or Frozenset to List Type                                                                                                               -
-#-----------------------------------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------
+# Convert From Set or Frozenset to List Type                                                                           -                                   -
+#-----------------------------------------------------------------------------------------------------------------------
 def set2list(my_set:set, set_header = "none", layout:Layout=Layout.HORIZONTAL):
    '''
    ----------------------------------------------------------------------------
@@ -644,9 +634,9 @@ def set2list(my_set:set, set_header = "none", layout:Layout=Layout.HORIZONTAL):
 
 
 
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-# Convert From Range to List Type                                                                                                               -
-#-----------------------------------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------
+# Convert From Range to List Type                                                                                      -
+#-----------------------------------------------------------------------------------------------------------------------
 def range2list(my_range:range, range_header = "none", layout:Layout=Layout.HORIZONTAL):
    '''
    ----------------------------------------------------------------------------
@@ -676,9 +666,9 @@ def range2list(my_range:range, range_header = "none", layout:Layout=Layout.HORIZ
 
 
 
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-# Convert From Tuple to List Type                                                                                                               -
-#-----------------------------------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------
+# Convert From Tuple to List Type                                                                                      -
+#-----------------------------------------------------------------------------------------------------------------------
 def tuple2list(my_tuple):
    '''
    ----------------------------------------------------------------------------
@@ -755,9 +745,9 @@ def tuple2list(my_tuple):
 
 
 
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-# Get Data Type and Convert It to a List Type                                                                                                  -
-#-----------------------------------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------
+# Get Data Type and Convert It to a List Type                                                                          -
+#-----------------------------------------------------------------------------------------------------------------------
 def data2list(self,dato):
    '''
    ----------------------------------------------------------------------------
@@ -810,9 +800,9 @@ def data2list(self,dato):
 
 
 
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-# Get List Type                                                                                                                                -
-#-----------------------------------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------
+# Get List Type                                                                                                        -
+#-----------------------------------------------------------------------------------------------------------------------
 def _get_list_type(my_list):
    if not isinstance(my_list, list):
       return "incorrect_variable_type"                # [Not a List] Case 0
@@ -856,9 +846,9 @@ def _get_list_type(my_list):
 
 
 
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-# Get Total Length of the Columns                                                                                                              -
-#-----------------------------------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------
+# Get Total Length of the Columns                                                                                      -
+#-----------------------------------------------------------------------------------------------------------------------
 def _get_total_length(self,my_list):
    my_length = 0
    list_dimensions = _get_list_type(my_list)
@@ -932,15 +922,16 @@ def _get_total_length(self,my_list):
 
 
 
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-# Print Title On Terminal with Its Attributes: Bold, Bg and Fg Color (title)                                                                   -
-#-----------------------------------------------------------------------------------------------------------------------------------------------
+
+#-----------------------------------------------------------------------------------------------------------------------
+# Print Title On Terminal with Its Attributes: Bold, Bg and Fg Color (title)                                           -
+#-----------------------------------------------------------------------------------------------------------------------
 def _print_title(self,my_list):
 
    if self.msg_title == "": return
    else: 
-      settings = set_font(self.bold_title,self.bg_title, self.fg_title,self.italic_title,self.underline_title,self.strike_title,self.blinking_title,self.dim_title,self.hidden_title,self.inverse_title)
+      settings = set_font(self.bold_title,self.bg_title, self.fg_title,self.italic_title,self.underline_title,
+                          self.strike_title,self.blinking_title,self.dim_title,self.hidden_title,self.inverse_title)
 
       # check for the length of the message
    total_length = _get_total_length(self,my_list)
@@ -978,10 +969,10 @@ def _print_title(self,my_list):
 
 
 
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-# Print Footnote On Terminal with Its Attributes: Bold, Bg and Fg Color (footnote)                                                             -
-#-----------------------------------------------------------------------------------------------------------------------------------------------
+
+#-----------------------------------------------------------------------------------------------------------------------
+# Print Footnote On Terminal with Its Attributes: Bold, Bg and Fg Color (footnote)                                     -
+#-----------------------------------------------------------------------------------------------------------------------
 def _print_notefoot(self,my_list):
    
    if self.msg_footnote == "": return
@@ -1023,10 +1014,10 @@ def _print_notefoot(self,my_list):
    
 
 
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-# Print Horizontal Line                                                                                                                        -
-#-----------------------------------------------------------------------------------------------------------------------------------------------
+
+#-----------------------------------------------------------------------------------------------------------------------
+# Print Horizontal Line                                                                                                -
+#-----------------------------------------------------------------------------------------------------------------------
 def _print_horizontal_segment(self,start_chr,end_chr,times,indent,option):
 
    set_v = set_font(self.bold_vertical_line, self.bg_vertical_line, self.fg_vertical_line)
@@ -1064,10 +1055,10 @@ def _print_horizontal_segment(self,start_chr,end_chr,times,indent,option):
 
 
 
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-# Print Single Element                                                                                                                         -
-#-----------------------------------------------------------------------------------------------------------------------------------------------
+
+#-----------------------------------------------------------------------------------------------------------------------
+# Print Single Element                                                                                                 -
+#-----------------------------------------------------------------------------------------------------------------------
 def _print_single_element(self,my_list):
    
    if isinstance(my_list[0],list): item = my_list[0][0]
@@ -1093,7 +1084,7 @@ def _print_single_element(self,my_list):
    else:
       pass
 
-   #--------------------------------------------------------------------------------------------------------------------------------------------
+    #-------------------------------------------------------------------------------------------------------------------
    # print data with adjustments. We are missing vertical line color and horizontal line color and data color
    if (self.align_data.lower() == "left") or (self.align_data.lower() == "l"):
       print(_move_right(self.adj_indent) + set_v+self.left_vertical_line_chr + set_d+ item + _move_right((self.adj_space*2),\
@@ -1115,7 +1106,7 @@ def _print_single_element(self,my_list):
       print(_move_right(self.adj_indent) + set_v+self.left_vertical_line_chr + set_d+_move_right(self.adj_space,self.bg_all_cell_data)+\
             item + _move_right(self.adj_space,self.bg_all_cell_data) + set_v+self.right_vertical_line_chr + reset_font())
     
-   #--------------------------------------------------------------------------------------------------------------------------------------------
+    #-------------------------------------------------------------------------------------------------------------------
    # print the bottom horizontal line
    if  self.bottom_horizontal_line_on == 1:
       indent = 1  # to add the space at the beginning (vertical line chr)
@@ -1132,9 +1123,9 @@ def _print_single_element(self,my_list):
 
 
 
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-# Print Multiple Horizontal Items (One Row OR No Row)                                                                                          -
-#-----------------------------------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------
+# Print Multiple Horizontal Items (One Row OR No Row)                                                                  -
+#-----------------------------------------------------------------------------------------------------------------------
 def _print_multiple_horizontal_items(self,my_list):
    ins_newline(self.adj_top_margin)
    # print title
@@ -1163,7 +1154,7 @@ def _print_multiple_horizontal_items(self,my_list):
 
    else:
       pass
-   #---------------------------------------------------------------------------------------------------------------------------------------------
+    #-------------------------------------------------------------------------------------------------------------------
    # print the data with their alignments
    indent = 1
    for item in my_list:
@@ -1175,7 +1166,7 @@ def _print_multiple_horizontal_items(self,my_list):
          else:
             print(set_v + self.middle_vertical_line_chr + set_d + item + _move_right((self.adj_space*2),self.bg_all_cell_data),end="")
 
-         #---------------------------------------------------------------------------------------------------------------------------------------
+        #---------------------------------------------------------------------------------------------------------------
       elif (self.align_data.lower() == "right") or (self.align_data.lower() == "r"):
          if indent == 1:
             print(_move_right(self.adj_indent) + set_v + self.left_vertical_line_chr + set_d+\
@@ -1184,7 +1175,7 @@ def _print_multiple_horizontal_items(self,my_list):
          else:
             print(set_v + self.middle_vertical_line_chr + set_d + _move_right((self.adj_space*2),self.bg_all_cell_data) + item,end="")
         
-         #---------------------------------------------------------------------------------------------------------------------------------------
+        #---------------------------------------------------------------------------------------------------------------
       elif (self.align_data.lower() == "justify") or (self.align_data.lower() == "j")\
            or (self.align_data.lower() == "center") or (self.align_data.lower() == "c"):
          if indent == 1:
@@ -1195,14 +1186,14 @@ def _print_multiple_horizontal_items(self,my_list):
             print(set_v + self.middle_vertical_line_chr + set_d+_move_right(self.adj_space,self.bg_all_cell_data) + item +\
                   _move_right(self.adj_space,self.bg_all_cell_data),end="")
 
-         #---------------------------------------------------------------------------------------------------------------------------------------
+        #---------------------------------------------------------------------------------------------------------------
       else: # justify default one
          print(_move_right(self.adj_indent) + set_v + self.left_vertical_line_chr + set_d + _move_right(self.adj_space,self.bg_all_cell_data) +\
                item + _move_right(self.adj_space,self.bg_all_cell_data),end="")
 
    print(set_v + self.right_vertical_line_chr + reset_font())
 
-   #---------------------------------------------------------------------------------------------------------------------------------------------
+    #-------------------------------------------------------------------------------------------------------------------
    # print the bottom horizontal line
    if  self.bottom_horizontal_line_on == 1:
       indent = 1
@@ -1226,9 +1217,9 @@ def _print_multiple_horizontal_items(self,my_list):
   
 
 
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-# Get Number of Rows and Cols of the List                                                                                                      -
-#-----------------------------------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------
+# Get Number of Rows and Cols of the List                                                                              -
+#-----------------------------------------------------------------------------------------------------------------------
 def _get_number_rows_cols_list(my_list):
    n_rows = len(my_list)
    n_cols = 0
@@ -1241,9 +1232,9 @@ def _get_number_rows_cols_list(my_list):
 
 
 
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-# Complete Information in the List, if need it                                                                                                 -
-#-----------------------------------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------
+# Complete Information in the List, if need it                                                                         -
+#-----------------------------------------------------------------------------------------------------------------------
 def _complete_info_list(self,my_list):
    n_rows, n_cols = _get_number_rows_cols_list(my_list)
    row_tempo_list = []; matrix_update = []
@@ -1259,9 +1250,9 @@ def _complete_info_list(self,my_list):
 
 
 
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-# Get the Odd or Even Space Adjustment for the Word                                                                                            -
-#-----------------------------------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------
+# Get the Odd or Even Space Adjustment for the Word                                                                    -
+#-----------------------------------------------------------------------------------------------------------------------
 def _get_odd_even_space_adj(length,len_dato):
    sp_start = 0; sp_end=0
    odd_l = length%2
@@ -1287,9 +1278,9 @@ def _get_odd_even_space_adj(length,len_dato):
 
 
 
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-# Print Matrix List                                                                                                                            -
-#-----------------------------------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------
+# Print Matrix List                                                                                                    -
+#-----------------------------------------------------------------------------------------------------------------------
 def _print_matrix_list(self,my_list):
    # d  :data,   v: vertical,   hcl: left_corner_header,   mch:middle_corner_header, rch:right_corner_header,   t:title(header)
    # get all the settings for the list
@@ -1311,7 +1302,7 @@ def _print_matrix_list(self,my_list):
    # this is the last part and we need to start printing the matrix
    if len(my_list[0]) == 1:
       # we are dealing with only one column    
-      #-------------------------------------------------------------------------------------------------------------------------------------------
+        #---------------------------------------------------------------------------------------------------------------
       #_print_horizontal_segment(self,start_chr,end_chr,times,indent,option)
       # item is the longest column
       length = total_length - (self.adj_indent + (self.adj_space*2) + 2) # length is the longest column length
@@ -1325,7 +1316,7 @@ def _print_matrix_list(self,my_list):
          print()
       else:
          pass
-      #-------------------------------------------------------------------------------------------------------------------------------------------
+        #---------------------------------------------------------------------------------------------------------------
       # print data here
       ctrl_header = 0
       for row in my_list:
@@ -1414,7 +1405,7 @@ def _print_matrix_list(self,my_list):
                            self.middle_horizontal_line_chr, 0, indent, "inner_corner")
                      print()
 
-      #-------------------------------------------------------------------------------------------------------------------------------------------
+        #---------------------------------------------------------------------------------------------------------------
       # print the bottom horizontal line
       if  self.bottom_horizontal_line_on == 1:
          indent = 1  # to add the space at the beginning (vertical line chr)
@@ -1426,10 +1417,10 @@ def _print_matrix_list(self,my_list):
          print() 
       else:
          pass
-      #--------------------------------------------------------------------------------------------------------------------------------------------
-      # we are dealing with a matrix list something like this [[10,20,30],[40,50,60],[70,80,90]]                                                  -
-      # Awsome...!                                                                                                                                -
-      #--------------------------------------------------------------------------------------------------------------------------------------------
+    #-------------------------------------------------------------------------------------------------------------------
+    # we are dealing with a matrix list something like this [[10,20,30],[40,50,60],[70,80,90]]                         -
+    # Awsome...!                                                                                                       -
+    #-------------------------------------------------------------------------------------------------------------------
    else:
       max_rows, max_cols = _get_number_rows_cols_list(my_list)
       n_cols = []; tempo_cols = []
@@ -1444,7 +1435,7 @@ def _print_matrix_list(self,my_list):
       for col in n_cols:
          longest_cols.append(max(col)) # longest_cols keeps the size list of the longest columns in characters
 
-      #-------------------------------------------------------------------------------------------------------------------------------------------      
+        #---------------------------------------------------------------------------------------------------------------
       # drawing the top horizontal line
       if  self.top_horizontal_line_on == True:
          indent = 1  # to add the space at the beginning (indentation space)
@@ -1460,7 +1451,7 @@ def _print_matrix_list(self,my_list):
          print() # done top line, jump to next line to print data
       else:
          pass
-      #-------------------------------------------------------------------------------------------------------------------------------------------
+        #---------------------------------------------------------------------------------------------------------------
       # print header only
       ctrl_col = 0
       vertical = _move_right(self.adj_indent)+set_hchr_v+self.left_vertical_header_line_chr 
@@ -1492,7 +1483,7 @@ def _print_matrix_list(self,my_list):
          ctrl_col += 1
       print(set_hchr_v+self.right_vertical_header_line_chr+reset_font())
     
-      #-------------------------------------------------------------------------------------------------------------------------------------------
+        #---------------------------------------------------------------------------------------------------------------
       if self.horizontal_line_under_header_on == True : 
          # the horizontal line between the headers and the firs data row, only for matrix list
          indent = 1  # to add the space at the beginning (indentation space)
@@ -1512,13 +1503,7 @@ def _print_matrix_list(self,my_list):
       
          print() # done top line, jump to next line to print data
 
-      #-------------------------------------------------------------------------------------------------------------------------------------------
-      # print data only   for datos in my_list[1:]:
-      # ctrl_sep = 0
-      # for datos in my_list:
-      #   if ctrl_sep == 0:
-      #     ctrl_sep = 1
-      #     continue
+        #---------------------------------------------------------------------------------------------------------------        
       ctrl_sep = 1
       for datos in my_list[1:]:  # better way than the above
          ctrl_col = 0
@@ -1592,7 +1577,7 @@ def _print_matrix_list(self,my_list):
          ctrl_sep += 1
 
       if self.middle_horizontal_line_on == 0:                        
-         #-----------------------------------------------------------------------------------------------------------------------------------------
+            #-----------------------------------------------------------------------------------------------------------
          if  self.bottom_horizontal_line_on == 1:
             indent = 1  # to add the space at the beginning (indentation space)
                      # drawing the bottom horizontal line
@@ -1610,50 +1595,23 @@ def _print_matrix_list(self,my_list):
             print()     # done top line, jump to next line to print data
          else:
             pass
-            #----------------------------------------------------------------------------------------------------------------------------------------
+            #-------------------------------------------------------------------------------------------------------------
    _print_notefoot(self,my_list)
    ins_newline(self.adj_bottom_margin)
 
 
 
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-# Help fancyprint Module Help                                                                                                                  -
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-def help():
-   '''
-   It Displays Help...!
-   '''
-   tbl = ["python3.12 documentation_fpm.py"]
-           
-   lista = FancyFormat()
-   lista.bg_title = 11; lista.fg_title = 21; lista.align_title = "c"; lista.bold_title = 1
-   lista.msg_title = " Help...! "
-   lista.bg_header =22; lista.fg_header = 7
-   lista.horizontal_line_under_header_on = 1
-      
-   lista.print_fancy_format(tbl)
-   message = '''
-   Run the Script Documentation_fpm.py for help and reference.
-
-   fpm \u2192 fancy print module
-
-'''
-   print(message)
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-#  The of Functions Used by the FancyFormat Class                                                                                              -
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-
-
-
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-# Fancy Format Class, Defing the Class Without Initial Parameters                                                                              -
-#-----------------------------------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------
+#  The of Functions Used by the FancyFormat Class                                                                      -
+#-----------------------------------------------------------------------------------------------------------------------
+# Fancy Format Class, Defing the Class Without Initial Parameters                                                      -
+#-----------------------------------------------------------------------------------------------------------------------
 class FancyFormat():
    def __init__(self):
-      #-------------------------------------------------------------------------------------------------------------------------------------------
-      # defining variable names                  # values to take                                                                                #
-      #-------------------------------------------------------------------------------------------------------------------------------------------
-      # General Use  
+        #---------------------------------------------------------------------------------------------------------------
+        # defining variable names                  # values to take                                                    -
+        #---------------------------------------------------------------------------------------------------------------
+        # General Use  
       self.adj_top_margin    = 0                 # lines to be add between the terminal and the title
       self.adj_bottom_margin = 0                 # lines to be add between the end of list or footnote and terminal
       self.adj_top_space     = 0                 # lines to be added between title and top list
@@ -1666,7 +1624,7 @@ class FancyFormat():
       self.set_layout        = Layout.HORIZONTAL # This is only for Range, Set, and Frozenset type data
       self.update_list       = False             # if we want to save the data as it's presented, but string each element in list
                   
-      #-------------------------------------------------------------------------------------------------------------------------------------------
+        #---------------------------------------------------------------------------------------------------------------
       # Title Section
       self.msg_title       = ""                  # string value
       self.bold_title      = False               # two values False and True (0 and 1)
@@ -1681,7 +1639,7 @@ class FancyFormat():
       self.hidden_title    = False               # two values False and True (0 and 1)
       self.inverse_title   = False               # two values False and True (0 and 1)
     
-      #-------------------------------------------------------------------------------------------------------------------------------------------
+      
       # Footnote Section
       self.msg_footnote       = ""               # string value
       self.bold_footnote      = False            # two values False and True (0 and 1)

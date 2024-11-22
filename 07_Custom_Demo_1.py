@@ -3,15 +3,15 @@ Demo 1 for fancyprint module...!
 '''
 
 import os
-import fancyprint as fun
+import custom_print as cp
 
-list1 = fun.FancyFormat()
-csr   = fun.Cursor()
-draw  = fun.Pen()
-msg   = fun.FancyMessage()
+list1 = cp.FancyFormat()
+csr   = cp.Cursor()
+draw  = cp.Pen()
+msg   = cp.FancyMessage()
 
 
-ncols, nrows = fun.dimensions()
+ncols, nrows = cp.dimensions()
 os.system("resize -s 44 95")
 #-------------------------------------------------------------------------------------
 # int, bool, str, complex, float, range (horizontal and vertical), dictionary
@@ -64,7 +64,7 @@ list1.msg_title    = " int "
 list1.msg_footnote = " Case 1 "
 my_list0 = 2547
 list1.print_fancy_format(my_list0)
-fun.ins_newline(2)
+cp.ins_newline(2)
 
 
 #------------------------------------------------------------------------------------------------------
@@ -92,10 +92,10 @@ list1.msg_title    = " complex "
 list1.msg_footnote = " Case 3 "
 my_list0 = 45.8+698j
 list1.print_fancy_format(my_list0)
-fun.ins_newline(2)
+cp.ins_newline(2)
 
 compl = 45.9+25j
-newl = fun.complex2list(compl)
+newl = cp.complex2list(compl)
 list1.print_fancy_format(newl)
 
 
@@ -103,7 +103,7 @@ list1.print_fancy_format(newl)
 list1.adj_indent = 2
 sp_list = []; n = 0
 while n < 16:
-    sp_list.append([fun.ins_chr(85)])
+    sp_list.append([cp.ins_chr(85)])
     n += 1
 
 
@@ -127,7 +127,7 @@ list1.bg_all_cell_header = True
 print(csr.moveTo(16,"up"),end="")
 list1.adj_indent = 65
 x = range(0,16,2)
-l = fun.range2list(x,"Header","vertical")
+l = cp.range2list(x,"Header","vertical")
 list1.msg_title      = " Range Data"; list1.msg_footnote =" Case 5 "
 list1.print_fancy_format(l)
 
@@ -145,11 +145,11 @@ list1.print_fancy_format(x)
 list1.msg_title    = " Dictionary "
 list1.msg_footnote =" Case 6 "
 dict_tags = {"NAME":"Miguel", "LAST_1":"Aguilar", "LAST_2":"Cuesta"}
-fun.terminal_bell()
+cp.terminal_bell()
 list1.print_fancy_format(dict_tags)
-fun.ins_newline(2)
+cp.ins_newline(2)
 
-mensaje = f"{fun.ins_chr(44)}THE END"
+mensaje = f"{cp.ins_chr(44)}THE END"
 msg.print_fancy_message(mensaje)
 
 input("Enter to Continue: ")

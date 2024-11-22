@@ -2,10 +2,10 @@
 Demo 6 very simple...!
 '''
 
-import fancyprint as fp
+import custom_print as cp
 
 if __name__ == "__main__":
-    tbl = fp.FancyFormat()
+    tbl = cp.FancyFormat()
 
     
     lst0 = [["Header 1"],
@@ -32,7 +32,7 @@ if __name__ == "__main__":
             ["Data 1",   "Data 2",   "Data 3",   "Data 4",  "Data 5",    "DATA"],
             ["Data 6",   "Data 6",   "Data 7",   "Data 8",  "Data 9",    "DATA"]]
 
-    # tbl.print_fancy_format(data=lst, style=fp.Line_Style.NONE)
+    # tbl.print_fancy_format(data=lst, style=cp.Line_Style.NONE)
     #-----------------------------------------------------------------------------------
     # Red                                                                              -
     #-----------------------------------------------------------------------------------
@@ -52,8 +52,8 @@ if __name__ == "__main__":
     tbl.bold_data = True
     tbl.adj_top_margin = 2
 
-    # tbl.align_data = fp.Align.LEFT
-    # tbl.align_header = fp.Align.RIGHT
+    # tbl.align_data = cp.Align.LEFT
+    # tbl.align_header = cp.Align.RIGHT
     
     # tbl.horizontal_line_under_header_on = True
     # tbl.middle_horizontal_line_on = True
@@ -91,16 +91,16 @@ if __name__ == "__main__":
     tbl.middle_vertical_header_line_chr = "  "
     tbl.middle_corner_line_under_header_chr = "  "  # when more than one column headers
     tbl.middle_inner_corner_chr = "  "
-    tbl.print_fancy_format(data=lst3, style=fp.Line_Style.CUSTOMIZED)
+    tbl.print_fancy_format(data=lst3, style=cp.Line_Style.CUSTOMIZED)
 
     tbl.horizontal_line_under_header_on = True
     tbl.middle_horizontal_line_on = True
     
-    tbl.print_fancy_format(data=lst3, style=fp.Line_Style.CUSTOMIZED)  
+    tbl.print_fancy_format(data=lst3, style=cp.Line_Style.CUSTOMIZED)  
     
     tbl.top_horizontal_line_chr    = " "
     tbl.middle_horizontal_line_chr = " "
-    tbl.print_fancy_format(data=lst3, style=fp.Line_Style.CUSTOMIZED)
+    tbl.print_fancy_format(data=lst3, style=cp.Line_Style.CUSTOMIZED)
     tbl.horizontal_line_under_header_on = False
     tbl.middle_horizontal_line_on = False
 
@@ -116,7 +116,7 @@ if __name__ == "__main__":
         
     # Header Section  Only for Matrix List
     tbl.middle_vertical_header_line_chr = ""  
-    tbl.print_fancy_format(data=lst3, style=fp.Line_Style.CUSTOMIZED)
+    tbl.print_fancy_format(data=lst3, style=cp.Line_Style.CUSTOMIZED)
 
 
 
@@ -127,19 +127,19 @@ if __name__ == "__main__":
 
     # when horizontal_line_under_header_on = True. With NONESPACE
     tbl.middle_corner_line_under_header_chr = ""
-    tbl.print_fancy_format(data=lst3, style=fp.Line_Style.CUSTOMIZED)
+    tbl.print_fancy_format(data=lst3, style=cp.Line_Style.CUSTOMIZED)
 
     lst = [["Header 1"], ["Header 2"], ["Header 3"], ["Header 4"]]
-    tbl.print_fancy_format(data=lst, style=fp.Line_Style.CUSTOMIZED)
+    tbl.print_fancy_format(data=lst, style=cp.Line_Style.CUSTOMIZED)
 
     tbl.horizontal_line_under_header_on = False
     tbl.middle_horizontal_line_on = False
-    tbl.print_fancy_format(data=lst, style=fp.Line_Style.CUSTOMIZED)
+    tbl.print_fancy_format(data=lst, style=cp.Line_Style.CUSTOMIZED)
 
     #-----------------------------------------------------------------------------------
     # Blue                                                                             -
     #-----------------------------------------------------------------------------------
-    tbl1 = fp.FancyFormat()
+    tbl1 = cp.FancyFormat()
     # bg colors
     tbl1.bg_horizontal_line = 21
     tbl1.bg_vertical_line   = 21
@@ -167,25 +167,25 @@ if __name__ == "__main__":
     # tbl.bg_all_cell_data = False              NO_SPACE_COLOR_COL  DOUBLE_SPACE_COLOR_COL
     # tbl.bg_all_cell_header = False
 
-    tbl1.print_fancy_format(data=lst, style=fp.Line_Style.NONE)
-    tbl1.print_fancy_format(data=lst, style=fp.Line_Style.SPACE_COL_COLOR)
-    tbl1.print_fancy_format(data=lst, style=fp.Line_Style.NO_SPACE_COL_COLOR)
-    tbl1.print_fancy_format(data=lst, style=fp.Line_Style.DOUBLE)
+    tbl1.print_fancy_format(data=lst, style=cp.Line_Style.NONE)
+    tbl1.print_fancy_format(data=lst, style=cp.Line_Style.SPACE_COL_COLOR)
+    tbl1.print_fancy_format(data=lst, style=cp.Line_Style.NO_SPACE_COL_COLOR)
+    tbl1.print_fancy_format(data=lst, style=cp.Line_Style.DOUBLE)
 
-    tbl1.print_fancy_format(data=lst2, style=fp.Line_Style.NONE)
-    tbl1.print_fancy_format(data=lst2, style=fp.Line_Style.SPACE_COL_COLOR)
-    tbl1.print_fancy_format(data=lst2, style=fp.Line_Style.NO_SPACE_COL_COLOR)
-    tbl1.print_fancy_format(data=lst4, style=fp.Line_Style.DOUBLE)
+    tbl1.print_fancy_format(data=lst2, style=cp.Line_Style.NONE)
+    tbl1.print_fancy_format(data=lst2, style=cp.Line_Style.SPACE_COL_COLOR)
+    tbl1.print_fancy_format(data=lst2, style=cp.Line_Style.NO_SPACE_COL_COLOR)
+    tbl1.print_fancy_format(data=lst4, style=cp.Line_Style.DOUBLE)
 
 
     tbl1.horizontal_line_under_header_on = True
     tbl1.middle_horizontal_line_on = True
-    tbl1.print_fancy_format(data=lst, style=fp.Line_Style.NONE)
-    tbl1.print_fancy_format(data=lst, style=fp.Line_Style.SPACE_COL_COLOR)
-    tbl1.print_fancy_format(data=lst, style=fp.Line_Style.NO_SPACE_COL_COLOR)
-    tbl1.print_fancy_format(data=lst, style=fp.Line_Style.DOUBLE)
+    tbl1.print_fancy_format(data=lst, style=cp.Line_Style.NONE)
+    tbl1.print_fancy_format(data=lst, style=cp.Line_Style.SPACE_COL_COLOR)
+    tbl1.print_fancy_format(data=lst, style=cp.Line_Style.NO_SPACE_COL_COLOR)
+    tbl1.print_fancy_format(data=lst, style=cp.Line_Style.DOUBLE)
 
-    tbl1.print_fancy_format(data=lst2, style=fp.Line_Style.NONE)
-    tbl1.print_fancy_format(data=lst2, style=fp.Line_Style.SPACE_COL_COLOR)
-    tbl1.print_fancy_format(data=lst2, style=fp.Line_Style.NO_SPACE_COL_COLOR)
-    tbl1.print_fancy_format(data=lst4, style=fp.Line_Style.DOUBLE)
+    tbl1.print_fancy_format(data=lst2, style=cp.Line_Style.NONE)
+    tbl1.print_fancy_format(data=lst2, style=cp.Line_Style.SPACE_COL_COLOR)
+    tbl1.print_fancy_format(data=lst2, style=cp.Line_Style.NO_SPACE_COL_COLOR)
+    tbl1.print_fancy_format(data=lst4, style=cp.Line_Style.DOUBLE)
