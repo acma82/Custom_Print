@@ -1,38 +1,62 @@
 '''
 custom_print module can handle any type of variable.
 '''
-#-----------------------------------------------------------------------------------------------------------------------
-#12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
-#        1         2         3         4         5         6         7         8         9         A         B         C
-#-----------------------------------------------------------------------------------------------------------------------
 
 
+#pylint: disable=invalid-name
+#pylint: disable=unused-import
+#pylint: disable=line-too-long
+#pylint: disable=too-many-lines
+#pylint: disable=no-else-return
+#pylint: disable=unused-variable
+#pylint: disable=too-many-locals
+#pylint: disable=protected-access
+#pylint: disable=too-many-branches
+#pylint: disable=consider-using-in
+#pylint: disable=chained-comparison
+#pylint: disable=too-many-arguments
+#pylint: disable=too-many-statements
+#pylint: disable=multiple-statements
+#pylint: disable=unnecessary-negation
+#pylint: disable=singleton-comparison
+#pylint: disable=too-many-nested-blocks
+#pylint: disable=consider-using-enumerate
+#pylint: disable=too-many-return-statements
+#pylint: disable=unbalanced-tuple-unpacking
+#pylint: disable=consider-using-max-builtin
+#pylint: disable=too-many-instance-attributes
+#pylint: disable=too-many-instance-attributes
+#pylint: disable=too-many-instance-attributes
+#pylint: disable=too-many-positional-arguments
+#pylint: disable=inconsistent-return-statements
+#pylint: disable=possibly-used-before-assignment
 
 
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+#12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+#        1         2         3         4         5         6         7         8         9         A         B         C         D         E         F
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
 
-#-----------------------------------------------------------------------------------------------------------------------
-# Required Modules                                                                                                     -
-#-----------------------------------------------------------------------------------------------------------------------
+
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+# Required Modules                                                                                                                                   -
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
 import os
 import enum
+import readline
 import platform
-#-----------------------------------------------------------------------------------------------------------------------
-# For Help:
-#   inside the python interpreter
+import cp_documentation
 
-#   import customprint as cp
-#   fun = cp.FancyPrint()
 
-#   help(fp.bg_ansi_colors(bold=1, fg=22))   for a function of the module
-#   help(fun.fancy_print())                  for a function of the module inside the classs FancyList
 
-#   for the terminal is 80 width with any height for better visualization.
-
-#-----------------------------------------------------------------------------------------------------------------------
-# Layout is used for the Range, Set, Frozenset.                                                                        -
-#-----------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+# Layout is used for the Range, Set, Frozenset.                                                                                                      -
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
 #class Move(str, enum.Enum): # python3.9.18
 class Move(enum.StrEnum):    # python3.12.1
+    '''
+    Move reference class
+    '''
     UP    = "up"
     RIGHT = "right"
     DOWN  = "down"
@@ -40,6 +64,9 @@ class Move(enum.StrEnum):    # python3.12.1
 
 
 class Align(enum.StrEnum):
+    '''
+    Align reference class
+    '''
     LEFT     = "left"
     CENTER   = "center"
     RIGHT    = "right"
@@ -47,16 +74,25 @@ class Align(enum.StrEnum):
 
 
 class Layout(enum.StrEnum):
+    '''
+    Layout reference class
+    '''
     HORIZONTAL = "horizontal"
     VERTICAL =   "vertical"
 
 
 class Length_bg(enum.Enum):
+    '''
+    Length reference class
+    '''
     ALL_ROW   = 1
     ONLY_WORD = 2
 
 
 class Line_Style(enum.StrEnum):
+    '''
+    Line_Style reference class
+    '''
     CUSTOMIZED   = "customized"
     SINGLE       = "single"
     SINGLE_BOLD  = "single_bold"
@@ -68,11 +104,14 @@ class Line_Style(enum.StrEnum):
     SPACE_COL_COLOR    = "space_col_color"
     NO_SPACE_COL_COLOR = "no_space_col_color"
 
-#-----------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
 class Unicode(enum.StrEnum):
-    #-------------------------------------------------------------------------------------------------------------------
-    # Box Drawings                                                                                                     -
-    #-------------------------------------------------------------------------------------------------------------------
+    '''
+    Unicode reference class
+    '''
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    # Box Drawings                                                                                                                                   -
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
     BOX_DRAWINGS_LIGHT_HORIZONTAL          = "\N{BOX DRAWINGS LIGHT HORIZONTAL}"
     BOX_DRAWINGS_LIGHT_VERTICAL_AND_RIGHT  = "\N{BOX DRAWINGS LIGHT VERTICAL AND RIGHT}"
     BOX_DRAWINGS_LIGHT_VERTICAL_AND_LEFT   = "\N{BOX DRAWINGS LIGHT VERTICAL AND LEFT}"
@@ -83,9 +122,9 @@ class Unicode(enum.StrEnum):
 
     BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL ="\N{BOX DRAWINGS LIGHT VERTICAL AND HORIZONTAL}"
 
-    #-------------------------------------------------------------------------------------------------------------------
-    # Triangle                                                                                                         -
-    #-------------------------------------------------------------------------------------------------------------------
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    # Triangle                                                                                                                                       -
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
     BLACK_UP_POINTING_TRIANGLE   = "\N{BLACK UP-POINTING TRIANGLE}"     # \u25B2  up fill arrow
     WHITE_UP_POINTING_TRIANGLE   = "\N{WHITE UP-POINTING TRIANGLE}"     # \u25B3  up empty arrow
 
@@ -99,9 +138,9 @@ class Unicode(enum.StrEnum):
     WHITE_LEFT_POINTING_TRIANGLE = "\N{WHITE LEFT-POINTING TRIANGLE}" # \u25C1  left empty arrow
 
     EM_DASH = "\N{EM DASH}"
-    #-------------------------------------------------------------------------------------------------------------------
-    # Miscellaneous                                                                                                    -
-    #-------------------------------------------------------------------------------------------------------------------
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    # Miscellaneous                                                                                                                                  -
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
     BLACK_DIAMOND = "\N{BLACK DIAMOND}"
     WHITE_DIAMOND = "\N{WHITE DIAMOND}"
 
@@ -111,9 +150,12 @@ class Unicode(enum.StrEnum):
     FACE = "(" + chr(0x25D5) + chr(0x25E1) + chr(0x25D5) + ")"
 
 
-#-----------------------------------------------------------------------------------------------------------------------
-# Screen Functions                                                                                                     -
-#-----------------------------------------------------------------------------------------------------------------------
+
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+# Screen Functions Windows and Linux                                                                                                                 -
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+# Clean the Terminal (Windows)                                                                                                                       -
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
 def clean():
 
     ''' It cleans the terminal and returns the cursor to home. '''
@@ -122,13 +164,17 @@ def clean():
     print("\033[H",end="")   # return home the cursor
 
 
-if os.name == 'nt' and (platform.release() == '10' or platform.release == "11"):
+if os.name == 'nt' and (platform.release() == '10' or platform.release() == "11"):
     OS_Windows = True
     OS_Linux = False
     # Fix ANSI color in Windows 10 version 10.0.14393 (Windows Anniversary Update)
     import ctypes
     kernel32 = ctypes.windll.kernel32
     kernel32.SetConsoleMode(kernel32.GetStdHandle(-11), 7)
+
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    # Clear the Terminal (Windows)                                                                                                                   -
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
     def clear():
 
         '''  It cleans the terminal and returns the cursor to home.  '''
@@ -138,7 +184,9 @@ if os.name == 'nt' and (platform.release() == '10' or platform.release == "11"):
     # it may disable the scroll bar on the Command Prompt or the Windows PowerShell
     # to enable the scroll bar, got to Properties-> Layout-> Screen Buffer Size-> Set Height to 1000
     # use Command Prompt or Windows PowerShell
-
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    # Resize the Terminal (Windows)                                                                                                                  -
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
     def resize(rows:int=25, cols:int=80)->None:
 
         '''  It resizes the terminal size.  '''
@@ -147,15 +195,21 @@ if os.name == 'nt' and (platform.release() == '10' or platform.release == "11"):
         os.system(f"mode {cols}, {rows}")
 
 
-elif (os.name == 'posix'):
+elif os.name == 'posix':
     OS_Windows = False
     OS_Linux = True
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    # Clear the Terminal (Linux)                                                                                                                     -
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
     def clear():
 
         '''  It cleans the terminal and returns the cursor to home.  '''
 
         os.system("clear")
 
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    # Resize the Terminal (Linux)                                                                                                                    -
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
     def resize(rows:int=25, cols:int=80)->None:
 
         '''  It resizes the terminal size.  '''
@@ -164,6 +218,9 @@ elif (os.name == 'posix'):
 
 
 else:
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+# Clean the Terminal (Other)                                                                                                                         -
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
     def clear():
 
         '''  It cleans the terminal and returns the cursor to home.  '''
@@ -179,7 +236,9 @@ else:
 
 
 
-#-----------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+# Returns the Terminal) Dimensions                                                                                                                   -
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
 def dimensions():
 
     '''  It returns the dimensions of the terminal: cols, rows = dimensions()  '''
@@ -189,27 +248,29 @@ def dimensions():
 
 
 
-#-----------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+# Erase the Terminal                                                                                                                                 -
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
 def erase():
 
-    '''  It erases the terminal and leaves the cursor in the current position.  '''
+    '''  It erases the terminal and leaves the cursor in the current position  '''
 
     print("\033[2J",end="")
 
 
 
-#-----------------------------------------------------------------------------------------------------------------------
-# Linux Background Color Option List                                                                                   -
-#-----------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+# Linux Background Color Option List                                                                                                                 -
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
 def bg_ansi_colors(bold=False, fg=-1, n_line=0):
 
-    '''  This function displays all background colors available with ansi code.  '''
+    '''  This function displays all background colors available with ansi code  '''
 
     reset = "\033[0m"
     space = "   "
     ctrl  = 0
-    msg   = " bg color number " 
-    
+    msg   = " bg color number "
+
     if fg < 0 or fg > 256: fg_color = "-1"
     else:                  fg_color = str(fg)
 
@@ -247,9 +308,9 @@ def bg_ansi_colors(bold=False, fg=-1, n_line=0):
 
 
 
-#-----------------------------------------------------------------------------------------------------------------------
-# Linux Foreground Color Option List                                                                                   -
-#-----------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+# Linux Foreground Color Option List                                                                                                                 -
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
 def fg_ansi_colors(bold=False, bg=-1, n_line=0):
 
     '''  This function displays all foreground colors available with ansi code  '''
@@ -257,14 +318,14 @@ def fg_ansi_colors(bold=False, bg=-1, n_line=0):
     reset = "\033[0m"
     space = "   "
     ctrl  = 0
-    msg   = " fg color number " 
+    msg   = " fg color number "
 
     if bg < 0 or bg > 256: bg_color = "-1"
-    else:                  bg_color = str(bg)  
-   
+    else:                  bg_color = str(bg)
+
     if bold == True: b = "1"
-    else:            b = "0" 
- 
+    else:            b = "0"
+
     for color in range(257):
         if color <= 9:
             space = "   "
@@ -272,7 +333,7 @@ def fg_ansi_colors(bold=False, bg=-1, n_line=0):
             space = "  "
         else:
             space = " "
-      
+
         if ctrl <= 1:
             ctrl += 1
             if bg_color == "-1":
@@ -282,49 +343,45 @@ def fg_ansi_colors(bold=False, bg=-1, n_line=0):
         else:
             ctrl = 0
             if bg_color == "-1":
-                if (n_line > 0):
+                if n_line > 0:
                     print(f"\033[{b};38;5;{color}m {msg} {reset}{color}")
                     ins_newline(n_line)
                 else:
-                   print(f"\033[{b};38;5;{color}m {msg} {reset}{color}")
+                    print(f"\033[{b};38;5;{color}m {msg} {reset}{color}")
             else:
-                if (n_line > 0):
+                if n_line > 0:
                     print(f"\033[{b};48;5;{bg_color};38;5;{color}m {msg} {reset}{color}")
                     ins_newline(n_line)
                 else:
                     print(f"\033[{b};48;5;{bg_color};38;5;{color}m {msg} {reset}{color}")
-    
+
     print("\x1B[0m  fg default color  -1")
 
 
 
-#-----------------------------------------------------------------------------------------------------------------------
-# Terminal Sounds                                                                                                      -
-#-----------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+# Terminal Sounds                                                                                                                                    -
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
 def terminal_bell():
 
-    '''  terminal_bell()
-         This function makes sound of the terminal bell.  '''
-    
+    '''  This function makes sound of the terminal bell
+         terminal_bell()
+           '''
+
     print("\a")
 
 
 
-#-----------------------------------------------------------------------------------------------------------------------
-#  Function Used by the FancyFormat Class                                                                              -
-#-----------------------------------------------------------------------------------------------------------------------
-# Insert A Unicode Character n Times                                                                                   -
-#-----------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+# Insert A Unicode Character n Times                                                                                                                 -
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
 def ins_chr(n=1, unicode=" "):
 
-    '''  ins_chr(n=x, unicode=" ")
-         This function inserts n times the unicode provided
-            Example: 
-            import fancyprint as fp              
-            print(f"Hello{fp.ins_chr(40,".")}There")
-    '''
+    '''  This function inserts n times the unicode provided
+         ins_chr(n=x, unicode=" ")  '''
+
     sp = str(unicode)
-   
+
     space = ""
     while n > 0:
         space += sp
@@ -333,2174 +390,2050 @@ def ins_chr(n=1, unicode=" "):
 
 
 
-#-----------------------------------------------------------------------------------------------------------------------
-# Insert n Newlines                                                                                                    -
-#-----------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+# Insert n Newlines                                                                                                                                  -
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
 def ins_newline(n=1):
-    '''  ins_newline(n=1)
-         This function inserts n new lines.
-         
-         example:
-           import fancyprint as fp 
-           print("Python 3")
-           fp.ins_newline(3)
-           print("is amazing...!")'''
-   
+
+    '''  This function inserts n new lines
+         ins_newline(n=1)  '''
+
     while n > 0:
-        n -= 1      
+        n -= 1
         print("")
 
 
 
-#-----------------------------------------------------------------------------------------------------------------------
-# Move Cursor to the Right. This function is used as the indentation for the print                                     -
-#-----------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+# Move Cursor to the Right. This function is used as the indentation for the print                                                                   -
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
 def _move_right(n=0,option_space=False):
-    
+
     '''  This function moves the cursor n spaces to the right.  '''
-    
-    if (option_space == True):
+
+    if option_space == True:
         sp = ins_chr(n)
     else:
-        if (n == 0):
+        if n == 0:
             sp = ""
         else:
             sp = f"\033[{str(n)}C"
-    return sp 
+    return sp
 
 
-# hasta aqui is ok all indentation and spaces and headers
-#-----------------------------------------------------------------------------------------------------------------------
-# Set Settings for the Font: Bold, Background, and Foreground                                                          -
-#-----------------------------------------------------------------------------------------------------------------------
+
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+# Set Settings for the Font: Bold, Background, and Foreground                                                                                        -
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
 def set_font(bold=False,bg=-1,fg=-1,italic=False,underline=False,strike=False,blinking=False,dim=False,hidden=False,inverse=False):
-   '''
-----------------------------------------------------------------------------
-   import fancyprint as fp
 
-   fp.set_font(bool, int, int)
+    '''  This function changes the attributes of the font (bold, bg, fg).
 
-   This function changes the attributes of the font (bold, bg, fg).
-   
-   Colors range from -1 to 256.
-   To set the default color use -1 or 256.
-   
-   Example:
-            print(fp.set_font(1,11,21)+ " Python is " + fp.set_font(0,1)+
-               " Wonderful."+fp.reset_font())
-            
-            print(f"{fp.set_font(bold=0, bg=22, fg=0)} Python
-                 {fp.set_font(1,90,7)} Language.{fp.reset_font()}")
-----------------------------------------------------------------------------
-'''
-   # bg_color and fg_color, are int values but we convert then to str values
-   reset = "\033[0m"
-   if bg < 0 or bg > 255:
-      bgc = "reset"
-   else:
-      bgc = str(bg)
+          set_font(bold=bool, bg=int, fg=int)
 
-   if fg < 0 or fg > 255:
-      fgc = "reset"
-   else:
-      fgc = str(fg)
+          Colors range from -1 to 256.
+          To set the default color use -1 or 256.  '''
+
+    # bg_color and fg_color, are int values but we convert then to str values
+    reset = "\033[0m"
+
+    if bg < 0 or bg > 255:  bgc = "reset"
+    else:                   bgc = str(bg)
+
+    if fg < 0 or fg > 255:  fgc = "reset"
+    else:                   fgc = str(fg)
 
 
-   if (bgc == "reset" and fgc == "reset"):
-      settings = reset
-
-   elif bgc == "reset" and fgc != "reset":
-      settings = reset+"\033[38;5;"+fgc+"m"
-   
-   elif bgc != "reset" and fgc == "reset":
-      settings = reset+"\033[48;5;"+bgc+"m"
-
-   elif bgc != "reset" and fgc != "reset":
-      settings = reset+"\033[48;5;"+bgc+";38;5;"+fgc+"m"
-
-   else:
-      settings = reset
-   
-
-   if   (bold == True and dim == False): settings = settings + "\033[1m"
-   elif (bold == True and dim == True):  settings = settings + "\033[1m"
-   elif (bold == False and dim == True): settings = settings + "\033[2m"
-   else: # (bold == False and dim == False): 
-      pass
-      
-   if (italic == True):    settings = settings + "\033[3m"
-   else:                   settings = settings + "\033[23m"
-
-   if (underline == True): settings = settings + "\033[4m"
-   else:                   settings = settings + "\033[24m"
-
-   if (blinking == True):  settings = settings + "\033[5m"
-   else:                   settings = settings + "\033[25m"
-
-   if (hidden == True):    settings = settings + "\033[8m"
-   else:                   settings = settings + "\033[28m"
-
-   if (strike == True):    settings = settings + "\033[9m"
-   else:                   settings = settings + "\033[29m"
-
-   if (inverse == True):   settings = settings + "\033[7m"
-   else:                   settings = settings + "\033[27m"
-
-   return settings
-   
+    if   bgc == "reset" and fgc == "reset":  settings = reset
+    elif bgc == "reset" and fgc != "reset":  settings = reset+"\033[38;5;"+fgc+"m"
+    elif bgc != "reset" and fgc == "reset":  settings = reset+"\033[48;5;"+bgc+"m"
+    elif bgc != "reset" and fgc != "reset":  settings = reset+"\033[48;5;"+bgc+";38;5;"+fgc+"m"
+    else:                                    settings = reset
 
 
-#-----------------------------------------------------------------------------------------------------------------------
-# Reset Settings for the Font: Bold, Background, and Foreground                                                        -
-#-----------------------------------------------------------------------------------------------------------------------
+    if   bold == True  and dim == False:  settings = settings + "\033[1m"
+    elif bold == True  and dim == True:   settings = settings + "\033[1m"
+    elif bold == False and dim == True:   settings = settings + "\033[2m"
+    else:                                   pass  # (bold == False and dim == False):
+
+    if italic == True:    settings = settings + "\033[3m"
+    else:                 settings = settings + "\033[23m"
+
+    if underline == True: settings = settings + "\033[4m"
+    else:                 settings = settings + "\033[24m"
+
+    if blinking == True:  settings = settings + "\033[5m"
+    else:                 settings = settings + "\033[25m"
+
+    if hidden == True:    settings = settings + "\033[8m"
+    else:                 settings = settings + "\033[28m"
+
+    if strike == True:    settings = settings + "\033[9m"
+    else:                 settings = settings + "\033[29m"
+
+    if inverse == True:   settings = settings + "\033[7m"
+    else:                 settings = settings + "\033[27m"
+
+    return settings
+
+
+
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+# Reset Settings for the Font: Bold, Background, and Foreground                                                                                      -
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
 def reset_font():
-   '''
-----------------------------------------------------------------------------
-   import fancyprint as fp
 
-   fp.set_font()
+    '''  This function resets the font attributes to the default ones.  '''
 
-   This function resets the font attributes to the default ones.
-   
-----------------------------------------------------------------------------
-'''
-   return "\033[0m"
+    return "\033[0m"
 
 
 
-#-----------------------------------------------------------------------------------------------------------------------
-# Convert From Bool to List Type                                                                                       -
-#-----------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+# Convert From Bool to List Type                                                                                                                     -
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
 def bool2list(my_bool):
-   '''
-   ----------------------------------------------------------------------------
-   It Converts a Bool to a String List
-   ----------------------------------------------------------------------------
-   '''
-   tempo_list = []
-   tempo_list.append(my_bool)
-   return tempo_list
+
+    '''  It Converts a Bool to a String List  '''
+
+    tempo_list = []
+    tempo_list.append(my_bool)
+    return tempo_list
 
 
 
-#-----------------------------------------------------------------------------------------------------------------------
-# Convert From Integer to List Type                                                                                    -
-#-----------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+# Convert From Integer to List Type                                                                                                                  -
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
 def int2list(my_int):
-   '''
-   ----------------------------------------------------------------------------
-   It Converts a Integer Number to a String List
-   ----------------------------------------------------------------------------
-   '''
-   tempo_list = []
-   tempo_list.append(my_int)
-   return tempo_list
+
+    '''  It Converts a Integer Number to a String List n  '''
+
+    tempo_list = []
+    tempo_list.append(my_int)
+    return tempo_list
 
 
 
-#-----------------------------------------------------------------------------------------------------------------------
-# Convert From Float to List Type                                                                                      -
-#-----------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+# Convert From Float to List Type                                                                                                                    -
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
 def float2list(my_float):
-   '''
-   ----------------------------------------------------------------------------
-   It Converts a Float Number to a String List
-   ----------------------------------------------------------------------------
-   '''
-   
-   tempo_list = []
-   tempo_list.append(my_float)
-   return tempo_list
+
+    '''  It Converts a Float Number to a String List  '''
+
+    tempo_list = []
+    tempo_list.append(my_float)
+    return tempo_list
 
 
 
-#-----------------------------------------------------------------------------------------------------------------------
-# Convert From Complex to List Type                                                                                    -
-#-----------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+# Convert From Complex to List Type                                                                                                                  -
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
 def complex2list(my_complex):
-   '''
-   ----------------------------------------------------------------------------
-   It Converts a Complex Number to a String List
-   ----------------------------------------------------------------------------
-   '''
-   tempo_list = []
-   tempo_list.append(my_complex)
-   return tempo_list
+
+    '''  It Converts a Complex Number to a String List  '''
+
+    tempo_list = []
+    tempo_list.append(my_complex)
+    return tempo_list
 
 
 
-#-----------------------------------------------------------------------------------------------------------------------
-# Convert From String to List Type                                                                                     -
-#-----------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+# Convert From String to List Type                                                                                                                   -
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
 def str2list(my_str):
-   '''
-   ----------------------------------------------------------------------------
-   It Converts a String to a String List
-   ----------------------------------------------------------------------------
-   '''
-   tempo_list = []
-   tempo_list.append(my_str)
-   return tempo_list
+
+    '''  It Converts a String to a String List  '''
+
+    tempo_list = []
+    tempo_list.append(my_str)
+    return tempo_list
 
 
 
-#-----------------------------------------------------------------------------------------------------------------------
-# Convert From Dict to List Type                                                                                       -
-#-----------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+# Convert From Dict to List Type                                                                                                                     -
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
 def dict2list(my_dict, key_title="key", value_title="value"):
-   '''
-   ----------------------------------------------------------------------------
-   It Converts a Dictionay to a String List
-   ----------------------------------------------------------------------------
-   '''
-   my_key_list = []; my_data_list = []
 
-   my_key_list  = list(my_dict.keys())
-   my_data_list = list(my_dict.values())
-   
-   complete_list = [];  tempo_list = []
-   if (key_title == "key") and (value_title == "value"):
-      if (len(my_key_list)) > 1:   complete_list.append(["Keys","Values"])
-      else:                        complete_list.append(["Key","Value"])
-   
-   elif (key_title == "none" and value_title == "none"):
-      pass
+    '''  It Converts a Dictionay to a String List  '''
 
-   else:
-      complete_list.append([key_title,value_title])
+    my_key_list = []; my_data_list = []
 
-   for d in range(len(my_dict)):
-      tempo_list.append(my_key_list[d])
-      tempo_list.append(my_data_list[d])
-      complete_list.append(tempo_list)
-      tempo_list = []
-   
-   return complete_list
+    my_key_list  = list(my_dict.keys())
+    my_data_list = list(my_dict.values())
+
+    complete_list = [];  tempo_list = []
+    if (key_title == "key") and (value_title == "value"):
+        if (len(my_key_list)) > 1:   complete_list.append(["Keys","Values"])
+        else:                        complete_list.append(["Key","Value"])
+
+    elif (key_title == "none" and value_title == "none"):
+        pass
+
+    else:
+        complete_list.append([key_title,value_title])
+
+    for d in range(len(my_dict)):
+        tempo_list.append(my_key_list[d])
+        tempo_list.append(my_data_list[d])
+        complete_list.append(tempo_list)
+        tempo_list = []
+
+    return complete_list
 
 
 
-#-----------------------------------------------------------------------------------------------------------------------
-# Convert From Set or Frozenset to List Type                                                                           -                                   -
-#-----------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+# Convert From Set or Frozenset to List Type                                                                                                         -
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
 def set2list(my_set:set, set_header = "none", layout:Layout=Layout.HORIZONTAL):
-   '''
-   ----------------------------------------------------------------------------
-   It Converts a Set or a Frozenset to a String List
-   ----------------------------------------------------------------------------
-   '''
-   # set and frozenset values are printed in aleatory order all the time
-   tempo_list = []; cnt = 0; l = len(my_set)
 
-   if (layout.lower() == Layout.VERTICAL):
-      if set_header == "set" or set_header == "frozenset":
-         if len(my_set) > 1:
-            tempo_list.append([set_header+" Values"])
-         else:
-            tempo_list.append([set_header+" Value"])
+    '''  It Converts a Set or a Frozenset to a String List  '''
 
-      elif (set_header == "none"):
-         pass
-         
-      else:
-         tempo_list.append([set_header])
+    # set and frozenset values are printed in aleatory order all the time
+    tempo_list = []; cnt = 0; l = len(my_set)
 
-      while l > 0:
-         dato = list(my_set)[cnt]
-         tempo_list.append([dato])
-         cnt += 1
-         l   -= 1
+    if layout.lower() == Layout.VERTICAL:
+        if "set" in set_header or "frozenset" in set_header:
+            if len(my_set) > 1:
+                tempo_list.append([set_header+" Values"])
+            else:
+                tempo_list.append([set_header+" Value"])
 
-   if (layout.lower() == Layout.HORIZONTAL):
-      if set_header == "set" or set_header == "frozenset":
-         if len(my_set) > 1:
-            tempo_list.append("Set Values")
-         else:
-            tempo_list.append("Set Value")
-      
-      elif (set_header == "none"):
-         pass
-      
-      else:
-         tempo_list.append(set_header)
+        elif set_header == "none":
+            pass
 
-      while l > 0:
-         dato = list(my_set)[cnt]
-         tempo_list.append(dato)
-         cnt += 1
-         l   -= 1
+        else:
+            tempo_list.append([set_header])
 
-   
-   return tempo_list
+        while l > 0:
+            dato = list(my_set)[cnt]
+            tempo_list.append([dato])
+            cnt += 1
+            l   -= 1
+
+    if layout.lower() == Layout.HORIZONTAL:
+        if "set" in set_header or "frozenset" in set_header:
+            if len(my_set) > 1:
+                tempo_list.append("Set Values")
+            else:
+                tempo_list.append("Set Value")
+
+        elif set_header == "none":
+            pass
+
+        else:
+            tempo_list.append(set_header)
+
+        while l > 0:
+            dato = list(my_set)[cnt]
+            tempo_list.append(dato)
+            cnt += 1
+            l   -= 1
+
+    return tempo_list
 
 
 
-#-----------------------------------------------------------------------------------------------------------------------
-# Convert From Range to List Type                                                                                      -
-#-----------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+# Convert From Range to List Type                                                                                                                    -
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
 def range2list(my_range:range, range_header = "none", layout:Layout=Layout.HORIZONTAL):
-   '''
-   ----------------------------------------------------------------------------
-   It Converts a Range to a String List
-   ----------------------------------------------------------------------------
-   '''   
-   tempo_list = []
 
-   if (layout.lower() == Layout.VERTICAL):
-      if range_header == "range":  tempo_list = [["Range"]]
-      elif range_header == "none": pass
-      else:                       tempo_list = [[range_header]]
+    '''  It Converts a Range to a String List  '''
 
-      for n in my_range:
-         tempo_list.append([n])
-      
-   if (layout.lower() == Layout.HORIZONTAL):
-      if range_header == "range":  tempo_list = ["Range"]
-      elif range_header == "none": pass
-      else:                       tempo_list = [range_header]
+    tempo_list = []
 
-      for n in my_range:
-         tempo_list.append(n)
+    if layout.lower() == Layout.VERTICAL:
+        if range_header   == "range": tempo_list = [["Range"]]
+        elif range_header == "none":  pass
+        else:                         tempo_list = [[range_header]]
 
+        for n in my_range:
+            tempo_list.append([n])
 
-   return tempo_list
+    if layout.lower() == Layout.HORIZONTAL:
+        if range_header   == "range": tempo_list = ["Range"]
+        elif range_header == "none":  pass
+        else:                         tempo_list = [range_header]
+
+        for n in my_range:
+            tempo_list.append(n)
+
+    return tempo_list
 
 
 
-#-----------------------------------------------------------------------------------------------------------------------
-# Convert From Tuple to List Type                                                                                      -
-#-----------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+# Convert From Tuple to List Type                                                                                                                    -
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
 def tuple2list(my_tuple):
-   '''
-   ----------------------------------------------------------------------------
-   It Converts a Tuple to a String List
-   ----------------------------------------------------------------------------
-   '''   
-   tempo_list = []
-   #-----------------------------------------------------------------------------------------------
-   if (len(my_tuple) == 0):
-      return tempo_list                
 
-   #-----------------------------------------------------------------------------------------------
-   elif (len(my_tuple) == 1):          
-                                              # string              ("")         -> Case 0   String
-                                              # "empty_tuple"       ("",)        -> Case 1   Empty
-      tempo_list.append(my_tuple[0])          # "one_item_no_row"   ("Apple",)   -> Case 2   Tuple
-      return tempo_list                       # "one_item_one_row"  (("Apple",)) -> Case 3   Tuple inside Tuple
+    '''  It Converts a Tuple to a String List  '''
 
-   #-----------------------------------------------------------------------------------------------
-   #elif len(my_tuple) > 1:
-   else:
-      type_type = []; lengths = []
-      l = len(my_tuple); tuple_tuple = 0; tuple_other = 0
+    tempo_list = []
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    if len(my_tuple) == 0:
+        pass #return tempo_list
 
-      for n in range(len(my_tuple)):
-         if (isinstance(my_tuple[n], tuple)):
-            tuple_tuple = 1            
-            type_type.append("tuple")
-            lengths.append(len(my_tuple[n]))
-         
-         else:
-            tuple_other = 1
-            type_type.append("other")
-            lengths.append(1)
-      
-      # This is only for tuples inside the tuple ->
-      # tupleData = (("hello","hello"),("hell",),("hi","bye","good"),([1,2],))        -> Case 4
-      if (tuple_tuple == 1 and tuple_other == 0):
-         tempo = []
-         for col in my_tuple:
-            for i in col:
-               tempo.append(i)
-            tempo_list.append(tempo)
-            tempo = []
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    elif len(my_tuple) == 1:
+                                                # string              ("")         -> Case 0   String
+                                                # "empty_tuple"       ("",)        -> Case 1   Empty
+        tempo_list.append(my_tuple[0])          # "one_item_no_row"   ("Apple",)   -> Case 2   Tuple
+        #return tempo_list                       # "one_item_one_row"  (("Apple",)) -> Case 3   Tuple inside Tuple
 
-      # This is only for other types inside a tuple 
-      # tupleData = ("hello","hell","hi",[1,2])                                       -> Case 5
-      elif (tuple_tuple == 0 and tuple_other == 1):
-         for n in my_tuple:
-            tempo_list.append(n)     # for rows (Horizontal)
-            #tempo_list.append([n])  # for cols (Vertical)
-         
-       
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    #elif len(my_tuple) > 1:
+    else:
+        type_type = []; lengths = []
+        l = len(my_tuple); tuple_tuple = 0; tuple_other = 0
 
-      # This is for combination tuple (tuple =1 and other = 1)                        -> Case 6
-      # tupleData = (("hello","hello"),("hell",),("hi","bye","good"),[1,2], "hello")
-      elif (tuple_tuple == 1 and tuple_other == 1):
-         for n in range(l):
-            if (lengths[n]) > 1:
-               tempo = []
-               for i in range(lengths[n]):
-                  tempo.append(my_tuple[n][i])
-               tempo_list.append(tempo)
+        for n in range(len(my_tuple)):
+            if isinstance(my_tuple[n], tuple):
+                tuple_tuple = 1
+                type_type.append("tuple")
+                lengths.append(len(my_tuple[n]))
 
             else:
-               if (type_type[n] == "other"):
-                  tempo_list.append([my_tuple[n]])
-               else:
-                  tempo_list.append([my_tuple[n][0]])
-      else:
-         tempo_list = []
+                tuple_other = 1
+                type_type.append("other")
+                lengths.append(1)
 
-   return tempo_list
+        # This is only for tuples inside the tuple ->
+        # tupleData = (("hello","hello"),("hell",),("hi","bye","good"),([1,2],))        -> Case 4
+        if (tuple_tuple == 1 and tuple_other == 0):
+            tempo = []
+            for col in my_tuple:
+                for i in col:
+                    tempo.append(i)
+                tempo_list.append(tempo)
+                tempo = []
+
+        # This is only for other types inside a tuple
+        # tupleData = ("hello","hell","hi",[1,2])                                       -> Case 5
+        elif (tuple_tuple == 0 and tuple_other == 1):
+            for n in my_tuple:
+                tempo_list.append(n)     # for rows (Horizontal)
+                #tempo_list.append([n])  # for cols (Vertical)
+
+        # This is for combination tuple (tuple =1 and other = 1)                        -> Case 6
+        # tupleData = (("hello","hello"),("hell",),("hi","bye","good"),[1,2], "hello")
+        elif (tuple_tuple == 1 and tuple_other == 1):
+            for n in range(l):
+                if (lengths[n]) > 1:
+                    tempo = []
+                    for i in range(lengths[n]):
+                        tempo.append(my_tuple[n][i])
+                    tempo_list.append(tempo)
+
+                else:
+                    if type_type[n] == "other":
+                        tempo_list.append([my_tuple[n]])
+                    else:
+                        tempo_list.append([my_tuple[n][0]])
+        else:
+            tempo_list = []
+
+    return tempo_list
 
 
 
-#-----------------------------------------------------------------------------------------------------------------------
-# Get Data Type and Convert It to a List Type                                                                          -
-#-----------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+# Get Data Type and Convert It to a List Type                                                                                                        -
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
 def data2list(self,dato):
-   '''
-   ----------------------------------------------------------------------------
-   It Converts Any Type of Variable to a a String List Type
-   ----------------------------------------------------------------------------
-   '''  
-   data_list = []
-   # it is already a list type
-   if (isinstance(dato, list)):        return dato
-   
-   # bool type to list type
-   elif (isinstance(dato, bool)):      data_list = bool2list(dato)
-   
-   # int to list type
-   elif (isinstance(dato, int)):       data_list = int2list(dato)
-   
-   # float to list type
-   elif (isinstance(dato, float)):     data_list = float2list(dato)
-   
-   # string type
-   elif (isinstance(dato, str)):       data_list = str2list(dato)
 
-   # complex type
-   elif (isinstance(dato, complex)):   
-      if (dato.imag < 0):
-         data_list.append(str(dato.real)+"-"+str((dato.imag)*-1)+"j")
-      else:
-         data_list.append(str(dato.real)+"+"+str(dato.imag)+"j")
+    '''  It Converts Any Type of Variable to a a String List Type  '''
 
-   # range type
-   elif (isinstance(dato, range)):     
-      data_list = range2list(dato,"none",self.set_layout)      
-                                       
-   # dictionary type
-   elif (isinstance(dato, dict)):      data_list = dict2list(dato)
-   
-   # set type
-   elif (isinstance(dato, set)):       data_list = set2list(dato,"none",self.set_layout)
+    data_list = []
+    # it is already a list type
+    if isinstance(dato, list):
+        return dato
 
-   # frozenset type
-   elif (isinstance(dato, frozenset)): data_list = set2list(dato,"none",self.set_layout)
-   
-   # tuple
-   elif (isinstance(dato, tuple)):     data_list = tuple2list(dato)
-   
-   else:                               data_list = "none"
-   # none: bytes, bytearray, memoryview(bytes(5))  
+    # bool type to list type
+    elif isinstance(dato, bool):
+        data_list = bool2list(dato)
 
-   return data_list
+    # int to list type
+    elif isinstance(dato, int):
+        data_list = int2list(dato)
+
+    # float to list type
+    elif isinstance(dato, float):
+        data_list = float2list(dato)
+
+    # string type
+    elif isinstance(dato, str):
+        data_list = str2list(dato)
+
+    # complex type
+    elif isinstance(dato, complex):
+        if dato.imag < 0:
+            data_list.append(str(dato.real)+"-"+str((dato.imag)*-1)+"j")
+        else:
+            data_list.append(str(dato.real)+"+"+str(dato.imag)+"j")
+
+    # range type
+    elif isinstance(dato, range):
+        data_list = range2list(dato,"none",self.set_layout)
+
+    # dictionary type
+    elif isinstance(dato, dict):
+        data_list = dict2list(dato)
+
+    # set type
+    elif isinstance(dato, set):
+        data_list = set2list(dato,"none",self.set_layout)
+
+    # frozenset type
+    elif isinstance(dato, frozenset):
+        data_list = set2list(dato,"none",self.set_layout)
+
+    # tuple
+    elif isinstance(dato, tuple):
+        data_list = tuple2list(dato)
+
+    else:
+        data_list = "none"
+
+    # none: bytes, bytearray, memoryview(bytes(5))
+
+    return data_list
 
 
 
-#-----------------------------------------------------------------------------------------------------------------------
-# Get List Type                                                                                                        -
-#-----------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+# Get List Type                                                                                                                                      -
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
 def _get_list_type(my_list):
-   if not isinstance(my_list, list):
-      return "incorrect_variable_type"                # [Not a List] Case 0
-  #-----------------------------------------------------------------------------------------------
+    if not isinstance(my_list, list):
+        return "incorrect_variable_type"                # [Not a List] Case 0
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
 
-   if (len(my_list) == 0):
-      return "empty_list"                             # []    Case 1
+    if len(my_list) == 0:
+        return "empty_list"                             # []    Case 1
 
-  #-----------------------------------------------------------------------------------------------
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
 
-   if (len(my_list) == 1):
-      if isinstance(my_list[0], list):
-         if len(my_list[0]) > 1:
-            return "multiple_items_one_row"           # [[1,2,3]]   Case 5
-         else:
-            return "one_item_one_row"                 # [[1]]  Case 4
-      else:
-         return "one_item_no_row"                     # [1]   Case 2
+    if len(my_list) == 1:
+        if isinstance(my_list[0], list):
+            if len(my_list[0]) > 1:
+                return "multiple_items_one_row"           # [[1,2,3]]   Case 5
+            else:
+                return "one_item_one_row"                 # [[1]]  Case 4
+        else:
+            return "one_item_no_row"                      # [1]   Case 2
 
-  #-----------------------------------------------------------------------------------------------
-   if (len(my_list) > 1):
-      items = 0; rows = 0
-      for n in my_list:
-         if not isinstance(n, list):
-            items = 1
-         else:
-            rows = 1
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    if len(my_list) > 1:
+        items = 0; rows = 0
+        for n in my_list:
+            if not isinstance(n, list):
+                items = 1
+            else:
+                rows = 1
 
-      if (items ==  1 and rows == 0):
-         return "multiple_items_no_row"               #  [1,2,3]  Case 3
-      elif (items == 0 and rows == 1):
-         return  "multiple_items_multiple_rows"       # [[1],[4],[7]]              Case 6
-                                                      # [[1,2,3],[4,5,6],[7,8,9]]  Case 6
-                                                      # [[1],[1,2,3],[5,4,7,8]]    Case 6
-                                                      # any combination of this is Case 6
-                                                      # [[1,2,3],[[2],3,4],[5,[6,7]]] Case 6
-      else:
-         return "mix_items"                           # [5,6,[1,2,3],[1,0,3]]      Case 7
-                                                      # [[1,2],[1,2,[1]],[1,2,3]]  Case 7
-                                                      # any combination of this is Case 7
+        if (items ==  1 and rows == 0):
+            return "multiple_items_no_row"              #  [1,2,3]                      Case 3
+        elif (items == 0 and rows == 1):
+            return  "multiple_items_multiple_rows"      # [[1],[4],[7]]                 Case 6
+                                                        # [[1,2,3],[4,5,6],[7,8,9]]     Case 6
+                                                        # [[1],[1,2,3],[5,4,7,8]]       Case 6
+                                                        # any combination of this is    Case 6
+                                                        # [[1,2,3],[[2],3,4],[5,[6,7]]] Case 6
+        else:
+            return "mix_items"                          # [5,6,[1,2,3],[1,0,3]]         Case 7
+                                                        # [[1,2],[1,2,[1]],[1,2,3]]     Case 7
+                                                        # any combination of this is    Case 7
 
 
 
-#-----------------------------------------------------------------------------------------------------------------------
-# Get Total Length of the Columns                                                                                      -
-#-----------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+# Get Total Length of the Columns                                                                                                                    -
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
 def _get_total_length(self,my_list):
-   my_length = 0
-   list_dimensions = _get_list_type(my_list)
-   if (list_dimensions == "one_item_no_row"):     # ["item"]
-      # the *2 is because there are 2 adj_space one each size (left and right)
-      # the +2 is because there are 2 vertical lines (left and right)
-      my_length = len(my_list[0]) + (self.adj_space*2) + self.adj_indent + 2
-      
+    my_length = 0
+    list_dimensions = _get_list_type(my_list)
+    if list_dimensions == "one_item_no_row":     # ["item"]
+        # the *2 is because there are 2 adj_space one each size (left and right)
+        # the +2 is because there are 2 vertical lines (left and right)
+        my_length = len(my_list[0]) + (self.adj_space*2) + self.adj_indent + 2
 
-   elif (list_dimensions == "one_item_one_row"):  # [[item]]
-      # the *2 is because there are 2 adj_space one each size (left and right)
-      # the adj_indent is because we have an indentation space at the begining
-      # the +2 is because there are 2 vertical lines (left and right)
-      my_length = len(my_list[0][0]) + (self.adj_space*2) + self.adj_indent + 2 
-      
+    elif list_dimensions == "one_item_one_row":  # [[item]]
+        # the *2 is because there are 2 adj_space one each size (left and right)
+        # the adj_indent is because we have an indentation space at the begining
+        # the +2 is because there are 2 vertical lines (left and right)
+        my_length = len(my_list[0][0]) + (self.adj_space*2) + self.adj_indent + 2
 
-   elif (list_dimensions == "multiple_items_one_row") or (list_dimensions == "multiple_items_no_row"):
-      # [1,2,3,4,5]  or [[1,2,3,4,5]]
-      for item in my_list:
-         my_length += len(item) + (self.adj_space*2) + 1  # this one is for the left vertical chr    
-      my_length += 1                                      # this one is for the right vertical chr, last one
-      my_length += self.adj_indent                        # this is for the indentation space
+    elif (list_dimensions == "multiple_items_one_row" or list_dimensions == "multiple_items_no_row"):
+        # [1,2,3,4,5]  or [[1,2,3,4,5]]
+        for item in my_list:
+            my_length += len(item) + (self.adj_space*2) + 1  # this one is for the left vertical chr
+        my_length += 1                                       # this one is for the right vertical chr, last one
+        my_length += self.adj_indent                         # this is for the indentation space
 
-   else:    # multiples rows
-      one_item_per_row = True
+    else:    # multiples rows
+        one_item_per_row = True
 
-      for row in my_list:             # checking if we a list like [[1],[2],[3]], only one column
-         if  len(row) != 1:
-            one_item_per_row = False
-            break
+        for row in my_list:             # checking if we a list like [[1],[2],[3]], only one column
+            if  len(row) != 1:
+                one_item_per_row = False
+                break
 
-      if one_item_per_row == True:    # finding the greatest column size in characters 
-         for row in my_list:
-            for col in row:
-               if my_length < len(col):
-                  my_length = len(col)
+        if one_item_per_row == True:    # finding the greatest column size in characters
+            for row in my_list:
+                for col in row:
+                    if my_length < len(col):
+                        my_length = len(col)
 
-         # the adj_indent is because we have an indentation space at the begining
-         # the *2 is because there are 2 adj_space one each size (left and right), self.adj_space
-         # the +2 is because there are 2 vertical lines (left and right)
-         my_length += self.adj_indent + (self.adj_space*2) + 2
-         
-      
-      else:
-         # we have a matrix list something like this [[10,20,30],[40,50,60],[70,80,90]]. awsome.
-         max_rows, max_cols = _get_number_rows_cols_list(my_list)
-         n_cols = []; tempo_cols = []
-
-         # we create the transpose of the list but we save their lens in the transpose rather than the data
-         for c in range(max_cols):
-            for r in range(max_rows):
-               tempo_cols.append(len(my_list[r][c]))
-            n_cols.append(tempo_cols)
-            tempo_cols = []
-         
-         longest_cols = []
-         for col in n_cols:
-            longest_cols.append(max(col)) # longest_cols keeps the size list of the longest columns in chr
-            # making the complete sum of the all the length
             # the adj_indent is because we have an indentation space at the begining
-            # sum(longest_cols) is suming all the longest cols in the list
-            # the self.adj_space is multiply by 2 because we have to side, left and right, on each column then
-            # we multiply by the number of columns in the list
-            # the +1  is because there are 1 vertical lines no consiered in the list 
-            # of longest_cols (left, middles, and right)
-     
-         my_length = self.adj_indent + sum(longest_cols) +\
-            ((self.adj_space*2)*len(longest_cols)) + len(longest_cols) + 1
-      
-   return my_length    
+            # the *2 is because there are 2 adj_space one each size (left and right), self.adj_space
+            # the +2 is because there are 2 vertical lines (left and right)
+            my_length += self.adj_indent + (self.adj_space*2) + 2
+
+        else:
+            # we have a matrix list something like this [[10,20,30],[40,50,60],[70,80,90]]. awsome.
+            max_rows, max_cols = _get_number_rows_cols_list(my_list)
+            tempo_cols = []
+            n_cols = []
+
+            # we create the transpose of the list but we save their lens in the transpose rather than the data
+            for c in range(max_cols):
+                for r in range(max_rows):
+                    tempo_cols.append(len(my_list[r][c]))
+                n_cols.append(tempo_cols)
+                tempo_cols = []
+
+            longest_cols = []
+            for col in n_cols:
+                longest_cols.append(max(col)) # longest_cols keeps the size list of the longest columns in chr
+                # making the complete sum of the all the length
+                # the adj_indent is because we have an indentation space at the begining
+                # sum(longest_cols) is suming all the longest cols in the list
+                # the self.adj_space is multiply by 2 because we have to side, left and right, on each column then
+                # we multiply by the number of columns in the list
+                # the +1  is because there are 1 vertical lines no consiered in the list
+                # of longest_cols (left, middles, and right)
+
+            my_length = self.adj_indent + sum(longest_cols) + ((self.adj_space*2)*len(longest_cols)) + len(longest_cols) + 1
+
+    return my_length
 
 
 
-
-#-----------------------------------------------------------------------------------------------------------------------
-# Print Title On Terminal with Its Attributes: Bold, Bg and Fg Color (title)                                           -
-#-----------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+# Print Title On Terminal with Its Attributes: Bold, Bg and Fg Color (title)                                                                         -
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
 def _print_title(self,my_list):
 
-   if self.msg_title == "": return
-   else: 
-      settings = set_font(self.bold_title,self.bg_title, self.fg_title,self.italic_title,self.underline_title,
-                          self.strike_title,self.blinking_title,self.dim_title,self.hidden_title,self.inverse_title)
+    if self.msg_title == "":  return
 
-      # check for the length of the message
-   total_length = _get_total_length(self,my_list)
+    else:
+        settings = set_font(self.bold_title,self.bg_title, self.fg_title,self.italic_title,self.underline_title,
+                            self.strike_title,self.blinking_title,self.dim_title,self.hidden_title,self.inverse_title)
 
-   
-   if (self.align_title.lower() == "left") or (self.align_title.lower() == "l"):
-      print(_move_right(self.adj_indent)+settings+self.msg_title+reset_font())
-   
-   elif (self.align_title.lower() == "center") or (self.align_title.lower() == "c"):
-      difference = (int((total_length)/2)) - (int(((len(self.msg_title) + self.adj_indent))/2))
-      if difference <= 0:
-         print(_move_right(self.adj_indent)+settings+self.msg_title+reset_font()) # left align
-      else:
-         print(_move_right(self.adj_indent+difference)+settings+self.msg_title+reset_font())
+    total_length = _get_total_length(self,my_list)  # check for the length of the message
 
-   elif (self.align_title.lower() == "right") or (self.align_title.lower() == "r"):
-      # the 1 is for the vertical line
-      difference = total_length - (len(self.msg_title) + (self.adj_space) + self.adj_indent + 1)
-      if difference <= 0:
-         print(_move_right(self.adj_indent)+settings+self.msg_title+reset_font()) # left align
-      else:
-         print(_move_right(self.adj_indent+self.adj_space+1+difference)+settings+self.msg_title+reset_font())
+    if (self.align_title.lower() == "left") or (self.align_title.lower() == "l"):
+        print(_move_right(self.adj_indent)+settings+self.msg_title+reset_font())
 
-   elif (self.align_title.lower() == "justify") or (self.align_title.lower() == "j"):    
-      difference = total_length - (len(self.msg_title) + (self.adj_space) + self.adj_indent + 1)
-      if difference <= 0:
-         print(_move_right(self.adj_indent)+settings+self.msg_title+reset_font()) # left align
-      else:
-         print(_move_right(self.adj_indent+self.adj_space+1)+settings+self.msg_title+reset_font())
+    elif (self.align_title.lower() == "center") or (self.align_title.lower() == "c"):
+        difference = (int((total_length)/2)) - (int(((len(self.msg_title) + self.adj_indent))/2))
+        if difference <= 0:
+            print(_move_right(self.adj_indent)+settings+self.msg_title+reset_font()) # left align
+        else:
+            print(_move_right(self.adj_indent+difference)+settings+self.msg_title+reset_font())
 
-   else:
-      print(_move_right(self.adj_indent)+settings+self.msg_title+reset_font())   # left align
-   
-   ins_newline(self.adj_top_space)    # space between the the title and the top list
+    elif (self.align_title.lower() == "right") or (self.align_title.lower() == "r"):
+        # the 1 is for the vertical line
+        difference = total_length - (len(self.msg_title) + (self.adj_space) + self.adj_indent + 1)
+        if difference <= 0:
+            print(_move_right(self.adj_indent)+settings+self.msg_title+reset_font()) # left align
+        else:
+            print(_move_right(self.adj_indent+self.adj_space+1+difference)+settings+self.msg_title+reset_font())
 
+    elif (self.align_title.lower() == "justify") or (self.align_title.lower() == "j"):
+        difference = total_length - (len(self.msg_title) + (self.adj_space) + self.adj_indent + 1)
+        if difference <= 0:
+            print(_move_right(self.adj_indent)+settings+self.msg_title+reset_font()) # left align
+        else:
+            print(_move_right(self.adj_indent+self.adj_space+1)+settings+self.msg_title+reset_font())
+
+    else:
+        print(_move_right(self.adj_indent)+settings+self.msg_title+reset_font())   # left align
+
+    ins_newline(self.adj_top_space)    # space between the the title and the top list
 
 
 
-#-----------------------------------------------------------------------------------------------------------------------
-# Print Footnote On Terminal with Its Attributes: Bold, Bg and Fg Color (footnote)                                     -
-#-----------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+# Print Footnote On Terminal with Its Attributes: Bold, Bg and Fg Color (footnote)                                                                   -
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
 def _print_notefoot(self,my_list):
-   
-   if self.msg_footnote == "": return
-   else: 
-      settings = set_font(self.bold_footnote,self.bg_footnote, self.fg_footnote,self.italic_footnote,self.underline_footnote,\
-                          self.strike_footnote,self.blinking_footnote,self.dim_footnote,self.hidden_footnote,self.inverse_footnote)
 
-   # check for the length of the message
-   total_length = _get_total_length(self,my_list)
+    if self.msg_footnote == "": return
 
-   ins_newline(self.adj_bottom_space)
+    else:
+        settings = set_font(self.bold_footnote,self.bg_footnote, self.fg_footnote,self.italic_footnote,self.underline_footnote,\
+                            self.strike_footnote,self.blinking_footnote,self.dim_footnote,self.hidden_footnote,self.inverse_footnote)
 
-   if (self.align_footnote.lower() == "left") or (self.align_footnote.lower() == "l"):
-      print(_move_right(self.adj_indent)+settings+self.msg_footnote+reset_font())
-   
-   elif (self.align_footnote.lower() == "center") or (self.align_footnote.lower() == "c"):
-      difference = (int((total_length)/2)) - (int(((len(self.msg_footnote) + self.adj_indent))/2))
-      if difference <= 0:
-         print(_move_right(self.adj_indent)+settings+self.msg_footnote+reset_font()) # left align
-      else:
-         print(_move_right(self.adj_indent+difference)+settings+self.msg_footnote+reset_font())
+    total_length = _get_total_length(self,my_list)  # check for the length of the message
 
-   elif (self.align_footnote.lower() == "right") or (self.align_footnote.lower() == "r"):      
-      difference = total_length - (len(self.msg_footnote) + (self.adj_space) + self.adj_indent + 1) # 1 is for the vertical line
-      if difference <= 0:
-         print(_move_right(self.adj_indent)+settings+self.msg_footnote+reset_font()) # left align
-      else:
-         print(_move_right(self.adj_indent+self.adj_space+1+difference)+settings+self.msg_footnote+reset_font())
+    ins_newline(self.adj_bottom_space)
 
-   elif (self.align_footnote.lower() == "justify") or (self.align_footnote.lower() == "j"):    
-      difference = total_length - (len(self.msg_footnote) + (self.adj_space) + self.adj_indent + 1)
-      if difference <= 0:
-         print(_move_right(self.adj_indent)+settings+self.msg_footnote+reset_font()) # left align
-      else:
-         print(_move_right(self.adj_indent+self.adj_space+1)+settings+self.msg_footnote+reset_font())
+    if (self.align_footnote.lower() == "left") or (self.align_footnote.lower() == "l"):
+        print(_move_right(self.adj_indent)+settings+self.msg_footnote+reset_font())
 
-   else:
-      print(_move_right(self.adj_indent)+settings+self.msg_footnote+reset_font())   # left align
-   
+    elif (self.align_footnote.lower() == "center") or (self.align_footnote.lower() == "c"):
+        difference = (int((total_length)/2)) - (int(((len(self.msg_footnote) + self.adj_indent))/2))
+        if difference <= 0:
+            print(_move_right(self.adj_indent)+settings+self.msg_footnote+reset_font()) # left align
+        else:
+            print(_move_right(self.adj_indent+difference)+settings+self.msg_footnote+reset_font())
 
+    elif (self.align_footnote.lower() == "right") or (self.align_footnote.lower() == "r"):
+        difference = total_length - (len(self.msg_footnote) + (self.adj_space) + self.adj_indent + 1) # 1 is for the vertical line
+        if difference <= 0:
+            print(_move_right(self.adj_indent)+settings+self.msg_footnote+reset_font()) # left align
+        else:
+            print(_move_right(self.adj_indent+self.adj_space+1+difference)+settings+self.msg_footnote+reset_font())
+
+    elif (self.align_footnote.lower() == "justify") or (self.align_footnote.lower() == "j"):
+        difference = total_length - (len(self.msg_footnote) + (self.adj_space) + self.adj_indent + 1)
+        if difference <= 0:
+            print(_move_right(self.adj_indent)+settings+self.msg_footnote+reset_font()) # left align
+        else:
+            print(_move_right(self.adj_indent+self.adj_space+1)+settings+self.msg_footnote+reset_font())
+
+    else:
+        print(_move_right(self.adj_indent)+settings+self.msg_footnote+reset_font())   # left align
 
 
-#-----------------------------------------------------------------------------------------------------------------------
-# Print Horizontal Line                                                                                                -
-#-----------------------------------------------------------------------------------------------------------------------
+
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+# Print Horizontal Line                                                                                                                              -
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
 def _print_horizontal_segment(self,start_chr,end_chr,times,indent,option):
 
-   set_v = set_font(self.bold_vertical_line, self.bg_vertical_line, self.fg_vertical_line)
-   set_h = set_font(self.bold_horizontal_line, self.bg_horizontal_line, self.fg_horizontal_line)
-   set_c = set_font(self.bold_corner_chr, self.bg_corner_chr, self.fg_corner_chr)
-   set_hd = set_font(self.bold_under_line_header, self.bg_under_line_header,self.fg_under_line_header)
-   set_hdc = set_font(self.bold_corner_under_line_header, self.bg_corner_under_line_header,self.fg_corner_under_line_header)
-   set_ic = set_font (self.bold_inner_corner_chr, self.bg_inner_corner_chr,self.fg_inner_corner_chr)
-  
-   # indentation adds the space is set up for the indentation 
-   # we want the indentation space at the begining but not at the end of the line.
-  
-   if (indent == 1):
-      print(_move_right(self.adj_indent),end="")
-  
-   if option == "horizontal":
-      print(set_v+start_chr+set_h,end="")
+    set_v   = set_font(self.bold_vertical_line, self.bg_vertical_line, self.fg_vertical_line)
+    set_h   = set_font(self.bold_horizontal_line, self.bg_horizontal_line, self.fg_horizontal_line)
+    set_c   = set_font(self.bold_corner_chr, self.bg_corner_chr, self.fg_corner_chr)
+    set_hd  = set_font(self.bold_under_line_header, self.bg_under_line_header,self.fg_under_line_header)
+    set_hdc = set_font(self.bold_corner_under_line_header, self.bg_corner_under_line_header,self.fg_corner_under_line_header)
+    set_ic  = set_font(self.bold_inner_corner_chr, self.bg_inner_corner_chr,self.fg_inner_corner_chr)
 
-   elif option == "corner":    
-      print(set_c+start_chr+set_h,end="")
+    # indentation adds the space is set up for the indentation
+    # we want the indentation space at the begining but not at the end of the line.
 
-   elif option == "horizontal_header":
-      print(set_hdc+start_chr+set_hd,end="")    
+    if indent == 1:
+        print(_move_right(self.adj_indent),end="")
 
-   elif option == "inner_corner":
-      print(set_ic+start_chr+set_h,end="")
+    if option == "horizontal":
+        print(set_v+start_chr+set_h,end="")
 
-   else:
-      print(set_v+start_chr+set_h,end="")
+    elif option == "corner":
+        print(set_c+start_chr+set_h,end="")
 
-   for n in range(times):
-      print(end_chr,end="")
-  
-   print(reset_font(),end="")
+    elif option == "horizontal_header":
+        print(set_hdc+start_chr+set_hd,end="")
 
+    elif option == "inner_corner":
+        print(set_ic+start_chr+set_h,end="")
 
+    else:
+        print(set_v+start_chr+set_h,end="")
+
+    for n in range(times):
+        print(end_chr,end="")
+
+    print(reset_font(),end="")
 
 
-#-----------------------------------------------------------------------------------------------------------------------
-# Print Single Element                                                                                                 -
-#-----------------------------------------------------------------------------------------------------------------------
+
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+# Print Single Element                                                                                                                               -
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
 def _print_single_element(self,my_list):
-   
-   if isinstance(my_list[0],list): item = my_list[0][0]
-   else:                           item = my_list[0]
 
-   ins_newline(self.adj_top_margin)
-   # print title  
-   _print_title(self,my_list)
-   
-   # get all the settings for the list
-   
-   set_d = set_font(self.bold_data, self.bg_data, self.fg_data,self.italic_data,self.underline_data,self.strike_data,self.blinking_data,\
-                    self.dim_data,self.hidden_data,self.inverse_data)
-   set_v = set_font(self.bold_vertical_line, self.bg_vertical_line, self.fg_vertical_line)  
-  
-   # print the top horizontal line
-   if  self.top_horizontal_line_on == True:
-      indent = 1  # to add the space at the beginning ()  
-      _print_horizontal_segment(self, self.top_left_corner_chr, self.top_horizontal_line_chr, ((len(item))+(2*self.adj_space)), indent, "corner")
-      indent = 0  # to don't add this space at the end or the middle
-      _print_horizontal_segment(self, self.top_right_corner_chr, self.top_horizontal_line_chr, 0, indent, "corner")
-      print()
-   else:
-      pass
+    if isinstance(my_list[0],list): item = my_list[0][0]
+    else:                           item = my_list[0]
 
-    #-------------------------------------------------------------------------------------------------------------------
-   # print data with adjustments. We are missing vertical line color and horizontal line color and data color
-   if (self.align_data.lower() == "left") or (self.align_data.lower() == "l"):
-      print(_move_right(self.adj_indent) + set_v+self.left_vertical_line_chr + set_d+ item + _move_right((self.adj_space*2),\
-                        self.bg_all_cell_data) + set_v + self.right_vertical_line_chr + reset_font())
+    ins_newline(self.adj_top_margin)
+    # print title
+    _print_title(self,my_list)
 
-   elif (self.align_data.lower() == "right") or (self.align_data.lower() == "r"):
-      print(_move_right(self.adj_indent) + set_v+self.left_vertical_line_chr+set_d + _move_right((self.adj_space*2),self.bg_all_cell_data)\
-            + item + set_v + self.right_vertical_line_chr + reset_font())
-  
-   elif (self.align_data.lower() == "center") or (self.align_data.lower() == "c"):
-      print(_move_right(self.adj_indent) + set_v + self.left_vertical_line_chr + set_d+ _move_right(self.adj_space,self.bg_all_cell_data) +\
-            item + _move_right(self.adj_space,self.bg_all_cell_data) + set_v+self.right_vertical_line_chr + reset_font())
-  
-   elif (self.align_data.lower() == "justify") or (self.align_data.lower() == "j"):
-      print(_move_right(self.adj_indent) + set_v + self.left_vertical_line_chr + set_d + _move_right(self.adj_space,self.bg_all_cell_data) +\
-            item + _move_right(self.adj_space,self.bg_all_cell_data) + set_v+self.right_vertical_line_chr + reset_font())
+    # get all the settings for the list
+    set_d = set_font(self.bold_data, self.bg_data, self.fg_data, self.italic_data, self.underline_data, self.strike_data,\
+                     self.blinking_data, self.dim_data, self.hidden_data, self.inverse_data)
+    set_v = set_font(self.bold_vertical_line, self.bg_vertical_line, self.fg_vertical_line)
 
-   else:
-      print(_move_right(self.adj_indent) + set_v+self.left_vertical_line_chr + set_d+_move_right(self.adj_space,self.bg_all_cell_data)+\
-            item + _move_right(self.adj_space,self.bg_all_cell_data) + set_v+self.right_vertical_line_chr + reset_font())
-    
-    #-------------------------------------------------------------------------------------------------------------------
-   # print the bottom horizontal line
-   if  self.bottom_horizontal_line_on == 1:
-      indent = 1  # to add the space at the beginning (vertical line chr)
-      _print_horizontal_segment(self, self.bottom_left_corner_chr, self.bottom_horizontal_line_chr, ((len(item))+(2*self.adj_space)), indent, "corner")
-      indent = 0  # to don't add this space at the end or the middle
-      _print_horizontal_segment(self, self.bottom_right_corner_chr, self.bottom_horizontal_line_chr, 0, indent, "corner")
-      print()
+    # print the top horizontal line
+    if  self.top_horizontal_line_on == True:
+        indent = 1  # to add the space at the beginning ()
+        _print_horizontal_segment(self, self.top_left_corner_chr, self.top_horizontal_line_chr, ((len(item))+(2*self.adj_space)), indent, "corner")
 
-   else:
-      pass
+        indent = 0  # to don't add this space at the end or the middle
+        _print_horizontal_segment(self, self.top_right_corner_chr, self.top_horizontal_line_chr, 0, indent, "corner")
+        print()
+    else:
+        pass
 
-   _print_notefoot(self,my_list)
-   ins_newline(self.adj_bottom_margin)
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    # print data with adjustments. We are missing vertical line color and horizontal line color and data color
+    if (self.align_data.lower() == "left") or (self.align_data.lower() == "l"):
+        print(_move_right(self.adj_indent) + set_v + self.left_vertical_line_chr + set_d + item + _move_right((self.adj_space*2),\
+                          self.bg_all_cell_data) + set_v + self.right_vertical_line_chr + reset_font())
 
+    elif (self.align_data.lower() == "right") or (self.align_data.lower() == "r"):
+        print(_move_right(self.adj_indent) + set_v + self.left_vertical_line_chr + set_d + _move_right((self.adj_space*2),\
+                          self.bg_all_cell_data) + item + set_v + self.right_vertical_line_chr + reset_font())
+
+    elif (self.align_data.lower() == "center") or (self.align_data.lower() == "c"):
+        print(_move_right(self.adj_indent) + set_v + self.left_vertical_line_chr + set_d + _move_right(self.adj_space, self.bg_all_cell_data) +\
+                          item + _move_right(self.adj_space, self.bg_all_cell_data) + set_v + self.right_vertical_line_chr + reset_font())
+
+    elif (self.align_data.lower() == "justify") or (self.align_data.lower() == "j"):
+        print(_move_right(self.adj_indent) + set_v + self.left_vertical_line_chr + set_d + _move_right(self.adj_space, self.bg_all_cell_data) +\
+                          item + _move_right(self.adj_space, self.bg_all_cell_data) + set_v + self.right_vertical_line_chr + reset_font())
+
+    else:
+        print(_move_right(self.adj_indent) + set_v + self.left_vertical_line_chr + set_d + _move_right(self.adj_space, self.bg_all_cell_data)+\
+                          item + _move_right(self.adj_space, self.bg_all_cell_data) + set_v + self.right_vertical_line_chr + reset_font())
+
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    # print the bottom horizontal line
+    if  self.bottom_horizontal_line_on == 1:
+        indent = 1  # to add the space at the beginning (vertical line chr)
+        _print_horizontal_segment(self, self.bottom_left_corner_chr, self.bottom_horizontal_line_chr, ((len(item))+(2*self.adj_space)), indent, "corner")
+        indent = 0  # to don't add this space at the end or the middle
+        _print_horizontal_segment(self, self.bottom_right_corner_chr, self.bottom_horizontal_line_chr, 0, indent, "corner")
+        print()
+
+    else:  pass
+
+    _print_notefoot(self,my_list)
+    ins_newline(self.adj_bottom_margin)
 
 
-#-----------------------------------------------------------------------------------------------------------------------
-# Print Multiple Horizontal Items (One Row OR No Row)                                                                  -
-#-----------------------------------------------------------------------------------------------------------------------
+
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+# Print Multiple Horizontal Items (One Row OR No Row)                                                                                                -
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
 def _print_multiple_horizontal_items(self,my_list):
-   ins_newline(self.adj_top_margin)
-   # print title
-   _print_title(self,my_list)
-  
-   # get all the settings for the list
-   set_d = set_font(self.bold_data, self.bg_data, self.fg_data,self.italic_data,self.underline_data,self.strike_data,self.blinking_data,\
-                    self.dim_data,self.hidden_data,self.inverse_data)
-   set_v = set_font(self.bold_vertical_line, self.bg_vertical_line, self.fg_vertical_line)
-   
-   # drawing the top horizontal line
-   if  self.top_horizontal_line_on == True:
-      indent = 1  # to add the space at the beginning (indentation space)    
-      for item in my_list:    
-         if indent == 1:          # first segment
-            _print_horizontal_segment(self, self.top_left_corner_chr, self.top_horizontal_line_chr, (len(item) + (2*self.adj_space)),\
-                                      indent, "corner")
-            indent = 0
-         else:
-            _print_horizontal_segment(self, self.middle_top_corner_chr, self.top_horizontal_line_chr,(len(item) + (2*self.adj_space)),\
-                                      indent, "inner_corner")
-            # corner or horizontal depends on what color to get if the corner colors or the horizontal_line
-            # last segment, which is only the corner that's why it's 0 on value
-      _print_horizontal_segment(self, self.top_right_corner_chr, self.top_horizontal_line_chr, 0, indent, "corner") 
-      print() # done top line, jump to next line to print data
+    ins_newline(self.adj_top_margin)
+    # print title
+    _print_title(self,my_list)
 
-   else:
-      pass
-    #-------------------------------------------------------------------------------------------------------------------
-   # print the data with their alignments
-   indent = 1
-   for item in my_list:
-      if (self.align_data.lower() == "left") or (self.align_data.lower() == "l"):
-         if indent == 1:
-            print(_move_right(self.adj_indent) + set_v + self.left_vertical_line_chr + set_d + item +\
-                  _move_right((self.adj_space*2),self.bg_all_cell_data),end="")
-            indent = 0
-         else:
-            print(set_v + self.middle_vertical_line_chr + set_d + item + _move_right((self.adj_space*2),self.bg_all_cell_data),end="")
+    # get all the settings for the list
+    set_d = set_font(self.bold_data, self.bg_data, self.fg_data, self.italic_data, self.underline_data, self.strike_data,\
+                     self.blinking_data, self.dim_data, self.hidden_data, self.inverse_data)
 
-        #---------------------------------------------------------------------------------------------------------------
-      elif (self.align_data.lower() == "right") or (self.align_data.lower() == "r"):
-         if indent == 1:
-            print(_move_right(self.adj_indent) + set_v + self.left_vertical_line_chr + set_d+\
-                  _move_right((self.adj_space*2),self.bg_all_cell_data) + item,end="")
-            indent = 0
-         else:
-            print(set_v + self.middle_vertical_line_chr + set_d + _move_right((self.adj_space*2),self.bg_all_cell_data) + item,end="")
-        
-        #---------------------------------------------------------------------------------------------------------------
-      elif (self.align_data.lower() == "justify") or (self.align_data.lower() == "j")\
-           or (self.align_data.lower() == "center") or (self.align_data.lower() == "c"):
-         if indent == 1:
-            print(_move_right(self.adj_indent) + set_v + self.left_vertical_line_chr + set_d +\
-                  _move_right(self.adj_space,self.bg_all_cell_data) + item + _move_right(self.adj_space,self.bg_all_cell_data),end="")
-            indent = 0
-         else:
-            print(set_v + self.middle_vertical_line_chr + set_d+_move_right(self.adj_space,self.bg_all_cell_data) + item +\
-                  _move_right(self.adj_space,self.bg_all_cell_data),end="")
+    set_v = set_font(self.bold_vertical_line, self.bg_vertical_line, self.fg_vertical_line)
 
-        #---------------------------------------------------------------------------------------------------------------
-      else: # justify default one
-         print(_move_right(self.adj_indent) + set_v + self.left_vertical_line_chr + set_d + _move_right(self.adj_space,self.bg_all_cell_data) +\
-               item + _move_right(self.adj_space,self.bg_all_cell_data),end="")
+    # drawing the top horizontal line
+    if  self.top_horizontal_line_on == True:
+        indent = 1  # to add the space at the beginning (indentation space)
+        for item in my_list:
+            if indent == 1:          # first segment
+                _print_horizontal_segment(self, self.top_left_corner_chr, self.top_horizontal_line_chr, (len(item) +\
+                                         (2*self.adj_space)), indent, "corner")
+                indent = 0
+            else:
+                _print_horizontal_segment(self, self.middle_top_corner_chr, self.top_horizontal_line_chr,(len(item) +\
+                                         (2*self.adj_space)), indent, "inner_corner")
 
-   print(set_v + self.right_vertical_line_chr + reset_font())
+                # corner or horizontal depends on what color to get if the corner colors or the horizontal_line
+                # last segment, which is only the corner that's why it's 0 on value
 
-    #-------------------------------------------------------------------------------------------------------------------
-   # print the bottom horizontal line
-   if  self.bottom_horizontal_line_on == 1:
-      indent = 1
-      for item in my_list:    
-         if indent == 1:
-            _print_horizontal_segment(self, self.bottom_left_corner_chr, self.bottom_horizontal_line_chr, (len(item) + (2*self.adj_space)),\
-                              indent, "corner") # first segment
-            indent = 0
+        _print_horizontal_segment(self, self.top_right_corner_chr, self.top_horizontal_line_chr, 0, indent, "corner")
+        print()  # done top line, jump to next line to print data
 
-         else:
-            #"horizontal") # middle segments. "corner"
-            _print_horizontal_segment(self, self.middle_bottom_corner_chr, self.bottom_horizontal_line_chr, (len(item) + (2*self.adj_space)),\
-                                indent, "inner_corner")
-            # corner or horizontal depends on what color to get if the corner colors or the horizontal_line
-            # last segment, which is only the corner that's why it's 0 on value  
-      _print_horizontal_segment(self, self.bottom_right_corner_chr, self.bottom_horizontal_line_chr, 0, indent, "corner") 
-      print()
+    else:  pass
 
-   _print_notefoot(self,my_list)
-   ins_newline(self.adj_bottom_margin)
-  
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    # print the data with their alignments
+    indent = 1
+    for item in my_list:
+        if (self.align_data.lower() == "left") or (self.align_data.lower() == "l"):
+            if indent == 1:
+                print(_move_right(self.adj_indent) + set_v + self.left_vertical_line_chr + set_d + item +\
+                     _move_right((self.adj_space*2),self.bg_all_cell_data),end="")
+                indent = 0
+            else:
+                print(set_v + self.middle_vertical_line_chr + set_d + item + _move_right((self.adj_space*2),self.bg_all_cell_data),end="")
+
+        #---------------------------------------------------------------------------------------------------------------------------------------------
+        elif (self.align_data.lower() == "right") or (self.align_data.lower() == "r"):
+            if indent == 1:
+                print(_move_right(self.adj_indent) + set_v + self.left_vertical_line_chr + set_d+\
+                     _move_right((self.adj_space*2),self.bg_all_cell_data) + item,end="")
+                indent = 0
+            else:
+                print(set_v + self.middle_vertical_line_chr + set_d + _move_right((self.adj_space*2),self.bg_all_cell_data) + item,end="")
+
+        #---------------------------------------------------------------------------------------------------------------------------------------------
+        elif (self.align_data.lower() == "justify") or (self.align_data.lower() == "j")\
+              or (self.align_data.lower() == "center") or (self.align_data.lower() == "c"):
+            if indent == 1:
+                print(_move_right(self.adj_indent) + set_v + self.left_vertical_line_chr + set_d +\
+                      _move_right(self.adj_space,self.bg_all_cell_data) + item + _move_right(self.adj_space,self.bg_all_cell_data),end="")
+                indent = 0
+            else:
+                print(set_v + self.middle_vertical_line_chr + set_d+_move_right(self.adj_space,self.bg_all_cell_data) + item +\
+                     _move_right(self.adj_space,self.bg_all_cell_data),end="")
+
+        #---------------------------------------------------------------------------------------------------------------------------------------------
+        else: # justify default one
+            print(_move_right(self.adj_indent) + set_v + self.left_vertical_line_chr + set_d + _move_right(self.adj_space,self.bg_all_cell_data) +\
+                  item + _move_right(self.adj_space,self.bg_all_cell_data),end="")
+
+    print(set_v + self.right_vertical_line_chr + reset_font())
+
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    # print the bottom horizontal line
+    if  self.bottom_horizontal_line_on == 1:
+        indent = 1
+        for item in my_list:
+            if indent == 1:
+                _print_horizontal_segment(self, self.bottom_left_corner_chr, self.bottom_horizontal_line_chr, (len(item) + (2*self.adj_space)),\
+                                  indent, "corner") # first segment
+                indent = 0
+
+            else:  # middle segments. "corner"
+                _print_horizontal_segment(self, self.middle_bottom_corner_chr, self.bottom_horizontal_line_chr, (len(item) + (2*self.adj_space)),\
+                                    indent, "inner_corner")
+
+                # corner or horizontal depends on what color to get if the corner colors or the horizontal_line
+                # last segment, which is only the corner that's why it's 0 on value
+
+        _print_horizontal_segment(self, self.bottom_right_corner_chr, self.bottom_horizontal_line_chr, 0, indent, "corner")
+        print()
+
+    _print_notefoot(self,my_list)
+    ins_newline(self.adj_bottom_margin)
 
 
-#-----------------------------------------------------------------------------------------------------------------------
-# Get Number of Rows and Cols of the List                                                                              -
-#-----------------------------------------------------------------------------------------------------------------------
+
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+# Get Number of Rows and Cols of the List                                                                                                            -
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
 def _get_number_rows_cols_list(my_list):
-   n_rows = len(my_list)
-   n_cols = 0
+    n_rows = len(my_list)
+    n_cols = 0
 
-   for n in my_list:
-      if len(n) > n_cols:
-         n_cols = len(n)
+    for n in my_list:
+        if len(n) > n_cols:
+            n_cols = len(n)
 
-   return n_rows, n_cols
+    return n_rows, n_cols
 
 
 
-#-----------------------------------------------------------------------------------------------------------------------
-# Complete Information in the List, if need it                                                                         -
-#-----------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+# Complete Information in the List, if need it                                                                                                       -
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
 def _complete_info_list(self,my_list):
-   n_rows, n_cols = _get_number_rows_cols_list(my_list)
-   row_tempo_list = []; matrix_update = []
+    n_rows, n_cols = _get_number_rows_cols_list(my_list)
+    row_tempo_list = []; matrix_update = []
 
-   for row in range(n_rows):
-      row_tempo_list = my_list[row]
-      diff = n_cols - len(my_list[row])
-      for col in range(diff):
-         row_tempo_list.append(str(self.set_fill_chr))
-      matrix_update.append(row_tempo_list)
+    for row in range(n_rows):
+        row_tempo_list = my_list[row]
+        diff = n_cols - len(my_list[row])
+        for col in range(diff):
+            row_tempo_list.append(str(self.set_fill_chr))
+        matrix_update.append(row_tempo_list)
 
-   return matrix_update  
+    return matrix_update
 
 
 
-#-----------------------------------------------------------------------------------------------------------------------
-# Get the Odd or Even Space Adjustment for the Word                                                                    -
-#-----------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+# Get the Odd or Even Space Adjustment for the Word                                                                                                  -
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
 def _get_odd_even_space_adj(length,len_dato):
-   sp_start = 0; sp_end=0
-   odd_l = length%2
-   odd_len_dato = len_dato%2
+    sp_start = 0; sp_end=0
+    odd_l = length%2
+    odd_len_dato = len_dato%2
 
-   if odd_l == 1:                      # if length word is odd    
-      sp_start = (int(length/2))-(int(len_dato/2))
+    if odd_l == 1:
+        sp_start = (int(length/2))-(int(len_dato/2))       # if length word is odd
+        if odd_len_dato == 1:  sp_end = sp_start           # if len_dato is odd
+        else:                  sp_end = sp_start + 1       # if len_dato is even
 
-      if odd_len_dato == 1:             # if len_dato is odd
-         sp_end = sp_start
-      else:                             # if len_dato is even
-         sp_end = sp_start + 1
-      
-   else:                                # if the length word is even
-      sp_start = (int(length/2))-(int(len_dato/2))
-    
-      if odd_len_dato == 1:             # if len_dato is odd
-         sp_end = sp_start - 1
-      else:                             # if len_dato is even
-         sp_end = sp_start
+    else:
+        sp_start = (int(length/2))-(int(len_dato/2))       # if the length word is even
+        if odd_len_dato == 1:  sp_end = sp_start - 1       # if len_dato is odd
+        else:                  sp_end = sp_start           # if len_dato is even
 
-   return sp_start, sp_end
+    return sp_start, sp_end
 
 
 
-#-----------------------------------------------------------------------------------------------------------------------
-# Print Matrix List                                                                                                    -
-#-----------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+# Print Matrix List                                                                                                                                  -
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
 def _print_matrix_list(self,my_list):
-   # d  :data,   v: vertical,   hcl: left_corner_header,   mch:middle_corner_header, rch:right_corner_header,   t:title(header)
-   # get all the settings for the list
-   set_d = set_font(self.bold_data, self.bg_data, self.fg_data,self.italic_data, self.underline_data, self.strike_data,\
-                    self.blinking_data, self.dim_data, self.hidden_data, self.inverse_data)
-   
-   set_v = set_font(self.bold_vertical_line, self.bg_vertical_line, self.fg_vertical_line)
+    # d  :data,   v: vertical,   hcl: left_corner_header,   mch:middle_corner_header, rch:right_corner_header,   t:title(header)
+    # get all the settings for the list
 
-   set_hchr_v = set_font(self.bold_vertical_header_line_chr, self.bg_vertical_header_line_chr,self.fg_vertical_header_line_chr)
+    set_d = set_font(self.bold_data, self.bg_data, self.fg_data,self.italic_data, self.underline_data, self.strike_data,\
+                     self.blinking_data, self.dim_data, self.hidden_data, self.inverse_data)
 
-   set_t = set_font(self.bold_header, self.bg_header, self.fg_header,self.italic_header,self.underline_header,self.strike_header,\
-                    self.blinking_header,self.dim_header,self.hidden_header,self.inverse_header)   
-   
-   total_length = _get_total_length(self,my_list)
+    set_v = set_font(self.bold_vertical_line, self.bg_vertical_line, self.fg_vertical_line)
 
-   ins_newline(self.adj_top_margin)
-   # print title  
-   _print_title(self,my_list)
-   # this is the last part and we need to start printing the matrix
-   if len(my_list[0]) == 1:
-      # we are dealing with only one column    
-        #---------------------------------------------------------------------------------------------------------------
-      #_print_horizontal_segment(self,start_chr,end_chr,times,indent,option)
-      # item is the longest column
-      length = total_length - (self.adj_indent + (self.adj_space*2) + 2) # length is the longest column length
+    set_hchr_v = set_font(self.bold_vertical_header_line_chr, self.bg_vertical_header_line_chr,self.fg_vertical_header_line_chr)
 
-      # print the top horizontal line
-      if  self.top_horizontal_line_on == True:
-         indent = 1  # to add the space at the beginning ()
-         _print_horizontal_segment(self, self.top_left_corner_chr, self.top_horizontal_line_chr, length + (2*self.adj_space), indent, "corner")
-         indent = 0  # to don't add this space at the end or the middle
-         _print_horizontal_segment(self, self.top_right_corner_chr, self.top_horizontal_line_chr, 0, indent, "corner")
-         print()
-      else:
-         pass
-        #---------------------------------------------------------------------------------------------------------------
-      # print data here
-      ctrl_header = 0
-      for row in my_list:
-         for dato in row:
-            if ctrl_header == 0:        # printing Header
-               ctrl_header += 1          
-               if (self.align_header.lower() == "left") or (self.align_header.lower() == "l"):
-                  print(_move_right(self.adj_indent) + set_hchr_v + self.left_vertical_header_line_chr + set_t + dato +\
-                        _move_right((self.adj_space*2)+(length-len(dato)),self.bg_all_cell_header) + set_hchr_v +\
-                        self.right_vertical_header_line_chr + reset_font(),end="")
+    set_t = set_font(self.bold_header, self.bg_header, self.fg_header,self.italic_header,self.underline_header,self.strike_header,\
+                     self.blinking_header,self.dim_header,self.hidden_header,self.inverse_header)
 
-               elif (self.align_header.lower() == "right") or (self.align_header.lower() == "r"):
-                  print(_move_right(self.adj_indent) + set_hchr_v + self.left_vertical_header_line_chr + set_t +\
-                        _move_right((self.adj_space*2)+(length-len(dato)),self.bg_all_cell_header) + dato + set_hchr_v +\
-                        self.right_vertical_header_line_chr + reset_font(),end="")
-      
-               elif (self.align_header.lower() == "center") or (self.align_header.lower() == "c"):
-                  # add the extra space for the word odd or even space adjustment for start and the end
-                  oe_sp_start, oe_sp_end = _get_odd_even_space_adj(length,len(dato)) 
-                  print(_move_right(self.adj_indent) + set_hchr_v + self.left_vertical_header_line_chr + set_t +\
-                        _move_right(self.adj_space+oe_sp_start,self.bg_all_cell_header)+ dato +\
-                        _move_right(self.adj_space+oe_sp_end,self.bg_all_cell_header) +\
-                        set_hchr_v+self.right_vertical_header_line_chr+reset_font(),end="")
-      
-               elif (self.align_header.lower() == "justify") or (self.align_header.lower() == "j"):
-                  print(_move_right(self.adj_indent) + set_hchr_v + self.left_vertical_header_line_chr + set_t +\
-                        _move_right(self.adj_space,self.bg_all_cell_header) + dato +\
-                     _move_right(self.adj_space+(length-len(dato)),self.bg_all_cell_header) + set_hchr_v +\
-                     self.right_vertical_header_line_chr+reset_font(),end="")
-               else:
-                  print(_move_right(self.adj_indent) + set_hchr_v + self.left_vertical_header_line_chr + set_t +\
-                        _move_right(self.adj_space,self.bg_all_cell_header) + dato +\
-                        _move_right(self.adj_space+(length-len(dato)),self.bg_all_cell_header) + set_hchr_v +\
-                        self.right_vertical_header_line_chr + reset_font(),end="")
-               print()
-               # the horizontal line between the headers and the first data row, only for matrix list
-               # if self.horizontal_line_under_header_on == True or self.middle_horizontal_line_on == 1: 
-               # the horizontal line between the headers and the first data row, only for matrix list  
-               if self.horizontal_line_under_header_on == True :             
-                  indent = 1; _print_horizontal_segment(self, self.left_corner_line_under_header_chr,\
-                           self.horizontal_line_under_header_chr, length + (2*self.adj_space), indent, "horizontal_header")
-                  indent = 0; _print_horizontal_segment(self, self.right_corner_line_under_header_chr,\
-                                                self.horizontal_line_under_header_chr, 0, indent, "horizontal_header")
-                  print()
-          
-            else:                        # printing Data
-               if (self.align_data.lower() == "left") or (self.align_data.lower() == "l"):
-                  print(_move_right(self.adj_indent) + set_v + self.left_vertical_line_chr + set_d + dato+\
-                     _move_right((self.adj_space*2)+(length-len(dato)),self.bg_all_cell_data) +\
-                     set_v + self.right_vertical_line_chr + reset_font(),end="")
+    total_length = _get_total_length(self,my_list)
 
-               elif (self.align_data.lower() == "right") or (self.align_data.lower() == "r"):
-                  print(_move_right(self.adj_indent) + set_v + self.left_vertical_line_chr + set_d +\
-                        _move_right((self.adj_space*2)+(length-len(dato)),self.bg_all_cell_data) +\
-                           dato + set_v + self.right_vertical_line_chr + reset_font(),end="")
-      
-               elif (self.align_data.lower() == "center") or (self.align_data.lower() == "c"):
-                  # add the extra space for the word odd or even space adjustment for start and the end
-                  oe_sp_start, oe_sp_end = _get_odd_even_space_adj(length,len(dato)) 
-                  print(_move_right(self.adj_indent) + set_v + self.left_vertical_line_chr + set_d +\
-                        _move_right(self.adj_space+oe_sp_start,self.bg_all_cell_data)+ dato +\
-                        _move_right(self.adj_space+oe_sp_end,self.bg_all_cell_data) + set_v +\
-                        self.right_vertical_line_chr + reset_font(),end="")
-      
-               elif (self.align_data.lower() == "justify") or (self.align_data.lower() == "j"):
-                  print(_move_right(self.adj_indent) + set_v + self.left_vertical_line_chr + set_d +\
-                        _move_right(self.adj_space,self.bg_all_cell_data)+ dato +\
-                        _move_right(self.adj_space+length-len(dato),self.bg_all_cell_data)+\
-                        set_v + self.right_vertical_line_chr + reset_font(),end="")
-               else:
-                  print(_move_right(self.adj_indent) + set_v + self.left_vertical_line_chr + set_d +\
-                        _move_right(self.adj_space,self.bg_all_cell_data)+ dato +\
-                        _move_right(self.adj_space+length-len(dato),self.bg_all_cell_data) + set_v +\
-                        self.right_vertical_line_chr + reset_font(),end="")
-         
-               print()
-               # the horizontal line for all the rows, only for matrix list. 1 shows it and 0 hides it
-               if self.middle_horizontal_line_on == 1: 
-                  ctrl_header += 1
-                  if ctrl_header == len(my_list):
-                     pass
-                  else:
-                     indent = 1; _print_horizontal_segment(self, self.left_lateral_corner_chr,\
-                           self.middle_horizontal_line_chr, length + (2*self.adj_space), indent, "inner_corner")
-                     indent = 0; _print_horizontal_segment(self, self.right_lateral_corner_chr,\
-                           self.middle_horizontal_line_chr, 0, indent, "inner_corner")
-                     print()
+    ins_newline(self.adj_top_margin)
+    # print title
+    _print_title(self,my_list)
+    # this is the last part and we need to start printing the matrix
+    if len(my_list[0]) == 1:
+        # we are dealing with only one column
+        #---------------------------------------------------------------------------------------------------------------------------------------------
+        #_print_horizontal_segment(self,start_chr,end_chr,times,indent,option)
+        # item is the longest column
+        length = total_length - (self.adj_indent + (self.adj_space*2) + 2) # length is the longest column length
 
-        #---------------------------------------------------------------------------------------------------------------
-      # print the bottom horizontal line
-      if  self.bottom_horizontal_line_on == 1:
-         indent = 1  # to add the space at the beginning (vertical line chr)
-         _print_horizontal_segment(self, self.bottom_left_corner_chr, self.bottom_horizontal_line_chr,\
-                              length + (2*self.adj_space), indent, "corner")
-         indent = 0  # to don't add this space at the end or the middle
-         _print_horizontal_segment(self, self.bottom_right_corner_chr, self.bottom_horizontal_line_chr,\
-                              0, indent, "corner")
-         print() 
-      else:
-         pass
-    #-------------------------------------------------------------------------------------------------------------------
-    # we are dealing with a matrix list something like this [[10,20,30],[40,50,60],[70,80,90]]                         -
-    # Awsome...!                                                                                                       -
-    #-------------------------------------------------------------------------------------------------------------------
-   else:
-      max_rows, max_cols = _get_number_rows_cols_list(my_list)
-      n_cols = []; tempo_cols = []
-      # we create the transpose of the list but we save their lens in the transpose rather than the data
-      for c in range(max_cols):
-         for r in range(max_rows):
-            tempo_cols.append(len(my_list[r][c]))
-         n_cols.append(tempo_cols)
-         tempo_cols = []
-
-      longest_cols = []
-      for col in n_cols:
-         longest_cols.append(max(col)) # longest_cols keeps the size list of the longest columns in characters
-
-        #---------------------------------------------------------------------------------------------------------------
-      # drawing the top horizontal line
-      if  self.top_horizontal_line_on == True:
-         indent = 1  # to add the space at the beginning (indentation space)
-         for item in longest_cols:    
-            if indent == 1:
-               _print_horizontal_segment(self, self.top_left_corner_chr, self.top_horizontal_line_chr, (item+(2*self.adj_space)), indent, "corner")
-               indent = 0
-            else:   # corner or horizontal affect the color bg fg which variable will take into action
-               _print_horizontal_segment(self, self.middle_top_corner_chr, self.top_horizontal_line_chr, (item+(2*self.adj_space)), indent, "inner_corner")
-      
-         # last segment, which is only the corner that's why it's 0 on value
-         _print_horizontal_segment(self, self.top_right_corner_chr, self.top_horizontal_line_chr, 0, indent, "corner") 
-         print() # done top line, jump to next line to print data
-      else:
-         pass
-        #---------------------------------------------------------------------------------------------------------------
-      # print header only
-      ctrl_col = 0
-      vertical = _move_right(self.adj_indent)+set_hchr_v+self.left_vertical_header_line_chr 
-      for dato in my_list[0]:
-
-         if (self.align_header.lower() == "left") or (self.align_header.lower() == "l"):
-            print(vertical + set_t + dato + _move_right((self.adj_space*2)+(longest_cols[ctrl_col]-len(dato)),self.bg_all_cell_header) +\
-                  reset_font(),end="")
-
-         elif (self.align_header.lower() == "right") or (self.align_header.lower() == "r"):
-            print(vertical + set_t + _move_right((self.adj_space*2)+(longest_cols[ctrl_col]-len(dato)),self.bg_all_cell_header) +\
-                  dato + reset_font(),end="")
-    
-         elif (self.align_header.lower() == "center") or (self.align_header.lower() == "c"):
-            # add the extra space for the word odd or even space adjustment for start and the end
-            oe_sp_start, oe_sp_end = _get_odd_even_space_adj(longest_cols[ctrl_col],len(dato))
-            print(vertical + set_t + _move_right(self.adj_space+oe_sp_start,self.bg_all_cell_header) + dato +\
-                  _move_right(self.adj_space+oe_sp_end,self.bg_all_cell_header) + reset_font(),end="")
-    
-         elif (self.align_header.lower() == "justify") or (self.align_header.lower() == "j"):
-            print(vertical + set_t + _move_right(self.adj_space,self.bg_all_cell_header) + dato +\
-                  _move_right(self.adj_space+(longest_cols[ctrl_col]-len(dato)),self.bg_all_cell_header) + reset_font(),end="")
-
-         else:
-            print(vertical + set_t + _move_right(self.adj_space,self.bg_all_cell_header) + dato +\
-                  _move_right(self.adj_space+(longest_cols[ctrl_col]-len(dato)),self.bg_all_cell_header) + reset_font(),end="")
-
-         vertical = set_hchr_v+self.middle_vertical_header_line_chr
-         ctrl_col += 1
-      print(set_hchr_v+self.right_vertical_header_line_chr+reset_font())
-    
-        #---------------------------------------------------------------------------------------------------------------
-      if self.horizontal_line_under_header_on == True : 
-         # the horizontal line between the headers and the firs data row, only for matrix list
-         indent = 1  # to add the space at the beginning (indentation space)
-         # drawing the bottom horizontal line
-         for item in longest_cols:    
-            if indent == 1:
-               _print_horizontal_segment(self, self.left_corner_line_under_header_chr,\
-                  self.horizontal_line_under_header_chr, (item+(2*self.adj_space)), indent,"horizontal_header") # first segment
-               indent = 0
-            else:
-               _print_horizontal_segment(self, self.middle_corner_line_under_header_chr,\
-                  self.horizontal_line_under_header_chr, (item+(2*self.adj_space)), indent,"horizontal_header") # middle segments
-
-         _print_horizontal_segment(self, self.right_corner_line_under_header_chr,\
-               self.horizontal_line_under_header_chr, 0, indent, "horizontal_header") 
-            # last segment, which is only the corner that's why it's 0 on value
-      
-         print() # done top line, jump to next line to print data
-
-        #---------------------------------------------------------------------------------------------------------------        
-      ctrl_sep = 1
-      for datos in my_list[1:]:  # better way than the above
-         ctrl_col = 0
-         vertical = _move_right(self.adj_indent)+set_v+self.left_vertical_line_chr
-         for dato in datos:
-
-            if (self.align_data.lower() == "left") or (self.align_data.lower() == "l"):
-               print(vertical + set_d + dato + _move_right((self.adj_space*2)+(longest_cols[ctrl_col]-len(dato)),self.bg_all_cell_data) +\
-                     reset_font(),end="")
-
-            elif (self.align_data.lower() == "right") or (self.align_data.lower() == "r"):
-               print(vertical + set_d + _move_right((self.adj_space*2)+(longest_cols[ctrl_col]-len(dato)),self.bg_all_cell_data) +\
-                     dato + reset_font(),end="")
-      
-            elif (self.align_data.lower() == "center") or (self.align_data.lower() == "c"):
-               # add the extra space for the word odd or even space adjustment for start and the end
-               oe_sp_start, oe_sp_end = _get_odd_even_space_adj(longest_cols[ctrl_col],len(dato)) 
-               print(vertical + set_d + _move_right(self.adj_space+oe_sp_start,self.bg_all_cell_data) + dato +\
-                     _move_right(self.adj_space+oe_sp_end,self.bg_all_cell_data) + reset_font(),end="")
-      
-            elif (self.align_data.lower() == "justify") or (self.align_data.lower() == "j"):
-               print(vertical + set_d + _move_right(self.adj_space,self.bg_all_cell_data) + dato +\
-                     _move_right(self.adj_space+(longest_cols[ctrl_col]-len(dato)),self.bg_all_cell_data) + reset_font(),end="")
-
-            else:
-               print(vertical + set_d + _move_right(self.adj_space,self.bg_all_cell_data) + dato +\
-                     _move_right(self.adj_space+(longest_cols[ctrl_col]-len(dato)),self.bg_all_cell_data) + reset_font(),end="")
-
-            vertical = set_v+self.middle_vertical_line_chr
-            ctrl_col += 1        
-         print(set_v+self.right_vertical_line_chr+reset_font())
-
-         if self.middle_horizontal_line_on == 1:
-            if (ctrl_sep == len(my_list)-1):
-               # drawing the bottom horizontal line
-               if  self.bottom_horizontal_line_on == 1:
-                  indent = 1  # to add the space at the beginning (indentation space)
-                        
-                  for item in longest_cols:
-                     if indent == 1:
-                        # def _print_horizontal_segment(self,start_chr,end_chr,times,indent,option):
-                        _print_horizontal_segment(self, self.bottom_left_corner_chr, self.bottom_horizontal_line_chr,\
-                           (item+(2*self.adj_space)), indent, "corner") # first segment
-                        indent = 0
-
-                     else:
-                        # def _print_horizontal_segment(self,start_chr,end_chr,times,indent,option):
-                        _print_horizontal_segment(self, self.middle_bottom_corner_chr, self.bottom_horizontal_line_chr,\
-                           (item+(2*self.adj_space)), indent, "inner_corner")#"horizontal",)#"corner") # middle segments              
-                        # last segment, which is only the corner that's why it's 0 on value
-                  _print_horizontal_segment(self, self.bottom_right_corner_chr,\
-                     self.bottom_horizontal_line_chr, 0, indent, "corner") 
-                  
-                  
-               else:
-                  pass
-            else:     
-               indent = 1  # to add the space at the beginning (indentation space)
-                           # drawing the bottom horizontal line
-               for item in longest_cols:
-                  if indent == 1:
-                     # def _print_horizontal_segment(self,start_chr,end_chr,times,indent,option):
-                     _print_horizontal_segment(self, self.left_lateral_corner_chr, self.middle_horizontal_line_chr, (item+(2*self.adj_space)), indent,"inner_corner")
-                     indent = 0              
-
-                  else:
-                     _print_horizontal_segment(self, self.middle_inner_corner_chr, self.middle_horizontal_line_chr, (item+(2*self.adj_space)), indent, "inner_corner")
-
-               _print_horizontal_segment(self, self.right_lateral_corner_chr, self.middle_horizontal_line_chr, 0, indent, "inner_corner")
+        # print the top horizontal line
+        if  self.top_horizontal_line_on == True:
+            indent = 1  # to add the space at the beginning ()
+            _print_horizontal_segment(self, self.top_left_corner_chr, self.top_horizontal_line_chr, length + (2*self.adj_space), indent, "corner")
+            indent = 0  # to don't add this space at the end or the middle
+            _print_horizontal_segment(self, self.top_right_corner_chr, self.top_horizontal_line_chr, 0, indent, "corner")
             print()
-         ctrl_sep += 1
 
-      if self.middle_horizontal_line_on == 0:                        
-            #-----------------------------------------------------------------------------------------------------------
-         if  self.bottom_horizontal_line_on == 1:
+        else:  pass
+            #-----------------------------------------------------------------------------------------------------------------------------------------
+            # print data here
+        ctrl_header = 0
+        for row in my_list:
+            for dato in row:
+                if ctrl_header == 0:        # printing Header
+                    ctrl_header += 1
+                    if (self.align_header.lower() == "left") or (self.align_header.lower() == "l"):
+                        print(_move_right(self.adj_indent) + set_hchr_v + self.left_vertical_header_line_chr + set_t + dato +\
+                              _move_right((self.adj_space*2)+(length-len(dato)),self.bg_all_cell_header) + set_hchr_v +\
+                              self.right_vertical_header_line_chr + reset_font(),end="")
+
+                    elif (self.align_header.lower() == "right") or (self.align_header.lower() == "r"):
+                        print(_move_right(self.adj_indent) + set_hchr_v + self.left_vertical_header_line_chr + set_t +\
+                              _move_right((self.adj_space*2)+(length-len(dato)),self.bg_all_cell_header) + dato + set_hchr_v +\
+                              self.right_vertical_header_line_chr + reset_font(),end="")
+
+                    elif (self.align_header.lower() == "center") or (self.align_header.lower() == "c"):
+                        # add the extra space for the word odd or even space adjustment for start and the end
+                        oe_sp_start, oe_sp_end = _get_odd_even_space_adj(length,len(dato))
+                        print(_move_right(self.adj_indent) + set_hchr_v + self.left_vertical_header_line_chr + set_t +\
+                              _move_right(self.adj_space+oe_sp_start,self.bg_all_cell_header)+ dato +\
+                              _move_right(self.adj_space+oe_sp_end,self.bg_all_cell_header) +\
+                              set_hchr_v+self.right_vertical_header_line_chr+reset_font(),end="")
+
+                    elif (self.align_header.lower() == "justify") or (self.align_header.lower() == "j"):
+                        print(_move_right(self.adj_indent) + set_hchr_v + self.left_vertical_header_line_chr + set_t +\
+                              _move_right(self.adj_space,self.bg_all_cell_header) + dato +\
+                           _move_right(self.adj_space+(length-len(dato)),self.bg_all_cell_header) + set_hchr_v +\
+                           self.right_vertical_header_line_chr+reset_font(),end="")
+                    else:
+                        print(_move_right(self.adj_indent) + set_hchr_v + self.left_vertical_header_line_chr + set_t +\
+                              _move_right(self.adj_space,self.bg_all_cell_header) + dato +\
+                              _move_right(self.adj_space+(length-len(dato)),self.bg_all_cell_header) + set_hchr_v +\
+                              self.right_vertical_header_line_chr + reset_font(),end="")
+                    print()
+                    # the horizontal line between the headers and the first data row, only for matrix list
+                    # if self.horizontal_line_under_header_on == True or self.middle_horizontal_line_on == 1:
+                    # the horizontal line between the headers and the first data row, only for matrix list
+                    if self.horizontal_line_under_header_on == True :
+                        indent = 1; _print_horizontal_segment(self, self.left_corner_line_under_header_chr,\
+                                 self.horizontal_line_under_header_chr, length + (2*self.adj_space), indent, "horizontal_header")
+                        indent = 0; _print_horizontal_segment(self, self.right_corner_line_under_header_chr,\
+                                                     self.horizontal_line_under_header_chr, 0, indent, "horizontal_header")
+                        print()
+
+                else:                        # printing Data
+                    if (self.align_data.lower() == "left") or (self.align_data.lower() == "l"):
+                        print(_move_right(self.adj_indent) + set_v + self.left_vertical_line_chr + set_d + dato+\
+                           _move_right((self.adj_space*2)+(length-len(dato)),self.bg_all_cell_data) +\
+                           set_v + self.right_vertical_line_chr + reset_font(),end="")
+
+                    elif (self.align_data.lower() == "right") or (self.align_data.lower() == "r"):
+                        print(_move_right(self.adj_indent) + set_v + self.left_vertical_line_chr + set_d +\
+                              _move_right((self.adj_space*2)+(length-len(dato)),self.bg_all_cell_data) +\
+                                 dato + set_v + self.right_vertical_line_chr + reset_font(),end="")
+
+                    elif (self.align_data.lower() == "center") or (self.align_data.lower() == "c"):
+                        # add the extra space for the word odd or even space adjustment for start and the end
+                        oe_sp_start, oe_sp_end = _get_odd_even_space_adj(length,len(dato))
+                        print(_move_right(self.adj_indent) + set_v + self.left_vertical_line_chr + set_d +\
+                              _move_right(self.adj_space+oe_sp_start,self.bg_all_cell_data)+ dato +\
+                              _move_right(self.adj_space+oe_sp_end,self.bg_all_cell_data) + set_v +\
+                              self.right_vertical_line_chr + reset_font(),end="")
+
+                    elif (self.align_data.lower() == "justify") or (self.align_data.lower() == "j"):
+                        print(_move_right(self.adj_indent) + set_v + self.left_vertical_line_chr + set_d +\
+                              _move_right(self.adj_space,self.bg_all_cell_data)+ dato +\
+                              _move_right(self.adj_space+length-len(dato),self.bg_all_cell_data)+\
+                              set_v + self.right_vertical_line_chr + reset_font(),end="")
+
+                    else:
+                        print(_move_right(self.adj_indent) + set_v + self.left_vertical_line_chr + set_d +\
+                              _move_right(self.adj_space,self.bg_all_cell_data)+ dato +\
+                              _move_right(self.adj_space+length-len(dato),self.bg_all_cell_data) + set_v +\
+                              self.right_vertical_line_chr + reset_font(),end="")
+
+                    print()
+                    # the horizontal line for all the rows, only for matrix list. 1 shows it and 0 hides it
+                    if self.middle_horizontal_line_on == 1:
+                        ctrl_header += 1
+                        if ctrl_header == len(my_list):  pass
+
+                        else:
+                            indent = 1; _print_horizontal_segment(self, self.left_lateral_corner_chr, self.middle_horizontal_line_chr,\
+                                                                  length + (2*self.adj_space), indent, "inner_corner")
+
+                            indent = 0; _print_horizontal_segment(self, self.right_lateral_corner_chr, self.middle_horizontal_line_chr,\
+                                                                  0, indent, "inner_corner")
+                            print()
+        #---------------------------------------------------------------------------------------------------------------------------------------------
+
+        # print the bottom horizontal line
+        if  self.bottom_horizontal_line_on == 1:
+            indent = 1  # to add the space at the beginning (vertical line chr)
+            _print_horizontal_segment(self, self.bottom_left_corner_chr, self.bottom_horizontal_line_chr,\
+                                      length + (2*self.adj_space), indent, "corner")
+            indent = 0  # to don't add this space at the end or the middle
+            _print_horizontal_segment(self, self.bottom_right_corner_chr, self.bottom_horizontal_line_chr,\
+                                      0, indent, "corner")
+            print()
+
+        else:  pass
+
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    # we are dealing with a matrix list something like this [[10,20,30],[40,50,60],[70,80,90]]                                                       -
+    # Awsome...!                                                                                                                                     -
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    else:
+        max_rows, max_cols = _get_number_rows_cols_list(my_list)
+        n_cols = []; tempo_cols = []
+
+        # we create the transpose of the list but we save their lens in the transpose rather than the data
+        for c in range(max_cols):
+            for r in range(max_rows):
+                tempo_cols.append(len(my_list[r][c]))
+            n_cols.append(tempo_cols)
+            tempo_cols = []
+
+        longest_cols = []
+        for col in n_cols:
+            longest_cols.append(max(col)) # longest_cols keeps the size list of the longest columns in characters
+
+        #---------------------------------------------------------------------------------------------------------------------------------------------
+        # drawing the top horizontal line
+        if  self.top_horizontal_line_on == True:
             indent = 1  # to add the space at the beginning (indentation space)
-                     # drawing the bottom horizontal line
             for item in longest_cols:
-               if indent == 1:
-                  # first segment
-                  _print_horizontal_segment(self, self.bottom_left_corner_chr, self.bottom_horizontal_line_chr, (item+(2*self.adj_space)), indent, "corner")
-                  indent = 0
-               else:
-                  #"horizontal")#"corner") # middle segments
-                  _print_horizontal_segment(self, self.middle_bottom_corner_chr, self.bottom_horizontal_line_chr, (item+(2*self.adj_space)), indent, "inner_corner")
-               
-                  # last segment, which is only the corner that's why it's 0 on value               
-            _print_horizontal_segment(self, self.bottom_right_corner_chr, self.bottom_horizontal_line_chr, 0, indent, "corner") 
-            print()     # done top line, jump to next line to print data
-         else:
-            pass
-            #-------------------------------------------------------------------------------------------------------------
-   _print_notefoot(self,my_list)
-   ins_newline(self.adj_bottom_margin)
+                if indent == 1:
+                    _print_horizontal_segment(self, self.top_left_corner_chr, self.top_horizontal_line_chr, (item+(2*self.adj_space)),\
+                                              indent, "corner")
+                    indent = 0
+                else:   # corner or horizontal affect the color bg fg which variable will take into action
+                    _print_horizontal_segment(self, self.middle_top_corner_chr, self.top_horizontal_line_chr, (item+(2*self.adj_space)),\
+                                              indent, "inner_corner")
+
+            # last segment, which is only the corner that's why it's 0 on value
+            _print_horizontal_segment(self, self.top_right_corner_chr, self.top_horizontal_line_chr, 0, indent, "corner")
+            print() # done top line, jump to next line to print data
+
+        else:  pass
+        #---------------------------------------------------------------------------------------------------------------------------------------------
+        # print header only
+        ctrl_col = 0
+        vertical = _move_right(self.adj_indent)+set_hchr_v+self.left_vertical_header_line_chr
+        for dato in my_list[0]:
+
+            if (self.align_header.lower() == "left") or (self.align_header.lower() == "l"):
+                print(vertical + set_t + dato + _move_right((self.adj_space*2)+(longest_cols[ctrl_col]-len(dato)),self.bg_all_cell_header) +\
+                      reset_font(),end="")
+
+            elif (self.align_header.lower() == "right") or (self.align_header.lower() == "r"):
+                print(vertical + set_t + _move_right((self.adj_space*2)+(longest_cols[ctrl_col]-len(dato)),self.bg_all_cell_header) +\
+                      dato + reset_font(),end="")
+
+            elif (self.align_header.lower() == "center") or (self.align_header.lower() == "c"):
+                # add the extra space for the word odd or even space adjustment for start and the end
+                oe_sp_start, oe_sp_end = _get_odd_even_space_adj(longest_cols[ctrl_col],len(dato))
+                print(vertical + set_t + _move_right(self.adj_space+oe_sp_start,self.bg_all_cell_header) + dato +\
+                      _move_right(self.adj_space+oe_sp_end,self.bg_all_cell_header) + reset_font(),end="")
+
+            elif (self.align_header.lower() == "justify") or (self.align_header.lower() == "j"):
+                print(vertical + set_t + _move_right(self.adj_space,self.bg_all_cell_header) + dato +\
+                      _move_right(self.adj_space+(longest_cols[ctrl_col]-len(dato)),self.bg_all_cell_header) + reset_font(),end="")
 
-
-
-#-----------------------------------------------------------------------------------------------------------------------
-#  The of Functions Used by the FancyFormat Class                                                                      -
-#-----------------------------------------------------------------------------------------------------------------------
-# Fancy Format Class, Defing the Class Without Initial Parameters                                                      -
-#-----------------------------------------------------------------------------------------------------------------------
-class FancyFormat():
-   def __init__(self):
-        #---------------------------------------------------------------------------------------------------------------
-        # defining variable names                  # values to take                                                    -
-        #---------------------------------------------------------------------------------------------------------------
-        # General Use  
-      self.adj_top_margin    = 0                 # lines to be add between the terminal and the title
-      self.adj_bottom_margin = 0                 # lines to be add between the end of list or footnote and terminal
-      self.adj_top_space     = 0                 # lines to be added between title and top list
-      self.adj_bottom_space  = 0                 # lines to be added between bottom list and footnote
-
-      self.adj_indent        = 2                 # space from the terminal to the box
-      self.adj_space         = 2                 # space from left to right inside inside the box
-      
-      self.set_fill_chr      = "----"            # to fill the empty spots when the list is not complete
-      self.set_layout        = Layout.HORIZONTAL # This is only for Range, Set, and Frozenset type data
-      self.update_list       = False             # if we want to save the data as it's presented, but string each element in list
-                  
-        #---------------------------------------------------------------------------------------------------------------
-      # Title Section
-      self.msg_title       = ""                  # string value
-      self.bold_title      = False               # two values False and True (0 and 1)
-      self.bg_title        = -1                  # values -1 to 255
-      self.fg_title        = -1                  # values -1 to 255
-      self.align_title     = "justify"           # 4 values: justify(j),left(l), center(c), and right(r)
-      self.italic_title    = False               # two values False and True (0 and 1)
-      self.underline_title = False               # two values False and True (0 and 1)
-      self.strike_title    = False               # two values False and True (0 and 1)
-      self.blinking_title  = False               # two values False and True (0 and 1)
-      self.dim_title       = False               # two values False and True (0 and 1)
-      self.hidden_title    = False               # two values False and True (0 and 1)
-      self.inverse_title   = False               # two values False and True (0 and 1)
-    
-      
-      # Footnote Section
-      self.msg_footnote       = ""               # string value
-      self.bold_footnote      = False            # two values False and True (0 and 1)
-      self.bg_footnote        = -1               # values -1 to 255
-      self.fg_footnote        = -1               # values -1 to 255    
-      self.align_footnote     = "justify"        # 4 values: justify(j),left(l), center(c), and right(r)
-
-      self.italic_footnote    = False            # two values False and True (0 and 1)
-      self.underline_footnote = False            # two values False and True (0 and 1)
-      self.strike_footnote    = False            # two values False and True (0 and 1)
-      self.blinking_footnote  = False            # two values False and True (0 and 1)
-      self.dim_footnote       = False            # two values False and True (0 and 1)
-      self.hidden_footnote    = False            # two values False and True (0 and 1)
-      self.inverse_footnote   = False            # two values False and True (0 and 1)
-
-
-      #-------------------------------------------------------------------------------------------------------------------------------------------
-      # Data Section
-      self.bold_data        = False              # two values False and True (0 and 1)
-      self.bg_data          = -1                 # values -1 to 255
-      self.bg_all_cell_data = True               # how long will be the bg (all the cell or only the data)
-      self.fg_data          = -1                 # values -1 to 255
-      self.align_data       = "justify"          # 4 values: justify(j),left(l), center(c), and right(r)      
-                                                 # two values False and True (0 and 1)
-
-      self.italic_data      = False              # two values False and True (0 and 1)
-      self.underline_data   = False              # two values False and True (0 and 1)
-      self.strike_data      = False              # two values False and True (0 and 1)
-      self.blinking_data    = False              # two values False and True (0 and 1)
-      self.dim_data         = False              # two values False and True (0 and 1)
-      self.hidden_data      = False              # two values False and True (0 and 1)
-      self.inverse_data     = False              # two values False and True (0 and 1)
-
-      #-------------------------------------------------------------------------------------------------------------------------------------------
-      # Horizontal Line Section
-      self.top_horizontal_line_chr    = "-"      # chr used to print the horizontal segment for the top line
-      self.top_horizontal_line_on     = True
-      self.bottom_horizontal_line_chr ="-"       # chr used to print the horizontal segment for the bottom line
-      self.bottom_horizontal_line_on  = True     # two values False and True (0 and 1)
-      self.middle_horizontal_line_chr = "-"      # chr used to print the horizontal segment horizontal. Only matrix list
-      self.middle_horizontal_line_on  = False    # horizontal line for all the rows, only for matrix list. 1 shows it and 0 hides it
-
-      self.bold_horizontal_line = False          # two values False and True (0 and 1)
-      self.bg_horizontal_line   = -1             # values -1 to 255
-      self.fg_horizontal_line   = -1             # values -1 to 255
-      #-------------------------------------------------------------------------------------------------------------------------------------------
-      # Vertical Line Section    
-      self.left_vertical_line_chr   = "|"        # used for the left vertical line only
-      self.middle_vertical_line_chr = "|"        # all the vertical line in the middle between left and right. Only matrix
-      self.right_vertical_line_chr  = "|"        # used for the right vertical line only
-    
-
-      self.bold_vertical_line = False            # two values False and True (0 and 1)
-      self.bg_vertical_line   = -1               # values -1 to 255
-      self.fg_vertical_line   = -1               # values -1 to 255
-
-      #-------------------------------------------------------------------------------------------------------------------------------------------
-      # External Corner Section 
-      self.top_left_corner_chr     = "+"         # chr for the top left corner
-      self.top_right_corner_chr    = "+"         # chr for the top right corner
-      self.bottom_right_corner_chr = "+"         # chr for the bottom right corner
-      self.bottom_left_corner_chr  = "+"         # chr for the bottom left corner
-
-      self.bold_corner_chr = False               # two values False and True (0 and 1)
-      self.bg_corner_chr   = -1                  # values -1 to 255
-      self.fg_corner_chr   = -1                  # values -1 to 255
-
-      #-------------------------------------------------------------------------------------------------------------------------------------------
-      # Middle Corner Section
-      self.middle_top_corner_chr    = "+"        # all the middle corners between top_left_corner_chr and top_right_corner_chr. Only matrix list
-      self.middle_bottom_corner_chr = "+"        # all the middle corners between top_left_corner_chr and top_right_corner_chr. Only matrix list
-      self.middle_inner_corner_chr  = "+"        # corner inside the matrix and sides but not top(left,right), or bottom(left, right). Only matrix list
-      
-      self.left_lateral_corner_chr  = "+"        # chr only for matrix list
-      self.right_lateral_corner_chr = "+"        # chr only for matrix list    
-      
-      self.bold_inner_corner_chr = False         # two values False and True (0 and 1)
-      self.bg_inner_corner_chr   = -1            # values -1 to 255
-      self.fg_inner_corner_chr   = -1            # values -1 to 255
-
-      #-------------------------------------------------------------------------------------------------------------------------------------------
-      # Header Section  Only for Matrix List
-      self.bold_header        = False            # two values False and True (0 and 1)
-      self.bg_header          = -1               # values -1 to 255
-      self.bg_all_cell_header = True             # how long will be the bg (all the cell or only the header)
-      self.fg_header          = -1               # values -1 to 255
-      self.align_header       = "justify"        # 4 values: justify(j),left(l), center(c), and right(r)
-
-      self.italic_header      = False            # two values False and True (0 and 1)
-      self.underline_header   = False            # two values False and True (0 and 1)
-      self.strike_header      = False            # two values False and True (0 and 1)
-      self.blinking_header    = False            # two values False and True (0 and 1)
-      self.dim_header         = False            # two values False and True (0 and 1)
-      self.hidden_header      = False            # two values False and True (0 and 1)
-      self.inverse_header     = False            # two values False and True (0 and 1)
-      
-      # Attributes for the header lines
-      self.left_vertical_header_line_chr   = "|"   # small_bullet u'\u2022'
-      self.right_vertical_header_line_chr  = "|"   # circle_bullet u'\u2B24'
-      self.middle_vertical_header_line_chr = "|"   # matrix list only
-
-      self.bold_vertical_header_line_chr = False   # two values False and True (0 and 1)
-      self.bg_vertical_header_line_chr   = -1      # values -1 to 255
-      self.fg_vertical_header_line_chr   = -1      # values -1 to 255
-
-      #-------------------------------------------------------------------------------------------------------------------------------------------
-      # Under Line Header Section  Only for Matrix List
-      # attributes for the line below the header text
-      self.horizontal_line_under_header_on  = False    # horizontal line between headers and the firs data row. 1 shows it and 0 hides it
-      self.horizontal_line_under_header_chr = "-"      # chr to be printed for theheader line
-
-      self.bold_under_line_header = False              # values -1 to 255
-      self.bg_under_line_header   = -1                 # values -1 to 255
-      self.fg_under_line_header   = -1                 # values -1 to 255
-      
-      
-      # attributes for the header corners (left, middles and right)    
-      self.left_corner_line_under_header_chr   = "+"   # only for header line
-      self.right_corner_line_under_header_chr  = "+"   # only for header line
-      self.middle_corner_line_under_header_chr = "+"   # only for header line
-      self.bold_corner_under_line_header       = False # two values False and True (0 and 1)
-      self.bg_corner_under_line_header         = -1    # values -1 to 255
-      self.fg_corner_under_line_header         = -1    # values -1 to 255
-   
-
-
-   def reset_fancy_format(self):
-      '''
-      It resets all the attributes of the class
-      '''
-      #-------------------------------------------------------------------------------------------------------------------------------------------
-      # defining variable names                  # values to take                                                                                #
-      #-------------------------------------------------------------------------------------------------------------------------------------------
-      # General Use  
-      self.adj_top_margin    = 0                 # lines to be add between the terminal and the title
-      self.adj_bottom_margin = 0                 # lines to be add between the end of list or footnote and terminal
-      self.adj_top_space     = 0                 # lines to be added between title and top list
-      self.adj_bottom_space  = 0                 # lines to be added between bottom list and footnote
-      self.adj_indent        = 2                 # space from the terminal to the box
-      self.adj_space         = 2                 # space from left to right side inside the box
-      self.set_fill_chr      = "----"            # to fill the empty spots when the list is not complete
-      self.set_layout        = Layout.HORIZONTAL # This is only for Range, Set, and Frozenset type data
-      self.update_list       = False             # if we want to save the data as it's presented, but string each element in list
-                  
-      #-------------------------------------------------------------------------------------------------------------------------------------------
-      # Title Section
-      self.bg_title    = -1                      # values -1 to 255
-      self.fg_title    = -1                      # values -1 to 255
-      self.msg_title   = ""                      # string value
-      self.bold_title  = False                   # two values False and True (0 and 1)
-      self.align_title = "justify"               # 4 values: justify(j),left(l), center(c), and right(r)
-
-      self.italic_title    = False               # two values False and True (0 and 1)
-      self.underline_title = False               # two values False and True (0 and 1)
-      self.strike_title    = False               # two values False and True (0 and 1)
-      self.blinking_title  = False               # two values False and True (0 and 1)
-      self.dim_title       = False               # two values False and True (0 and 1)
-      self.hidden_title    = False               # two values False and True (0 and 1)
-      self.inverse_title   = False               # two values False and True (0 and 1)
-   
-      #-------------------------------------------------------------------------------------------------------------------------------------------
-      # Footnote Section
-      self.msg_footnote   = ""                   # string value
-      self.bold_footnote  = False                # two values False and True (0 and 1)
-      self.bg_footnote    = -1                   # values -1 to 255
-      self.fg_footnote    = -1                   # values -1 to 255    
-      self.align_footnote = "justify"            # 4 values: justify(j),left(l), center(c), and right(r)
-
-      self.italic_footnote    = False            # two values False and True (0 and 1)
-      self.underline_footnote = False            # two values False and True (0 and 1)
-      self.strike_footnote    = False            # two values False and True (0 and 1)
-      self.blinking_footnote  = False            # two values False and True (0 and 1)
-      self.dim_footnote       = False            # two values False and True (0 and 1)
-      self.hidden_footnote    = False            # two values False and True (0 and 1)
-      self.inverse_footnote   = False            # two values False and True (0 and 1)
-
-
-      #-------------------------------------------------------------------------------------------------------------------------------------------
-      # Data Section
-      self.bold_data  = False                    # two values False and True (0 and 1)
-      self.bg_data    = -1                       # values -1 to 255      
-      self.fg_data    = -1                       # values -1 to 255
-      self.align_data = "justify"                # 4 values: justify(j),left(l), center(c), and right(r)    
-
-      self.middle_horizontal_line_on = False     # horizontal line for all the rows, only for matrix list. 1 shows it and 0 hides it
-      self.bg_all_cell_data          = True      # how long will be the bg (all the cell or only the data)
-
-      self.italic_data    = False                # two values False and True (0 and 1)
-      self.underline_data = False                # two values False and True (0 and 1)
-      self.strike_data    = False                # two values False and True (0 and 1)
-      self.blinking_data  = False                # two values False and True (0 and 1)
-      self.dim_data       = False                # two values False and True (0 and 1)
-      self.hidden_data    = False                # two values False and True (0 and 1)
-      self.inverse_data   = False                # two values False and True (0 and 1)
-
-      #-------------------------------------------------------------------------------------------------------------------------------------------
-      # Horizontal Line Section
-      self.top_horizontal_line_chr    = "-"      # chr used to print the horizontal segment for the top line
-      self.top_horizontal_line_on     = True
-      self.bottom_horizontal_line_chr ="-"       # chr used to print the horizontal segment for the bottom line
-      self.bottom_horizontal_line_on  = True     # two values False and True (0 and 1)
-      self.middle_horizontal_line_chr = "-"      # chr used to print the horizontal segment horizontal. Only matrix list
-
-      self.bold_horizontal_line = False          # two values False and True (0 and 1)
-      self.bg_horizontal_line   = -1             # values -1 to 255
-      self.fg_horizontal_line   = -1             # values -1 to 255
-      #-------------------------------------------------------------------------------------------------------------------------------------------
-      # Vertical Line Section    
-      self.left_vertical_line_chr   = "|"        # used for the left vertical line only
-      self.middle_vertical_line_chr = "|"        # all the vertical line in the middle between left and right. Only matrix
-      self.right_vertical_line_chr  = "|"        # used for the right vertical line only
-   
-      self.bold_vertical_line = False            # two values False and True (0 and 1)
-      self.bg_vertical_line   = -1               # values -1 to 255
-      self.fg_vertical_line   = -1               # values -1 to 255
-
-      #-------------------------------------------------------------------------------------------------------------------------------------------
-      # Corner Section 
-      self.top_left_corner_chr     = "+"         # chr for the top left corner
-      self.top_right_corner_chr    = "+"         # chr for the top right corner
-      self.bottom_right_corner_chr = "+"         # chr for the bottom right corner
-      self.bottom_left_corner_chr  = "+"         # chr for the bottom left corner
-
-      self.bold_corner_chr = False               # two values False and True (0 and 1)
-      self.bg_corner_chr   = -1                  # values -1 to 255
-      self.fg_corner_chr   = -1                  # values -1 to 255
-
-      #-------------------------------------------------------------------------------------------------------------------------------------------
-      # Corner Section
-      self.middle_top_corner_chr    =  "+"       # all the middle corners between top_left_corner_chr and top_right_corner_chr. Only matrix list
-      self.middle_bottom_corner_chr = "+"        # all the middle corners between top_left_corner_chr and top_right_corner_chr. Only matrix list
-      self.middle_inner_corner_chr  = "|"       # corner inside the matrix and sides but not top(left,right), or bottom(left, right). Only matrix list
-      
-      self.left_lateral_corner_chr  = "|"        # chr only for matrix list
-      self.right_lateral_corner_chr = "|"        # chr only for matrix list    
-      
-      self.bold_inner_corner_chr = False         # two values False and True (0 and 1)
-      self.bg_inner_corner_chr   = -1            # values -1 to 255
-      self.fg_inner_corner_chr   = -1            # values -1 to 255
-
-      #-------------------------------------------------------------------------------------------------------------------------------------------
-      # Header Section  Only for Matrix List
-      # attributes for the header text
-      self.bold_header  = False                  # two values False and True (0 and 1)
-      self.bg_header    = -1                     # values -1 to 255
-      self.fg_header    = -1                     # values -1 to 255
-      self.align_header = "justify"              # 4 values: justify(j),left(l), center(c), and right(r)
-
-      self.bg_all_cell_header = True             # how long will be the bg (all the cell or only the header)
-
-      self.italic_header    = False              # two values False and True (0 and 1)
-      self.underline_header = False              # two values False and True (0 and 1)
-      self.strike_header    = False              # two values False and True (0 and 1)
-      self.blinking_header  = False              # two values False and True (0 and 1)
-      self.dim_header       = False              # two values False and True (0 and 1)
-      self.hidden_header    = False              # two values False and True (0 and 1)
-      self.inverse_header   = False              # two values False and True (0 and 1)
-
-      self.left_vertical_header_line_chr   = "|" # small_bullet u'\u2022'
-      self.right_vertical_header_line_chr  = "|" # circle_bullet u'\u2B24'
-      self.middle_vertical_header_line_chr = "|" # matrix list only
-
-      self.bold_vertical_header_line_chr = False # two values False and True (0 and 1)
-      self.bg_vertical_header_line_chr   = -1    # values -1 to 255
-      self.fg_vertical_header_line_chr   = -1    # values -1 to 255
-
-      #-------------------------------------------------------------------------------------------------------------------------------------------
-      # Under Line Header Section  Only for Matrix List
-      # attributes for the line below the header text
-      self.horizontal_line_under_header_on  = False    # horizontal line between headers and the firs data row. 1 shows it and 0 hides it
-      self.horizontal_line_under_header_chr = "-"      # chr to be printed for theheader line
-
-      self.bold_under_line_header = False              # values -1 to 255
-      self.bg_under_line_header   = -1                 # values -1 to 255
-      self.fg_under_line_header   = -1                 # values -1 to 255
-      
-      
-      # attributes for the header corners (left, middles and right)    
-      self.left_corner_line_under_header_chr   = "+"   # only for header line
-      self.right_corner_line_under_header_chr  = "+"   # only for header line
-      self.middle_corner_line_under_header_chr = "+"   # only for header line
-
-      self.bold_corner_under_line_header = False       # two values False and True (0 and 1)
-      self.bg_corner_under_line_header   = -1          # values -1 to 255
-      self.fg_corner_under_line_header   = -1          # values -1 to 255
-
-
-
-   
-   #-----------------------------------------------------------------------------------------------------------------------------------------------
-   # Defing a the main function to control the print of the list                                                                                  -
-   #-----------------------------------------------------------------------------------------------------------------------------------------------    
-   def print_fancy_format(self,data="none",style=Line_Style.CUSTOMIZED):
-      '''
-      It prints the data in a fancy format
-
-      print_fancy_format(data, style)
-      '''
-
-      data_list = data2list(self, data)
-      my_list = []
-      # convert all elements in the list to strigs only because the int type will cause problems with len command    
-      #-----------------------------------------------------------------------------------------------------------------------------------------
-      list_type = _get_list_type(data_list)
-      #-----------------------------------------------------------------------------------------------------------------------------------------
-      
-      if (style.lower() == Line_Style.CUSTOMIZED): pass
-      else:
-         # backup all the default values
-         # Horizontal Line Section
-         thlc = self.top_horizontal_line_chr;    bhlc = self.bottom_horizontal_line_chr;     hlc = self.middle_horizontal_line_chr
-         
-         # Vertical Line Section    
-         lvlc = self.left_vertical_line_chr;     mvlc = self.middle_vertical_line_chr;       rvlc = self.right_vertical_line_chr
-         
-         # Corner Section 
-         tlcc = self.top_left_corner_chr;        trcc = self.top_right_corner_chr;           brcc = self.bottom_right_corner_chr
-         blcc = self.bottom_left_corner_chr   
-         
-         #-------------------------------------------------------------------------------------------------------------------------------------------
-         mtcc = self.middle_top_corner_chr;      mbcc = self.middle_bottom_corner_chr;       micc = self.middle_inner_corner_chr
-         llcc = self.left_lateral_corner_chr;    rlcc = self.right_lateral_corner_chr
-         
-         # Header Section  Only for Matrix List         
-         lvhlc = self.left_vertical_header_line_chr
-         rvhlc = self.right_vertical_header_line_chr
-         mvhlc = self.middle_vertical_header_line_chr
-         
-         # Under Line Header Section  Only for Matrix List
-         hluhc = self.horizontal_line_under_header_chr                 
-         
-         # attributes for the header corners (left, middles and right)    
-         lculhc = self.left_corner_line_under_header_chr
-         rculhc = self.right_corner_line_under_header_chr
-         mculhc = self.middle_corner_line_under_header_chr
-
-
-         if (style.lower() == Line_Style.SINGLE):            
-            # Horizontal Line Section
-            self.top_horizontal_line_chr = "\u2500";      self.bottom_horizontal_line_chr = "\u2500";   self.middle_horizontal_line_chr = "\u2500"
-
-            
-            # Vertical Line Section
-            self.left_vertical_line_chr  = "\u2502";      self.middle_vertical_line_chr = "\u2502";     self.right_vertical_line_chr = "\u2502"
-            
-            
-            # Outside Corner Section
-            self.top_left_corner_chr     = "\u250C";      self.top_right_corner_chr   = "\u2510"
-            self.bottom_right_corner_chr = "\u2518";      self.bottom_left_corner_chr = "\u2514"
-            
-
-            # Middle Corner Section
-            self.middle_top_corner_chr   = "\u252C";      self.middle_bottom_corner_chr = "\u2534";     self.middle_inner_corner_chr = "\u253C"
-            self.left_lateral_corner_chr = "\u251C";      self.right_lateral_corner_chr = "\u2524"
-            
-            
-            # Header Section  Only for Matrix List
-            self.left_vertical_header_line_chr   = "\u2502"
-            self.middle_vertical_header_line_chr = "\u2502"
-            self.right_vertical_header_line_chr  = "\u2502"
-
-            # Under Line Header Section  Only for Matrix List
-            self.horizontal_line_under_header_chr   = "\u2500";          self.left_corner_line_under_header_chr   = "\u251C"
-            self.right_corner_line_under_header_chr = "\u2524";          self.middle_corner_line_under_header_chr = "\u253C"
-         
-
-         elif (style.lower() == Line_Style.SINGLE_BOLD):
-            # Horizontal Line Section
-            self.top_horizontal_line_chr = "\u2501";      self.bottom_horizontal_line_chr = "\u2501";   self.middle_horizontal_line_chr = "\u2501"
-            
-            
-            # Vertical Line Section
-            self.left_vertical_line_chr  = "\u2503";      self.middle_vertical_line_chr = "\u2503";     self.right_vertical_line_chr = "\u2503"
-            
-                        
-            # Outside Corner Section
-            self.top_left_corner_chr     = "\u250F";      self.top_right_corner_chr   = "\u2513"
-            self.bottom_right_corner_chr = "\u251B";      self.bottom_left_corner_chr = "\u2517"
-            
-            
-            # Middle Corner Section
-            self.middle_top_corner_chr   = "\u2533";      self.middle_bottom_corner_chr = "\u253B";     self.middle_inner_corner_chr = "\u254B"
-            self.left_lateral_corner_chr = "\u2523";      self.right_lateral_corner_chr = "\u252B"
-            
-            
-            # Header Section  Only for Matrix List
-            self.left_vertical_header_line_chr   = "\u2503"
-            self.right_vertical_header_line_chr  = "\u2503"
-            self.middle_vertical_header_line_chr = "\u2503"
-   
-
-            # Under Line Header Section  Only for Matrix List
-            self.horizontal_line_under_header_chr   = "\u2501";          self.left_corner_line_under_header_chr   = "\u2523"
-            self.right_corner_line_under_header_chr = "\u252B";          self.middle_corner_line_under_header_chr = "\u254B"
- 
-
-         elif (style.lower() == Line_Style.SINGLE_HEAVY):
-            # Horizontal Line Section
-            self.top_horizontal_line_chr = "\u2586";      self.bottom_horizontal_line_chr="\u2586";     self.middle_horizontal_line_chr = "\u2586"
-            
-
-            # Vertical Line Section
-            self.left_vertical_line_chr  = "\u2588";      self.middle_vertical_line_chr = "\u2588";     self.right_vertical_line_chr = "\u2588"
-            
-            
-            # Outside Corner Section
-            self.top_left_corner_chr     = "\u2586";      self.top_right_corner_chr   = "\u2586"
-            self.bottom_right_corner_chr = "\u2588";      self.bottom_left_corner_chr = "\u2588"
-            
-            
-            # Middle Corner Section
-            self.middle_top_corner_chr   = "\u2586";      self.middle_bottom_corner_chr = "\u2588";     self.middle_inner_corner_chr = "\u2588"
-            self.left_lateral_corner_chr = "\u2588";      self.right_lateral_corner_chr = "\u2588"
-
-            
-            # Header Section  Only for Matrix List
-            self.left_vertical_header_line_chr   = "\u2588" 
-            self.right_vertical_header_line_chr  = "\u2588"
-            self.middle_vertical_header_line_chr = "\u2588"
-            
-            
-            # Under Line Header Section  Only for Matrix List
-            self.horizontal_line_under_header_chr   = "\u2586";          self.left_corner_line_under_header_chr   = "\u2588"
-            self.right_corner_line_under_header_chr = "\u2588";          self.middle_corner_line_under_header_chr = "\u2586"
-
-
-         elif (style.lower() == Line_Style.DOUBLE):
-            # Horizontal Line Section
-            self.top_horizontal_line_chr = "\u2550";      self.bottom_horizontal_line_chr = "\u2550";   self.middle_horizontal_line_chr = "\u2550"
-            
-
-            # Vertical Line Section
-            self.left_vertical_line_chr  = "\u2551";      self.middle_vertical_line_chr = "\u2551";     self.right_vertical_line_chr = "\u2551"
-            
-            
-            # Outside Corner Section
-            self.top_left_corner_chr     = "\u2554";      self.top_right_corner_chr   = "\u2557"
-            self.bottom_right_corner_chr = "\u255D";      self.bottom_left_corner_chr = "\u255A"
-            
-            
-            # Middle Corner Section
-            self.middle_top_corner_chr   = "\u2566";     self.middle_bottom_corner_chr = "\u2569";     self.middle_inner_corner_chr = "\u256C"
-            self.left_lateral_corner_chr = "\u2560";     self.right_lateral_corner_chr = "\u2563"
-
-            
-            # Header Section  Only for Matrix List
-            self.left_vertical_header_line_chr   = "\u2551"
-            self.right_vertical_header_line_chr  = "\u2551"
-            self.middle_vertical_header_line_chr = "\u2551"
-            
-            
-            # Under Line Header Section  Only for Matrix List
-            self.horizontal_line_under_header_chr   = "\u2550";          self.left_corner_line_under_header_chr   = "\u2560"
-            self.right_corner_line_under_header_chr = "\u2563";          self.middle_corner_line_under_header_chr = "\u256C"
-
-
-         elif (style.lower() == Line_Style.SQ_BRACKETS):
-            # Horizontal Line Section
-            self.top_horizontal_line_chr = " ";           self.bottom_horizontal_line_chr = " ";        self.middle_horizontal_line_chr = " "
-            
-            
-            # Vertical Line Section
-            self.left_vertical_line_chr  = "\u2502";      self.middle_vertical_line_chr = " ";          self.right_vertical_line_chr = "\u2502"
-            
-
-            # Outside Corner Section
-            self.top_left_corner_chr     = "\u250C";      self.top_right_corner_chr   = "\u2510" 
-            self.bottom_right_corner_chr = "\u2518";      self.bottom_left_corner_chr = "\u2514"
-
-            
-            # Middle Corner Section
-            self.middle_top_corner_chr   =  " ";          self.middle_bottom_corner_chr = " ";          self.middle_inner_corner_chr = " "
-            self.left_lateral_corner_chr =  "\u2502";     self.right_lateral_corner_chr = "\u2502"
-            
-            
-            # Header Section  Only for Matrix List
-            self.left_vertical_header_line_chr   = "\u2502"
-            self.right_vertical_header_line_chr  = "\u2502"
-            self.middle_vertical_header_line_chr = " "
-   
-            
-            # Under Line Header Section  Only for Matrix List
-            self.horizontal_line_under_header_chr   = " ";               self.left_corner_line_under_header_chr   = "\u2502"
-            self.right_corner_line_under_header_chr = "\u2502";          self.middle_corner_line_under_header_chr = " "
-
-
-   
-         elif (style.lower() == Line_Style.DASH):
-            # Horizontal Line Section
-            self.top_horizontal_line_chr = "\u002D";       self.bottom_horizontal_line_chr = "\u002D";     self.middle_horizontal_line_chr = "\u002D"
-            
-            
-            # Vertical Line Section
-            self.left_vertical_line_chr  = "\u254E";       self.middle_vertical_line_chr = "\u254E";       self.right_vertical_line_chr = "\u254E"
-            
-            
-            # Outside Corner Section
-            self.top_left_corner_chr     = "\u002B";       self.top_right_corner_chr   = "\u002B"
-            self.bottom_right_corner_chr = "\u002B";       self.bottom_left_corner_chr = "\u002B"
-            
-            
-            # Middle Corner Section
-            self.middle_top_corner_chr   =  "\u002B";      self.middle_bottom_corner_chr = "\u002B";       self.middle_inner_corner_chr = "\u002B"
-            self.left_lateral_corner_chr =  "\u002B";      self.right_lateral_corner_chr = "\u002B"
-   
-            
-            # Header Section  Only for Matrix List
-            self.left_vertical_header_line_chr   = "\u254E"
-            self.right_vertical_header_line_chr  = "\u254E"
-            self.middle_vertical_header_line_chr = "\u254E"
-            
-            
-            # Under Line Header Section  Only for Matrix List
-            self.horizontal_line_under_header_chr   = "\u002D";          self.left_corner_line_under_header_chr   = "\u002B"
-            self.right_corner_line_under_header_chr = "\u002B";          self.middle_corner_line_under_header_chr = "\u002B"
-
-
-
-         elif (style.lower() == Line_Style.SPACE_COL_COLOR):
-            # Horizontal Line Section
-            self.top_horizontal_line_chr = " ";             self.bottom_horizontal_line_chr = " ";         self.middle_horizontal_line_chr = " "
-            
-            
-            # Vertical Line Section
-            self.left_vertical_line_chr  = "  ";             self.middle_vertical_line_chr = "  ";           self.right_vertical_line_chr = "  "
-            
-            
-            # Outside Corner Section
-            self.top_left_corner_chr     = "  ";             self.top_right_corner_chr   = "  "
-            self.bottom_right_corner_chr = "  ";             self.bottom_left_corner_chr = "  "
-   
-            
-            # Middle Corner Section
-            self.middle_top_corner_chr   = "  ";             self.middle_bottom_corner_chr = "  ";            self.middle_inner_corner_chr = "  "
-            self.left_lateral_corner_chr = "  ";             self.right_lateral_corner_chr = "  "
-            
-            
-            # Header Section  Only for Matrix List
-            self.left_vertical_header_line_chr   = "  "
-            self.right_vertical_header_line_chr  = "  "
-            self.middle_vertical_header_line_chr = "  "
-            
-            
-            # Under Line Header Section  Only for Matrix List
-            self.horizontal_line_under_header_chr   = " ";      self.left_corner_line_under_header_chr   = "  "
-            self.right_corner_line_under_header_chr = "  ";      self.middle_corner_line_under_header_chr = "  "
-
-
-
-         elif (style.lower() == Line_Style.NO_SPACE_COL_COLOR):
-            # Horizontal Line Section
-            self.top_horizontal_line_chr = " ";             self.bottom_horizontal_line_chr = " ";        self.middle_horizontal_line_chr = " "
-            
-            
-            # Vertical Line Section
-            self.left_vertical_line_chr  = "  ";             self.middle_vertical_line_chr = "";           self.right_vertical_line_chr = "  "
-            
-            
-            # Outside Corner Section
-            self.top_left_corner_chr     = "  ";             self.top_right_corner_chr   = "  "
-            self.bottom_right_corner_chr = "  ";             self.bottom_left_corner_chr = "  "
-   
-            
-            # Middle Corner Section
-            self.middle_top_corner_chr   = "";               self.middle_bottom_corner_chr = ""
-            
-
-            
-
-            self.left_lateral_corner_chr  = "  "
-            self.middle_inner_corner_chr = ""
-            self.right_lateral_corner_chr = "  "
-            
-            
-            # Header Section  Only for Matrix List
-            self.left_vertical_header_line_chr   = "  "
-            self.right_vertical_header_line_chr  = "  "
-            self.middle_vertical_header_line_chr = ""
-
-
-            self.right_corner_line_under_header_chr  = "  "
-            self.left_corner_line_under_header_chr   = "  "
-            self.horizontal_line_under_header_chr    = " "
-
-            # Under Line Header Section  Only for Matrix List
-            n_rows = 0; n_cols = 0
-            #list_type = get_list_type(my_list)
-
-            if list_type == "incorrect_variable_type" or list_type == "empty_list":
-               pass
-
-            elif list_type == "one_item_no_row": # Done  ["dato"]
-               n_cols = 1; n_rows = 1
-
-            elif list_type == "one_item_one_row": # Done [["dato"]]
-               n_cols = 1; n_rows = 1
-
-            elif list_type == "multiple_items_no_row": # Done ["Hello","bye","good"]
-               n_rows = 1
-               n_cols = sum(1 for num in data_list)
-
-            elif list_type == "multiple_items_one_row": # Done [["Hello","bye","good"]]
-               n_rows = 1
-
-               for n in data_list[0]:
-                  n_cols += 1  
-
-            # Done [["Hello"],["bye"],["good"]] or [["Hello","mio"],["bye"],["good","hh"]]
-            elif list_type == "multiple_items_multiple_rows":
-               n_rows = len(data_list); n_cols = 0; lengths = []
-
-               for r in data_list:
-                  lengths.append(len(r))
-               n_cols = max(lengths)
-
-            if (n_cols == 0 or n_cols == 1):
-               self.middle_corner_line_under_header_chr = "  "
             else:
-               self.middle_corner_line_under_header_chr = ""
-               
+                print(vertical + set_t + _move_right(self.adj_space,self.bg_all_cell_header) + dato +\
+                      _move_right(self.adj_space+(longest_cols[ctrl_col]-len(dato)),self.bg_all_cell_header) + reset_font(),end="")
+
+            vertical = set_hchr_v+self.middle_vertical_header_line_chr
+            ctrl_col += 1
+        print(set_hchr_v+self.right_vertical_header_line_chr+reset_font())
+
+        #---------------------------------------------------------------------------------------------------------------------------------------------
+        if self.horizontal_line_under_header_on == True :
+            # the horizontal line between the headers and the firs data row, only for matrix list
+            indent = 1  # to add the space at the beginning (indentation space)
+            # drawing the bottom horizontal line
+            for item in longest_cols:
+                if indent == 1:
+                    _print_horizontal_segment(self, self.left_corner_line_under_header_chr,\
+                       self.horizontal_line_under_header_chr, (item+(2*self.adj_space)), indent,"horizontal_header") # first segment
+                    indent = 0
+                else:
+                    _print_horizontal_segment(self, self.middle_corner_line_under_header_chr,\
+                       self.horizontal_line_under_header_chr, (item+(2*self.adj_space)), indent,"horizontal_header") # middle segments
+
+            # last segment, which is only the corner that's why it's 0 on value
+            _print_horizontal_segment(self, self.right_corner_line_under_header_chr,\
+                  self.horizontal_line_under_header_chr, 0, indent, "horizontal_header")
+
+            print() # done top line, jump to next line to print data
+
+        ctrl_sep = 1
+        for datos in my_list[1:]:  # This skip the first one
+            ctrl_col = 0
+            vertical = _move_right(self.adj_indent)+set_v+self.left_vertical_line_chr
+            for dato in datos:
+
+                if (self.align_data.lower() == "left") or (self.align_data.lower() == "l"):
+                    print(vertical + set_d + dato + _move_right((self.adj_space*2)+(longest_cols[ctrl_col]-len(dato)),self.bg_all_cell_data) +\
+                          reset_font(),end="")
+
+                elif (self.align_data.lower() == "right") or (self.align_data.lower() == "r"):
+                    print(vertical + set_d + _move_right((self.adj_space*2)+(longest_cols[ctrl_col]-len(dato)),self.bg_all_cell_data) +\
+                          dato + reset_font(),end="")
+
+                elif (self.align_data.lower() == "center") or (self.align_data.lower() == "c"):
+                    # add the extra space for the word odd or even space adjustment for start and the end
+                    oe_sp_start, oe_sp_end = _get_odd_even_space_adj(longest_cols[ctrl_col],len(dato))
+                    print(vertical + set_d + _move_right(self.adj_space+oe_sp_start,self.bg_all_cell_data) + dato +\
+                          _move_right(self.adj_space+oe_sp_end,self.bg_all_cell_data) + reset_font(),end="")
+
+                elif (self.align_data.lower() == "justify") or (self.align_data.lower() == "j"):
+                    print(vertical + set_d + _move_right(self.adj_space,self.bg_all_cell_data) + dato +\
+                          _move_right(self.adj_space+(longest_cols[ctrl_col]-len(dato)),self.bg_all_cell_data) + reset_font(),end="")
+
+                else:
+                    print(vertical + set_d + _move_right(self.adj_space,self.bg_all_cell_data) + dato +\
+                          _move_right(self.adj_space+(longest_cols[ctrl_col]-len(dato)),self.bg_all_cell_data) + reset_font(),end="")
+
+                vertical = set_v+self.middle_vertical_line_chr
+                ctrl_col += 1
+            print(set_v+self.right_vertical_line_chr+reset_font())
+
+            if self.middle_horizontal_line_on == 1:
+                if ctrl_sep == len(my_list)-1:
+                    # drawing the bottom horizontal line
+                    if  self.bottom_horizontal_line_on == 1:
+                        indent = 1  # to add the space at the beginning (indentation space)
+
+                        for item in longest_cols:
+                            if indent == 1:
+                                # def _print_horizontal_segment(self,start_chr,end_chr,times,indent,option):
+                                _print_horizontal_segment(self, self.bottom_left_corner_chr, self.bottom_horizontal_line_chr,\
+                                   (item+(2*self.adj_space)), indent, "corner") # first segment
+                                indent = 0
+
+                            else:
+                                # def _print_horizontal_segment(self,start_chr,end_chr,times,indent,option):
+                                _print_horizontal_segment(self, self.middle_bottom_corner_chr, self.bottom_horizontal_line_chr,\
+                                   (item+(2*self.adj_space)), indent, "inner_corner")
+                                # last segment, which is only the corner that's why it's 0 on value
+                        _print_horizontal_segment(self, self.bottom_right_corner_chr,\
+                           self.bottom_horizontal_line_chr, 0, indent, "corner")
+
+                    else:
+                        pass
+                else:
+                    indent = 1  # to add the space at the beginning (indentation space)
+                                # drawing the bottom horizontal line
+                    for item in longest_cols:
+                        if indent == 1:
+                            # def _print_horizontal_segment(self,start_chr,end_chr,times,indent,option):
+                            _print_horizontal_segment(self, self.left_lateral_corner_chr, self.middle_horizontal_line_chr,\
+                                                     (item+(2*self.adj_space)), indent,"inner_corner")
+                            indent = 0
+
+                        else:
+                            _print_horizontal_segment(self, self.middle_inner_corner_chr, self.middle_horizontal_line_chr,\
+                                                     (item+(2*self.adj_space)), indent, "inner_corner")
+
+                    _print_horizontal_segment(self, self.right_lateral_corner_chr, self.middle_horizontal_line_chr,\
+                                              0, indent, "inner_corner")
+                print()
+            ctrl_sep += 1
+
+        if self.middle_horizontal_line_on == 0:
+            if  self.bottom_horizontal_line_on == 1:
+                indent = 1  # to add the space at the beginning (indentation space)
+                            # drawing the bottom horizontal line
+                for item in longest_cols:
+                    if indent == 1:
+                        # first segment
+                        _print_horizontal_segment(self, self.bottom_left_corner_chr, self.bottom_horizontal_line_chr,\
+                                                 (item+(2*self.adj_space)), indent, "corner")
+                        indent = 0
+                    else:
+                        #"horizontal")#"corner") # middle segments
+                        _print_horizontal_segment(self, self.middle_bottom_corner_chr, self.bottom_horizontal_line_chr,\
+                                                 (item+(2*self.adj_space)), indent, "inner_corner")
+
+                        # last segment, which is only the corner that's why it's 0 on value
+                _print_horizontal_segment(self, self.bottom_right_corner_chr, self.bottom_horizontal_line_chr,\
+                                          0, indent, "corner")
+                print() # done top line, jump to next line to print data
+
+            else:  pass
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    _print_notefoot(self,my_list)
+    ins_newline(self.adj_bottom_margin)
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+# End Printing Matrix                                                                                                                                -
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-         elif (style.lower() == Line_Style.NONE):
+
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+# Fancy Format Class, Defing the Class Without Initial Parameters                                                                                   --
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+class FancyFormat():
+    '''
+    It create the format for the fancy_print_format method
+    '''
+    def __init__(self):
+        #---------------------------------------------------------------------------------------------------------------------------------------------
+        # defining variable names                  # values to take                                                                                  -
+        #---------------------------------------------------------------------------------------------------------------------------------------------
+        # General Use
+        self.adj_top_margin    = 0                 # lines to be add between the terminal and the title
+        self.adj_bottom_margin = 0                 # lines to be add between the end of list or footnote and terminal
+        self.adj_top_space     = 0                 # lines to be added between title and top list
+        self.adj_bottom_space  = 0                 # lines to be added between bottom list and footnote
+        self.adj_indent        = 2                 # space from the terminal to the box
+        self.adj_space         = 2                 # space from left to right inside inside the box
+        self.set_fill_chr      = "----"            # to fill the empty spots when the list is not complete
+        self.set_layout        = Layout.HORIZONTAL # This is only for Range, Set, and Frozenset type data
+        self.update_list       = False             # if we want to save the data as it's presented, but string each element in list
+
+        #---------------------------------------------------------------------------------------------------------------------------------------------
+        # Title Section
+        self.msg_title       = ""                  # string value
+        self.bold_title      = False               # two values False and True (0 and 1)
+        self.bg_title        = -1                  # values -1 to 255
+        self.fg_title        = -1                  # values -1 to 255
+        self.align_title     = "justify"           # 4 values: justify(j),left(l), center(c), and right(r)
+        self.italic_title    = False               # two values False and True (0 and 1)
+        self.underline_title = False               # two values False and True (0 and 1)
+        self.strike_title    = False               # two values False and True (0 and 1)
+        self.blinking_title  = False               # two values False and True (0 and 1)
+        self.dim_title       = False               # two values False and True (0 and 1)
+        self.hidden_title    = False               # two values False and True (0 and 1)
+        self.inverse_title   = False               # two values False and True (0 and 1)
+
+        # Footnote Section
+        self.msg_footnote       = ""               # string value
+        self.bold_footnote      = False            # two values False and True (0 and 1)
+        self.bg_footnote        = -1               # values -1 to 255
+        self.fg_footnote        = -1               # values -1 to 255
+        self.align_footnote     = "justify"        # 4 values: justify(j),left(l), center(c), and right(r)
+        self.italic_footnote    = False            # two values False and True (0 and 1)
+        self.underline_footnote = False            # two values False and True (0 and 1)
+        self.strike_footnote    = False            # two values False and True (0 and 1)
+        self.blinking_footnote  = False            # two values False and True (0 and 1)
+        self.dim_footnote       = False            # two values False and True (0 and 1)
+        self.hidden_footnote    = False            # two values False and True (0 and 1)
+        self.inverse_footnote   = False            # two values False and True (0 and 1)
+
+        #---------------------------------------------------------------------------------------------------------------------------------------------
+        # Data Section
+        self.bold_data        = False              # two values False and True (0 and 1)
+        self.bg_data          = -1                 # values -1 to 255
+        self.bg_all_cell_data = True               # how long will be the bg (all the cell or only the data)
+        self.fg_data          = -1                 # values -1 to 255
+        self.align_data       = "justify"          # 4 values: justify(j),left(l), center(c), and right(r)
+        self.italic_data      = False              # two values False and True (0 and 1)
+        self.underline_data   = False              # two values False and True (0 and 1)
+        self.strike_data      = False              # two values False and True (0 and 1)
+        self.blinking_data    = False              # two values False and True (0 and 1)
+        self.dim_data         = False              # two values False and True (0 and 1)
+        self.hidden_data      = False              # two values False and True (0 and 1)
+        self.inverse_data     = False              # two values False and True (0 and 1)
+
+        #---------------------------------------------------------------------------------------------------------------------------------------------
+        # Horizontal Line Section
+        self.top_horizontal_line_chr    = "-"      # chr used to print the horizontal segment for the top line
+        self.top_horizontal_line_on     = True
+        self.bottom_horizontal_line_chr ="-"       # chr used to print the horizontal segment for the bottom line
+        self.bottom_horizontal_line_on  = True     # two values False and True (0 and 1)
+        self.middle_horizontal_line_chr = "-"      # chr used to print the horizontal segment horizontal. Only matrix list
+        self.middle_horizontal_line_on  = False    # horizontal line for all the rows, only for matrix list. 1 shows it and 0 hides it
+
+        self.bold_horizontal_line = False          # two values False and True (0 and 1)
+        self.bg_horizontal_line   = -1             # values -1 to 255
+        self.fg_horizontal_line   = -1             # values -1 to 255
+        #---------------------------------------------------------------------------------------------------------------------------------------------
+        # Vertical Line Section
+        self.left_vertical_line_chr   = "|"        # used for the left vertical line only
+        self.middle_vertical_line_chr = "|"        # all the vertical line in the middle between left and right. Only matrix
+        self.right_vertical_line_chr  = "|"        # used for the right vertical line only
+
+        self.bold_vertical_line = False            # two values False and True (0 and 1)
+        self.bg_vertical_line   = -1               # values -1 to 255
+        self.fg_vertical_line   = -1               # values -1 to 255
+
+        #---------------------------------------------------------------------------------------------------------------------------------------------
+        # External Corner Section
+        self.top_left_corner_chr     = "+"         # chr for the top left corner
+        self.top_right_corner_chr    = "+"         # chr for the top right corner
+        self.bottom_right_corner_chr = "+"         # chr for the bottom right corner
+        self.bottom_left_corner_chr  = "+"         # chr for the bottom left corner
+
+        self.bold_corner_chr = False               # two values False and True (0 and 1)
+        self.bg_corner_chr   = -1                  # values -1 to 255
+        self.fg_corner_chr   = -1                  # values -1 to 255
+
+        #---------------------------------------------------------------------------------------------------------------------------------------------
+        # Middle Corner Section
+        self.middle_top_corner_chr    = "+"        # all the middle corners between top_left_corner_chr and top_right_corner_chr. Only matrix list
+        self.middle_bottom_corner_chr = "+"        # all the middle corners between top_left_corner_chr and top_right_corner_chr. Only matrix list
+        self.middle_inner_corner_chr  = "+"        # corner inside the matrix and sides but not top(left,right), or bottom(left, right). Only matrix list
+        self.left_lateral_corner_chr  = "+"        # chr only for matrix list
+        self.right_lateral_corner_chr = "+"        # chr only for matrix list
+
+        self.bold_inner_corner_chr = False         # two values False and True (0 and 1)
+        self.bg_inner_corner_chr   = -1            # values -1 to 255
+        self.fg_inner_corner_chr   = -1            # values -1 to 255
+
+        #---------------------------------------------------------------------------------------------------------------------------------------------
+        # Header Section  Only for Matrix List
+        self.bold_header        = False            # two values False and True (0 and 1)
+        self.bg_header          = -1               # values -1 to 255
+        self.bg_all_cell_header = True             # how long will be the bg (all the cell or only the header)
+        self.fg_header          = -1               # values -1 to 255
+        self.align_header       = "justify"        # 4 values: justify(j),left(l), center(c), and right(r)
+        self.italic_header      = False            # two values False and True (0 and 1)
+        self.underline_header   = False            # two values False and True (0 and 1)
+        self.strike_header      = False            # two values False and True (0 and 1)
+        self.blinking_header    = False            # two values False and True (0 and 1)
+        self.dim_header         = False            # two values False and True (0 and 1)
+        self.hidden_header      = False            # two values False and True (0 and 1)
+        self.inverse_header     = False            # two values False and True (0 and 1)
+
+        # Attributes for the header lines
+        self.left_vertical_header_line_chr   = "|"     # small_bullet u'\u2022'
+        self.right_vertical_header_line_chr  = "|"     # circle_bullet u'\u2B24'
+        self.middle_vertical_header_line_chr = "|"     # matrix list only
+        self.bold_vertical_header_line_chr   = False   # two values False and True (0 and 1)
+        self.bg_vertical_header_line_chr     = -1      # values -1 to 255
+        self.fg_vertical_header_line_chr     = -1      # values -1 to 255
+
+        #---------------------------------------------------------------------------------------------------------------------------------------------
+        # Under Line Header Section  Only for Matrix List
+        # attributes for the line below the header text
+        self.horizontal_line_under_header_on  = False    # horizontal line between headers and the firs data row. 1 shows it and 0 hides it
+        self.horizontal_line_under_header_chr = "-"      # chr to be printed for theheader line
+
+        self.bold_under_line_header = False              # values -1 to 255
+        self.bg_under_line_header   = -1                 # values -1 to 255
+        self.fg_under_line_header   = -1                 # values -1 to 255
+
+        # attributes for the header corners (left, middles and right)
+        self.left_corner_line_under_header_chr   = "+"   # only for header line
+        self.right_corner_line_under_header_chr  = "+"   # only for header line
+        self.middle_corner_line_under_header_chr = "+"   # only for header line
+        self.bold_corner_under_line_header       = False # two values False and True (0 and 1)
+        self.bg_corner_under_line_header         = -1    # values -1 to 255
+        self.fg_corner_under_line_header         = -1    # values -1 to 255
+
+
+    def reset_fancy_format(self):
+
+        '''  It resets all the attributes of the class  '''
+
+        #---------------------------------------------------------------------------------------------------------------------------------------------
+        # defining variable names                  # values to take                                                                                  -
+        #---------------------------------------------------------------------------------------------------------------------------------------------
+        # General Use
+        self.adj_top_margin    = 0                 # lines to be add between the terminal and the title
+        self.adj_bottom_margin = 0                 # lines to be add between the end of list or footnote and terminal
+        self.adj_top_space     = 0                 # lines to be added between title and top list
+        self.adj_bottom_space  = 0                 # lines to be added between bottom list and footnote
+        self.adj_indent        = 2                 # space from the terminal to the box
+        self.adj_space         = 2                 # space from left to right side inside the box
+        self.set_fill_chr      = "----"            # to fill the empty spots when the list is not complete
+        self.set_layout        = Layout.HORIZONTAL # This is only for Range, Set, and Frozenset type data
+        self.update_list       = False             # if we want to save the data as it's presented, but string each element in list
+
+        #---------------------------------------------------------------------------------------------------------------------------------------------
+        # Title Section
+        self.bg_title    = -1                      # values -1 to 255
+        self.fg_title    = -1                      # values -1 to 255
+        self.msg_title   = ""                      # string value
+        self.bold_title  = False                   # two values False and True (0 and 1)
+        self.align_title = "justify"               # 4 values: justify(j),left(l), center(c), and right(r)
+
+        self.italic_title    = False               # two values False and True (0 and 1)
+        self.underline_title = False               # two values False and True (0 and 1)
+        self.strike_title    = False               # two values False and True (0 and 1)
+        self.blinking_title  = False               # two values False and True (0 and 1)
+        self.dim_title       = False               # two values False and True (0 and 1)
+        self.hidden_title    = False               # two values False and True (0 and 1)
+        self.inverse_title   = False               # two values False and True (0 and 1)
+
+        #---------------------------------------------------------------------------------------------------------------------------------------------
+        # Footnote Section
+        self.msg_footnote   = ""                   # string value
+        self.bold_footnote  = False                # two values False and True (0 and 1)
+        self.bg_footnote    = -1                   # values -1 to 255
+        self.fg_footnote    = -1                   # values -1 to 255
+        self.align_footnote = "justify"            # 4 values: justify(j),left(l), center(c), and right(r)
+
+        self.italic_footnote    = False            # two values False and True (0 and 1)
+        self.underline_footnote = False            # two values False and True (0 and 1)
+        self.strike_footnote    = False            # two values False and True (0 and 1)
+        self.blinking_footnote  = False            # two values False and True (0 and 1)
+        self.dim_footnote       = False            # two values False and True (0 and 1)
+        self.hidden_footnote    = False            # two values False and True (0 and 1)
+        self.inverse_footnote   = False            # two values False and True (0 and 1)
+
+
+        #---------------------------------------------------------------------------------------------------------------------------------------------
+        # Data Section
+        self.bold_data  = False                    # two values False and True (0 and 1)
+        self.bg_data    = -1                       # values -1 to 255
+        self.fg_data    = -1                       # values -1 to 255
+        self.align_data = "justify"                # 4 values: justify(j),left(l), center(c), and right(r)
+
+        self.middle_horizontal_line_on = False     # horizontal line for all the rows, only for matrix list. 1 shows it and 0 hides it
+        self.bg_all_cell_data          = True      # how long will be the bg (all the cell or only the data)
+
+        self.italic_data    = False                # two values False and True (0 and 1)
+        self.underline_data = False                # two values False and True (0 and 1)
+        self.strike_data    = False                # two values False and True (0 and 1)
+        self.blinking_data  = False                # two values False and True (0 and 1)
+        self.dim_data       = False                # two values False and True (0 and 1)
+        self.hidden_data    = False                # two values False and True (0 and 1)
+        self.inverse_data   = False                # two values False and True (0 and 1)
+
+        #---------------------------------------------------------------------------------------------------------------------------------------------
+        # Horizontal Line Section
+        self.top_horizontal_line_chr    = "-"      # chr used to print the horizontal segment for the top line
+        self.top_horizontal_line_on     = True
+        self.bottom_horizontal_line_chr ="-"       # chr used to print the horizontal segment for the bottom line
+        self.bottom_horizontal_line_on  = True     # two values False and True (0 and 1)
+        self.middle_horizontal_line_chr = "-"      # chr used to print the horizontal segment horizontal. Only matrix list
+
+        self.bold_horizontal_line = False          # two values False and True (0 and 1)
+        self.bg_horizontal_line   = -1             # values -1 to 255
+        self.fg_horizontal_line   = -1             # values -1 to 255
+        #---------------------------------------------------------------------------------------------------------------------------------------------
+        # Vertical Line Section
+        self.left_vertical_line_chr   = "|"        # used for the left vertical line only
+        self.middle_vertical_line_chr = "|"        # all the vertical line in the middle between left and right. Only matrix
+        self.right_vertical_line_chr  = "|"        # used for the right vertical line only
+
+        self.bold_vertical_line = False            # two values False and True (0 and 1)
+        self.bg_vertical_line   = -1               # values -1 to 255
+        self.fg_vertical_line   = -1               # values -1 to 255
+
+        #---------------------------------------------------------------------------------------------------------------------------------------------
+        # Corner Section
+        self.top_left_corner_chr     = "+"         # chr for the top left corner
+        self.top_right_corner_chr    = "+"         # chr for the top right corner
+        self.bottom_right_corner_chr = "+"         # chr for the bottom right corner
+        self.bottom_left_corner_chr  = "+"         # chr for the bottom left corner
+
+        self.bold_corner_chr = False               # two values False and True (0 and 1)
+        self.bg_corner_chr   = -1                  # values -1 to 255
+        self.fg_corner_chr   = -1                  # values -1 to 255
+
+        #---------------------------------------------------------------------------------------------------------------------------------------------
+        # Corner Section
+        self.middle_top_corner_chr    =  "+"       # all the middle corners between top_left_corner_chr and top_right_corner_chr. Only matrix list
+        self.middle_bottom_corner_chr = "+"        # all the middle corners between top_left_corner_chr and top_right_corner_chr. Only matrix list
+        self.middle_inner_corner_chr  = "|"       # corner inside the matrix and sides but not top(left,right), or bottom(left, right). Only matrix list
+
+        self.left_lateral_corner_chr  = "|"        # chr only for matrix list
+        self.right_lateral_corner_chr = "|"        # chr only for matrix list
+
+        self.bold_inner_corner_chr = False         # two values False and True (0 and 1)
+        self.bg_inner_corner_chr   = -1            # values -1 to 255
+        self.fg_inner_corner_chr   = -1            # values -1 to 255
+
+        #---------------------------------------------------------------------------------------------------------------------------------------------
+        # Header Section  Only for Matrix List
+        # attributes for the header text
+        self.bold_header  = False                  # two values False and True (0 and 1)
+        self.bg_header    = -1                     # values -1 to 255
+        self.fg_header    = -1                     # values -1 to 255
+        self.align_header = "justify"              # 4 values: justify(j),left(l), center(c), and right(r)
+
+        self.bg_all_cell_header = True             # how long will be the bg (all the cell or only the header)
+
+        self.italic_header    = False              # two values False and True (0 and 1)
+        self.underline_header = False              # two values False and True (0 and 1)
+        self.strike_header    = False              # two values False and True (0 and 1)
+        self.blinking_header  = False              # two values False and True (0 and 1)
+        self.dim_header       = False              # two values False and True (0 and 1)
+        self.hidden_header    = False              # two values False and True (0 and 1)
+        self.inverse_header   = False              # two values False and True (0 and 1)
+
+        self.left_vertical_header_line_chr   = "|" # small_bullet u'\u2022'
+        self.right_vertical_header_line_chr  = "|" # circle_bullet u'\u2B24'
+        self.middle_vertical_header_line_chr = "|" # matrix list only
+
+        self.bold_vertical_header_line_chr = False # two values False and True (0 and 1)
+        self.bg_vertical_header_line_chr   = -1    # values -1 to 255
+        self.fg_vertical_header_line_chr   = -1    # values -1 to 255
+
+        #---------------------------------------------------------------------------------------------------------------------------------------------
+        # Under Line Header Section  Only for Matrix List
+        # attributes for the line below the header text
+        self.horizontal_line_under_header_on  = False    # horizontal line between headers and the firs data row. 1 shows it and 0 hides it
+        self.horizontal_line_under_header_chr = "-"      # chr to be printed for theheader line
+
+        self.bold_under_line_header = False              # values -1 to 255
+        self.bg_under_line_header   = -1                 # values -1 to 255
+        self.fg_under_line_header   = -1                 # values -1 to 255
+
+        # attributes for the header corners (left, middles and right)
+        self.left_corner_line_under_header_chr   = "+"   # only for header line
+        self.right_corner_line_under_header_chr  = "+"   # only for header line
+        self.middle_corner_line_under_header_chr = "+"   # only for header line
+
+        self.bold_corner_under_line_header = False       # two values False and True (0 and 1)
+        self.bg_corner_under_line_header   = -1          # values -1 to 255
+        self.fg_corner_under_line_header   = -1          # values -1 to 255
+
+
+
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    # Defing a the main function to control the print of the list                                                                                    -
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    def print_fancy_format(self,data="none",style=Line_Style.CUSTOMIZED):
+
+        '''  It prints any type of data in a fancy format
+
+             print_fancy_format(data, style)  '''
+
+        data_list = data2list(self, data)
+        my_list = []
+        # convert all elements in the list to strigs only because the int type will cause problems with len command
+        list_type = _get_list_type(data_list)
+        #---------------------------------------------------------------------------------------------------------------------------------------------
+
+        if style.lower() == Line_Style.CUSTOMIZED: pass
+        else:
+            # backup all the default values
             # Horizontal Line Section
-            self.top_horizontal_line_chr = " ";             self.bottom_horizontal_line_chr = " ";         self.middle_horizontal_line_chr = " "
-            
-            
+            thlc = self.top_horizontal_line_chr;    bhlc = self.bottom_horizontal_line_chr;     hlc = self.middle_horizontal_line_chr
+
             # Vertical Line Section
-            self.left_vertical_line_chr  = " ";             self.middle_vertical_line_chr = " ";           self.right_vertical_line_chr = " "
-            
-            
-            # Outside Corner Section
-            self.top_left_corner_chr     = " ";             self.top_right_corner_chr   = " "
-            self.bottom_right_corner_chr = " ";             self.bottom_left_corner_chr = " "
-   
-            
-            # Middle Corner Section
-            self.middle_top_corner_chr   = " ";             self.middle_bottom_corner_chr = " ";            self.middle_inner_corner_chr = " "
-            self.left_lateral_corner_chr = " ";             self.right_lateral_corner_chr = " "
-            
-            
+            lvlc = self.left_vertical_line_chr;     mvlc = self.middle_vertical_line_chr;       rvlc = self.right_vertical_line_chr
+
+            # Corner Section
+            tlcc = self.top_left_corner_chr;        trcc = self.top_right_corner_chr;           brcc = self.bottom_right_corner_chr
+            blcc = self.bottom_left_corner_chr
+
+            mtcc = self.middle_top_corner_chr;      mbcc = self.middle_bottom_corner_chr;       micc = self.middle_inner_corner_chr
+            llcc = self.left_lateral_corner_chr;    rlcc = self.right_lateral_corner_chr
+
             # Header Section  Only for Matrix List
-            self.left_vertical_header_line_chr   = " "
-            self.right_vertical_header_line_chr  = " "
-            self.middle_vertical_header_line_chr = " "
-            
-            
+            lvhlc = self.left_vertical_header_line_chr
+            rvhlc = self.right_vertical_header_line_chr
+            mvhlc = self.middle_vertical_header_line_chr
+
             # Under Line Header Section  Only for Matrix List
-            self.horizontal_line_under_header_chr   = " ";      self.left_corner_line_under_header_chr   = " "
-            self.right_corner_line_under_header_chr = " ";      self.middle_corner_line_under_header_chr = " "
+            hluhc = self.horizontal_line_under_header_chr
 
-         else: pass
-
-
-      #-----------------------------------------------------------------------------------------------------------------------------------------
-      # Checking the list_type
-      #-----------------------------------------------------------------------------------------------------------------------------------------
-      if list_type == "empty_list":                   # []
-         data_list.append(" ")
-         _print_single_element(self,data_list)
-         
-
-      #-----------------------------------------------------------------------------------------------------------------------------------------
-      elif list_type == "one_item_no_row":              # ["one"]
-         my_list = [str(data_list[0])]
-         _print_single_element(self,my_list)
-         
-         if self.update_list == True and (isinstance (data, list)):     #  updte the list
-            data_list[0] = str(data_list[0][0])
-         
-      #-----------------------------------------------------------------------------------------------------------------------------------------
-      elif list_type == "one_item_one_row":             # [["one"]]
-         my_list = [str(data_list[0][0])]
-         _print_single_element(self,my_list)
-         
-         if self.update_list == True and (isinstance (data, list)):     #  updte the list
-            data_list[0] = str(data_list[0][0])
-
-      #-----------------------------------------------------------------------------------------------------------------------------------------
-      elif list_type == "multiple_items_one_row":       # [[1,2,3,4]]
-         # we need to convert from one row many cols to many cols and no row
-         # also convert the elements in my_list to string. all of them 
-         for row in data_list:
-            for n in row:
-               my_list.append(str(n))        
-     
-         _print_multiple_horizontal_items(self,my_list)
-
-         # if we want to save the new list to into the old one as string
-         if self.update_list == True and (isinstance (data, list)):
-            data_list.clear()
-            for n in my_list:          
-               data_list.append(n)
-
-        #---------------------------------------------------------------------------------------------------------------------------------------
-      elif list_type == "multiple_items_no_row":        # [1,2,3,4]
-         # also convert the elements in my_list to string. all of them
-         for n in (data_list):
-            my_list.append(str(n))
-
-         _print_multiple_horizontal_items(self,my_list)
-
-         # if we want to save the new list to into the old one as string
-         if self.update_list == True and (isinstance (data, list)):
-            data_list.clear()
-            for n in my_list:          
-               data_list.append(n)
-
-      # ----------------------------------------------------------------------------------------------------------------------------------------
-      elif list_type == "mix_items":                    # [10,[50],[250],["H"],100]
-                                                        # "C",["H","K","P","o"]]
-         # also convert the elements in my_list to string. all of them
-         for n in (data_list):
-            my_list.append(str(n))
-
-         _print_multiple_horizontal_items(self,my_list)
-
-         # if we want to save the new list to into the old one as string
-         if self.update_list == True and (isinstance (data, list)):
-            data_list.clear()
-            for n in my_list:          
-               data_list.append(n)
-
-      # ----------------------------------------------------------------------------------------------------------------------------------------
-      elif list_type == "multiple_items_multiple_rows":  # [[7,6],[5,4],[1,2,3]] or [[2],[3],[5]]
-         # converting the data_list to string any single element into my_list
-         # save the new matrix my_list and now we need to complete the matrix if necessary
-         tempo_list1 = []; tempo_list2 = []
-         for row in data_list:
-            for col in row:
-               tempo_list1.append(str(col))
-            tempo_list2.append(tempo_list1)
-            tempo_list1 = []
-
-         my_list = _complete_info_list(self,tempo_list2)  # make the list complete
-         _print_matrix_list(self,my_list)
-
-           # if we want to save the new list to into the old one as string
-         if self.update_list == True and (isinstance (data, list)):
-            data_list.clear()
-            for n in my_list:          
-               data_list.append(n)
-
-      # ----------------------------------------------------------------------------------------------------------------------------------------          
-      else:
-         print(list_type+": ",data_list) 
-
-      if (style == Line_Style.CUSTOMIZED): pass
-      else:
-         # putting back all the default values
-         # Horizontal Line Section
-         self.top_horizontal_line_chr    = thlc
-         self.bottom_horizontal_line_chr = bhlc
-         self.middle_horizontal_line_chr = hlc
-
-         # Vertical Line Section    
-         self.left_vertical_line_chr   = lvlc
-         self.middle_vertical_line_chr = mvlc
-         self.right_vertical_line_chr  = rvlc
-         
-         # Corner Section 
-         self.top_left_corner_chr  = tlcc;          self.bottom_right_corner_chr = brcc
-         self.top_right_corner_chr = trcc;          self.bottom_left_corner_chr  = blcc
-         
-         self.middle_top_corner_chr    = mtcc;      self.right_lateral_corner_chr = rlcc
-         self.middle_bottom_corner_chr = mbcc;      self.left_lateral_corner_chr  = llcc
-         self.middle_inner_corner_chr  = micc         
-         
-         # Header Section  Only for Matrix List         
-         self.left_vertical_header_line_chr   = lvhlc
-         self.right_vertical_header_line_chr  = rvhlc
-         self.middle_vertical_header_line_chr = mvhlc
-
-         # Under Line Header Section  Only for Matrix List
-         self.horizontal_line_under_header_chr = hluhc
-         
-         # attributes for the header corners (left, middles and right)    
-         self.left_corner_line_under_header_chr   = lculhc
-         self.right_corner_line_under_header_chr  = rculhc
-         self.middle_corner_line_under_header_chr = mculhc
+            # attributes for the header corners (left, middles and right)
+            lculhc = self.left_corner_line_under_header_chr
+            rculhc = self.right_corner_line_under_header_chr
+            mculhc = self.middle_corner_line_under_header_chr
 
 
+            if style.lower() == Line_Style.SINGLE:
+                # Horizontal Line Section
+                self.top_horizontal_line_chr = "\u2500";   self.bottom_horizontal_line_chr = "\u2500";  self.middle_horizontal_line_chr = "\u2500"
 
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-# Cursor Class. Manipulate Cursor Around The Terminal                                                                                          -
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-class Cursor():   
-   def jumpTo(self,qty=0, direction=Move.DOWN):
-      '''
-   ----------------------------------------------------------------------------
-      Moves the cursor n position to the Direction Specified
-   ----------------------------------------------------------------------------
-      '''
-      print(Cursor.moveTo(self, qty, direction),end="")
+                # Vertical Line Section
+                self.left_vertical_line_chr  = "\u2502";   self.middle_vertical_line_chr = "\u2502";    self.right_vertical_line_chr = "\u2502"
 
+                # Outside Corner Section
+                self.top_left_corner_chr     = "\u250C";   self.top_right_corner_chr   = "\u2510"
+                self.bottom_right_corner_chr = "\u2518";   self.bottom_left_corner_chr = "\u2514"
 
-   def moveTo(self,qty=0, direction=Move.DOWN):
-      '''
-   ----------------------------------------------------------------------------
-      Moves the cursor n position to the Direction Specified
-   ----------------------------------------------------------------------------
-      '''
-      if direction.lower() == Move.UP or direction.lower() == "u":
-         if qty == 0: movement = ""
-         else:        movement = f"\033[{str(qty)}A"
+                # Middle Corner Section
+                self.middle_top_corner_chr   = "\u252C";   self.middle_bottom_corner_chr = "\u2534";    self.middle_inner_corner_chr = "\u253C"
+                self.left_lateral_corner_chr = "\u251C";   self.right_lateral_corner_chr = "\u2524"
 
-      elif direction.lower() == Move.DOWN  or direction.lower() == "d":
-         if qty == 0: movement = ""
-         else:        movement = f"\033[{str(qty)}B"
+                # Header Section  Only for Matrix List
+                self.left_vertical_header_line_chr   = "\u2502"
+                self.middle_vertical_header_line_chr = "\u2502"
+                self.right_vertical_header_line_chr  = "\u2502"
 
-      elif direction.lower() == Move.RIGHT or direction.lower() == "r":
-         if qty == 0: movement = ""
-         else:        movement = f"\033[{str(qty)}C"
-
-      elif direction.lower() == Move.LEFT or direction.lower() == "l":
-         if qty == 0: movement = ""
-         else:        movement = f"\033[{str(qty)}D"
-
-      else:  movement = ""
-      return movement
+                # Under Line Header Section  Only for Matrix List
+                self.horizontal_line_under_header_chr   = "\u2500";          self.left_corner_line_under_header_chr   = "\u251C"
+                self.right_corner_line_under_header_chr = "\u2524";          self.middle_corner_line_under_header_chr = "\u253C"
 
 
-   def jumpxy(self,x=0,y=0):
-      '''
-   ----------------------------------------------------------------------------
-      This function moves the cursor to specific position (x,y)
-   ----------------------------------------------------------------------------
-      '''
-      print(Cursor.movexy(self, y, x),end="")
+            elif style.lower() == Line_Style.SINGLE_BOLD:
+                # Horizontal Line Section
+                self.top_horizontal_line_chr = "\u2501";   self.bottom_horizontal_line_chr = "\u2501"; self.middle_horizontal_line_chr = "\u2501"
 
-   
-   def movexy(self,x=0, y=0):
-      '''
-   ----------------------------------------------------------------------------
-      Moves the cursor to specific position (x, y)
-   ----------------------------------------------------------------------------
-      '''
-      if (y<=-1 or x<=-1):
-         posi = ""
-      else:
-         posi = f"\033[{str(y)};{str(x)}H"
-      
-      return posi
-   
-   
+                # Vertical Line Section
+                self.left_vertical_line_chr  = "\u2503";   self.middle_vertical_line_chr = "\u2503";   self.right_vertical_line_chr = "\u2503"
 
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-# Font Style Class. Manipulate Font In The Terminal                                                                                            -
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-# ansi codes 
-# reset_all : "\033[0m"         Terminal_Bell : "\a"              
+                # Outside Corner Section
+                self.top_left_corner_chr     = "\u250F";   self.top_right_corner_chr   = "\u2513"
+                self.bottom_right_corner_chr = "\u251B";   self.bottom_left_corner_chr = "\u2517"
+
+
+                # Middle Corner Section
+                self.middle_top_corner_chr   = "\u2533";   self.middle_bottom_corner_chr = "\u253B";   self.middle_inner_corner_chr = "\u254B"
+                self.left_lateral_corner_chr = "\u2523";   self.right_lateral_corner_chr = "\u252B"
+
+                # Header Section  Only for Matrix List
+                self.left_vertical_header_line_chr   = "\u2503"
+                self.right_vertical_header_line_chr  = "\u2503"
+                self.middle_vertical_header_line_chr = "\u2503"
+
+                # Under Line Header Section  Only for Matrix List
+                self.horizontal_line_under_header_chr   = "\u2501";          self.left_corner_line_under_header_chr   = "\u2523"
+                self.right_corner_line_under_header_chr = "\u252B";          self.middle_corner_line_under_header_chr = "\u254B"
+
+
+            elif style.lower() == Line_Style.SINGLE_HEAVY:
+                # Horizontal Line Section
+                self.top_horizontal_line_chr = "\u2586";    self.bottom_horizontal_line_chr="\u2586";   self.middle_horizontal_line_chr = "\u2586"
+
+                # Vertical Line Section
+                self.left_vertical_line_chr  = "\u2588";    self.middle_vertical_line_chr = "\u2588";   self.right_vertical_line_chr = "\u2588"
+
+                # Outside Corner Section
+                self.top_left_corner_chr     = "\u2586";    self.top_right_corner_chr   = "\u2586"
+                self.bottom_right_corner_chr = "\u2588";    self.bottom_left_corner_chr = "\u2588"
+
+                # Middle Corner Section
+                self.middle_top_corner_chr   = "\u2586";    self.middle_bottom_corner_chr = "\u2588";   self.middle_inner_corner_chr = "\u2588"
+                self.left_lateral_corner_chr = "\u2588";    self.right_lateral_corner_chr = "\u2588"
+
+                # Header Section  Only for Matrix List
+                self.left_vertical_header_line_chr   = "\u2588"
+                self.right_vertical_header_line_chr  = "\u2588"
+                self.middle_vertical_header_line_chr = "\u2588"
+
+                # Under Line Header Section  Only for Matrix List
+                self.horizontal_line_under_header_chr   = "\u2586";          self.left_corner_line_under_header_chr   = "\u2588"
+                self.right_corner_line_under_header_chr = "\u2588";          self.middle_corner_line_under_header_chr = "\u2586"
+
+
+            elif style.lower() == Line_Style.DOUBLE:
+                # Horizontal Line Section
+                self.top_horizontal_line_chr = "\u2550";   self.bottom_horizontal_line_chr = "\u2550";   self.middle_horizontal_line_chr = "\u2550"
+
+                # Vertical Line Section
+                self.left_vertical_line_chr  = "\u2551";   self.middle_vertical_line_chr = "\u2551";     self.right_vertical_line_chr = "\u2551"
+
+                # Outside Corner Section
+                self.top_left_corner_chr     = "\u2554";   self.top_right_corner_chr   = "\u2557"
+                self.bottom_right_corner_chr = "\u255D";   self.bottom_left_corner_chr = "\u255A"
+
+                # Middle Corner Section
+                self.middle_top_corner_chr   = "\u2566";   self.middle_bottom_corner_chr = "\u2569";     self.middle_inner_corner_chr = "\u256C"
+                self.left_lateral_corner_chr = "\u2560";   self.right_lateral_corner_chr = "\u2563"
+
+                # Header Section  Only for Matrix List
+                self.left_vertical_header_line_chr   = "\u2551"
+                self.right_vertical_header_line_chr  = "\u2551"
+                self.middle_vertical_header_line_chr = "\u2551"
+
+                # Under Line Header Section  Only for Matrix List
+                self.horizontal_line_under_header_chr   = "\u2550";          self.left_corner_line_under_header_chr   = "\u2560"
+                self.right_corner_line_under_header_chr = "\u2563";          self.middle_corner_line_under_header_chr = "\u256C"
+
+
+            elif style.lower() == Line_Style.SQ_BRACKETS:
+                # Horizontal Line Section
+                self.top_horizontal_line_chr = " ";           self.bottom_horizontal_line_chr = " ";        self.middle_horizontal_line_chr = " "
+
+                # Vertical Line Section
+                self.left_vertical_line_chr  = "\u2502";      self.middle_vertical_line_chr = " ";          self.right_vertical_line_chr = "\u2502"
+
+                # Outside Corner Section
+                self.top_left_corner_chr     = "\u250C";      self.top_right_corner_chr   = "\u2510"
+                self.bottom_right_corner_chr = "\u2518";      self.bottom_left_corner_chr = "\u2514"
+
+                # Middle Corner Section
+                self.middle_top_corner_chr   =  " ";          self.middle_bottom_corner_chr = " ";          self.middle_inner_corner_chr = " "
+                self.left_lateral_corner_chr =  "\u2502";     self.right_lateral_corner_chr = "\u2502"
+
+                # Header Section  Only for Matrix List
+                self.left_vertical_header_line_chr   = "\u2502"
+                self.right_vertical_header_line_chr  = "\u2502"
+                self.middle_vertical_header_line_chr = " "
+
+                # Under Line Header Section  Only for Matrix List
+                self.horizontal_line_under_header_chr   = " ";               self.left_corner_line_under_header_chr   = "\u2502"
+                self.right_corner_line_under_header_chr = "\u2502";          self.middle_corner_line_under_header_chr = " "
+
+
+            elif style.lower() == Line_Style.DASH:
+                # Horizontal Line Section
+                self.top_horizontal_line_chr = "\u002D";   self.bottom_horizontal_line_chr = "\u002D";  self.middle_horizontal_line_chr = "\u002D"
+
+                # Vertical Line Section
+                self.left_vertical_line_chr  = "\u254E";   self.middle_vertical_line_chr = "\u254E";    self.right_vertical_line_chr = "\u254E"
+
+                # Outside Corner Section
+                self.top_left_corner_chr     = "\u002B";   self.top_right_corner_chr   = "\u002B"
+                self.bottom_right_corner_chr = "\u002B";   self.bottom_left_corner_chr = "\u002B"
+
+                # Middle Corner Section
+                self.middle_top_corner_chr   =  "\u002B";  self.middle_bottom_corner_chr = "\u002B";    self.middle_inner_corner_chr = "\u002B"
+                self.left_lateral_corner_chr =  "\u002B";  self.right_lateral_corner_chr = "\u002B"
+
+                # Header Section  Only for Matrix List
+                self.left_vertical_header_line_chr   = "\u254E"
+                self.right_vertical_header_line_chr  = "\u254E"
+                self.middle_vertical_header_line_chr = "\u254E"
+
+                # Under Line Header Section  Only for Matrix List
+                self.horizontal_line_under_header_chr   = "\u002D";          self.left_corner_line_under_header_chr   = "\u002B"
+                self.right_corner_line_under_header_chr = "\u002B";          self.middle_corner_line_under_header_chr = "\u002B"
+
+
+            elif style.lower() == Line_Style.SPACE_COL_COLOR:
+                # Horizontal Line Section
+                self.top_horizontal_line_chr = " ";         self.bottom_horizontal_line_chr = " ";      self.middle_horizontal_line_chr = " "
+
+                # Vertical Line Section
+                self.left_vertical_line_chr  = "  ";         self.middle_vertical_line_chr = "  ";      self.right_vertical_line_chr = "  "
+
+                # Outside Corner Section
+                self.top_left_corner_chr     = "  ";         self.top_right_corner_chr   = "  "
+                self.bottom_right_corner_chr = "  ";         self.bottom_left_corner_chr = "  "
+
+                # Middle Corner Section
+                self.middle_top_corner_chr   = "  ";         self.middle_bottom_corner_chr = "  ";      self.middle_inner_corner_chr = "  "
+                self.left_lateral_corner_chr = "  ";         self.right_lateral_corner_chr = "  "
+
+                # Header Section  Only for Matrix List
+                self.left_vertical_header_line_chr   = "  "
+                self.right_vertical_header_line_chr  = "  "
+                self.middle_vertical_header_line_chr = "  "
+
+                # Under Line Header Section  Only for Matrix List
+                self.horizontal_line_under_header_chr   = " ";      self.left_corner_line_under_header_chr   = "  "
+                self.right_corner_line_under_header_chr = "  ";      self.middle_corner_line_under_header_chr = "  "
+
+
+            elif style.lower() == Line_Style.NO_SPACE_COL_COLOR:
+                # Horizontal Line Section
+                self.top_horizontal_line_chr = " ";             self.bottom_horizontal_line_chr = " ";        self.middle_horizontal_line_chr = " "
+
+                # Vertical Line Section
+                self.left_vertical_line_chr  = "  ";             self.middle_vertical_line_chr = "";           self.right_vertical_line_chr = "  "
+
+                # Outside Corner Section
+                self.top_left_corner_chr     = "  ";             self.top_right_corner_chr   = "  "
+                self.bottom_right_corner_chr = "  ";             self.bottom_left_corner_chr = "  "
+
+                # Middle Corner Section
+                self.middle_top_corner_chr   = "";               self.middle_bottom_corner_chr = ""
+                self.left_lateral_corner_chr  = "  "
+                self.middle_inner_corner_chr = ""
+                self.right_lateral_corner_chr = "  "
+
+                # Header Section  Only for Matrix List
+                self.left_vertical_header_line_chr   = "  "
+                self.right_vertical_header_line_chr  = "  "
+                self.middle_vertical_header_line_chr = ""
+
+                self.right_corner_line_under_header_chr  = "  "
+                self.left_corner_line_under_header_chr   = "  "
+                self.horizontal_line_under_header_chr    = " "
+
+                # Under Line Header Section  Only for Matrix List
+                n_rows = 0; n_cols = 0
+
+                if list_type == "incorrect_variable_type" or list_type == "empty_list":  pass
+
+                elif list_type == "one_item_no_row":
+                    n_cols = 1; n_rows = 1                  # Done  ["dato"]
+
+
+                elif list_type == "one_item_one_row":
+                    n_cols = 1; n_rows = 1                  # Done [["dato"]]
+
+
+                elif list_type == "multiple_items_no_row":
+                    n_rows = 1                              # Done ["Hello","bye","good"]
+                    n_cols = sum(1 for num in data_list)
+
+                elif list_type == "multiple_items_one_row": # Done [["Hello","bye","good"]]
+                    n_rows = 1
+
+                    for n in data_list[0]:
+                        n_cols += 1
+
+                # Done [["Hello"],["bye"],["good"]] or [["Hello","mio"],["bye"],["good","hh"]]
+                elif list_type == "multiple_items_multiple_rows":
+                    n_rows = len(data_list); n_cols = 0; lengths = []
+
+                    for r in data_list:
+                        lengths.append(len(r))
+                    n_cols = max(lengths)
+
+                if (n_cols == 0 or n_cols == 1):
+                    self.middle_corner_line_under_header_chr = "  "
+
+                else:
+                    self.middle_corner_line_under_header_chr = ""
+
+
+            elif style.lower() == Line_Style.NONE:
+                # Horizontal Line Section
+                self.top_horizontal_line_chr = " ";         self.bottom_horizontal_line_chr = " ";      self.middle_horizontal_line_chr = " "
+
+                # Vertical Line Section
+                self.left_vertical_line_chr  = " ";         self.middle_vertical_line_chr = " ";        self.right_vertical_line_chr = " "
+
+                # Outside Corner Section
+                self.top_left_corner_chr     = " ";         self.top_right_corner_chr   = " "
+                self.bottom_right_corner_chr = " ";         self.bottom_left_corner_chr = " "
+
+                # Middle Corner Section
+                self.middle_top_corner_chr   = " ";         self.middle_bottom_corner_chr = " ";         self.middle_inner_corner_chr = " "
+                self.left_lateral_corner_chr = " ";         self.right_lateral_corner_chr = " "
+
+                # Header Section  Only for Matrix List
+                self.left_vertical_header_line_chr   = " "
+                self.right_vertical_header_line_chr  = " "
+                self.middle_vertical_header_line_chr = " "
+
+                # Under Line Header Section  Only for Matrix List
+                self.horizontal_line_under_header_chr   = " ";      self.left_corner_line_under_header_chr   = " "
+                self.right_corner_line_under_header_chr = " ";      self.middle_corner_line_under_header_chr = " "
+
+            else: pass
+
+
+        #---------------------------------------------------------------------------------------------------------------------------------------------
+        # Checking the list_type                                                                                                                     -
+        #---------------------------------------------------------------------------------------------------------------------------------------------
+        if list_type == "empty_list":                   # []
+            data_list.append(" ")
+            _print_single_element(self,data_list)
+
+
+        #---------------------------------------------------------------------------------------------------------------------------------------------
+        elif list_type == "one_item_no_row":              # ["one"]
+            my_list = [str(data_list[0])]
+            _print_single_element(self,my_list)
+
+            if self.update_list == True and (isinstance (data, list)):     #  updte the list
+                data_list[0] = str(data_list[0][0])
+
+        #---------------------------------------------------------------------------------------------------------------------------------------------
+        elif list_type == "one_item_one_row":             # [["one"]]
+            my_list = [str(data_list[0][0])]
+            _print_single_element(self,my_list)
+
+            if self.update_list == True and (isinstance (data, list)):     #  updte the list
+                data_list[0] = str(data_list[0][0])
+
+        #---------------------------------------------------------------------------------------------------------------------------------------------
+        elif list_type == "multiple_items_one_row":       # [[1,2,3,4]]
+            # we need to convert from one row many cols to many cols and no row
+            # also convert the elements in my_list to string. all of them
+            for row in data_list:
+                for n in row:
+                    my_list.append(str(n))
+
+            _print_multiple_horizontal_items(self,my_list)
+
+            # if we want to save the new list to into the old one as string
+            if self.update_list == True and (isinstance (data, list)):
+                data_list.clear()
+                for n in my_list:
+                    data_list.append(n)
+
+        #---------------------------------------------------------------------------------------------------------------------------------------------
+        elif list_type == "multiple_items_no_row":        # [1,2,3,4]
+            # also convert the elements in my_list to string. all of them
+            for n in (data_list):
+                my_list.append(str(n))
+
+            _print_multiple_horizontal_items(self,my_list)
+
+            # if we want to save the new list to into the old one as string
+            if self.update_list == True and (isinstance (data, list)):
+                data_list.clear()
+                for n in my_list:
+                    data_list.append(n)
+
+        #---------------------------------------------------------------------------------------------------------------------------------------------
+        elif list_type == "mix_items":                    # [10,[50],[250],["H"],100]
+                                                          # "C",["H","K","P","o"]]
+           # also convert the elements in my_list to string. all of them
+            for n in (data_list):
+                my_list.append(str(n))
+
+            _print_multiple_horizontal_items(self,my_list)
+
+            # if we want to save the new list to into the old one as string
+            if self.update_list == True and (isinstance (data, list)):
+                data_list.clear()
+                for n in my_list:
+                    data_list.append(n)
+
+        #---------------------------------------------------------------------------------------------------------------------------------------------
+        elif list_type == "multiple_items_multiple_rows":  # [[7,6],[5,4],[1,2,3]] or [[2],[3],[5]]
+            # converting the data_list to string any single element into my_list
+            # save the new matrix my_list and now we need to complete the matrix if necessary
+            tempo_list1 = []; tempo_list2 = []
+            for row in data_list:
+                for col in row:
+                    tempo_list1.append(str(col))
+                tempo_list2.append(tempo_list1)
+                tempo_list1 = []
+
+            my_list = _complete_info_list(self,tempo_list2)  # make the list complete
+            _print_matrix_list(self,my_list)
+
+              # if we want to save the new list to into the old one as string
+            if self.update_list == True and (isinstance (data, list)):
+                data_list.clear()
+                for n in my_list:
+                    data_list.append(n)
+
+        #---------------------------------------------------------------------------------------------------------------------------------------------
+        else:
+            print(list_type+": ",data_list)
+
+        if style == Line_Style.CUSTOMIZED: pass
+        else:
+            # putting back all the default values
+            # Horizontal Line Section
+            self.top_horizontal_line_chr    = thlc
+            self.bottom_horizontal_line_chr = bhlc
+            self.middle_horizontal_line_chr = hlc
+
+            # Vertical Line Section
+            self.left_vertical_line_chr   = lvlc
+            self.middle_vertical_line_chr = mvlc
+            self.right_vertical_line_chr  = rvlc
+
+            # Corner Section
+            self.top_left_corner_chr  = tlcc;          self.bottom_right_corner_chr = brcc
+            self.top_right_corner_chr = trcc;          self.bottom_left_corner_chr  = blcc
+
+            self.middle_top_corner_chr    = mtcc;      self.right_lateral_corner_chr = rlcc
+            self.middle_bottom_corner_chr = mbcc;      self.left_lateral_corner_chr  = llcc
+            self.middle_inner_corner_chr  = micc
+
+            # Header Section  Only for Matrix List
+            self.left_vertical_header_line_chr   = lvhlc
+            self.right_vertical_header_line_chr  = rvhlc
+            self.middle_vertical_header_line_chr = mvhlc
+
+            # Under Line Header Section  Only for Matrix List
+            self.horizontal_line_under_header_chr = hluhc
+
+            # attributes for the header corners (left, middles and right)
+            self.left_corner_line_under_header_chr   = lculhc
+            self.right_corner_line_under_header_chr  = rculhc
+            self.middle_corner_line_under_header_chr = mculhc
+
+
+
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+# Cursor Class. Manipulate Cursor Around The Terminal                                                                                               --
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+class Cursor():
+    '''
+    Cursor class helps to move the cursor around the terminal
+    '''
+    def jumpTo(self,qty=0, direction=Move.DOWN):
+
+        '''  Moves the cursor n position to the Direction Specified  '''
+
+        print(Cursor.moveTo(self, qty, direction),end="")
+
+
+    def moveTo(self,qty=0, direction=Move.DOWN):
+
+        '''  Moves the cursor n position to the Direction Specified  '''
+
+        if direction.lower() == Move.UP or direction.lower() == "u":
+            if qty == 0: movement = ""
+            else:        movement = f"\033[{str(qty)}A"
+
+        elif direction.lower() == Move.DOWN  or direction.lower() == "d":
+            if qty == 0: movement = ""
+            else:        movement = f"\033[{str(qty)}B"
+
+        elif direction.lower() == Move.RIGHT or direction.lower() == "r":
+            if qty == 0: movement = ""
+            else:        movement = f"\033[{str(qty)}C"
+
+        elif direction.lower() == Move.LEFT or direction.lower() == "l":
+            if qty == 0: movement = ""
+            else:        movement = f"\033[{str(qty)}D"
+
+        else:  movement = ""
+        return movement
+
+
+    def jumpxy(self,x=0,y=0):
+
+        '''  This function moves the cursor to specific position (x,y)  '''
+
+        print(Cursor.movexy(self, y, x),end="")
+
+
+    def movexy(self,x=0, y=0):
+
+        '''  Moves the cursor to specific position (x, y)  '''
+
+        if (y<=-1 or x<=-1):
+            posi = ""
+        else:
+            posi = f"\033[{str(y)};{str(x)}H"
+
+        return posi
+
+
+
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+# Font Style Class. Manipulate Font In The Terminal                                                                                                 --
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+# ansi codes
+# reset_all : "\033[0m"         Terminal_Bell : "\a"
 # bold_on   : "\033[1m"         underline_on  : "\033[4m"         hidden_on    : "\033[8m"
 # bold_off  : "\033[22m"        underline_off : "\033[24m"        hidden_off   : "\033[28m"
 # dim_on    : "\033[2m"         blinking_on   : "\033[5m"         strike_on    : "\033[9m"
@@ -2508,962 +2441,916 @@ class Cursor():
 # italic_on : "\033[3m"         reverse_on    : "\033[7m"         background   : "\033[48;5;{str(bg)}m"
 # italic_off: "\033[23m"        reverse_off   : "\033[27m"        foreground   : "\033[38;5;{str(fg)}m"
 # backspace : "\b"              horizontal tab: "\t"              vertical tab : "\v"
+class FontStyle():
+    '''
+    FontStyle class print fancy text
+    '''
+    def __init__(self):
+        # General Use
+        self.bg  = -1;       self.bold      = False;    self.hidden    = False;    self.italic    = False
+        self.fg  = -1;       self.underline = False;    self.strike    = False;    self.inverse   = False
+        self.dim = False;    self.indent    = 0;        self.blinking  = False
 
-class FontStyle():   
-   def __init__(self):
-      self.bg = -1
-      self.fg = -1
-
-      self.bold   = False      
-      self.dim    = False
-      self.italic = False
-      
-      self.underline = False
-      self.blinking  = False
-      self.inverse   = False
-      self.hidden    = False
-      self.strike    = False
-      self.indent    = 0
-      self.next_line = True
-
-      
-   def set_font(self)->str:
-      '''
-   ----------------------------------------------------------------------------   
-      This function changes the attributes of the font (bold, bg, fg).
-      
-      Colors range from -1 to 256, where -1 or 256 is the defualt one.
-      
-      Example:
-              print(f"{fs.start_style()} Font Style {fs.stop_style()}")
-              fs.print_style(" FontStyle ")
-   ----------------------------------------------------------------------------
-   '''
-   # bg_color and fg_color, are int values but we convert then to str values
-      reset = "\033[0m"
-      if self.bg < 0 or self.bg > 255:
-         bgc = "reset"
-      else:
-         bgc = str(self.bg)
-
-      if self.fg < 0 or self.fg > 255:
-         fgc = "reset"
-      else:
-         fgc = str(self.fg)
+        # Print_Style
+        self.align = Align.LEFT;    self.left_indent  = 0
+        self.next_line   = True;    self.right_indent = 0
+        self.force_align = False
 
 
-      if (bgc == "reset" and fgc == "reset"):
-         settings = reset
+    def _set_font(self)->str:
 
-      elif bgc == "reset" and fgc != "reset":
-         settings = reset+"\033[38;5;"+fgc+"m"
-      
-      elif bgc != "reset" and fgc == "reset":
-         settings = reset+"\033[48;5;"+bgc+"m"
+        '''  This function changes the attributes of the font (bold=bool, bg=int, fg=int).
+       
+        Colors range from -1 to 256, where -1 or 256 is the defualt one.  '''
 
-      elif bgc != "reset" and fgc != "reset":
-         settings = reset+"\033[48;5;"+bgc+";38;5;"+fgc+"m"
 
-      else:
-         settings = reset
-      
+        # bg_color and fg_color, are int values but we convert then to str values
+        reset = "\033[0m"
+        if self.bg < 0 or self.bg > 255:  bgc = "reset"
+        else:                             bgc = str(self.bg)
 
-      if   (self.bold == True and self.dim == False): settings = settings + "\033[1m"
-      elif (self.bold == True and self.dim == True):  settings = settings + "\033[1m"
-      elif (self.bold == False and self.dim == True): settings = settings + "\033[2m"
-      else: # (bold == False and dim == False): 
-         pass
-         
-      if (self.italic == True):    settings = settings + "\033[3m"
-      else:                        settings =  settings + "\033[23m"
+        if self.fg < 0 or self.fg > 255:  fgc = "reset"
+        else:                             fgc = str(self.fg)
 
-      if (self.underline == True): settings = settings + "\033[4m"
-      else:                        settings = settings + "\033[24m"
 
-      if (self.blinking == True):  settings = settings + "\033[5m"
-      else:                        settings = settings + "\033[25m"
+        if (bgc == "reset" and fgc == "reset"):  settings = reset
+        elif bgc == "reset" and fgc != "reset":  settings = reset+"\033[38;5;"+fgc+"m"
+        elif bgc != "reset" and fgc == "reset":  settings = reset+"\033[48;5;"+bgc+"m"
+        elif bgc != "reset" and fgc != "reset":  settings = reset+"\033[48;5;"+bgc+";38;5;"+fgc+"m"
+        else:                                    settings = reset
 
-      if (self.inverse == True):   settings = settings + "\033[7m"
-      else:                        settings = settings + "\033[27m"
 
-      if (self.hidden == True):    settings = settings + "\033[8m"
-      else:                        settings = settings + "\033[28m"
+        if   (self.bold == True and self.dim  == False): settings = settings + "\033[1m"
+        elif (self.bold == True and self.dim  == True):  settings = settings + "\033[1m"
+        elif (self.bold == False and self.dim == True):  settings = settings + "\033[2m"
+        else:                                            pass   # (bold == False and dim == False):
 
-      if (self.strike == True):    settings = settings + "\033[9m"
-      else:                        settings = settings + "\033[29m"
-      
 
-      if self.indent <= 0: pass
-      else: settings = settings + f"\033[{str(self.indent)}C"
+        if self.italic == True:    settings = settings + "\033[3m"
+        else:                        settings =  settings + "\033[23m"
 
-      return settings
-   
-   def print_style(self, msg)->None:
-      settings = self.set_font()
-      if self.next_line   == True:  print(settings+str(msg)+"\033[0m")
-      elif self.next_line == False: print(settings+str(msg)+"\033[0m",end="")
-      else:
-         print(settings+str(msg)+"\033[0m")
+        if self.underline == True: settings = settings + "\033[4m"
+        else:                        settings = settings + "\033[24m"
 
-   def start_style(self)->str:   return self.set_font()
+        if self.blinking == True:  settings = settings + "\033[5m"
+        else:                        settings = settings + "\033[25m"
 
-   def stop_style(self)->str: return "\033[0m"
+        if self.inverse == True:   settings = settings + "\033[7m"
+        else:                        settings = settings + "\033[27m"
 
-   def reset_style(self):
-      self.bg = -1
-      self.fg = -1
-      
-      self.bold   = False      
-      self.dim    = False
-      self.italic = False
+        if self.hidden == True:    settings = settings + "\033[8m"
+        else:                        settings = settings + "\033[28m"
 
-      self.underline = False
-      self.blinking  = False
-      self.inverse   = False
-      self.hidden    = False
-      self.strike    = False
-      self.indent    = 0
-      self.next_line = True
+        if self.strike == True:    settings = settings + "\033[9m"
+        else:                        settings = settings + "\033[29m"
 
-   
 
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-# Fancy Message Class (Single line or a Paragraph Text in the Terminal)                                                                        -
-#-----------------------------------------------------------------------------------------------------------------------------------------------
+        if self.indent <= 0: pass
+        else: settings = settings + f"\033[{str(self.indent)}C"
+
+        return settings
+
+    def style_on(self)->str:
+        '''
+        Activate the style
+        '''
+        return self._set_font()
+
+    def style_off(self)->str:
+        '''
+        Deactivate the style
+        '''
+        return "\033[0m"
+
+    def reset_style(self):
+        '''
+        Reset the FontStyle class
+        '''
+        # General Use
+        self.bg  = -1;       self.bold      = False;    self.hidden    = False;    self.italic    = False
+        self.fg  = -1;       self.underline = False;    self.strike    = False;    self.inverse   = False
+        self.dim = False;    self.indent    = 0;        self.blinking  = False
+
+        # print_style
+        self.align = Align.LEFT;    self.left_indent  = 10
+        self.next_line   = True;    self.right_indent = 10
+        self.force_align = False
+
+
+
+
+    def print_style(self, msg)->None:
+        '''
+        print_style will help to print a fancy statement on the terminal
+        '''
+
+        settings = self._set_font()
+        tnrows, tncols, space_available, number_letter_line_list, adj_diff_space, new_msg, n_lines = FancyMessage._get_msg_attributes(self,msg,True)
+
+
+        if self.next_line   == True:   print(settings+str(msg)+"\033[0m")
+        elif self.next_line == False:  print(settings+str(msg)+"\033[0m",end="")
+        else:                          print(settings+str(msg)+"\033[0m")
+        #print(space_available)
+
+
+
+
+
+
+
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+# Fancy Message Class (Single line or a Paragraph Text in the Terminal)                                                                             --
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
 class FancyMessage(Cursor):
-   def __init__(self):
-      super().__init__()       # Super Class to use all (vars and funs) from Cursor Class
-                               # with the Initialization Draw Class(self), ex. self.gotoxy(x,y)
-      self.bg_body        = 4;          self.underline_body = False     # 4         False
-      self.fg_body        = 231;        self.blinking_body  = False     # 231       False
-      self.bold_body      = False;      self.inverse_body   = False     # False     False
-      self.dim_body       = False;      self.hidden_body    = False     # False     False
-      self.italic_body    = False;      self.strike_body    = False     # False     False
-      
-      self.msg_body = "Body Msg";       self.help_lines = False
+    '''
+    FancyMessage class
+    '''
+    def __init__(self):
+        super().__init__()       # Super Class to use all (vars and funs) from Cursor Class
+                                    # with the Initialization Draw Class(self), ex. self.gotoxy(x,y)
+        self.bg_body        = 4;          self.underline_body = False     # 4         False
+        self.fg_body        = 231;        self.blinking_body  = False     # 231       False
+        self.bold_body      = False;      self.inverse_body   = False     # False     False
+        self.dim_body       = False;      self.hidden_body    = False     # False     False
+        self.italic_body    = False;      self.strike_body    = False     # False     False
 
-      self.left_indent = 2;             self.right_indent = 2
-      self.top_lines = 1;               self.bottom_lines = 1
+        self.msg_body = "Body Msg";       self.help_lines = False
 
-      self.length = Length_bg.ALL_ROW 
-      # These two options don't do anything when length = Length_bg.All_ROW   
-      self.adj_bg_lines_to_right_indent = False     # True or False
-      self.adj_bg_msg_to_space_available = False    # True or False
+        self.left_indent = 2;             self.right_indent = 2
+        self.top_lines = 1;               self.bottom_lines = 1
 
-      
-
-      #--------------------------------------------------------------------
-      # Note Settings Here, print_fancy_note
-      self.msg_note = " Note: "
-      self.align_note = Align.JUSTIFY;    self.position_note = 1 
-      self.bg_note = 231;                 self.fg_note = 0;                 self.bold_note  = False
-      self.dim_note = False;              self.italic_note = False;         self.underline_note = False
-      self.blinking_note = False;         self.inverse_note = False;        self.hidden_note = False
-      self.strike_note = False;           self.left_space_note = 2;         self.right_space_note = 2
-      
-      # Title Settings Here, print_fancy_message
-      self.align_title = Align.LEFT;      self.title_indent = 2;            self.msg_title = "" # title_indent works with Align.JUSTIFY
-      self.lines_title_body = 1;          self.strike_title = False
-      self.bg_title = 4;                  self.fg_title = 231;              self.bold_title  = False
-      self.dim_title = False;             self.italic_title = False;        self.underline_title = False
-      self.blinking_title = False;        self.inverse_title = False;       self.hidden_title = False
-      
-      # Footnote Settings Here, print_fancy_message
-      self.align_footnote = Align.RIGHT;  self.footnote_indent = 2;         self.msg_footnote = "" # footnote_indent works with Align.JUSTIFY
-      self.lines_body_footnote = 1;       self.strike_footnote = False
-      self.bg_footnote = 4;               self.fg_footnote = 231;           self.bold_footnote  = False
-      self.dim_footnote = False;          self.italic_footnote = False;     self.underline_footnote = False
-      self.blinking_footnote = False;     self.inverse_footnote = False;    self.hidden_footnote = False
-      
-
-   def _get_msg_attribute(self,data:str="Message",all_attribute:bool=False):
-      msg = str(data)
-      tncols, tnrows = os.get_terminal_size()
-      
-      space_available = tncols - self.left_indent - self.right_indent
-      
-      longest_line   = 0;                       quotient = 0
-      letter_counter = 0;                       residue  = 0;                              
-      msg_type       = "single_line";           new_msg  = ""
-      
-
-      quotient_number_letter_line_list = [];    fit_number_letter_line_list   = []
-      residue_number_letter_line_list  = [];    carry_number_letter_line_list = []
-      
-      adj_diff_space     = [];                  number_letter_line_list = []
-      result_multi_lines = []      
-      
-
-      for l in msg:
-         if (l=="\n"):
-            number_letter_line_list.append(letter_counter)            
-            letter_counter = 0
-            msg_type="multiple_lines"
-         
-         else:
-            new_msg += l
-            letter_counter += 1
-
-      if (msg_type == "single_line"):
-         quotient = int(letter_counter/space_available)
-         residue  = letter_counter%space_available
-         while quotient>0:
-            number_letter_line_list.append(space_available)
-            quotient -= 1        
-         number_letter_line_list.append(residue)
-         
-         for n in number_letter_line_list:
-            adj_diff_space.append(space_available - n)
+        self.length = Length_bg.ALL_ROW
+        # These two options don't do anything when length = Length_bg.All_ROW
+        self.adj_bg_lines_to_right_indent = False     # True or False
+        self.adj_bg_msg_to_space_available = False    # True or False
 
 
 
-      else:   # multiple lines
-         number_letter_line_list.append(letter_counter) # the last one not added
-         longest_line = max(number_letter_line_list)
-         # first item when only enter it's deleted
-         if (number_letter_line_list[0] == 0):   number_letter_line_list.pop(0)
-         # last item when only enter it's deleted
-         if (number_letter_line_list[(len(number_letter_line_list))-1] == 0):
-            number_letter_line_list.pop((len(number_letter_line_list))-1)
-         
-               
-         if (space_available > longest_line):
-            for n in number_letter_line_list:
-               adj_diff_space.append(space_available-n)
+        #--------------------------------------------------------------------
+        # Note Settings Here, print_fancy_note
+        self.msg_note = " Note: "
+        self.align_note = Align.JUSTIFY;    self.position_note = 1
+        self.bg_note = 231;                 self.fg_note = 0;                 self.bold_note  = False
+        self.dim_note = False;              self.italic_note = False;         self.underline_note = False
+        self.blinking_note = False;         self.inverse_note = False;        self.hidden_note = False
+        self.strike_note = False;           self.left_space_note = 2;         self.right_space_note = 2
 
-         else:
-            for line in range(len(number_letter_line_list)):
-               if (number_letter_line_list[line] <= space_available):
-                  fit_number_letter_line_list.append(number_letter_line_list[line])
-                  
-               else:
-                  quotient = int(number_letter_line_list[line]/space_available)
-                  residue  = number_letter_line_list[line]%space_available
-                  n = quotient
+        # Title Settings Here, print_fancy_message
+        self.align_title = Align.LEFT;      self.title_indent = 2;            self.msg_title = "" # title_indent works with Align.JUSTIFY
+        self.lines_title_body = 1;          self.strike_title = False
+        self.bg_title = 4;                  self.fg_title = 231;              self.bold_title  = False
+        self.dim_title = False;             self.italic_title = False;        self.underline_title = False
+        self.blinking_title = False;        self.inverse_title = False;       self.hidden_title = False
 
-                  while n > 0:
-                     quotient_number_letter_line_list.append(space_available)
-                     n -= 1
+        # Footnote Settings Here, print_fancy_message
+        self.align_footnote = Align.RIGHT;  self.footnote_indent = 2;         self.msg_footnote = "" # footnote_indent works with Align.JUSTIFY
+        self.lines_body_footnote = 1;       self.strike_footnote = False
+        self.bg_footnote = 4;               self.fg_footnote = 231;           self.bold_footnote  = False
+        self.dim_footnote = False;          self.italic_footnote = False;     self.underline_footnote = False
+        self.blinking_footnote = False;     self.inverse_footnote = False;    self.hidden_footnote = False
 
-                  residue_number_letter_line_list.append(residue)
-                  carry_number_letter_line_list.append(quotient+1)
 
-            ctrl = 0; first_time = 0
-            for r in number_letter_line_list:
-               if (r > space_available):
-                  last_one = carry_number_letter_line_list[ctrl] - 1
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    # Get Message Attributes                                                                                                                         -
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    def _get_msg_attributes(self,data:str="Message",all_attribute:bool=False):
+        msg = str(data)
+        tncols, tnrows = os.get_terminal_size()
 
-                  for n in range(carry_number_letter_line_list[ctrl]):
-                     if (last_one == n):
-                        result_multi_lines.append(residue_number_letter_line_list[ctrl])
-                        ctrl += 1
-                     else:
-                        result_multi_lines.append(space_available)
-               else:
-                  result_multi_lines.append(r)
-            number_letter_line_list = result_multi_lines
+        space_available = tncols - self.left_indent - self.right_indent
+
+        longest_line   = 0;                       quotient = 0
+        letter_counter = 0;                       residue  = 0
+        msg_type       = "single_line";           new_msg  = ""
+
+
+        quotient_number_letter_line_list = [];    fit_number_letter_line_list   = []
+        residue_number_letter_line_list  = [];    carry_number_letter_line_list = []
+
+        adj_diff_space     = [];                  number_letter_line_list = []
+        result_multi_lines = []
+
+
+        for l in msg:
+            if l=="\n":
+                number_letter_line_list.append(letter_counter)
+                letter_counter = 0
+                msg_type="multiple_lines"
+
+            else:
+                new_msg += l
+                letter_counter += 1
+
+
+        if msg_type == "single_line":
+            quotient = int(letter_counter/space_available)
+            residue  = letter_counter%space_available
+            while quotient>0:
+                number_letter_line_list.append(space_available)
+                quotient -= 1
+            number_letter_line_list.append(residue)
 
             for n in number_letter_line_list:
-               adj_diff_space.append(space_available - n)
-      if (all_attribute == True):
-         return tnrows, tncols, space_available, number_letter_line_list, adj_diff_space, new_msg, len(number_letter_line_list)
-      else:
-         return len(number_letter_line_list), space_available, tncols
-
-
-   #---------------------------------------------------------------------------------------------------------------------------------------------------
-   # Send the Data To the Terminal                                                                                                                    -   
-   #---------------------------------------------------------------------------------------------------------------------------------------------------
-   def _send_msg_terminal(self,data="Message"):
-      def _print_bg_lines(lines, bg_format_line_color="\033[0m"):
-         if (lines == 0):
-            print("\033[0m",end="")
-         else:
-            n = lines
-            while n>0:
-               print(bg_format_line_color)
-               n -= 1
-      
-
-      tnrows, tncols, space_available, number_letter_line_list, adj_diff_space, new_msg, n_lines = FancyMessage._get_msg_attribute(self,data,True)
-
-      color = set_font(self.bold_body, self.bg_body, self.fg_body, self.italic_body, self.underline_body, self.strike_body,
-                       self.blinking_body, self.dim_body, self.hidden_body, self.inverse_body)
-      color2= set_font(bg=self.bg_body, fg=self.fg_body, inverse=self.inverse_body)
-
-      # from here we need: tncols, space_available, number_letter_line_list, adj_diff_space, new_msg
-
-      
-      longest_line = max(number_letter_line_list)
-      # self.adj_bg_lines_to_right_indent by default  = False
-      # self.adj_bg_msg_to_space_available by default = False
-      if (self.length == Length_bg.ALL_ROW):
-         bg_format_line_color = f"{color2}{ins_chr(tncols)}{reset_font()}"
-         # change color for color2 to delete at the beginning the strike, and/or underline option(s)
-         start_line = f"{color2}{ins_chr(self.left_indent)}"
-
-      elif (self.length == Length_bg.ONLY_WORD):         
-         if (self.adj_bg_lines_to_right_indent == True):
-            bg_format_line_color = f"{color2}{_move_right(self.left_indent)}{ins_chr(space_available)}{reset_font()}"  # change color for color2
-         
-         else:  # elif (self.adj_bg_lines_to_right_indent == False):
-            bg_format_line_color = f"{_move_right(self.left_indent)}{color2}{ins_chr(longest_line)}{reset_font()}"     # change color for color2
-         
-         start_line = f"{_move_right(self.left_indent)}{color2}"                                                       # change color for color2
-
-      else: pass
-
-      carry = 0; last_one = n_lines - 1
-      _print_bg_lines(self.top_lines, bg_format_line_color)     # bg_line
-      
-
-      print(start_line,end="")
-      
-      # start printing the message
-      for nl in range(n_lines):
-         for n in range(number_letter_line_list[nl]):
-            print(f"{color}{new_msg[carry+n]}",end="")         # added color because the color2 can be slightly different
-
-         carry += number_letter_line_list[nl]
-
-         if (self.length == Length_bg.ALL_ROW):
-            for n in range(adj_diff_space[nl]+self.right_indent):
-               print(color2+" ",end="")                        # to delete at the end the strike, and/or underline option(s)
-
-         elif (self.length == Length_bg.ONLY_WORD):
-            if (self.adj_bg_msg_to_space_available == True):    
-               for n in range(space_available -  number_letter_line_list[nl]):
-                  print(color2+" ",end="")                     # to delete the strike we add color2
-            else:                                              # elif (self.adj_bg_msg_to_space_available == False):
-               for n in range(longest_line-number_letter_line_list[nl]):
-                  print(color2+" ",end="")
-
-            print(f"{reset_font()}",end="")
-         else:
-            pass
-
-         print()
-         if (last_one == nl): pass
-         else:                print(start_line,end="")
-      
-      # end printing the message
-      _print_bg_lines(self.bottom_lines, bg_format_line_color)   # bg_line
-
-   #---------------------------------------------------------------------------------------------------------------------------------------------------
-   # Print Fancy Note                                                                                                                                 -
-   #---------------------------------------------------------------------------------------------------------------------------------------------------
-   def print_fancy_note(self, msg_body:str="")->None:
-      '''
-      It prints the fancy note with the attributes defined
-
-      print_fancy_note(msg_body)
-
-      '''
-      if (msg_body == ""):
-         msg_body = self.msg_body
-
-
-      # save original values
-      li_obj = self.left_indent
-
-      # settings for the msg_body
-      if (self.msg_note == ""): len_msg_note = 0
-      else:                     len_msg_note = len(self.msg_note)
-
-      self.left_indent = self.left_space_note + len_msg_note + self.right_space_note
-      n_lines, space_available, tncols = self._get_msg_attribute(msg_body, False)
-
-      
-      total_back_lines = self.top_lines + n_lines + self.bottom_lines
-      if   (self.position_note >= (total_back_lines)): lines_back = 0
-      elif (self.position_note <= 0):                  lines_back = total_back_lines
-      else:                                            lines_back = total_back_lines - self.position_note 
-      
-      self._send_msg_terminal(msg_body)
-
-      # settings for the note
-      settings_note = set_font(bold=self.bold_note, bg=self.bg_note, fg=self.fg_note, italic=self.italic_note,\
-                               underline=self.underline_note, strike=self.strike_note, blinking=self.blinking_note,\
-                               dim=self.dim_note, hidden=self.hidden_note, inverse=self.inverse_note)
-      
-      if (self.align_note == Align.LEFT or self.align_note == "l"):
-         print(f"{self.moveTo(qty=lines_back, direction=Move.UP)}{settings_note}{self.msg_note}",end="")
-
-      elif (self.align_note == Align.CENTER or self.align_note == "c"):
-         myq = int((self.left_space_note+self.right_space_note)/2)
-         print(f"{self.moveTo(qty=lines_back, direction=Move.UP)}{self.moveTo(qty=myq,direction=Move.RIGHT)}{settings_note}{self.msg_note}",end="")
-                
-      elif (self.align_note == Align.RIGHT or self.align_note == "r"):
-         myq = self.left_space_note + self.right_space_note
-         print(f"{self.moveTo(qty=lines_back, direction=Move.UP)}{self.moveTo(qty=myq,direction=Move.RIGHT)}{settings_note}{self.msg_note}",end="")
-      
-      else:  # JUSTIFY
-         print(f"{self.moveTo(qty=lines_back, direction=Move.UP)}{self.moveTo(qty=self.left_space_note,direction=Move.RIGHT)}{settings_note}{self.msg_note}")         
-      
-      self.jumpTo(qty=lines_back-1, direction=Move.DOWN)
-      print(f"{reset_font()}",end="")
-      
-      # putting back original values
-      self.left_indent = li_obj
-      # n_lines, space_available, tncols are variables for reference to calculate the message      
-      if (self.help_lines == True):
-         print(f"{ins_chr(self.left_indent)}Body_Lines:{n_lines}  Space_Available:{space_available}  N.Cols: {tncols}  N.Lines:{total_back_lines}")
-         
-      
-   #---------------------------------------------------------------------------------------------------------------------------------------------------
-   def print_fancy_message(self, msg_body:str="")->None:
-      '''
-      It prints the fancy message with the attributes defined
-
-      print_fancy_message(msg_body)
-
-      '''
-
-      if (msg_body == ""):
-         msg_body = self.msg_body
-
-
-      # save original values      
-      li_obj = self.left_indent;      bold_obj    = self.bold_body;            blinking_obj  = self.blinking_body
-      tl_obj = self.top_lines;        italic_obj  = self.italic_body;          underline_ojb = self.underline_body
-      bg_obj = self.bg_body;          strike_obj  = self.strike_body 
-      fg_obj = self.fg_body;          hidden_obj  = self.hidden_body
-      bl_obj = self.bottom_lines;     inverse_obj = self.inverse_body
-      ti_obj = self.msg_title;        
-      
-      fnm_obj = self.msg_footnote
-      dim_obj = self.dim_body
-      
-      # settings for title
-      n_lines, space_available, tncols = self._get_msg_attribute(msg_body)
-      if not self.msg_title == "": #!= None:
-         # working with the font color         
-         self.bg_body     = self.bg_title;          self.underline_body = self.underline_title
-         self.fg_body     = self.fg_title;          self.blinking_body  = self.blinking_title
-         self.bold_body   = self.bold_title;        self.inverse_body   = self.inverse_title
-         self.dim_body    = self.dim_title;         self.hidden_body    = self.hidden_title
-         self.italic_body = self.italic_title;      self.strike_body    = self.strike_title
-         
-         if   (self.align_title == Align.LEFT or self.align_title == "l"):
-            pass
-
-         elif (self.align_title == Align.CENTER or self.align_title == "c"):
-            sp = int((space_available - len(self.msg_title))/2)
-            self.msg_title = ins_chr(sp) + self.msg_title
-
-         elif (self.align_title == Align.RIGHT or self.align_title == "r"):
-            sp = space_available - len(self.msg_title) # 1 for not jumping line and finished
-            self.msg_title = ins_chr(sp) + self.msg_title
-
-         else:                                         # Align.JUSTIFY
-            self.msg_title = ins_chr(self.title_indent) + self.msg_title
-
-            
-
-         self.bottom_lines = self.lines_title_body
-         self._send_msg_terminal(self.msg_title)
-         # This is necessary because when is right alignment, it jumps automatically to the next row
-         if (self.align_title == Align.RIGHT and self.msg_title != ""):
-            print("\033[1A",end="")
-            print(f"{ins_chr(tncols)}")
-            print("\033[1A",end="")
-
-         # settings for body (we recovered left_indent, and change bottom_lines and change top_lines)               
-         
-         if not (self.msg_footnote == ""):
-            self.bottom_lines = 0
-         else:                      self.bottom_lines = bl_obj
-
-         self.left_indent = li_obj
-         self.bg_body     = bg_obj;          self.underline_body = underline_ojb
-         self.fg_body     = fg_obj;          self.blinking_body  = blinking_obj
-         self.bold_body   = bold_obj;        self.inverse_body   = inverse_obj
-         self.dim_body    = dim_obj;         self.hidden_body    = hidden_obj
-         self.italic_body = italic_obj;      self.strike_body    = strike_obj
-
-         if not (self.msg_title == ""): self.top_lines = 0
-         else:                   self.top_lines = tl_obj   
-         self.fg_body = fg_obj  # returning the color for the body
-         
-         self._send_msg_terminal(msg_body)
-               
-      else:         
-         if not self.msg_footnote == "":   self.bottom_lines = self.lines_body_footnote
-         else:                             self.bottom_lines = bl_obj       
-         
-         self._send_msg_terminal(msg_body)     
-
-
-      if not self.msg_footnote == "":
-
-
-         if   (self.align_footnote == Align.LEFT or self.align_footnote == "l"):
-            pass
-
-         elif (self.align_footnote == Align.CENTER or self.align_footnote == "c"):
-            sp = int((space_available - len(self.msg_footnote))/2)
-            self.msg_footnote = ins_chr(sp) + self.msg_footnote
-         
-         elif (self.align_footnote == Align.RIGHT or self.align_footnote == "r"):
-            sp = space_available - len(self.msg_footnote) # 1 for not jumping line and finished
-            self.msg_footnote = ins_chr(sp) + self.msg_footnote
-         
-         else:
-            self.msg_footnote = ins_chr(self.footnote_indent) + self.msg_footnote # JUSTIFY
-            
-         self.top_lines = self.lines_body_footnote
-         self.bottom_lines = bl_obj
-         self.bg_body     = self.bg_footnote;          self.underline_body = self.underline_footnote
-         self.fg_body     = self.fg_footnote;          self.blinking_body  = self.blinking_footnote
-         self.bold_body   = self.bold_footnote;        self.inverse_body   = self.inverse_footnote
-         self.dim_body    = self.dim_footnote;         self.hidden_body    = self.hidden_footnote
-         self.italic_body = self.italic_footnote;      self.strike_body    = self.strike_footnote
-         
-         self._send_msg_terminal(self.msg_footnote)
-         
-         # This is necessary because when is right alignment, it jumps automatically to the next row
-         if (self.align_footnote == Align.RIGHT and self.msg_footnote != ""):
-            print("\033[1A",end="")
-            print(f"{ins_chr(tncols)}")
-            print("\033[1A",end="")
-
-      else:
-         pass
-
-
-      # putting back original values
-      self.top_lines = tl_obj;            self.left_indent = li_obj;            #  self.bottom_lines = bl_obj
-      self.bg_body     = bg_obj;          self.underline_body = underline_ojb
-      self.fg_body     = fg_obj;          self.blinking_body  = blinking_obj
-      self.bold_body   = bold_obj;        self.inverse_body   = inverse_obj
-      self.dim_body    = dim_obj;         self.hidden_body    = hidden_obj
-      self.italic_body = italic_obj;      self.strike_body    = strike_obj
-      self.msg_footnote = fnm_obj;        self.msg_title      = ti_obj
-
-      # n_lines, space_available, tncols are variables for reference to calculate the message
-      if (self.help_lines == True):
-         total_lines = n_lines + self.top_lines + self.bottom_lines
-
-         if (self.msg_title != ""):
-            total_lines += 1 + self.lines_title_body
-         
-         if (self.msg_footnote != ""):
-            total_lines += 1 + self.lines_body_footnote
-
-         print(f"{ins_chr(self.left_indent)}Body_Lines:{n_lines}  Space_Available:{space_available}  N.Cols: {tncols}  N.Lines:{total_lines}")
-
-
-#---------------------------------------------------------------------------------------------------------------------------------------------------
-   def get_message_attributes(self, msg_body:str="", print_attributes=True)->list:
-      tnrows, tncols, space_available, number_letter_line_list, adj_diff_space, new_msg_list, n_lines = FancyMessage._get_msg_attribute(self,msg_body,True)
-
-      if (msg_body == ""):  msg_body = self.msg_body
-
-      smallest_line = min(number_letter_line_list)
-      longest_line  = max(number_letter_line_list)
-      words = msg_body.split()
-      counter_words = len(words)
-      total_characters = sum(number_letter_line_list)
-      screen_size_xy = [tncols,tnrows]
-
-
-      result_lst = [["Attributes",                 "Values"],
-                    ["Screen Size_xy",             screen_size_xy],                    
-                    ["Left Indent",                self.left_indent],
-                    ["Right Indent",               self.right_indent],
-                    ["Space Available",            space_available],
-                    ["Longest Line",               longest_line],
-                    ["Smallest Line",              smallest_line],
-                    ["List Line Lengths",          number_letter_line_list],
-                    ["List Line Spaces",           adj_diff_space],
-                    ["Words Into a List",          "\'words\'"],
-                    ["Total Number of Lines",      n_lines],
-                    ["Total Number of Words",      counter_words],
-                    ["Total Number of Characters", total_characters]]
-
-      new_msg_list = [["Position","Word"]]
-      cnt = 0
-      for n in words:
-         new_msg_list.append([cnt, n])
-         cnt += 1
-
-      if print_attributes == True:
-         tbl = FancyFormat()
-         # Title
-         tbl.msg_title = "  get_message_attributes(message, True)  "
-         tbl.align_title = Align.LEFT
-         tbl.bold_title   = True;   tbl.bg_title = 231
-         tbl.italic_title = True;   tbl.fg_title = 21
-            # bg colors
-         tbl.bg_horizontal_line = 21
-         tbl.bg_vertical_line   = 21
-         tbl.bg_corner_chr      = 21
-
-         tbl.bg_inner_corner_chr  = 21
-         tbl.bg_under_line_header = 21
-
-         tbl.bg_corner_under_line_header = 21
-         tbl.bg_vertical_header_line_chr = 21
-    
-         tbl.bg_header = 90
-         tbl.fg_header = 231
-         tbl.bold_header = True
-    
-         tbl.bg_data = 231
-         tbl.fg_data = 0
-         tbl.bold_data = True
-    
-    
-         tbl.adj_top_margin = 2
-         tbl.adj_indent = 4
-         tbl.adj_space  = 4
-
-         tbl.horizontal_line_under_header_on = True         
-         tbl.adj_bottom_margin = 1
-         tbl.print_fancy_format(data=result_lst, style=Line_Style.SPACE_COL_COLOR)         
-         tbl.adj_top_margin = 1
-         tbl.msg_title = "  Words of The Message Into a List  "
-         tbl.print_fancy_format(new_msg_list)
-         
-            
-
-      return result_lst, new_msg_list
-      
-
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-# Class Draw Pictures Around The Terminal                                                                                                      -
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-class Pen(Cursor):                      # Inheritance the Cursor Class here.   
-   def __init__(self):                  # Initializing Draw Class as self
-      super().__init__()                # Super Class to use all (vars and funs) from Cursor Class
-                                        # with the Initialization Draw Class(self), ex. self.gotoxy(x,y)
-      # General Section
-      self.adj_indent = 0               # space from the terminal to the box
-      self.bold_draw_line = False
-      self.bg_draw_line = -1
-      self.fg_draw_line = -1
-      self.refill_bg_color = False
-    
-      # Rectangle Section
-
-      # Horizontal Line Section
-      self.top_horizontal_line_chr = "-";      self.bottom_horizontal_line_chr = "-"
-      
-      # Vertical Line Section    
-      self.left_vertical_line_chr  = "|";      self.right_vertical_line_chr = "|"
-
-      # Corner Section 
-      self.top_left_corner_chr     = "+";      self.top_right_corner_chr   = "+"
-      self.bottom_right_corner_chr = "+";      self.bottom_left_corner_chr = "+"     
-      
-      
-
-   def draw_line(self, size=0, layout=Layout.HORIZONTAL, tail="\N{BLACK DIAMOND}", body="-", head="\N{BLACK DIAMOND}"):
-      '''
-      It draws a line with the parameters specified
-
-      draw_line(size=0, layout=Layout.HORIZONTAL, tail="\N{BLACK DIAMOND}", body="-", head="\N{BLACK DIAMOND}"
-
-      '''
-
-      settings = set_font(self.bold_draw_line, self.bg_draw_line, self.fg_draw_line)
-
-      if (layout.lower() == Layout.HORIZONTAL):
-         self.jumpTo(qty = self.adj_indent, direction = Move.RIGHT)
-         print(f"{settings}{tail}",end="")
-         for n in range(size-2): print(body,end="")
-         print(head,end="")
-         reset_font()
-
-
-      elif(layout.lower() == Layout.VERTICAL):
+                adj_diff_space.append(space_available - n)
+
+
+        else:   # multiple lines
+            number_letter_line_list.append(letter_counter) # the last one not added
+            longest_line = max(number_letter_line_list)
+            # first item when only enter it's deleted
+            if number_letter_line_list[0] == 0:  number_letter_line_list.pop(0)
+            # last item when only enter it's deleted
+            if number_letter_line_list[(len(number_letter_line_list))-1] == 0:
+                number_letter_line_list.pop((len(number_letter_line_list))-1)
+
+            if space_available > longest_line:
+                for n in number_letter_line_list:
+                    adj_diff_space.append(space_available-n)
+
+            else:
+                for line in range(len(number_letter_line_list)):
+                    if number_letter_line_list[line] <= space_available:
+                        fit_number_letter_line_list.append(number_letter_line_list[line])
+
+                    else:
+                        quotient = int(number_letter_line_list[line]/space_available)
+                        residue  = number_letter_line_list[line]%space_available
+                        n = quotient
+
+                        while n > 0:
+                            quotient_number_letter_line_list.append(space_available)
+                            n -= 1
+
+                        residue_number_letter_line_list.append(residue)
+                        carry_number_letter_line_list.append(quotient+1)
+
+                ctrl = 0
+                for r in number_letter_line_list:
+                    if r > space_available:
+                        last_one = carry_number_letter_line_list[ctrl] - 1
+
+                        for n in range(carry_number_letter_line_list[ctrl]):
+                            if last_one == n:
+                                result_multi_lines.append(residue_number_letter_line_list[ctrl])
+                                ctrl += 1
+                            else:
+                                result_multi_lines.append(space_available)
+                    else:
+                        result_multi_lines.append(r)
+
+
+                number_letter_line_list = result_multi_lines
+
+                for n in number_letter_line_list:
+                    adj_diff_space.append(space_available - n)
+
+        if all_attribute == True:
+            return tnrows, tncols, space_available, number_letter_line_list, adj_diff_space, new_msg, len(number_letter_line_list)
+
+        else:
+            return len(number_letter_line_list), space_available, tncols
+
+
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    # Send the Data To the Terminal                                                                                                                  -
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    def _send_msg_terminal(self,data="Message"):
+        def _print_bg_lines(lines, bg_format_line_color="\033[0m"):
+            if lines == 0:
+                print("\033[0m",end="")
+            else:
+                n = lines
+                while n>0:
+                    print(bg_format_line_color)
+                    n -= 1
+
+        tnrows, tncols, space_available, number_letter_line_list, adj_diff_space, new_msg, n_lines = FancyMessage._get_msg_attributes(self,data,True)
+
+        color = set_font(self.bold_body, self.bg_body, self.fg_body, self.italic_body, self.underline_body, self.strike_body,
+                         self.blinking_body, self.dim_body, self.hidden_body, self.inverse_body)
+        color2= set_font(bg=self.bg_body, fg=self.fg_body, inverse=self.inverse_body)
+
+        # from here we need: tncols, space_available, number_letter_line_list, adj_diff_space, new_msg
+        longest_line = max(number_letter_line_list)
+
+        # self.adj_bg_lines_to_right_indent by default  = False
+        # self.adj_bg_msg_to_space_available by default = False
+
+        if self.length == Length_bg.ALL_ROW:
+            bg_format_line_color = f"{color2}{ins_chr(tncols)}{reset_font()}"
+            # change color for color2 to delete at the beginning the strike, and/or underline option(s)
+            start_line = f"{color2}{ins_chr(self.left_indent)}"
+
+        elif self.length == Length_bg.ONLY_WORD:
+            if self.adj_bg_lines_to_right_indent == True:
+                bg_format_line_color = f"{color2}{_move_right(self.left_indent)}{ins_chr(space_available)}{reset_font()}"  # change color for color2
+
+            else:  # elif (self.adj_bg_lines_to_right_indent == False):
+                bg_format_line_color = f"{_move_right(self.left_indent)}{color2}{ins_chr(longest_line)}{reset_font()}"     # change color for color2
+
+            start_line = f"{_move_right(self.left_indent)}{color2}"                                                        # change color for color2
+
+        else: pass
+
+        carry = 0; last_one = n_lines - 1
+        _print_bg_lines(self.top_lines, bg_format_line_color)       # bg_line
+
+        print(start_line,end="")
+
+        # start printing the message
+        for nl in range(n_lines):
+            for n in range(number_letter_line_list[nl]):
+                print(f"{color}{new_msg[carry+n]}",end="")          # added color because the color2 can be slightly different
+
+            carry += number_letter_line_list[nl]
+
+            if self.length == Length_bg.ALL_ROW:
+                for n in range(adj_diff_space[nl]+self.right_indent):
+                    print(color2+" ",end="")                        # to delete at the end the strike, and/or underline option(s)
+
+            elif self.length == Length_bg.ONLY_WORD:
+                if self.adj_bg_msg_to_space_available == True:
+                    for n in range(space_available -  number_letter_line_list[nl]):
+                        print(color2+" ",end="")                    # to delete the strike we add color2
+                else:                                               # elif (self.adj_bg_msg_to_space_available == False):
+                    for n in range(longest_line-number_letter_line_list[nl]):
+                        print(color2+" ",end="")
+
+                print(f"{reset_font()}",end="")
+
+            else:  pass
+
+            print()
+            if last_one == nl: pass
+            else:                print(start_line,end="")
+
+        # end printing the message
+        _print_bg_lines(self.bottom_lines, bg_format_line_color)    # bg_line
+
+
+    #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    # Print Fancy Note                                                                                                                                 -
+    #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    def print_fancy_note(self, msg_body:str="")->None:
+
+        '''  It prints the fancy note with the attributes defined  '''
+
+        if msg_body == "":  msg_body = self.msg_body
+
+        # save original values
+        li_obj = self.left_indent
+
+        # settings for the msg_body
+        if self.msg_note == "":  len_msg_note = 0
+        else:                      len_msg_note = len(self.msg_note)
+
+        self.left_indent = self.left_space_note + len_msg_note + self.right_space_note
+        n_lines, space_available, tncols = self._get_msg_attributes(msg_body, False)
+
+        total_back_lines = self.top_lines + n_lines + self.bottom_lines
+        if   self.position_note >= (total_back_lines): lines_back = 0
+        elif self.position_note <= 0:                  lines_back = total_back_lines
+        else:                                          lines_back = total_back_lines - self.position_note
+
+        self._send_msg_terminal(msg_body)
+
+        # settings for the note
+        settings_note = set_font(bold=self.bold_note, bg=self.bg_note, fg=self.fg_note, italic=self.italic_note,\
+                                 underline=self.underline_note, strike=self.strike_note, blinking=self.blinking_note,\
+                                 dim=self.dim_note, hidden=self.hidden_note, inverse=self.inverse_note)
+
+        if self.align_note == Align.LEFT or self.align_note == "l":
+            print(f"{self.moveTo(qty=lines_back, direction=Move.UP)}{settings_note}{self.msg_note}",end="")
+
+        elif self.align_note == Align.CENTER or self.align_note == "c":
+            myq = int((self.left_space_note+self.right_space_note)/2)
+            print(f"{self.moveTo(qty=lines_back, direction=Move.UP)}{self.moveTo(myq, Move.RIGHT)}{settings_note}{self.msg_note}",end="")
+
+        elif self.align_note == Align.RIGHT or self.align_note == "r":
+            myq = self.left_space_note + self.right_space_note
+            print(f"{self.moveTo(lines_back, Move.UP)}{self.moveTo(myq, Move.RIGHT)}{settings_note}{self.msg_note}",end="")
+
+        else:  # JUSTIFY
+            print(f"{self.moveTo(lines_back, Move.UP)}{self.moveTo(self.left_space_note, Move.RIGHT)}{settings_note}{self.msg_note}")
+
+        self.jumpTo(qty=lines_back-1, direction=Move.DOWN)
+        print(f"{reset_font()}",end="")
+
+        # putting back original values
+        self.left_indent = li_obj
+        # n_lines, space_available, tncols are variables for reference to calculate the message
+        if self.help_lines == True:
+            print(f"{ins_chr(self.left_indent)}Body_Lines:{n_lines}  Space_Available:{space_available}  N.Cols: {tncols}N.Lines:{total_back_lines}")
+
+
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    # Print Fancy Message                                                                                                                            -
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    def print_fancy_message(self, msg_body:str="")->None:
+
+        '''  It prints the fancy message with the attributes defined  '''
+
+        if msg_body == "":  msg_body = self.msg_body
+
+        # save original values
+        li_obj = self.left_indent;      bold_obj    = self.bold_body;            blinking_obj  = self.blinking_body
+        tl_obj = self.top_lines;        italic_obj  = self.italic_body;          underline_ojb = self.underline_body
+        bg_obj = self.bg_body;          strike_obj  = self.strike_body;          fnm_obj       = self.msg_footnote
+        fg_obj = self.fg_body;          hidden_obj  = self.hidden_body;          dim_obj       = self.dim_body
+        bl_obj = self.bottom_lines;     inverse_obj = self.inverse_body
+        ti_obj = self.msg_title
+
+        n_lines, space_available, tncols = self._get_msg_attributes(msg_body)  # settings for title
+
+        #---------------------------------------------------------------------------------------------------------------------------------------------
+        #---------------------------------------------------------------------------------------------------------------------------------------------
+        if not self.msg_title == "": #!= None:
+            # working with the font color
+            self.bg_body     = self.bg_title;          self.underline_body = self.underline_title
+            self.fg_body     = self.fg_title;          self.blinking_body  = self.blinking_title
+            self.bold_body   = self.bold_title;        self.inverse_body   = self.inverse_title
+            self.dim_body    = self.dim_title;         self.hidden_body    = self.hidden_title
+            self.italic_body = self.italic_title;      self.strike_body    = self.strike_title
+
+            if   self.align_title == Align.LEFT or self.align_title == "l":  pass
+
+            elif self.align_title == Align.CENTER or self.align_title == "c":
+                sp = int((space_available - len(self.msg_title))/2)
+                self.msg_title = ins_chr(sp) + self.msg_title
+
+            elif self.align_title == Align.RIGHT or self.align_title == "r":
+                sp = space_available - len(self.msg_title) # 1 for not jumping line and finished
+                self.msg_title = ins_chr(sp) + self.msg_title
+
+            else:                                         # Align.JUSTIFY
+                self.msg_title = ins_chr(self.title_indent) + self.msg_title
+
+            self.bottom_lines = self.lines_title_body
+            self._send_msg_terminal(self.msg_title)
+
+            # This is necessary because when is right alignment, it jumps automatically to the next row
+            if (self.align_title == Align.RIGHT and self.msg_title != ""):
+                print("\033[1A",end="")
+                print(f"{ins_chr(tncols)}")
+                print("\033[1A",end="")
+
+            # settings for body (we recovered left_indent, and change bottom_lines and change top_lines)
+            if not self.msg_footnote == "":  self.bottom_lines = 0
+            else:                            self.bottom_lines = bl_obj
+
+            self.left_indent = li_obj
+            self.bg_body     = bg_obj;          self.underline_body = underline_ojb
+            self.fg_body     = fg_obj;          self.blinking_body  = blinking_obj
+            self.bold_body   = bold_obj;        self.inverse_body   = inverse_obj
+            self.dim_body    = dim_obj;         self.hidden_body    = hidden_obj
+            self.italic_body = italic_obj;      self.strike_body    = strike_obj
+
+            if not self.msg_title == "":  self.top_lines = 0
+            else:                         self.top_lines = tl_obj
+
+            self.fg_body = fg_obj  # returning the color for the body
+            self._send_msg_terminal(msg_body)
+
+        else:
+            if not self.msg_footnote == "":   self.bottom_lines = self.lines_body_footnote
+            else:                             self.bottom_lines = bl_obj
+
+            self._send_msg_terminal(msg_body)
+
+        #---------------------------------------------------------------------------------------------------------------------------------------------
+        #---------------------------------------------------------------------------------------------------------------------------------------------
+        if not self.msg_footnote == "":
+            if   self.align_footnote == Align.LEFT or self.align_footnote == "l":  pass
+
+            elif self.align_footnote == Align.CENTER or self.align_footnote == "c":
+                sp = int((space_available - len(self.msg_footnote))/2)
+                self.msg_footnote = ins_chr(sp) + self.msg_footnote
+
+            elif self.align_footnote == Align.RIGHT or self.align_footnote == "r":
+                sp = space_available - len(self.msg_footnote) # 1 for not jumping line and finished
+                self.msg_footnote = ins_chr(sp) + self.msg_footnote
+
+            else:
+                self.msg_footnote = ins_chr(self.footnote_indent) + self.msg_footnote # JUSTIFY
+
+            self.top_lines    = self.lines_body_footnote;    self.bottom_lines   = bl_obj
+            self.bg_body      = self.bg_footnote;            self.underline_body = self.underline_footnote
+            self.fg_body      = self.fg_footnote;            self.blinking_body  = self.blinking_footnote
+            self.bold_body    = self.bold_footnote;          self.inverse_body   = self.inverse_footnote
+            self.dim_body     = self.dim_footnote;           self.hidden_body    = self.hidden_footnote
+            self.italic_body  = self.italic_footnote;        self.strike_body    = self.strike_footnote
+
+            self._send_msg_terminal(self.msg_footnote)
+
+            # This is necessary because when is right alignment, it jumps automatically to the next row
+            if self.align_footnote == Align.RIGHT and self.msg_footnote != "":
+                print("\033[1A",end="")
+                print(f"{ins_chr(tncols)}")
+                print("\033[1A",end="")
+
+        else:  pass
+
+        # putting back original values
+        self.top_lines    = tl_obj;            self.left_indent    = li_obj            #  self.bottom_lines = bl_obj
+        self.bg_body      = bg_obj;            self.underline_body = underline_ojb
+        self.fg_body      = fg_obj;            self.blinking_body  = blinking_obj
+        self.bold_body    = bold_obj;          self.inverse_body   = inverse_obj
+        self.dim_body     = dim_obj;           self.hidden_body    = hidden_obj
+        self.italic_body  = italic_obj;        self.strike_body    = strike_obj
+        self.msg_footnote = fnm_obj;           self.msg_title      = ti_obj
+
+        # n_lines, space_available, tncols are variables for reference to calculate the message
+        if self.help_lines == True:
+            total_lines = n_lines + self.top_lines + self.bottom_lines
+
+            if self.msg_title != "":     total_lines += 1 + self.lines_title_body
+
+            if self.msg_footnote != "":  total_lines += 1 + self.lines_body_footnote
+
+            print(f"{ins_chr(self.left_indent)}Body_Lines:{n_lines}  Space_Available:{space_available}  N.Cols: {tncols}  N.Lines:{total_lines}")
+
+
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    # Get Message Attributes                                                                                                                         -
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    def get_message_attributes(self, msg_body:str="", print_attributes=True)->list:
+        '''
+        It returns the attributes of the message
+        '''
+        tnrows, tncols, space_available, number_letter_line_list, adj_diff_space, new_msg_list, n_lines =\
+                                                                                                FancyMessage._get_msg_attributes(self,msg_body,True)
+
+        if msg_body == "":  msg_body = self.msg_body
+
+        smallest_line = min(number_letter_line_list)
+        longest_line  = max(number_letter_line_list)
+        words = msg_body.split()
+        counter_words = len(words)
+        total_characters = sum(number_letter_line_list)
+        screen_size_xy = [tncols,tnrows]
+
+        result_lst  =  [["Attributes",                    "Values"],
+                        ["Screen Size_xy",                screen_size_xy],
+                        ["Left Indent",                   self.left_indent],
+                        ["Right Indent",                  self.right_indent],
+                        ["Space Available",               space_available],
+                        ["Longest Line",                  longest_line],
+                        ["Smallest Line",                 smallest_line],
+                        ["List Line Lengths",             number_letter_line_list],
+                        ["List Line Spaces",              adj_diff_space],
+                        ["Words Into a List",             "\'words\'"],
+                        ["Total Number of Lines",         n_lines],
+                        ["Total Number of Words",         counter_words],
+                        ["Total Number of Characters",    total_characters]]
+
+        new_msg_list = [["Position","Word"]]
+        cnt = 0
+        for n in words:
+            new_msg_list.append([cnt, n])
+            cnt += 1
+
+        if print_attributes == True:
+            tbl = FancyFormat()
+            # Title
+            tbl.msg_title = "  get_message_attributes(message, True)  "
+            tbl.align_title = Align.LEFT
+            tbl.bold_title   = True;   tbl.bg_title = 231
+            tbl.italic_title = True;   tbl.fg_title = 21
+               # bg colors
+            tbl.bg_horizontal_line = 21
+            tbl.bg_vertical_line   = 21
+            tbl.bg_corner_chr      = 21
+
+            tbl.bg_inner_corner_chr  = 21
+            tbl.bg_under_line_header = 21
+
+            tbl.bg_corner_under_line_header = 21
+            tbl.bg_vertical_header_line_chr = 21
+
+            tbl.bg_header = 90
+            tbl.fg_header = 231
+            tbl.bold_header = True
+
+            tbl.bg_data = 231
+            tbl.fg_data = 0
+            tbl.bold_data = True
+
+            tbl.adj_top_margin = 2
+            tbl.adj_indent = 4
+            tbl.adj_space  = 4
+
+            tbl.horizontal_line_under_header_on = True
+            tbl.adj_bottom_margin = 1
+            tbl.print_fancy_format(data=result_lst, style=Line_Style.SPACE_COL_COLOR)
+            tbl.adj_top_margin = 1
+            tbl.msg_title = "  Words of The Message Into a List  "
+            tbl.print_fancy_format(new_msg_list)
+
+        return result_lst, new_msg_list
+
+
+
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+# Class Draw Pictures Around The Terminal                                                                                                           --
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+class Pen(Cursor):                      # Inheritance the Cursor Class here.
+    '''
+    Pen class will draw lines nad squares
+    '''
+    def __init__(self):                  # Initializing Draw Class as self
+        super().__init__()                # Super Class to use all (vars and funs) from Cursor Class
+                                          # with the Initialization Draw Class(self), ex. self.gotoxy(x,y)
+        # General Section
+        self.adj_indent = 0               # space from the terminal to the box
+        self.bold_draw_line = False
+        self.bg_draw_line = -1
+        self.fg_draw_line = -1
+        self.refill_bg_color = False
+
+        # Rectangle Section
+        # Horizontal Line Section
+        self.top_horizontal_line_chr = "-";      self.bottom_horizontal_line_chr = "-"
+        # Vertical Line Section
+        self.left_vertical_line_chr  = "|";      self.right_vertical_line_chr = "|"
+        # Corner Section
+        self.top_left_corner_chr     = "+";      self.top_right_corner_chr   = "+"
+        self.bottom_right_corner_chr = "+";      self.bottom_left_corner_chr = "+"
+
+
+    def draw_line(self, size=0, layout=Layout.HORIZONTAL, tail="\N{BLACK DIAMOND}", body="-", head="\N{BLACK DIAMOND}"):
+
+        '''  It draws a line with the parameters specified
+
+             draw_line(size=0, layout=Layout.HORIZONTAL,
+             tail="\N{BLACK DIAMOND}", body="-", head="\N{BLACK DIAMOND}"  '''
+
+        settings = set_font(self.bold_draw_line, self.bg_draw_line, self.fg_draw_line)
+
+        if layout.lower() == Layout.HORIZONTAL:
+            self.jumpTo(qty = self.adj_indent, direction = Move.RIGHT)
+            print(f"{settings}{tail}",end="")
+            for n in range(size-2): print(body,end="")
+            print(head,end="")
+            reset_font()
+
+
+        elif layout.lower() == Layout.VERTICAL:
             self.jumpTo(qty = self.adj_indent, direction = Move.RIGHT)
             print(f"{settings}{tail}")
             for n in range(size-2): print(f"{self.moveTo(qty = self.adj_indent, direction = Move.RIGHT)}{body}")
             print(f"{self.moveTo(qty=self.adj_indent, direction=Move.RIGHT)}{head}")
             reset_font()
 
-      else:
-         pass
+        else:  pass
 
 
+    def draw_rectangle(self,length=3, width=3, style=Line_Style.DASH):
 
-   def draw_rectangle(self,length=3, width=3, style=Line_Style.DASH):
-      '''
-      It draws a rectangle with the parameters specified
+        '''  It draws a rectangle with the parameters specified
+             draw_rectangle(self,length=3, width=3, style=Line_Style.DASH)  '''
 
-      draw_rectangle(self,length=3, width=3, style=Line_Style.DASH)
+        if length <= 2: length = 3   # length = largo, width = alto
+        if width  <= 2: width  = 3
 
-      '''
-      if length <= 2: length = 3   # length = largo, width = alto
-      if width  <= 2: width  = 3      
+        #---------------------------------------------------------------------------------------------------------------
+        # Refill bg Option For The Rectangle                                                                           -
+        #---------------------------------------------------------------------------------------------------------------
+        if self.refill_bg_color == True:
+            square = []
 
-      #---------------------------------------------------------------------------------------------------------------
-      # Refill bg Option For The Rectangle                                                                           -
-      #---------------------------------------------------------------------------------------------------------------
-      if self.refill_bg_color == True:
-         square = []
+            sq_in = FancyFormat()
+            # General
+            sq_in.adj_indent = self.adj_indent
+            sq_in.adj_space  = 0
 
-         sq_in = FancyFormat()
-         # General
-         sq_in.adj_indent = self.adj_indent
-         sq_in.adj_space  = 0
+            # Data section
+            sq_in.bg_data = self.bg_draw_line
+            sq_in.fg_data = self.fg_draw_line
+            sq_in.bg_all_cell_data   = True
 
-         # Data section      
-         sq_in.bg_data = self.bg_draw_line
-         sq_in.fg_data = self.fg_draw_line
-         sq_in.bg_all_cell_data   = True
-
-         # Horizontal Line Section
-         sq_in.top_horizontal_line_chr    = self.top_horizontal_line_chr
-         sq_in.bottom_horizontal_line_chr = self.bottom_horizontal_line_chr
-         sq_in.top_horizontal_line_on     = True
-         sq_in.bottom_horizontal_line_on  = True
-
-         
-         sq_in.bold_horizontal_line = self.bold_draw_line           # two values False and True (0 and 1)
-         sq_in.bg_horizontal_line   = self.bg_draw_line             # values -1 to 255
-         sq_in.fg_horizontal_line   = self.fg_draw_line             # values -1 to 255
-
-         # Vertical Line Section    
-         sq_in.bold_vertical_line = self.bold_draw_line             # two values False and True (0 and 1)
-         sq_in.bg_vertical_line   = self.bg_draw_line               # values -1 to 255
-         sq_in.fg_vertical_line   = self.fg_draw_line               # values -1 to 255
-
-         sq_in.left_vertical_line_chr  = self.left_vertical_line_chr
-         sq_in.right_vertical_line_chr = self.right_vertical_line_chr
-         
-         # Corner Section 
-         sq_in.top_left_corner_chr     = self.top_left_corner_chr
-         sq_in.top_right_corner_chr    = self.top_right_corner_chr
-         sq_in.bottom_right_corner_chr = self.bottom_right_corner_chr
-         sq_in.bottom_left_corner_chr  = self.bottom_left_corner_chr
-         
-         sq_in.bold_corner_chr = self.bold_draw_line                # two values False and True (0 and 1)
-         sq_in.bg_corner_chr   = self.bg_draw_line                  # values -1 to 255
-         sq_in.fg_corner_chr   = self.fg_draw_line                  # values -1 to 255
-         
-         # Line Under Header and Header Section
-         sq_in.bg_header = self.bg_draw_line
-         sq_in.fg_header = self.fg_draw_line
-
-         sq_in.horizontal_line_under_header_on = False
-         
-         sq_in.bg_all_cell_header = True
-         
-         sq_in.bg_vertical_header_line_chr = self.bg_draw_line
-         sq_in.fg_vertical_header_line_chr = self.fg_draw_line
-         
-         for n in range(width-2):
-            square.append([ins_chr(length-2)])
-
-         # print_fancy_format(self,data="none",style=Line_Style.CUSTOMIZED)
-         sq_in.print_fancy_format(square, style)
-      
-      #---------------------------------------------------------------------------------------------------------------
-      # NO Refill bg Option For The Rectangle                                                                        -
-      #---------------------------------------------------------------------------------------------------------------
-      else:
-         def _print_horiz_sq_line(settings, indent, size, tail, body, head):
-            self.jumpTo(qty = indent, direction = Move.RIGHT)
-            print(f"{settings}{tail}",end="")
-            for n in range(size-2): print(body,end="")
-            print(head)
-            reset_font()
-
-         def _print_vert_sq_line(settings, indent, size, tail, body, head):
-               self.jumpTo(qty = indent, direction = Move.RIGHT)
-               print(f"{settings}{tail}")
-               for n in range(size-2): print(f"{self.moveTo(qty = indent, direction = Move.RIGHT)}{body}")
-               print(f"{self.moveTo(qty=indent, direction=Move.RIGHT)}{head}")
-               reset_font()
-         
-         
-         if (style.lower() == Line_Style.CUSTOMIZED): pass
-         else:                                      # Backup all the default values            
             # Horizontal Line Section
-            thlc = self.top_horizontal_line_chr;    bhlc = self.bottom_horizontal_line_chr
-
-            # Vertical Line Section    
-            lvlc = self.left_vertical_line_chr;     rvlc = self.right_vertical_line_chr
-            
-            # Corner Section 
-            tlcc = self.top_left_corner_chr;        trcc = self.top_right_corner_chr
-            brcc = self.bottom_right_corner_chr;    blcc = self.bottom_left_corner_chr   
-            
-            #---------------------------------------------------------------------------------------------------------------
-            # start drwaing the rectangle                                                                                  -
-            #---------------------------------------------------------------------------------------------------------------
-            if (style.lower() == Line_Style.SINGLE):
-
-               # Horizontal Line Section
-               self.top_horizontal_line_chr = "\u2500";      self.bottom_horizontal_line_chr="\u2500"
-               
-               
-               # Vertical Line Section
-               self.left_vertical_line_chr  = "\u2502";      self.right_vertical_line_chr = "\u2502"
-               
-               
-               # Outside Corner Section
-               self.top_left_corner_chr = "\u250C";          self.top_right_corner_chr = "\u2510"
-               self.bottom_right_corner_chr="\u2518";        self.bottom_left_corner_chr="\u2514"
-            
-
-            elif (style.lower() == Line_Style.SINGLE_BOLD):
-               # Horizontal Line Section
-               self.top_horizontal_line_chr = "\u2501";      self.bottom_horizontal_line_chr="\u2501"
-               
-               
-               # Vertical Line Section
-               self.left_vertical_line_chr  = "\u2503";      self.right_vertical_line_chr = "\u2503"
-               
-
-               # Outside Corner Section
-               self.top_left_corner_chr = "\u250F";          self.top_right_corner_chr = "\u2513"
-               self.bottom_right_corner_chr="\u251B";        self.bottom_left_corner_chr="\u2517"
-               
-         
-
-            elif (style.lower() == Line_Style.SINGLE_HEAVY):
-               # Horizontal Line Section
-               self.top_horizontal_line_chr = "\u2586";      self.bottom_horizontal_line_chr="\u2586"
-               
-
-               # Vertical Line Section
-               self.left_vertical_line_chr  = "\u2588";      self.right_vertical_line_chr = "\u2588"
-               
-               
-               # Outside Corner Section
-               self.top_left_corner_chr = "\u2586";          self.top_right_corner_chr = "\u2586"
-               self.bottom_right_corner_chr="\u2588";        self.bottom_left_corner_chr="\u2588"
-               
-         
-
-            elif (style.lower() == Line_Style.DOUBLE):
-               # Horizontal Line Section
-               self.top_horizontal_line_chr = "\u2550";      self.bottom_horizontal_line_chr="\u2550"
-               
-               
-               # Vertical Line Section
-               self.left_vertical_line_chr  = "\u2551";      self.right_vertical_line_chr = "\u2551"
-               
-               
-               # Outside Corner Section
-               self.top_left_corner_chr = "\u2554";          self.top_right_corner_chr = "\u2557"
-               self.bottom_right_corner_chr="\u255D";        self.bottom_left_corner_chr="\u255A"
-               
-         
-
-            elif (style.lower() == Line_Style.SQ_BRACKETS):
-               # Horizontal Line Section
-               self.top_horizontal_line_chr = " ";           self.bottom_horizontal_line_chr=" "
-               
-               
-               # Vertical Line Section
-               self.left_vertical_line_chr  = "\u2502";      self.right_vertical_line_chr = "\u2502"
-               
-
-               # Outside Corner Section
-               self.top_left_corner_chr = "\u250C";          self.top_right_corner_chr = "\u2510"
-               self.bottom_right_corner_chr="\u2518";        self.bottom_left_corner_chr="\u2514"
-                              
-         
-            elif (style.lower() == Line_Style.DASH):
-               # Horizontal Line Section
-               self.top_horizontal_line_chr = "\u002D";      self.bottom_horizontal_line_chr="\u002D"
-               
-
-               # Vertical Line Section
-               self.left_vertical_line_chr  = "\u254E";      self.right_vertical_line_chr = "\u254E"
-               
-
-               # Outside Corner Section
-               self.top_left_corner_chr = "\u002B";          self.top_right_corner_chr = "\u002B"
-               self.bottom_right_corner_chr="\u002B";        self.bottom_left_corner_chr="\u002B"
-         
-
-            elif (style.lower() == Line_Style.NONE):
-               # Horizontal Line Section
-               self.top_horizontal_line_chr = " ";           self.bottom_horizontal_line_chr=" "
-               
-               
-               # Vertical Line Section
-               self.left_vertical_line_chr  = " ";           self.right_vertical_line_chr = " "
-               
-               
-               # Outside Corner Section
-               self.top_left_corner_chr = " ";               self.top_right_corner_chr = " "
-               self.bottom_right_corner_chr=" ";             self.bottom_left_corner_chr=" "
-               
-         
-            else: pass
-        
-         #-------------------------------------------------------------------------------------------------------------------
-         # def draw_rectangle(self,length=3, width=3, style=Line_Style.DASH):
-         # def set_font(bold=False,bg=-1,fg=-1,italic=False,underline=False,strike=False,blinking=False,dim=False,hidden=False,inverse=False):
-         settings = set_font(self.bold_draw_line, self.bg_draw_line, self.fg_draw_line)
+            sq_in.top_horizontal_line_chr    = self.top_horizontal_line_chr
+            sq_in.bottom_horizontal_line_chr = self.bottom_horizontal_line_chr
+            sq_in.top_horizontal_line_on     = True
+            sq_in.bottom_horizontal_line_on  = True
 
 
-         # top horizontal line
-         tail = self.top_left_corner_chr
-         body = self.top_horizontal_line_chr
-         head = self.top_right_corner_chr
-         _print_horiz_sq_line(settings, self.adj_indent, length, tail, body, head)
+            sq_in.bold_horizontal_line = self.bold_draw_line           # two values False and True (0 and 1)
+            sq_in.bg_horizontal_line   = self.bg_draw_line             # values -1 to 255
+            sq_in.fg_horizontal_line   = self.fg_draw_line             # values -1 to 255
+
+            # Vertical Line Section
+            sq_in.bold_vertical_line = self.bold_draw_line             # two values False and True (0 and 1)
+            sq_in.bg_vertical_line   = self.bg_draw_line               # values -1 to 255
+            sq_in.fg_vertical_line   = self.fg_draw_line               # values -1 to 255
+
+            sq_in.left_vertical_line_chr  = self.left_vertical_line_chr
+            sq_in.right_vertical_line_chr = self.right_vertical_line_chr
+
+            # Corner Section
+            sq_in.top_left_corner_chr     = self.top_left_corner_chr
+            sq_in.top_right_corner_chr    = self.top_right_corner_chr
+            sq_in.bottom_right_corner_chr = self.bottom_right_corner_chr
+            sq_in.bottom_left_corner_chr  = self.bottom_left_corner_chr
+            sq_in.bold_corner_chr = self.bold_draw_line       # two values False and True (0 and 1)
+            sq_in.bg_corner_chr   = self.bg_draw_line         # values -1 to 255
+            sq_in.fg_corner_chr   = self.fg_draw_line         # values -1 to 255
+
+            # Line Under Header and Header Section
+            sq_in.bg_header = self.bg_draw_line
+            sq_in.fg_header = self.fg_draw_line
+
+            sq_in.horizontal_line_under_header_on = False
+
+            sq_in.bg_all_cell_header = True
+
+            sq_in.bg_vertical_header_line_chr = self.bg_draw_line
+            sq_in.fg_vertical_header_line_chr = self.fg_draw_line
+
+            for n in range(width-2):
+                square.append([ins_chr(length-2)])
+
+            sq_in.print_fancy_format(square, style)
+
+        #---------------------------------------------------------------------------------------------------------------
+        # NO Refill bg Option For The Rectangle                                                                        -
+        #---------------------------------------------------------------------------------------------------------------
+        else:
+            def _print_horiz_sq_line(settings, indent, size, tail, body, head):
+                self.jumpTo(qty = indent, direction = Move.RIGHT)
+                print(f"{settings}{tail}",end="")
+                for n in range(size-2): print(body,end="")
+                print(head)
+                reset_font()
+
+            def _print_vert_sq_line(settings, indent, size, tail, body, head):
+                self.jumpTo(qty = indent, direction = Move.RIGHT)
+                print(f"{settings}{tail}")
+                for n in range(size-2): print(f"{self.moveTo(qty = indent, direction = Move.RIGHT)}{body}")
+                print(f"{self.moveTo(qty=indent, direction=Move.RIGHT)}{head}")
+                reset_font()
 
 
-         # left vertical line
-         self.jumpTo(qty=1, direction=Move.UP)
-         tail = self.top_left_corner_chr
-         body = self.left_vertical_line_chr
-         head = self.bottom_left_corner_chr
-         _print_vert_sq_line(settings, self.adj_indent, width, tail, body, head)
+            if style.lower() == Line_Style.CUSTOMIZED: pass
+            else:                                      # Backup all the default values
+                # Horizontal Line Section
+                thlc = self.top_horizontal_line_chr;    bhlc = self.bottom_horizontal_line_chr
+
+                # Vertical Line Section
+                lvlc = self.left_vertical_line_chr;     rvlc = self.right_vertical_line_chr
+
+                # Corner Section
+                tlcc = self.top_left_corner_chr;        trcc = self.top_right_corner_chr
+                brcc = self.bottom_right_corner_chr;    blcc = self.bottom_left_corner_chr
+
+                #---------------------------------------------------------------------------------------------------------------
+                # start drwaing the rectangle                                                                                  -
+                #---------------------------------------------------------------------------------------------------------------
+                if style.lower() == Line_Style.SINGLE:
+
+                    # Horizontal Line Section
+                    self.top_horizontal_line_chr = "\u2500";      self.bottom_horizontal_line_chr="\u2500"
+
+                    # Vertical Line Section
+                    self.left_vertical_line_chr  = "\u2502";      self.right_vertical_line_chr = "\u2502"
+
+                    # Outside Corner Section
+                    self.top_left_corner_chr = "\u250C";          self.top_right_corner_chr = "\u2510"
+                    self.bottom_right_corner_chr="\u2518";        self.bottom_left_corner_chr="\u2514"
 
 
-         # bottom horizontal line
-         self.jumpTo(qty=1, direction=Move.UP)
-         tail = self.bottom_left_corner_chr
-         body = self.bottom_horizontal_line_chr
-         head = self.bottom_right_corner_chr
-         _print_horiz_sq_line(settings, self.adj_indent, length, tail, body, head)
+                elif style.lower() == Line_Style.SINGLE_BOLD:
+
+                    # Horizontal Line Section
+                    self.top_horizontal_line_chr = "\u2501";      self.bottom_horizontal_line_chr="\u2501"
+
+                    # Vertical Line Section
+                    self.left_vertical_line_chr  = "\u2503";      self.right_vertical_line_chr = "\u2503"
+
+                    # Outside Corner Section
+                    self.top_left_corner_chr = "\u250F";          self.top_right_corner_chr = "\u2513"
+                    self.bottom_right_corner_chr="\u251B";        self.bottom_left_corner_chr="\u2517"
 
 
-         # right vertical line
-         self.jumpTo(qty=width,  direction=Move.UP)         
-         tail = self.top_right_corner_chr
-         body = self.right_vertical_line_chr
-         head = self.bottom_right_corner_chr
-         _print_vert_sq_line(settings, (length+self.adj_indent-1), width, tail, body, head)
+                elif style.lower() == Line_Style.SINGLE_HEAVY:
+                    # Horizontal Line Section
+                    self.top_horizontal_line_chr = "\u2586";      self.bottom_horizontal_line_chr="\u2586"
+
+                    # Vertical Line Section
+                    self.left_vertical_line_chr  = "\u2588";      self.right_vertical_line_chr = "\u2588"
+
+                    # Outside Corner Section
+                    self.top_left_corner_chr = "\u2586";          self.top_right_corner_chr = "\u2586"
+                    self.bottom_right_corner_chr="\u2588";        self.bottom_left_corner_chr="\u2588"
 
 
-         if (style == Line_Style.CUSTOMIZED): pass
-         else:
-            # putting back all the default values
-            # Horizontal Line Section
-            self.top_horizontal_line_chr = thlc;    self.bottom_horizontal_line_chr = bhlc
-            
-            # Vertical Line Section    
-            self.left_vertical_line_chr = lvlc;     self.right_vertical_line_chr = rvlc
-            
-            # Corner Section 
-            self.top_left_corner_chr = tlcc;        self.top_right_corner_chr = trcc
-            self.bottom_right_corner_chr = brcc;    self.bottom_left_corner_chr = blcc
-         #---------------------------------------------------------------------------------------------------------------
+                elif style.lower() == Line_Style.DOUBLE:
+                    # Horizontal Line Section
+                    self.top_horizontal_line_chr = "\u2550";      self.bottom_horizontal_line_chr="\u2550"
 
+                    # Vertical Line Section
+                    self.left_vertical_line_chr  = "\u2551";      self.right_vertical_line_chr = "\u2551"
+
+                    # Outside Corner Section
+                    self.top_left_corner_chr = "\u2554";          self.top_right_corner_chr = "\u2557"
+                    self.bottom_right_corner_chr="\u255D";        self.bottom_left_corner_chr="\u255A"
+
+
+                elif style.lower() == Line_Style.SQ_BRACKETS:
+                    # Horizontal Line Section
+                    self.top_horizontal_line_chr = " ";           self.bottom_horizontal_line_chr=" "
+
+                    # Vertical Line Section
+                    self.left_vertical_line_chr  = "\u2502";      self.right_vertical_line_chr = "\u2502"
+
+                    # Outside Corner Section
+                    self.top_left_corner_chr = "\u250C";          self.top_right_corner_chr = "\u2510"
+                    self.bottom_right_corner_chr="\u2518";        self.bottom_left_corner_chr="\u2514"
+
+
+                elif style.lower() == Line_Style.DASH:
+                    # Horizontal Line Section
+                    self.top_horizontal_line_chr = "\u002D";      self.bottom_horizontal_line_chr="\u002D"
+
+                    # Vertical Line Section
+                    self.left_vertical_line_chr  = "\u254E";      self.right_vertical_line_chr = "\u254E"
+
+                    # Outside Corner Section
+                    self.top_left_corner_chr = "\u002B";          self.top_right_corner_chr = "\u002B"
+                    self.bottom_right_corner_chr="\u002B";        self.bottom_left_corner_chr="\u002B"
+
+
+                elif style.lower() == Line_Style.NONE:
+                    # Horizontal Line Section
+                    self.top_horizontal_line_chr = " ";           self.bottom_horizontal_line_chr=" "
+
+                    # Vertical Line Section
+                    self.left_vertical_line_chr  = " ";           self.right_vertical_line_chr = " "
+
+                    # Outside Corner Section
+                    self.top_left_corner_chr = " ";               self.top_right_corner_chr = " "
+                    self.bottom_right_corner_chr=" ";             self.bottom_left_corner_chr=" "
+
+                else: pass
+            #-------------------------------------------------------------------------------------------------------------------
+            # def draw_rectangle(self,length=3, width=3, style=Line_Style.DASH):
+            # def set_font(bold=False,bg=-1,fg=-1,italic=False,underline=False,strike=False,blinking=False,dim=False,hidden=False,inverse=False):
+            settings = set_font(self.bold_draw_line, self.bg_draw_line, self.fg_draw_line)
+
+            # top horizontal line
+            tail = self.top_left_corner_chr
+            body = self.top_horizontal_line_chr
+            head = self.top_right_corner_chr
+            _print_horiz_sq_line(settings, self.adj_indent, length, tail, body, head)
+
+
+            # left vertical line
+            self.jumpTo(qty=1, direction=Move.UP)
+            tail = self.top_left_corner_chr
+            body = self.left_vertical_line_chr
+            head = self.bottom_left_corner_chr
+            _print_vert_sq_line(settings, self.adj_indent, width, tail, body, head)
+
+
+            # bottom horizontal line
+            self.jumpTo(qty=1, direction=Move.UP)
+            tail = self.bottom_left_corner_chr
+            body = self.bottom_horizontal_line_chr
+            head = self.bottom_right_corner_chr
+            _print_horiz_sq_line(settings, self.adj_indent, length, tail, body, head)
+
+
+            # right vertical line
+            self.jumpTo(qty=width,  direction=Move.UP)
+            tail = self.top_right_corner_chr
+            body = self.right_vertical_line_chr
+            head = self.bottom_right_corner_chr
+            _print_vert_sq_line(settings, (length+self.adj_indent-1), width, tail, body, head)
+
+
+            if style == Line_Style.CUSTOMIZED: pass
+            else:
+                # putting back all the default values
+                # Horizontal Line Section
+                self.top_horizontal_line_chr = thlc;    self.bottom_horizontal_line_chr = bhlc
+
+                # Vertical Line Section
+                self.left_vertical_line_chr = lvlc;     self.right_vertical_line_chr = rvlc
+
+                # Corner Section
+                self.top_left_corner_chr = tlcc;        self.top_right_corner_chr = trcc
+                self.bottom_right_corner_chr = brcc;    self.bottom_left_corner_chr = blcc
+            #---------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
 # if we are going to use this script as only module, delete this code
-if (__name__ == "__main__"):
-  fg_ansi_colors(bold=True, bg=-1, n_line=1)
-  bg_ansi_colors(bold=True, fg=0, n_line=1)
-
-
-
+if __name__ == "__main__":
+    #fg_ansi_colors(bold=True, bg=-1, n_line=1)
+    #bg_ansi_colors(bold=True, fg=0, n_line=1)
+    cp_documentation.documentation("hello")

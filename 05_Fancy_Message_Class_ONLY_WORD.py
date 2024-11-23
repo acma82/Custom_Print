@@ -31,25 +31,25 @@ paragraph3 = '''
  '''
 
 paragraph4 = '''\
-    +---------------------------------------------------+
-    |    I should probably collect a list of the best   |
-    |    romantic poems ever written, and maybe I will. |
-    |    This is not that. I mostly talk about writing  |
-    |    books, but I noticed most of the other big     |
-    |    writing sites actually get most of the their   |
-    +---------------------------------------------------+
-    |   traffic from this keyword, because everybody    |
-    |   is interested in romantic poetry! When you      |
-    |   want to tell her how you feel, but do not       |
-    |   have the words to express all that emotion...!  |
-    +---------------------------------------------------+
+    +---------------------------------------------------+    
+    |    I should probably collect a list of the best   |    
+    |    romantic poems ever written, and maybe I will. |    
+    |    This is not that. I mostly talk about writing  |    
+    |    books, but I noticed most of the other big     |    
+    |    writing sites actually get most of the their   |    
+    +---------------------------------------------------+    
+    |   traffic from this keyword, because everybody    |    
+    |   is interested in romantic poetry! When you      |    
+    |   want to tell her how you feel, but do not       |    
+    |   have the words to express all that emotion...!  |    
+    +---------------------------------------------------+    
 '''
 #---------------------------------------------------------------------------------------
 # This is for paragraph1 variable                                                           -
 #---------------------------------------------------------------------------------------
 # it's for the string
 msg.left_indent = 15
-msg.right_indent = 20
+msg.right_indent = 15
 
 msg.top_lines = 1        # how many lines above and below the string
 

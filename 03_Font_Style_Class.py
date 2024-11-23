@@ -29,12 +29,12 @@ print("  Normal Font...!")
 
 
 cp.ins_newline(2)
-print(f"{fs.start_style()} Font Style {fs.stop_style()}")
-print(fs.start_style() + " Font Style " + fs.stop_style())
+print(f"{fs.style_on()} Font Style {fs.style_off()}")
+print(fs.style_on() + " Font Style " + fs.style_off())
 
 
 cp.ins_newline(2)
 fs.reset_style()
 fs.print_style("Default Style ")
 cp.ins_newline(2)
-print(f"{fs.start_style()} Default Style {fs.stop_style()}")
+print(f"{fs.style_on()} Default Style {fs.style_off()}")
