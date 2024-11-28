@@ -2449,13 +2449,14 @@ class FontStyle():
         # General Use
         self.bg  = -1;       self.bold      = False;    self.hidden    = False;    self.italic    = False
         self.fg  = -1;       self.underline = False;    self.strike    = False;    self.inverse   = False
-        self.dim = False;    self.indent    = 0;        self.blinking  = False
+        self.dim = False;    self.blinking  = False
 
         # Print_Style
-        self.align = Align.LEFT;    self.left_indent  = 0
-        self.next_line   = True;    self.right_indent = 0
-        self.force_align = False
+        self.align = Align.JUSTIFY;    self.bg_top_lines    = 0
+        self.force_align = False;      self.bg_bottom_lines = 0
 
+        # self.indent is used for style_on and for print_style when using justify
+        self.indent    = 0
 
     def _set_font(self)->str:
 
@@ -2486,41 +2487,27 @@ class FontStyle():
         else:                                            pass   # (bold == False and dim == False):
 
 
-        if self.italic == True:    settings = settings + "\033[3m"
+        if self.italic == True:      settings = settings + "\033[3m"
         else:                        settings =  settings + "\033[23m"
 
-        if self.underline == True: settings = settings + "\033[4m"
+        if self.underline == True:   settings = settings + "\033[4m"
         else:                        settings = settings + "\033[24m"
 
-        if self.blinking == True:  settings = settings + "\033[5m"
+        if self.blinking == True:    settings = settings + "\033[5m"
         else:                        settings = settings + "\033[25m"
 
-        if self.inverse == True:   settings = settings + "\033[7m"
+        if self.inverse == True:     settings = settings + "\033[7m"
         else:                        settings = settings + "\033[27m"
 
-        if self.hidden == True:    settings = settings + "\033[8m"
+        if self.hidden == True:      settings = settings + "\033[8m"
         else:                        settings = settings + "\033[28m"
 
-        if self.strike == True:    settings = settings + "\033[9m"
+        if self.strike == True:      settings = settings + "\033[9m"
         else:                        settings = settings + "\033[29m"
-
-
-        if self.indent <= 0: pass
-        else: settings = settings + f"\033[{str(self.indent)}C"
 
         return settings
 
-    def style_on(self)->str:
-        '''
-        Activate the style
-        '''
-        return self._set_font()
 
-    def style_off(self)->str:
-        '''
-        Deactivate the style
-        '''
-        return "\033[0m"
 
     def reset_style(self):
         '''
@@ -2532,10 +2519,27 @@ class FontStyle():
         self.dim = False;    self.indent    = 0;        self.blinking  = False
 
         # print_style
-        self.align = Align.LEFT;    self.left_indent  = 10
-        self.next_line   = True;    self.right_indent = 10
-        self.force_align = False
+        self.align = Align.JUSTIFY;    self.bg_top_lines    = 0
+        self.force_align = False;      self.bg_bottom_lines = 0
 
+
+
+    def style_on(self)->str:
+        '''
+        Activate the style
+        '''
+        if self.indent <= 0:
+            settings = self._set_font()# + f"\033[0C"
+        else:                 settings = self._set_font() + f"\033[{str(self.indent)}C"
+        return settings
+
+
+
+    def style_off(self)->str:
+        '''
+        Deactivate the style
+        '''
+        return "\033[0m"
 
 
 
@@ -2543,18 +2547,175 @@ class FontStyle():
         '''
         print_style will help to print a fancy statement on the terminal
         '''
+        #---------------------------------------------------------------------------------------------------------------------------------
+        def _print_bg_lines(move_crs, insert_sp, settings, lines):
+            if lines == 0:
+                pass
 
+            else:
+                n = lines
+                while n>0:
+                    print(f"{move_crs}{settings}{insert_sp}\033[0m")
+                    n -= 1
+
+        #---------------------------------------------------------------------------------------------------------------------------------
+        def _terminal_cols_smaller_than_biggest_line():
+            message_lst = msg.split()
+            print(f"{settings}",end="")
+            for l in range(len(message_lst)):
+                for n in message_lst[l]:
+                    print(f"{n}",end="")
+                print(" ", end="")
+
+            suma = 0
+            for w in message_lst:
+                suma += len(w) + 1
+
+            if tncols > suma:
+                diff = tncols - suma
+                print(_move_right(diff, True),end="")
+
+            else:
+                done = True
+                while done:
+                    suma = suma - tncols
+                    if suma < 0:
+                        done = False
+
+                diff = suma * (-1)
+                print(_move_right(diff, True),end="")
+            print(f"{reset_font()}",end="")
+
+
+        #---------------------------------------------------------------------------------------------------------------------------------
+        reset = "\033[0m"
+        fm = FancyMessage()
+        fm.left_indent = 0; fm.right_indent = 0
+        tnrows, tncols, space_available, number_letter_line_list, adj_diff_space, new_msg, n_lines = fm._get_msg_attributes(msg,True)
         settings = self._set_font()
-        tnrows, tncols, space_available, number_letter_line_list, adj_diff_space, new_msg, n_lines = FancyMessage._get_msg_attributes(self,msg,True)
+
+        cnt_l = 0     # counting the number of letter in the new message
+        cnt_p = 0     # counting the position of the list containing the letters
+        wd_line = ""  # keeps the line info
+        wd_list = []  # keep the text of the lines as list
+
+        for l in range(len(new_msg)):
+            wd_line += new_msg[l]
+            cnt_l += 1
+            if cnt_l == number_letter_line_list[cnt_p]:
+                cnt_l  = 0
+                cnt_p += 1
+                wd_list.append(wd_line)
+                wd_line = ""
+
+        biggets_line  = max(number_letter_line_list)
+        bg_space_line = _move_right(biggets_line,option_space=True)
+
+        if biggets_line < tncols:
+            #-----------------------------------------------------------------------------------------------------------------------------------------
+            if self.align.lower() == Align.CENTER or self.align.lower() == "c":
+            #-----------------------------------------------------------------------------------------------------------------------------------------
+                move_cursor  = _move_right(n=(int((tncols - biggets_line)/2)),option_space=False)
+                _print_bg_lines(move_cursor, bg_space_line , settings,self.bg_top_lines)
+                if self.force_align == True:
+                    #---------------------------------------------------------------------------------------------------------------------------------
+                    for l in wd_list:
+                        l2 = int((biggets_line - len(l))/2)
+                        r = int((biggets_line - len(l))%2)
+                        print(f"{move_cursor}{settings}{_move_right(n=l2,option_space=True)}{l}{_move_right(n=l2+r,option_space=True)}{reset}")
+
+                else:   # Center (force = False)
+                    #---------------------------------------------------------------------------------------------------------------------------------
+                    _print_bg_lines(move_cursor, bg_space_line , settings, self.bg_top_lines)
+                    for l in wd_list:
+                        adj = biggets_line - len(l)
+                        print(f"{move_cursor}{settings}{l}{_move_right(n=adj,option_space=True)}{reset}")
+                _print_bg_lines(move_cursor, bg_space_line , settings,self.bg_bottom_lines)
 
 
-        if self.next_line   == True:   print(settings+str(msg)+"\033[0m")
-        elif self.next_line == False:  print(settings+str(msg)+"\033[0m",end="")
-        else:                          print(settings+str(msg)+"\033[0m")
-        #print(space_available)
+            #-----------------------------------------------------------------------------------------------------------------------------------------
+            elif self.align.lower() == Align.RIGHT or self.align.lower() == "r":
+            #-----------------------------------------------------------------------------------------------------------------------------------------
+                move_cursor = _move_right(n=(int(tncols - biggets_line)), option_space=False)
+                _print_bg_lines(move_cursor, bg_space_line , settings, self.bg_top_lines)
+                if self.force_align == True:
+                    #---------------------------------------------------------------------------------------------------------------------------------
+                    for l in wd_list:
+                        l2 = int(tncols - biggets_line)
+                        ll = biggets_line - len(l)
+                        print(f"{_move_right(n=l2,option_space=False)}{settings}{_move_right(n=ll,option_space=True)}{l}{reset}")
+
+                else:   # Right (forced = False)
+                    #---------------------------------------------------------------------------------------------------------------------------------
+                    for l in wd_list:
+                        l2 = int(tncols - biggets_line)
+                        ll = biggets_line - len(l)
+                        print(f"{_move_right(n=l2,option_space=False)}{settings}{l}{_move_right(n=ll,option_space=True)}{reset}")
+
+                _print_bg_lines(move_cursor, bg_space_line , settings,self.bg_bottom_lines)
 
 
+            #-----------------------------------------------------------------------------------------------------------------------------------------
+            elif self.align.lower() == Align.LEFT or self.align.lower() == "l":
+            #-----------------------------------------------------------------------------------------------------------------------------------------
+                move_cursor = _move_right(n=0, option_space=False)
+                _print_bg_lines(move_cursor, bg_space_line , settings, self.bg_top_lines)
+                if self.force_align == True:
+                    for l in wd_list:
+                        ll = biggets_line - len(l)
+                        print(f"{settings}{l}{_move_right(n=ll,option_space=True)}{reset}")
 
+                else:   # Left (forced = False)
+                    for l in wd_list:
+                        ll = biggets_line - len(l)
+                        print(f"{settings}{_move_right(n=ll,option_space=True)}{l}{reset}")
+
+                _print_bg_lines(move_cursor, bg_space_line , settings, self.bg_bottom_lines)
+
+
+            #-----------------------------------------------------------------------------------------------------------------------------------------
+            elif self.align.lower() == Align.JUSTIFY or self.align.lower() == "j":
+            #-----------------------------------------------------------------------------------------------------------------------------------------
+                move_cursor = _move_right(n=self.indent, option_space=False)
+                _print_bg_lines(move_cursor, bg_space_line , settings, self.bg_top_lines)
+
+                if self.force_align == True:
+                    for l in wd_list:
+                        ll = biggets_line - len(l)
+                        print(f"{_move_right(n=self.indent,option_space=False)}{settings}{l}{_move_right(n=ll,option_space=True)}{reset}")
+
+                else:   # Justify (forced = False)
+                    for l in wd_list:
+                        ll = biggets_line - len(l)
+                        print(f"{_move_right(n=self.indent,option_space=False)}{settings}{_move_right(n=ll,option_space=True)}{l}{reset}")
+
+                _print_bg_lines(move_cursor, bg_space_line , settings, self.bg_bottom_lines)
+
+            #-----------------------------------------------------------------------------------------------------------------------------------------
+            else:
+            #-----------------------------------------------------------------------------------------------------------------------------------------
+                carry = 0
+                if self.force_align == True:
+                    for l in range(len(number_letter_line_list)):
+                        print(f"{_move_right(self.indent,False)}{settings}",end="")
+                        for n in range(number_letter_line_list[l]):
+                            print(f"{new_msg[n+carry]}",end="")
+                        carry += number_letter_line_list[l]
+                        print(reset)
+                else:
+                    bg_space_line = _move_right(tncols,option_space=True)
+                    move_cursor = ""
+                    _print_bg_lines(move_cursor, bg_space_line , settings, self.bg_bottom_lines)
+                    _terminal_cols_smaller_than_biggest_line()
+                    _print_bg_lines(move_cursor, bg_space_line , settings, self.bg_bottom_lines)
+
+        else:
+            # It will come in only if the condition is = if biggets_line < tncols:
+            bg_space_line = _move_right(tncols,option_space=True)
+            move_cursor = ""
+            _print_bg_lines(move_cursor, bg_space_line , settings, self.bg_bottom_lines)
+            _terminal_cols_smaller_than_biggest_line()
+            _print_bg_lines(move_cursor, bg_space_line , settings, self.bg_bottom_lines)
 
 
 
@@ -3005,6 +3166,7 @@ class FancyMessage(Cursor):
                         ["Total Number of Lines",         n_lines],
                         ["Total Number of Words",         counter_words],
                         ["Total Number of Characters",    total_characters]]
+
 
         new_msg_list = [["Position","Word"]]
         cnt = 0
