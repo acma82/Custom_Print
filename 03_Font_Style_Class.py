@@ -52,7 +52,8 @@ cp.ins_newline(2)
 fs.fg        = 231
 fs.bg        = 23
 fs.bold      = True
-
+fs.bg_bottom_lines = 1
+fs.bg_top_lines = 1
 
 msg = f'''
 Full Name Author Here...!

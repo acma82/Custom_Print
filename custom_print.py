@@ -43,11 +43,10 @@ custom_print module can handle any type of variable.
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 import os
 import enum
-import readline
 import platform
-import cp_documentation
-
-
+import csv          # pylist class
+import json         # pylist class
+import readline     # to use input and not cause problem with pylint
 
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 # Layout is used for the Range, Set, Frozenset.                                                                                                      -
@@ -597,7 +596,7 @@ def set2list(my_set:set, set_header = "none", layout:Layout=Layout.HORIZONTAL):
     # set and frozenset values are printed in aleatory order all the time
     tempo_list = []; cnt = 0; l = len(my_set)
 
-    if layout.lower() == Layout.VERTICAL:
+    if layout.lower() == "v" or layout.lower() == Layout.VERTICAL:
         if "set" in set_header or "frozenset" in set_header:
             if len(my_set) > 1:
                 tempo_list.append([set_header+" Values"])
@@ -616,7 +615,7 @@ def set2list(my_set:set, set_header = "none", layout:Layout=Layout.HORIZONTAL):
             cnt += 1
             l   -= 1
 
-    if layout.lower() == Layout.HORIZONTAL:
+    if layout.lower() == "h" or layout.lower() == Layout.HORIZONTAL:
         if "set" in set_header or "frozenset" in set_header:
             if len(my_set) > 1:
                 tempo_list.append("Set Values")
@@ -648,7 +647,7 @@ def range2list(my_range:range, range_header = "none", layout:Layout=Layout.HORIZ
 
     tempo_list = []
 
-    if layout.lower() == Layout.VERTICAL:
+    if layout.lower() == "v" or layout.lower() == Layout.VERTICAL:
         if range_header   == "range": tempo_list = [["Range"]]
         elif range_header == "none":  pass
         else:                         tempo_list = [[range_header]]
@@ -656,7 +655,7 @@ def range2list(my_range:range, range_header = "none", layout:Layout=Layout.HORIZ
         for n in my_range:
             tempo_list.append([n])
 
-    if layout.lower() == Layout.HORIZONTAL:
+    if layout.lower() == "h" or layout.lower() == Layout.HORIZONTAL:
         if range_header   == "range": tempo_list = ["Range"]
         elif range_header == "none":  pass
         else:                         tempo_list = [range_header]
@@ -2626,7 +2625,6 @@ class FontStyle():
 
                 else:   # Center (force = False)
                     #---------------------------------------------------------------------------------------------------------------------------------
-                    _print_bg_lines(move_cursor, bg_space_line , settings, self.bg_top_lines)
                     for l in wd_list:
                         adj = biggets_line - len(l)
                         print(f"{move_cursor}{settings}{l}{_move_right(n=adj,option_space=True)}{reset}")
@@ -3253,7 +3251,7 @@ class Pen(Cursor):                      # Inheritance the Cursor Class here.
 
         settings = set_font(self.bold_draw_line, self.bg_draw_line, self.fg_draw_line)
 
-        if layout.lower() == Layout.HORIZONTAL:
+        if layout.lower() == "h" or layout.lower() == Layout.HORIZONTAL:
             self.jumpTo(qty = self.adj_indent, direction = Move.RIGHT)
             print(f"{settings}{tail}",end="")
             for n in range(size-2): print(body,end="")
@@ -3261,7 +3259,7 @@ class Pen(Cursor):                      # Inheritance the Cursor Class here.
             reset_font()
 
 
-        elif layout.lower() == Layout.VERTICAL:
+        elif layout.lower() == "v" or layout.lower() == Layout.VERTICAL:
             self.jumpTo(qty = self.adj_indent, direction = Move.RIGHT)
             print(f"{settings}{tail}")
             for n in range(size-2): print(f"{self.moveTo(qty = self.adj_indent, direction = Move.RIGHT)}{body}")
@@ -3509,10 +3507,467 @@ class Pen(Cursor):                      # Inheritance the Cursor Class here.
                 self.bottom_right_corner_chr = brcc;    self.bottom_left_corner_chr = blcc
             #---------------------------------------------------------------------------------------------------------------------------------------------
 
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+# Class PyList. Operation With List Personal                                                                                                        --
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+class PyList():
+    '''
+    PyList class helps to make some quit operations with list in python
+    '''
+    class Str_List_Option():
+        WORD_BY_WORD = "word_by_word"
+        COUNTER_WORD = "counter_word"
+        LINE_BY_LINE = "line_by_line"
+        COUNTER_LINE = "counter_line"
+        
+
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    # Conversion to List                                                                                                                             -
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    def _bifc_to_list(self,data, convert_to_str=False):
+        '''  It converts bool, int, float, and complex type to list type  '''
+        tempo_list = []
+        if convert_to_str == True:
+            tempo_list.append(str(data))
+        else:
+            tempo_list.append(data)
+        return tempo_list
 
 
-# if we are going to use this script as only module, delete this code
+    def bool_to_list(self,data:bool, convert_to_str=False):
+        '''  It sets a bool variable into list as a bool or as string type  '''
+        new_list = PyList._bifc_to_list(self, data, convert_to_str)
+        return new_list
+
+
+    def int_to_list(self,data:int, convert_to_str=False):
+        '''  It sets a int variable into list as an integer or as string type  '''
+        new_list = PyList._bifc_to_list(self, data, convert_to_str)
+        return new_list
+
+
+    def float_to_list(self,data:float, convert_to_str=False):
+        '''  It sets a float variable into list as a float or as string type  '''
+        new_list = PyList._bifc_to_list(self, data, convert_to_str)
+        return new_list
+
+
+    def complex_to_list(self,data:complex, convert_to_str=False):
+        '''  It sets a complex variable into a list as a complex or as string type   '''
+        new_list = PyList._bifc_to_list(self, data, convert_to_str)
+        return new_list
+
+    #---------------------------------------------------------------------------------------------------------------------------------------------
+    def str_to_list(self,data:str, option="word_by_word"):
+        '''  It sets a string variable into a list as word by word or line by line  '''
+        if option == "word_by_word":
+            tempo_list = data.split()
+
+        elif option == "counter_word":
+            cnt = 0
+            tempo_list = []
+            tempo = data.split()
+            for w in tempo:
+                tempo_list.append([cnt,w])
+                cnt += 1
+
+        elif option == "line_by_line" or option == "counter_line":
+            cnt = -1
+            line_word = ""
+            tempo_list = []
+            for l in data:
+                if l != "\n":
+                    line_word += l
+                else:
+                    if cnt == -1:
+                        cnt = 0
+                    else:
+                        if option == "counter_line":
+                            tempo_list.append([cnt,line_word])
+                            cnt += 1
+                            line_word = ""
+                        else:
+                            tempo_list.append(line_word)
+                            cnt += 1
+                            line_word = ""
+        else:
+            tempo_list = []
+
+        return tempo_list
+
+
+    #---------------------------------------------------------------------------------------------------------------------------------------------
+    def dict_to_list(self,data:dict, key_title="key", value_title="value", convert_to_str=False):
+        '''  It sets a dictionary variable into a list with its original values or as string values   '''
+
+        my_key_list = []; my_data_list = []
+
+        my_key_list  = list(data.keys())
+        my_data_list = list(data.values())
+        
+        complete_list = [];  tempo_list = []
+        if (key_title == "key") and (value_title == "value"):
+            if (len(my_key_list)) > 1:   complete_list.append(["Keys","Values"])
+            else:                        complete_list.append(["Key","Value"])
+        
+        elif (key_title == None or value_title == None or \
+                key_title.lower() == "none" or value_title.lower() == "none"):
+            pass
+
+        else:
+            complete_list.append([key_title,value_title])
+
+        for d in range(len(data)):
+            if (convert_to_str == True):
+                tempo_list.append(str(my_key_list[d]))
+                tempo_list.append(str(my_data_list[d]))
+                complete_list.append(tempo_list)
+                tempo_list = []
+            else:
+                tempo_list.append(my_key_list[d])
+                tempo_list.append(my_data_list[d])
+                complete_list.append(tempo_list)
+                tempo_list = []
+        
+        return complete_list
+
+
+    #---------------------------------------------------------------------------------------------------------------------------------------------
+    def range_to_list(self, data:range, header_title = "", layout:Layout=Layout.HORIZONTAL, convert_to_str=False):
+        '''  It sets a range variable into a list with its original values or as string values   '''
+
+        tempo_list = []
+
+        def range_to_list_get_header(layout):
+            header = "Range"
+            if header_title == "":
+                if len(data) > 1:
+                    if layout == "vertical": tempo_list.append([header + " Values"])
+                    else:                    tempo_list.append(header  + " Values")
+                
+                else:
+                    if layout == "vertical": tempo_list.append([header + " Value"])
+                    else:                    tempo_list.append(header  + " Value")
+
+            elif (header_title == None or header_title.lower() == "none"):
+                pass
+            else:
+                if layout == "vertical":  tempo_list.append([header_title])
+                else:                     tempo_list.append(header_title)
+            
+        #for n in data:
+        if (layout.lower() == "v" or layout == Layout.VERTICAL):
+            range_to_list_get_header("vertical")
+            for n in data:
+                if convert_to_str == False:  tempo_list.append([n])
+                else:                        tempo_list.append([str(n)])
+            
+        elif (layout.lower() == "h" or layout == Layout.HORIZONTAL):
+            range_to_list_get_header("horizontal")
+            for n in data:
+                if convert_to_str == False:  tempo_list.append(n)
+                else:                        tempo_list.append(str(n))
+                
+        else: pass
+
+        return tempo_list
+
+
+    #---------------------------------------------------------------------------------------------------------------------------------------------
+    # set and frozenset values are printed in aleatory order all the time
+    def set_to_list(self, data:set|frozenset, header_title:str="",layout:Layout=Layout.VERTICAL, convert_to_str=False):
+        '''  It sets a set or a frozenset variable into a list with its original values or as string values   '''
+
+        tempo_list = []
+
+        #----------------------------------------------------------------------------------
+        def _set_to_list_get_header(layout):
+            if isinstance(data, set):       header = "Set"
+            if isinstance(data, frozenset): header = "Frozenset"
+
+            if header_title == "":
+                if len(data) > 1:
+                    if layout == "vertical": tempo_list.append([header + " Values"])
+                    else:                    tempo_list.append(header  + " Values")
+                
+                else:
+                    if layout == "vertical": tempo_list.append([header + " Value"])
+                    else:                    tempo_list.append(header  + " Value")
+
+            elif (header_title == None or header_title.lower() == "none"):
+                pass
+            else:
+                if layout == "vertical":  tempo_list.append([header_title])
+                else:                     tempo_list.append(header_title)
+
+        #----------------------------------------------------------------------------------
+        def _set_to_list_layout_vertical():
+            _set_to_list_get_header("vertical")
+
+            for d in data:
+                if convert_to_str == False:  tempo_list.append([d])
+                else:                        tempo_list.append([str(d)])
+
+
+        def _set_to_list_layout_horizontal():
+            _set_to_list_get_header("horizontal")
+
+            for d in data:
+                if convert_to_str == False:  tempo_list.append(d)
+                else:                        tempo_list.append(str(d))
+
+        #---------------------------------------------------------------------------------- 
+        if (layout.lower() == "v"   or layout.lower() == Layout.VERTICAL):
+            _set_to_list_layout_vertical()
+
+        elif (layout.lower() == "h" or layout.lower() == Layout.HORIZONTAL):
+            _set_to_list_layout_horizontal()
+
+        else: pass
+    
+        return tempo_list
+    
+
+
+    #---------------------------------------------------------------------------------------------------------------------------------------------
+    def tuple_to_list(self, data:tuple):
+        '''  This function converts a tuple into a list keeping its original values '''
+        tempo_list = []
+        #-----------------------------------------------------------------------------------------------
+        if (len(data) == 0):
+            return tempo_list                
+
+        #-----------------------------------------------------------------------------------------------
+        elif (len(data) == 1):          
+                                        # string              ("")         -> Case 0   String
+                                        # "empty_tuple"       ("",)        -> Case 1   Empty
+            tempo_list.append(data[0])  # "one_item_no_row"   ("Apple",)   -> Case 2   Tuple
+            return tempo_list           # "one_item_one_row"  (("Apple",)) -> Case 3   Tuple inside Tuple
+
+        #-----------------------------------------------------------------------------------------------
+        #elif len(data) > 1:
+        else:
+            type_type = []; lengths = []
+            l = len(data); tuple_tuple = 0; tuple_other = 0
+
+            for n in range(len(data)):
+                if (isinstance(data[n], tuple)):
+                    tuple_tuple = 1            
+                    type_type.append("tuple")
+                    lengths.append(len(data[n]))
+                
+                else:
+                    tuple_other = 1
+                    type_type.append("other")
+                    lengths.append(1)
+            
+            # This is only for tuples inside the tuple ->
+            # tupleData = (("hello","hello"),("hell",),("hi","bye","good"),([1,2],))        -> Case 4
+            if (tuple_tuple == 1 and tuple_other == 0):
+                tempo = []
+                for col in data:
+                    for i in col:
+                        tempo.append(i)
+                        tempo_list.append(tempo)
+                        tempo = []
+
+            # This is only for other types inside a tuple 
+            # tupleData = ("hello","hell","hi",[1,2])                                       -> Case 5
+            elif (tuple_tuple == 0 and tuple_other == 1):
+                for n in data:
+                    tempo_list.append(n)     # for rows (Horizontal)
+                    #tempo_list.append([n])  # for cols (Vertical)
+                
+            
+
+            # This is for combination tuple (tuple =1 and other = 1)                        -> Case 6
+            # tupleData = (("hello","hello"),("hell",),("hi","bye","good"),[1,2], "hello")
+            elif (tuple_tuple == 1 and tuple_other == 1):
+                for n in range(l):
+                    if (lengths[n]) > 1:
+                        tempo = []
+                        for i in range(lengths[n]):
+                            tempo.append(data[n][i])
+                        tempo_list.append(tempo)
+
+                    else:
+                        if (type_type[n] == "other"):
+                            tempo_list.append([data[n]])
+                        else:
+                            tempo_list.append([data[n][0]])
+            else:
+                tempo_list = []
+
+        return tempo_list
+
+
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    # Right Shift Element in a List                                                                                                                  -
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    def right_shift(self,my_list:list=[], shift:int=0, update:bool=False)->list:
+        '''
+        This function shift the elements in a list to the right.
+       
+        update is used to save the actual list with the shift elements.
+        update is set to False is we wish to keep the original list and save
+        the new list into another variable.
+        '''
+        list_type = _get_list_type(my_list)
+
+        # list_type = incorrect_variable_type: [Not a list type variable]
+        if list_type == "incorrect_variable_type":
+            return my_list
+        # list_type = empty_list: []
+        elif list_type == "empty_list":
+            return my_list
+        
+        # list_type = one_item_no_row: ["one"]
+        elif list_type == "one_item_no_row":
+            return my_list
+        
+        # list_type = one_item_one_row: [["one"]]
+        elif list_type == "one_item_one_row":
+            return my_list
+
+        # list_type == "multiple_items_no_row"          [1,2,3,4]
+        # list_type == "multiple_items_multiple_rows"   [[7,6],[5,4],[1,2,3]] or [[2],[3],[5]]
+        # list_type == "mix_items"                      [10,[50],[250],["H"],100]
+        elif list_type == "multiple_items_no_row" or list_type == "mix_items"\
+            or list_type == "multiple_items_multiple_rows":
+            
+            result = []; result = my_list; tempo = []
+
+            length = len(result)-1
+            for rot in range(shift):
+                tempo.append(result[length])
+                for n in range(length):
+                    tempo.append(result[n])
+                result = tempo
+                tempo = []
+
+            if update == True:
+                my_list.clear()
+                [my_list.append(n) for n in result]
+                return my_list
+            else:
+                return result
+        
+        # list_type = multiple_items_one_row: [[1,2,3,4]]
+        elif list_type == "multiple_items_one_row":
+            tempo = []; result = []; result = my_list[0]; length = len(result)-1
+
+            for rot in range(shift):
+                tempo.append(result[length])
+                for n in range(length):
+                    tempo.append(result[n])
+                result = tempo
+                tempo = []
+
+            if update == True:
+                my_list.clear()         
+                [tempo.append(n) for n in result]
+                my_list.append(tempo)
+                return my_list
+            
+            else:
+                return [result]
+        
+        # A different case will just return the same list
+        else:
+            return my_list 
+
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    # Left Shift Element in a List                                                                                                                   -
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    def left_shift(self, my_list:list=[], shift=0, update:bool=False)->list:
+        '''
+        This function shift the elements in a list to the left.
+
+        update is used to save the actual list with the shift elements.
+        update is set to False is we wish to keep the original list and save
+        the new list into another variable.    
+        '''   
+        list_type = _get_list_type(my_list)
+
+        # list_type = incorrect_variable_type: [Not a list type variable]
+        if list_type == "incorrect_variable_type":
+            return my_list
+
+        # list_type = empty_list: []
+        elif list_type == "empty_list":
+            return my_list
+        
+        # list_type = one_item_no_row: ["one"]
+        elif list_type == "one_item_no_row":
+            return my_list
+        
+        # list_type = one_item_one_row: [["one"]]
+        elif list_type == "one_item_one_row":
+            return my_list
+
+        # list_type == "multiple_items_no_row"          [1,2,3,4]
+        # list_type == "multiple_items_multiple_rows"   [[7,6],[5,4],[1,2,3]] or [[2],[3],[5]]
+        # list_type == "mix_items"                      [10,[50],[250],["H"],100]
+        elif list_type == "multiple_items_no_row" or list_type == "mix_items"\
+            or list_type == "multiple_items_multiple_rows":
+            
+            result = []; result = my_list; tempo = []; length = len(result)-2
+            for rot in range(shift):
+                tempo.append(result[1])
+                for n in range(length):
+                    idx = n + 2
+                    tempo.append(result[idx])
+                tempo.append(result[0])
+                result = tempo
+                tempo = []
+            if update == 1:
+                my_list.clear()
+                [my_list.append(n) for n in result]
+                return my_list
+            else:
+                return result
+
+        # list_type = multiple_items_one_row: [[1,2,3,4]]
+        elif list_type == "multiple_items_one_row":
+            tempo = []; result = []; result = my_list[0]; length = len(result)-2
+            for rot in range(shift):
+                tempo.append(result[1])
+                for n in range(length):
+                    idx = n + 2
+                    tempo.append(result[idx])
+                tempo.append(result[0])
+                result = tempo
+                tempo = []
+
+            if update == 1:
+                my_list.clear()            
+                [tempo.append(n) for n in result]
+                my_list.append(tempo)
+                return my_list
+            else:
+                return [result]
+
+        # A different case will just return the same list
+        else:
+            return my_list  
+    
+
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    # Get Transpose List                                                                                                                             -
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    # Get Transpose List                                                                                                                             -
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+# Planning to use this script as help of the Module custom_print.
 if __name__ == "__main__":
+    print("Working on The Documentation Here")
     #fg_ansi_colors(bold=True, bg=-1, n_line=1)
     #bg_ansi_colors(bold=True, fg=0, n_line=1)
-    cp_documentation.documentation("hello")
