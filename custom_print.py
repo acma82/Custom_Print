@@ -53,6 +53,7 @@ import readline     # to use input and not cause problem with pylint
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 #class Move(str, enum.Enum): # python3.9.18
 class Move(enum.StrEnum):    # python3.12.1
+# class Move():
     '''
     Move reference class
     '''
@@ -63,6 +64,7 @@ class Move(enum.StrEnum):    # python3.12.1
 
 
 class Align(enum.StrEnum):
+# class Align():
     '''
     Align reference class
     '''
@@ -73,6 +75,7 @@ class Align(enum.StrEnum):
 
 
 class Layout(enum.StrEnum):
+# class Layout():
     '''
     Layout reference class
     '''
@@ -81,6 +84,7 @@ class Layout(enum.StrEnum):
 
 
 class Length_bg(enum.Enum):
+# class Length_bg():
     '''
     Length reference class
     '''
@@ -89,6 +93,7 @@ class Length_bg(enum.Enum):
 
 
 class Line_Style(enum.StrEnum):
+# class Line_Style():
     '''
     Line_Style reference class
     '''
@@ -105,6 +110,7 @@ class Line_Style(enum.StrEnum):
 
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 class Unicode(enum.StrEnum):
+# class Unicode():
     '''
     Unicode reference class
     '''
@@ -3518,10 +3524,18 @@ class PyList():
     '''
     class Str_List_Option():
         WORD_BY_WORD = "word_by_word"
-        COUNTER_WORD = "counter_word"
         LINE_BY_LINE = "line_by_line"
-        COUNTER_LINE = "counter_line"
         
+        
+    class Length_Col():
+        MAX = "max"
+        MIN = "min"
+
+
+    class Fill_Type(enum.StrEnum):
+        STRING = "string"
+        NUMBER = "number"
+
 
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Conversion to List                                                                                                                             -
@@ -3560,12 +3574,12 @@ class PyList():
         return new_list
 
     #---------------------------------------------------------------------------------------------------------------------------------------------
-    def str_to_list(self,data:str, option="word_by_word"):
+    def str_to_list(self,data:str, option="word_by_word", counter=False):
         '''  It sets a string variable into a list as word by word or line by line  '''
-        if option == "word_by_word":
+        if option == "word_by_word" and counter == False:
             tempo_list = data.split()
 
-        elif option == "counter_word":
+        elif option == "word_by_word" and counter == True:
             cnt = 0
             tempo_list = []
             tempo = data.split()
@@ -3573,7 +3587,7 @@ class PyList():
                 tempo_list.append([cnt,w])
                 cnt += 1
 
-        elif option == "line_by_line" or option == "counter_line":
+        elif option == "line_by_line":
             cnt = -1
             line_word = ""
             tempo_list = []
@@ -3584,7 +3598,7 @@ class PyList():
                     if cnt == -1:
                         cnt = 0
                     else:
-                        if option == "counter_line":
+                        if counter == True:
                             tempo_list.append([cnt,line_word])
                             cnt += 1
                             line_word = ""
@@ -3804,9 +3818,9 @@ class PyList():
 
 
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    # Right Shift Element in a List                                                                                                                  -
+    # Shift An Element Inside A List, RIGHT or LEFT                                                                                                  -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def right_shift(self,my_list:list=[], shift:int=0, update:bool=False)->list:
+    def _right_shift(self,my_list:list=[], qty:int=0, update:bool=False)->list:
         '''
         This function shift the elements in a list to the right.
        
@@ -3840,7 +3854,7 @@ class PyList():
             result = []; result = my_list; tempo = []
 
             length = len(result)-1
-            for rot in range(shift):
+            for rot in range(qty):
                 tempo.append(result[length])
                 for n in range(length):
                     tempo.append(result[n])
@@ -3858,7 +3872,7 @@ class PyList():
         elif list_type == "multiple_items_one_row":
             tempo = []; result = []; result = my_list[0]; length = len(result)-1
 
-            for rot in range(shift):
+            for rot in range(qty):
                 tempo.append(result[length])
                 for n in range(length):
                     tempo.append(result[n])
@@ -3879,16 +3893,14 @@ class PyList():
             return my_list 
 
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    # Left Shift Element in a List                                                                                                                   -
-    #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def left_shift(self, my_list:list=[], shift=0, update:bool=False)->list:
+    def _left_shift(self, my_list:list=[], qty=0, update:bool=False)->list:
         '''
         This function shift the elements in a list to the left.
 
         update is used to save the actual list with the shift elements.
         update is set to False is we wish to keep the original list and save
-        the new list into another variable.    
-        '''   
+        the new list into another variable.'''
+
         list_type = _get_list_type(my_list)
 
         # list_type = incorrect_variable_type: [Not a list type variable]
@@ -3914,7 +3926,7 @@ class PyList():
             or list_type == "multiple_items_multiple_rows":
             
             result = []; result = my_list; tempo = []; length = len(result)-2
-            for rot in range(shift):
+            for rot in range(qty):
                 tempo.append(result[1])
                 for n in range(length):
                     idx = n + 2
@@ -3932,7 +3944,7 @@ class PyList():
         # list_type = multiple_items_one_row: [[1,2,3,4]]
         elif list_type == "multiple_items_one_row":
             tempo = []; result = []; result = my_list[0]; length = len(result)-2
-            for rot in range(shift):
+            for rot in range(qty):
                 tempo.append(result[1])
                 for n in range(length):
                     idx = n + 2
@@ -3953,15 +3965,185 @@ class PyList():
         else:
             return my_list  
     
+    def shift(self, data:list=[], direction=Move.RIGHT, qty=0, update:bool=False)->list:
+        '''
+        This function shift the elements in a list to the left or right.
+
+        update is used to save the actual list with the shift elements.
+        If we set update to False, then we keep the original list and save
+        the new list into another variable.'''
+
+        if direction == "r" or direction == Move.RIGHT:
+            tempo = PyList._right_shift(self, my_list=data, qty=qty, update=update)
+        elif direction == "l" or direction == Move.LEFT:
+            tempo = PyList._left_shift(self, my_list=data,  qty=qty, update=update)
+        else:
+            tempo = data
+        return tempo
+
 
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    # Get Transpose List                                                                                                                             -
+    # Swap Two Items Into A List                                                                                                                     -
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    def swap(self, my_list:list=[], pos1=0, pos2=0, update:bool=False)->list:
+        '''
+        This function swap two elements in a list.
+
+        update is used to save the actual list with the swap elements.
+        
+        If update is set to False, then we keep the original list and save
+        the new list into another variable.
+
+        pos1 -> position 1 to be swap with position 2
+        pos2 -> position 2 to be swap with position 1
+
+        Note: If one of the position provided is out of range, the function
+              will return the list as original and it will print a message
+              out of range.'''
+        
+        if pos1 == pos2:
+            return my_list
+        
+        else:
+            list_type = _get_list_type(my_list)
+
+            # list_type = incorrect_variable_type: [Not a list type variable]
+            if list_type == "incorrect_variable_type":
+                return my_list
+
+            # list_type = empty_list: []
+            elif list_type == "empty_list":
+                return my_list
+            
+            # list_type = one_item_no_row: ["one"]
+            elif list_type == "one_item_no_row":
+                return my_list
+            
+            # list_type = one_item_one_row: [["one"]]
+            elif list_type == "one_item_one_row":
+                return my_list
+
+            # list_type == "multiple_items_no_row"          [1,2,3,4]
+            # list_type == "multiple_items_multiple_rows"   [[7,6],[5,4],[1,2,3]] or [[2],[3],[5]]
+            # list_type == "mix_items"                      [10,[50],[250],["H"],100]
+            elif list_type == "multiple_items_no_row" or list_type == "mix_items"\
+                or list_type == "multiple_items_multiple_rows":
+                result = []; length = len(my_list) - 1
+
+                if (length < pos1):
+                    print(f" pos1 = {pos1} is out of range...! ")
+                    return my_list
+                if (length < pos2):
+                    print(f" pos2 = {pos2} is out of range...! ")
+                    return my_list
+                
+                for n in range(len(my_list)):
+                    if n == pos1:
+                        result.append(my_list[pos2])
+                    elif n == pos2:
+                        result.append(my_list[pos1])
+                    else:
+                        result.append(my_list[n])
+                
+                if update == 1:
+                    my_list.clear()
+                    [my_list.append(n) for n in result]         
+                    return my_list
+                else:
+                    return result
+                    
+            # list_type = multiple_items_one_row: [[1,2,3,4]]
+            elif list_type == "multiple_items_one_row":
+                result = []; length = len(my_list[0]) - 1
+                if (length < pos1):
+                    print(f" pos1 = {pos1} is out of range...! ")
+                    return my_list
+                if (length < pos2):
+                    print(f" pos2 = {pos2} is out of range...! ")
+                    return my_list
+                
+                for n in range(len(my_list[0])):
+                    if n == pos1:
+                        result.append(my_list[0][pos2])
+                    elif n == pos2:
+                        result.append(my_list[0][pos1])
+                    else:
+                        result.append(my_list[0][n])
+
+                if update == 1:
+                    my_list.clear()
+                    [my_list.append(n) for n in result]         
+                    return [my_list]
+                else:
+                    return result
+
+            else:
+                return [my_list]
+
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    # Get Dimensions of a List                                                                                                                       -
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    def dimensions(self, data:list=[], length_col:str=Length_Col.MAX)->list[int]:
+        '''
+        dimensions(self, data:list=[], length_col:str=Length_Col.MAX)->list[int]
+
+        This function return the number of rows and cols in a list.
+        If the list is not square, then it will pick the longest col unless 
+        otherwise specified in the length_col.
+        '''
+        n_rows = 0; n_cols = 0
+        list_type = _get_list_type(data)
+
+        if list_type == "incorrect_variable_type" or list_type == "empty_list":
+            return n_rows, n_cols
+        
+        elif list_type == "one_item_no_row": # Done  ["dato"]
+            n_cols = 1; n_rows = 1
+
+        elif list_type == "one_item_one_row": # Done [["dato"]]
+            n_cols = 1; n_rows = 1
+
+        elif list_type == "multiple_items_no_row": # Done ["Hello","bye","good"]
+            n_rows = 1
+            n_cols = sum(1 for num in data)
+
+        elif list_type == "multiple_items_one_row": # Done [["Hello","bye","good"]]
+            n_rows = 1
+            for n in data[0]:
+                n_cols += 1  
+        
+        # Done [["Hello"],["bye"],["good"]] or [["Hello","mio"],["bye"],["good","hh"]]
+        elif list_type == "multiple_items_multiple_rows":
+            n_rows = len(data); n_cols = 0; lengths = []
+            
+            for r in data:
+                lengths.append(len(r))
+            
+            if length_col.lower() == "max":
+                n_cols = max(lengths)
+            
+            elif length_col.lower() == "min":
+                n_cols = min(lengths)
+
+            else:
+                n_cols = 0
+
+        else:
+            n_cols = 0; n_rows = 0
+        
+        row_col_list = []
+        row_col_list.append(["cols",n_cols])
+        row_col_list.append(["rows",n_rows])
+        return row_col_list
+
+
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    # Autofill Data. It Completes Data List to Make   it Rectangular List (Rows, Cols)                                                               -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    # Get Transpose List                                                                                                                             -
+    # Transpose List (Converting The Rows Into Cols AND Cols Into Rows)                                                                              -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
 
 
