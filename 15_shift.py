@@ -1,6 +1,6 @@
 import custom_print as cp
 
-lst = cp.PyList()
+lst = cp.PyLO()
 msg = f'''
    Options                             Results                           Cases
    list_1 = "hello"                    incorrect_variable_type             1

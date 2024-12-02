@@ -44,8 +44,8 @@ custom_print module can handle any type of variable.
 import os
 import enum
 import platform
-import csv          # pylist class
-import json         # pylist class
+import csv          # PyLO class
+import json         # PyLO class
 import readline     # to use input and not cause problem with pylint
 
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
@@ -3515,23 +3515,18 @@ class Pen(Cursor):                      # Inheritance the Cursor Class here.
 
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
-# Class PyList. Operation With List Personal                                                                                                        --
+# Class PyLO. Operation With List Personal                                                                                                        --
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
-class PyList():
+class PyLO():
     '''
-    PyList class helps to make some quit operations with list in python
+    PyLO class helps to make some quit operations with list in python
     '''
     class Str_List_Option():
         WORD_BY_WORD = "word_by_word"
         LINE_BY_LINE = "line_by_line"
         
         
-    class Length_Col():
-        MAX = "max"
-        MIN = "min"
-
-
     class Fill_Type(enum.StrEnum):
         STRING = "string"
         NUMBER = "number"
@@ -3552,25 +3547,25 @@ class PyList():
 
     def bool_to_list(self,data:bool, convert_to_str=False):
         '''  It sets a bool variable into list as a bool or as string type  '''
-        new_list = PyList._bifc_to_list(self, data, convert_to_str)
+        new_list = PyLO._bifc_to_list(self, data, convert_to_str)
         return new_list
 
 
     def int_to_list(self,data:int, convert_to_str=False):
         '''  It sets a int variable into list as an integer or as string type  '''
-        new_list = PyList._bifc_to_list(self, data, convert_to_str)
+        new_list = PyLO._bifc_to_list(self, data, convert_to_str)
         return new_list
 
 
     def float_to_list(self,data:float, convert_to_str=False):
         '''  It sets a float variable into list as a float or as string type  '''
-        new_list = PyList._bifc_to_list(self, data, convert_to_str)
+        new_list = PyLO._bifc_to_list(self, data, convert_to_str)
         return new_list
 
 
     def complex_to_list(self,data:complex, convert_to_str=False):
         '''  It sets a complex variable into a list as a complex or as string type   '''
-        new_list = PyList._bifc_to_list(self, data, convert_to_str)
+        new_list = PyLO._bifc_to_list(self, data, convert_to_str)
         return new_list
 
     #---------------------------------------------------------------------------------------------------------------------------------------------
@@ -3974,9 +3969,9 @@ class PyList():
         the new list into another variable.'''
 
         if direction == "r" or direction == Move.RIGHT:
-            tempo = PyList._right_shift(self, my_list=data, qty=qty, update=update)
+            tempo = PyLO._right_shift(self, my_list=data, qty=qty, update=update)
         elif direction == "l" or direction == Move.LEFT:
-            tempo = PyList._left_shift(self, my_list=data,  qty=qty, update=update)
+            tempo = PyLO._left_shift(self, my_list=data,  qty=qty, update=update)
         else:
             tempo = data
         return tempo
@@ -4083,19 +4078,24 @@ class PyList():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Get Dimensions of a List                                                                                                                       -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def dimensions(self, data:list=[], length_col:str=Length_Col.MAX)->list[int]:
+    def dimensions(self, data:list=[])->list[int]:
         '''
-        dimensions(self, data:list=[], length_col:str=Length_Col.MAX)->list[int]
+        dimensions(self, data:list=[])->list[int]
 
         This function return the number of rows and cols in a list.
         If the list is not square, then it will pick the longest col unless 
         otherwise specified in the length_col.
         '''
-        n_rows = 0; n_cols = 0
+        n_rows = 0
+        n_cols = 0
+        n_cols_max = 0
+        n_cols_min = 0
+        row_col_list = []
+        
         list_type = _get_list_type(data)
 
         if list_type == "incorrect_variable_type" or list_type == "empty_list":
-            return n_rows, n_cols
+            pass
         
         elif list_type == "one_item_no_row": # Done  ["dato"]
             n_cols = 1; n_rows = 1
@@ -4119,32 +4119,147 @@ class PyList():
             for r in data:
                 lengths.append(len(r))
             
-            if length_col.lower() == "max":
-                n_cols = max(lengths)
-            
-            elif length_col.lower() == "min":
-                n_cols = min(lengths)
-
-            else:
-                n_cols = 0
+            n_cols_max = max(lengths)
+            n_cols_min = min(lengths)
 
         else:
-            n_cols = 0; n_rows = 0
+            pass
         
-        row_col_list = []
-        row_col_list.append(["cols",n_cols])
-        row_col_list.append(["rows",n_rows])
+        
+        row_col_list.append(["All_rows",n_rows])
+        row_col_list.append(["max_cols",n_cols_max])
+        row_col_list.append(["min_cols",n_cols_min])
+
         return row_col_list
 
 
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Autofill Data. It Completes Data List to Make   it Rectangular List (Rows, Cols)                                                               -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
+    def autofill_data(self, data:list, fill_value:str="----", update:bool=False)->list:
+        '''
+        autofill_data(list, str/int/float, boolean)
+
+        This function will fill all the empty columns from the list.
+        fill_value is the chr to be used to fill those columns. It can be str,
+        int, float, or bool. By default it's a str type (----). '''
+
+        list_type = _get_list_type(data)
+        if list_type == "multiple_items_multiple_rows":
+            
+            n_rows_n_cols_list = PyLO.dimensions(self, data)
+            n_rows = n_rows_n_cols_list[0][1]
+            n_cols = n_rows_n_cols_list[1][1]
+
+            tempo = []; matrix_update = []
+
+            for row in range(n_rows):
+                for col in range(n_cols):
+                    try:
+                        tempo.append(data[row][col])
+                    except:
+                        tempo.append(fill_value)
+                    
+
+                matrix_update.append(tempo)
+                tempo = []
+                
+            if update == True:
+                data.clear()
+                [data.append(n) for n in matrix_update]
+            return matrix_update 
+        
+        else:
+            return data
 
 
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Transpose List (Converting The Rows Into Cols AND Cols Into Rows)                                                                              -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
+    def transpose(self, data:list, autofill=True, fill_value="----", update:bool=False)->list:
+        '''
+        transpose(data:list, autofill:bool, fill_value:int|float|str, update:bool)
+
+        update is used to replace original list with the transpose list.
+        update is set to False to keep the original list and save
+        the new list into another variable.
+
+        When the list is not square or rectangular, the list will be filled using 
+        the fill_value. If the autofill is set to False, some data will be lost. '''
+        
+        transpose_list = []
+        list_type = _get_list_type(data)
+        print(list_type)
+
+        if list_type == "incorrect_variable_type":  # [Not a List]  Done...! Case 0
+            pass #return "incorrect variable type"
+        
+        elif list_type == "empty_list":             # []  Done...! Case 1
+            pass #return "empty list"
+        
+        elif list_type == "multiple_items_one_row": # input: [[10,20,30]] output: [10,20,30] Done...! Case 5
+            for row in data:
+                for col in row:
+                    transpose_list.append(col)
+            #return transpose_list
+
+        elif list_type == "one_item_one_row":       # input: [[10]] output: [10] Done...! Case 4
+            transpose_list.append(data[0][0])
+            #return transpose_list
+        
+        elif list_type == "one_item_no_row":        # input :[10]  output: [[10]] Done...! Case 2
+            transpose_list = [[data[0]]]
+            #return transpose_list
+
+        elif list_type == "multiple_items_no_row":  # input: [10,20,30] output: [[10],[20],[30]] Done...! Case 3
+            for col in range(len(data)):               
+                transpose_list.append([data[col]])
+            #return transpose_list
+        
+        elif list_type == "mix_items": 
+            for n in data:
+                transpose_list.append([n])
+                #return transpose_list                # input: [5,[50],45] or [5,[50,40],45] or [[5],6,40,[45]] Case 9
+
+        else:   # input: [[1],[2],[3]] output: [[1,2,3]] Done...! Case 6
+                # input: [[1,2,3],[4,5,6],[7,8,9]] output: [[1,4,7],[2,5,8],[3,6,9]] Done...!  Case 7
+                # input: [[1,2,3],[4,5,6,6],[7,8,9,9]] output: [[1,4,7],[2,5,8],[3,6,9]] Done...! Case 8
+                # input: [[1,2,3],[4,5],[7,8,9]] output: Error_data_dimension Done...! Case 9
+                # note: the element 0 needs to be greater than the rest.
+
+            #--------------------------------------------------------------
+            if (autofill == True):
+                fill_list = PyLO.autofill_data(self, data=data, fill_value=fill_value)
+            else:
+                fill_list = data         
+            #--------------------------------------------------------------      
+
+            lengths = []
+            for l in fill_list:           # finding the smallest
+                lengths.append(len(l))    
+            
+            smaller = min(lengths)
+            
+            for item in fill_list:
+                if len(item) != smaller:
+                    break
+
+            for i in range(smaller): 
+                row =[]
+                for item in fill_list:
+                    # appending to new list with values and index positions
+                    # i contains index position and item contains values
+                    row.append(item[i])
+                transpose_list.append(row)
+
+        if update == False:
+            pass
+        else:
+            data.clear()
+            for n in transpose_list:
+                data.append(n)
+
+        return transpose_list
 
 
 

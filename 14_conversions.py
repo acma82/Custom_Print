@@ -15,7 +15,7 @@ fst.bg_top_lines = 1
 fst.bg_bottom_lines = 1
 fst.align = cp.Align.CENTER
 
-pylo = cp.PyList()
+pylo = cp.PyLO()
 #-------------------------------------------------------------------------------------------------------------------------------
 #cp.ins_newline(2)
 fst.print_style("  Working With Bool Type  ")

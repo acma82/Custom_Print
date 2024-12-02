@@ -1,5 +1,5 @@
 import custom_print as cp
-pylo = cp.PyList()
+pylo = cp.PyLO()
 
 msg = f'''
    Options                             Results                           Cases
