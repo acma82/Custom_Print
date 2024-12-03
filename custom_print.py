@@ -2,7 +2,7 @@
 custom_print module can handle any type of variable.
 '''
 
-
+#pylint: disable=bare-except
 #pylint: disable=invalid-name
 #pylint: disable=unused-import
 #pylint: disable=line-too-long
@@ -17,10 +17,15 @@ custom_print module can handle any type of variable.
 #pylint: disable=too-many-arguments
 #pylint: disable=too-many-statements
 #pylint: disable=multiple-statements
+#pylint: disable=consider-using-join
+#pylint: disable=unspecified-encoding
 #pylint: disable=unnecessary-negation
 #pylint: disable=singleton-comparison
 #pylint: disable=too-many-nested-blocks
+#pylint: disable=too-many-public-methods
+#pylint: disable=expression-not-assigned
 #pylint: disable=consider-using-enumerate
+#pylint: disable=unnecessary-comprehension
 #pylint: disable=too-many-return-statements
 #pylint: disable=unbalanced-tuple-unpacking
 #pylint: disable=consider-using-max-builtin
@@ -42,6 +47,7 @@ custom_print module can handle any type of variable.
 # Required Modules                                                                                                                                   -
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 import os
+import sys
 import enum
 import platform
 import csv          # PyLO class
@@ -3515,19 +3521,21 @@ class Pen(Cursor):                      # Inheritance the Cursor Class here.
 
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
-# Class PyLO. Operation With List Personal                                                                                                        --
+# Class PyLO. Operation With List Personal                                                                                                          --
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 class PyLO():
     '''
     PyLO class helps to make some quit operations with list in python
     '''
-    class Str_List_Option():
+    class Str_List_Option(enum.StrEnum):
+        '''  How the string is converted to list  '''
         WORD_BY_WORD = "word_by_word"
         LINE_BY_LINE = "line_by_line"
-        
-        
+
+
     class Fill_Type(enum.StrEnum):
+        '''  How to fill the empty cells when we are trying to sort a list  '''
         STRING = "string"
         NUMBER = "number"
 
@@ -3569,7 +3577,7 @@ class PyLO():
         return new_list
 
     #---------------------------------------------------------------------------------------------------------------------------------------------
-    def str_to_list(self,data:str, option="word_by_word", counter=False):
+    def str_to_list(self,data:str, option:Str_List_Option=Str_List_Option.WORD_BY_WORD, counter=False):
         '''  It sets a string variable into a list as word by word or line by line  '''
         if option == "word_by_word" and counter == False:
             tempo_list = data.split()
@@ -3615,12 +3623,12 @@ class PyLO():
 
         my_key_list  = list(data.keys())
         my_data_list = list(data.values())
-        
+
         complete_list = [];  tempo_list = []
         if (key_title == "key") and (value_title == "value"):
             if (len(my_key_list)) > 1:   complete_list.append(["Keys","Values"])
             else:                        complete_list.append(["Key","Value"])
-        
+
         elif (key_title == None or value_title == None or \
                 key_title.lower() == "none" or value_title.lower() == "none"):
             pass
@@ -3629,7 +3637,7 @@ class PyLO():
             complete_list.append([key_title,value_title])
 
         for d in range(len(data)):
-            if (convert_to_str == True):
+            if convert_to_str == True:
                 tempo_list.append(str(my_key_list[d]))
                 tempo_list.append(str(my_data_list[d]))
                 complete_list.append(tempo_list)
@@ -3639,7 +3647,7 @@ class PyLO():
                 tempo_list.append(my_data_list[d])
                 complete_list.append(tempo_list)
                 tempo_list = []
-        
+
         return complete_list
 
 
@@ -3655,7 +3663,7 @@ class PyLO():
                 if len(data) > 1:
                     if layout == "vertical": tempo_list.append([header + " Values"])
                     else:                    tempo_list.append(header  + " Values")
-                
+
                 else:
                     if layout == "vertical": tempo_list.append([header + " Value"])
                     else:                    tempo_list.append(header  + " Value")
@@ -3665,20 +3673,20 @@ class PyLO():
             else:
                 if layout == "vertical":  tempo_list.append([header_title])
                 else:                     tempo_list.append(header_title)
-            
+
         #for n in data:
         if (layout.lower() == "v" or layout == Layout.VERTICAL):
             range_to_list_get_header("vertical")
             for n in data:
                 if convert_to_str == False:  tempo_list.append([n])
                 else:                        tempo_list.append([str(n)])
-            
+
         elif (layout.lower() == "h" or layout == Layout.HORIZONTAL):
             range_to_list_get_header("horizontal")
             for n in data:
                 if convert_to_str == False:  tempo_list.append(n)
                 else:                        tempo_list.append(str(n))
-                
+
         else: pass
 
         return tempo_list
@@ -3700,7 +3708,7 @@ class PyLO():
                 if len(data) > 1:
                     if layout == "vertical": tempo_list.append([header + " Values"])
                     else:                    tempo_list.append(header  + " Values")
-                
+
                 else:
                     if layout == "vertical": tempo_list.append([header + " Value"])
                     else:                    tempo_list.append(header  + " Value")
@@ -3727,7 +3735,7 @@ class PyLO():
                 if convert_to_str == False:  tempo_list.append(d)
                 else:                        tempo_list.append(str(d))
 
-        #---------------------------------------------------------------------------------- 
+        #----------------------------------------------------------------------------------
         if (layout.lower() == "v"   or layout.lower() == Layout.VERTICAL):
             _set_to_list_layout_vertical()
 
@@ -3735,9 +3743,9 @@ class PyLO():
             _set_to_list_layout_horizontal()
 
         else: pass
-    
+
         return tempo_list
-    
+
 
 
     #---------------------------------------------------------------------------------------------------------------------------------------------
@@ -3745,11 +3753,11 @@ class PyLO():
         '''  This function converts a tuple into a list keeping its original values '''
         tempo_list = []
         #-----------------------------------------------------------------------------------------------
-        if (len(data) == 0):
-            return tempo_list                
+        if len(data) == 0:
+            return tempo_list
 
         #-----------------------------------------------------------------------------------------------
-        elif (len(data) == 1):          
+        elif len(data) == 1:
                                         # string              ("")         -> Case 0   String
                                         # "empty_tuple"       ("",)        -> Case 1   Empty
             tempo_list.append(data[0])  # "one_item_no_row"   ("Apple",)   -> Case 2   Tuple
@@ -3762,16 +3770,16 @@ class PyLO():
             l = len(data); tuple_tuple = 0; tuple_other = 0
 
             for n in range(len(data)):
-                if (isinstance(data[n], tuple)):
-                    tuple_tuple = 1            
+                if isinstance(data[n], tuple):
+                    tuple_tuple = 1
                     type_type.append("tuple")
                     lengths.append(len(data[n]))
-                
+
                 else:
                     tuple_other = 1
                     type_type.append("other")
                     lengths.append(1)
-            
+
             # This is only for tuples inside the tuple ->
             # tupleData = (("hello","hello"),("hell",),("hi","bye","good"),([1,2],))        -> Case 4
             if (tuple_tuple == 1 and tuple_other == 0):
@@ -3782,14 +3790,13 @@ class PyLO():
                         tempo_list.append(tempo)
                         tempo = []
 
-            # This is only for other types inside a tuple 
+            # This is only for other types inside a tuple
             # tupleData = ("hello","hell","hi",[1,2])                                       -> Case 5
             elif (tuple_tuple == 0 and tuple_other == 1):
                 for n in data:
                     tempo_list.append(n)     # for rows (Horizontal)
                     #tempo_list.append([n])  # for cols (Vertical)
-                
-            
+
 
             # This is for combination tuple (tuple =1 and other = 1)                        -> Case 6
             # tupleData = (("hello","hello"),("hell",),("hi","bye","good"),[1,2], "hello")
@@ -3802,7 +3809,7 @@ class PyLO():
                         tempo_list.append(tempo)
 
                     else:
-                        if (type_type[n] == "other"):
+                        if type_type[n] == "other":
                             tempo_list.append([data[n]])
                         else:
                             tempo_list.append([data[n][0]])
@@ -3815,10 +3822,10 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Shift An Element Inside A List, RIGHT or LEFT                                                                                                  -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def _right_shift(self,my_list:list=[], qty:int=0, update:bool=False)->list:
+    def _right_shift(self,my_list:list, qty:int=0, update:bool=False)->list:
         '''
         This function shift the elements in a list to the right.
-       
+
         update is used to save the actual list with the shift elements.
         update is set to False is we wish to keep the original list and save
         the new list into another variable.
@@ -3831,11 +3838,11 @@ class PyLO():
         # list_type = empty_list: []
         elif list_type == "empty_list":
             return my_list
-        
+
         # list_type = one_item_no_row: ["one"]
         elif list_type == "one_item_no_row":
             return my_list
-        
+
         # list_type = one_item_one_row: [["one"]]
         elif list_type == "one_item_one_row":
             return my_list
@@ -3845,7 +3852,7 @@ class PyLO():
         # list_type == "mix_items"                      [10,[50],[250],["H"],100]
         elif list_type == "multiple_items_no_row" or list_type == "mix_items"\
             or list_type == "multiple_items_multiple_rows":
-            
+
             result = []; result = my_list; tempo = []
 
             length = len(result)-1
@@ -3858,11 +3865,11 @@ class PyLO():
 
             if update == True:
                 my_list.clear()
-                [my_list.append(n) for n in result]
+                for n in result: my_list.append(n)
                 return my_list
             else:
                 return result
-        
+
         # list_type = multiple_items_one_row: [[1,2,3,4]]
         elif list_type == "multiple_items_one_row":
             tempo = []; result = []; result = my_list[0]; length = len(result)-1
@@ -3875,20 +3882,20 @@ class PyLO():
                 tempo = []
 
             if update == True:
-                my_list.clear()         
-                [tempo.append(n) for n in result]
+                my_list.clear()
+                for n in result: tempo.append(n)
                 my_list.append(tempo)
                 return my_list
-            
+
             else:
                 return [result]
-        
+
         # A different case will just return the same list
         else:
-            return my_list 
+            return my_list
 
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def _left_shift(self, my_list:list=[], qty=0, update:bool=False)->list:
+    def _left_shift(self, my_list:list, qty=0, update:bool=False)->list:
         '''
         This function shift the elements in a list to the left.
 
@@ -3905,11 +3912,11 @@ class PyLO():
         # list_type = empty_list: []
         elif list_type == "empty_list":
             return my_list
-        
+
         # list_type = one_item_no_row: ["one"]
         elif list_type == "one_item_no_row":
             return my_list
-        
+
         # list_type = one_item_one_row: [["one"]]
         elif list_type == "one_item_one_row":
             return my_list
@@ -3919,7 +3926,7 @@ class PyLO():
         # list_type == "mix_items"                      [10,[50],[250],["H"],100]
         elif list_type == "multiple_items_no_row" or list_type == "mix_items"\
             or list_type == "multiple_items_multiple_rows":
-            
+
             result = []; result = my_list; tempo = []; length = len(result)-2
             for rot in range(qty):
                 tempo.append(result[1])
@@ -3931,7 +3938,7 @@ class PyLO():
                 tempo = []
             if update == 1:
                 my_list.clear()
-                [my_list.append(n) for n in result]
+                for n in result: my_list.append(n)
                 return my_list
             else:
                 return result
@@ -3949,8 +3956,8 @@ class PyLO():
                 tempo = []
 
             if update == 1:
-                my_list.clear()            
-                [tempo.append(n) for n in result]
+                my_list.clear()
+                for n in result: tempo.append(n)
                 my_list.append(tempo)
                 return my_list
             else:
@@ -3958,9 +3965,9 @@ class PyLO():
 
         # A different case will just return the same list
         else:
-            return my_list  
-    
-    def shift(self, data:list=[], direction=Move.RIGHT, qty=0, update:bool=False)->list:
+            return my_list
+
+    def shift(self, data:list, direction=Move.RIGHT, qty=0, update:bool=False)->list:
         '''
         This function shift the elements in a list to the left or right.
 
@@ -3980,12 +3987,12 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Swap Two Items Into A List                                                                                                                     -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def swap(self, my_list:list=[], pos1=0, pos2=0, update:bool=False)->list:
+    def swap(self, my_list:list, pos1=0, pos2=0, update:bool=False)->list:
         '''
         This function swap two elements in a list.
 
         update is used to save the actual list with the swap elements.
-        
+
         If update is set to False, then we keep the original list and save
         the new list into another variable.
 
@@ -3995,10 +4002,10 @@ class PyLO():
         Note: If one of the position provided is out of range, the function
               will return the list as original and it will print a message
               out of range.'''
-        
+
         if pos1 == pos2:
             return my_list
-        
+
         else:
             list_type = _get_list_type(my_list)
 
@@ -4009,11 +4016,11 @@ class PyLO():
             # list_type = empty_list: []
             elif list_type == "empty_list":
                 return my_list
-            
+
             # list_type = one_item_no_row: ["one"]
             elif list_type == "one_item_no_row":
                 return my_list
-            
+
             # list_type = one_item_one_row: [["one"]]
             elif list_type == "one_item_one_row":
                 return my_list
@@ -4025,13 +4032,13 @@ class PyLO():
                 or list_type == "multiple_items_multiple_rows":
                 result = []; length = len(my_list) - 1
 
-                if (length < pos1):
+                if length < pos1:
                     print(f" pos1 = {pos1} is out of range...! ")
                     return my_list
-                if (length < pos2):
+                if length < pos2:
                     print(f" pos2 = {pos2} is out of range...! ")
                     return my_list
-                
+
                 for n in range(len(my_list)):
                     if n == pos1:
                         result.append(my_list[pos2])
@@ -4039,24 +4046,24 @@ class PyLO():
                         result.append(my_list[pos1])
                     else:
                         result.append(my_list[n])
-                
+
                 if update == 1:
                     my_list.clear()
-                    [my_list.append(n) for n in result]         
+                    [my_list.append(n) for n in result]
                     return my_list
                 else:
                     return result
-                    
+
             # list_type = multiple_items_one_row: [[1,2,3,4]]
             elif list_type == "multiple_items_one_row":
                 result = []; length = len(my_list[0]) - 1
-                if (length < pos1):
+                if length < pos1:
                     print(f" pos1 = {pos1} is out of range...! ")
                     return my_list
-                if (length < pos2):
+                if length < pos2:
                     print(f" pos2 = {pos2} is out of range...! ")
                     return my_list
-                
+
                 for n in range(len(my_list[0])):
                     if n == pos1:
                         result.append(my_list[0][pos2])
@@ -4067,7 +4074,7 @@ class PyLO():
 
                 if update == 1:
                     my_list.clear()
-                    [my_list.append(n) for n in result]         
+                    [my_list.append(n) for n in result]
                     return [my_list]
                 else:
                     return result
@@ -4078,7 +4085,7 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Get Dimensions of a List                                                                                                                       -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def dimensions(self, data:list=[])->list[int]:
+    def dimensions(self, data:list)->list[int]:
         '''
         dimensions(self, data:list=[])->list[int]
 
@@ -4091,12 +4098,12 @@ class PyLO():
         n_cols_max = 0
         n_cols_min = 0
         row_col_list = []
-        
+
         list_type = _get_list_type(data)
 
         if list_type == "incorrect_variable_type" or list_type == "empty_list":
             pass
-        
+
         elif list_type == "one_item_no_row": # Done  ["dato"]
             n_cols = 1; n_rows = 1
 
@@ -4110,22 +4117,21 @@ class PyLO():
         elif list_type == "multiple_items_one_row": # Done [["Hello","bye","good"]]
             n_rows = 1
             for n in data[0]:
-                n_cols += 1  
-        
+                n_cols += 1
+
         # Done [["Hello"],["bye"],["good"]] or [["Hello","mio"],["bye"],["good","hh"]]
         elif list_type == "multiple_items_multiple_rows":
             n_rows = len(data); n_cols = 0; lengths = []
-            
+
             for r in data:
                 lengths.append(len(r))
-            
+
             n_cols_max = max(lengths)
             n_cols_min = min(lengths)
 
         else:
             pass
-        
-        
+
         row_col_list.append(["All_rows",n_rows])
         row_col_list.append(["max_cols",n_cols_max])
         row_col_list.append(["min_cols",n_cols_min])
@@ -4146,7 +4152,7 @@ class PyLO():
 
         list_type = _get_list_type(data)
         if list_type == "multiple_items_multiple_rows":
-            
+
             n_rows_n_cols_list = PyLO.dimensions(self, data)
             n_rows = n_rows_n_cols_list[0][1]
             n_cols = n_rows_n_cols_list[1][1]
@@ -4159,16 +4165,15 @@ class PyLO():
                         tempo.append(data[row][col])
                     except:
                         tempo.append(fill_value)
-                    
 
                 matrix_update.append(tempo)
                 tempo = []
-                
+
             if update == True:
                 data.clear()
                 [data.append(n) for n in matrix_update]
-            return matrix_update 
-        
+            return matrix_update
+
         else:
             return data
 
@@ -4184,19 +4189,19 @@ class PyLO():
         update is set to False to keep the original list and save
         the new list into another variable.
 
-        When the list is not square or rectangular, the list will be filled using 
+        When the list is not square or rectangular, the list will be filled using
         the fill_value. If the autofill is set to False, some data will be lost. '''
-        
+
         transpose_list = []
         list_type = _get_list_type(data)
         print(list_type)
 
         if list_type == "incorrect_variable_type":  # [Not a List]  Done...! Case 0
             pass #return "incorrect variable type"
-        
+
         elif list_type == "empty_list":             # []  Done...! Case 1
             pass #return "empty list"
-        
+
         elif list_type == "multiple_items_one_row": # input: [[10,20,30]] output: [10,20,30] Done...! Case 5
             for row in data:
                 for col in row:
@@ -4206,17 +4211,17 @@ class PyLO():
         elif list_type == "one_item_one_row":       # input: [[10]] output: [10] Done...! Case 4
             transpose_list.append(data[0][0])
             #return transpose_list
-        
+
         elif list_type == "one_item_no_row":        # input :[10]  output: [[10]] Done...! Case 2
             transpose_list = [[data[0]]]
             #return transpose_list
 
         elif list_type == "multiple_items_no_row":  # input: [10,20,30] output: [[10],[20],[30]] Done...! Case 3
-            for col in range(len(data)):               
+            for col in range(len(data)):
                 transpose_list.append([data[col]])
             #return transpose_list
-        
-        elif list_type == "mix_items": 
+
+        elif list_type == "mix_items":
             for n in data:
                 transpose_list.append([n])
                 #return transpose_list                # input: [5,[50],45] or [5,[50,40],45] or [[5],6,40,[45]] Case 9
@@ -4228,23 +4233,23 @@ class PyLO():
                 # note: the element 0 needs to be greater than the rest.
 
             #--------------------------------------------------------------
-            if (autofill == True):
+            if autofill == True:
                 fill_list = PyLO.autofill_data(self, data=data, fill_value=fill_value)
             else:
-                fill_list = data         
-            #--------------------------------------------------------------      
+                fill_list = data
+            #--------------------------------------------------------------
 
             lengths = []
             for l in fill_list:           # finding the smallest
-                lengths.append(len(l))    
-            
+                lengths.append(len(l))
+
             smaller = min(lengths)
-            
+
             for item in fill_list:
                 if len(item) != smaller:
                     break
 
-            for i in range(smaller): 
+            for i in range(smaller):
                 row =[]
                 for item in fill_list:
                     # appending to new list with values and index positions
@@ -4262,9 +4267,441 @@ class PyLO():
         return transpose_list
 
 
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    # Convert a List From Any Type to String                                                                                                         -
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    def num_to_str(self, data:list, fill_value="----", update:bool=False)->list:
+
+        '''  Converts elements of a list type to string type  '''
+
+        tempo = []; str_list = []
+        list_type = _get_list_type(data)
+
+        if list_type == "incorrect_variable_type":  pass
+
+        elif list_type == "empty_list":             pass
+
+        elif list_type == "one_item_no_row": # Done  ["dato"]
+            str_list.append(str(data[0]))
+            if update == True:
+                data.clear()
+                data.append(str_list[0])
+
+        elif list_type == "one_item_one_row": # Done [["dato"]]
+            str_list.append([str(data[0][0])])
+            if update == True:
+                data.clear()
+                data.append([str_list[0][0]])
+
+        elif list_type == "multiple_items_no_row": # Done ["Hello","bye","good"]
+            [str_list.append(str(n)) for n in data]
+            if update == True:
+                data.clear()
+                [data.append(n) for n in str_list]
+
+        elif list_type == "multiple_items_one_row": # Done [["Hello","bye","good"]]
+            tempo = []
+            [tempo.append(str(data[0][n])) for n in range(len(data[0]))]
+            str_list.append(tempo)
+            if update == True:
+                data.clear()
+                [data.append(n) for n in str_list]
+
+        # Done [["Hello"],["bye"],["good"]] or [["Hello","mio"],["bye"],["good","hh"]]
+        elif list_type == "multiple_items_multiple_rows":
+            n_rows = len(data)
+            n_cols = 0
+            # getting the longest number of columns in the list
+            for n in data:
+                if len(n) > n_cols:
+                    n_cols = len(n)
+
+            # filling the empty spots
+            for row in range(n_rows):
+                for col in range(n_cols):
+                    try:
+                        tempo.append(str(data[row][col]))
+                    except:
+                        tempo.append(str(fill_value))
+                str_list.append(tempo)
+                tempo = []
+
+            if update == True:
+                data.clear()
+                [data.append(n) for n in str_list]
+            else: pass
+
+        else:   # list_type == "mix_items"
+            for n in data:
+                str_list.append(str(n))
+
+            if update == True:
+                data.clear()
+                [data.append(n) for n in str_list]
+
+        return str_list
+
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    # Convert a List From String to Number                                                                                                           -
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    def str_to_num(self, data:list, fill_value=0, update:bool=False)->list:
+
+        '''  Converts elements of a list type to number type  '''
+
+        def _get_number(x):
+            try:
+                numb = int(x)
+                return numb                 # the number is integer or a string integer
+            except:
+                try:
+                    numb = float(x)
+                    return numb             # the number is float or a string float
+                except:
+                    try:
+                        numb = complex(x)    # the number is complex or a string complex
+                        return numb
+                    except:
+                        return "no_number_type"
+
+        def _conver2number(n):
+            numb = _get_number(n)
+            if numb != "no_number_type":
+                pass
+            else:
+                numb = _get_number(fill_value)
+                if numb != "no_number_type":
+                    pass
+                else:
+                    numb = 0
+
+            return numb
+
+
+        tempo = []; num_list = []
+        list_type = _get_list_type(data)
+
+        if list_type == "incorrect_variable_type":  pass
+
+        elif list_type == "empty_list":             pass
+
+        elif list_type == "one_item_no_row": # Done  ["dato"]
+            num_list.append(_conver2number(data[0]))
+            if update == True:
+                data.clear()
+                data.append(num_list[0])
+
+        elif list_type == "one_item_one_row": # Done [["dato"]]
+            num_list.append([_conver2number(data[0][0])])
+            if update == True:
+                data.clear()
+                data.append([num_list[0][0]])
+
+        elif list_type == "multiple_items_no_row": # Done ["Hello","bye","good"]
+            [num_list.append(_conver2number(n)) for n in data]
+            if update == True:
+                data.clear()
+                [data.append(n) for n in num_list]
+
+        elif list_type == "multiple_items_one_row": # Done [["Hello","bye","good"]]
+            tempo = []
+            [tempo.append(_conver2number(data[0][n])) for n in range(len(data[0]))]
+            num_list.append(tempo)
+            if update == True:
+                data.clear()
+                [data.append(n) for n in num_list]
+
+        # Done [["Hello"],["bye"],["good"]] or [["Hello","mio"],["bye"],["good","hh"]]
+        elif list_type == "multiple_items_multiple_rows":
+            n_rows = len(data)
+            n_cols = 0
+            # getting the longest number of columns in the list
+            for n in data:
+                if len(n) > n_cols:
+                    n_cols = len(n)
+
+            # filling the empty spots
+            for row in range(n_rows):
+                for col in range(n_cols):
+                    try:
+                        tempo.append(_conver2number(data[row][col]))
+                    except:
+                        tempo.append(_conver2number(fill_value))
+                num_list.append(tempo)
+                tempo = []
+
+            if update == True:
+                data.clear()
+                [data.append(n) for n in num_list]
+            else: pass
+
+        else:
+            for n in data:
+                num_list.append(_conver2number(n))
+
+            if update == True:
+                data.clear()
+                [data.append(n) for n in num_list]
+
+        return num_list
+
+
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    # Sort a List by Column                                                                                                                          -
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    def sort_by_col(self, data:list, ref_col=0, fill_value="----", fill_type:Fill_Type=Fill_Type.STRING, reverse_order:bool=False, update:bool=False)->list:
+
+        '''  Sort a list by col. It won't sort the first row because it is consider the Header of the list '''
+
+        def _get_order_only_horizontal(in_list):
+            tempo_list = []
+            #print("starting: ", in_list)
+            if fill_type.lower()   == "string":  [tempo_list.append(str(n)) for n in in_list]
+            elif fill_type.lower() == "number":  tempo_list = PyLO.str_to_num(self, data=in_list, fill_value=fill_value, update=False)
+            else:                           [tempo_list.append(str(n)) for n in in_list]
+
+            sorted_list = sorted(tempo_list)
+            if reverse_order == False:
+                pass
+            elif reverse_order == True:
+                list.reverse(sorted_list)
+            #print("result: ",sorted_list)
+            return sorted_list
+
+        list_type = _get_list_type(data)
+
+        if list_type == "incorrect_variable_type":
+            return []
+
+        elif list_type == "empty_list":
+            return []
+
+        elif list_type == "one_item_no_row": # Done  ["dato"]
+            return data
+
+        elif list_type == "one_item_one_row": # Done [["dato"]]
+            return data
+
+        elif list_type == "multiple_items_no_row": # multiple_items_no_row -> ["Hello","bye","good"]
+            sorted_list = _get_order_only_horizontal(data)
+
+            if update == True:
+                data.clear()
+                [data.append(n) for n in sorted_list]
+            return sorted_list
+
+        elif list_type == "multiple_items_one_row": # Done [["Hello","bye","good"]]
+            tempo = []
+            [tempo.append(n) for n in data[0]]
+            sorted_list = _get_order_only_horizontal(tempo)
+
+            if update == True:
+                data.clear()
+                [data.append(n) for n in sorted_list]
+
+            return [sorted_list]
+
+            # Done [["Hello"],["bye"],["good"]] or [["Hello","mio"],["bye"],["good","hh"]]
+        elif list_type == "multiple_items_multiple_rows":
+            complete_list = PyLO.autofill_data(self, data=data, fill_value=fill_value, update=False)
+            n_rows_n_cols_list = PyLO.dimensions(self, complete_list)
+            n_rows = n_rows_n_cols_list[0][1]
+            n_cols = n_rows_n_cols_list[1][1]
+
+            if ref_col >= n_cols:
+                print()
+                print(" ref_col out of range...! ")
+                print()
+                return data
+
+            else:
+                if fill_type == "string":
+                    new_list = PyLO.num_to_str(self, data=complete_list, update=False)
+                    sorted_list = [new_list[0]] + sorted(new_list[1:], key=lambda x: x[ref_col])
+                    if reverse_order == False:
+                        pass
+                    else:
+                        header_row = sorted_list.pop(0)
+                        list.reverse(sorted_list)
+                        sorted_list.insert(0,header_row)
+
+                    #sorted_list = [my_list[0]] + sorted(complete_list[1:], key=lambda x: str(x[ref_col]))
+                elif fill_type == "number":
+                    header_row = complete_list.pop(0)
+                    new_list = PyLO.str_to_num(self, data=complete_list, update=False)
+                    new_list.insert(0,header_row)
+                    sorted_list = [new_list[0]] + sorted(new_list[1:], key=lambda x: x[ref_col])
+                    if reverse_order == False:
+                        pass
+                    else:
+                        header_row = sorted_list.pop(0)
+                        list.reverse(sorted_list)
+                        sorted_list.insert(0,header_row)
+
+                else:
+                    new_list = PyLO.num_to_str(self, data=data, update=False)
+                    sorted_list = [new_list[0]] + sorted(complete_list[1:], key=lambda x: x[ref_col])
+
+
+                if update == True:
+                    data.clear()
+                    [data.append(n) for n in sorted_list]
+
+                return sorted_list
+
+        else:
+            print()
+            print(msg=" Not supported between instances of int and list ")
+            print()
+            return data
+
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    # Enumerate a List                                                                                                                               -
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    def enumarate_list(self, data:list, start_number=0, id_txt="Id")->list:
+
+        '''  Enumerate a list by adding a column to the left side  '''
+
+        result = []
+        list_type = _get_list_type(data)
+
+        if list_type == "multiple_items_multiple_rows":
+            tempo = []
+            header = data.pop(0)
+            header.insert(0,id_txt)
+            for row in data:
+                tempo = row
+                tempo.insert(0,start_number)
+                start_number += 1
+                result.append(tempo)
+                tempo = []
+            result.insert(0,header)
+        else:
+            result = data
+        return result
+
+
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    # Write a CSV File                                                                                                                               -
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    def write_csv_file(self, data:list, file_path:str="CSV_List")->str:
+
+        '''  It writes a list into a CSV file  '''
+
+        current_path = os.getcwd()
+        ext = ""
+        for l in file_path[-4:]:
+            ext += l
+
+        if ext == ".csv": file_name = file_path
+        else:             file_name = file_path + ".csv"
+
+        list_type = _get_list_type(data)
+
+        #with open(file_path + ".csv", "w", newline="") as file:
+        with open(file_name, "w", newline="") as file:
+            writer = csv.writer(file)
+            if (list_type == "one_item_one_row" or list_type == "multiple_items_one_row" or\
+                list_type == "multiple_items_multiple_rows"):
+                for row in range(len(data)):
+                    writer.writerow([col for col in data[row]])
+            else:
+                writer.writerow([col for col in data])
+
+        if "/" in file_name: file = file_name
+        else:                  file = current_path+"/"+file_name
+
+        return file
+
+
+
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    # Read a CSV File                                                                                                                                -
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    def read_csv_file(self, file_path:str="CSV_List")->list:
+
+        '''  It reads a CSV file and returns a list of the contains of the file '''
+
+        rows = []; ext = ""
+        for l in file_path[-4:]:
+            ext += l
+
+        if ext == ".csv": file_name = file_path
+        else:             file_name = file_path + ".csv"
+
+        #with open(file_path + ".csv", "r", newline="") as file:
+        try:
+            with open(file_name, "r", newline="") as file:
+                reader = csv.reader(file)
+                for row in reader:
+                    rows.append(row)
+        except:
+            rows = ["No Data or Not File"]
+
+        list_type = _get_list_type(rows)
+        csv_list = []
+        if (list_type == "one_item_one_row" or list_type == "multiple_items_one_row"):
+            for n in rows:
+                for m in n:
+                    csv_list.append(m)
+        else:
+            csv_list = rows
+        return csv_list
+
+
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    # Write a List into JSON File                                                                                                                    -
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    def write_json_file(self, data:list, file_path:str="JSON_List")->str:
+
+        '''  It writes a list into a json file  '''
+
+        current_path = os.getcwd()
+        ext = ""
+        for l in file_path[-5:]:
+            ext += l
+
+        if ext == ".json": file_name = file_path
+        else:             file_name = file_path + ".json"
+
+        with open(file_name, "w") as data_file:
+            json.dump(data, data_file, indent=4)
+
+        if "/" in file_name: file = file_name
+        else:                  file = current_path+"/"+file_name
+
+        return file
+
+
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    # Read a JSON File and Return it as a List                                                                                                       -
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    def read_json_file(self, file_path:str="JSON_List")->list:
+
+        '''  It reads a json file and returns a list of the contains of the file  '''
+
+        ext = ""
+        for l in file_path[-5:]:
+            ext += l
+
+        if ext == ".json": file_name = file_path
+        else:             file_name = file_path + ".json"
+
+        try:
+            with open(file_name, "r") as data_file:
+                data = json.load(data_file)
+        except:
+            data = ["No Data or Not File"]
+
+        return data
+
 
 # Planning to use this script as help of the Module custom_print.
 if __name__ == "__main__":
     print("Working on The Documentation Here")
-    #fg_ansi_colors(bold=True, bg=-1, n_line=1)
-    #bg_ansi_colors(bold=True, fg=0, n_line=1)
+    cmdl_argv = []
+    for argv in sys.argv:
+        cmdl_argv.append(argv.lower())
+
+    tbl = FancyFormat()
+    tbl.print_fancy_format(cmdl_argv)
+

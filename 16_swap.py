@@ -17,14 +17,14 @@ print(msg)
 print(f"{cp.ins_chr(n=80, unicode="-")}")
 print(f"{cp.set_font(1,23,231)}    Swap Items in a List    {cp.reset_font()}")
 lst = [[1,2],[3,4],[5,6],[7,8]]
-print("original: ", lst,end=""); print("   update=False, pos1=0, pos2=2")
+print("original: ", lst,end=""); print("   update=False,  pos1=0, pos2=2")
 newlist = pylo.swap(my_list=lst, update= False, pos1= 0, pos2=2)
 print("swaped_l: ",newlist)
 print("original: ", lst)
 
 print(f"{cp.ins_chr(n=80, unicode="-")}")
 
-print("original: ", lst,end=""); print("   update=true, pos1=3, pos2=0")
+print("original: ", lst,end=""); print(f"   {cp.set_font(1,1,231)} update=True, {cp.reset_font()} pos1=3, pos2=0")
 newlist = pylo.swap(my_list=lst, update=True, pos1=3, pos2=0)
 print("swaped_l: ",newlist)
 print("original: ", lst)

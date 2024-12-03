@@ -21,14 +21,14 @@ print(f"{cp.set_font(1,23,231)}    Shift Item in a List    {cp.reset_font()}")
 print(f"{cp.ins_chr(n=80, unicode="-")}")
 cp.ins_newline(2)
 #---------------------------------------------------------------------------
-print("original_list:  ", list_1, end=""); print("   right_shift 2, update=False")
+print("original_list:  ", list_1, end=""); print(f"   right_shift 2, {cp.set_font(1,21,231)} update=False {cp.reset_font()}")
 newlist = lst.shift(list_1, "r", 2, False)
 print("shifted _list:  ",newlist)
 print("original_list:  ", list_1)
 
 print(f"{cp.ins_chr(n=80, unicode="-")}")
 
-print("original_list:  ", list_1,end=""); print("   right_shift 2, update=True")
+print("original_list:  ", list_1,end=""); print(f"   right_shift 2, {cp.set_font(1,1,231)} update=True {cp.reset_font()}")
 newlist = lst.shift(data=list_1, direction=cp.Move.RIGHT, qty= 2, update= True)
 print("shifted _list:  ",newlist)
 print("original_list:  ", list_1)
@@ -39,14 +39,14 @@ cp.ins_newline(2)
 # Left Shift List
 list_1 = [[1,2,3,4,5,6]]
 #---------------------------------------------------------------------------
-print("original_list:  ", list_1, end=""); print("   left_shift 2, update=False")
+print("original_list:  ", list_1, end=""); print(f"   left_shift 2, {cp.set_font(1,21,231)} update=False {cp.reset_font()}")
 newlist = lst.shift(list_1, "l", 2, False)
 print("shifted _list:  ",newlist)
 print("original_list:  ", list_1)
 
 print(f"{cp.ins_chr(n=80, unicode="-")}")
 
-print("original_list:  ", list_1,end=""); print("   left_shift 2, update=True")
+print("original_list:  ", list_1,end=""); print(f"   left_shift 2, {cp.set_font(1,1,231)} update=True {cp.reset_font()}")
 newlist = lst.shift(data=list_1, direction=cp.Move.LEFT, qty= 2, update= True)
 print("shifted _list:  ",newlist)
 print("original_list:  ", list_1)
