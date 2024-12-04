@@ -46,7 +46,7 @@ print(f"Case 5 \u279C {lst_dimension}")
 
 
 print(f"{cp.ins_chr(n=80, unicode="-")}")
-list_1 = [[1,2],[3,4],[5,6,7]]
+list_1 = [[1,2],[3,4],[5,6]]
 lst_dimension = pylo.dimensions(data=list_1)
 print(f"Case 6 Max \u279C {lst_dimension}")
 
@@ -57,9 +57,11 @@ print(f"Case 6 Min \u279C {lst_dimension}")
 
 
 print(f"{cp.ins_chr(n=80, unicode="-")}")
-list_1 = [10,[50],[250],["H"],100]
+list_1 = [[10],[50],[250],["H"],100]
+print(len(list_1))
 lst_dimension = pylo.dimensions(data=list_1)
 print(f"Case 7 \u279C {lst_dimension}")
+
 
 print(f"{cp.ins_chr(n=80, unicode="-")}")
 

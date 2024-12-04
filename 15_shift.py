@@ -1,5 +1,6 @@
 import custom_print as cp
 
+'''  It shift a specific item from the a list  '''
 lst = cp.PyLO()
 msg = f'''
    Options                             Results                           Cases

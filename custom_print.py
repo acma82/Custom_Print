@@ -4105,19 +4105,29 @@ class PyLO():
             pass
 
         elif list_type == "one_item_no_row": # Done  ["dato"]
-            n_cols = 1; n_rows = 1
+            n_rows = 1
+            n_cols_max = 1
+            n_cols_min = 1
 
         elif list_type == "one_item_one_row": # Done [["dato"]]
-            n_cols = 1; n_rows = 1
+            n_rows = 1
+            n_cols_max = 1
+            n_cols_min = 1
 
         elif list_type == "multiple_items_no_row": # Done ["Hello","bye","good"]
             n_rows = 1
-            n_cols = sum(1 for num in data)
+            for num in range(len(data)):
+                n_cols += 1
+            n_cols_max = n_cols
+            n_cols_min = n_cols
 
         elif list_type == "multiple_items_one_row": # Done [["Hello","bye","good"]]
             n_rows = 1
             for n in data[0]:
                 n_cols += 1
+            n_cols_max = n_cols
+            n_cols_min = n_cols
+            
 
         # Done [["Hello"],["bye"],["good"]] or [["Hello","mio"],["bye"],["good","hh"]]
         elif list_type == "multiple_items_multiple_rows":
@@ -4129,8 +4139,10 @@ class PyLO():
             n_cols_max = max(lengths)
             n_cols_min = min(lengths)
 
-        else:
-            pass
+        else:       # "mix_items"
+            n_rows = 1
+            n_cols_max = len(data)
+            n_cols_min = len(data)
 
         row_col_list.append(["All_rows",n_rows])
         row_col_list.append(["max_cols",n_cols_max])
@@ -4554,29 +4566,114 @@ class PyLO():
             print()
             return data
 
+
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    # Delete Column in a List                                                                                                                        -
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    def delete_col(self, data:list, col_ref:int=0, update:bool=False)->list:
+        n_rows_n_cols_list = PyLO.dimensions(self, data)
+        n_cmax = n_rows_n_cols_list[1][1];      new_list = [];      tempo_rows = [];        tempo = data
+
+        list_type = _get_list_type(data)
+
+        if list_type == "incorrect_variable_type"   or list_type == "empty_list":  pass
+
+        else:
+            if col_ref > n_cmax-1 or col_ref < 0:
+                print("col_ref is out of range in one or more columns in the list")
+                # new_list = data
+            else:
+                #                 Done  ["dato"]                    Done [["dato"]]
+                if list_type == "one_item_no_row" or list_type == "one_item_one_row":
+                    if update == True: data.pop(0)
+                    else: pass
+
+                # multiple_items_no_row -> ["Hello","bye","good"]          mix_items -> [10,[50],[250],["H"],100]
+                elif list_type == "multiple_items_no_row" or list_type == "mix_items":
+                    value = tempo.pop(col_ref)
+                    for n in tempo:
+                        new_list.append(n)
+
+                    if update == True: pass
+                    else: data.insert(col_ref,value)
+
+                elif list_type == "multiple_items_one_row":       # Done [["Hello","bye","good"]]
+                    if col_ref > 0:
+                        print("col_ref is out of range in one or more columns in the list")
+                    else:
+                        value = tempo.pop(col_ref)
+
+                        for n in tempo:
+                            new_list.append(n)
+
+                        if update == True: pass
+                        else: data.insert(col_ref,value)
+
+                # Done [["Hello"],["bye"],["good"]] or [["Hello","mio"],["bye"],["good","hh"]]
+                elif list_type == "multiple_items_multiple_rows":
+                    for row in data:
+                        for col in range(len(row)):
+                            if col == col_ref:  pass
+                            else:               tempo_rows.append(row[col])
+
+                        if len(row) == 1 and col_ref == col: pass
+                        else:             new_list.append(tempo_rows)
+
+                        tempo_rows = []
+
+                    if update == False: pass
+                    else:
+                        data.clear()
+                        for row in new_list:
+                            for col in row:
+                                tempo_rows.append(col)
+                            data.append(tempo_rows)
+                            tempo_rows = []
+                else:
+                    pass
+        return new_list
+
+
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Enumerate a List                                                                                                                               -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def enumarate_list(self, data:list, start_number=0, id_txt="Id")->list:
+    def enumarate_list(self, data:list, start_number=0, id_txt="Id", reenumarate:bool=False, update:bool=False)->list:
 
         '''  Enumerate a list by adding a column to the left side  '''
 
-        result = []
-        list_type = _get_list_type(data)
-
-        if list_type == "multiple_items_multiple_rows":
-            tempo = []
-            header = data.pop(0)
-            header.insert(0,id_txt)
-            for row in data:
-                tempo = row
-                tempo.insert(0,start_number)
-                start_number += 1
-                result.append(tempo)
+        def set_counter(data, start_number, id_txt):
+            result = []
+            list_type = _get_list_type(data)
+            if list_type == "multiple_items_multiple_rows":
                 tempo = []
-            result.insert(0,header)
+                header = data.pop(0)
+                header.insert(0,id_txt)
+                for row in data:
+                    tempo = row
+                    tempo.insert(0,start_number)
+                    start_number += 1
+                    result.append(tempo)
+                    tempo = []
+                result.insert(0,header)
+            else:
+                result = data
+            return result
+
+        if reenumarate == False:
+            result = set_counter(data, start_number, id_txt)
         else:
-            result = data
+            original = PyLO.delete_col(self, data=data, col_ref=0, update=False)
+            result = set_counter(original, start_number, id_txt)
+
+        if update == False: pass
+        else:
+            tempo_rows = []
+            data.clear()
+            for row in result:
+                for col in row:
+                    tempo_rows.append(col)
+                data.append(tempo_rows)
+                tempo_rows = []
         return result
 
 
