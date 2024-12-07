@@ -4127,7 +4127,6 @@ class PyLO():
                 n_cols += 1
             n_cols_max = n_cols
             n_cols_min = n_cols
-            
 
         # Done [["Hello"],["bye"],["good"]] or [["Hello","mio"],["bye"],["good","hh"]]
         elif list_type == "multiple_items_multiple_rows":
@@ -4282,179 +4281,61 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Convert a List From Any Type to String                                                                                                         -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def num_to_str(self, data:list, fill_value="----", update:bool=False)->list:
+    def num_to_str(self, data:list, update=False)->list:
 
         '''  Converts elements of a list type to string type  '''
+        new_list = []
+        for value in data:
+            if isinstance(value, list):
+                new_list.append(PyLO.num_to_str(self, value))
+            else:
+                new_list.append(str(value))
 
-        tempo = []; str_list = []
-        list_type = _get_list_type(data)
 
-        if list_type == "incorrect_variable_type":  pass
+        if update == True:
+            data.clear()
+            for n in new_list: data.append(n) #[data.append(n) for n in num_list]
 
-        elif list_type == "empty_list":             pass
+        return new_list
 
-        elif list_type == "one_item_no_row": # Done  ["dato"]
-            str_list.append(str(data[0]))
-            if update == True:
-                data.clear()
-                data.append(str_list[0])
-
-        elif list_type == "one_item_one_row": # Done [["dato"]]
-            str_list.append([str(data[0][0])])
-            if update == True:
-                data.clear()
-                data.append([str_list[0][0]])
-
-        elif list_type == "multiple_items_no_row": # Done ["Hello","bye","good"]
-            [str_list.append(str(n)) for n in data]
-            if update == True:
-                data.clear()
-                [data.append(n) for n in str_list]
-
-        elif list_type == "multiple_items_one_row": # Done [["Hello","bye","good"]]
-            tempo = []
-            [tempo.append(str(data[0][n])) for n in range(len(data[0]))]
-            str_list.append(tempo)
-            if update == True:
-                data.clear()
-                [data.append(n) for n in str_list]
-
-        # Done [["Hello"],["bye"],["good"]] or [["Hello","mio"],["bye"],["good","hh"]]
-        elif list_type == "multiple_items_multiple_rows":
-            n_rows = len(data)
-            n_cols = 0
-            # getting the longest number of columns in the list
-            for n in data:
-                if len(n) > n_cols:
-                    n_cols = len(n)
-
-            # filling the empty spots
-            for row in range(n_rows):
-                for col in range(n_cols):
-                    try:
-                        tempo.append(str(data[row][col]))
-                    except:
-                        tempo.append(str(fill_value))
-                str_list.append(tempo)
-                tempo = []
-
-            if update == True:
-                data.clear()
-                [data.append(n) for n in str_list]
-            else: pass
-
-        else:   # list_type == "mix_items"
-            for n in data:
-                str_list.append(str(n))
-
-            if update == True:
-                data.clear()
-                [data.append(n) for n in str_list]
-
-        return str_list
 
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Convert a List From String to Number                                                                                                           -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def str_to_num(self, data:list, fill_value=0, update:bool=False)->list:
+    def str_to_num(self, data:list, fill_value=0, update=False)->list:
 
-        '''  Converts elements of a list type to number type  '''
+        '''  Converts all items into the list to number type  '''
 
-        def _get_number(x):
+        def convert_to_number(value, alternative):
+            new_value = 0
             try:
-                numb = int(x)
-                return numb                 # the number is integer or a string integer
+                new_value = int(value)                # the number is integer or a string integer
             except:
                 try:
-                    numb = float(x)
-                    return numb             # the number is float or a string float
+                    new_value = float(value)          # the number is float or a string float
                 except:
                     try:
-                        numb = complex(x)    # the number is complex or a string complex
-                        return numb
+                        new_value = complex(value)    # the number is complex or a string complex
                     except:
-                        return "no_number_type"
+                        new_value = alternative
+            return new_value
 
-        def _conver2number(n):
-            numb = _get_number(n)
-            if numb != "no_number_type":
-                pass
+
+        new_refill = convert_to_number(fill_value, 0)
+
+        new_list = []
+        for value in data:
+            if isinstance(value, list):
+                new_list.append(PyLO.str_to_num(self, value, new_refill))
             else:
-                numb = _get_number(fill_value)
-                if numb != "no_number_type":
-                    pass
-                else:
-                    numb = 0
-
-            return numb
+                new_list.append(convert_to_number(value, new_refill))
 
 
-        tempo = []; num_list = []
-        list_type = _get_list_type(data)
+        if update == True:
+            data.clear()
+            for n in new_list: data.append(n) #[data.append(n) for n in num_list]
 
-        if list_type == "incorrect_variable_type":  pass
-
-        elif list_type == "empty_list":             pass
-
-        elif list_type == "one_item_no_row": # Done  ["dato"]
-            num_list.append(_conver2number(data[0]))
-            if update == True:
-                data.clear()
-                data.append(num_list[0])
-
-        elif list_type == "one_item_one_row": # Done [["dato"]]
-            num_list.append([_conver2number(data[0][0])])
-            if update == True:
-                data.clear()
-                data.append([num_list[0][0]])
-
-        elif list_type == "multiple_items_no_row": # Done ["Hello","bye","good"]
-            [num_list.append(_conver2number(n)) for n in data]
-            if update == True:
-                data.clear()
-                [data.append(n) for n in num_list]
-
-        elif list_type == "multiple_items_one_row": # Done [["Hello","bye","good"]]
-            tempo = []
-            [tempo.append(_conver2number(data[0][n])) for n in range(len(data[0]))]
-            num_list.append(tempo)
-            if update == True:
-                data.clear()
-                [data.append(n) for n in num_list]
-
-        # Done [["Hello"],["bye"],["good"]] or [["Hello","mio"],["bye"],["good","hh"]]
-        elif list_type == "multiple_items_multiple_rows":
-            n_rows = len(data)
-            n_cols = 0
-            # getting the longest number of columns in the list
-            for n in data:
-                if len(n) > n_cols:
-                    n_cols = len(n)
-
-            # filling the empty spots
-            for row in range(n_rows):
-                for col in range(n_cols):
-                    try:
-                        tempo.append(_conver2number(data[row][col]))
-                    except:
-                        tempo.append(_conver2number(fill_value))
-                num_list.append(tempo)
-                tempo = []
-
-            if update == True:
-                data.clear()
-                [data.append(n) for n in num_list]
-            else: pass
-
-        else:
-            for n in data:
-                num_list.append(_conver2number(n))
-
-            if update == True:
-                data.clear()
-                [data.append(n) for n in num_list]
-
-        return num_list
+        return new_list
 
 
     #-------------------------------------------------------------------------------------------------------------------------------------------------
@@ -4565,116 +4446,6 @@ class PyLO():
             print(msg=" Not supported between instances of int and list ")
             print()
             return data
-
-
-    #-------------------------------------------------------------------------------------------------------------------------------------------------
-    # Delete Column in a List                                                                                                                        -
-    #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def delete_col(self, data:list, col_ref:int=0, update:bool=False)->list:
-        n_rows_n_cols_list = PyLO.dimensions(self, data)
-        n_cmax = n_rows_n_cols_list[1][1];      new_list = [];      tempo_rows = [];        tempo = data
-
-        list_type = _get_list_type(data)
-
-        if list_type == "incorrect_variable_type"   or list_type == "empty_list":  pass
-
-        else:
-            if col_ref > n_cmax-1 or col_ref < 0:
-                print("col_ref is out of range in one or more columns in the list")
-                # new_list = data
-            else:
-                #                 Done  ["dato"]                    Done [["dato"]]
-                if list_type == "one_item_no_row" or list_type == "one_item_one_row":
-                    if update == True: data.pop(0)
-                    else: pass
-
-                # multiple_items_no_row -> ["Hello","bye","good"]          mix_items -> [10,[50],[250],["H"],100]
-                elif list_type == "multiple_items_no_row" or list_type == "mix_items":
-                    value = tempo.pop(col_ref)
-                    for n in tempo:
-                        new_list.append(n)
-
-                    if update == True: pass
-                    else: data.insert(col_ref,value)
-
-                elif list_type == "multiple_items_one_row":       # Done [["Hello","bye","good"]]
-                    if col_ref > 0:
-                        print("col_ref is out of range in one or more columns in the list")
-                    else:
-                        value = tempo.pop(col_ref)
-
-                        for n in tempo:
-                            new_list.append(n)
-
-                        if update == True: pass
-                        else: data.insert(col_ref,value)
-
-                # Done [["Hello"],["bye"],["good"]] or [["Hello","mio"],["bye"],["good","hh"]]
-                elif list_type == "multiple_items_multiple_rows":
-                    for row in data:
-                        for col in range(len(row)):
-                            if col == col_ref:  pass
-                            else:               tempo_rows.append(row[col])
-
-                        if len(row) == 1 and col_ref == col: pass
-                        else:             new_list.append(tempo_rows)
-
-                        tempo_rows = []
-
-                    if update == False: pass
-                    else:
-                        data.clear()
-                        for row in new_list:
-                            for col in row:
-                                tempo_rows.append(col)
-                            data.append(tempo_rows)
-                            tempo_rows = []
-                else:
-                    pass
-        return new_list
-
-
-    #-------------------------------------------------------------------------------------------------------------------------------------------------
-    # Enumerate a List                                                                                                                               -
-    #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def enumarate_list(self, data:list, start_number=0, id_txt="Id", reenumarate:bool=False, update:bool=False)->list:
-
-        '''  Enumerate a list by adding a column to the left side  '''
-
-        def set_counter(data, start_number, id_txt):
-            result = []
-            list_type = _get_list_type(data)
-            if list_type == "multiple_items_multiple_rows":
-                tempo = []
-                header = data.pop(0)
-                header.insert(0,id_txt)
-                for row in data:
-                    tempo = row
-                    tempo.insert(0,start_number)
-                    start_number += 1
-                    result.append(tempo)
-                    tempo = []
-                result.insert(0,header)
-            else:
-                result = data
-            return result
-
-        if reenumarate == False:
-            result = set_counter(data, start_number, id_txt)
-        else:
-            original = PyLO.delete_col(self, data=data, col_ref=0, update=False)
-            result = set_counter(original, start_number, id_txt)
-
-        if update == False: pass
-        else:
-            tempo_rows = []
-            data.clear()
-            for row in result:
-                for col in row:
-                    tempo_rows.append(col)
-                data.append(tempo_rows)
-                tempo_rows = []
-        return result
 
 
     #-------------------------------------------------------------------------------------------------------------------------------------------------
@@ -4792,6 +4563,335 @@ class PyLO():
         return data
 
 
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    # Delete a Column in a List                                                                                                                      -
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    def delete_col(self, data:list, col_ref:int=0, update:bool=False)->list:
+
+        '''  It deletes a specific column in a list  '''
+
+        n_rows_n_cols_list = PyLO.dimensions(self, data)
+        n_cmax = n_rows_n_cols_list[1][1];      new_list = [];      tempo_rows = [];        tempo = data
+
+        list_type = _get_list_type(data)
+
+        if list_type == "incorrect_variable_type"   or list_type == "empty_list":  pass
+
+        else:
+            if col_ref > n_cmax-1 or col_ref < 0:
+                print("col_ref is out of range in one or more columns in the list")
+                # new_list = data
+            else:
+                #                 Done  ["dato"]                    Done [["dato"]]
+                if list_type == "one_item_no_row" or list_type == "one_item_one_row":
+                    if update == True: data.pop(0)
+                    else: pass
+
+                # multiple_items_no_row -> ["Hello","bye","good"]          mix_items -> [10,[50],[250],["H"],100]
+                elif list_type == "multiple_items_no_row" or list_type == "mix_items":
+                    value = tempo.pop(col_ref)
+                    for n in tempo:
+                        new_list.append(n)
+
+                    if update == True: pass
+                    else: data.insert(col_ref,value)
+
+                elif list_type == "multiple_items_one_row":       # Done [["Hello","bye","good"]]
+                    if col_ref > 0:
+                        print("col_ref is out of range in one or more columns in the list")
+                    else:
+                        value = tempo.pop(col_ref)
+
+                        for n in tempo:
+                            new_list.append(n)
+
+                        if update == True: pass
+                        else: data.insert(col_ref,value)
+
+                # Done [["Hello"],["bye"],["good"]] or [["Hello","mio"],["bye"],["good","hh"]]
+                elif list_type == "multiple_items_multiple_rows":
+                    for row in data:
+                        for col in range(len(row)):
+                            if col == col_ref:  pass
+                            else:               tempo_rows.append(row[col])
+
+                        if len(row) == 1 and col_ref == col: pass
+                        else:             new_list.append(tempo_rows)
+
+                        tempo_rows = []
+
+                    if update == False: pass
+                    else:
+                        data.clear()
+                        for row in new_list:
+                            for col in row:
+                                tempo_rows.append(col)
+                            data.append(tempo_rows)
+                            tempo_rows = []
+                else:
+                    pass
+        return new_list
+
+
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    # Number a List                                                                                                                                  -
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    def number(self, data:list, start_number=0, id_txt="Id", renumber:bool=False, update:bool=False)->list:
+
+        '''  Enumerate a list by adding a column to the left side  '''
+
+        def set_counter(data, start_number, id_txt):
+            result = []
+            list_type = _get_list_type(data)
+            if list_type == "multiple_items_multiple_rows":
+
+                tempo = []
+                header = data.pop(0)
+                header.insert(0,id_txt)
+                for row in data:
+                    tempo = row
+                    tempo.insert(0,start_number)
+                    start_number += 1
+                    result.append(tempo)
+                    tempo = []
+                result.insert(0,header)
+            else:
+                result = data
+            return result
+
+        if renumber == False:
+            result = set_counter(data, start_number, id_txt)
+        else:
+            original = PyLO.delete_col(self, data=data, col_ref=0, update=False)
+            result = set_counter(original, start_number, id_txt)
+
+        if update == False: pass
+        else:
+            tempo_rows = []
+            data.clear()
+            for row in result:
+                for col in row:
+                    tempo_rows.append(col)
+                data.append(tempo_rows)
+                tempo_rows = []
+        return result
+
+
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    # Table List To Vector List                                                                                                                      -
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    def make_to_vector(self, data:list)->list:
+
+        '''  This function makes any list in a form as a vector. [1,2,3,4,5,etc.] '''
+
+        vector_lista = []
+        for item in data:
+            if isinstance(item, list):
+                for i in item:
+                    if isinstance(i, list):
+                        for n in i:
+                            if isinstance(n, list):
+                                for m in n:
+                                    vector_lista.append(m)
+                            else:
+                                vector_lista.append(n)
+                    else:
+                        vector_lista.append(i)
+            else:
+                vector_lista.append(item)
+        return vector_lista
+
+
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    # Join Two List as a Vector                                                                                                                      -
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    def join_as_vector(self, data:list, data2join:list, col_ref:int=0)->list:
+
+        '''  It joins two list as a vector, join_list = [1,2,3,4,5,etc.]  '''
+
+        join_list = []
+        if data == [] or data == [[]] or data == [[[]]]:
+            type_list_data = "empty_list"
+        else:
+            type_list_data = _get_list_type(data)
+            if   type_list_data == "one_item_one_row": type_list_data = "multiple_items_one_row"
+            elif type_list_data == "one_item_no_row":  type_list_data = "multiple_items_no_row"
+            else: pass
+
+        if data2join == [] or data2join == [[]] or data2join == [[[]]]:
+            type_list2join = "empty_list"
+        else:
+            type_list2join = _get_list_type(data2join)
+            if   type_list2join == "one_item_one_row": type_list2join = "multiple_items_one_row"
+            elif type_list2join == "one_item_no_row":  type_list2join = "multiple_items_no_row"
+            else: pass
+
+
+        if type_list_data == "incorrect_variable_type" or type_list2join == "incorrect_variable_type":  pass  # case 0
+
+        elif type_list_data == "empty_list" and type_list2join == "empty_list":  pass                         # case 1
+
+        else:
+            if type_list_data != "empty_list" and type_list2join == "empty_list":     # case 1 with all cases
+                join_list = PyLO.make_to_vector(self, data)
+
+            elif type_list_data == "empty_list" and type_list2join != "empty_list":   # all cases with case 1
+                join_list = PyLO.make_to_vector(self, data2join)
+
+            else:
+                tempo_jl = PyLO.make_to_vector(self, data2join)
+                tempo_dl = PyLO.make_to_vector(self, data)
+
+                if col_ref <= 0:
+                    join_list = tempo_jl
+                    for i in tempo_dl:
+                        join_list.append(i)
+
+                else:
+                    if type_list_data == "multiple_items_no_row":
+
+                        if col_ref >= len(data):
+                            join_list = tempo_dl
+                            for i in tempo_jl: join_list.append(i)
+                        else:
+                            cnt = 0
+                            for cold in data:
+                                if col_ref == cnt:
+                                    for coljl in tempo_jl:
+                                        join_list.append(coljl)
+                                    join_list.append(cold)
+                                else:
+                                    join_list.append(cold)
+                                cnt += 1
+
+                    elif type_list_data == "multiple_items_one_row":
+
+                        if col_ref >= len(data[0]):
+                            join_list = tempo_dl
+                            for i in tempo_jl: join_list.append(i)
+                        else:
+                            cnt = 0
+                            for cold in data[0]:
+                                if col_ref == cnt:
+                                    for coljl in tempo_jl:
+                                        join_list.append(coljl)
+                                    join_list.append(cold)
+                                else:
+                                    join_list.append(cold)
+                                cnt += 1
+
+
+                    elif type_list_data == "multiple_items_multiple_rows":
+                        if col_ref >= len(data):
+                            join_list = tempo_dl
+                            for i in tempo_jl: join_list.append(i)
+                        else:
+                            cnt = 0
+                            for cold in data:
+                                for rowd in cold:
+                                    if col_ref == cnt:
+                                        for n in tempo_jl:
+                                            join_list.append(n)
+                                        join_list.append(rowd)
+                                        cnt += 1
+                                    else:
+                                        join_list.append(rowd)
+                                cnt += 1
+
+                    else:  # "mix_items"
+                        cnt = 0
+                        for item in data:
+                            if isinstance(item, list):
+                                result = PyLO.make_to_vector(self, item)
+                                if col_ref == cnt:
+                                    for n in tempo_jl: join_list.append(n)
+                                    cnt += 1
+                                    for n in result: join_list.append(n)
+                                else:
+                                    for n in result: join_list.append(n)
+                            else:
+                                join_list.append(item)
+                            cnt += 1
+
+        return join_list
+
+
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    # Add a New Column in a List                                                                                                                     -
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    def add_col(self, data:list, new_col_data:list, col_ref:int=0)->list:
+
+        '''  It adds a column in a list that is in a form of a matrix or table
+             list     = [["H1","H2"],        ["R1C1","R2C1],           ["R2C1","R2C2"]]
+             new_list = [["H1","H2","New_H"],["R1C1","R1C2","NewR1C3"],["R2C1","R2C2","NewR2C3"]]  '''
+
+        if new_col_data == [] or new_col_data == [[]] or new_col_data == [[[]]]:  pass
+        else:
+            if isinstance(data, list) and isinstance(new_col_data, list):
+                list_type = _get_list_type(data)
+                if list_type == "multiple_items_one_row" or list_type == "multiple_items_multiple_rows" or list_type == "one_item_one_row":
+                    new_list = data
+                    col_info = PyLO.make_to_vector(self, new_col_data)
+
+                    length_c = len(col_info)
+                    length_d = len(data)
+
+                    diff = length_c - length_d
+                    if diff < 0:
+                        miss_col = diff * -1
+                        for n in range(miss_col):
+                            col_info.append(" ")
+                    else: pass
+
+                    cnt = 0
+                    ctrl = 0
+                    for row in data:
+                        if col_ref <= 0:
+                            new_list[ctrl].insert(0, col_info[ctrl])
+                            # ctrl += 1
+
+                        elif col_ref >= len(row):
+                            new_list[ctrl].append(col_info[ctrl])
+                            # ctrl += 1
+
+                        else:
+                            for n in range(len(row)):
+                                if n == col_ref:
+                                    new_list[ctrl].insert(n, col_info[cnt])
+                                    cnt += 1
+                                else: pass
+                            # ctrl += 1
+                        ctrl += 1
+                else:
+                    new_list = PyLO.join_as_vector(self, new_col_data,data, 0)
+            else:
+                new_list =[]
+
+        return new_list
+
+
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    # Replace a Value in the List                                                                                                                    -
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    def replace(self, data:list, old:int|str, new:int|str)->list:
+
+        '''  It replaces a value for another in a list
+             The list can be a vector [1,2,3,4] or a matrix (table) [[1,2],[3,1]]
+             or a combination of them [[1,2],[3,3,3],3,[5,6,7,8]]  '''
+
+        new_lst = []
+        for value in data:
+            if isinstance(value, list):
+                new_lst.append(PyLO.replace(self, value, old, new))
+            elif value == old:
+                new_lst.append(new)
+            else:
+                new_lst.append(value)
+        return new_lst
+
+
+
+
 # Planning to use this script as help of the Module custom_print.
 if __name__ == "__main__":
     print("Working on The Documentation Here")
@@ -4799,6 +4899,5 @@ if __name__ == "__main__":
     for argv in sys.argv:
         cmdl_argv.append(argv.lower())
 
-    tbl = FancyFormat()
-    tbl.print_fancy_format(cmdl_argv)
-
+    table = FancyFormat()
+    table.print_fancy_format(cmdl_argv)
