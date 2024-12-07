@@ -4294,7 +4294,7 @@ class PyLO():
 
         if update == True:
             data.clear()
-            for n in new_list: data.append(n) #[data.append(n) for n in num_list]
+            for n in new_list: data.append(n)
 
         return new_list
 
@@ -4333,7 +4333,7 @@ class PyLO():
 
         if update == True:
             data.clear()
-            for n in new_list: data.append(n) #[data.append(n) for n in num_list]
+            for n in new_list: data.append(n)
 
         return new_list
 
@@ -4873,21 +4873,26 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Replace a Value in the List                                                                                                                    -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def replace(self, data:list, old:int|str, new:int|str)->list:
+    def replace(self, data:list, old:int|str, new:int|str, update=False)->list:
 
         '''  It replaces a value for another in a list
              The list can be a vector [1,2,3,4] or a matrix (table) [[1,2],[3,1]]
              or a combination of them [[1,2],[3,3,3],3,[5,6,7,8]]  '''
 
-        new_lst = []
+        new_list = []
         for value in data:
             if isinstance(value, list):
-                new_lst.append(PyLO.replace(self, value, old, new))
+                new_list.append(PyLO.replace(self, value, old, new))
             elif value == old:
-                new_lst.append(new)
+                new_list.append(new)
             else:
-                new_lst.append(value)
-        return new_lst
+                new_list.append(value)
+
+        if update == True:
+            data.clear()
+            for n in new_list: data.append(n)
+        
+        return new_list
 
 
 

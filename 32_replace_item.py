@@ -65,9 +65,10 @@ import custom_print as cp
 pylo = cp.PyLO()
 
 list_1 = [[1,[0,3],2,3],[4,5,3],[2,3,3]]
-print(list_1)
-resutl = pylo.replace(list_1,3,"A")
-print(resutl)
+print("Original:",list_1)
+resutl = pylo.replace(list_1,3,"A",True)
+print("Result  :",resutl)
+print("Original:",list_1)
 
 
 
