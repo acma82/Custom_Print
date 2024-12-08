@@ -4205,7 +4205,7 @@ class PyLO():
 
         transpose_list = []
         list_type = _get_list_type(data)
-        print(list_type)
+
 
         if list_type == "incorrect_variable_type":  # [Not a List]  Done...! Case 0
             pass #return "incorrect variable type"

@@ -166,4 +166,4 @@ msg = f"{cp.ins_chr(44)}THE END.....!{cp.ins_chr(44)}"
 
 
 input("Enter to Continue: ")
-os.system(f"resize -s {nrows} {ncols}")
+cp.resize(nrows, ncols)

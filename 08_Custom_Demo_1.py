@@ -1,8 +1,8 @@
 '''
-Demo 1 for fancyprint module...!
+Demo 1...!
 '''
 
-import os
+
 import custom_print as cp
 
 list1 = cp.FancyFormat()
@@ -12,7 +12,16 @@ msg   = cp.FancyMessage()
 
 
 ncols, nrows = cp.dimensions()
-os.system("resize -s 44 95")
+cp.resize(40, 125)
+
+
+lst = [["Header 1","Header 2","Header 3","Header 4"],
+       ["R2C1","R2C2","R2C3","R2C4"],
+       ["R3C1","R3C2","R3C3","R3C4"],
+       ["R3C1","R3C2"]]
+
+list1.print_fancy_format(lst)
+
 #-------------------------------------------------------------------------------------
 # int, bool, str, complex, float, range (horizontal and vertical), dictionary
 # set (horizontal and vertical), and fronzenset (horizontal and vertical) variables.
@@ -144,7 +153,7 @@ list1.print_fancy_format(x)
 # dictionary type
 list1.msg_title    = " Dictionary "
 list1.msg_footnote =" Case 6 "
-dict_tags = {"NAME":"Miguel", "LAST_1":"Aguilar", "LAST_2":"Cuesta"}
+dict_tags = {"NAME":"name", "LAST_1":"last_1", "LAST_2":"last_2"}
 cp.terminal_bell()
 list1.print_fancy_format(dict_tags)
 cp.ins_newline(2)
@@ -153,4 +162,4 @@ mensaje = f"{cp.ins_chr(44)}THE END"
 msg.print_fancy_message(mensaje)
 
 input("Enter to Continue: ")
-os.system(f"resize -s {nrows} {ncols}")
+cp.resize(nrows, ncols)

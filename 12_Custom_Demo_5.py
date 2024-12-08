@@ -117,3 +117,12 @@ list1.fg_corner_under_line_header   = 7
 print("Before: \n",my_list)
 list1.print_fancy_format(my_list)
 print("After: \n",my_list)
+
+
+tbl = cp.FancyFormat()
+tbl.bg_header = 90
+tbl.fg_header = 231
+tbl.print_fancy_format(my_list)
+
+tbl.bg_all_cell_header = False
+tbl.print_fancy_format(my_list)

@@ -37,7 +37,7 @@ crs.jumpxy(0,0)
 print("Start Here*")
 
 
-# movexy
+# movexy method
 print(f"{crs.movexy(15,40)}hello again")
 
 
