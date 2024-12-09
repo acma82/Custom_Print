@@ -84,7 +84,7 @@ cp.ins_newline(2)
 
 
 #-------------------------------------------------------------------------------------------------------------------------------
-mydict = {"Name":"Miguel Angel","Last":"Aguilar Cuesta","Country":"Mexico","Age":42, "Lista":[1,2,3]}
+mydict = {"Name":"Jose Alfredo","Last":"Jimenez","Country":"Mexico","Age":82, "Lista":[1,2,3]}
 fst.print_style("  Working With Dictionary Type  ")
 print(f"{cp.set_font(1,90,231)}  Case 1  {cp.reset_font()}")
 result = pylo.dict_to_list(data=mydict, convert_to_str=False)

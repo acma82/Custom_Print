@@ -3517,7 +3517,7 @@ class Pen(Cursor):                      # Inheritance the Cursor Class here.
                 # Corner Section
                 self.top_left_corner_chr = tlcc;        self.top_right_corner_chr = trcc
                 self.bottom_right_corner_chr = brcc;    self.bottom_left_corner_chr = blcc
-            #---------------------------------------------------------------------------------------------------------------------------------------------
+            #-----------------------------------------------------------------------------------------------------------------------------------------
 
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
@@ -3526,7 +3526,7 @@ class Pen(Cursor):                      # Inheritance the Cursor Class here.
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 class PyLO():
     '''
-    PyLO class helps to make some quit operations with list in python
+    PyLO class helps to make some quick operations with list in python
     '''
     class Str_List_Option(enum.StrEnum):
         '''  How the string is converted to list  '''
@@ -3987,7 +3987,7 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Swap Two Items Into A List                                                                                                                     -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def swap(self, my_list:list, pos1=0, pos2=0, update:bool=False)->list:
+    def swap(self, data:list, pos1=0, pos2=0, update:bool=False)->list:
         '''
         This function swap two elements in a list.
 
@@ -4004,90 +4004,90 @@ class PyLO():
               out of range.'''
 
         if pos1 == pos2:
-            return my_list
+            return data
 
         else:
-            list_type = _get_list_type(my_list)
+            list_type = _get_list_type(data)
 
             # list_type = incorrect_variable_type: [Not a list type variable]
             if list_type == "incorrect_variable_type":
-                return my_list
+                return data
 
             # list_type = empty_list: []
             elif list_type == "empty_list":
-                return my_list
+                return data
 
             # list_type = one_item_no_row: ["one"]
             elif list_type == "one_item_no_row":
-                return my_list
+                return data
 
             # list_type = one_item_one_row: [["one"]]
             elif list_type == "one_item_one_row":
-                return my_list
+                return data
 
             # list_type == "multiple_items_no_row"          [1,2,3,4]
             # list_type == "multiple_items_multiple_rows"   [[7,6],[5,4],[1,2,3]] or [[2],[3],[5]]
             # list_type == "mix_items"                      [10,[50],[250],["H"],100]
             elif list_type == "multiple_items_no_row" or list_type == "mix_items"\
                 or list_type == "multiple_items_multiple_rows":
-                result = []; length = len(my_list) - 1
+                result = []; length = len(data) - 1
 
                 if length < pos1:
                     print(f" pos1 = {pos1} is out of range...! ")
-                    return my_list
+                    return data
                 if length < pos2:
                     print(f" pos2 = {pos2} is out of range...! ")
-                    return my_list
+                    return data
 
-                for n in range(len(my_list)):
+                for n in range(len(data)):
                     if n == pos1:
-                        result.append(my_list[pos2])
+                        result.append(data[pos2])
                     elif n == pos2:
-                        result.append(my_list[pos1])
+                        result.append(data[pos1])
                     else:
-                        result.append(my_list[n])
+                        result.append(data[n])
 
                 if update == 1:
-                    my_list.clear()
-                    [my_list.append(n) for n in result]
-                    return my_list
+                    data.clear()
+                    [data.append(n) for n in result]
+                    return data
                 else:
                     return result
 
             # list_type = multiple_items_one_row: [[1,2,3,4]]
             elif list_type == "multiple_items_one_row":
-                result = []; length = len(my_list[0]) - 1
+                result = []; length = len(data[0]) - 1
                 if length < pos1:
                     print(f" pos1 = {pos1} is out of range...! ")
-                    return my_list
+                    return data
                 if length < pos2:
                     print(f" pos2 = {pos2} is out of range...! ")
-                    return my_list
+                    return data
 
-                for n in range(len(my_list[0])):
+                for n in range(len(data[0])):
                     if n == pos1:
-                        result.append(my_list[0][pos2])
+                        result.append(data[0][pos2])
                     elif n == pos2:
-                        result.append(my_list[0][pos1])
+                        result.append(data[0][pos1])
                     else:
-                        result.append(my_list[0][n])
+                        result.append(data[0][n])
 
                 if update == 1:
-                    my_list.clear()
-                    [my_list.append(n) for n in result]
-                    return [my_list]
+                    data.clear()
+                    [data.append(n) for n in result]
+                    return [data]
                 else:
                     return result
 
             else:
-                return [my_list]
+                return [data]
 
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Get Dimensions of a List                                                                                                                       -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     def dimensions(self, data:list)->list[int]:
         '''
-        dimensions(self, data:list=[])->list[int]
+        dimensions(self, data:list)->list[int]
 
         This function return the number of rows and cols in a list.
         If the list is not square, then it will pick the longest col unless 
@@ -4105,7 +4105,7 @@ class PyLO():
             pass
 
         elif list_type == "one_item_no_row": # Done  ["dato"]
-            n_rows = 1
+            n_rows = 0
             n_cols_max = 1
             n_cols_min = 1
 
@@ -4115,7 +4115,7 @@ class PyLO():
             n_cols_min = 1
 
         elif list_type == "multiple_items_no_row": # Done ["Hello","bye","good"]
-            n_rows = 1
+            n_rows = 0
             for num in range(len(data)):
                 n_cols += 1
             n_cols_max = n_cols
@@ -4281,13 +4281,13 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Convert a List From Any Type to String                                                                                                         -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def num_to_str(self, data:list, update=False)->list:
+    def data_to_str(self, data:list, update=False)->list:
 
-        '''  Converts elements of a list type to string type  '''
+        '''  Converts all the elements of a list to string type  '''
         new_list = []
         for value in data:
             if isinstance(value, list):
-                new_list.append(PyLO.num_to_str(self, value))
+                new_list.append(PyLO.data_to_str(self, value))
             else:
                 new_list.append(str(value))
 
@@ -4302,22 +4302,30 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Convert a List From String to Number                                                                                                           -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def str_to_num(self, data:list, fill_value=0, update=False)->list:
+    def data_to_num(self, data:list, fill_value=0, update=False)->list:
 
-        '''  Converts all items into the list to number type  '''
+        '''  Converts all items from a list to numbers where it is possible.
+             If it is not possible then it will take the fill_value provided to switch
+             the value was not possible to convert. If the fill value provided is not
+             a number or it is not possible to convert it to a number then it will be
+             sustitute for zero, 0.  '''
 
         def convert_to_number(value, alternative):
             new_value = 0
-            try:
-                new_value = int(value)                # the number is integer or a string integer
-            except:
+            if   isinstance(value, int):     new_value = value
+            elif isinstance(value, float):   new_value = value
+            elif isinstance(value, complex): new_value = value
+            else:
                 try:
-                    new_value = float(value)          # the number is float or a string float
+                    new_value = int(value)                # the number is integer or a string integer
                 except:
                     try:
-                        new_value = complex(value)    # the number is complex or a string complex
+                        new_value = float(value)          # the number is float or a string float
                     except:
-                        new_value = alternative
+                        try:
+                            new_value = complex(value)    # the number is complex or a string complex
+                        except:
+                            new_value = alternative
             return new_value
 
 
@@ -4326,7 +4334,7 @@ class PyLO():
         new_list = []
         for value in data:
             if isinstance(value, list):
-                new_list.append(PyLO.str_to_num(self, value, new_refill))
+                new_list.append(PyLO.data_to_num(self, value, new_refill))
             else:
                 new_list.append(convert_to_number(value, new_refill))
 

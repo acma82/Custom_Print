@@ -172,7 +172,7 @@ This function passes many attributes for the font. If passing all these argument
 
 
 ## <span style="color:purple"> <strong> Move </strong> </span>
-    This class is uded with the Cursor class and it contains 4 options.
+    This class is used with the Cursor class and it contains 4 options.
 
 + Move.RIGHT
 + Move.LEFT
@@ -1225,11 +1225,11 @@ Note: Demo 5 and Demo 6 are more realistic how to use this module.
 | bottom_right_corner_chr = "+"	| refill_bg_color = False           |                                 |
 | bottom_left_corner_chr  = "+" |                                   |                                 |
 
-| Line Default Values           | General Default Values            |                                 |
-|-------------------------------|-----------------------------------|---------------------------------|
-|bold_draw_line = False         | adj_indent = 0                    |                                 |
-bg_draw_line    = -1			|                                   |                                 |
-fg_draw_line    = -1            |                                   |                                 |
+| Line Default Values           | General Default Values            |
+|-------------------------------|-----------------------------------|
+|bold_draw_line = False         | adj_indent = 0                    |
+bg_draw_line    = -1			|                                   |
+fg_draw_line    = -1            |                                   |
 
 
 <span style="color:red"> <strong> Example: </strong> </span>
