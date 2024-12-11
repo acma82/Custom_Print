@@ -4,6 +4,7 @@
 
 <span style="color:red"> <strong> Example: </strong> </span>
 
+```python
     import custom_print as cp
     pylo = cp.PyLO()
     
@@ -12,11 +13,13 @@
     print(result)
     result = pylo.bool_to_list(data=variable, convert_to_str=True)
     print(result)
+```
 
 
 ### <span style="color:purple"> <strong> Integer Type to List Type </strong> </span>
 <span style="color:red"> <strong> Example: </strong> </span>
 
+```python
     import custom_print as cp
     pylo = cp.PyLO()
     
@@ -25,11 +28,12 @@
     print(result)
     result = pylo.int_to_list(data=variable, convert_to_str=True)
     print(result)
-
+```
 
 ### <span style="color:purple"> <strong> Float Type to List Type </strong> </span>
 <span style="color:red"> <strong> Example: </strong> </span>
 
+```python
     import custom_print as cp
     pylo = cp.PyLO()
     
@@ -38,11 +42,12 @@
     print(result)
     result = pylo.float_to_list(data=variable, convert_to_str=True)
     print(result)
-
+```
 
 ### <span style="color:purple"> <strong> Complex Type to List Type </strong> </span>
 <span style="color:red"> <strong> Example: </strong> </span>
 
+```python
     import custom_print as cp
     pylo = cp.PyLO()
 
@@ -51,10 +56,12 @@
     print(result)
     result = pylo.complex_to_list(variable, True)
     print(result)
+```
 
 ### <span style="color:purple"> <strong> String Type to List Type </strong> </span>
 <span style="color:red"> <strong> Example: </strong> </span>
 
+```python
     import custom_print as cp
     pylo = cp.PyLO()
 
@@ -76,11 +83,12 @@
     print(f"{cp.set_font(1,90,231)}  counter LINE_BY_LINE  {cp.reset_font()}")
     result = pylo.str_to_list(paragraph, pylo.Str_List_Option.LINE_BY_LINE, counter=True)
     print(result)
-
+```
 
 ### <span style="color:purple"> <strong> Dictionary Type to List Type </strong> </span>
 <span style="color:red"> <strong> Example: </strong> </span>
 
+```python
     import custom_print as cp
     pylo = cp.PyLO()
 
@@ -104,13 +112,13 @@
        print(dato)
     cp.ins_newline(2)
 
+    print(f"{cp.set_font(1,90,231)}  Case 4  {cp.reset_font()}")
+    result = pylo.dict_to_list(data=mydict, key_title="My Keys", value_title="My Values",convert_to_str=True)
+        for dato in result:
+        print(dato)
+```
+
 > <span style="color:red">**Note:**</span> with one of then that is __"none"__ or __None__, it won't set the <span style="color:blue"> ***key_title*** </span> neither the <span style="color:blue"> ***value_title*** </span>.
-
-print(f"{cp.set_font(1,90,231)}  Case 4  {cp.reset_font()}")
-result = pylo.dict_to_list(data=mydict, key_title="My Keys", value_title="My Values",convert_to_str=True)
-for dato in result:
-   print(dato)
-
 
 ### <span style="color:purple"> <strong> Range Type to List Type </strong> </span>
 
@@ -123,6 +131,7 @@ for dato in result:
 
 <span style="color:red"> <strong> Example: </strong> </span>
 
+```python
     import custom_print as cp
     pylo = cp.PyLO()
 
@@ -151,6 +160,7 @@ for dato in result:
     print(l)
     print(f"{cp.ins_chr(n=100, unicode="-")}")
     cp.ins_newline(2)
+```
 
 
 ### <span style="color:purple"> <strong> Set|Frozenset Type to List Type </strong> </span>
@@ -164,6 +174,7 @@ for dato in result:
 
 <span style="color:red"> <strong> Example: </strong> </span>
 
+```python
     import custom_print as cp
     pylo = cp.PyLO()
 
@@ -183,7 +194,7 @@ for dato in result:
     print(result)
     print(f"{cp.ins_chr(n=100, unicode="-")}")
     cp.ins_newline(2)
-
+```
 
 
 >   | Note: values for frozenset        |                                                   |
@@ -195,6 +206,7 @@ for dato in result:
 
 <span style="color:red"> <strong> Example: </strong> </span>
 
+```python
     import custom_print as cp
     pylo = cp.PyLO()
 
@@ -214,10 +226,12 @@ for dato in result:
     print(result)
     print(f"{cp.ins_chr(n=100, unicode="-")}")
     cp.ins_newline(2)
+```
 
 ### <span style="color:purple"> <strong> Tuple Type to List Type </strong> </span>
 <span style="color:red"> <strong> Example: </strong> </span>
 
+```python
     import custom_print as cp
     pylo = cp.PyLO()
 
@@ -253,20 +267,23 @@ for dato in result:
     listData9 = pylo.tuple_to_list(tupleData9);   print("Case 6:",listData9)
     print(f"{cp.ins_chr(n=100, unicode="-")}")
     print()
-
+```
 
 ## Shift an Element in a List
 ### <span style="color:purple"> <strong> Right Shift  and Left Shift </strong> </span>
 
+```python
     shift(data:list, direction=Move.RIGHT, qty=0, update:bool=False)
 
    This function shift the elements in a list to the left or right.
 
    update is used to save the actual list with the shift elements.
    If we set update to False, then we keep the original list as it is.
+```
 
 <span style="color:red"> <strong> Example: </strong> </span>
 
+```python
     lst = cp.PyLO()
    
     # Right Shift List
@@ -306,10 +323,10 @@ for dato in result:
     newlist = lst.shift(data=list_1, direction=cp.Move.LEFT, qty= 2, update= True)
     print("shifted _list:  ",newlist)
     print("original_list:  ", list_1)
-
+```
 
 ## Swap 2 Items in a List
-    
+```python    
     swap(data:list, pos1=0, pos2=0, update:bool=False)
 
     This function swap two elements in a list.
@@ -325,10 +342,11 @@ for dato in result:
     Note: If one of the position provided is out of range, the function
           will return the list as original and it will print a message
           out of range. 
-
+```
 
 <span style="color:red"> <strong> Example: </strong> </span>
 
+```python
     import custom_print as cp
     pylo = cp.PyLO()
 
@@ -345,17 +363,20 @@ for dato in result:
     newlist = pylo.swap(data=lst, update=True, pos1=3, pos2=0)
     print("swaped_l: ",newlist)
     print("original: ", lst)
+```
 
 ## Dimensions of a List
-    
+
+```python    
     dimensions(data:list)
 
     This function return the number of rows and cols in a list.
     It will return the number of rows and cols in a list.
-        
+```
 
 <span style="color:red"> <strong> Example: </strong> </span>
 
+```python
     import custom_print as cp
     pylo = cp.PyLO()
 
@@ -367,20 +388,23 @@ for dato in result:
     list_1 = [[1,2],[3,4],[5,6]]
     lst_dimension = pylo.dimensions(data=list_1)
     print(f"Case 6 Max \u279C {lst_dimension}")
-
+```
 
 
 ## Autofill Data in a List
 
+```python
     autofill_data(data:list, fill_value:str="----", update:bool=False)
 
     This function will fill all the empty columns from the list.
     fill_value is the chr to be used to fill those columns. It can be str,
     int, float, or bool. By default it's a str type (----).
     It only works for list in the form of table.
+```
 
 <span style="color:red"> <strong> Example: </strong> </span>
-  
+
+```python  
     import custom_print as cp
     pylo = cp.PyLO()
 
@@ -400,9 +424,11 @@ for dato in result:
     print("mylist=lst, fill_value=99, update=True")
     print("Result  :",result)
     print("Original:",lst)
+```
 
 ## Transpose
 
+```python
     transpose(data:list, autofill=True, fill_value="----", update:bool=False)
         
     update is used to replace original list with the transpose list.
@@ -411,8 +437,7 @@ for dato in result:
 
     When the list is not square or rectangular, the list will be filled using
     the fill_value. If the autofill is set to False, some data will be lost.
-
-<span style="color:red"> <strong> Example: </strong> </span>
+```
 
 ### Cases
 | Original_list                         |      Transpose_list                           |
@@ -434,7 +459,9 @@ for dato in result:
 |                                       |
 | B.-[5, 6, [4,5], 45]                  | [[5], [6], [[4,5]], [45]]
 
+<span style="color:red"> <strong> Example: </strong> </span>
 
+```python
     import custom_print as cp
     pylo = cp.PyLO()
 
@@ -480,15 +507,19 @@ for dato in result:
     lst = [5, 6, [4,5], 45]
     result = pylo.transpose(lst)
     print(result)
+```
 
 ## Data to String
 
+```python
     data_to_str(data:list, update=False)
 
     Converts all the elements of a list to string type
+```
 
 <span style="color:red"> <strong> Example: </strong> </span>
 
+```python
     import custom_print as cp
     pylo = cp.PyLO()
 
@@ -505,18 +536,23 @@ for dato in result:
     result = pylo.data_to_str(data=lst, update=True)
     print("Result  :",result)
     print("Original:",lst)
+```
 
 ## Data to Number
+
+```python
     data_to_num(self, data:list, fill_value=0, update=False)
 
     Converts all items from a list to numbers where it is possible.
     If it is not possible then it will take the fill_value provided to switch
     the value was not possible to convert. If the fill value provided is not
     a number or it is not possible to convert it to a number then it will be
-    sustitute for zero, 0.
+    sustitute by zero, 0.
+```
 
 <span style="color:red"> <strong> Example: </strong> </span>
 
+```python
     import custom_print as cp
     pylo = cp.PyLO()
 
@@ -535,9 +571,73 @@ for dato in result:
     result = pylo.data_to_num(data=lst, fill_value='A', update=True)
     print("result  : ",result)
     print("original: ", lst)
+```
 
 ## Sort a List by Column
 
+```python
+sort_by_col(self, data:list, ref_col=0, sort_type:Sort_By=Sort_By.STRING, reverse_order:bool=False, update:bool=False):
+```
+
+**sort_by_col** won't sort the first row because it is considered the Header of the list.
+The **sort_type** option refers to the column sort order. When the **Sort_By** is set
+to STRING, it will convert all the items of the list to string type. If a column is mixed with
+string type and another type, like integer or float, it will cause an <span style="color:red">***error***</span>. This method is
+intended to be used with all cells filled; any empty cells will be filled automatically.
+
+<span style="color:red"> <strong> Example: </strong> </span>
+
+```python
+import custom_print as cp
+pylo = cp.PyLO()
+tbl  = cp.FancyFormat()
+tbl.msg_title = "Original"
+
+lst  = [["ID","Names",  "Last",    "Age","Department"],
+        [1,   "Juan",   "Alegria",   30,  "EE"       ],
+        [17,  "Manuel", "Alvarez",   25,  "EC"       ],
+        [9,   "Luis",   "Naguse",    21,  "AD"       ],
+        [3,   "Pancho", "Marlo",     41,  "BE"       ],
+        [2,   "Felipe", "Cautizo",   15              ]] 
+
+tbl.print_fancy_format(lst)
+
+result = pylo.sort_by_col(data=lst, ref_col=0, sort_type="number", reverse_order=False, update=False)
+tbl.msg_title = "Sort_by Col 0. Number"
+tbl.print_fancy_format(result)
+
+tbl.msg_title = "Sort_by Col 0. String"
+result = pylo.sort_by_col(data=lst, ref_col=0, sort_type="string", reverse_order=False, update=False)
+tbl.print_fancy_format(result)
+
+tbl.msg_title = "Sort_by Col 0. Number, rever_order=True, update=True"
+result = pylo.sort_by_col(data=lst, ref_col=0, sort_type="number", reverse_order=True, update=True)
+tbl.print_fancy_format(result)
+
+tbl.msg_title = "New Original"
+tbl.print_fancy_format(lst)
+
+
+tbl.msg_title = ""
+lst_2 = [10,1,5,3]
+result2 = pylo.sort_by_col(data=lst_2, ref_col=0, sort_type=pylo.Sort_By.STRING, reverse_order=False)
+tbl.print_fancy_format(lst_2)
+tbl.print_fancy_format(result2)
+
+result2 = pylo.sort_by_col(data=lst_2, ref_col=0, sort_type=pylo.Sort_By.NUMBER, reverse_order=True)
+tbl.print_fancy_format(lst_2)
+tbl.print_fancy_format(result2)
+```
+
+## Write a List Into a CSV File
+
+write_csv_file
+
+## Read a List From a CSV File
+
+## Write a List Into a JSON File
+
+## Read a List From a JSON File
 
 > <span style="background-color:purple">
 > <span style="color:yellow"><strong><i>

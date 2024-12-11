@@ -49,6 +49,7 @@ custom_print module can handle any type of variable.
 import os
 import sys
 import enum
+import copy
 import platform
 import csv          # PyLO class
 import json         # PyLO class
@@ -160,6 +161,19 @@ class Unicode(enum.StrEnum):
 
     FACE = "(" + chr(0x25D5) + chr(0x25E1) + chr(0x25D5) + ")"
 
+
+class COLOR(enum.IntEnum):
+    BLACK = 0;              RED = 1;                SUMMER_GREEN = 2
+    LIGHT_BROWN = 3;        MID_BLUE = 4;           LIGHT_PURPLE = 5
+    TURQUOISE = 6;          MID_WHITE = 7;          LIGHT_GRAY = 8
+    LIGHT_RED = 9;          
+    BLOOD_RED = 52;                                 
+    MAGENTA = 90
+    BLUE = 21;
+    SKY_BLUE = 27;
+
+    WHITE = 15
+    YELLOW = 11;
 
 
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
@@ -3529,13 +3543,20 @@ class PyLO():
     PyLO class helps to make some quick operations with list in python
     '''
     class Str_List_Option(enum.StrEnum):
+
         '''  How the string is converted to list  '''
+
         WORD_BY_WORD = "word_by_word"
         LINE_BY_LINE = "line_by_line"
 
 
-    class Fill_Type(enum.StrEnum):
-        '''  How to fill the empty cells when we are trying to sort a list  '''
+    class Sort_By(enum.StrEnum):
+
+        '''  How to consider to sort the list.
+             Example: lst = [10,1,5]
+             STRING Sort -> 1 10 5
+             NUMBER Sort -> 1 5  10'''
+
         STRING = "string"
         NUMBER = "number"
 
@@ -4349,40 +4370,38 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Sort a List by Column                                                                                                                          -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def sort_by_col(self, data:list, ref_col=0, fill_value="----", fill_type:Fill_Type=Fill_Type.STRING, reverse_order:bool=False, update:bool=False)->list:
+    def sort_by_col(self, data:list, ref_col=0, sort_type:Sort_By=Sort_By.STRING, reverse_order:bool=False, update:bool=False)->list:
 
-        '''  Sort a list by col. It won't sort the first row because it is consider the Header of the list '''
+        '''  sort_by_col won't sort the first row because it is considered the Header of the list.
+             The sort_type option refers to the column sort order. When the Sort_By is set
+             to STRING, it will convert all the items of the list to string type. If a column is mixed with
+             string type and another type, like integer or float, it will cause an error. This method is
+             intended to be used with all cells filled; any empty cells will be filled automatically.
+                 '''
 
         def _get_order_only_horizontal(in_list):
             tempo_list = []
-            #print("starting: ", in_list)
-            if fill_type.lower()   == "string":  [tempo_list.append(str(n)) for n in in_list]
-            elif fill_type.lower() == "number":  tempo_list = PyLO.str_to_num(self, data=in_list, fill_value=fill_value, update=False)
-            else:                           [tempo_list.append(str(n)) for n in in_list]
+            if sort_type.lower()   == "string": [tempo_list.append(str(n)) for n in in_list]
+            elif sort_type.lower() == "number": tempo_list = PyLO.data_to_num(self, data=in_list, update=False)
+            else:                               [tempo_list.append(str(n)) for n in in_list]
 
             sorted_list = sorted(tempo_list)
-            if reverse_order == False:
-                pass
-            elif reverse_order == True:
-                list.reverse(sorted_list)
-            #print("result: ",sorted_list)
+            
+            if reverse_order == False:  pass
+            elif reverse_order == True: list.reverse(sorted_list)
+            
             return sorted_list
+            #-----------------------------------------------------------------------------------------------------------------------------------------
 
+        sorted_list = []
         list_type = _get_list_type(data)
+        if list_type == "incorrect_variable_type": return []
+        elif list_type == "empty_list":            return []
+        elif list_type == "one_item_no_row":       return data  # Done  ["dato"]
+        elif list_type == "one_item_one_row":      return data  # Done [["dato"]]    
 
-        if list_type == "incorrect_variable_type":
-            return []
 
-        elif list_type == "empty_list":
-            return []
-
-        elif list_type == "one_item_no_row": # Done  ["dato"]
-            return data
-
-        elif list_type == "one_item_one_row": # Done [["dato"]]
-            return data
-
-        elif list_type == "multiple_items_no_row": # multiple_items_no_row -> ["Hello","bye","good"]
+        elif list_type == "multiple_items_no_row":        # multiple_items_no_row -> ["Hello","bye","good"]
             sorted_list = _get_order_only_horizontal(data)
 
             if update == True:
@@ -4390,10 +4409,10 @@ class PyLO():
                 [data.append(n) for n in sorted_list]
             return sorted_list
 
-        elif list_type == "multiple_items_one_row": # Done [["Hello","bye","good"]]
-            tempo = []
-            [tempo.append(n) for n in data[0]]
-            sorted_list = _get_order_only_horizontal(tempo)
+        elif list_type == "multiple_items_one_row":       # Done [["Hello","bye","good"]]
+            tmp = []
+            [tmp.append(n) for n in data[0]]
+            sorted_list = _get_order_only_horizontal(tmp)
 
             if update == True:
                 data.clear()
@@ -4403,7 +4422,7 @@ class PyLO():
 
             # Done [["Hello"],["bye"],["good"]] or [["Hello","mio"],["bye"],["good","hh"]]
         elif list_type == "multiple_items_multiple_rows":
-            complete_list = PyLO.autofill_data(self, data=data, fill_value=fill_value, update=False)
+            complete_list = PyLO.autofill_data(self, data=data)
             n_rows_n_cols_list = PyLO.dimensions(self, complete_list)
             n_rows = n_rows_n_cols_list[0][1]
             n_cols = n_rows_n_cols_list[1][1]
@@ -4415,9 +4434,10 @@ class PyLO():
                 return data
 
             else:
-                if fill_type == "string":
-                    new_list = PyLO.num_to_str(self, data=complete_list, update=False)
+                if sort_type.lower() == "string":
+                    new_list = PyLO.data_to_str(self, data=complete_list, update=False)
                     sorted_list = [new_list[0]] + sorted(new_list[1:], key=lambda x: x[ref_col])
+                    # sorted_list = [new_list[0]] + sorted(new_list[1:], key=lambda x: x[str(ref_col)])
                     if reverse_order == False:
                         pass
                     else:
@@ -4425,12 +4445,8 @@ class PyLO():
                         list.reverse(sorted_list)
                         sorted_list.insert(0,header_row)
 
-                    #sorted_list = [my_list[0]] + sorted(complete_list[1:], key=lambda x: str(x[ref_col]))
-                elif fill_type == "number":
-                    header_row = complete_list.pop(0)
-                    new_list = PyLO.str_to_num(self, data=complete_list, update=False)
-                    new_list.insert(0,header_row)
-                    sorted_list = [new_list[0]] + sorted(new_list[1:], key=lambda x: x[ref_col])
+                elif sort_type.lower() == "number":
+                    sorted_list = [complete_list[0]] + sorted(complete_list[1:], key=lambda x: x[ref_col])
                     if reverse_order == False:
                         pass
                     else:
@@ -4439,7 +4455,7 @@ class PyLO():
                         sorted_list.insert(0,header_row)
 
                 else:
-                    new_list = PyLO.num_to_str(self, data=data, update=False)
+                    new_list = PyLO.data_to_str(self, data=data, update=False)
                     sorted_list = [new_list[0]] + sorted(complete_list[1:], key=lambda x: x[ref_col])
 
 

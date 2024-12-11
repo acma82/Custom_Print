@@ -18,13 +18,13 @@ It returns the dimensions of the terminal, cols and rows.
 It resizes the terminal size.
 
 <span style="color:red"> <strong> Example: </strong> </span>
-   
+```python   
     import custom_print as cp
     cp.clean()
     r, c = cp.dimensions()
     print(f"rows: {r}, cols: {c}")
     cp.resize(25, 120)
-
+```
 
 ## <span style="color:blue"> <strong>  Internal Fucntions </strong> </span>
 ### bg_ansi_colors(bold = False, fg = -1, n_line = 0)
@@ -36,8 +36,10 @@ This function displays all background colors available with ansi code. The follo
 
 <span style="color:red"> <strong> Example: </strong> </span>
 
+```python
     import custom_print as cp
     cp.bg_ansi_colors(bold=True, fg=0, n_line=1)
+```
 
 ### fg_ansi_colors(bold = False, bg = -1, n_line = 0)
 This function displays all the foreground colors available with ansi code. The following options are for a better visualization.
@@ -47,36 +49,44 @@ This function displays all the foreground colors available with ansi code. The f
 
 <span style="color:red"> <strong> Example: </strong> </span>
 
+```python
     import custom_print as cp
-    p.fg_ansi_colors(bold=True, bg=-1, n_line=1)
+    cp.fg_ansi_colors(bold=True, bg=-1, n_line=1)
+```
 
 ### ins_chr(n = 1, unicode = " ")
 This function inserts n times the unicode provided, by default it is set to space.
 
 <span style="color:red"> <strong> Example: </strong> </span>
 
+```python
     import custom_print as cp
     print(f"{cp.ins_chr(n=80, unicode="-")}")
     print(f"{cp.ins_chr(n=80, unicode="\u25B6")}")
+```
 
 ### ins_newline(n=1)
 This function inserts n new lines.
 
 <span style="color:red"> <strong> Example: </strong> </span>
 
+```python
     import custon_print as cp
     print("Hello")
     cp.ins_newline(2)
     print("Bye")
+```
 
 ### terminal_bell()
 This function makes the sound of the terminal bell.
 
 <span style="color:red"> <strong> Example: </strong> </span>
 
+```python
     import custon_print as cp
     input("Press Enter")
     cp.terminal_bell()
+```
 
 ### reset_font()
 This function resets the font attruibutes when we use the **set_font()** function.
@@ -86,12 +96,13 @@ This function passes many attributes for the font. If passing all these argument
 
 <span style="color:red"> <strong> Example: </strong> </span>
 
+```python
     import custom_print as cp
 	print(cp.set_font(1,11,21) + " Python is " + cp.set_font(0,1) + " Wonderful."+cp.reset_font())           
 	print(f"{cp.set_font(bold=0, bg=22, fg=0)} Python {cp.set_font(1,90,7)} Language.{cp.reset_font()}")
 
     Colors range goes from -1 to 256. To set the default color from the system use -1 or 256.
-
+```
 
 **Note:** These functions are being used by the **FancyFormat** Class. Feel free to ignore them if not useful to you
 
@@ -101,7 +112,7 @@ This function passes many attributes for the font. If passing all these argument
 </strong> </span> </span>
 
 
-## <span style="color:blue"> <strong> Classes </strong> </span>
+## <span style="color:blue"> <strong> Help Classes </strong> </span>
 
 ## <span style="color:purple"> <strong> Align </strong> </span>
     This class is used with the FancyFormat class and FancyMessage class. It contains 4 options.    
@@ -118,6 +129,16 @@ This function passes many attributes for the font. If passing all these argument
 | "right"     | "left"     |"center"      | "justify"     |
 | "r"         | "l"        |"c"           | "j"           |
 
+## <span style="color:purple"> <strong> Color </strong> </span>
+    
+```
+This class will help to select a color when using the set_font() function or the FancyStyle class or you can use the number for the color as well.
+```
+| List of  | Color      | Available in  | Custom Print | Module      |
+|:--------:|:----------:|:-------------:|:------------:|:-----------:|
+| BLACK    | RED        | BLUE          | GREEN        |             |
+
+
 ## <span style="color:purple"> <strong> Layout </strong> </span>
     This class is used with FancyFormat class and Pen class. It contains 2 options.
 
@@ -133,8 +154,8 @@ This function passes many attributes for the font. If passing all these argument
 
 ## <span style="color:purple"> <strong> Length_bg </strong> </span>
     his class is used with FancyMessage class and contains 2 options.
-+ ALL_ROW = 1
-+ ONLY_WORD = 2
++ ALL_ROW
++ ONLY_WORD
 
 ## <span style="color:purple"> <strong> Line_Style </strong> </span>
 	This class is used with FancyFormat class and Pen class. There are some options available.
@@ -220,6 +241,7 @@ This class contains 4 methods. The difference between jump and move is that jump
 
 <span style="color:red"> <strong> Example: </strong> </span>
 
+```python
     from custom_print import Cursor
     from custom_print import clear
     from custom_print import Move
@@ -254,6 +276,7 @@ This class contains 4 methods. The difference between jump and move is that jump
     crs.jumpxy(-1,-1)
     print("adios",end="")
     print(f"{crs.moveTo(qty=20,direction=Move.RIGHT)}BYE")
+```
 
 ## <span style="color:purple"> <strong> FontStyle </strong> </span>
 This class contains 4 methods and the attributes and their default values are displays below.
@@ -273,6 +296,7 @@ This class contains 4 methods and the attributes and their default values are di
 
 **Default Values:**
 
+```python
 	bg     = -1           hidden   = False        force_align     = False 
     fg     = -1           indent   = 0            blinking        = False
     dim    = False        strike   = False        underline       = False
@@ -283,11 +307,12 @@ This class contains 4 methods and the attributes and their default values are di
 	indent → this defines how far we want to start to print the message from the left, it works with style_on and print_style.
 
 	bg_top_lines  and bg_bottom_lines → these are lines above and below the message with the bg specified.
-
+```
 
 
 <span style="color:red"> <strong> Example 1: <span style="color:purple"> style_on() and style_off() </span> </strong> </span>
 
+```python
 	import custom_print as cp
 	fs = cp.FontStyle()
 	fs.bg = 21
@@ -297,10 +322,11 @@ This class contains 4 methods and the attributes and their default values are di
 	print(f” Font Style Line 3 {fs.style_off()}”)
 	fs.reset_style()
 	print(f”{fs.style_on()} Default Style {fs.style_off()}”)	
-
+```
 
 <span style="color:red"> <strong> Example 2: <span style="color:purple"> print_style(msg) </span> </strong> </span>
 
+```python
     import custom_print as cp
     fs = cp.FontStyle()
 
@@ -365,10 +391,11 @@ This class contains 4 methods and the attributes and their default values are di
     cp.ins_newline(2)
     fs.align = "none"
     fs.print_style(msg)
-
+```
 
 <span style="color:red"> <strong> Example 3: <span style="color:purple"> print_style(msg) </span> </strong> </span>
 
+```python
     import custom_print as cp
     fs = cp.FontStyle()
     fs.fg = 231
@@ -398,7 +425,7 @@ This class contains 4 methods and the attributes and their default values are di
 	fs.bg_top_lines = 2
 	fst.bg_bottom_lines = 2
 	fs.print_style(paragraph)
-
+```
 
 ## <span style="color:purple"> <strong> FancyMessage </strong> </span>
 This class contains 3 methods and the attributes and their default values are displays below.
@@ -417,12 +444,14 @@ This class contains 3 methods and the attributes and their default values are di
 
 **Body Default Values:**
 
+```python
     bg_body     = 4            hidden_body  = False        strike_body    = False			
     fg_body     = 231	       italic_body = False         length         = Length_bg.ALL_ROW 
     dim_body    = False	       left_indent  = 2            inverse_body   = False			
     bold_body   = False        right_indent = 2            blinking_body  = False			
     msg_body    = "Body Msg	   top_lines    = 1            underline_body = False			
     help_lines  = False        bottom_lines = 1
+```
 
     These two options work when length is Length_bg.ONLY_WORD. They don't do anything when length is Length_bg.All_ROW.
 
@@ -435,32 +464,37 @@ This class contains 3 methods and the attributes and their default values are di
 
 **Note Default Values:**
 
+```python
     msg_note = " Note: "    align_note   = Align.JUSTIFY        blinking_note    = False
     bg_note    = 231        strike_note  = False                underline_note   = False
     fg_note     = 0         italic_note  = False                position_note    = 1 
     bold_note = False       inverse_note = False                right_space_note = 2
     dim_note  = False       hidden_note  = False                left_space_note	 = 2	
-
+```
 
 **Title Default Values:**
 
+```python
     msg_title  = ""         align_title   = Align.LEFT          blinking_title		= False
     bg_title   = 4          strike_title  = False               underline_title	= False
     fg_title   = 231        italic_title  = False               title_indent		= 2
     bold_title = False      inverse_title = False               lines_title_body	= 1
     dim_title  = False      hidden_title  = False
+```
 
 **Footnote Default Values:**
 
+```python
     msg_footnote  = ""      align_footnote   = Align.RIGHT      blinking_footnote   = False
     bg_footnote   = 4		strike_footnote  = False            underline_footnote  = False
     fg_footnote	  = 231     italic_footnote  = False            footnote_indent     = 2
     bold_footnote = False   inverse_footnote = False            lines_body_footnote = 1
     dim_footnote  = False   hidden_footnote  = False
-
+```
 
 <span style="color:red"> <strong> Example 1: </strong> </span>
 
+```python
     import custom_print as cp
 	msg = cp.FancyFormat()
 
@@ -482,9 +516,11 @@ This class contains 3 methods and the attributes and their default values are di
 	msg.msg_note = “Python”
     msg.position_note = 4
 	msg.print_fancy_note(paragraph)			#  Method 2
+```
 
 <span style="color:red"> <strong> Example 2: </strong> </span>
 
+```python
     import custom_print as cp
     paragraph3 = '''
     I should probably collect a list of the best
@@ -504,6 +540,7 @@ This class contains 3 methods and the attributes and their default values are di
     print(attributes)
     print()
     print(words)
+```
 
 **Note:** *words is a list that contains all the word of the paragraph.*
 
@@ -512,6 +549,7 @@ This class contains 3 methods and the attributes and their default values are di
 ## <span style="color:purple"> <strong> FancyFormat </strong> </span>
 
 This class contains two methods: 
+
 											
 	print_fancy_format(data, style)	→	Two arguments, the data to print and the line style.
 	reset_fancy_format()			→	It resets all the attributes to their default values.
@@ -520,25 +558,27 @@ This class contains two methods:
 ## General Section
 **adj → adjust**
     
-    
+```python    
     adj_top_margin = 0    adj_bottom_margin = 0    adj_indent = 2    set_fill_chr = "----"
     
     adj_top_space  = 0    adj_bottom_space  = 0    adj_space  = 2    updata_list  = False 
 
     set_layout   = Layout.HORIZONTAL
+```
 
 
+|                      |                                                                                 |
+|----------------------|---------------------------------------------------------------------------------|
+| **adj_top_margin**   | Lines to be added between the terminal ($) and the title.                       |
+| **adj_top_space**    | Lines to be added between title and top list.                                   |
+| **adj_bottom_margin**| Lines to be added between the end of the list or footnote to the terminal ($).  |
+| **adj_bottom_space** | Lines to be added between the bottom of the list and the footnote.              |
+| **adj_indent**       | Space from the left terminal to the first character in the list to be printed.  | 
+| **adj_space**        | Space from the left of the box to the first character in the list to be printed.| 
+|                      |                                                                                 |
 
-|                  |                                                                                 |
-|------------------|---------------------------------------------------------------------------------|
-| adj_top_margin   | Lines to be added between the terminal ($) and the title.                       |
-| adj_top_space    | Lines to be added between title and top list.                                   |
-| adj_bottom_margin| Lines to be added between the end of the list or footnote to the terminal ($).  |
-| adj_bottom_space | Lines to be added between the bottom of the list and the footnote.              |
-| adj_indent       | Space from the left terminal to the first character in the list to be printed.  | 
-| adj_space        | Space from the left of the box to the first character in the list to be printed.| 
 
-**Note** These variables only accept int values.
+>  <span style="color:red"> <strong> Note: </strong> </span> These variables only accept int values. 
 
 |             |                                                                                      |
 |-------------|--------------------------------------------------------------------------------------|
@@ -549,97 +589,129 @@ This class contains two methods:
 Notice that every single element in the list being passed will be converted to string in a temporary internal list. 
 If you want to save this conversion to your original list then set to True the update_list option. It only works with the list type of variable.
 
-Note: adj_top_space won’t work if the title is not set up. Also adj_bottom_space won’t work if the footnote is not set up.
+**Note:** adj_top_space won’t work if the title is not set up. Also adj_bottom_space won’t work if the footnote is not set up.
 	  Use adj_top_margin or adj_bottom_margin or ins_newline(n), or print(“\n”) if you need more space.
 
 ## Title Section
+
+```python
     msg_title	= ""        align_title  = "justify"         hidden_title    = False
     bold_title	= False     italic_title = False             inverse_title    = False
     bg_title	= -1        strike_title = False             blinking_title  = False
     fg_title	= -1        dim_title    = False             underline_title = False
+```
 
 **msg_title** is the title name for the list. It only accepts string values, by defaults is empty.
 
 
 ## Footnote Section
+
+```python
     msg_footnote  = ""      align_footnote  = "justify"     hidden_footnote	   = False
     bold_footnote = False   italic_footnote = False         inverse_footnote   = False
     bg_footnote	  = -1      strike_footnote = False         blinking_footnote  = False
     fg_footnote	  = -1      dim_footnote    = False         underline_footnote = False
+```
 
 **msg_footnote** The title name for the list. It only accepts string values, by default is empty.
 
-
 ## Data Section
+
+```python
     align_data = "justify"  hidden_data = False            	inverse_data     = False
     bold_data  = False      italic_data = False             blinking_data    = False
     bg_data    = -1         strike_data = False             underline_data   = False
     fg_data    = -1         dim_data    = False             bg_all_cell_data = True
+```
 
 **bg_all_cell_data** The bg color will affect the entire cell or just the data.
 
-
 ## Horizontal Line Section
+
+```python
     top_horizontal_line_chr    = "-"        bottom_horizontal_line_chr ="-"    
     middle_horizontal_line_chr = "-"        top_horizontal_line_on     = True
     bottom_horizontal_line_on  = True       middle_horizontal_line_on  = False
     bold_horizontal_line       = False      bg_horizontal_line         = -1
     fg_horizontal_line         = -1
-
-    For more reference check Figure 1.
+```
+For more reference check **Figure 1**.
 
 
 ## Vertical Line Section
+
+```python
     bold_vertical_line = False              left_vertical_line_chr   = "|"
     bg_vertical_line   = -1                 middle_vertical_line_chr = "|"
     fg_vertical_line   = -1                 right_vertical_line_chr  = "|" 
-    
-    For more reference check Figure 1 and Figure 2.
+```    
+
+For more reference check **Figure 1 and Figure 2**.
 
 
 ## External Corner Section
+
+```python
     top_left_corner_chr  = "+"        bottom_right_corner_chr = "+"       bg_corner_chr = -1
     top_right_corner_chr = "+"        bottom_left_corner_chr  = "+"       fg_corner_chr = -1
 	bold_corner_chr      = False
+```
 
-    For more reference check Figure 1.
+For more reference check **Figure 1**.
 
 ## Middle Corner Section
+
+```python
     bold_inner_corner_chr = False   middle_top_corner_chr    = "+"      right_lateral_corner_chr	= "+"
     bg_inner_corner_chr	  = -1      middle_inner_corner_chr	 = "+"      left_lateral_corner_chr	= "+"
     fg_inner_corner_chr   = -1      middle_bottom_corner_chr = "+"
+```
 
-    For reference check Figure 3 and 4.
+For reference check **Figure 3 and 4**.
 
 ## Header Section
+
+```python
     align_header = "justify"        hidden_header = False               inverse_header   = False
     bold_header = False             italic_header = False               blinking_header  = False
     bg_header   = -1                strike_header = False               underline_header = False
     fg_header   = -1                dim_header    = False               bg_all_cell_ header	= True
+```
 
-    bg_all_cell_data	The bg color will affect the entire cell or just the header.
+**bg_all_cell_data** The bg color will affect the entire cell or just the header.
 
 #### <span style="color:blue"> Attributes for the Header Lines</span> 
+
+```python
     bold_vertical_header_line_chr = False       right_vertical_header_line_chr  = "|"
     bg_vertical_header_line_chr   = -1          left_vertical_header_line_chr   = "|"
     fg_vertical_header_line_chr   = -1          middle_vertical_header_line_chr	= "|"
+```
 
-    For reference check Figure 3 and 4.
+For reference check **Figure 3 and 4**.
 
 ## Header Under Line Section
 #### <span style="color:blue"> Attributes for the line below the header text</span>
+
+```python
+
     bold_under_line_header = False              horizontal_line_under_header_on	= False
     bg_under_line_header   = -1                 horizontal_line_under_header_chr	= "-" 
     fg_under_line_header   = -1
-    
+```    
     horizontal_line_under_header_on	            Horizontal lines between headers and the first data row.
 
+
 #### <span style="color:blue"> Attributes for the header corners (left, middles and right)</span>
+
+```python
+
     bold_corner_under_line_header = False       left_corner_line_under_header_chr		= "+"
     bg_corner_under_line_header   = -1          right_corner_line_under_header_chr	= "+"
     fg_corner_under_line_header   = -1          middle_corner_line_under_header_chr	= "+"
+```
 
-    For more reference see figure 3.
+For more reference see **figure 3**.
 
 
 **Note:** All the **bg** and **fg** values accept int values from -1 to 256. Default values from the system are -1 and 256.
@@ -678,7 +750,7 @@ Note: Although the main idea is to use list type, print_fancy_format(tbl) accept
 | 22.- left_vertical_header_line_chr      | 23.- right_vertical_header_line_chr  | 24.- left_corner_line_under_header_chr   |
 | 25.- right_corner_line_under_header_chr | 26.- middle_horizontal_line_chr      | 27.- left_lateral_corner_chr             |
 | 28.- right_lateral_corner_chr           | 29.- middle_vertical_header_line_chr | 30.- middle_corner_line_under_header_chr |
-| 31.- middle_inner_corner_chr            | 32.- set_fill_chr                    | 33. adj_bottom_margin                    |
+| 31.- middle_inner_corner_chr            | 32.- set_fill_chr                    | 33.- adj_bottom_margin                   |
 |                                         |                                      |                                          |
 
 
@@ -704,6 +776,8 @@ Note: Although the main idea is to use list type, print_fancy_format(tbl) accept
 <span style="color:red"> <strong> Examples: </strong> </span>
 
 ## <span style="color:purple"> <strong>  Example Demo_1 </strong> </span>
+   
+```python
     import custom_print as cp
 
     list1 = cp.FancyFormat()
@@ -852,9 +926,11 @@ Note: Although the main idea is to use list type, print_fancy_format(tbl) accept
 
     input("Enter to Continue: ")
     cp.resize(nrows, ncols)
-
+```
 
 ## <span style="color:purple"> <strong>  Example Demo_2 </strong> </span>
+
+```python
     import os
     import custom_print as cp
 
@@ -955,9 +1031,11 @@ Note: Although the main idea is to use list type, print_fancy_format(tbl) accept
 
     input("Enter to Continue: ")
     cp.resize(nrows, ncols)
-
+```
 
 ## <span style="color:purple"> <strong>  Example Demo_3 </strong> </span>
+    
+```python    
     import os
     import custom_print as cp
 
@@ -1122,9 +1200,11 @@ Note: Although the main idea is to use list type, print_fancy_format(tbl) accept
 
     input("Enter to Continue: ")
     cp.resize(nrows, ncols)
-
+```
 
 ## <span style="color:purple"> <strong>  Example Demo_4 </strong> </span>
+
+```python
     import custom_print
     list1 = custom_print.FancyFormat()
 
@@ -1163,9 +1243,11 @@ Note: Although the main idea is to use list type, print_fancy_format(tbl) accept
     list1.middle_horizontal_line_on = 0
     list1.bottom_horizontal_line_on = 0
     list1.print_fancy_format(my_list)
+```
 
 ## <span style="color:purple"> <strong>  Example Demo_5 </strong> </span>
 
+```python
     import custom_print as cp
     tbl = cp.FancyFormat()
     tbl.bg_header = 90
@@ -1180,8 +1262,11 @@ Note: Although the main idea is to use list type, print_fancy_format(tbl) accept
 
     tbl.bg_all_cell_header = False
     tbl.print_fancy_format(my_list)
+```
 
 ## <span style="color:purple"> <strong>  Example Demo_6 </strong> </span>
+
+```python
     import custom_print as cp
     tbl = cp.FancyFormat()
 
@@ -1203,7 +1288,7 @@ Note: Although the main idea is to use list type, print_fancy_format(tbl) accept
     tbl.print_fancy_format(data=lst, style=cp.Line_Style.SPACE_COL_COLOR)
 
     tbl.print_fancy_format(data=lst, style=cp.Line_Style.NO_SPACE_COL_COLOR)
-
+```
 
 <span style="background-color:purple">
 <span style="color:yellow"><strong><i>
@@ -1212,6 +1297,7 @@ Note: Demo 5 and Demo 6 are more realistic how to use this module.
 
 
 ## <span style="color:purple"> <strong> Pen </strong> </span>
+
 	This class contains two methods:
 
 	draw_line(size=0, layout=Layout.HORIZONTAL, tail="\N{BLACK DIAMOND}", body="-", head="\N{BLACK DIAMOND}")
@@ -1234,6 +1320,7 @@ fg_draw_line    = -1            |                                   |
 
 <span style="color:red"> <strong> Example: </strong> </span>
 
+```python
     import custom_print as cp
     pen = cp.Pen()
     pen.adj_indent = 8
@@ -1242,7 +1329,7 @@ fg_draw_line    = -1            |                                   |
     cp.ins_newline(2)
     pen.adj_indent = 14
     pen.draw_rectangle(length=8, width=4, style=cp.Line_Style.DOUBLE)
-
+```
 
 custom_print module is not a big thing, but I hope you find useful occasionally. **Python 3.12.1** or greater is required.						
 
