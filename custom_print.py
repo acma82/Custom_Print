@@ -4619,14 +4619,46 @@ class PyLO():
         return new_list
 
 
+#-------------------------------------------------------------------------------------------------------------------------------------------------
+    # Table List To Vector List                                                                                                                      -
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    def make_to_vector(self, data:list)->list:
+
+        '''  This function makes any list in a form as a vector. [1,2,3,4,5,etc.],
+             up to 4 brackets. '''
+
+        vector_lista = []
+        for item in data:
+            if isinstance(item, list):
+                for i in item:
+                    if isinstance(i, list):
+                        for n in i:
+                            if isinstance(n, list):
+                                for m in n:
+                                    vector_lista.append(m)
+                            else:
+                                vector_lista.append(n)
+                    else:
+                        vector_lista.append(i)
+            else:
+                vector_lista.append(item)
+        return vector_lista
+        
+        
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Add a New Column in a List                                                                                                                     -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def add_col(self, data:list, new_col_data:list, col_ref:int=0)->list:
+    def add_col(self, data:list, new_col_data:list, col_posi:int=0)->list:
 
-        '''  It adds a column in a list that is in a form of a matrix or table
-             list     = [["H1","H2"],        ["R1C1","R2C1],           ["R2C1","R2C2"]]
-             new_list = [["H1","H2","New_H"],["R1C1","R1C2","NewR1C3"],["R2C1","R2C2","NewR2C3"]]  '''
+        '''  This method adds a column into the list in a specific postion.
+             The original list has to be in the form of a matrix or table 
+             and the column to be added needs to be as a vector list.
+             
+             Ex.
+                data = [["H1","H2"],["R1C1","R1C2"], ["R2C1","R2C2"]]
+                new_col_data = ["New_Header",   "New_Row_Col",  "New_Row_Col"]
+                result = add_col(data, new_col_data, 1)
+            '''
 
         if new_col_data == [] or new_col_data == [[]] or new_col_data == [[[]]]:  pass
         else:
@@ -4643,23 +4675,23 @@ class PyLO():
                     if diff < 0:
                         miss_col = diff * -1
                         for n in range(miss_col):
-                            col_info.append(" ")
+                            col_info.append("----")
                     else: pass
 
                     cnt = 0
                     ctrl = 0
                     for row in data:
-                        if col_ref <= 0:
+                        if col_posi <= 0:
                             new_list[ctrl].insert(0, col_info[ctrl])
                             # ctrl += 1
 
-                        elif col_ref >= len(row):
+                        elif col_posi >= len(row):
                             new_list[ctrl].append(col_info[ctrl])
                             # ctrl += 1
 
                         else:
                             for n in range(len(row)):
-                                if n == col_ref:
+                                if n == col_posi:
                                     new_list[ctrl].insert(n, col_info[cnt])
                                     cnt += 1
                                 else: pass
@@ -4674,9 +4706,34 @@ class PyLO():
 
 
     #-------------------------------------------------------------------------------------------------------------------------------------------------
+    # Replace a Value in the List                                                                                                                    -
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    def replace(self, data:list, old:int|str, new:int|str, update=False)->list:
+
+        '''  It replaces a value for another in a list
+             The list can be a vector [1,2,3,4] or a matrix (table) [[1,2],[3,1]]
+             or a combination of them [[1,2],[3,3,3],3,[5,6,7,8]]  '''
+
+        new_list = []
+        for value in data:
+            if isinstance(value, list):
+                new_list.append(PyLO.replace(self, value, old, new))
+            elif value == old:
+                new_list.append(new)
+            else:
+                new_list.append(value)
+
+        if update == True:
+            data.clear()
+            for n in new_list: data.append(n)
+
+        return new_list
+    
+
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Number a List                                                                                                                                  -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def number(self, data:list, start_number=0, id_txt="Id", renumber:bool=False, update:bool=False)->list:
+    def number(self, data:list, start_number:int=0, id_txt:str="Id", renumber:bool=False, update:bool=False)->list:
 
         '''  Enumerate a list by adding a column to the left side  '''
 
@@ -4717,141 +4774,37 @@ class PyLO():
         return result
 
 
-    #-------------------------------------------------------------------------------------------------------------------------------------------------
-    # Table List To Vector List                                                                                                                      -
-    #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def make_to_vector(self, data:list)->list:
-
-        '''  This function makes any list in a form as a vector. [1,2,3,4,5,etc.] '''
-
-        vector_lista = []
-        for item in data:
-            if isinstance(item, list):
-                for i in item:
-                    if isinstance(i, list):
-                        for n in i:
-                            if isinstance(n, list):
-                                for m in n:
-                                    vector_lista.append(m)
-                            else:
-                                vector_lista.append(n)
-                    else:
-                        vector_lista.append(i)
-            else:
-                vector_lista.append(item)
-        return vector_lista
-
+    
 
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Join Two List as a Vector                                                                                                                      -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def join_as_vector(self, data:list, data2join:list, col_ref:int=0)->list:
+    def join_as_vector(self, data:list, data2join:list, col_pos:int=0)->list:
 
         '''  It joins two list as a vector, join_list = [1,2,3,4,5,etc.]  '''
-
+        
+        lista_1 = PyLO.make_to_vector(self, data=data)
+        lista_2 = PyLO.make_to_vector(self, data=data2join)
         join_list = []
-        if data == [] or data == [[]] or data == [[[]]]:
-            type_list_data = "empty_list"
+
+        if   col_pos >= len(lista_1):
+            for n in lista_1: join_list.append(n)
+            for n in lista_2: join_list.append(n)
+
+        elif col_pos <= 0:
+            for n in lista_2: join_list.append(n)
+            for n in lista_1: join_list.append(n)
         else:
-            type_list_data = _get_list_type(data)
-            if   type_list_data == "one_item_one_row": type_list_data = "multiple_items_one_row"
-            elif type_list_data == "one_item_no_row":  type_list_data = "multiple_items_no_row"
-            else: pass
-
-        if data2join == [] or data2join == [[]] or data2join == [[[]]]:
-            type_list2join = "empty_list"
-        else:
-            type_list2join = _get_list_type(data2join)
-            if   type_list2join == "one_item_one_row": type_list2join = "multiple_items_one_row"
-            elif type_list2join == "one_item_no_row":  type_list2join = "multiple_items_no_row"
-            else: pass
-
-
-        if type_list_data == "incorrect_variable_type" or type_list2join == "incorrect_variable_type":  pass  # case 0
-
-        elif type_list_data == "empty_list" and type_list2join == "empty_list":  pass                         # case 1
-
-        else:
-            if type_list_data != "empty_list" and type_list2join == "empty_list":     # case 1 with all cases
-                join_list = PyLO.make_to_vector(self, data)
-
-            elif type_list_data == "empty_list" and type_list2join != "empty_list":   # all cases with case 1
-                join_list = PyLO.make_to_vector(self, data2join)
-
-            else:
-                tempo_jl = PyLO.make_to_vector(self, data2join)
-                tempo_dl = PyLO.make_to_vector(self, data)
-
-                if col_ref <= 0:
-                    join_list = tempo_jl
-                    for i in tempo_dl:
-                        join_list.append(i)
+            ctrl = 0
+            for l1 in lista_1:
+                if ctrl == col_pos:
+                    for l2 in lista_2:
+                        join_list.append(l2)
+                    join_list.append(l1)
 
                 else:
-                    if type_list_data == "multiple_items_no_row":
-
-                        if col_ref >= len(data):
-                            join_list = tempo_dl
-                            for i in tempo_jl: join_list.append(i)
-                        else:
-                            cnt = 0
-                            for cold in data:
-                                if col_ref == cnt:
-                                    for coljl in tempo_jl:
-                                        join_list.append(coljl)
-                                    join_list.append(cold)
-                                else:
-                                    join_list.append(cold)
-                                cnt += 1
-
-                    elif type_list_data == "multiple_items_one_row":
-
-                        if col_ref >= len(data[0]):
-                            join_list = tempo_dl
-                            for i in tempo_jl: join_list.append(i)
-                        else:
-                            cnt = 0
-                            for cold in data[0]:
-                                if col_ref == cnt:
-                                    for coljl in tempo_jl:
-                                        join_list.append(coljl)
-                                    join_list.append(cold)
-                                else:
-                                    join_list.append(cold)
-                                cnt += 1
-
-
-                    elif type_list_data == "multiple_items_multiple_rows":
-                        if col_ref >= len(data):
-                            join_list = tempo_dl
-                            for i in tempo_jl: join_list.append(i)
-                        else:
-                            cnt = 0
-                            for cold in data:
-                                for rowd in cold:
-                                    if col_ref == cnt:
-                                        for n in tempo_jl:
-                                            join_list.append(n)
-                                        join_list.append(rowd)
-                                        cnt += 1
-                                    else:
-                                        join_list.append(rowd)
-                                cnt += 1
-
-                    else:  # "mix_items"
-                        cnt = 0
-                        for item in data:
-                            if isinstance(item, list):
-                                result = PyLO.make_to_vector(self, item)
-                                if col_ref == cnt:
-                                    for n in tempo_jl: join_list.append(n)
-                                    cnt += 1
-                                    for n in result: join_list.append(n)
-                                else:
-                                    for n in result: join_list.append(n)
-                            else:
-                                join_list.append(item)
-                            cnt += 1
+                    join_list.append(l1)
+                ctrl += 1
 
         return join_list
 
@@ -4859,29 +4812,7 @@ class PyLO():
 
 
 
-    #-------------------------------------------------------------------------------------------------------------------------------------------------
-    # Replace a Value in the List                                                                                                                    -
-    #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def replace(self, data:list, old:int|str, new:int|str, update=False)->list:
 
-        '''  It replaces a value for another in a list
-             The list can be a vector [1,2,3,4] or a matrix (table) [[1,2],[3,1]]
-             or a combination of them [[1,2],[3,3,3],3,[5,6,7,8]]  '''
-
-        new_list = []
-        for value in data:
-            if isinstance(value, list):
-                new_list.append(PyLO.replace(self, value, old, new))
-            elif value == old:
-                new_list.append(new)
-            else:
-                new_list.append(value)
-
-        if update == True:
-            data.clear()
-            for n in new_list: data.append(n)
-
-        return new_list
 
 
 

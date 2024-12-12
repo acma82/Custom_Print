@@ -22,7 +22,7 @@ def replace1(data:list, ref_value="---", new_value="----")->list:
 #-----------------------------------------------------------------------------------------
 import copy
 '''  Up to 4 brackets  '''
-def exp_replace(data:list, ref_value="---", new_value="----")->list:
+def experiment_replace(data:list, ref_value="---", new_value="----")->list:
     x_tmp =copy.deepcopy(data)
     for inx in range(len(data)):
         if isinstance(data[inx], list):
@@ -64,9 +64,10 @@ def exp_replace(data:list, ref_value="---", new_value="----")->list:
 import custom_print as cp
 pylo = cp.PyLO()
 
-list_1 = [[1,[0,3],2,3],[4,5,3],[2,3,3]]
+print(f"{cp.set_font(1,1,15)} Replacing 3 for A {cp.reset_font()}")
+list_1 = [[11,[10,3],12,3],[14,15,3],[12,3,3]]
 print("Original:",list_1)
-resutl = pylo.replace(list_1,3,"A",True)
+resutl = pylo.replace(data=list_1, old=3, new="A", update=True)
 print("Result  :",resutl)
 print("Original:",list_1)
 

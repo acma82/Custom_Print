@@ -806,8 +806,209 @@ new_list = pylo.delete_col(class_methods, 12)
 tbl.print_fancy_format(new_list)
 ```
 
+## make a list to a vector form list
+
+```python
+make_to_vector(data)
+```
+This function makes any list in a form as a vector. [1,2,3,4,5,etc.],up to 4 brackets. '''
+
+
+<span style="color:red"> <strong> Example: </strong> </span>
+
+```python
+import custom_print as cp
+pylo = cp.PyLO()
+
+list_0 = [["A"],["B"]]
+result = pylo.make_to_vector(list_0)
+print(result)
+
+list_1 = [5,6,[1,2,3],[1,0,3]]
+result = pylo.make_to_vector(list_1)
+print(result)
+
+list_2 = [[5,6,9],[1,2,3],[1,0,3]]
+result = pylo.make_to_vector(list_2)
+print(result)
+
+list_2 = [[1,2],["H",99],[[3,[5],[95,3],[5]],3],3,[5,6,7,8]]
+result = pylo.make_to_vector(list_2)
+print(result)
+```
+
+
 ## Add a Column to a List
 
+```python
+add_col(data, new_col_data, col_posi=0)
+```
+This method adds a column into the list in a specific postion.
+The original list has to be in the form of a matrix or table 
+and the column to be added needs to be as a vector list.            
+
+
+<span style="color:red"> <strong> Example: </strong> </span>
+
+```python
+import custom_print as cp
+pylo = cp.PyLO()
+tbl  = cp.FancyFormat()
+
+tbl.bg_title = 90
+tbl.align_title = cp.Align.LEFT
+
+#------------------------------------------------------------------------------
+# Adding list_2 as one col in list_1
+tbl.msg_title = " List_1 "
+list_1 = [["Header_1","Header_2"],["R1_C1","R1_C2"], ["R2_C1","R2_C2"]]
+tbl.print_fancy_format(list_1)
+
+tbl.msg_title = " List_2 to be added to List_1 as Col, pos=1 "
+list_2 = ["New_Header",   "New_Row_Col",  "New_Row_Col"]
+tbl.print_fancy_format(list_2)
+
+tbl.msg_title = " New Complete List_1_2 "
+list_1_2 = pylo.add_col(data=list_1, new_col_data=list_2, col_posi=1)
+tbl.print_fancy_format(list_1_2)
+
+
+#------------------------------------------------------------------------------
+# Adding the list_4 as more Rows in list_3
+list_3 = [["Header_1","Header_2","Header_3"],
+          ["R1_C1","R1_C2","R1_C3"],
+          ["R2_C1","R2_C2","R2_C3"]]
+
+list_4 = [["R3_C1","R3_C2","R3_C3"],
+          ["R4_C1","R4_C2","R4_C3"]]
+
+for row in range(len(list_4)): list_3.append(list_4[row])
+
+tbl.bg_title = 23; tbl.msg_title = " Adding list_4 as rows in list_3 "
+tbl.print_fancy_format(list_3)
+
+
+#------------------------------------------------------------------------------
+# Adding list_6 as columns in list_5
+tbl.bg_title = 1
+tbl.msg_title = " Adding list_6 as cols in list_5 at the end "
+
+list_5  = [["Header_1","Header_2","Header_3"],
+          ["R1_C1","R1_C2","R1_C3"],
+          ["R2_C1","R2_C2","R2_C3"]]
+
+list_6 = [["R3_C1","R3_C2","R3_C3"],
+          ["R4_C1","R4_C2","R4_C3"]]
+
+for rows in range(len(list_6)):
+    list_5_6 = pylo.add_col(data=list_5, new_col_data=list_6[rows], col_posi=len(list_5[0]))
+
+tbl.print_fancy_format(list_5_6)
+print(list_5_6)
+```
+
+## Replace an Item from a List
+
+```python
+replace(self, data:list, old:int|str, new:int|str, update=False)
+```
+
+It replaces a value for another value in a list
+The list can be a vector [1,2,3,4] or a matrix (table) [[1,2],[3,1]]
+or a combination of them [[1,2],[3,3,3],3,[5,6,7,8]]
+
+<span style="color:red"> <strong> Example: </strong> </span>
+
+```python
+import custom_print as cp
+pylo = cp.PyLO()
+
+print(f"{cp.set_font(1,1,15)} Replacing 3 for A {cp.reset_font()}")
+list_1 = [[11,[10,3],12,3],[14,15,3],[12,3,3]]
+print("Original:",list_1)
+resutl = pylo.replace(data=list_1, old=3, new="A", update=True)
+print("Result  :",resutl)
+print("Original:",list_1)
+```
+
+## number a list
+```python
+number(data, start_number=0, id_txt="Id", renumber=False, update=False)
+```
+
+This method number the rows in a list by adding a column to the left side.
+If the renumber is set to true then it will not add a new column but instead
+it will renumerate the existen one.
+
+<span style="color:red"> <strong> Example: </strong> </span>
+
+```python
+import custom_print as cp
+pylo = cp.PyLO()
+tbl  = cp.FancyFormat()
+
+tbl.bg_title = 90
+tbl.align_title = cp.Align.LEFT
+tbl.bg_title = 1
+tbl.msg_title = " Adding list_6 as cols in list_5 at the end "
+
+#-----------------------------------------------------------------------------------
+list_5  = [["Header_1","Header_2","Header_3"],
+          ["R1_C1","R1_C2","R1_C3"],
+          ["R2_C1","R2_C2","R2_C3"]]
+
+list_6 = [["R3_C1","R3_C2","R3_C3"],
+          ["R4_C1","R4_C2","R4_C3"]]
+
+for rows in range(len(list_6)):
+    list_5_6 = pylo.add_col(data=list_5, new_col_data=list_6[rows], col_posi=len(list_5[0]))
+
+tbl.print_fancy_format(list_5_6)
+print(list_5_6)
+
+#-----------------------------------------------------------------------------------
+tbl.msg_title = " Adding the row numbers "
+pylo.number(data=list_5_6, start_number=1, id_txt="ID", renumber=False, update=True)
+tbl.print_fancy_format(list_5_6)
+
+#-----------------------------------------------------------------------------------
+tmp = [0,"RC","RRC","RRCC","RRRCC","RRRCCC"]
+list_5_6.append(tmp)
+tbl.msg_title = " Adding a new row "
+tbl.print_fancy_format(list_5_6)
+
+#-----------------------------------------------------------------------------------
+pylo.number(data=list_5_6, start_number=1, id_txt="ID", renumber=True, update=True)
+tbl.msg_title = " renumerating the rows "
+tbl.print_fancy_format(list_5_6)
+```
+
+## Join 2 List as a Vector
+
+```python
+join_as_vector(data, data2join, col_pos=0)
+```
+
+<span style="color:red"> <strong> Example: </strong> </span>
+
+```python
+import custom_print as cp
+pylo = cp.PyLO()
+
+list_1 = [[0,1],[2,3,4],5,[6,7,8]]
+list_2 = [99,98,97]
+
+print("List_1: ",list_1)
+print("List_2: ",list_2)
+print("\n")
+
+for n in range(len(list_1)):
+    join_list = pylo.join_as_vector(data=list_1, data2join=list_2, col_pos=n)
+    print(f"Result:{n} {join_list}")
+
+join_list = pylo.join_as_vector(data=list_1, data2join=list_2, col_pos=9)
+print(f"Result:9 {join_list}")
+```
 
 
 > <span style="background-color:purple">

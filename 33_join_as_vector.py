@@ -2,22 +2,20 @@ import custom_print as cp
 pylo = cp.PyLO()
 
 
-
-# list_1 = [[1]]        
-list_2 = [["A"]]
-list_1 = [1,2,3]
-
-# list_1 = [[1,2],[3,3,3],3,[5,6,7,8]]
-#list_1 = [1,2,3,1,2,3,1,2,3,4,5,3]
+list_1 = [[0,1],[2,3,4],5,[6,7,8]]
+list_2 = [99,98,97]
 
 
-# list_2 = [["A"],["B"]]
 
-# list_1 = [5,6,[1,2,3],[1,0,3]]
 
-# print(f"Vector:  {pylo.make_to_vector(list_1)}")
-
-join_list = pylo.join_as_vector(data=list_1, data2join=list_2, col_ref=2)
 print("List_1: ",list_1)
 print("List_2: ",list_2)
-print("Result: ",join_list)
+print("\n")
+
+for n in range(len(list_1)):
+    join_list = pylo.join_as_vector(data=list_1, data2join=list_2, col_pos=n)
+    print(f"Result:{n} {join_list}")
+
+
+join_list = pylo.join_as_vector(data=list_1, data2join=list_2, col_pos=9)
+print(f"Result:9 {join_list}")
