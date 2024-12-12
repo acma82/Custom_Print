@@ -576,14 +576,15 @@
 ## Sort a List by Column
 
 ```python
-sort_by_col(self, data:list, ref_col=0, sort_type:Sort_By=Sort_By.STRING, reverse_order:bool=False, update:bool=False):
+sort_by_col(self, data, ref_col=0, reverse_order=False, update=False)
 ```
 
 **sort_by_col** won't sort the first row because it is considered the Header of the list.
-The **sort_type** option refers to the column sort order. When the **Sort_By** is set
-to STRING, it will convert all the items of the list to string type. If a column is mixed with
-string type and another type, like integer or float, it will cause an <span style="color:red">***error***</span>. This method is
-intended to be used with all cells filled; any empty cells will be filled automatically.
+If a column is mixed with string type and another type, like integer or float, it will
+cause an <span style="color:red">***error***</span>. This method is intended to be used
+with all cells filled with the same type per column except the header; any empty cells
+will be filled automatically. If you want to fill those spots with a specific type, then
+use the autofill_data method.
 
 <span style="color:red"> <strong> Example: </strong> </span>
 
@@ -591,53 +592,223 @@ intended to be used with all cells filled; any empty cells will be filled automa
 import custom_print as cp
 pylo = cp.PyLO()
 tbl  = cp.FancyFormat()
-tbl.msg_title = "Original"
 
 lst  = [["ID","Names",  "Last",    "Age","Department"],
-        [1,   "Juan",   "Alegria",   30,  "EE"       ],
-        [17,  "Manuel", "Alvarez",   25,  "EC"       ],
-        [9,   "Luis",   "Naguse",    21,  "AD"       ],
-        [3,   "Pancho", "Marlo",     41,  "BE"       ],
-        [2,   "Felipe", "Cautizo",   15              ]] 
+        [  1, "Juan",   "Alegria",   30,  "EE"       ],
+        [ 17, "Manuel", "Alvarez",   25,  "EC"       ],
+        [  9, "Luis",   "Nanguse",   21,  "AD"       ],
+        [  3, "Pancho", "Marlo",     41,  "BE"       ],
+        [  2, "Felipe", "Cautizo",   15              ]] 
 
+result = pylo.sort_by_col(data=lst, ref_col=0, reverse_order=False, update=False)
+tbl.msg_title = "Sort_by Col 0"
+tbl.print_fancy_format(result)
+
+tbl.msg_title = "Original"
 tbl.print_fancy_format(lst)
 
-result = pylo.sort_by_col(data=lst, ref_col=0, sort_type="number", reverse_order=False, update=False)
-tbl.msg_title = "Sort_by Col 0. Number"
+tbl.msg_title = "Sort_by Col 4"
+result = pylo.sort_by_col(data=lst, ref_col=4, reverse_order=False, update=False)
 tbl.print_fancy_format(result)
 
-tbl.msg_title = "Sort_by Col 0. String"
-result = pylo.sort_by_col(data=lst, ref_col=0, sort_type="string", reverse_order=False, update=False)
-tbl.print_fancy_format(result)
-
-tbl.msg_title = "Sort_by Col 0. Number, rever_order=True, update=True"
-result = pylo.sort_by_col(data=lst, ref_col=0, sort_type="number", reverse_order=True, update=True)
+tbl.msg_title = "Sort_by Col 0. reverse_order=True, update=True"
+result = pylo.sort_by_col(data=lst, ref_col=0, reverse_order=True, update=True)
 tbl.print_fancy_format(result)
 
 tbl.msg_title = "New Original"
 tbl.print_fancy_format(lst)
 
-
 tbl.msg_title = ""
-lst_2 = [10,1,5,3]
-result2 = pylo.sort_by_col(data=lst_2, ref_col=0, sort_type=pylo.Sort_By.STRING, reverse_order=False)
-tbl.print_fancy_format(lst_2)
+lst_2 = [5,1,9,5]
+result2 = pylo.sort_by_col(data=lst_2, ref_col=10, reverse_order=False, update=False)
+print("\n\nResult  : reverse_order=False, update=False")
 tbl.print_fancy_format(result2)
+print("Original:");  tbl.print_fancy_format(lst_2)
 
-result2 = pylo.sort_by_col(data=lst_2, ref_col=0, sort_type=pylo.Sort_By.NUMBER, reverse_order=True)
-tbl.print_fancy_format(lst_2)
+result2 = pylo.sort_by_col(data=lst_2, ref_col=0, reverse_order=True, update=True)
+print("Result  : reverse_order=True, update=True ")
 tbl.print_fancy_format(result2)
+print("Original:");  tbl.print_fancy_format(lst_2)
 ```
 
 ## Write a List Into a CSV File
 
-write_csv_file
+```python
+write_csv_file(data, file_path="CSV_List")
+```
+
+It writes a list into a **CSV** file and it returns the path where the file was saved.
+The path needs to be specified as it is. Do<span style="color:red"> <strong>NOT</strong> </span>
+use tilda(~) or $HOME for quick access to the path, it could cause error. The extension can be
+omitted or not. If the file_path is not provided then it will create the file in the current
+path under the name **CSV_List.csv**. The file_path is assumed that it will contain the name of
+the file as well.
+
+
+
+<span style="color:red"> <strong> Example: </strong> </span>
+
+```python
+import custom_print as cp
+pylo = cp.PyLO()
+
+
+classes_methods_fancyprint = [\
+    ["Header 1","Header 2",    "Header 3",            "Header 4"        ,    "Header 5"      ],
+    ["Cursor",  "FontStyle",   "FancyMessage",        "FancyFormat"        , "Pen"           ],
+    ["jumpTo",  "start_style", "print_fancy_message", "print_fancy_format",  "draw_line"     ],
+    ["jumpxy",  "stop_style",  "print_fancy_note",    "reset_fancy_format",  "draw_rectangle"],
+    ["moveTo",  "print_style", "----             ",    "----             ",  "----"          ],
+    ["movexy",  "reset_style", "----             ",    "----             ",  "----"          ]]
+
+file_path = pylo.write_csv_file(classes_methods_fancyprint)
+print(file_path)
+
+
+list_1 = [10,[50],[250],["H"],100]
+file_path = pylo.write_csv_file(list_1, "file_1")
+print(file_path)
+```
 
 ## Read a List From a CSV File
 
+```python
+read_csv_file(file_path:str="CSV_List")
+```
+
+It reads a **csv** file and save it into a list. The extension can be omitted.
+
+<span style="color:red"> <strong> Example: </strong> </span>
+
+```python
+import custom_print as cp
+pylo = cp.PyLO()
+tbl = cp.FancyFormat()
+
+
+file_info = pylo.read_csv_file("CSV_List")
+tbl.print_fancy_format(file_info)
+
+
+file_info = pylo.read_csv_file("file_1.csv")
+tbl.print_fancy_format(file_info)
+```
+
 ## Write a List Into a JSON File
 
+```python
+write_json_file(data, file_path="JSON_List")
+```
+
+It writes a list into a **JSON** file and it returns the path where the file was saved.
+The path needs to be specified as it is. Do<span style="color:red"> <strong>NOT</strong> </span>
+use tilda(~) or $HOME for quick access to the path, it could cause error. The extension can be
+omitted or not. If the file_path is not provided then it will create the file in the current
+path under the name **JSON_List.json**. The file_path is assumed that it will contain the name of
+the file as well.
+
+<span style="color:red"> <strong> Example: </strong> </span>
+
+```python
+import custom_print as cp
+pylo = cp.PyLO()
+
+class_methods = [\
+    ["Header 1","Header 2",    "Header 3",            "Header 4"        ,    "Header 5"      ],
+    ["Cursor",  "FontStyle",   "FancyMessage",        "FancyFormat"        , "Pen"           ],
+    ["jumpTo",  "start_style", "print_fancy_message", "print_fancy_format",  "draw_line"     ],
+    ["jumpxy",  "stop_style",  "print_fancy_note",    "reset_fancy_format",  "draw_rectangle"],
+    ["moveTo",  "print_style", "----             ",    "----             ",  "----"          ],
+    ["movexy",  "reset_style", "----             ",    "----             ",  "----"          ]]
+
+file_path = pylo.write_json_file(class_methods)
+print(file_path)
+
+
+list_1 = [10,[50],[250],["H"],100]
+file_path = pylo.write_json_file(list_1, "file_1.json")
+print(file_path)
+```
+
 ## Read a List From a JSON File
+
+```python
+read_json_file(self, file_path:str="JSON_List")
+```
+
+It reads a **json** file and save it into a list. The extension can be omitted.
+
+<span style="color:red"> <strong> Example: </strong> </span>
+
+```python
+import custom_print as cp
+pylo = cp.PyLO()
+tbl = cp.FancyFormat()
+
+
+file_info = pylo.read_json_file("JSON_List.json")
+tbl.print_fancy_format(file_info)
+
+
+file_info = pylo.read_json_file("file_1.json")
+tbl.print_fancy_format(file_info)
+```
+
+
+## Delete a Column from a List
+
+```python
+delete_col(data, col_ref=0, update=False)
+```
+It deletes a column from a list. If the col_ref is out of range, it will return a message,
+**col_ref out of range in one or more columns from the list**, along with an empty list as
+a result. This method was intended to be used with complete list as the example below.
+**Notice:** that autofill_data method can be used if wished.
+
+<span style="color:red"> <strong> Example: </strong> </span>
+
+```python
+import custom_print as cp
+pylo = cp.PyLO()
+tbl = cp.FancyFormat()
+
+print(f"{cp.ins_chr(n=80, unicode="-")}")
+print(f"{cp.set_font(1,23,231)} Case 5. Col_ref = 0, update=True {cp.reset_font()}")
+lst_5 = [1,2,3,4,5,6]
+print("Original    : ",lst_5)
+result = pylo.delete_col(lst_5, 0, update=True)
+print("Result      : ",result)
+print("New Original: ",lst_5)
+
+print(f"{cp.ins_chr(n=80, unicode="-")}")
+
+print(f"{cp.set_font(1,23,231)} Case 8. Col_ref = 0, update=False {cp.reset_font()}")
+lst_8 = [[1,2,3,4,5,6]]
+print("Original    : ",lst_8)
+result = pylo.delete_col(lst_8, 1, update=False)
+print("Result      : ",result)
+print("New Original: ",lst_8)
+
+print(f"{cp.ins_chr(n=80, unicode="-")}")
+
+class_methods = [\
+    ["Cursor",  "FontStyle",    "FancyMessage",          "FancyFormat"        ],
+    ["jumpTo",  "start_style",  "print_fancy_message",   "print_fancy_format" ],
+    ["jumpxy",  "stop_style",   "print_fancy_note",      "reset_fancy_format" ],
+    ["moveTo",  "print_style",  "----             ",      "----             " ],
+    ["movexy",  "reset_style",  "----             ",      "----             " ]]
+
+tbl.bg_title = 90; tbl.align_title = cp.Align.CENTER
+tbl.msg_title = " col_ref = 2, update=False "
+tbl.print_fancy_format(class_methods)
+tbl.msg_title = " Result After Deleting col 2"
+new_list = pylo.delete_col(class_methods, 12)
+tbl.print_fancy_format(new_list)
+```
+
+## Add a Column to a List
+
+
 
 > <span style="background-color:purple">
 > <span style="color:yellow"><strong><i>
