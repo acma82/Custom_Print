@@ -273,13 +273,15 @@
 ### <span style="color:purple"> <strong> Right Shift  and Left Shift </strong> </span>
 
 ```python
-    shift(data:list, direction=Move.RIGHT, qty=0, update:bool=False)
-
-   This function shift the elements in a list to the left or right.
-
-   update is used to save the actual list with the shift elements.
-   If we set update to False, then we keep the original list as it is.
+    shift(data, direction=Move.RIGHT, qty=0, update=False)
 ```
+
+- This method shift the elements in a list to the left or right.
+
+- update is used to save the actual list with the shift elements.
+
+- If we set update to False, then we keep the original list as it is.
+
 
 <span style="color:red"> <strong> Example: </strong> </span>
 
@@ -327,22 +329,20 @@
 
 ## Swap 2 Items in a List
 ```python    
-    swap(data:list, pos1=0, pos2=0, update:bool=False)
-
-    This function swap two elements in a list.
-
-    update is used to save the actual list with the swap elements.
-        
-    if update is set to False, then we keep the original list and save
-    the new list into another variable.
-
-    pos1 -> position 1 to be swap with position 2
-    pos2 -> position 2 to be swap with position 1
-
-    Note: If one of the position provided is out of range, the function
-          will return the list as original and it will print a message
-          out of range. 
+    swap(data, pos1=0, pos2=0, update=False)
 ```
+
+This method swap two elements in a list.
+
+- update is used to save the actual list with the swap elements.
+        
+- if update is set to False, then we keep the original list and save the new list into another variable.
+
+- **pos1** -> position 1 to be swap with position 2 <br>
+- **pos2** -> position 2 to be swap with position 1
+
+- **Note:** If one of the position provided is out of range, the function will return the list as
+            original and it will print a message out of range. 
 
 <span style="color:red"> <strong> Example: </strong> </span>
 
@@ -368,11 +368,11 @@
 ## Dimensions of a List
 
 ```python    
-    dimensions(data:list)
-
-    This function return the number of rows and cols in a list.
-    It will return the number of rows and cols in a list.
+    dimensions(data)
 ```
+
+This method returns the number of rows and cols in a list.
+It will return the number of rows and cols in a list.
 
 <span style="color:red"> <strong> Example: </strong> </span>
 
@@ -394,13 +394,13 @@
 ## Autofill Data in a List
 
 ```python
-    autofill_data(data:list, fill_value:str="----", update:bool=False)
-
-    This function will fill all the empty columns from the list.
-    fill_value is the chr to be used to fill those columns. It can be str,
-    int, float, or bool. By default it's a str type (----).
-    It only works for list in the form of table.
+    autofill_data(data, fill_value="----", update=False)
 ```
+This method will fill all the empty columns from the list.
+
+- **fill_value** is the chr to be used to fill those columns. It can be str, int, float, or bool. 
+  By default it's a str type (----). It only works for list in the form of table.
+
 
 <span style="color:red"> <strong> Example: </strong> </span>
 
@@ -429,15 +429,14 @@
 ## Transpose
 
 ```python
-    transpose(data:list, autofill=True, fill_value="----", update:bool=False)
-        
-    update is used to replace original list with the transpose list.
-    update is set to False to keep the original list and save
-    the new list into another variable.
+    transpose(data, autofill=True, fill_value="----", update=False)
+```        
+update is used to replace original list with the transpose list. update is set to False to keep
+the original list and save the new list into another variable.
 
-    When the list is not square or rectangular, the list will be filled using
-    the fill_value. If the autofill is set to False, some data will be lost.
-```
+When the list is not square or rectangular, the list will be filled using
+the fill_value. If the autofill is set to False, some data will be lost.
+
 
 ### Cases
 | Original_list                         |      Transpose_list                           |
@@ -513,9 +512,9 @@
 
 ```python
     data_to_str(data:list, update=False)
-
-    Converts all the elements of a list to string type
 ```
+
+- This method converts all the elements of a list to string type
 
 <span style="color:red"> <strong> Example: </strong> </span>
 
@@ -542,13 +541,12 @@
 
 ```python
     data_to_num(self, data:list, fill_value=0, update=False)
-
-    Converts all items from a list to numbers where it is possible.
-    If it is not possible then it will take the fill_value provided to switch
-    the value was not possible to convert. If the fill value provided is not
-    a number or it is not possible to convert it to a number then it will be
-    sustitute by zero, 0.
 ```
+This method converts all items from a list to numbers where it is possible.
+If it is not possible then it will take the **fill_value** provided to switch
+the value where it was not possible to convert. If the **fill_value** provided is not
+a number or it is not possible to convert it to a number then it will be
+sustitute by zero, 0.
 
 <span style="color:red"> <strong> Example: </strong> </span>
 
@@ -579,7 +577,7 @@
 sort_by_col(self, data, ref_col=0, reverse_order=False, update=False)
 ```
 
-**sort_by_col** won't sort the first row because it is considered the Header of the list.
+**sort_by_col** will NOT sort the first row because it is considered the Header of the list.
 If a column is mixed with string type and another type, like integer or float, it will
 cause an <span style="color:red">***error***</span>. This method is intended to be used
 with all cells filled with the same type per column except the header; any empty cells
@@ -1009,6 +1007,118 @@ for n in range(len(list_1)):
 join_list = pylo.join_as_vector(data=list_1, data2join=list_2, col_pos=9)
 print(f"Result:9 {join_list}")
 ```
+## Find a Value in a List
+
+```python
+find_value(data:list, ref)
+```
+This method finds a value into a list and returns the location of the value.
+Up to 4 brackets.
+
+<span style="color:red"> <strong> Example: </strong> </span>
+
+```python
+import custom_print as cp
+pylo = cp.PyLO()
+
+list_1 = [["Header 1", "Header 2", "Header 3",0],
+          ["Datito 1", "Datito 2", "Datito 3",1],
+          ["Datito 4", "Datito 5", "Datito 6",2],
+          ["Datito 1", "Datito 2", "Datito 1",3]]
+
+list_2 = [2,5,[2,7],8,8,9,"A",[8,2,2]]
+
+list_3 = ["miGueL", "hellO",[7,8,"bB"]]
+
+result = pylo.find_value(list_1, "DATITO 1")
+print(result)
+
+result = pylo.find_value(list_2, 8)
+print(result)
+
+
+result = pylo.find_value(list_3, "BB")
+print(result)
+```
+
+## Conversion to Lower Case
+
+```python
+lower_case(data:list)
+```
+
+This method lower case all the items in a list.
+
+<span style="color:red"> <strong> Example: </strong> </span>
+
+```python
+import custom_print as cp
+pylo = cp.PyLO()
+
+
+list_1 = [["HeadeR 1", "HeadeR 2", "HeadeR 3",0],
+          ["DatitO 1", "DatitO 2", "DatitO 3",1],
+          ["DatitO 4", "DatitO 5", "DatitO 6",2],
+          ["DatitO 1", "DatitO 2", "DatitO 1",3]]
+
+mylower = pylo.set_to_lower(list_1)
+print(mylower)
+```
+
+
+## Conversion to Upper Case
+
+```python
+upper_case(self, data:list)
+```
+
+This method upper case all the items in a list.
+
+<span style="color:red"> <strong> Example: </strong> </span>
+
+```python
+import custom_print as cp
+pylo = cp.PyLO()
+
+
+list_1 = [["HeadeR 1", "HeadeR 2", "HeadeR 3",0],
+          ["DatitO 1", "DatitO 2", "DatitO 3",1],
+          ["DatitO 4", "DatitO 5", "DatitO 6",2],
+          ["DatitO 1", "DatitO 2", "DatitO 1",3]]
+
+myupper = pylo.set_to_upper(list_1)
+print(myupper)
+```
+
+## Conversion to Capitalize Case
+
+```python
+capitalize_case(data:list)
+```
+
+ This method capitalize all the items in a list.
+
+<span style="color:red"> <strong> Example: </strong> </span>
+
+```python
+import custom_print as cp
+pylo = cp.PyLO()
+
+list_1 = [["HeadeR 1", "HeadeR 2", "HeadeR 3",0],
+          ["DatitO 1", "DatitO 2", "DatitO 3",1],
+          ["DatitO 4", "DatitO 5", "DatitO 6",2],
+          ["DatitO 1", "DatitO 2", "DatitO 1",3]]
+
+list_2 = ["miGueL", "hellO",[7,8,"bB"]]
+
+mycapitalize = pylo.set_to_capitalize(list_1)
+print(mycapitalize)
+
+mycapitalize = pylo.set_to_capitalize(list_2)
+print(mycapitalize)
+```
+
+
 
 
 > <span style="background-color:purple">

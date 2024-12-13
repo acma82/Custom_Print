@@ -71,6 +71,13 @@ resutl = pylo.replace(data=list_1, old=3, new="A", update=True)
 print("Result  :",resutl)
 print("Original:",list_1)
 
+list_2 = [["HeadeR 1", "HeadeR 2", "HeadeR 3",0],
+          ["DatitO 1", "DatitO 2", "DatitO 3",1],
+          ["DatitO 4", "DatitO 5", "DatitO 6",0],
+          ["DatitO 1", "DatitO 2", "DatitO 1",3]]
+
+resutl = pylo.replace(data=list_2, old=0, new="A", update=True)
+print("Result  :",resutl)
 
 
  

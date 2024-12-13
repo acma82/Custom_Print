@@ -3564,17 +3564,6 @@ class PyLO():
         LINE_BY_LINE = "line_by_line"
 
 
-    class Sort_By(enum.StrEnum):
-
-        '''  How to consider to sort the list.
-             Example: lst = [10,1,5]
-             STRING Sort -> 1 10 5
-             NUMBER Sort -> 1 5  10'''
-
-        STRING = "string"
-        NUMBER = "number"
-
-
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Conversion to List                                                                                                                             -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
@@ -4643,8 +4632,8 @@ class PyLO():
             else:
                 vector_lista.append(item)
         return vector_lista
-        
-        
+
+
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Add a New Column in a List                                                                                                                     -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
@@ -4762,8 +4751,7 @@ class PyLO():
             original = PyLO.delete_col(self, data=data, col_ref=0, update=False)
             result = set_counter(original, start_number, id_txt)
 
-        if update == False: pass
-        else:
+        if update == True:
             tempo_rows = []
             data.clear()
             for row in result:
@@ -4771,6 +4759,7 @@ class PyLO():
                     tempo_rows.append(col)
                 data.append(tempo_rows)
                 tempo_rows = []
+
         return result
 
 
@@ -4809,10 +4798,104 @@ class PyLO():
         return join_list
 
 
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    # Grep or Find a Value in a List.                                                                                                                -
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    def find_value(self, data:list, ref:int|str)->list:
+        
+        '''  This method finds a value into a list and returns the location of the value.
+             Up to 4 brackets.  '''
+        
+        my_type = _get_list_type(data)
+        if isinstance(ref, str): new_ref = ref.lower()
+        else:                    new_ref = ref
+
+        new_data = PyLO.set_to_lower(self, data)       
+        grep_list = []
+        ctrl = 0
+        
+
+        if my_type == "multiple_items_multiple_rows":
+            for row in range(len(data)):
+                for col in range(len(data[row])):
+                    if new_data[row][col] == new_ref:
+                        grep_list.append([row, col, ref])
+            ctrl = 1
+        else:
+            tmp = PyLO.make_to_vector(self, data=new_data)
+            for value in range(len(tmp)):
+                if tmp[value] == new_ref:
+                    grep_list.append(value)
+                
+        if   ctrl == 1 and len(grep_list)>0: grep_list.insert(0, ["Row","Col","Ref"])
+        elif ctrl == 2 and len(grep_list)>0: 
+            grep_list.insert(0, "Position(s)")
+            PyLO.transpose(self, data=grep_list, update=True)
+
+        else: pass
+
+        return grep_list
 
 
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    # Lower Case                                                                                                                                     -
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    def lower_case(self, data:list)->list:
+
+        '''  This method lower case all the items in a list.  '''
+
+        new_list = []
+        for value in data:
+            if isinstance(value, list):
+                new_list.append(PyLO.lower_case(self, value))
+            else:
+                if isinstance(value, str):
+                    new_list.append(value.lower())
+                else:
+                    new_list.append(value)
+
+        return new_list
 
 
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    # Upper Case                                                                                                                                     -
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    def upper_case(self, data:list)->list:
+
+        '''  This method upper case all the items in a list.  '''
+
+        new_list = []
+        for value in data:
+            if isinstance(value, list):
+                new_list.append(PyLO.upper_case(self, value))
+            else:
+                if isinstance(value, str):
+                    new_list.append(value.upper())
+                else:
+                    new_list.append(value)
+
+        return new_list
+    
+
+
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    # Capitalize Case                                                                                                                                -
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    def capitalize_case(self, data:list)->list:
+
+        '''  This method capitalize all the items in a list.  '''
+
+        new_list = []
+        for value in data:
+            if isinstance(value, list):
+                new_list.append(PyLO.capitalize_case(self, value))
+            else:
+                if isinstance(value, str):
+                    new_list.append(value.capitalize())
+                else:
+                    new_list.append(value)
+
+        return new_list
 
 
 
