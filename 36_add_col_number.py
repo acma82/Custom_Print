@@ -16,14 +16,15 @@ list_6 = [["R3_C1","R3_C2","R3_C3"],
           ["R4_C1","R4_C2","R4_C3"]]
 
 for rows in range(len(list_6)):
-    list_5_6 = pylo.add_col(data=list_5, new_col_data=list_6[rows], col_posi=len(list_5[0]))
+    list_5_6 = pylo.add_col(data=list_5, col_data=list_6[rows], posi=len(list_5[0]))
 
 tbl.print_fancy_format(list_5_6)
 print(list_5_6)
 
 #-----------------------------------------------------------------------------------
 tbl.msg_title = " Adding the row numbers "
-pylo.number(data=list_5_6, start_number=1, id_txt="ID", renumber=False, update=True)
+new_l = pylo.number(data=list_5_6, start_number=1, id_txt="ID", renumber=False, update=False)
+tbl.print_fancy_format(new_l)
 tbl.print_fancy_format(list_5_6)
 
 #-----------------------------------------------------------------------------------
@@ -33,6 +34,6 @@ tbl.msg_title = " Adding a new row "
 tbl.print_fancy_format(list_5_6)
 
 #-----------------------------------------------------------------------------------
-pylo.number(data=list_5_6, start_number=1, id_txt="ID", renumber=True, update=True)
+pylo.number(data=list_5_6, start_number=1, id_txt="ID", renumber=True, update=False)
 tbl.msg_title = " renumerating the rows "
 tbl.print_fancy_format(list_5_6)

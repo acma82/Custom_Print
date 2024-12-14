@@ -3558,10 +3558,18 @@ class PyLO():
     '''
     class Str_List_Option(enum.StrEnum):
 
-        '''  How the string is converted to list  '''
+        '''  How the string is converted to list.  '''
 
         WORD_BY_WORD = "word_by_word"
         LINE_BY_LINE = "line_by_line"
+
+
+    class Appending(enum.StrEnum):
+
+        '''  How the 2 list will be merge. '''
+
+        ROWS    = "rows"
+        COLUMNS = "columns"
 
 
     #-------------------------------------------------------------------------------------------------------------------------------------------------
@@ -4637,7 +4645,7 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Add a New Column in a List                                                                                                                     -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def add_col(self, data:list, new_col_data:list, col_posi:int=0)->list:
+    def add_col(self, data:list, col_data:list, posi:int=0)->list:
 
         '''  This method adds a column into the list in a specific postion.
              The original list has to be in the form of a matrix or table 
@@ -4648,19 +4656,25 @@ class PyLO():
                 new_col_data = ["New_Header",   "New_Row_Col",  "New_Row_Col"]
                 result = add_col(data, new_col_data, 1)
             '''
-
-        if new_col_data == [] or new_col_data == [[]] or new_col_data == [[[]]]:  pass
+        tmp = []; new_list = []
+        
+        if col_data == [] or col_data == [[]] or col_data == [[[]]]:  pass
         else:
-            if isinstance(data, list) and isinstance(new_col_data, list):
+            if isinstance(data, list) and isinstance(col_data, list):
                 list_type = _get_list_type(data)
-                if list_type == "multiple_items_one_row" or list_type == "multiple_items_multiple_rows" or list_type == "one_item_one_row":
-                    new_list = data
-                    col_info = PyLO.make_to_vector(self, new_col_data)
+                if list_type == "multiple_items_one_row" or list_type == "multiple_items_multiple_rows"\
+                                                         or list_type == "one_item_one_row":
+                    
+                    for row in data:
+                        for col in row:
+                            tmp.append(col)
+                        new_list.append(tmp)
+                        tmp = []
 
-                    length_c = len(col_info)
-                    length_d = len(data)
+                  
+                    col_info = PyLO.make_to_vector(self, col_data)
 
-                    diff = length_c - length_d
+                    diff = len(col_info) - len(data)
                     if diff < 0:
                         miss_col = diff * -1
                         for n in range(miss_col):
@@ -4669,25 +4683,34 @@ class PyLO():
 
                     cnt = 0
                     ctrl = 0
-                    for row in data:
-                        if col_posi <= 0:
+                    dimension_ld = PyLO.dimensions(self, data=data)
+                    max_col = dimension_ld[1][1]
+
+                    if posi <= 0:
+                        for row in data:
                             new_list[ctrl].insert(0, col_info[ctrl])
-                            # ctrl += 1
-
-                        elif col_posi >= len(row):
+                            ctrl += 1
+                    
+                    elif posi >= max_col:
+                        for row in data:
                             new_list[ctrl].append(col_info[ctrl])
-                            # ctrl += 1
+                            ctrl += 1
 
-                        else:
-                            for n in range(len(row)):
-                                if n == col_posi:
-                                    new_list[ctrl].insert(n, col_info[cnt])
-                                    cnt += 1
-                                else: pass
-                            # ctrl += 1
-                        ctrl += 1
+                    else:
+                        for row in data:
+                            if posi >= len(row):
+                                new_list[ctrl].append(col_info[ctrl])
+                                cnt += 1
+                                
+                            else:
+                                for n in range(len(row)):
+                                    if posi == n:
+                                      new_list[ctrl].insert(n, col_info[cnt])
+                                      cnt += 1
+                                    else: pass
+                            ctrl += 1
                 else:
-                    new_list = PyLO.join_as_vector(self, new_col_data,data, 0)
+                    new_list = PyLO.join_as_vector(self, col_data, data, 0)
             else:
                 new_list =[]
 
@@ -4726,31 +4749,26 @@ class PyLO():
 
         '''  Enumerate a list by adding a column to the left side  '''
 
-        def set_counter(data, start_number, id_txt):
-            result = []
-            list_type = _get_list_type(data)
-            if list_type == "multiple_items_multiple_rows":
-
-                tempo = []
-                header = data.pop(0)
-                header.insert(0,id_txt)
-                for row in data:
-                    tempo = row
-                    tempo.insert(0,start_number)
-                    start_number += 1
-                    result.append(tempo)
-                    tempo = []
-                result.insert(0,header)
-            else:
-                result = data
-            return result
-
-        if renumber == False:
-            result = set_counter(data, start_number, id_txt)
+        if renumber == True: 
+            original = PyLO.delete_col(self, data, 0, False)
         else:
-            original = PyLO.delete_col(self, data=data, col_ref=0, update=False)
-            result = set_counter(original, start_number, id_txt)
+            original = data
 
+        list_type = _get_list_type(original)
+        if list_type == "multiple_items_multiple_rows":
+            
+            result = [];                    tempo = [];
+            header = original.pop(0);       header.insert(0,id_txt)
+            
+            for row in original:
+                tempo = row
+                tempo.insert(0,start_number)
+                start_number += 1
+                result.append(tempo)
+                tempo = []
+            result.insert(0,header)
+
+        
         if update == True:
             tempo_rows = []
             data.clear()
@@ -4759,11 +4777,16 @@ class PyLO():
                     tempo_rows.append(col)
                 data.append(tempo_rows)
                 tempo_rows = []
-
+        else:
+            tempo_rows = []
+            data.clear()
+            for row in result:
+                for col in row[1:]:
+                    tempo_rows.append(col)
+                data.append(tempo_rows)
+                tempo_rows = []
         return result
 
-
-    
 
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Join Two List as a Vector                                                                                                                      -
@@ -4810,7 +4833,7 @@ class PyLO():
         if isinstance(ref, str): new_ref = ref.lower()
         else:                    new_ref = ref
 
-        new_data = PyLO.set_to_lower(self, data)       
+        new_data = PyLO.lower_case(self, data)       
         grep_list = []
         ctrl = 0
         
@@ -4896,6 +4919,158 @@ class PyLO():
                     new_list.append(value)
 
         return new_list
+
+
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    # Joint 2 List                                                                                                                                   -
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    def merge(self, list_1:list, list_2:list, posi=0, merge_by=Appending.ROWS):
+        
+        '''  This method merge two list with two option of merge.
+             It can be merge by ROWS or by COLUMNS. It also,
+             provide the option to pick the specific position
+             where to start the merge on list_1.  '''
+        
+        merge_list = []
+
+        my_type_1 = _get_list_type(list_1)
+        my_type_2 = _get_list_type(list_2)
+
+        # Case 1 and Case 2 for list_1
+        if my_type_1 == "incorrect_variable_type" or my_type_1 == "empty_list":
+            if my_type_2 == "incorrect_variable_type" or my_type_2 == "empty_list":
+                pass
+            else:
+                merge_list = list_2
+
+        # Case 1 and Case 2 for list_2
+        elif my_type_2 == "incorrect_variable_type" or my_type_2 == "empty_list":
+            if  my_type_1 == "incorrect_variable_type" or my_type_1 == "empty_list":
+                pass
+            else:
+                merge_list = list_1
+        
+        # Case 6 with Case 6
+        elif my_type_1 == "multiple_items_multiple_rows" and my_type_2 == "multiple_items_multiple_rows":
+            if merge_by == "rows":
+                if posi <= 0:
+                    for n in list_2: merge_list.append(n)
+                    for n in list_1: merge_list.append(n)
+
+                elif posi >= len(list_1[0]):
+                    for n in list_1: merge_list.append(n)
+                    for n in list_2: merge_list.append(n)
+
+                else:
+                    for row in range(len(list_1)):
+                        if posi == row:
+                            for n in list_2: merge_list.append(n)
+                            merge_list.append(list_1[row])
+                        else:
+                            merge_list.append(list_1[row])
+
+            elif merge_by == "columns":
+                merge_list = list_1
+                for row in range(len(list_2)):
+                    merge_list = PyLO.add_col(self, data=merge_list, col_data=list_2[row], posi=posi)
+            else: pass
+
+
+        # Case 6 with any other Case
+        elif my_type_1 == "multiple_items_multiple_rows" and my_type_2 != "multiple_items_multiple_rows":
+            tmp_2 = PyLO.make_to_vector(self, list_2)
+
+            if merge_by == "rows":
+                if posi <= 0:
+                    merge_list.append(tmp_2)
+                    for n in list_1: merge_list.append(n)
+
+                elif posi >= len(list_1):
+                    for n in list_1: merge_list.append(n)
+                    merge_list.append(tmp_2)
+                
+                else:
+                    for n in range(len(list_1)):
+                        if posi == n:
+                            merge_list.append(tmp_2)
+                            merge_list.append(list_1[n])
+                        else:
+                            merge_list.append(list_1[n])
+
+            elif merge_by == "columns":
+                merge_list = PyLO.add_col(self, data=list_1, col_data=list_2, posi=posi)
+                
+        
+        # Any Case with Case 6
+        elif my_type_1 != "multiple_items_multiple_rows" and my_type_2 == "multiple_items_multiple_rows":
+            tmp_1 = PyLO.make_to_vector(self, list_1)
+
+            if merge_by == "rows":
+                if posi <= 0:
+                    merge_list.append(tmp_1)
+                    for n in list_2: merge_list.append(n)
+
+                elif posi >= len(list_2):
+                    for n in list_2: merge_list.append(n)
+                    merge_list.append(tmp_1)
+                
+                else:
+                    for n in range(len(list_2)):
+                        if posi == n:
+                            merge_list.append(tmp_1)
+                            merge_list.append(list_2[n])
+                        else:
+                            merge_list.append(list_2[n])
+
+            elif merge_by == "columns":
+                merge_list = PyLO.add_col(self, data=list_2, col_data=list_1, posi=posi)
+
+        else:
+            # Case 3,    Case 4,    Case 5,    Case 7,    Case 8
+            tmp_1 = PyLO.make_to_vector(self, list_1)
+            tmp_2 = PyLO.make_to_vector(self, list_2)
+
+            if merge_by.lower() == "rows":
+                if posi <= 0:
+                    for n in tmp_2: merge_list.append(n)
+                    for n in tmp_1: merge_list.append(n)
+
+
+                elif posi >= len(tmp_1):
+                    for n in tmp_1: merge_list.append(n)
+                    for n in tmp_2: merge_list.append(n)
+
+                else:
+                    for m in range(len(tmp_1)):
+                        if posi == m:
+                            for n in range(len(tmp_2)):
+                                merge_list.append(tmp_2[n])
+                            merge_list.append(tmp_1[m])
+                        else:
+                            merge_list.append(tmp_1[m])
+
+            elif merge_by.lower() == "columns":
+
+                tmp = []
+                if posi <= 0:
+                    for n in tmp_2: tmp.append(n)
+                    for n in tmp_1: tmp.append(n)
+
+                elif posi >= len(tmp_1):
+                    for n in tmp_1: tmp.append(n)
+                    for n in tmp_2: tmp.append(n)
+
+                else:
+                    for r in range(len(tmp_1)):
+                        if r == posi:
+                            for c in range(len(tmp_2)):
+                                tmp.append(tmp_2[c])
+                            tmp.append(tmp_1[r])
+                        else:
+                            tmp.append(tmp_1[r])       
+                merge_list.append(tmp)
+            else: pass
+        return merge_list
 
 
 
