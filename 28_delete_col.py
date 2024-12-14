@@ -94,7 +94,7 @@ print("New Original: ",lst_7)
 
 print(f"{cp.ins_chr(n=80, unicode="-")}")
 
-print(f"{cp.set_font(1,23,231)} Case 8. Col_ref = 0, update=False {cp.reset_font()}")
+print(f"{cp.set_font(1,23,231)} Case 8. Col_ref = 1, update=False {cp.reset_font()}")
 lst_8 = [[1,2,3,4,5,6]]
 print("Original    : ",lst_8)
 result = pylo.delete_col(lst_8, 1, update=False)
@@ -114,5 +114,6 @@ tbl.bg_title = 90; tbl.align_title = cp.Align.CENTER
 tbl.msg_title = " col_ref = 2, update=False "
 tbl.print_fancy_format(class_methods)
 tbl.msg_title = " Result After Deleting col 2"
-new_list = pylo.delete_col(class_methods, 12)
+new_list = pylo.delete_col(class_methods, 2)
 tbl.print_fancy_format(new_list)
+
