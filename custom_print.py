@@ -5082,6 +5082,37 @@ class PyLO():
         return merge_list
 
 
+    def reverse_order(self, data:list, update:list=False):
+
+        '''  This methods reverse the order of the list keeping 
+             the headers in the same positon. '''
+        
+        headers = [];       body = [];      ctrl = 0
+        reversed_list = []; tmp = []
+    
+        my_type = _get_list_type(data)
+        if my_type == "multiple_items_multiple_rows":
+        
+            for row in data:
+                if ctrl == 0:
+                    headers.append(row)
+                    ctrl = 1
+                else:
+                    for col in row:
+                        tmp.append(col)
+                    body.append(tmp)
+                    tmp = []
+            
+            for row in reversed(body):
+                reversed_list.append(row)
+            reversed_list.insert(0,headers[0])
+
+            if update == True:
+                data.clear()
+                for r in reversed_list:
+                    data.append(r)
+        else: pass
+        return reversed_list      
 
 
 # Planning to use this script as help of the Module custom_print.

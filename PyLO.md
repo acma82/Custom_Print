@@ -1139,6 +1139,7 @@ tbl  = cp.FancyFormat()
 tbl.bg_title  = 90
 tbl.bold_title = True
 tbl.italic_title = True
+tbl.align_title  = cp.Align.LEFT
 
 #-----------------------------------------------------------------------------------------
 methods = [\
@@ -1162,32 +1163,75 @@ tbl.msg_title = " List 2: People "
 tbl.print_fancy_format(people)
 
 tbl.msg_title = " Merge List 1 and List 2 as COLUMNS "
-merge_list = pylo.merge(list_1=methods, list_2=people, posi=8, merge_by=pylo.Appending.COLUMNS) 
-tbl.print_fancy_format(merge_list)
+merge_cols = pylo.merge(list_1=methods, list_2=people, posi=8, merge_by=pylo.Appending.COLUMNS) 
+tbl.print_fancy_format(merge_cols)
 
 tbl.msg_title = " Merge List 1 and List 2 as ROWS "
-merge_list = pylo.merge(list_1=methods, list_2=people, posi=8, merge_by=pylo.Appending.ROWS)
-print(merge_list)
-tbl.print_fancy_format(merge_list)
+merge_rows = pylo.merge(list_1=methods, list_2=people, posi=8, merge_by=pylo.Appending.ROWS)
+tbl.print_fancy_format(merge_rows)
 
-
-print(" Original ")
+cp.ins_newline(2)
+print(f"{cp.set_font(1,23,231)} Methods {cp.reset_font()} ")
 print(methods)
 #-------------------------------------------------------------------------------
 print(cp.ins_chr(70,"-"))
 #-------------------------------------------------------------------------------
 cp.ins_newline(2)
+print(f"{cp.set_font(1,23,231)} People {cp.reset_font()} ")
 print(people)
 #-------------------------------------------------------------------------------
 print(cp.ins_chr(70,"-"))
 #-------------------------------------------------------------------------------
 cp.ins_newline(2)
-print(merge_list)
+print(f"{cp.set_font(1,23,231)} Merge ROWS {cp.reset_font()} ")
+print(merge_rows)
+#-------------------------------------------------------------------------------
+print(cp.ins_chr(70,"-"))
+#-------------------------------------------------------------------------------
+cp.ins_newline(2)
+print(f"{cp.set_font(1,23,231)} Merge COLUMNS {cp.reset_font()} ")
+print(merge_cols)
 #-------------------------------------------------------------------------------
 print(cp.ins_chr(70,"-"))
 #-------------------------------------------------------------------------------
 ```
 
+
+## Reverse Order of a List
+This methods reverse the order of the list keeping the headers in the same positon.
+
+```python
+reverse_order(data, update=False) 
+```
+
+<span style="color:red"> <strong> Example: </strong> </span>
+
+```python
+import custom_print as cp
+pylo = cp.PyLO()
+tbl  = cp.FancyFormat()
+
+tbl.bg_title  = 90
+tbl.bold_title = True
+tbl.italic_title = True
+tbl.align_title = cp.Align.LEFT
+
+people = [\
+      ["Names",  "Lasts",   "Age"],
+      ["Pancho", "Melti",    50  ],
+      ["Javier", "Nangy",    32  ],
+      ["Melony", "Archi",    40  ],
+      ["Jose",   "Valvimar", 18  ]]
+
+reversed_list = pylo.reverse_order(people,False)
+# reversed_list = pylo.reverse_order(people,True)
+
+tbl.msg_title = " Reversed Order Of People "
+tbl.print_fancy_format(reversed_list)
+
+tbl.msg_title = " Original List People "
+tbl.print_fancy_format(people)
+```
 
 > <span style="background-color:purple">
 > <span style="color:yellow"><strong><i>
