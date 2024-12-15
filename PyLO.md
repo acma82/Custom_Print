@@ -329,7 +329,7 @@
 
 ## Swap 2 Items in a List
 ```python    
-    swap(data, pos1=0, pos2=0, update=False)
+    swap(data, posi_1=0, posi_2=0, update=False)
 ```
 
 This method swap two elements in a list.
@@ -338,8 +338,8 @@ This method swap two elements in a list.
         
 - if update is set to False, then we keep the original list and save the new list into another variable.
 
-- **pos1** -> position 1 to be swap with position 2 <br>
-- **pos2** -> position 2 to be swap with position 1
+- **posi_1** -> position 1 to be swap with position 2 <br>
+- **posi_2** -> position 2 to be swap with position 1
 
 - **Note:** If one of the position provided is out of range, the function will return the list as
             original and it will print a message out of range. 
@@ -353,14 +353,14 @@ This method swap two elements in a list.
     print(f"{cp.set_font(1,23,231)}    Swap Items in a List    {cp.reset_font()}")
     lst = [[1,2],[3,4],[5,6],[7,8]]
     print("original: ", lst,end=""); print("   update=False,  pos1=0, pos2=2")
-    newlist = pylo.swap(data=lst, update= False, pos1= 0, pos2=2)
+    newlist = pylo.swap(data=lst, update= False, posi_1= 0, posi_2=2)
     print("swaped_l: ",newlist)
     print("original: ", lst)
 
     print(f"{cp.ins_chr(n=80, unicode="-")}")
 
     print("original: ", lst,end=""); print(f"   {cp.set_font(1,1,231)} update=True, {cp.reset_font()} pos1=3, pos2=0")
-    newlist = pylo.swap(data=lst, update=True, pos1=3, pos2=0)
+    newlist = pylo.swap(data=lst, update=True, posi_1=3, posi_2=0)
     print("swaped_l: ",newlist)
     print("original: ", lst)
 ```
@@ -984,7 +984,7 @@ tbl.print_fancy_format(list_5_6)
 ## Join 2 List as a Vector
 
 ```python
-join_as_vector(data, data2join, col_pos=0)
+join_as_vector(data, list_to_join, col_posi=0)
 ```
 
 <span style="color:red"> <strong> Example: </strong> </span>
@@ -1135,69 +1135,57 @@ to start the merge on list_1. <br>
 import custom_print as cp
 pylo = cp.PyLO()
 tbl  = cp.FancyFormat()
-tbl.bg_title = 90
+
+tbl.bg_title  = 90
 tbl.bold_title = True
-tbl.align_title = cp.Align.LEFT
+tbl.italic_title = True
 
-#-------------------------------------------------------------------------------
-print(cp.ins_chr(70,"-"))
-#-------------------------------------------------------------------------------
-l1 = [1,5,8,4]
-l2 = [[99,97,98,100]]
-res = pylo.merge(list_1=l1, list_2=l2, posi=2, merge_by=pylo.Appending.COLUMNS)
-print("re: ",res)
-print("l1: ",l1)
-print("l1: ",l2)
+#-----------------------------------------------------------------------------------------
+methods = [\
+    ["Cursor",  "FontStyle"  ,    "FancyMessage"       ,    "FancyFormat"        ],
+    ["jumpTo",  "start_style",    "print_fancy_message",    "print_fancy_format" ],
+    ["jumpxy",  "stop_style" ,    "print_fancy_note"   ,    "reset_fancy_format" ],
+    ["moveTo",  "print_style"],
+    ["movexy"]]
 
-l4 = ["Country", "MEX", "USA", "CAN",  "SAL"]
-
-l5 = [["Names",  "Lasts",   "Age"],
+people = [\
+      ["Names",  "Lasts",   "Age"],
       ["Pancho", "Melti",    50  ],
       ["Javier", "Nangy",    32  ],
       ["Melony", "Archi",    40  ],
       ["Jose",   "Valvimar", 18  ]]
 
-l6 = [["Country", "MEX",  "USA",  "CAN",  "SAL"],
-      ["Code",    "012",  "234",  "781"        ]]
+tbl.msg_title = " List 1: Methods "
+tbl.print_fancy_format(methods)
 
+tbl.msg_title = " List 2: People "
+tbl.print_fancy_format(people)
+
+tbl.msg_title = " Merge List 1 and List 2 as COLUMNS "
+merge_list = pylo.merge(list_1=methods, list_2=people, posi=8, merge_by=pylo.Appending.COLUMNS) 
+tbl.print_fancy_format(merge_list)
+
+tbl.msg_title = " Merge List 1 and List 2 as ROWS "
+merge_list = pylo.merge(list_1=methods, list_2=people, posi=8, merge_by=pylo.Appending.ROWS)
+print(merge_list)
+tbl.print_fancy_format(merge_list)
+
+
+print(" Original ")
+print(methods)
 #-------------------------------------------------------------------------------
 print(cp.ins_chr(70,"-"))
 #-------------------------------------------------------------------------------
-resr = pylo.merge(list_1=l5, list_2=l6, posi=2, merge_by=pylo.Appending.ROWS)
-tbl.msg_title = " Appending l6 as ROWS to l5 "
-tbl.print_fancy_format(resr)
-
+cp.ins_newline(2)
+print(people)
 #-------------------------------------------------------------------------------
 print(cp.ins_chr(70,"-"))
 #-------------------------------------------------------------------------------
-resc = pylo.merge(list_1=l5, list_2=l6, posi=2, merge_by=pylo.Appending.COLUMNS)
-print(resc)
-tbl.msg_title = " Appending l6 as COLUMNS to l5 "
-tbl.print_fancy_format(resc)
-print(resc)
-
+cp.ins_newline(2)
+print(merge_list)
 #-------------------------------------------------------------------------------
 print(cp.ins_chr(70,"-"))
 #-------------------------------------------------------------------------------
-tbl.msg_title = " Appending l4 as COLUMNS to l5 "
-res = pylo.add_col(data=l5, col_data=l4, posi=2)
-tbl.print_fancy_format(res)
-
-#-------------------------------------------------------------------------------
-print(cp.ins_chr(70,"-"))
-#-------------------------------------------------------------------------------
-l7 = []
-for n in reversed(l6): l7.append(n)
-tbl.msg_title = " Appending l6 as COLUMNS to l5 REVERSE "
-res = pylo.merge(list_1=l5, list_2=l7, posi=2, merge_by=pylo.Appending.COLUMNS)
-tbl.print_fancy_format(res)
-print(res)
-
-#-------------------------------------------------------------------------------
-print(cp.ins_chr(70,"-"))
-#-------------------------------------------------------------------------------
-final = pylo.number(data=res, start_number=1, id_txt="ID", renumber=False, update=False)
-tbl.print_fancy_format(res)
 ```
 
 

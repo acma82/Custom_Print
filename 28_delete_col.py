@@ -5,7 +5,7 @@ Otherwise, it will be ignored.
 import custom_print as cp
 pylo = cp.PyLO()
 tbl = cp.FancyFormat()
-tbl.set_fill_chr = " "
+#tbl.set_fill_chr = " "
 
 msg = f'''
    Options                             Results                           Cases
@@ -22,7 +22,7 @@ msg = f'''
 print(msg)
 
 print(f"{cp.ins_chr(n=80, unicode="-")}")
-print(f"{cp.set_font(1,23,231)} Case 1. Col_ref = 0, update=False {cp.reset_font()}")
+print(f"{cp.set_font(1,23,231)} Case 1. index = 0, update=False {cp.reset_font()}")
 lst_1 = "hello"
 print("Original str: ",lst_1)
 result = pylo.delete_col(lst_1,0, update=False)
@@ -31,7 +31,7 @@ print("New Original: ",lst_1)
 
 print(f"{cp.ins_chr(n=80, unicode="-")}")
 
-print(f"{cp.set_font(1,23,231)} Case 2. Col_ref = 0, update=True {cp.reset_font()}")
+print(f"{cp.set_font(1,23,231)} Case 2. index = 0, update=True {cp.reset_font()}")
 lst_2 = []
 print("Original    : ",lst_2)
 result = pylo.delete_col(lst_2,0, update=True)
@@ -40,7 +40,7 @@ print("New Original: ",lst_2)
 
 print(f"{cp.ins_chr(n=80, unicode="-")}")
 
-print(f"{cp.set_font(1,23,231)} Case 3. Col_ref = 0, update=False {cp.reset_font()}")
+print(f"{cp.set_font(1,23,231)} Case 3. index = 0, update=False {cp.reset_font()}")
 lst_3 = ["hello"]
 print("Original    : ",lst_3)
 result = pylo.delete_col(lst_3,0, update=False)
@@ -49,7 +49,7 @@ print("New Original: ",lst_3)
 
 print(f"{cp.ins_chr(n=80, unicode="-")}")
 
-print(f"{cp.set_font(1,23,231)} Case 4. Col_ref = 0, update=True {cp.reset_font()}")
+print(f"{cp.set_font(1,23,231)} Case 4. index = 0, update=True {cp.reset_font()}")
 lst_4 = [["hello"]]
 print("Original    : ",lst_4)
 result = pylo.delete_col(lst_4,0, update=True)
@@ -58,7 +58,7 @@ print("New Original: ",lst_4)
 
 print(f"{cp.ins_chr(n=80, unicode="-")}")
 
-print(f"{cp.set_font(1,23,231)} Case 5. Col_ref = 0, update=True {cp.reset_font()}")
+print(f"{cp.set_font(1,23,231)} Case 5. index = 0, update=True {cp.reset_font()}")
 lst_5 = [1,2,3,4,5,6]
 print("Original    : ",lst_5)
 result = pylo.delete_col(lst_5, 0, update=True)
@@ -67,7 +67,7 @@ print("New Original: ",lst_5)
 
 print(f"{cp.ins_chr(n=80, unicode="-")}")
 
-print(f"{cp.set_font(1,23,231)} Case 6. Col_ref = 0, update=False  {cp.reset_font()}")
+print(f"{cp.set_font(1,23,231)} Case 6. index = 0, update=False  {cp.reset_font()}")
 lst_6 = [[1,2],[3,4],[5,6]]
 print("Original    : ",lst_6)
 result = pylo.delete_col(lst_6, 0, update=False)
@@ -84,7 +84,7 @@ print("New Original: ",lst_6)
 
 print(f"{cp.ins_chr(n=80, unicode="-")}")
 
-print(f"{cp.set_font(1,23,231)} Case 7. Col_ref = 2, update=True  {cp.reset_font()}")
+print(f"{cp.set_font(1,23,231)} Case 7. index = 2, update=True  {cp.reset_font()}")
 lst_7 =  [10,[50],[250],["H"],100] 
 print("Original    : ",lst_7)
 result = pylo.delete_col(lst_7,2, update=True)
@@ -94,7 +94,7 @@ print("New Original: ",lst_7)
 
 print(f"{cp.ins_chr(n=80, unicode="-")}")
 
-print(f"{cp.set_font(1,23,231)} Case 8. Col_ref = 1, update=False {cp.reset_font()}")
+print(f"{cp.set_font(1,23,231)} Case 8. index = 1, update=False {cp.reset_font()}")
 lst_8 = [[1,2,3,4,5,6]]
 print("Original    : ",lst_8)
 result = pylo.delete_col(lst_8, 1, update=False)
@@ -103,17 +103,20 @@ print("New Original: ",lst_8)
 
 print(f"{cp.ins_chr(n=80, unicode="-")}")
 
-class_methods = [\
-    ["Cursor",  "FontStyle",    "FancyMessage",          "FancyFormat"        ],
-    ["jumpTo",  "start_style",  "print_fancy_message",   "print_fancy_format" ],
-    ["jumpxy",  "stop_style",   "print_fancy_note",      "reset_fancy_format" ],
-    ["moveTo",  "print_style",  "----             ",      "----             " ],
-    ["movexy",  "reset_style",  "----             ",      "----             " ]]
+methods = [\
+    ["Cursor",  "FontStyle"  ,  "FancyMessage"       ,  "FancyFormat"       ,  "Pen"           ],
+    ["jumpTo",  "start_style",  "print_fancy_message",  "print_fancy_format",  "draw_line"     ],
+    ["jumpxy",  "stop_style" ,  "print_fancy_note"   ,  "reset_fancy_format",  "draw_rectangle"],
+    ["moveTo",  "print_style",  "----"               ,  "----"              ,  "----"          ],
+    ["movexy",  "reset_style",  "----"               ,  "----"              ,  "----"          ]]
 
 tbl.bg_title = 90; tbl.align_title = cp.Align.CENTER
-tbl.msg_title = " col_ref = 2, update=False "
-tbl.print_fancy_format(class_methods)
-tbl.msg_title = " Result After Deleting col 2"
-new_list = pylo.delete_col(class_methods, 2)
+tbl.msg_title = " index = 2, update=False "
+tbl.print_fancy_format(methods)
+tbl.msg_title = " Result After Deleting col 2 "
+new_list = pylo.delete_col(methods, 2)
 tbl.print_fancy_format(new_list)
 
+tbl.msg_title = " Adding Numbers, update=True "
+pylo.number(methods, start_number=1, id_txt="No.", renumber=False, update=True)
+tbl.print_fancy_format(methods)

@@ -4019,7 +4019,7 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Swap Two Items Into A List                                                                                                                     -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def swap(self, data:list, pos1=0, pos2=0, update:bool=False)->list:
+    def swap(self, data:list, posi_1=0, posi_2=0, update:bool=False)->list:
         '''
         This function swap two elements in a list.
 
@@ -4028,14 +4028,14 @@ class PyLO():
         If update is set to False, then we keep the original list and save
         the new list into another variable.
 
-        pos1 -> position 1 to be swap with position 2
-        pos2 -> position 2 to be swap with position 1
+        posi_1 -> position 1 to be swap with position 2
+        posi_2 -> position 2 to be swap with position 1
 
         Note: If one of the position provided is out of range, the function
               will return the list as original and it will print a message
               out of range.'''
 
-        if pos1 == pos2:
+        if posi_1 == posi_2:
             return data
 
         else:
@@ -4064,18 +4064,18 @@ class PyLO():
                 or list_type == "multiple_items_multiple_rows":
                 result = []; length = len(data) - 1
 
-                if length < pos1:
-                    print(f" pos1 = {pos1} is out of range...! ")
+                if length < posi_1:
+                    print(f" posi_1 = {posi_1} is out of range...! ")
                     return data
-                if length < pos2:
-                    print(f" pos2 = {pos2} is out of range...! ")
+                if length < posi_2:
+                    print(f" posi_2 = {posi_2} is out of range...! ")
                     return data
 
                 for n in range(len(data)):
-                    if n == pos1:
-                        result.append(data[pos2])
-                    elif n == pos2:
-                        result.append(data[pos1])
+                    if n == posi_1:
+                        result.append(data[posi_2])
+                    elif n == posi_2:
+                        result.append(data[posi_1])
                     else:
                         result.append(data[n])
 
@@ -4089,18 +4089,18 @@ class PyLO():
             # list_type = multiple_items_one_row: [[1,2,3,4]]
             elif list_type == "multiple_items_one_row":
                 result = []; length = len(data[0]) - 1
-                if length < pos1:
-                    print(f" pos1 = {pos1} is out of range...! ")
+                if length < posi_1:
+                    print(f" posi_1 = {posi_1} is out of range...! ")
                     return data
-                if length < pos2:
-                    print(f" pos2 = {pos2} is out of range...! ")
+                if length < posi_2:
+                    print(f" posi_2 = {posi_2} is out of range...! ")
                     return data
 
                 for n in range(len(data[0])):
-                    if n == pos1:
-                        result.append(data[0][pos2])
-                    elif n == pos2:
-                        result.append(data[0][pos1])
+                    if n == posi_1:
+                        result.append(data[0][posi_2])
+                    elif n == posi_2:
+                        result.append(data[0][posi_1])
                     else:
                         result.append(data[0][n])
 
@@ -4441,8 +4441,9 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     def write_csv_file(self, data:list, file_path:str="CSV_List")->str:
 
-        '''  It writes a list into a CSV file  '''
-
+        '''  It writes a list into a CSV file  
+             E.g: file_path -> /home/User_Name/Documents/My_First_Table.csv  '''
+             
         current_path = os.getcwd()
         ext = ""
         for l in file_path[-4:]:
@@ -4475,7 +4476,8 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     def read_csv_file(self, file_path:str="CSV_List")->list:
 
-        '''  It reads a CSV file and returns a list of the contains of the file '''
+        '''  It reads a CSV file and returns a list of the contains of the file
+             E.g: file_path -> /home/User_Name/Documents/My_First_Table.csv '''
 
         rows = []; ext = ""
         for l in file_path[-4:]:
@@ -4509,7 +4511,8 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     def write_json_file(self, data:list, file_path:str="JSON_List")->str:
 
-        '''  It writes a list into a json file  '''
+        '''  It writes a list into a json file
+             E.g: file_path -> /home/User_Name/Documents/My_First_Table.json  '''
 
         current_path = os.getcwd()
         ext = ""
@@ -4533,7 +4536,8 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     def read_json_file(self, file_path:str="JSON_List")->list:
 
-        '''  It reads a json file and returns a list with the contains of the file  '''
+        '''  It reads a json file and returns a list with the contains of the file
+             E.g: file_path -> /home/User_Name/Documents/My_First_Table.json  '''
 
         ext = ""
         for l in file_path[-5:]:
@@ -4554,7 +4558,7 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Delete a Column in a List                                                                                                                      -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def delete_col(self, data:list, col_ref:int=0, update:bool=False)->list:
+    def delete_col(self, data:list, index:int=0, update:bool=False)->list:
 
         '''  It deletes a specific column from the list  '''
 
@@ -4566,7 +4570,7 @@ class PyLO():
 
 
         else:
-            if col_ref > n_cmax-1 or col_ref < 0:
+            if index > n_cmax-1 or index < 0:
                 print("col_ref is out of range in one or more columns in the list")
             else:
                 #                 Done  ["dato"]                    Done [["dato"]]
@@ -4576,33 +4580,32 @@ class PyLO():
 
                 # multiple_items_no_row -> ["Hello","bye","good"]          mix_items -> [10,[50],[250],["H"],100]
                 elif list_type == "multiple_items_no_row" or list_type == "mix_items":
-                    value =  data.pop(col_ref)
+                    value =  data.pop(index)
                     for n in data: new_list.append(n)
-                    if update == False: data.insert(col_ref,value)
+                    if update == False: data.insert(index,value)
 
 
                 elif list_type == "multiple_items_one_row":       # Done [["Hello","bye","good"]]
-                    if col_ref >= len(data[0]):
+                    if index >= len(data[0]):
                         print("col_ref is out of range in one or more columns in the list")
                     else:
                         tempo = []
-                        value = data[0].pop(col_ref)
+                        value = data[0].pop(index)
                         for n in data[0]: tempo.append(n)
                         new_list.append(tempo)
-                        if update == False: data[0].insert(col_ref,value)
+                        if update == False: data[0].insert(index,value)
 
 
                 # Done [["Hello"],["bye"],["good"]] or [["Hello","mio"],["bye"],["good","hh"]]
                 elif list_type == "multiple_items_multiple_rows":
+                    new_list = []
                     for row in data:
+                        tempo = []
                         for col in range(len(row)):
-                            if col == col_ref:  pass
-                            else:               tempo_rows.append(row[col])
+                            if index == col:  pass
+                            else:             tempo.append(row[col])
 
-                        if len(row) == 1 and col_ref == col: pass
-                        else:             new_list.append(tempo_rows)
-
-                        tempo_rows = []
+                        if tempo != []: new_list.append(tempo)
 
                     if update == True:
                         data.clear()
@@ -4657,21 +4660,19 @@ class PyLO():
                 result = add_col(data, new_col_data, 1)
             '''
         tmp = []; new_list = []
-        
+
         if col_data == [] or col_data == [[]] or col_data == [[[]]]:  pass
         else:
             if isinstance(data, list) and isinstance(col_data, list):
                 list_type = _get_list_type(data)
                 if list_type == "multiple_items_one_row" or list_type == "multiple_items_multiple_rows"\
                                                          or list_type == "one_item_one_row":
-                    
                     for row in data:
                         for col in row:
                             tmp.append(col)
                         new_list.append(tmp)
                         tmp = []
 
-                  
                     col_info = PyLO.make_to_vector(self, col_data)
 
                     diff = len(col_info) - len(data)
@@ -4690,7 +4691,7 @@ class PyLO():
                         for row in data:
                             new_list[ctrl].insert(0, col_info[ctrl])
                             ctrl += 1
-                    
+
                     elif posi >= max_col:
                         for row in data:
                             new_list[ctrl].append(col_info[ctrl])
@@ -4701,12 +4702,12 @@ class PyLO():
                             if posi >= len(row):
                                 new_list[ctrl].append(col_info[ctrl])
                                 cnt += 1
-                                
+
                             else:
                                 for n in range(len(row)):
                                     if posi == n:
-                                      new_list[ctrl].insert(n, col_info[cnt])
-                                      cnt += 1
+                                        new_list[ctrl].insert(n, col_info[cnt])
+                                        cnt += 1
                                     else: pass
                             ctrl += 1
                 else:
@@ -4740,7 +4741,7 @@ class PyLO():
             for n in new_list: data.append(n)
 
         return new_list
-    
+
 
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Number a List                                                                                                                                  -
@@ -4749,17 +4750,17 @@ class PyLO():
 
         '''  Enumerate a list by adding a column to the left side  '''
 
-        if renumber == True: 
+        if renumber == True:
             original = PyLO.delete_col(self, data, 0, False)
         else:
             original = data
 
         list_type = _get_list_type(original)
         if list_type == "multiple_items_multiple_rows":
-            
-            result = [];                    tempo = [];
+
+            result = [];                    tempo = []
             header = original.pop(0);       header.insert(0,id_txt)
-            
+
             for row in original:
                 tempo = row
                 tempo.insert(0,start_number)
@@ -4768,7 +4769,6 @@ class PyLO():
                 tempo = []
             result.insert(0,header)
 
-        
         if update == True:
             tempo_rows = []
             data.clear()
@@ -4791,25 +4791,25 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Join Two List as a Vector                                                                                                                      -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def join_as_vector(self, data:list, data2join:list, col_pos:int=0)->list:
+    def join_as_vector(self, data:list, list_to_join:list, col_posi:int=0)->list:
 
         '''  It joins two list as a vector, join_list = [1,2,3,4,5,etc.]  '''
-        
+
         lista_1 = PyLO.make_to_vector(self, data=data)
-        lista_2 = PyLO.make_to_vector(self, data=data2join)
+        lista_2 = PyLO.make_to_vector(self, data=list_to_join)
         join_list = []
 
-        if   col_pos >= len(lista_1):
+        if   col_posi >= len(lista_1):
             for n in lista_1: join_list.append(n)
             for n in lista_2: join_list.append(n)
 
-        elif col_pos <= 0:
+        elif col_posi <= 0:
             for n in lista_2: join_list.append(n)
             for n in lista_1: join_list.append(n)
         else:
             ctrl = 0
             for l1 in lista_1:
-                if ctrl == col_pos:
+                if ctrl == col_posi:
                     for l2 in lista_2:
                         join_list.append(l2)
                     join_list.append(l1)
@@ -4825,18 +4825,17 @@ class PyLO():
     # Grep or Find a Value in a List.                                                                                                                -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     def find_value(self, data:list, ref:int|str)->list:
-        
+
         '''  This method finds a value into a list and returns the location of the value.
              Up to 4 brackets.  '''
-        
+
         my_type = _get_list_type(data)
         if isinstance(ref, str): new_ref = ref.lower()
         else:                    new_ref = ref
 
-        new_data = PyLO.lower_case(self, data)       
+        new_data = PyLO.lower_case(self, data)
         grep_list = []
         ctrl = 0
-        
 
         if my_type == "multiple_items_multiple_rows":
             for row in range(len(data)):
@@ -4849,9 +4848,9 @@ class PyLO():
             for value in range(len(tmp)):
                 if tmp[value] == new_ref:
                     grep_list.append(value)
-                
+
         if   ctrl == 1 and len(grep_list)>0: grep_list.insert(0, ["Row","Col","Ref"])
-        elif ctrl == 2 and len(grep_list)>0: 
+        elif ctrl == 2 and len(grep_list)>0:
             grep_list.insert(0, "Position(s)")
             PyLO.transpose(self, data=grep_list, update=True)
 
@@ -4898,7 +4897,7 @@ class PyLO():
                     new_list.append(value)
 
         return new_list
-    
+
 
 
     #-------------------------------------------------------------------------------------------------------------------------------------------------
@@ -4925,12 +4924,12 @@ class PyLO():
     # Joint 2 List                                                                                                                                   -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     def merge(self, list_1:list, list_2:list, posi=0, merge_by=Appending.ROWS):
-        
+
         '''  This method merge two list with two option of merge.
              It can be merge by ROWS or by COLUMNS. It also,
              provide the option to pick the specific position
              where to start the merge on list_1.  '''
-        
+
         merge_list = []
 
         my_type_1 = _get_list_type(list_1)
@@ -4949,7 +4948,7 @@ class PyLO():
                 pass
             else:
                 merge_list = list_1
-        
+
         # Case 6 with Case 6
         elif my_type_1 == "multiple_items_multiple_rows" and my_type_2 == "multiple_items_multiple_rows":
             if merge_by == "rows":
@@ -4970,9 +4969,19 @@ class PyLO():
                             merge_list.append(list_1[row])
 
             elif merge_by == "columns":
-                merge_list = list_1
-                for row in range(len(list_2)):
-                    merge_list = PyLO.add_col(self, data=merge_list, col_data=list_2[row], posi=posi)
+                new_list_2 = PyLO.autofill_data(self, data=list_2)
+                merge_list = PyLO.autofill_data(self, data=list_1)
+
+                columnas = []
+                for n in range(len(new_list_2[0])):  columnas.append([])
+
+                for row in new_list_2:
+                    for col in range(len(row)):
+                        columnas[col].append(row[col])
+
+                for row in range(len(columnas)):
+                    merge_list = PyLO.add_col(self, data=merge_list, col_data=columnas[row], posi=posi)
+
             else: pass
 
 
@@ -4988,7 +4997,7 @@ class PyLO():
                 elif posi >= len(list_1):
                     for n in list_1: merge_list.append(n)
                     merge_list.append(tmp_2)
-                
+
                 else:
                     for n in range(len(list_1)):
                         if posi == n:
@@ -4999,8 +5008,8 @@ class PyLO():
 
             elif merge_by == "columns":
                 merge_list = PyLO.add_col(self, data=list_1, col_data=list_2, posi=posi)
-                
-        
+
+
         # Any Case with Case 6
         elif my_type_1 != "multiple_items_multiple_rows" and my_type_2 == "multiple_items_multiple_rows":
             tmp_1 = PyLO.make_to_vector(self, list_1)
@@ -5013,7 +5022,7 @@ class PyLO():
                 elif posi >= len(list_2):
                     for n in list_2: merge_list.append(n)
                     merge_list.append(tmp_1)
-                
+
                 else:
                     for n in range(len(list_2)):
                         if posi == n:
@@ -5067,7 +5076,7 @@ class PyLO():
                                 tmp.append(tmp_2[c])
                             tmp.append(tmp_1[r])
                         else:
-                            tmp.append(tmp_1[r])       
+                            tmp.append(tmp_1[r])
                 merge_list.append(tmp)
             else: pass
         return merge_list

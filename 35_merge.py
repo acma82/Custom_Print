@@ -1,70 +1,62 @@
 import custom_print as cp
 pylo = cp.PyLO()
 tbl  = cp.FancyFormat()
-tbl.bg_title = 90
+
+tbl.bg_title  = 90
 tbl.bold_title = True
-tbl.align_title = cp.Align.LEFT
+tbl.italic_title = True
+tbl.align_title  = cp.Align.LEFT
 
-#-------------------------------------------------------------------------------
-print(cp.ins_chr(70,"-"))
-#-------------------------------------------------------------------------------
-l1 = [1,5,8,4]
-l2 = [[99,97,98,100]]
-res = pylo.merge(list_1=l1, list_2=l2, posi=2, merge_by=pylo.Appending.COLUMNS)
-print("re: ",res)
-print("l1: ",l1)
-print("l1: ",l2)
+#-----------------------------------------------------------------------------------------
+methods = [\
+    ["Cursor",  "FontStyle"  ,    "FancyMessage"       ,    "FancyFormat"        ],
+    ["jumpTo",  "start_style",    "print_fancy_message",    "print_fancy_format" ],
+    ["jumpxy",  "stop_style" ,    "print_fancy_note"   ,    "reset_fancy_format" ],
+    ["moveTo",  "print_style"],
+    ["movexy"]]
 
-#-------------------------------------------------------------------------------
-print(cp.ins_chr(70,"-"))
-#-------------------------------------------------------------------------------
-# The main idea how to use it.
-l4 = ["Country", "MEX", "USA", "CAN",  "SAL"]
-
-l5 = [["Names",  "Lasts",   "Age"],
+people = [\
+      ["Names",  "Lasts",   "Age"],
       ["Pancho", "Melti",    50  ],
       ["Javier", "Nangy",    32  ],
       ["Melony", "Archi",    40  ],
       ["Jose",   "Valvimar", 18  ]]
 
-l6 = [["Country", "MEX",  "USA",  "CAN",  "SAL"],
-      ["Code",    "012",  "234",  "781"        ]]
-#-------------------------------------------------------------------------------
-print(cp.ins_chr(70,"-"))
-#-------------------------------------------------------------------------------
-resr = pylo.merge(list_1=l5, list_2=l6, posi=2, merge_by=pylo.Appending.ROWS)
-tbl.msg_title = " Appending l6 as ROWS to l5 "
-tbl.print_fancy_format(resr)
+tbl.msg_title = " List 1: Methods "
+tbl.print_fancy_format(methods)
 
-#-------------------------------------------------------------------------------
-print(cp.ins_chr(70,"-"))
-#-------------------------------------------------------------------------------
-resc = pylo.merge(list_1=l5, list_2=l6, posi=2, merge_by=pylo.Appending.COLUMNS)
-print(resc)
-tbl.msg_title = " Appending l6 as COLUMNS to l5 "
-tbl.print_fancy_format(resc)
-print(resc)
+tbl.msg_title = " List 2: People "
+tbl.print_fancy_format(people)
 
-#-------------------------------------------------------------------------------
-print(cp.ins_chr(70,"-"))
-#-------------------------------------------------------------------------------
-tbl.msg_title = " Appending l4 as COLUMNS to l5 "
-res = pylo.add_col(data=l5, col_data=l4, posi=2)
-tbl.print_fancy_format(res)
+tbl.msg_title = " Merge List 1 and List 2 as COLUMNS "
+merge_cols = pylo.merge(list_1=methods, list_2=people, posi=8, merge_by=pylo.Appending.COLUMNS) 
+tbl.print_fancy_format(merge_cols)
 
-#-------------------------------------------------------------------------------
-print(cp.ins_chr(70,"-"))
-#-------------------------------------------------------------------------------
-l7 = []
-for n in reversed(l6): l7.append(n)
-tbl.msg_title = " Appending l6 as COLUMNS to l5 REVERSE "
-res = pylo.merge(list_1=l5, list_2=l7, posi=2, merge_by=pylo.Appending.COLUMNS)
-tbl.print_fancy_format(res)
-print(res)
-#-------------------------------------------------------------------------------
-print(cp.ins_chr(70,"-"))
-#-------------------------------------------------------------------------------
-final = pylo.number(data=res, start_number=1, id_txt="ID", renumber=False, update=False)
-tbl.print_fancy_format(final)
+tbl.msg_title = " Merge List 1 and List 2 as ROWS "
+merge_rows = pylo.merge(list_1=methods, list_2=people, posi=8, merge_by=pylo.Appending.ROWS)
+tbl.print_fancy_format(merge_rows)
 
-print(res)
+cp.ins_newline(2)
+print(f"{cp.set_font(1,23,231)} Methods {cp.reset_font()} ")
+print(methods)
+#-------------------------------------------------------------------------------
+print(cp.ins_chr(70,"-"))
+#-------------------------------------------------------------------------------
+cp.ins_newline(2)
+print(f"{cp.set_font(1,23,231)} People {cp.reset_font()} ")
+print(people)
+#-------------------------------------------------------------------------------
+print(cp.ins_chr(70,"-"))
+#-------------------------------------------------------------------------------
+cp.ins_newline(2)
+print(f"{cp.set_font(1,23,231)} Merge ROWS {cp.reset_font()} ")
+print(merge_rows)
+#-------------------------------------------------------------------------------
+print(cp.ins_chr(70,"-"))
+#-------------------------------------------------------------------------------
+cp.ins_newline(2)
+print(f"{cp.set_font(1,23,231)} Merge COLUMNS {cp.reset_font()} ")
+print(merge_cols)
+#-------------------------------------------------------------------------------
+print(cp.ins_chr(70,"-"))
+#-------------------------------------------------------------------------------
