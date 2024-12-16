@@ -65,19 +65,27 @@ import custom_print as cp
 pylo = cp.PyLO()
 
 print(f"{cp.set_font(1,1,15)} Replacing 3 for A {cp.reset_font()}")
+
 list_1 = [[11,[10,3],12,3],[14,15,3],[12,3,3]]
+# list_1 = ["HeadeR 1", "HeadeR 2", "HeadeR 3",0]
 print("Original:",list_1)
-resutl = pylo.replace(data=list_1, old=3, new="A", update=True)
+
+# resutl = pylo.replace(data=list_1, old=0, new="New Header", case_sensitive=False, update=False)
+resutl = pylo.replace(data=list_1, old=3, new="A", case_sensitive=True, update=False)
 print("Result  :",resutl)
 print("Original:",list_1)
+
+cp.ins_newline(2)
 
 list_2 = [["HeadeR 1", "HeadeR 2", "HeadeR 3",0],
           ["DatitO 1", "DatitO 2", "DatitO 3",1],
           ["DatitO 4", "DatitO 5", "DatitO 6",0],
           ["DatitO 1", "DatitO 2", "DatitO 1",3]]
 
-resutl = pylo.replace(data=list_2, old=0, new="A", update=True)
+resutl = pylo.replace(data=list_2, old="datito 1", new="New_dato", case_sensitive=False, update=True)
 print("Result  :",resutl)
+cp.ins_newline(2)
+print(list_2)
 
 
  
