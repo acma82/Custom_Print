@@ -15,7 +15,7 @@ methods = [\
     ["moveTo",  "print_style"],
     ["movexy"]]
 
-result = pylo.reverse_order_ROWS(methods, False)
+result = pylo.reverse_order_rows(methods, False)
 tbl.msg_title = " Rever_Order_ROWS "
 tbl.print_fancy_format(result)
 

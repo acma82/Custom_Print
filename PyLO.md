@@ -913,7 +913,8 @@ replace(self, data, old, new, case_sensitive=True, update=False)
 
 It replaces a value for another value in a list
 The list can be a vector [1,2,3,4] or a matrix (table) [[1,2],[3,1]]
-or a combination of them [[1,2],[3,3,3],3,[5,6,7,8]]
+or a combination of them [[1,2],[3,3,3],3,[5,6,7,8]].
+This methods has the option of using the case sensitive.
 
 <span style="color:red"> <strong> Example: </strong> </span>
 
@@ -1013,7 +1014,7 @@ print(f"Result:9 {join_list}")
 find_value(data, ref, case_sensitive=False)
 ```
 This method finds a value into a list and returns the location of the value.
-Up to 4 brackets.
+Up to 4 brackets. This methods has the option of using the case sensitive.
 
 <span style="color:red"> <strong> Example: </strong> </span>
 

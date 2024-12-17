@@ -3572,6 +3572,21 @@ class PyLO():
         COLUMNS = "columns"
 
 
+    class Order(enum.StrEnum):
+        ASCENDING  = "ascending"
+        DESCENDING = "descending"
+
+
+    class Case(enum.StrEnum):
+
+        '''  Defines what part of the list will be converted to a specific type of case.  '''
+
+        UPPER = "upper"
+        LOWER = "lower"
+        CAPITALIZE = "capitalize"
+        NONE = "none"
+
+
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Conversion to List                                                                                                                             -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
@@ -4378,63 +4393,6 @@ class PyLO():
         return new_list
 
 
-    #-------------------------------------------------------------------------------------------------------------------------------------------------
-    # Sort a List by Column                                                                                                                          -
-    #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def sort_by_col(self, data:list, ref_col:int=0, reverse_order:bool=False, update:bool=False)->list:
-
-        '''  sort_by_col won't sort the first row because it is considered the Header of the list.
-             If a column is mixed with string type and another type, like integer or float, it will
-             cause an error. This method is intended to be used with all cells filled with the same
-             type per column except the header; any empty cells will be filled automatically.
-             If you want to fill those spots with a specific type, then use the autofill_data method.
-        '''
-
-        def _get_order_only_horizontal(in_list):
-            tempo_list = []
-            [tempo_list.append(n) for n in in_list]
-            sorted_list = sorted(tempo_list)
-            if reverse_order == True: list.reverse(sorted_list)
-            return sorted_list
-            #-----------------------------------------------------------------------------------------------------------------------------------------
-
-        sorted_list = []
-        list_type = _get_list_type(data)
-        if list_type == "incorrect_variable_type": pass
-        elif list_type == "empty_list":            pass
-        elif list_type == "one_item_no_row":       sorted_list = data  # Done  ["dato"]
-        elif list_type == "one_item_one_row":      sorted_list = data  # Done [["dato"]]
-        elif list_type == "multiple_items_no_row": # multiple_items_no_row -> ["Hello","bye","good"]
-            sorted_list = _get_order_only_horizontal(data)
-
-        elif list_type == "multiple_items_one_row":# Done [["Hello","bye","good"]]
-            tmp = []
-            [tmp.append(n) for n in data[0]]
-            tmp = _get_order_only_horizontal(tmp)
-            sorted_list.append(tmp)
-
-            # Done [["Hello"],["bye"],["good"]] or [["Hello","mio"],["bye"],["good","hh"]]
-        elif list_type == "multiple_items_multiple_rows":
-            complete_list = PyLO.autofill_data(self, data=data)
-            n_rows_n_cols_list = PyLO.dimensions(self, complete_list)
-            n_cols = n_rows_n_cols_list[1][1]
-
-            if ref_col >= n_cols:  print("\n ref_col out of range...! \n")
-            else:
-                sorted_list = [complete_list[0]] + sorted(complete_list[1:], key=lambda x: x[ref_col])
-                # sorted_list = [new_list[0]] + sorted(new_list[1:], key=lambda x: x[str(ref_col)])
-                if reverse_order == True:
-                    header_row = sorted_list.pop(0)
-                    list.reverse(sorted_list)
-                    sorted_list.insert(0,header_row)
-
-        else: print(msg="\n Not supported between instances of types \n")
-
-        if update == True:
-            data.clear()
-            [data.append(n) for n in sorted_list]
-
-        return sorted_list
 
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Write a CSV File                                                                                                                               -
@@ -4721,16 +4679,16 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Replace a Value in the List                                                                                                                    -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def replace(self, data:list, old:int|str, new:int|str, case_sensitive=True, update=False)->list:
+    def replace_item(self, data:list, old:int|str, new:int|str, case_sensitive=True, update=False)->list:
 
-        '''  It replaces a value for another in a list
+        '''  It replaces an item value for another in a list
              The list can be a vector [1,2,3,4] or a matrix (table) [[1,2],[3,1]]
              or a combination of them [[1,2],[3,3,3],3,[5,6,7,8]]  '''
 
         new_list = []
         for value in data:
             if isinstance(value, list):
-                new_list.append(PyLO.replace(self, value, old, new, case_sensitive))
+                new_list.append(PyLO.replace_item(self, value, old, new, case_sensitive))
 
             else:
                 if case_sensitive == True:
@@ -5154,7 +5112,7 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Reverse Order in a List ROWS. Keeps the Headers Untouch                                                                                        -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def reverse_order_ROWS(self, data:list, update:list=False):
+    def reverse_order_rows(self, data:list, update:list=False):
 
         '''  This methods reverse the order of the list keeping 
              the headers in the same positon. '''
@@ -5186,26 +5144,241 @@ class PyLO():
         else: pass
         return reversed_list      
 
-    class Case(enum.StrEnum):
-        UPPER = "upper"
-        LOWER = "lower"
-        CAPITALIZE = "capitalize"
-        NONE = "none"
 
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    # Reverse Order in a List ROWS. Keeps the Headers Untouch                                                                                        -
+    # Sort Rows of a List by Column Reference. Keep The Headers, Untouch                                                                             -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def control_case(self, data:list, header_case=Case.NONE, data_case=Case.NONE, update=False):
-        print("working on it")
+    def sort_rows_by_col(self, data:list, ref_col:int=0, reverse_order:bool=False, update:bool=False)->list:
+
+        '''  sort_by_col won't sort the first row because it is considered the Header of the list.
+             If a column is mixed with string type and another type, like integer or float, it will
+             cause an error. This method is intended to be used with all cells filled with the same
+             type per column except the header; any empty cells will be filled automatically.
+             If you want to fill those spots with a specific type, then use the autofill_data method.
+        '''
+
+        def _get_order_only_horizontal(in_list):
+            tempo_list = []
+            [tempo_list.append(n) for n in in_list]
+            sorted_list = sorted(tempo_list)
+            if reverse_order == True: list.reverse(sorted_list)
+            return sorted_list
+            #-----------------------------------------------------------------------------------------------------------------------------------------
+
+        sorted_list = []
+        list_type = _get_list_type(data)
+        if list_type == "incorrect_variable_type": pass
+        elif list_type == "empty_list":            pass
+        elif list_type == "one_item_no_row":       sorted_list = data  # Done  ["dato"]
+        elif list_type == "one_item_one_row":      sorted_list = data  # Done [["dato"]]
+        elif list_type == "multiple_items_no_row": # multiple_items_no_row -> ["Hello","bye","good"]
+            sorted_list = _get_order_only_horizontal(data)
+
+        elif list_type == "multiple_items_one_row":# Done [["Hello","bye","good"]]
+            tmp = []
+            [tmp.append(n) for n in data[0]]
+            tmp = _get_order_only_horizontal(tmp)
+            sorted_list.append(tmp)
+
+            # Done [["Hello"],["bye"],["good"]] or [["Hello","mio"],["bye"],["good","hh"]]
+        elif list_type == "multiple_items_multiple_rows":
+            complete_list = PyLO.autofill_data(self, data=data)
+            n_rows_n_cols_list = PyLO.dimensions(self, complete_list)
+            n_cols = n_rows_n_cols_list[1][1]
+
+            if ref_col >= n_cols:  print("\n ref_col out of range...! \n")
+            else:
+                sorted_list = [complete_list[0]] + sorted(complete_list[1:], key=lambda x: x[ref_col])
+                # sorted_list = [new_list[0]] + sorted(new_list[1:], key=lambda x: x[str(ref_col)])
+                if reverse_order == True:
+                    header_row = sorted_list.pop(0)
+                    list.reverse(sorted_list)
+                    sorted_list.insert(0,header_row)
+
+        else: print(msg="\n Not supported between instances of types \n")
+
+        if update == True:
+            data.clear()
+            [data.append(n) for n in sorted_list]
+
+        return sorted_list
+
 
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    # Reverse Order in a List ROWS. Keeps the Headers Untouch                                                                                        -
+    # Sort Columns of a List. Keep The Headers, Untouch                                                                                              -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
+    def sort_cols(self, data:list, sort_type:str|list=Order.ASCENDING, update:bool=False)->list:
+        ''' If the option provided is different than ascending or descending or a list, it will sort as ascending.
+            If the list contains numbers not in the range of the data list, it will sort as ascending. 
+            If the list contains a length different than the length of the data, it will sort as ascending.
+            If the list is NOT in the form of rXc it will return an empty list as a result.  '''
+
+        my_type_list = _get_list_type(data)
+        if my_type_list == "multiple_items_multiple_rows":
+
+            num_order = [];     order_list = []
+            new_data  = PyLO.autofill_data(self, data=data)
+            headers   = new_data.pop(0)
+
+            if sort_type   == PyLO.Order.ASCENDING:  headers_sort = sorted(headers, reverse=False)
+            elif sort_type == PyLO.Order.DESCENDING: headers_sort = sorted(headers, reverse=True)
+            else:
+                if isinstance(sort_type, list):
+                    if len(headers) != len(sort_type):
+                        headers_sort = sorted(headers, reverse=False)
+                    else:
+                        # checking all items are int
+                        all_number = True
+                        for n in sort_type:
+                            if not isinstance(n, int): all_number = False
+                            else:                      pass
+
+                        if all_number == False: headers_sort = sorted(headers, reverse=False)
+                        else:
+                            num_max = max(sort_type)
+                            num_min = min(sort_type)
+                            if num_max > (len(headers)-1) or num_min < 0:
+                                headers_sort = sorted(headers, reverse=False)
+                            else:
+                                headers_sort = []
+                                for n in sort_type:
+                                    headers_sort.append(headers[n])
+
+                else: headers_sort = sorted(headers, reverse=False)
+
+            for n in headers_sort:
+                index = headers.index(n)
+                num_order.append(index)
+
+            order_list.append(headers_sort)
+
+            for n in range(len(new_data)):
+                tmp = []
+                for d in num_order:
+                    tmp.append(new_data[n][d])
+                order_list.append(tmp)
+        elif my_type_list == "multiple_items_no_row":
+
+            if sort_type == PyLO.Order.ASCENDING:    order_list = sorted(data, reverse=False)
+
+            elif sort_type == PyLO.Order.DESCENDING: order_list = sorted(data, reverse=True )
+            
+            else: order_list = data
+
+        elif my_type_list == "multiple_items_one_row":
+            new_type_list = _get_list_type(data[0])
+            if new_type_list == "multiple_items_no_row":
+                print("inside")
+                if sort_type == PyLO.Order.ASCENDING:  order_list = sorted(data[0], reverse=False)
+                elif sort_type == PyLO.Order.DESCENDING: order_list = sorted(data[0], reverse=True )
+                else: order_list = data
+            else:
+                order_list = data
+        else: order_list = data
+
+        if update == True:
+            data.clear()
+            [data.append(n) for n in order_list]
+
+        return order_list
+
+    
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    # Update Case in a List.                                                                                                                         -
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    def update_case(self, data:list, header_case:str=Case.CAPITALIZE, data_case:str=Case.LOWER, update:bool=False):
+        
+        '''  This method updates the case to the headers and the data. '''
+
+        my_type_list = _get_list_type(data)
+        if my_type_list != "multiple_items_multiple_rows":
+            if   data_case == PyLO.Case.UPPER:      case_list = PyLO.upper_case(self, data=data)
+            elif data_case == PyLO.Case.LOWER:      case_list = PyLO.lower_case(self, data=data)
+            elif data_case == PyLO.Case.CAPITALIZE: case_list = PyLO.capitalize_case(self, data=data)
+            else:                           case_list = []
+        else:
+            new_data  = PyLO.autofill_data(self, data=data)
+            headers = new_data.pop(0)    
+
+            if   header_case == PyLO.Case.UPPER:      new_headers = PyLO.upper_case(self, data=headers)
+            elif header_case == PyLO.Case.LOWER:      new_headers = PyLO.lower_case(self, data=headers)
+            elif header_case == PyLO.Case.CAPITALIZE: new_headers = PyLO.capitalize_case(self, data=headers)
+            else:                             new_headers = headers
+
+
+            if   data_case == PyLO.Case.UPPER:        new_data = PyLO.upper_case(self, data=new_data)
+            elif data_case == PyLO.Case.LOWER:        new_data = PyLO.lower_case(self, data=new_data)
+            elif data_case == PyLO.Case.CAPITALIZE:   new_data = PyLO.capitalize_case(self, data=new_data)
+            else:                             pass
+            
+            case_list = []
+            case_list.append(new_headers)
+
+            for n in new_data:
+                case_list.append(n)
+                
+        if update == True:
+            data.clear()
+            [data.append(n) for n in case_list]
+            
+        return case_list
 
 
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    # Reverse Order in a List ROWS. Keeps the Headers Untouch                                                                                        -
+    # Update Case in a Specific Column in a List.                                                                                                    -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
+    def update_case_col(self, data:list, header_case:str=Case.CAPITALIZE, data_case:str=Case.LOWER, col_ref=0, update:bool=False):
+        
+        '''  This method updates the case for a specific column, header and data.  '''
+        
+        my_type_list = _get_list_type(data)
+        if my_type_list != "multiple_items_multiple_rows":
+            if   data_case == PyLO.Case.UPPER:      case_list = PyLO.upper_case(self, data=data)
+            elif data_case == PyLO.Case.LOWER:      case_list = PyLO.lower_case(self, data=data)
+            elif data_case == PyLO.Case.CAPITALIZE: case_list = PyLO.capitalize_case(self, data=data)
+            else:                           case_list = []
+        
+        else:
+            new_data  = PyLO.autofill_data(self, data=data)
+            if col_ref > len(new_data[0]): new_col_ref = len(new_data[0])
+            elif col_ref < 0:              new_col_ref = 0
+            else:                          new_col_ref = col_ref
+
+            
+            new_headers = new_data.pop(0)
+
+            if isinstance(new_headers[new_col_ref], str):
+                
+                if   header_case == PyLO.Case.UPPER:      new_headers[new_col_ref] = new_headers[new_col_ref].upper()
+                elif header_case == PyLO.Case.LOWER:      new_headers[new_col_ref] = new_headers[new_col_ref].lower()
+                elif header_case == PyLO.Case.CAPITALIZE: new_headers[new_col_ref] = new_headers[new_col_ref].capitalize()
+                else:                             pass
+            else: pass
+
+            for row in range(len(new_data)):
+                if isinstance(new_data[row][new_col_ref], str):
+                    if   data_case == PyLO.Case.UPPER:      new_data[row][new_col_ref] = new_data[row][new_col_ref].upper()
+                    elif data_case == PyLO.Case.LOWER:      new_data[row][new_col_ref] = new_data[row][new_col_ref].lower()
+                    elif data_case == PyLO.Case.CAPITALIZE: new_data[row][new_col_ref] = new_data[row][new_col_ref].capitalize()
+                    else: pass
+                else:
+                    pass
+
+            case_list = []
+            case_list.append(new_headers)
+
+            for n in new_data:
+                case_list.append(n)
+                
+        if update == True:
+            data.clear()
+            [data.append(n) for n in case_list]
+        
+        return case_list
+
+
+
+
 
 # Planning to use this script as help of the Module custom_print.
 if __name__ == "__main__":

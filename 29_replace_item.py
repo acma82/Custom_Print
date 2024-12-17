@@ -71,7 +71,7 @@ list_1 = [[11,[10,3],12,3],[14,15,3],[12,3,3]]
 print("Original:",list_1)
 
 # resutl = pylo.replace(data=list_1, old=0, new="New Header", case_sensitive=False, update=False)
-resutl = pylo.replace(data=list_1, old=3, new="A", case_sensitive=True, update=False)
+resutl = pylo.replace_item(list_1, old=3, new="A", case_sensitive=True, update=False)
 print("Result  :",resutl)
 print("Original:",list_1)
 
@@ -82,7 +82,7 @@ list_2 = [["HeadeR 1", "HeadeR 2", "HeadeR 3",0],
           ["DatitO 4", "DatitO 5", "DatitO 6",0],
           ["DatitO 1", "DatitO 2", "DatitO 1",3]]
 
-resutl = pylo.replace(data=list_2, old="datito 1", new="New_dato", case_sensitive=False, update=True)
+resutl = pylo.replace_item(data=list_2, old="datito 1", new="New_dato", case_sensitive=False, update=True)
 print("Result  :",resutl)
 cp.ins_newline(2)
 print(list_2)
