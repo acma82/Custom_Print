@@ -1,6 +1,101 @@
 # PyLO Class
-## Conversion
-### <span style="color:purple"> <strong> Bool Type to List Type </strong> </span>
+1. **Help Classes**
+    
+    * [**Appending**](#appending)
+        * ROWS
+        * COLUMNS
+
+    * [**Case**](#case)
+        * UPPER
+        * LOWER
+        * CAPITALIZE
+        * NONE
+
+    * [**Order**](#order)
+        * ASCENDING
+        * DESCENDING
+    
+    * [**Str_List_Option**](#str_list_option)
+        * WORD_BY_WORD
+        * LINE_BY_LINE
+
+
+2. **Conversion Methods**
+    * [bool_to_list](#bool-type-to-list-type)
+    * int_to_list
+    * float_to_list
+    * complex_to_list
+    * str_to_list
+    * dict_to_list
+    * range_to_list
+    * set_to_list
+    * tuple_to_list
+    * data_to_str
+    * data_to_num
+
+3.  **File Methods**
+    * write_csv_file
+    * read_csv_file
+    * write_json_file
+    * read_json_file
+
+4. **Case Methods**
+    * lower_case
+    * upper_case
+    * capitalize_case
+    * update_case
+    * update_case_col
+
+5. **Table Methods**
+    * autofill_data
+    * dimensions
+
+    * find_item
+    * replace_item
+    * delete_item
+
+    * add_col
+    * delete_col
+
+    * make_to_vector
+    * join_as_vector
+
+    * shift
+    * swap
+
+    * number
+    * transpose 
+    * merge
+    * reverse_order_rows
+    * sort_rows_by_cols
+    * sort_cols
+ 
+
+## Appending
+[**Top**](#pylo-class)
+
+## Case
+[**Top**](#pylo-class)
+
+## Order
+[**Top**](#pylo-class)
+
+## Str_List_Option
+[**Top**](#pylo-class)
+
+
+<!--- This is Conversion Methods --->
+# Conversion
+
+### <span style="color:purple"> <strong> Bool Type to List Type </strong> </span> 
+
+```python
+bool_to_list(data, convert_to_str=False)
+```
+This method sets a bool variable into a list where ***data*** is the bool type. It contains a parameter, ***convert_to_str***, with two options:
+
+1. False: It sets the bool inside the list as a bool type.
+2. True: It sets the bool inside the list as a str type.
 
 <span style="color:red"> <strong> Example: </strong> </span>
 
@@ -12,11 +107,21 @@
     result = pylo.bool_to_list(data=variable, convert_to_str=False)
     print(result)
     result = pylo.bool_to_list(data=variable, convert_to_str=True)
-    print(result)
+    print(result) 
 ```
+[**Top**](#pylo-class)
 
 
 ### <span style="color:purple"> <strong> Integer Type to List Type </strong> </span>
+
+```python
+int_to_list(data, convert_to_str=False)
+```
+This method sets an int variable into a list where ***data*** is the int type. It contains a parameter, ***convert_to_str***, with two options:
+
+1. False: It sets the int inside the list as a int type.
+2. True: It sets the  int inside the list as a str type.
+
 <span style="color:red"> <strong> Example: </strong> </span>
 
 ```python
@@ -30,7 +135,20 @@
     print(result)
 ```
 
+[**Top**](#pylo-class)
+
+
+
 ### <span style="color:purple"> <strong> Float Type to List Type </strong> </span>
+
+```python
+float_to_list(data, convert_to_str=False)
+```
+This method sets an int variable into a list where ***data*** is the float type. It contains a parameter, ***convert_to_str***, with two options:
+
+1. False: It sets the float inside the list as a float type.
+2. True:  It sets the float inside the list as a str type.
+
 <span style="color:red"> <strong> Example: </strong> </span>
 
 ```python
@@ -268,6 +386,8 @@
     print(f"{cp.ins_chr(n=100, unicode="-")}")
     print()
 ```
+
+<!--- These are the File Methods --->
 
 ## Shift an Element in a List
 ### <span style="color:purple"> <strong> Right Shift  and Left Shift </strong> </span>
