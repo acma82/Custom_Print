@@ -35,7 +35,7 @@ It resizes the terminal size.
 
 [**Top**](#functions) <span style="color:red"> <strong> Example: </strong> </span>
 ```python   
-    import source.custom_print as cp
+    import source.source.custom_print as cp
     cp.clean()
     r, c = cp.dimensions()
     print(f"rows: {r}, cols: {c}")
@@ -54,7 +54,7 @@ This function displays all background colors available with ansi code. The follo
 [**Top**](#functions) <span style="color:red"> <strong> Example: </strong> </span>
 
 ```python
-    import source.custom_print as cp
+    import source.source.custom_print as cp
     cp.bg_ansi_colors(bold=True, fg=0, n_line=1)
 ```
 
@@ -68,7 +68,7 @@ This function displays all the foreground colors available with ansi code. The f
 [**Top**](#functions) <span style="color:red"> <strong> Example: </strong> </span>
 
 ```python
-    import source.custom_print as cp
+    import source.source.custom_print as cp
     cp.fg_ansi_colors(bold=True, bg=-1, n_line=1)
 ```
 
@@ -79,7 +79,7 @@ This function inserts n times the unicode provided, by default it is set to spac
 [**Top**](#functions) <span style="color:red"> <strong> Example: </strong> </span>
 
 ```python
-    import source.custom_print as cp
+    import source.source.custom_print as cp
     print(f"{cp.ins_chr(n=80, unicode="-")}")
     print(f"{cp.ins_chr(n=80, unicode="\u25B6")}")
 ```
@@ -118,7 +118,7 @@ This function passes many attributes for the font. If passing all these argument
 [**Top**](#functions) <span style="color:red"> <strong> Example: </strong> </span>
 
 ```python
-    import source.custom_print as cp
+    import source.source.custom_print as cp
 	print(cp.set_font(1,11,21) + " Python is " + cp.set_font(0,1) + " Wonderful."+cp.reset_font())           
 	print(f"{cp.set_font(bold=0, bg=22, fg=0)} Python {cp.set_font(1,90,7)} Language.{cp.reset_font()}")
 

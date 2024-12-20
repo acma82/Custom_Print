@@ -1,5 +1,5 @@
 '''
-custom_print module can handle any type of variable.
+source.custom_print module can handle any type of variable.
 '''
 
 #pylint: disable=bare-except
@@ -168,9 +168,9 @@ class Color(enum.IntEnum):
         The number can be known by using the methods bg_ansi_color or fg_ansi_color.
          
         Notice that Color class works with all the classes, methods, and functions from 
-        custom_print rather than itself.
+        source.custom_print rather than itself.
 
-        import source.custom_print as cp
+        import source.source.custom_print as cp
 
         CORRECT -> print(f"{cp.set_font(True, cp.Color.SUMMER_GREEN, cp.Color.BLACK)} Hello There...! {cp.reset_font()}")
         
@@ -5381,7 +5381,7 @@ class PyLO():
 
 
 
-# Planning to use this script as help of the Module custom_print.
+# Planning to use this script as help of the Module source.custom_print.
 if __name__ == "__main__":
     print("Working on The Documentation Here")
     cmdl_argv = []

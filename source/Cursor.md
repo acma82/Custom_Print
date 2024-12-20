@@ -10,9 +10,9 @@ This class contains 4 methods. The difference between jump and move is that jump
 [**Top**](#cursor) <span style="color:red"> <strong> Example: </strong> </span>
 
 ```python
-    from custom_print import Cursor
-    from custom_print import clear
-    from custom_print import Move
+    from source.custom_print import Cursor
+    from source.custom_print import clear
+    from source.custom_print import Move
     crs = Cursor()
 
     clear()

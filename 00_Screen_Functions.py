@@ -7,10 +7,10 @@ Screen Functions Available:
     resize(rows=25, cols=80)
 '''
 import time
-from custom_print import clean
-from custom_print import clear
-from custom_print import erase
-from custom_print import dimensions
+from source.custom_print import clean
+from source.custom_print import clear
+from source.custom_print import erase
+from source.custom_print import dimensions
 
 print("fp.clear() -> clear function")
 print("Clear the terminal and restore to home the cursor")

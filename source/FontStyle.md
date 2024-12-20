@@ -35,7 +35,7 @@ This class contains 4 methods and the attributes and their default values are di
 [**Top**](#fontstyle) <span style="color:red"> <strong> Example 1: <span style="color:purple"> style_on() and style_off() </span> </strong> </span>
 
 ```python
-	import source.custom_print as cp
+	import source.source.custom_print as cp
 	fs = cp.FontStyle()
 	fs.bg = 21
 	fs.fg = 231
@@ -49,7 +49,7 @@ This class contains 4 methods and the attributes and their default values are di
 [**Top**](#fontstyle) <span style="color:red"> <strong> Example 2: <span style="color:purple"> print_style(msg) </span> </strong> </span>
 
 ```python
-    import source.custom_print as cp
+    import source.source.custom_print as cp
     fs = cp.FontStyle()
 
     fs.fg = 231
@@ -118,7 +118,7 @@ This class contains 4 methods and the attributes and their default values are di
 [**Top**](#fontstyle) <span style="color:red"> <strong> Example 3: <span style="color:purple"> print_style(msg) </span> </strong> </span>
 
 ```python
-    import source.custom_print as cp
+    import source.source.custom_print as cp
     fs = cp.FontStyle()
     fs.fg = 231
     fs.bg = 90

@@ -16,15 +16,10 @@
 ---------------------------------------------------------------------------------------------------------------------
 </strong> </span> </span>
 
-
-
-
 <span style="background-color:purple">
 <span style="color:yellow"><strong>
 ---------------------------------------------------------------------------------------------------------------------
 </strong> </span> </span>
-
-
 
 
 ## <span style="color:purple"> <strong> FancyMessage </strong> </span>
@@ -95,7 +90,7 @@ This class contains 3 methods and the attributes and their default values are di
 <span style="color:red"> <strong> Example 1: </strong> </span>
 
 ```python
-    import source.custom_print as cp
+    import source.source.custom_print as cp
 	msg = cp.FancyFormat()
 
 	paragraph = '''
@@ -121,7 +116,7 @@ This class contains 3 methods and the attributes and their default values are di
 <span style="color:red"> <strong> Example 2: </strong> </span>
 
 ```python
-    import source.custom_print as cp
+    import source.source.custom_print as cp
     paragraph3 = '''
     I should probably collect a list of the best
     romantic poems ever written, and maybe I will.
@@ -378,7 +373,7 @@ Note: Although the main idea is to use list type, print_fancy_format(tbl) accept
 ## <span style="color:purple"> <strong>  Example Demo_1 </strong> </span>
    
 ```python
-    import source.custom_print as cp
+    import source.source.custom_print as cp
 
     list1 = cp.FancyFormat()
     csr   = cp.Cursor()
@@ -532,7 +527,7 @@ Note: Although the main idea is to use list type, print_fancy_format(tbl) accept
 
 ```python
     import os
-    import source.custom_print as cp
+    import source.source.custom_print as cp
 
     list1 = cp.FancyFormat()
     csr   = cp.Cursor()
@@ -637,7 +632,7 @@ Note: Although the main idea is to use list type, print_fancy_format(tbl) accept
     
 ```python    
     import os
-    import source.custom_print as cp
+    import source.source.custom_print as cp
 
     list1 = cp.FancyFormat()
     csr   = cp.Cursor()
@@ -805,8 +800,8 @@ Note: Although the main idea is to use list type, print_fancy_format(tbl) accept
 ## <span style="color:purple"> <strong>  Example Demo_4 </strong> </span>
 
 ```python
-    import custom_print
-    list1 = custom_print.FancyFormat()
+    import source.custom_print
+    list1 = source.custom_print.FancyFormat()
 
     # title
     list1.bg_title    = 11
@@ -836,7 +831,7 @@ Note: Although the main idea is to use list type, print_fancy_format(tbl) accept
     my_list = [["Header 1","Header 2","Header 3","Header 4"],["R2C1","R2C2","R2C3","R2C4"],
             ["R3C1","R3C2","R3C3","R3C4"],["R4C1","R4C2","R4C3","R4C4"]]
 
-    list1.print_fancy_format(my_list, custom_print.Line_Style.SINGLE)
+    list1.print_fancy_format(my_list, source.custom_print.Line_Style.SINGLE)
 
     list1.top_horizontal_line_on = 0
     list1.horizontal_line_under_header_on = 0
@@ -848,7 +843,7 @@ Note: Although the main idea is to use list type, print_fancy_format(tbl) accept
 ## <span style="color:purple"> <strong>  Example Demo_5 </strong> </span>
 
 ```python
-    import source.custom_print as cp
+    import source.source.custom_print as cp
     tbl = cp.FancyFormat()
     tbl.bg_header = 90
     tbl.fg_header = 231
@@ -867,7 +862,7 @@ Note: Although the main idea is to use list type, print_fancy_format(tbl) accept
 ## <span style="color:purple"> <strong>  Example Demo_6 </strong> </span>
 
 ```python
-    import source.custom_print as cp
+    import source.source.custom_print as cp
     tbl = cp.FancyFormat()
 
     tbl.bg_horizontal_line  = 21;        tbl.bg_header = 90	
@@ -921,7 +916,7 @@ fg_draw_line    = -1            |                                   |
 <span style="color:red"> <strong> Example: </strong> </span>
 
 ```python
-    import source.custom_print as cp
+    import source.source.custom_print as cp
     pen = cp.Pen()
     pen.adj_indent = 8
     pen.draw_line(size=20, layout=cp.Layout.HORIZONTAL, tail=cp.Unicode.BLACK_LEFT_POINTING_TRIANGLE,
@@ -931,11 +926,11 @@ fg_draw_line    = -1            |                                   |
     pen.draw_rectangle(length=8, width=4, style=cp.Line_Style.DOUBLE)
 ```
 
-custom_print module is not a big thing, but I hope you find useful occasionally. **Python 3.12.1** or greater is required.						
+source.custom_print module is not a big thing, but I hope you find useful occasionally. **Python 3.12.1** or greater is required.						
 
-Note: custom_print module has been tested on RedHat 9, Centos Stream 9, AlmaLinux 9, and Windows 10.
+Note: source.custom_print module has been tested on RedHat 9, Centos Stream 9, AlmaLinux 9, and Windows 10.
 
-https://github.com/acma82/Custom_Print
+https://github.com/acma82/source.custom_print
 
 ## Report bugs at	→	acma.mex@hotmail.com
 

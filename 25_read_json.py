@@ -1,7 +1,7 @@
 '''
 The extension can be omitted
 '''
-import source.custom_print as cp
+import source.source.custom_print as cp
 pylo = cp.PyLO()
 tbl = cp.FancyFormat()
 

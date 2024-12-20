@@ -4,7 +4,7 @@ Do NOT use tilda(~) or $HOME for quick access
 to the path.
 The extension can be omitted
 '''
-import source.custom_print as cp
+import source.source.custom_print as cp
 pylo = cp.PyLO()
 
 
