@@ -7,7 +7,7 @@ Methods Available:
     stop_style()
 '''
 
-import custom_print as cp
+import source.custom_print as cp
 fs = cp.FontStyle()
 
 print("\n")

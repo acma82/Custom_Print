@@ -5,7 +5,7 @@ python3.12 cp_documentation.py
 '''
 
 import sys
-import custom_print as cp
+import source.custom_print as cp
 
 lst = cp.FancyFormat()
 

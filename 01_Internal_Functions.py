@@ -13,7 +13,7 @@ Internal Functions Available
     
     
 '''
-import custom_print as cp
+import source.custom_print as cp
 
 blue_msg = cp.FancyMessage()
 blue_msg.bold = True

@@ -1,4 +1,4 @@
-import custom_print as cp
+import source.custom_print as cp
 paragraph = '''
  This is the Module Docstrings
  Trailing WhiteSpace refers to any whitespace characters 

@@ -2,7 +2,7 @@
 Demo 5 for fancyprint module...!
 '''
 
-import custom_print as cp
+import source.custom_print as cp
 
 list1 = cp.FancyFormat()
 

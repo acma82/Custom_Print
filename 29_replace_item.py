@@ -61,7 +61,7 @@ def experiment_replace(data:list, ref_value="---", new_value="----")->list:
 #-----------------------------------------------------------------------------------------
 #                                                                                       --
 #-----------------------------------------------------------------------------------------
-import custom_print as cp
+import source.custom_print as cp
 pylo = cp.PyLO()
 
 print(f"{cp.set_font(1,1,15)} Replacing 3 for A {cp.reset_font()}")
