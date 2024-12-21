@@ -1,5 +1,5 @@
 #### [Back](README.md) 
-# <span style="color:blue"> <strong> FontStyle </strong> </span>
+# <span style="color:green"> <strong> FontStyle </strong> </span>
 * [**Methods**](#methods)
 * [**Default Values**](#default-values)
 * [**Examples**](#examples)
@@ -21,7 +21,6 @@ This class contains 4 methods and the attributes and their default values are di
 
     This method will print the style with the defined attributes.
 
-[**Top**](#fontstyle)
 
 ## Default Values
 

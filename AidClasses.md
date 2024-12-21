@@ -1,6 +1,6 @@
 #### [Back](README.md)
 
-# <strong> Aid Classes
+# Aid Classes
 * [**Align**](#align)
 * [**Color**](#color)
 * [**Layout**](#layout)
@@ -9,8 +9,11 @@
 * [**Move**](#move)
 * [**Unicode**](#unicode)
 
+
 ## <span style="color:green"> <strong> Align </strong> </span>
-    This class is used where alignment is needed. It contains 4 options.    
+<!-- >> <span style="color:blue" ><strong>  This class is used where alignment is needed. It contains 4 options.   -->
+
+> This class is used where alignment is needed. It contains 4 options.
 
 - Align.RIGHT
 - Align.LEFT
@@ -38,9 +41,9 @@ msg.align_footnote = "right"   # msg.align_footnote = "r"
 
 ## <span style="color:green"> <strong> Color </strong> </span>
     
-```
-This class will help to select a color when using the set_font() function or the FancyStyle class or you can use the number for the color as well.
-```
+
+> This class will help to select a color when using the set_font() function or the FancyStyle class or you can use the number for the color as well.
+
 | List of Color | Available in  | Custom Print | Module      |
 |:-------------:|:-------------:|:------------:|:-----------:|
 | BLACK    | RED        | BLUE          | GREEN        |             |

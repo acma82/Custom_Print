@@ -29,6 +29,7 @@ This class contains two methods:
     by default is set up to customized option. This method take two parameters, **data** and **line style**. <br>
     **data:** can be bool, int, float, complex, str, dictionary, range, set, frozenset, or tuple. <br>
     **style:** use the class Line_Style for more option. Check demos for more reference.
+
 + ***reset_fancy_format()*** <br>
     Any modification on the section variables will be affected on the customized line style. This method will reset all
     section variables to their default values at once.

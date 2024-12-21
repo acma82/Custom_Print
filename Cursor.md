@@ -1,5 +1,5 @@
 #### [Back](README.md)
-# <span style="color:blue"> <strong> Cursor </strong> </span>
+# <span style="color:green"> <strong> Cursor </strong> </span>
 
 This class contains 4 methods. The difference between ***jump*** and ***move*** is that jump executes the code while move returns the code.
 

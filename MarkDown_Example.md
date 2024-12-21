@@ -130,3 +130,4 @@ class Animal(enum.Enum):
     OWL = "Tecolote"
 ```
 
+> <span style="color:blue" ><strong>  This class is used where alignment is needed. It contains 4 options. There are more option to be added here....!

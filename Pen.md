@@ -1,12 +1,5 @@
 #### [Back](README.md) 
-# <span style="color:blue"> <strong> Pen </strong> </span>
-### [1. Methods](#methods)
-### [2. Default Values](#default-values)
-### [3. Examples](#examples)
- <span style="color:red"> <strong> Example: </strong> </span>
-
-
-
+# <span style="color:green"> <strong> Pen </strong> </span>
 
 ## Methods
 
@@ -16,7 +9,6 @@
 
     draw_rectangle(length=3, width=3, style=Line_Style.DASH)
 
-[**Top**](#pen)
 
 | Rectangle Default Values      |                                   |                                 |
 |-------------------------------|-----------------------------------|---------------------------------|
@@ -32,7 +24,7 @@ bg_draw_line    = -1			|                                   |
 fg_draw_line    = -1            |                                   |
 
 
-[**Top**](#pen) <span style="color:red"> <strong> Example: </strong> </span>
+<span style="color:red"> <strong> Example: </strong> </span>
 
 ```python
     import custom_print as cp
