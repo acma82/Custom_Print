@@ -1,18 +1,26 @@
 #### [Back](README.md)
-## <span style="color:purple"> <strong> Cursor </strong> </span>
-This class contains 4 methods. The difference between jump and move is that jump executes the code while move returns the code.
+## <span style="color:blue"> <strong> Cursor </strong> </span>
 
-+ jumpTo(qty=0, direction=cp.Move.DOWN)&nbsp;	→ This method jumps rows or columns for the cursor in the terminal.
-+ jumpxy(x=0, y=0) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→ This method jumps the cursor to specific coordinates in the terminal.
-+ moveTo(qty=0, direction=cp.Move.DOWN)	→ This method moves rows or columns for the cursor in the terminal.
-+ movexy(x=0, y=0) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; → This method moves the cursor to specific coordinates in the terminal.
+This class contains 4 methods. The difference between ***jump*** and ***move*** is that jump executes the code while move returns the code.
+
++ ***jumpTo(qty=0, direction=cp.Move.DOWN)*** <br> 
+This method jumps rows or columns for the cursor in the terminal.
+
++ ***jumpxy(x=0, y=0)*** <br>
+This method jumps the cursor to specific coordinates in the terminal.
+
++ ***moveTo(qty=0, direction=cp.Move.DOWN)*** <br> 
+This method moves rows or columns for the cursor in the terminal.
+
++ ***movexy(x=0, y=0)*** <br>
+This method moves the cursor to specific coordinates in the terminal.
 
 [**Top**](#cursor) <span style="color:red"> <strong> Example: </strong> </span>
 
 ```python
-    from source.custom_print import Cursor
-    from source.custom_print import clear
-    from source.custom_print import Move
+    from custom_print import Cursor
+    from custom_print import clear
+    from custom_print import Move
     crs = Cursor()
 
     clear()
@@ -36,7 +44,7 @@ This class contains 4 methods. The difference between jump and move is that jump
     crs.jumpxy(0,0)
     print("Start Here*")
 
-    # movexy method
+    # movexy
     print(f"{crs.movexy(15,40)}hello again")
 
     # combination

@@ -17,19 +17,61 @@
   * [**reset_font**](#reset_font)
 
 
-### clean()
+## clean
 It cleans the terminal and returns the cursor to home.
 
-### clear()
+[**Top**](#functions) <span style="color:red"> <strong> Example: </strong> </span>
+
+```python
+import time
+import custom_print as cp
+print("Hello")
+time.sleep(3)
+cp.clean() # ansi code
+```
+
+## clear
 It clears the terminal and returns the cursor to home.
 
-### erase()
+[**Top**](#functions) <span style="color:red"> <strong> Example: </strong> </span>
+
+```python
+import time
+import custom_print as cp
+print("Hello")
+time.sleep(3)
+cp.clear() # operating system 
+```
+
+## erase
 It erases the terminal and leaves the cursor in the current position.
 
-### dimensions()
+[**Top**](#functions) <span style="color:red"> <strong> Example: </strong> </span>
+
+```python
+import time
+import custom_print as cp
+print("erase() function cleans the terminal and the cursor remain in the same position")
+print("erase uses the ansi system")
+time.sleep(3)
+cp.erase()
+print("Good Bye...!")
+```
+
+## dimensions
 It returns the dimensions of the terminal, cols and rows.
 
-### resize
+[**Top**](#functions) <span style="color:red"> <strong> Example: </strong> </span>
+
+```python
+import custom_print as cp
+cols, rows = dimensions()
+print("fp.dimensions() -> It returns the dimensions of the screen")
+print("cols: ", cols, "  rows: ", rows)
+```
+
+
+## resize
 (row = 25, cols = 80)
 It resizes the terminal size.
 
@@ -40,11 +82,12 @@ It resizes the terminal size.
     r, c = cp.dimensions()
     print(f"rows: {r}, cols: {c}")
     cp.resize(25, 120)
+    print("Good Bye...!")    
 ```
 
 ## <span style="color:blue"> <strong>  Internal Functions </strong> </span>
-### bg_ansi_colors
-bg_ansi_colors(bold = False, fg = -1, n_line = 0)
+## bg_ansi_colors
+***bg_ansi_colors(bold = False, fg = -1, n_line = 0)*** <br>
 This function displays all background colors available with ansi code. The following options are for a better visualization.
 
 - The bold option for the font (True/False).
@@ -58,8 +101,8 @@ This function displays all background colors available with ansi code. The follo
     cp.bg_ansi_colors(bold=True, fg=0, n_line=1)
 ```
 
-### fg_ansi_colors
-fg_ansi_colors(bold = False, bg = -1, n_line = 0)
+## fg_ansi_colors
+***fg_ansi_colors(bold = False, bg = -1, n_line = 0)*** <br>
 This function displays all the foreground colors available with ansi code. The following options are for a better visualization.
 * The bold option for the font (True / False).
 * The bg option to visualize the background colors with a specific foreground color.
@@ -72,9 +115,9 @@ This function displays all the foreground colors available with ansi code. The f
     cp.fg_ansi_colors(bold=True, bg=-1, n_line=1)
 ```
 
-### ins_chr
-ins_chr(n = 1, unicode = " ")
-This function inserts n times the unicode provided, by default it is set to space.
+## ins_chr
+***ins_chr(n = 1, unicode = " ")*** <br>
+This function inserts **n** times the **unicode** provided, by default it is set to space.
 
 [**Top**](#functions) <span style="color:red"> <strong> Example: </strong> </span>
 
@@ -84,9 +127,9 @@ This function inserts n times the unicode provided, by default it is set to spac
     print(f"{cp.ins_chr(n=80, unicode="\u25B6")}")
 ```
 
-### ins_newline
-ins_newline(n=1)
-This function inserts n new lines.
+## ins_newline
+***ins_newline(n=1)*** <br>
+This function inserts **n** new lines.
 
 [**Top**](#functions) <span style="color:red"> <strong> Example: </strong> </span>
 
@@ -97,7 +140,7 @@ This function inserts n new lines.
     print("Bye")
 ```
 
-### terminal_bell
+## terminal_bell
 This function makes the sound of the terminal bell.
 
 [**Top**](#functions) <span style="color:red"> <strong> Example: </strong> </span>
@@ -108,12 +151,12 @@ This function makes the sound of the terminal bell.
     cp.terminal_bell()
 ```
 
-### reset_font
+## reset_font
 This function resets the font attruibutes when we use the **set_font()** function.
 
-### set_font
-set_font(bold=False, bg=-1, fg=-1, italic=False, underline=False, strike=False, blinking=False, dim=False, hidden=False, inverse=False)
-This function passes many attributes for the font. If passing all these arguments is a little annoying to you, you can use the **Font_Style** Class or **Bg, Fg, Style** Classes for simplicity. The best way to use this function is to pass only the first 3 parameters like the example below. 
+## set_font
+***set_font(bold=False, bg=-1, fg=-1, italic=False, underline=False, strike=False, blinking=False, dim=False, hidden=False, inverse=False)*** <br>
+This function passes many attributes for the font. If passing all these arguments is a little annoying to you, you can use the **Bg, Fg, Style** Classes explained in the ***Font Color section*** or use **Font_Style** Class. The best way to use this function is to pass only the first 3 parameters like the example below. 
 
 [**Top**](#functions) <span style="color:red"> <strong> Example: </strong> </span>
 

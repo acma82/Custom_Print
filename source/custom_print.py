@@ -198,7 +198,7 @@ class Color(enum.IntEnum):
 def clean():
 
     ''' It cleans the terminal and returns the cursor to home. '''
-
+    # Ansi Code
     print("\033[2J",end="")  # clean the terminal
     print("\033[H",end="")   # return home the cursor
 

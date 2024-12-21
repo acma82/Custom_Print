@@ -1,11 +1,16 @@
 #### [Back](README.md)
 
-## <span style="color:blue"> <strong> Aim Classes </strong> </span>
+## <span style="color:blue"> <strong> Aid Classes </strong> </span>
 * [Align](#align)
-* []
+* [Color](#color)
+* [Layout](#layout)
+* [Length_bg](#length_bg)
+* [Line_Style](#line_style)
+* [Move](#move)
+* [Unicode](#unicode)
 
 ## <span style="color:purple"> <strong> Align </strong> </span>
-    This class is used with the FancyFormat class and FancyMessage class. It contains 4 options.    
+    This class is used where alignment is needed. It contains 4 options.    
 
 - Align.RIGHT
 - Align.LEFT
@@ -19,6 +24,15 @@
 | "right"     | "left"     |"center"      | "justify"     |
 | "r"         | "l"        |"c"           | "j"           |
 
+
+[**Top**](#aid-classes) <span style="color:red"> <strong> Example: </strong> </span>
+```python
+import custom_print as cp
+msg = cp.FancyMessage()
+msg.align_title = cp.Align.CENTER
+msg.align_footnote = "right"   # msg.align_footnote = "r"
+```
+
 ## <span style="color:purple"> <strong> Color </strong> </span>
     
 ```
@@ -28,6 +42,16 @@ This class will help to select a color when using the set_font() function or the
 |:-------------:|:-------------:|:------------:|:-----------:|
 | BLACK    | RED        | BLUE          | GREEN        |             |
 
+[**Top**](#aid-classes) <span style="color:red"> <strong> Example: </strong> </span>
+```python
+import custom_print as cp
+print(f"{cp.set_font(True, cp.Color.BLOOD_RED, cp.Color.YELLOW)} ---Hello There...! {cp.reset_font()}")
+print(f" Number of Blood Red Color: {cp.Color.BLOOD_RED} ")
+
+fst = cp.FontStyle()
+fst.bg = cp.Color.BLOOD_RED    # fst.bg = 52
+fst.print_style(" Hello There...! ")
+```
 
 ## <span style="color:purple"> <strong> Layout </strong> </span>
     This class is used with FancyFormat class and Pen class. It contains 2 options.
@@ -42,10 +66,45 @@ This class will help to select a color when using the set_font() function or the
 | "horizontal"      | "vertical"      |
 | "h"               | "v"             |
 
+[**Top**](#aid-classes) <span style="color:red"> <strong> Example: </strong> </span>
+```python
+import custom_print as cp
+tbl  = cp.FancyFormat()
+
+r = range(0,21,2)
+tbl.print_fancy_format(r)
+tbl.set_layout = cp.Layout.VERTICAL     # tbl.set_layout = "v" 
+tbl.print_fancy_format(r)
+```
+
 ## <span style="color:purple"> <strong> Length_bg </strong> </span>
     his class is used with FancyMessage class and contains 2 options.
 + ALL_ROW
 + ONLY_WORD
+
+[**Top**](#aid-classes) <span style="color:red"> <strong> Example: </strong> </span>
+
+```python
+import custom_print as cp
+msg = cp.FancyMessage()
+path = " The new path: /mnt/home/user_name/Documents/ " # usually use with a paragra message type
+
+msg.bg_body = 10
+msg.fg_body = 0
+msg.bold_body = True
+msg.length = cp.Length_bg.ONLY_WORD
+
+msg.adj_bg_lines_to_right_indent =  False   # True make all the way to the space available
+msg.adj_bg_msg_to_space_available = False   # True make all the way to the space available
+# These two options are only available when using the msg.length = cp.Length_bg.ONLY_WORD
+# otherwise they will make it to the longest line
+
+msg.print_fancy_message(path)
+cp.ins_newline(3)
+msg.length = cp.Length_bg.ALL_ROW # all the width of the terminal
+msg.print_fancy_message(path)
+```
+
 
 ## <span style="color:purple"> <strong> Line_Style </strong> </span>
 	This class is used with FancyFormat class and Pen class. There are some options available.
@@ -63,7 +122,7 @@ This class will help to select a color when using the set_font() function or the
 |                |                      |            |          |                                           |
 |----------------|----------------------|------------|----------|-------------------------------------------|
 |	CUSTOMIZED   | "customized"         | SINGLE     | "single" | SPACE_COL_COLOR    | "space_col_color"    |
-|	SINGLE_BOLD  | single_bold"         | DASH       | "dash"   | NO_SPACE_COL_COLOR | "no_space_col_color" |
+|	SINGLE_BOLD  | "single_bold"        | DASH       | "dash"   | NO_SPACE_COL_COLOR | "no_space_col_color" |
 |	SINGLE_HEAVY | "single_heavy"       | DOUBLE     | "double" |                    |                      |
 |	SQ_BRACKETS  | "sq_brackets"        | NONE       | "none"   |                    |                      |
 
@@ -79,8 +138,18 @@ This class will help to select a color when using the set_font() function or the
 |bg_under_line_header= 21 | bg_vertical_header_line_chr= 21	 | horizontal_line_under_header_on = True|
 
 
-<span style="color:red"> <strong> Example: </strong> </span> Check Demo_6.
+[**Top**](#aid-classes) <span style="color:red"> <strong> Example: </strong> </span>
 
+```python
+import custom_print as cp
+tbl  = cp.FancyFormat()
+
+r = range(0,21,2)
+tbl.print_fancy_format(r, cp.Line_Style.DOUBLE)
+tbl.set_layout = cp.Layout.VERTICAL
+tbl.print_fancy_format(r, cp.Line_Style.SQ_BRACKETS)
+
+```
 
 ## <span style="color:purple"> <strong> Move </strong> </span>
     This class is used with the Cursor class and it contains 4 options.
@@ -97,6 +166,18 @@ This class will help to select a color when using the set_font() function or the
 | "right"    | "left"    |"up"       | "down"     |
 | "r"        | "l"       |"u"        | "d"        |
 
+
+[**Top**](#aid-classes) <span style="color:red"> <strong> Example: </strong> </span>
+
+```python
+import custom_print as cp
+crs = cp.Cursor()
+clear()
+# jumpTo method
+crs.jumpTo(qty=2, direction = Move.DOWN) # direction = "d"
+print("I am down")
+
+```
 
 ## <span style="color:purple"> <strong> Unicode </strong> </span>
     This class is to insert some unicode characters.
@@ -115,5 +196,13 @@ This class will help to select a color when using the set_font() function or the
 | BLACK_CIRCLE                               | BLACK_DIAMOND                |
 | WHITE_CIRCLE                               | WHITE_DIAMOND                |
 | FACE                                       | Reference → https://www.unicode.org/charts/nameslist/ |
+
+[**Top**](#aid-classes) <span style="color:red"> <strong> Example: </strong> </span>
+
+```python
+import custom_print as cp
+print(f"{cp.ins_chr(20, cp.Unicode.BLACK_CIRCLE+" ")}")
+```
+
 
 #### [Back](README.md)

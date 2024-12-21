@@ -1,6 +1,12 @@
-#### [Back](README.md)
+#### [Back](README.md) 
+## <span style="color:blue"> <strong> FontStyle </strong> </span>
+### [1. Methods](#methods)
+### [2. Default Values](#default-values)
+### [3. Examples](#examples)
 
-## <span style="color:purple"> <strong> FontStyle </strong> </span>
+
+## Methods
+
 This class contains 4 methods and the attributes and their default values are displays below.
 
 + **style_on() and style_off()** 
@@ -15,8 +21,9 @@ This class contains 4 methods and the attributes and their default values are di
 
     This method will print the style with the defined attributes.
 
+[**Top**](#fontstyle)
 
-**Default Values:**
+## Default Values
 
 ```python
 	bg     = -1           hidden   = False        force_align     = False 
@@ -31,6 +38,7 @@ This class contains 4 methods and the attributes and their default values are di
 	bg_top_lines  and bg_bottom_lines → these are lines above and below the message with the bg specified.
 ```
 
+## Examples
 
 [**Top**](#fontstyle) <span style="color:red"> <strong> Example 1: <span style="color:purple"> style_on() and style_off() </span> </strong> </span>
 
