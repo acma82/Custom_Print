@@ -101,7 +101,7 @@ This method sets a bool variable into a list where ***data*** is the bool type. 
 [**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
 
 ```python
-    import source.source.custom_print as cp
+    import custom_print as cp
     pylo = cp.PyLO()
     
     variable = True
@@ -125,7 +125,7 @@ This method sets an int variable into a list where ***data*** is the int type. I
 [**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
 
 ```python
-    import source.source.custom_print as cp
+    import custom_print as cp
     pylo = cp.PyLO()
     
     variable = 10
@@ -150,7 +150,7 @@ This method sets an int variable into a list where ***data*** is the float type.
 
 
 ```python
-    import source.source.custom_print as cp
+    import custom_print as cp
     pylo = cp.PyLO()
     
     variable = 5.5
@@ -165,7 +165,7 @@ This method sets an int variable into a list where ***data*** is the float type.
 [**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
 
 ```python
-    import source.source.custom_print as cp
+    import custom_print as cp
     pylo = cp.PyLO()
 
     variable = 5+5j
@@ -180,7 +180,7 @@ This method sets an int variable into a list where ***data*** is the float type.
 [**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
 
 ```python
-    import source.source.custom_print as cp
+    import custom_print as cp
     pylo = cp.PyLO()
 
     print(f"{cp.set_font(1,90,231)}  WORD_BY_WORD  {cp.reset_font()}")
@@ -208,7 +208,7 @@ This method sets an int variable into a list where ***data*** is the float type.
 [**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
 
 ```python
-    import source.source.custom_print as cp
+    import custom_print as cp
     pylo = cp.PyLO()
 
     mydict = {"Name":"Jose Alfredo","Last":"Jimenez","Country":"Mexico","Age":82, "Lista":[1,2,3]}
@@ -251,7 +251,7 @@ This method sets an int variable into a list where ***data*** is the float type.
 [**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
 
 ```python
-    import source.source.custom_print as cp
+    import custom_print as cp
     pylo = cp.PyLO()
 
     r = range(0,15,3)
@@ -294,7 +294,7 @@ This method sets an int variable into a list where ***data*** is the float type.
 [**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
 
 ```python
-    import source.source.custom_print as cp
+    import custom_print as cp
     pylo = cp.PyLO()
 
 
@@ -326,7 +326,7 @@ This method sets an int variable into a list where ***data*** is the float type.
 [**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
 
 ```python
-    import source.source.custom_print as cp
+    import custom_print as cp
     pylo = cp.PyLO()
 
     set_1 = {1,3,5,7,9}
@@ -352,7 +352,7 @@ This method sets an int variable into a list where ***data*** is the float type.
 [**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
 
 ```python
-    import source.source.custom_print as cp
+    import custom_print as cp
     pylo = cp.PyLO()
 
     tupleData1 = (("Apple"));    print("case 0:",tupleData1)       # this is a string                     Case 0
@@ -469,7 +469,7 @@ This method swap two elements in a list.
 [**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
 
 ```python
-    import source.source.custom_print as cp
+    import custom_print as cp
     pylo = cp.PyLO()
 
     print(f"{cp.set_font(1,23,231)}    Swap Items in a List    {cp.reset_font()}")
@@ -499,7 +499,7 @@ It will return the number of rows and cols in a list.
 [**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
 
 ```python
-    import source.source.custom_print as cp
+    import custom_print as cp
     pylo = cp.PyLO()
 
     print(f"{cp.ins_chr(n=80, unicode="-")}")
@@ -527,7 +527,7 @@ This method will fill all the empty columns from the list.
 [**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
 
 ```python  
-    import source.source.custom_print as cp
+    import custom_print as cp
     pylo = cp.PyLO()
 
     lst = [[9,8,7],[4],[5,6]]
@@ -583,7 +583,7 @@ the fill_value. If the autofill is set to False, some data will be lost.
 [**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
 
 ```python
-    import source.source.custom_print as cp
+    import custom_print as cp
     pylo = cp.PyLO()
 
     lst = [[9,8,7,1],[4,2],[5,6,0]]
@@ -641,7 +641,7 @@ the fill_value. If the autofill is set to False, some data will be lost.
 [**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
 
 ```python
-    import source.source.custom_print as cp
+    import custom_print as cp
     pylo = cp.PyLO()
 
     print(f"{cp.ins_chr(n=80, unicode="-")}")
@@ -673,7 +673,7 @@ sustitute by zero, 0.
 [**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
 
 ```python
-    import source.source.custom_print as cp
+    import custom_print as cp
     pylo = cp.PyLO()
 
     print(f"{cp.ins_chr(n=80, unicode="-")}")
@@ -709,7 +709,7 @@ use the autofill_data method.
 [**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
 
 ```python
-import source.source.custom_print as cp
+import custom_print as cp
 pylo = cp.PyLO()
 tbl  = cp.FancyFormat()
 
@@ -769,7 +769,7 @@ the file as well.
 [**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
 
 ```python
-import source.source.custom_print as cp
+import custom_print as cp
 pylo = cp.PyLO()
 
 
@@ -801,7 +801,7 @@ It reads a **csv** file and save it into a list. The extension can be omitted.
 [**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
 
 ```python
-import source.source.custom_print as cp
+import custom_print as cp
 pylo = cp.PyLO()
 tbl = cp.FancyFormat()
 
@@ -830,7 +830,7 @@ the file as well.
 [**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
 
 ```python
-import source.source.custom_print as cp
+import custom_print as cp
 pylo = cp.PyLO()
 
 class_methods = [\
@@ -861,7 +861,7 @@ It reads a **json** file and save it into a list. The extension can be omitted.
 [**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
 
 ```python
-import source.source.custom_print as cp
+import custom_print as cp
 pylo = cp.PyLO()
 tbl = cp.FancyFormat()
 
@@ -888,7 +888,7 @@ a result. This method was intended to be used with complete list as the example 
 [**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
 
 ```python
-import source.source.custom_print as cp
+import custom_print as cp
 pylo = cp.PyLO()
 tbl = cp.FancyFormat()
 
@@ -937,7 +937,7 @@ This function makes any list in a form as a vector. [1,2,3,4,5,etc.],up to 4 bra
 [**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
 
 ```python
-import source.source.custom_print as cp
+import custom_print as cp
 pylo = cp.PyLO()
 
 list_0 = [["A"],["B"]]
@@ -971,7 +971,7 @@ and the column to be added needs to be as a vector list.
 [**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
 
 ```python
-import source.source.custom_print as cp
+import custom_print as cp
 pylo = cp.PyLO()
 tbl  = cp.FancyFormat()
 
@@ -1041,7 +1041,7 @@ This methods has the option of using the case sensitive.
 [**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
 
 ```python
-import source.source.custom_print as cp
+import custom_print as cp
 pylo = cp.PyLO()
 
 print(f"{cp.set_font(1,1,15)} Replacing 3 for A {cp.reset_font()}")
@@ -1064,7 +1064,7 @@ it will renumerate the existen one.
 [**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
 
 ```python
-import source.source.custom_print as cp
+import custom_print as cp
 pylo = cp.PyLO()
 tbl  = cp.FancyFormat()
 
@@ -1113,7 +1113,7 @@ join_as_vector(data, list_to_join, col_posi=0)
 [**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
 
 ```python
-import source.source.custom_print as cp
+import custom_print as cp
 pylo = cp.PyLO()
 
 list_1 = [[0,1],[2,3,4],5,[6,7,8]]
@@ -1141,7 +1141,7 @@ Up to 4 brackets. This methods has the option of using the case sensitive.
 [**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
 
 ```python
-import source.source.custom_print as cp
+import custom_print as cp
 pylo = cp.PyLO()
 
 list_1 = [["Header 1", "Header 2", "Header 3",0],
@@ -1175,7 +1175,7 @@ This method lower case all the items in a list.
 [**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
 
 ```python
-import source.source.custom_print as cp
+import custom_print as cp
 pylo = cp.PyLO()
 
 
@@ -1200,7 +1200,7 @@ This method upper case all the items in a list.
 [**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
 
 ```python
-import source.source.custom_print as cp
+import custom_print as cp
 pylo = cp.PyLO()
 
 
@@ -1224,7 +1224,7 @@ capitalize_case(data:list)
 [**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
 
 ```python
-import source.source.custom_print as cp
+import custom_print as cp
 pylo = cp.PyLO()
 
 list_1 = [["HeadeR 1", "HeadeR 2", "HeadeR 3",0],
@@ -1255,7 +1255,7 @@ to start the merge on list_1. <br>
 [**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
 
 ```python
-import source.source.custom_print as cp
+import custom_print as cp
 pylo = cp.PyLO()
 tbl  = cp.FancyFormat()
 
@@ -1330,7 +1330,7 @@ This methods has the option of using the case sensitive.
 [**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
 
 ```python
-import source.source.custom_print as cp
+import custom_print as cp
 pylo = cp.PyLO()
 tbl  = cp.FancyFormat()
 tbl.bg_title  = 90
@@ -1373,7 +1373,7 @@ reverse_order(data, update=False)
 [**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
 
 ```python
-import source.source.custom_print as cp
+import custom_print as cp
 pylo = cp.PyLO()
 tbl  = cp.FancyFormat()
 

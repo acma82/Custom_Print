@@ -1,5 +1,5 @@
 #-----------------------------------------------------------------------------------------------------------
-import source.source.custom_print as cp
+import custom_print as cp
 pylo = cp.PyLO()
 tbl  = cp.FancyFormat()
 

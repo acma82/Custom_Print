@@ -1,23 +1,23 @@
 #### [Back](README.md)
-## <span style="color:blue"> <strong> FancyFormat </strong> </span>
-### [1. Methods](#methods)
-### [2. General Section](#general-section)
-### [3. Title Section](#title-section)
-### [4. Footnote Section](#footnote-section)
-### [5. Data Section](#data-section)
-### [6. Horizontal Line Section](#horizontal-line-section)
-### [7. Vertical Line Section](#vertical-line-section)
-### [8. External Corner Section](#external-corner-section)
-### [9. Middle Corner Section](#middle-corner-section)
-### [10. Header Section](#header-section)
-### [11. Header Under Line Section](#header-under-line-section)
-### [12. Sumarize](#sumarize)
-### [13. Demo 1](#example-demo_1)
-### [14. Demo 2](#example-demo_2)
-### [15. Demo 3](#example-demo_3)
-### [16. Demo 4](#example-demo_4)
-### [17. Demo 5](#example-demo_5)
-### [18. Demo 6](#example-demo_6)
+# <span style="color:green"> <strong> FancyFormat </strong> </span>
+* [**Methods**](#methods)
+* [**General Section**](#general-section)
+* [**Title Section**](#title-section)
+* [**Footnote Section**](#footnote-section)
+* [**Data Section**](#data-section)
+* [**Horizontal Line Section**](#horizontal-line-section)
+* [**Vertical Line Section**](#vertical-line-section)
+* [**External Corner Section**](#external-corner-section)
+* [**Middle Corner Section**](#middle-corner-section)
+* [**Header Section**](#header-section)
+* [**Header Under Line Section**](#header-under-line-section)
+* [**Sumarize**](#sumarize)
+* [**Demo 1**](#example-demo_1)
+* [**Demo 2**](#example-demo_2)
+* [**Demo 3**](#example-demo_3)
+* [**Demo 4**](#example-demo_4)
+* [**Demo 5**](#example-demo_5)
+* [**Demo 6**](#example-demo_6)
 
 <!-- ---------------------------------- -->
 <!-- Methods                            -->
@@ -318,7 +318,7 @@ Note: Although the main idea is to use list type, print_fancy_format(tbl) accept
 [**Top**](#fancyformat) <span style="color:red"> <strong> Demo 1 </strong> </span>
    
 ```python
-    import source.source.custom_print as cp
+    import custom_print as cp
 
     list1 = cp.FancyFormat()
     csr   = cp.Cursor()
@@ -476,7 +476,7 @@ Note: Although the main idea is to use list type, print_fancy_format(tbl) accept
 
 ```python
     import os
-    import source.source.custom_print as cp
+    import custom_print as cp
 
     list1 = cp.FancyFormat()
     csr   = cp.Cursor()
@@ -585,7 +585,7 @@ Note: Although the main idea is to use list type, print_fancy_format(tbl) accept
 
 ```python    
     import os
-    import source.source.custom_print as cp
+    import custom_print as cp
 
     list1 = cp.FancyFormat()
     csr   = cp.Cursor()
@@ -756,8 +756,8 @@ Note: Although the main idea is to use list type, print_fancy_format(tbl) accept
 [**Top**](#fancyformat) <span style="color:red"> <strong> Demo 4 </strong> </span>
 
 ```python
-    import source.custom_print
-    list1 = source.custom_print.FancyFormat()
+    import custom_print
+    list1 = custom_print.FancyFormat()
 
     # title
     list1.bg_title    = 11
@@ -787,7 +787,7 @@ Note: Although the main idea is to use list type, print_fancy_format(tbl) accept
     my_list = [["Header 1","Header 2","Header 3","Header 4"],["R2C1","R2C2","R2C3","R2C4"],
             ["R3C1","R3C2","R3C3","R3C4"],["R4C1","R4C2","R4C3","R4C4"]]
 
-    list1.print_fancy_format(my_list, source.custom_print.Line_Style.SINGLE)
+    list1.print_fancy_format(my_list, custom_print.Line_Style.SINGLE)
 
     list1.top_horizontal_line_on = 0
     list1.horizontal_line_under_header_on = 0
@@ -802,7 +802,7 @@ Note: Although the main idea is to use list type, print_fancy_format(tbl) accept
 [**Top**](#fancyformat) <span style="color:red"> <strong> Demo 5 </strong> </span>
 
 ```python
-    import source.source.custom_print as cp
+    import custom_print as cp
     tbl = cp.FancyFormat()
     tbl.bg_header = 90
     tbl.fg_header = 231
@@ -825,7 +825,7 @@ Note: Although the main idea is to use list type, print_fancy_format(tbl) accept
 [**Top**](#fancyformat) <span style="color:red"> <strong> Demo 6 </strong> </span>
 
 ```python
-    import source.source.custom_print as cp
+    import custom_print as cp
     tbl = cp.FancyFormat()
 
     tbl.bg_horizontal_line  = 21;        tbl.bg_header = 90	

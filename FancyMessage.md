@@ -1,11 +1,11 @@
 #### [Back](README.md) 
-# <span style="color:blue"> <strong> FancyMessage </strong> </span>
-### [1. Methods](#methods)
-### [2. Body Section](#body-default-values)
-### [3. Note Section](#note-default-values)
-### [4. Title Section](#title-default-values)
-### [5. Footnote Section](#footnote-default-values)
-### [6. Examples](#examples)
+# FancyMessage
+* [**Methods**](#methods)
+* [**Body Section**](#body-default-values)
+* [**Note Section**](#note-default-values)
+* [**Title Section**](#title-default-values)
+* [**Footnote Section**](#footnote-default-values)
+* [**Examples**](#examples)
 
 
 <!-- ---------------------------------- -->

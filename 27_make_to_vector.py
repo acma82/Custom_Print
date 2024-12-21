@@ -1,4 +1,4 @@
-import source.source.custom_print as cp
+import custom_print as cp
 pylo = cp.PyLO()
 
 list_0 = [["A"],["B"]]

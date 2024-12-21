@@ -8,9 +8,9 @@ Method Available:
     movexy(self,x=0, y=0)
 '''
 
-from source.custom_print import Cursor # Class
-from source.custom_print import clear  # Function
-from source.custom_print import Move   # Class
+from custom_print import Cursor # Class
+from custom_print import clear  # Function
+from custom_print import Move   # Class
 crs = Cursor()
 
 clear()

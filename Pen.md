@@ -35,7 +35,7 @@ fg_draw_line    = -1            |                                   |
 [**Top**](#pen) <span style="color:red"> <strong> Example: </strong> </span>
 
 ```python
-    import source.source.custom_print as cp
+    import custom_print as cp
     pen = cp.Pen()
     pen.adj_indent = 8
     pen.draw_line(size=20, layout=cp.Layout.HORIZONTAL, tail=cp.Unicode.BLACK_LEFT_POINTING_TRIANGLE,
@@ -45,9 +45,9 @@ fg_draw_line    = -1            |                                   |
     pen.draw_rectangle(length=8, width=4, style=cp.Line_Style.DOUBLE)
 ```
 
-source.custom_print module is not a big thing, but I hope you find useful occasionally. **Python 3.12.1** or greater is required.						
+custom_print module is not a big thing, but I hope you find useful occasionally. **Python 3.12.1** or greater is required.						
 
-Note: source.custom_print module has been tested on RedHat 9, Centos Stream 9, AlmaLinux 9, and Windows 10.
+Note: custom_print module has been tested on RedHat 9, Centos Stream 9, AlmaLinux 9, and Windows 10.
 
 
 #### [Back](README.md)

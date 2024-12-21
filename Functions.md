@@ -13,8 +13,8 @@
   * [**terminal_bell**](#terminal_bell)
   * [**ins_chr**](#ins_chr)
   * [**ins_newline**](#ins_newline)
-  * [**set_font**](#set_font)
   * [**reset_font**](#reset_font)
+  * [**set_font**](#set_font)
 
 
 ## clean
@@ -97,7 +97,7 @@ This function displays all background colors available with ansi code. The follo
 [**Top**](#functions) <span style="color:red"> <strong> Example: </strong> </span>
 
 ```python
-    import source.source.custom_print as cp
+    import custom_print as cp
     cp.bg_ansi_colors(bold=True, fg=0, n_line=1)
 ```
 

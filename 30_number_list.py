@@ -3,7 +3,7 @@ To enumerate a list, it has to be a list with rows and cols as a table.
 Otherwise, it will be ignored.
 '''
 
-import source.source.custom_print as cp
+import custom_print as cp
 pylo = cp.PyLO()
 tbl = cp.FancyFormat()
 

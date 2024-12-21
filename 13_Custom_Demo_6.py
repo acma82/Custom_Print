@@ -2,7 +2,7 @@
 Demo 6 very simple...!
 '''
 
-import source.source.custom_print as cp
+import custom_print as cp
 
 if __name__ == "__main__":
     tbl = cp.FancyFormat()

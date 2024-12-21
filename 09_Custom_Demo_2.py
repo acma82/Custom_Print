@@ -1,7 +1,6 @@
 '''  Demo 2  '''
 
-import os
-import source.source.custom_print as cp
+import custom_print as cp
 
 list1 = cp.FancyFormat()
 csr   = cp.Cursor()

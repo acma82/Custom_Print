@@ -1,4 +1,4 @@
-from source.custom_print import FancyMessage
+from custom_print import FancyMessage
 
 message = '''
 Guido van Rossum, a Dutch programmer, created Python in the late 1980s

@@ -5,7 +5,7 @@ Method Available:
     print_fancy_message(self, msg_body:str="Paragraph Body")->None    
 '''
 
-import source.custom_print as cp
+import custom_print as cp
 
 msg = cp.FancyMessage()
 crs = cp.Cursor()
