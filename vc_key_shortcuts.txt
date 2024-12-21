@@ -1,0 +1,141 @@
+Visual Code
++----------------------------------------------------------------------------------------------------+
++  ***** General                                                                                -----+
++----------------------------------------------------------------------------------------------------+
+
++----------------------------------------------------------------------------------------------------+
+|  File -> Preferences -> Settings -> Text Editor -> Tab Size-> 4                                    |
+|  File -> Preferences -> Settings -> Text Editor -> Tab Size -> how many spaces for tha tab         |
+|                                                                                                    | 
+|  File -> Preferences -> Settings -> Workbench -> Appearence -> Color Theme -> choose theme color   |
+|  File -> Preferences -> Settings -> Workbench -> Appearance -> Color Theme -> Dark Visual Studio   |
+|                                                                                                    |
+|  File -> Preferences -> Settings -> Workbench -> Appearence -> Side Barlocation -> Move explores   |
+|                                                                                    files to right  |
+|                                                                                                    |
+|  File -> Preferences -> Settings -> Workbench -> Editor Management -> Wrap Tabs -> When there're   |
+|                                                  many open files code put them below the row       |
+|                                                                                                    |
+|  File -> Preferences -> Settings -> Window -> Zoom Level -> to make bigger the letters             |
+|                                                                                                    |
+|  https://code.visualstudio.com/docs/setup/linux#_rhel-fedora-and-centos-based-distributions        |
+|                                                                                                    |
+|                                                                                                    |
++----------------------------------------------------------------------------------------------------+
+
++----------------------------------------------------------------------------------------------------+
++  ***** Extensions                                                                               ---+
++----------------------------------------------------------------------------------------------------+
+
++----------------------------------------------------------------------------------------------------+
+|  Python extension recommended by visual code                                                       |
++----------------------------------------------------------------------------------------------------+
+|  To Display PDF Files on vscode                                                                    |
+|  install extension-> vscode-pdf                                                                    |
+|  PDF extension recommended by visual code (tomoki1207)                                             |
+|                                                                                                    |
++----------------------------------------------------------------------------------------------------+
+|                                                                                                    |
+|  PDF LaTeX extension by efoerster.texlab                                                           |
+|                                                                                                    |
++----------------------------------------------------------------------------------------------------+
+|  To Print code in PDF format                                                                       |
+|  Install extension-> PDF Code Generator                                                            |
+|  it shows a printer image on right top of the screen                                               |
+|  PDF Code Print extension by Rendered Markdown, coloured code. PD Consulting                       |
+|                                                                                                    |
++----------------------------------------------------------------------------------------------------+
+|  To make latex document -> install extension-> LaTeXWorkshop                                       |
+|  install Miketex in the system                                                                     |
+|                                                                                                    |
++----------------------------------------------------------------------------------------------------+
+|  To use proto with Python                                                                          |
+|  vscode-proto3                                                                                     |
+|                                                                                                    |
++----------------------------------------------------------------------------------------------------+
+
++----------------------------------------------------------------------------------------------------+
++  ***** Shortcuts                                                                                ---+
++----------------------------------------------------------------------------------------------------+
+  Shortcuts                Description
++----------------------------------------------------------------------------------------------------+
+|  Search and Replace                                                                                |
+|  Ctrl + F                | Find                                                                    |
+|  Ctrl + H                | Replace                                                                 |
+|  Ctrl + D                | Add selection to next Find match (select and same as Alt + click)       |
+|                          |                                                                         |
+|  Multi-cursor and selection                                                                        |
+|  Alt                     | Select Menu (File, Edit, Selection,....), Esc to exit Submenu   Alt + H |
+|  Ctrl + A                | Select all                                                              |
+|  Alt + Click             | Insert cursor in many lines as needed                                   |
+|  Alt + Shift + up/down   | Insert cursor up/down with arrows                                       |
+|  Alt + Shift + i         | Select cursor at the end of each line selected                          |
+|  Ctrl + L                | Select current line                                                     |
+|  Ctrl + Shift + L        | Select all occurrences of current selection                             |
+|  Ctrl + F2               | Select all occurrences of current word (no selection needed)            |
+|                          |                                                                         |
+|  Editing                                                                                           |
+|  Ctrl + i                | Trigger suggestion                                                      |
+|  Ctrl + Space            | Same as Ctrl + i                                                        |
+|  Ctrl + K then Ctrl + X  | Trim trailing whitespace. Don't select anything.                        |
+|  Ctrl + K then M         | To Change the file Language                                             |
+|                          |                                                                         |
+|  Editor Management                                                                                 |
+|  Ctrl + W                | Close current window file open                                          |
+|  Ctrl + K then F         | Close folder                                                            |
+|  Ctrl + \                | Split editor vertically                                                 |
+|  Ctrl 1 /2 /3            | Focus into first, second or third.... editor group (windows split)      |
+|  Ctrl + Page Up          | Move through all the windows open including groups                      |
+|  Ctrl + Page Down        | Same as Ctrl + Page Up but in reverse order                             |
+|  Ctrl + Shift + Page Up  | Move up the current window file only inside the group                   |
+|  Ctrl + Shift + Page Down| Move down the current window file only inside the group                 |
+|  Ctrl + K then right/left| Move a group to the left or right                                       |
+|                          |                                                                         |
+|  File Management         |                                                                         |
+|  Ctrl + N                | New file                                                                |
+|  Ctrl + O                | Open a file                                                             |
+|  Ctrl + S                | Save current file                                                       |
+|  Ctrl + Shift + S        | Save AS... current file                                                 |
+|  Ctrl + K then S         | Save all                                                                |
+|  Ctrl + W                | Close current file window                                               |
+|  Ctrl + K then Ctrl + W  | Close all the files open                                                |
+|  Ctrl + Shift + T        | Reopen close editor files (recently close)                              |
+|  Ctrl + Tab              | Open or focus to the next file open, only inside a group window files   |
+|                                                                                                    |
+|  Display                                                                                           |
+|  Ctrl + +                | Zoom Out for VC                                                         |
+|  Ctrl + -                | Zoom in for VC                                                          |
+|  Ctrl + B                | Toggle Sidebar Visibility                                               |
+|  Ctrl + Shift + E        | Show Explorer/ Toggle Focus                                             |
+|  Ctrl + Shift + F        | Show search for all the folder (it can replace the selction)            |
+|  Ctrl + Shift + G        | Show source Control for the Repo                                        |
+|  Ctrl + Shift + D        | Show Debug                                                              |
+|  Ctrl + Shift + X        | Show Extensions                                                         |
+|  Ctrl + Shift + H        | Replace in files. Same as Ctrl + Shift + F but without selection        |
+|  Ctrl + K then V         | Open the Markdown preview in the same group but only if md file         |
+|  Ctrl + K then Z         | Zen Mode (Esc to exit or same keys again) It shows all screen mode      |
+|                                                                                                    |
+|  INtegrated Terminal                                                                               |
+|  Ctrl + `                | Show integrated terminal                                                |
+|  Ctrl + Shift + `        | Open a new terminal                                                     |
+|  Ctrl + C                | Copy selection                                                          |
+|  Ctrl + X                | Cut selection                                                           |
+|  Ctrl + V                | Paste the copy                                                          |
+|  Ctrl + Up/Down          | Scroll up/down without moving the cursor position                       |
+|  Ctrl + Home/End         | Set the cursor to the Top/Bottom of the File                            |
+|  Ctrl + G                | To set the cursor to specific line number on the file                   |
+|                                                                                                    |
+|  Others                                                                                            |
+|  Ctrl + Enter            | to add an empty line below the cursor                                   |
+|  Ctrl + Shif + Enter     | to add an empty line above the cursor                                   |
+|  Ctrl + P                | to open file                                                            |
+|  Ctrl + Shift + N        | to open another visual code window                                      |
+|  Ctrl + Shift + W        | Para cerrar the actual visual code                                      |
+|  Ctrl + Q                | Para cerrar the actual visual code                                      |
+|  Alt  + Z                | Adjust the code to the width of the screen visible of our screen        |
+|  Shift + Del             | deletes the complete line                                               |
+|  ALT + Up/Down           | mover a line up/down with the arrows                                    |
+|  Ctrl + Shift + Arrow    | select words, right left arrows                                         |
+|  Ctrl + Supr             | Eliminar hasta el final de la palabra	                                 |
+|  Ctrl + Retroceso        | Eliminar hasta el principio de la palabra	                             |
+ +----------------------------------------------------------------------------------------------------+

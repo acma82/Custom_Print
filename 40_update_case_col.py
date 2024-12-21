@@ -14,9 +14,20 @@ l1 = [["NaMeS",    "LaStS",    "AgeS",  "DeparTmenT", "AWeB"    ],
       ["AleX",     "CalL",     38,         "EE",      "TreS"    ],
       ["MatT",     "ArmacI",   40,         "CS",      "CuatrO"  ]]
 
-#l1 = ["NaMeS",    "LaStS",    "AgeS",  "DeparTmenT", "AWeB"]
 
-result = pylo.update_case_col(data=l1, header_case="capitalize", data_case="lower", col_ref=4, update=False)
+result = pylo.update_case_col(data=l1, header_case="capitalize", data_case="LOWER", col_ref=4, update=False)
+tbl.msg_title = " Header=Capitalize, Data=Lower, col_ref=4, Update=False"
 tbl.print_fancy_format(result)
-#print(result)
+
+cp.ins_newline(2)
+
+result = pylo.update_case_col(data=l1, header_case=pylo.Case.LOWER, data_case=pylo.Case.UPPER, col_ref=4, update=True)
+tbl.msg_title = " Header=Lower, Data=Upper, col_ref=4, Update=True"
+tbl.print_fancy_format(result)
+tbl.msg_title = " Original"
+tbl.print_fancy_format(l1)
+
+
+
+
 

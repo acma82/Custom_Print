@@ -1,6 +1,6 @@
 #### [Back](README.md)
 # PyLO Class 
-1. **Help Classes**
+1. **Aid Classes**
     
     * [**Appending**](#appending)
         * ROWS
@@ -22,73 +22,101 @@
 
 
 2. **Conversion Methods**
-    * [bool_to_list](#bool-type-to-list-type)
-    * [int_to_list](#integer-type-to-list-type)
-    * [float_to_list](#float-type-to-list-type)
-    * [complex_to_list](#complex-type-to-list-type)
-    * [str_to_list](#string-type-to-list-type)
-    * [dict_to_list](#dictionary-type-to-list-type)
-    * [range_to_list](#range-type-to-list-type)
-    * [set_to_list](#set-type-to-list-type)
-    * [tuple_to_list](#tuple-type-to-list-type)
-    * [data_to_str](#data-to-string)
-    * [data_to_num](#data-to-number)
+    * [**bool_to_list**](#bool-type-to-list-type)
+    * [**int_to_list**](#integer-type-to-list-type)
+    * [**float_to_list**](#float-type-to-list-type)
+    * [**complex_to_list**](#complex-type-to-list-type)
+    * [**str_to_list**](#string-type-to-list-type)
+    * [**dict_to_list**](#dictionary-type-to-list-type)
+    * [**range_to_list**](#range-type-to-list-type)
+    * [**set_to_list**](#set-or-frozenset-type-to-list-type)
+    * [**tuple_to_list**](#tuple-type-to-list-type)
+    * [**data_to_str**](#data-to-string)
+    * [**data_to_num**](#data-to-number)
 
 3.  **File Methods**
-    * write_csv_file
-    * read_csv_file
-    * write_json_file
-    * read_json_file
+    * [**write_csv_file**](#write-a-list-into-a-csv-file)
+    * [**read_csv_file**](#read-a-list-from-a-csv-file)
+    * [**write_json_file**](#write-a-list-into-a-json-file)
+    * [**read_json_file**](#read-a-list-from-a-json-file)
 
 4. **Case Methods**
-    * lower_case
-    * upper_case
-    * capitalize_case
-    * update_case
-    * update_case_col
+    * [**lower_case**](#lower-case)
+    * [**upper_case**](#upper-case)
+    * [**capitalize_case**](#capitalize-case)
+    * [**update_case**](#update-case)
+    * [**update_case_col**](#update-case-col)
 
 5. **Table Methods**
-    * autofill_data
-    * dimensions
+    * [**autofill_data**](#autofill-data)
+    * [**dimensions**](#list-dimensions)
 
-    * find_item
-    * replace_item
-    * delete_item
+    * [**find_value**](#find-value)
+    * [**replace_value**](#replace-value)
+    * [**delete_value**](#delete-value)
 
-    * add_col
-    * delete_col
+    * [**add_col**](#add-a-new-column-to-a-list)
+    * [**delete_col**](#delete-a-column)
 
-    * make_to_vector
-    * join_as_vector
+    * [**make_to_vector**](#make-a-list-into-a-vector-list)
+    * [**join_as_vector**](#join-tow-list-as-a-vector)
 
-    * shift
-    * swap
+    * [**shift**](#shift)
+    * [**swap**](#swap)
 
-    * number
-    * transpose 
-    * merge
-    * reverse_order_rows
-    * sort_rows_by_cols
-    * sort_cols
+    * [**number**](#add-number-of-rows-to-a-list)
+    * [**transpose**](#transpose)
+    * [**merge**](#merge)
+    * [**reversed_row_order**](#reversed-row-order)
+    * [**sort_rows_by_cols**](#sort-rows-by-columns)
+    * [**sort_cols**](#sort-columns)
  
-
+<!-- ---------------------------------- -->
+<!-- Appending                          -->
+<!-- ---------------------------------- -->
 ## Appending
 [**Top**](#pylo-class)
+This class is used with ***merge*** method. There are two options.
+* Appending.ROWS
+* Appending.COLUMNS
 
+
+<!-- ---------------------------------- -->
+<!-- Case                               -->
+<!-- ---------------------------------- -->
 ## Case
-[**Top**](#pylo-class)
+This class is used with the methods ***update_case*** and ***update_case_col***. There are four options.
+* Case.LOWER
+* Case.UPPER
+* Case.CAPITALIZE
+* Case.NONE
 
+
+<!-- ---------------------------------- -->
+<!-- Order                              -->
+<!-- ---------------------------------- -->
 ## Order
 [**Top**](#pylo-class)
+This class is used with ***sort_cols*** method. There are two options.
+* Order.ASCENDING
+* Order.DESCENDING
 
+
+<!-- ---------------------------------- -->
+<!-- String to List Option              -->
+<!-- ---------------------------------- -->
 ## Str_List_Option
-[**Top**](#pylo-class)
+This class is used with ***str_to_list*** method. There are two options.
+* WORD_BY_WORD
+* LINE_BY_LINE
 
 
-<!--- This is Conversion Methods --->
-# Conversion
+<!-- ---------------------------------- -->
+<!-- All Conversion Methods             -->
+<!-- ---------------------------------- -->
+# Conversions
 
-### <span style="color:purple"> <strong> Bool Type to List Type </strong> </span> 
+## <span style="color:purple"> <strong> Bool Type to List Type </strong> </span> 
 
 ```python
 bool_to_list(data, convert_to_str=False)
@@ -112,7 +140,7 @@ This method sets a bool variable into a list where ***data*** is the bool type. 
 ```
 
 
-### <span style="color:purple"> <strong> Integer Type to List Type </strong> </span>
+## <span style="color:purple"> <strong> Integer Type to List Type </strong> </span>
 
 ```python
 int_to_list(data, convert_to_str=False)
@@ -136,7 +164,7 @@ This method sets an int variable into a list where ***data*** is the int type. I
 ```
 
 
-### <span style="color:purple"> <strong> Float Type to List Type </strong> </span>
+## <span style="color:purple"> <strong> Float Type to List Type </strong> </span>
 
 ```python
 float_to_list(data, convert_to_str=False)
@@ -161,7 +189,7 @@ This method sets an int variable into a list where ***data*** is the float type.
 ```
 
 
-### <span style="color:purple"> <strong> Complex Type to List Type </strong> </span>
+## <span style="color:purple"> <strong> Complex Type to List Type </strong> </span>
 [**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
 
 ```python
@@ -175,7 +203,7 @@ This method sets an int variable into a list where ***data*** is the float type.
     print(result)
 ```
 
-### <span style="color:purple"> <strong> String Type to List Type </strong> </span>
+## <span style="color:purple"> <strong> String Type to List Type </strong> </span>
 
 [**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
 
@@ -203,7 +231,7 @@ This method sets an int variable into a list where ***data*** is the float type.
     print(result)
 ```
 
-### <span style="color:purple"> <strong> Dictionary Type to List Type </strong> </span>
+## <span style="color:purple"> <strong> Dictionary Type to List Type </strong> </span>
 
 [**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
 
@@ -239,7 +267,7 @@ This method sets an int variable into a list where ***data*** is the float type.
 
 > <span style="color:red">**Note:**</span> with one of then that is __"none"__ or __None__, it won't set the <span style="color:blue"> ***key_title*** </span> neither the <span style="color:blue"> ***value_title*** </span>.
 
-### <span style="color:purple"> <strong> Range Type to List Type </strong> </span>
+## <span style="color:purple"> <strong> Range Type to List Type </strong> </span>
 
 >   | Note: values for range            |                                               |
 >   |-----------------------------------|-----------------------------------------------|
@@ -282,7 +310,7 @@ This method sets an int variable into a list where ***data*** is the float type.
 ```
 
 
-### <span style="color:purple"> <strong> Set|Frozenset Type to List Type </strong> </span>
+## <span style="color:purple"> <strong> Set or Frozenset Type to List Type </strong> </span>
 
 >   | Note: values for set              |                                               |
 >   |-----------------------------------|-----------------------------------------------|
@@ -347,7 +375,7 @@ This method sets an int variable into a list where ***data*** is the float type.
     cp.ins_newline(2)
 ```
 
-### <span style="color:purple"> <strong> Tuple Type to List Type </strong> </span>
+## <span style="color:purple"> <strong> Tuple Type to List Type </strong> </span>
 
 [**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
 
@@ -389,251 +417,14 @@ This method sets an int variable into a list where ***data*** is the float type.
     print()
 ```
 
-<!--- These are the File Methods --->
 
-## Shift an Element in a List
-### <span style="color:purple"> <strong> Right Shift  and Left Shift </strong> </span>
-
-```python
-    shift(data, direction=Move.RIGHT, qty=0, update=False)
-```
-
-- This method shift the elements in a list to the left or right.
-
-- update is used to save the actual list with the shift elements.
-
-- If we set update to False, then we keep the original list as it is.
-
-
-[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
-
-```python
-    lst = cp.PyLO()
-   
-    # Right Shift List
-    list_1 = [[1],[4],[5,6]]
-    print(f"{cp.ins_chr(n=80, unicode="-")}")
-    print(f"{cp.set_font(1,23,231)}    Shift Item in a List    {cp.reset_font()}")
-    print(f"{cp.ins_chr(n=80, unicode="-")}")
-    cp.ins_newline(2)
-    
-    #---------------------------------------------------------------------------
-    print("original_list:  ", list_1, end=""); print(f"   right_shift 2, {cp.set_font(1,21,231)} update=False {cp.reset_font()}")
-    newlist = lst.shift(list_1, "r", 2, False)
-    print("shifted _list:  ",newlist)
-    print("original_list:  ", list_1)
-
-    print(f"{cp.ins_chr(n=80, unicode="-")}")
-
-    print("original_list:  ", list_1,end=""); print(f"   right_shift 2, {cp.set_font(1,1,231)} update=True {cp.reset_font()}")
-    newlist = lst.shift(data=list_1, direction=cp.Move.RIGHT, qty= 2, update= True)
-    print("shifted _list:  ",newlist)
-    print("original_list:  ", list_1)
-
-    cp.ins_newline(2)
-
-
-    # Left Shift List
-    list_1 = [[1,2,3,4,5,6]]
-    #---------------------------------------------------------------------------
-    print("original_list:  ", list_1, end=""); print(f"   left_shift 2, {cp.set_font(1,21,231)} update=False {cp.reset_font()}")
-    newlist = lst.shift(list_1, "l", 2, False)
-    print("shifted _list:  ",newlist)
-    print("original_list:  ", list_1)
-
-    print(f"{cp.ins_chr(n=80, unicode="-")}")
-
-    print("original_list:  ", list_1,end=""); print(f"   left_shift 2, {cp.set_font(1,1,231)} update=True {cp.reset_font()}")
-    newlist = lst.shift(data=list_1, direction=cp.Move.LEFT, qty= 2, update= True)
-    print("shifted _list:  ",newlist)
-    print("original_list:  ", list_1)
-```
-
-## Swap 2 Items in a List
-```python    
-    swap(data, posi_1=0, posi_2=0, update=False)
-```
-
-This method swap two elements in a list.
-
-- update is used to save the actual list with the swap elements.
-        
-- if update is set to False, then we keep the original list and save the new list into another variable.
-
-- **posi_1** -> position 1 to be swap with position 2 <br>
-- **posi_2** -> position 2 to be swap with position 1
-
-- **Note:** If one of the position provided is out of range, the function will return the list as
-            original and it will print a message out of range. 
-
-[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
-
-```python
-    import custom_print as cp
-    pylo = cp.PyLO()
-
-    print(f"{cp.set_font(1,23,231)}    Swap Items in a List    {cp.reset_font()}")
-    lst = [[1,2],[3,4],[5,6],[7,8]]
-    print("original: ", lst,end=""); print("   update=False,  pos1=0, pos2=2")
-    newlist = pylo.swap(data=lst, update= False, posi_1= 0, posi_2=2)
-    print("swaped_l: ",newlist)
-    print("original: ", lst)
-
-    print(f"{cp.ins_chr(n=80, unicode="-")}")
-
-    print("original: ", lst,end=""); print(f"   {cp.set_font(1,1,231)} update=True, {cp.reset_font()} pos1=3, pos2=0")
-    newlist = pylo.swap(data=lst, update=True, posi_1=3, posi_2=0)
-    print("swaped_l: ",newlist)
-    print("original: ", lst)
-```
-
-## Dimensions of a List
-
-```python    
-    dimensions(data)
-```
-
-This method returns the number of rows and cols in a list.
-It will return the number of rows and cols in a list.
-
-[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
-
-```python
-    import custom_print as cp
-    pylo = cp.PyLO()
-
-    print(f"{cp.ins_chr(n=80, unicode="-")}")
-    list_1 = [1,2,3,4,5,6]
-    lst_dimension = pylo.dimensions(data=list_1)
-    print(f"Case 5 \u279C {lst_dimension}")
-
-    list_1 = [[1,2],[3,4],[5,6]]
-    lst_dimension = pylo.dimensions(data=list_1)
-    print(f"Case 6 Max \u279C {lst_dimension}")
-```
-
-
-## Autofill Data in a List
-
-```python
-    autofill_data(data, fill_value="----", update=False)
-```
-This method will fill all the empty columns from the list.
-
-- **fill_value** is the chr to be used to fill those columns. It can be str, int, float, or bool. 
-  By default it's a str type (----). It only works for list in the form of table.
-
-
-[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
-
-```python  
-    import custom_print as cp
-    pylo = cp.PyLO()
-
-    lst = [[9,8,7],[4],[5,6]]
-
-    print("Original:",lst)
-    result = pylo.autofill_data(lst, fill_value=9.8, update=False)
-    print("mylist=lst, fill_value=9.8, update=False")
-    print("Result  :",result)
-    print("Original:",lst)
-
-    print(f"{cp.ins_chr(n=80, unicode="-")}")
-    print(f"{cp.ins_chr(n=80, unicode="-")}")
-
-    print("Original:",lst)
-    result = pylo.autofill_data(data=lst, fill_value=99, update=True)
-    print("mylist=lst, fill_value=99, update=True")
-    print("Result  :",result)
-    print("Original:",lst)
-```
-
-## Transpose
-
-```python
-    transpose(data, autofill=True, fill_value="----", update=False)
-```        
-update is used to replace original list with the transpose list. update is set to False to keep
-the original list and save the new list into another variable.
-
-When the list is not square or rectangular, the list will be filled using
-the fill_value. If the autofill is set to False, some data will be lost.
-
-
-### Cases
-| Original_list                         |      Transpose_list                           |
-|---------------------------------------|-----------------------------------------------|
-| 0.- pass not a list variable          | returns a empty list
-| 1.- pass empty list                   | returns a empty list
-|                                       | 
-| 2.- [10]                              | [[10]]
-| 3.- [[10]]                            | [10]
-|                                       |
-| 4.- [10, 20, 30]                      | [[10], [20], [30]]
-| 5.- [[10, 20, 30]]                    | [10, 20, 30]
-| 6.- [[10], [20], [30]]                | [[10, 20, 30]]
-|                                       |
-| 7.- [[1,2,3],  [4,5,6],   [7,8,9]]    | [[1,4,7], [2,5,8], [3,6,9]]
-| 8.- [[1,2,3],  [4,5,6],   [7,8,9,10]] | [[1,4,7], [2,5,8], [3,6,9]]
-| 9.- [[1,2,3],  [4,5,6,7], [7,8,9,10]] | [[1,4,7], [2,5,8], [3,6,9]]
-| A.-[[1,2,3,4], [4,5,6],   [7,8,9]]    | [[1,4,7], [2,5,8], [3,6,9]]
-|                                       |
-| B.-[5, 6, [4,5], 45]                  | [[5], [6], [[4,5]], [45]]
-
-[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
-
-```python
-    import custom_print as cp
-    pylo = cp.PyLO()
-
-    lst = [[9,8,7,1],[4,2],[5,6,0]]
-    print(f"{cp.ins_chr(n=80, unicode="-")}")
-
-    print(f"{cp.set_font(1,90,231)}autofill=True    fill_value=15    update=False  {cp.reset_font()}")
-    print(f"original : {lst}")
-    trans_lst = pylo.transpose(data=lst, autofill=True, fill_value=15, update=False)
-    print("Transpose:",trans_lst)
-    print("original :", lst)
-
-    print(f"{cp.ins_chr(n=80, unicode="-")}")
-    print(f"{cp.ins_chr(n=80, unicode="-")}")
-
-    print(f"{cp.set_font(1,23,231)}autofill=True    fill_value=15    update=True    {cp.reset_font()}")
-    print("original :", lst)
-    trans_lst = pylo.transpose(data=lst, autofill=True, fill_value=15, update=True)
-    print("Transpose:",trans_lst)
-    print("original :", lst)
-    print(f"{cp.ins_chr(n=80, unicode="-")}")
-
-
-    print(f"{cp.ins_chr(n=80, unicode="-")}")
-    lst = [[9,8,7,1],[4,2],[5,6,0]]
-
-    print(f"{cp.set_font(1,21,231)}autofill=False    fill_value=15    update=False  {cp.reset_font()}")
-    print(f"original : {lst}")
-    trans_lst = pylo.transpose(data=lst, autofill=False, fill_value=15, update=False)
-    print("Transpose:",trans_lst)
-    print("original :", lst)
-
-    print(f"{cp.ins_chr(n=80, unicode="-")}")
-    print(f"{cp.ins_chr(n=80, unicode="-")}")
-
-    print(f"{cp.set_font(1,1,231)}autofill=False    fill_value=15    update=True    {cp.reset_font()}")
-    print("original :", lst)
-    trans_lst = pylo.transpose(data=lst, autofill=False, fill_value=15, update=True)
-    print("Transpose:",trans_lst)
-    print("original :", lst)
-    print(f"{cp.ins_chr(n=80, unicode="-")}")
-
-    lst = [5, 6, [4,5], 45]
-    result = pylo.transpose(lst)
-    print(result)
-```
-
+<!-- ---------------------------------- -->
+<!-- data to string                     -->
+<!-- ---------------------------------- -->
 ## Data to String
 
 ```python
-    data_to_str(data:list, update=False)
+    data_to_str(data, update=False)
 ```
 
 - This method converts all the elements of a list to string type
@@ -659,10 +450,13 @@ the fill_value. If the autofill is set to False, some data will be lost.
     print("Original:",lst)
 ```
 
+<!-- ---------------------------------- -->
+<!-- data to number                     -->
+<!-- ---------------------------------- -->
 ## Data to Number
 
 ```python
-    data_to_num(self, data:list, fill_value=0, update=False)
+    data_to_num(self, data, fill_value=0, update=False)
 ```
 This method converts all items from a list to numbers where it is possible.
 If it is not possible then it will take the **fill_value** provided to switch
@@ -693,64 +487,12 @@ sustitute by zero, 0.
     print("original: ", lst)
 ```
 
-## Sort a List by Column
 
-```python
-sort_by_col(self, data, ref_col=0, reverse_order=False, update=False)
-```
 
-**sort_by_col** will NOT sort the first row because it is considered the Header of the list.
-If a column is mixed with string type and another type, like integer or float, it will
-cause an <span style="color:red">***error***</span>. This method is intended to be used
-with all cells filled with the same type per column except the header; any empty cells
-will be filled automatically. If you want to fill those spots with a specific type, then
-use the autofill_data method.
 
-[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
-
-```python
-import custom_print as cp
-pylo = cp.PyLO()
-tbl  = cp.FancyFormat()
-
-lst  = [["ID","Names",  "Last",    "Age","Department"],
-        [  1, "Juan",   "Alegria",   30,  "EE"       ],
-        [ 17, "Manuel", "Alvarez",   25,  "EC"       ],
-        [  9, "Luis",   "Nanguse",   21,  "AD"       ],
-        [  3, "Pancho", "Marlo",     41,  "BE"       ],
-        [  2, "Felipe", "Cautizo",   15              ]] 
-
-result = pylo.sort_by_col(data=lst, ref_col=0, reverse_order=False, update=False)
-tbl.msg_title = "Sort_by Col 0"
-tbl.print_fancy_format(result)
-
-tbl.msg_title = "Original"
-tbl.print_fancy_format(lst)
-
-tbl.msg_title = "Sort_by Col 4"
-result = pylo.sort_by_col(data=lst, ref_col=4, reverse_order=False, update=False)
-tbl.print_fancy_format(result)
-
-tbl.msg_title = "Sort_by Col 0. reverse_order=True, update=True"
-result = pylo.sort_by_col(data=lst, ref_col=0, reverse_order=True, update=True)
-tbl.print_fancy_format(result)
-
-tbl.msg_title = "New Original"
-tbl.print_fancy_format(lst)
-
-tbl.msg_title = ""
-lst_2 = [5,1,9,5]
-result2 = pylo.sort_by_col(data=lst_2, ref_col=10, reverse_order=False, update=False)
-print("\n\nResult  : reverse_order=False, update=False")
-tbl.print_fancy_format(result2)
-print("Original:");  tbl.print_fancy_format(lst_2)
-
-result2 = pylo.sort_by_col(data=lst_2, ref_col=0, reverse_order=True, update=True)
-print("Result  : reverse_order=True, update=True ")
-tbl.print_fancy_format(result2)
-print("Original:");  tbl.print_fancy_format(lst_2)
-```
-
+<!-- ---------------------------------- -->
+<!-- File Methods                       -->
+<!-- ---------------------------------- -->
 ## Write a List Into a CSV File
 
 ```python
@@ -760,7 +502,7 @@ write_csv_file(data, file_path="CSV_List")
 It writes a list into a **CSV** file and it returns the path where the file was saved.
 The path needs to be specified as it is. Do<span style="color:red"> <strong>NOT</strong> </span>
 use tilda(~) or $HOME for quick access to the path, it could cause error. The extension can be
-omitted or not. If the file_path is not provided then it will create the file in the current
+omitted. If the file_path is not provided then it will create the file in the current
 path under the name **CSV_List.csv**. The file_path is assumed that it will contain the name of
 the file as well.
 
@@ -789,6 +531,7 @@ list_1 = [10,[50],[250],["H"],100]
 file_path = pylo.write_csv_file(list_1, "file_1")
 print(file_path)
 ```
+
 
 ## Read a List From a CSV File
 
@@ -874,16 +617,563 @@ file_info = pylo.read_json_file("file_1.json")
 tbl.print_fancy_format(file_info)
 ```
 
-
-## Delete a Column from a List
+<!-- ---------------------------------- -->
+<!-- Lower Case Method                  -->
+<!-- ---------------------------------- -->
+## Lower Case
+ This method lower case all the items in a list.
 
 ```python
-delete_col(data, col_ref=0, update=False)
+lower_case(data)
 ```
-It deletes a column from a list. If the col_ref is out of range, it will return a message,
-**col_ref out of range in one or more columns from the list**, along with an empty list as
-a result. This method was intended to be used with complete list as the example below.
-**Notice:** that autofill_data method can be used if wished.
+
+[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
+
+```python
+import custom_print as cp
+pylo = cp.PyLO()
+
+list_1 = [["HeadeR 1", "HeadeR 2", "HeadeR 3",0],
+          ["DatitO 1", "DatitO 2", "DatitO 3",1],
+          ["DatitO 4", "DatitO 5", "DatitO 6",0],
+          ["DatitO 1", "DatitO 2", "DatitO 1",3]]
+
+list_2 = ["miGUEL", "heLLO",[7,8,"bBBB"]]
+
+
+lowerl1 = pylo.lower_case(list_1)
+print(lowerl1)
+cp.ins_newline(3)
+lowerl2 = pylo.lower_case(list_2)
+print(lowerl2)
+```
+
+
+<!-- ---------------------------------- -->
+<!-- Upper Case Method                  -->
+<!-- ---------------------------------- -->
+## Upper Case
+This method upper case all the items in a list.
+
+```python
+upper_case(data)
+```
+[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
+
+```python
+import custom_print as cp
+pylo = cp.PyLO()
+
+
+list_1 = [["HeadeR 1", "HeadeR 2", "HeadeR 3",0],
+          ["DatitO 1", "DatitO 2", "DatitO 3",1],
+          ["DatitO 4", "DatitO 5", "DatitO 6",0],
+          ["DatitO 1", "DatitO 2", "DatitO 1",3]]
+
+list_2 = ["miGUEL", "heLLO",[7,8,"bBBB"]]
+
+
+upperl1 = pylo.upper_case(list_1)
+print(upperl1)
+cp.ins_newline(3)
+upperl2 = pylo.upper_case(list_2)
+print(upperl2)
+```
+
+
+<!-- ---------------------------------- -->
+<!-- Capitalize Case Method             -->
+<!-- ---------------------------------- -->
+## Capitalize Case
+This method capitalize all the items in a list.
+
+```python
+upper_capitalize(data)
+```
+
+[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
+
+```python
+import custom_print as cp
+pylo = cp.PyLO()
+
+
+list_1 = [["HeadeR 1", "HeadeR 2", "HeadeR 3",0],
+          ["DatitO 1", "DatitO 2", "DatitO 3",1],
+          ["DatitO 4", "DatitO 5", "DatitO 6",0],
+          ["DatitO 1", "DatitO 2", "DatitO 1",3]]
+
+list_2 = ["miGUEL", "heLLO",[7,8,"bBBB"]]
+
+
+capitalizel1 = pylo.capitalize_case(list_1)
+print(capitalizel1)
+cp.ins_newline(3)
+capitalizel2 = pylo.capitalize_case(list_2)
+print(capitalizel2)
+```
+
+
+<!-- ---------------------------------- -->
+<!-- Update Case Method                 -->
+<!-- ---------------------------------- -->
+## Update Case
+This method updates the case to the headers and the data.
+
+```python
+update_case(data, header_case=Case.CAPITALIZE, data_case=Case.LOWER, update=False)
+```
+
+[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
+
+```python
+import custom_print as cp
+pylo = cp.PyLO()
+
+tbl  = cp.FancyFormat()
+tbl.bg_title  = 90
+tbl.bold_title = True
+tbl.italic_title = True
+tbl.align_title = cp.Align.CENTER
+
+#         0           1          2            3         4
+l1 = [["NaMeS",    "LaStS",    "AgeS",  "DeparTmenT", "AWeB"    ],
+      ["MigueL",   "AC",       40,         "EE",      "UnO"     ],
+      ["TyleR",    "HiG",      35,         "ECE",     "DoS"     ],
+      ["AleX",     "CalL",     38,         "EE",      "TreS"    ],
+      ["MatT",     "ArmacI",   40,         "CS",      "CuatrO"  ]]
+
+#l1 = [["NaMeS",    "LaStS",    "AgeS",  "DeparTmenT", "AWeB"]]
+
+result = pylo.update_case(l1, pylo.Case.UPPER, pylo.Case.LOWER, False)
+tbl.msg_title = " Headers Upper, Data Lower "; tbl.print_fancy_format(result)
+tbl.msg_title = " Original List ";             tbl.print_fancy_format(l1)
+
+result = pylo.update_case(data=l1, header_case=pylo.Case.CAPITALIZE, data_case=pylo.Case.LOWER, update=False)
+tbl.msg_title = " Headers Capitalize, Data Lower "; tbl.print_fancy_format(result)
+tbl.msg_title = " Original List ";                  tbl.print_fancy_format(l1)
+
+result = pylo.update_case(data=l1, header_case=pylo.Case.LOWER, data_case=pylo.Case.UPPER, update=True)
+tbl.msg_title = " Headers Lower, Data Upper. update=True "; tbl.print_fancy_format(result)
+tbl.msg_title = " Original List ";             tbl.print_fancy_format(l1)
+```
+
+
+<!-- ---------------------------------- -->
+<!-- Update Case Col Method             -->
+<!-- ---------------------------------- -->
+## Update Case Col
+This method updates the case for a specific column, header and data.
+Notice that the list has to be a mxn list, otherwise it will consider only the data case.
+
+```python
+update_case_col(data, header_case=Case.CAPITALIZE, data_case=Case.LOWER, col_ref=0, update=False)
+```
+
+[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
+
+```python
+import custom_print as cp
+pylo = cp.PyLO()
+
+tbl  = cp.FancyFormat()
+tbl.bg_title  = 90
+tbl.bold_title = True
+tbl.italic_title = True
+tbl.align_title = cp.Align.CENTER
+
+#         0           1          2            3         4
+l1 = [["NaMeS",    "LaStS",    "AgeS",  "DeparTmenT", "AWeB"    ],
+      ["MigueL",   "AC",       40,         "EE",      "UnO"     ],
+      ["TyleR",    "HiG",      35,         "ECE",     "DoS"     ],
+      ["AleX",     "CalL",     38,         "EE",      "TreS"    ],
+      ["MatT",     "ArmacI",   40,         "CS",      "CuatrO"  ]]
+
+
+result = pylo.update_case_col(data=l1, header_case="capitalize", data_case="LOWER", col_ref=4, update=False)
+tbl.msg_title = " Header=Capitalize, Data=Lower, col_ref=4, Update=False"
+tbl.print_fancy_format(result)
+
+cp.ins_newline(2)
+
+result = pylo.update_case_col(data=l1, header_case=pylo.Case.LOWER, data_case=pylo.Case.UPPER, col_ref=4, update=True)
+tbl.msg_title = " Header=Lower, Data=Upper, col_ref=4, Update=True"
+tbl.print_fancy_format(result)
+tbl.msg_title = " Original"
+tbl.print_fancy_format(l1)
+```
+
+
+<!-- ---------------------------------- -->
+<!-- Autofill Data Method               -->
+<!-- ---------------------------------- -->
+## Autofill Data
+
+```python
+autofill_data(data, fill_value="----", update=False)
+autofill_data(list, str/int/float, boolean)
+```
+
+This function will fill all the empty columns from the list.
+fill_value is the chr to be used to fill those columns. It can be str,
+int, float, or bool. By default it's a str type (----).
+
+**Notice** that the list has to be a mxn list, otherwise it will return the same list.
+
+[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
+
+```python
+import custom_print as cp
+pylo = cp.PyLO()
+
+lst = [[9,8,7],[4],[5,6]]
+
+print(f"{cp.ins_chr(n=80, unicode="-")}")
+print(f"{cp.ins_chr(n=80, unicode="-")}")
+
+print("Original:",lst)
+result = pylo.autofill_data(lst)
+print("Using default values")
+print("Result  :",result)
+print("Original:",lst)
+
+
+print(f"{cp.ins_chr(n=80, unicode="-")}")
+print(f"{cp.ins_chr(n=80, unicode="-")}")
+
+
+print("Original:",lst)
+result = pylo.autofill_data(lst, fill_value=9.8, update=False)
+print("mylist=lst, fill_value=9.8, update=False")
+print("Result  :",result)
+print("Original:",lst)
+
+
+print(f"{cp.ins_chr(n=80, unicode="-")}")
+print(f"{cp.ins_chr(n=80, unicode="-")}")
+
+
+print("Original:",lst)
+result = pylo.autofill_data(data=lst, fill_value=99, update=False)
+print("mylist=lst, fill_value=99, update=False")
+print("Result  :",result)
+print("Original:",lst)
+
+print(f"{cp.ins_chr(n=80, unicode="-")}")
+print(f"{cp.ins_chr(n=80, unicode="-")}")
+
+print("Original:",lst)
+result = pylo.autofill_data(data=lst, fill_value="AB", update=True)
+print("mylist=lst, fill_value=\"AB\", update=True")
+print("Result  :",result)
+print("Original:",lst)
+```
+
+
+<!-- ---------------------------------- -->
+<!-- List Dimensions Method             -->
+<!-- ---------------------------------- -->
+## List Dimensions
+This function return the number of rows and cols in a list.
+
+```python
+lst_dimension = dimensions(data)
+```
+
+[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
+
+```python
+import custom_print as cp
+pylo = cp.PyLO()
+
+msg = f'''
+   Options                             Results                           Cases
+   list_1 = "hello"                    incorrect_variable_type             1
+   list_1 = []                         empty_list                          2
+   list_1 = [5]                        one_item_no_row                     3
+   list_1 = [[1]]                      one_item_one_row                    4
+   list_1 = [1,2,3,4,5,6]              multiple_items_no_row               5
+   list_1 = [[1,2],[3,4],[5,6]]        multiple_items_multiple_rows        6
+   list_1 = [[1],[4],[5,6,7]]
+   list_1 = [10,[50],[250],["H"],100]  mix_items                           7
+   list_1 = [[1,2,3,4,5,6]]            multiple_items_one_row              8 
+   '''
+print(msg)
+
+print(f"{cp.ins_chr(n=80, unicode="-")}")
+list_1 = "Hello"
+lst_dimension = pylo.dimensions(data=list_1)
+print(f"Case 1 \u279C {lst_dimension}")
+
+
+print(f"{cp.ins_chr(n=80, unicode="-")}")
+list_1 = []
+lst_dimension = pylo.dimensions(data=list_1)
+print(f"Case 2 \u279C {lst_dimension}")
+
+
+print(f"{cp.ins_chr(n=80, unicode="-")}")
+list_1 = [5]
+lst_dimension = pylo.dimensions(data=list_1)
+print(f"Case 3 \u279C {lst_dimension}")
+
+
+print(f"{cp.ins_chr(n=80, unicode="-")}")
+list_1 = [[1]]
+lst_dimension = pylo.dimensions(data=list_1)
+print(f"Case 4 \u279C {lst_dimension}")
+
+
+print(f"{cp.ins_chr(n=80, unicode="-")}")
+list_1 = [1,2,3,4,5,6]
+lst_dimension = pylo.dimensions(data=list_1)
+print(f"Case 5 \u279C {lst_dimension}")
+
+
+print(f"{cp.ins_chr(n=80, unicode="-")}")
+list_1 = [[1,2],[3,4],[5,6]]
+lst_dimension = pylo.dimensions(data=list_1)
+print(f"Case 6 Max \u279C {lst_dimension}")
+
+
+list_1 = [[1],[4],[5,6,7]]
+lst_dimension = pylo.dimensions(data=list_1)
+print(f"Case 6 Min \u279C {lst_dimension}")
+
+
+print(f"{cp.ins_chr(n=80, unicode="-")}")
+list_1 = [[10],[50],[250],["H"],100]
+lst_dimension = pylo.dimensions(data=list_1)
+print(f"Case 7 \u279C {lst_dimension}")
+
+
+print(f"{cp.ins_chr(n=80, unicode="-")}")
+
+print(f"{cp.ins_chr(n=80, unicode="-")}")
+list_1 = [[1,2,3,4,5,6]]
+lst_dimension = pylo.dimensions(data=list_1)
+print(f"Case 8 \u279C {lst_dimension}")
+```
+
+<!-- ---------------------------------- -->
+<!-- Find Value Method                  -->
+<!-- ---------------------------------- -->
+## Find Value
+This method finds a value into a list and returns the location of the value in a list.
+Up to 4 brackets. <br>
+**Notice** that Numbers are ***NOT*** Case Sensitive
+
+```python
+result = find_value(data, ref, case_sensitive=False)       
+```
+
+[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
+
+```python
+import copy
+import custom_print as cp
+
+tbl = cp.FancyFormat()
+pylo = cp.PyLO()
+
+list_1 = [["Header 1", "Header 2", "Header 3",0],
+          ["Datito 1", "Datito 2", "Datito 3",1],
+          ["Datito 4", "Datito 5", "Datito 6",2],
+          ["DaTitO 1", "Datito 2", "datito 1",3]]
+
+list_2 = [2,5,[2,7],8,8,9,"A",[8,2,2]]
+
+list_3 = ["miGueL", "hellO",["BB",7,8,"bB"]]
+
+result = pylo.find_value(data=list_1, value="DATITO 1", case_sensitive=False)
+tbl.print_fancy_format(result)
+tbl.print_fancy_format(list_1)
+
+
+result = pylo.find_value(list_2, 8, True) # Number are NOT Case Sensitive
+print("Case_Sensitive=False: ",result)
+
+
+result = pylo.find_value(list_3, "BB", True)
+print("Case_Sensitive=True:  ",result)
+```
+
+
+<!-- ---------------------------------- -->
+<!-- Replace Value Method               -->
+<!-- ---------------------------------- -->
+## Replace Value
+It replaces an item value for another in a list
+The list can be a vector [1,2,3,4] or a matrix (table) [[1,2],[3,1]]
+or a combination of them [[1,2],[3,3,3],3,[5,6,7,8]] <br>
+**Notice** that Numbers are ***NOT*** Case Sensitive
+
+```python
+new_lst = replace_value(data, old, new, case_sensitive=True, update=False)
+```
+
+[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
+
+```python
+import custom_print as cp
+pylo = cp.PyLO()
+
+print(f"{cp.set_font(1,1,15)} old=3, new=\"NEW\", case_sensitive=True, update=False {cp.reset_font()}")
+list_1 = [[11,[10,3],12,3],[14,15,3],[12,3,3]]
+print("Original:",list_1)
+new_lst = pylo.replace_value(list_1, old=3, new="NEW", case_sensitive=True, update=False)
+print("Result  :",new_lst)
+print("Original:",list_1)
+
+cp.ins_newline(2)
+
+list_2 = [["HeadeR 1", "HeadeR 2", "HeadeR 3",0],
+          ["DatitO 1", "DatitO 2", "DatitO 3",1],
+          ["DatitO 4", "DatitO 5", "DatitO 6",0],
+          ["DatitO 1", "DatitO 2", "DatitO 1",3]]
+
+
+print(f"{cp.set_font(1,1,15)} old=\"datito 1\", new=\"NEW\", case_sensitive=False, update=True {cp.reset_font()}")
+new_lst = pylo.replace_value(data=list_2, old="datito 1", new="NEW", case_sensitive=False, update=True)
+print("Result  :",new_lst)
+cp.ins_newline(2)
+print(list_2)
+```
+
+<!-- ---------------------------------- -->
+<!-- Delete Value Method                -->
+<!-- ---------------------------------- -->
+## Delete Value
+This method delete an item from the list. <br>
+**Notice** that Numbers are ***NOT*** Case Sensitive
+
+```python
+new_lst = delete_item(data, ref="", case_sensitive=True, update=False)
+```
+
+[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
+
+```python
+import custom_print as cp
+pylo = cp.PyLO()
+
+people = [\
+      ["Names",  "Lasts",   "Age"],
+      ["Pancho", "Melti",    50  ],
+      ["Javier", "Nangy",    32  ],
+      ["Melony", "Archi",    40  ],
+      ["Jose",   "Valvimar", 18  ]]
+tbl.msg_title = " Original People List "
+tbl.print_fancy_format(people)
+
+print(f"{cp.set_font(1,23,231)} Delete age item on header with case_sensitive=False, update=True. {cp.reset_font()}")
+new_people = pylo.delete_value(data=people, value="age", case_sensitive=False, update=True)
+print(new_people)
+print(f"{cp.set_font(1,23,231)} Original {cp.reset_font()}")
+print(people)
+
+cp.ins_newline(2)
+
+
+print(f"{cp.set_font(1,23,231)} Delete 3 case_sensitive=False, update=False. {cp.reset_font()}")
+numbers = [[11,[10,3],12,3],[14,15,3],[12,3,3]]
+new_numbers = pylo.delete_value(numbers, 3, False, False)
+print("3 is gone: ",new_numbers)
+print("Original : ",numbers)
+```
+
+
+
+<!-- ---------------------------------- -->
+<!--  Add a New Column to a List Method -->
+<!-- ---------------------------------- -->
+## Add a New Column to a List
+This method adds a column into the list in a specific postion.
+The original list has to be in the form of a matrix or table 
+and the column to be added needs to be as a vector list.
+
+Notice that if you want to add more than one column at same time, use the merge method.
+Otherwise use a for loop as the example below will solve the problem.
+
+Ex.
+   data = [["H1","H2"],["R1C1","R1C2"], ["R2C1","R2C2"]]
+   new_col_data = ["New_Header",   "New_Row_Col",  "New_Row_Col"]
+   result = add_col(data, new_col_data, 1)
+
+```python
+new_list = add_col(data, col_data, posi=0)
+```
+
+[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
+
+```python
+import custom_print as cp
+pylo = cp.PyLO()
+tbl  = cp.FancyFormat()
+
+tbl.bg_title = 90
+tbl.align_title = cp.Align.LEFT
+
+#------------------------------------------------------------------------------
+# Adding list_2 as one col in list_1
+tbl.msg_title = " List_1 "
+list_1 = [["Header_1", "Header_2"],
+          ["R1_C1",    "R1_C2"],
+          ["R2_C1",    "R2_C2"]]
+
+tbl.print_fancy_format(list_1)
+
+tbl.msg_title = " List_2 to be added to List_1 as Col, pos=1 "
+list_2 = ["New_Header",   "New_Row_Col",  "New_Row_Col"]
+tbl.print_fancy_format(list_2)
+
+tbl.msg_title = " New Complete List_1_2 "
+tbl.msg_footnote = " data=list_1, col_data=list_2, posi=1 "
+list_1_2 = pylo.add_col(data=list_1, col_data=list_2, posi=1)
+tbl.print_fancy_format(list_1_2)
+tbl.msg_footnote = ""
+
+
+# Adding list_4 as columns in list_3
+cp.ins_newline(2)
+tbl.msg_title = ""
+tbl.bg_title = 1
+
+tbl.msg_title = " List 3 "
+list_3  = [["Header_1","Header_2","Header_3"],
+           ["R1_C1",   "R1_C2",   "R1_C3"],
+           ["R2_C1",   "R2_C2",   "R2_C3"]]
+tbl.print_fancy_format(list_3)
+
+tbl.msg_title = " List 4 "
+list_4 = [["R3_C1","R3_C2","R3_C3"],
+          ["R4_C1","R4_C2","R4_C3"]]
+tbl.print_fancy_format(list_4)
+
+# add cols into another list merge in horizontal
+tmp = list_3
+for rows in range(len(list_4)):
+    tmp = pylo.add_col(data=tmp, col_data=list_4[rows], posi=len(tmp)+1)
+tbl.print_fancy_format(tmp, cp.Line_Style.DOUBLE)
+
+tmp = list_3
+for rows in range(len(list_4)):
+    tmp = pylo.add_col(data=tmp, col_data=list_4[rows], posi=len(tmp))
+tbl.print_fancy_format(tmp, cp.Line_Style.DOUBLE)
+
+```
+
+
+<!-- ---------------------------------- -->
+<!-- Delete a Column In a List Method   -->
+<!-- ---------------------------------- -->
+## Delete a Column
+
+It deletes a specific column from the list
+
+```python
+new_list = delete_col(data, index=0, update=False)
+```
 
 [**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
 
@@ -892,47 +1182,33 @@ import custom_print as cp
 pylo = cp.PyLO()
 tbl = cp.FancyFormat()
 
-print(f"{cp.ins_chr(n=80, unicode="-")}")
-print(f"{cp.set_font(1,23,231)} Case 5. Col_ref = 0, update=True {cp.reset_font()}")
-lst_5 = [1,2,3,4,5,6]
-print("Original    : ",lst_5)
-result = pylo.delete_col(lst_5, 0, update=True)
-print("Result      : ",result)
-print("New Original: ",lst_5)
-
-print(f"{cp.ins_chr(n=80, unicode="-")}")
-
-print(f"{cp.set_font(1,23,231)} Case 8. Col_ref = 0, update=False {cp.reset_font()}")
-lst_8 = [[1,2,3,4,5,6]]
-print("Original    : ",lst_8)
-result = pylo.delete_col(lst_8, 1, update=False)
-print("Result      : ",result)
-print("New Original: ",lst_8)
-
-print(f"{cp.ins_chr(n=80, unicode="-")}")
-
-class_methods = [\
-    ["Cursor",  "FontStyle",    "FancyMessage",          "FancyFormat"        ],
-    ["jumpTo",  "start_style",  "print_fancy_message",   "print_fancy_format" ],
-    ["jumpxy",  "stop_style",   "print_fancy_note",      "reset_fancy_format" ],
-    ["moveTo",  "print_style",  "----             ",      "----             " ],
-    ["movexy",  "reset_style",  "----             ",      "----             " ]]
+methods = [\
+    ["Cursor",  "FontStyle"  ,  "FancyMessage"       ,  "Pen"           ],
+    ["jumpTo",  "start_style",  "print_fancy_message",  "draw_line"     ],
+    ["jumpxy",  "stop_style" ,  "print_fancy_note"   ,  "draw_rectangle"],
+    ["moveTo",  "print_style",  "----"               ,  "----"          ],
+    ["movexy",  "reset_style",  "----"               ,  "----"          ]]
 
 tbl.bg_title = 90; tbl.align_title = cp.Align.CENTER
-tbl.msg_title = " col_ref = 2, update=False "
-tbl.print_fancy_format(class_methods)
-tbl.msg_title = " Result After Deleting col 2"
-new_list = pylo.delete_col(class_methods, 12)
+tbl.msg_title = " Original, index = 2, update=False "
+tbl.print_fancy_format(methods)
+
+tbl.msg_title = " Result After Deleting col 2 "
+new_list = pylo.delete_col(methods, 2)
 tbl.print_fancy_format(new_list)
 ```
 
-## make a list to a vector form list
+
+<!-- ---------------------------------- -->
+<!-- Make a List to Avector Method      -->
+<!-- ---------------------------------- -->
+## Make a List into a Vector List
+This function makes any list in a form as a vector. [1,2,3,4,5,etc.],
+up to 4 brackets.
 
 ```python
-make_to_vector(data)
+new_list = make_to_vector(data)
 ```
-This function makes any list in a form as a vector. [1,2,3,4,5,etc.],up to 4 brackets. '''
-
 
 [**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
 
@@ -952,162 +1228,25 @@ list_2 = [[5,6,9],[1,2,3],[1,0,3]]
 result = pylo.make_to_vector(list_2)
 print(result)
 
-list_2 = [[1,2],["H",99],[[3,[5],[95,3],[5]],3],3,[5,6,7,8]]
+list_2 = [[1,2],["Hello",99],[[3,[5],[95,3],[5]],3],3,[5,6,7,8]]
+result = pylo.make_to_vector(list_2)
+print(result)
+
+list_2 = [10,"MiGueL", "HellO",7]
 result = pylo.make_to_vector(list_2)
 print(result)
 ```
 
 
-## Add a Column to a List
+<!-- ---------------------------------- -->
+<!-- Join 2 List as Vector Method       -->
+<!-- ---------------------------------- -->
+## Join Tow List as a Vector
+
+It joins two list as a vector, join_list = [1,2,3,4,5,etc.]
 
 ```python
-add_col(data, new_col_data, col_posi=0)
-```
-This method adds a column into the list in a specific postion.
-The original list has to be in the form of a matrix or table 
-and the column to be added needs to be as a vector list.            
-
-
-[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
-
-```python
-import custom_print as cp
-pylo = cp.PyLO()
-tbl  = cp.FancyFormat()
-
-tbl.bg_title = 90
-tbl.align_title = cp.Align.LEFT
-
-#------------------------------------------------------------------------------
-# Adding list_2 as one col in list_1
-tbl.msg_title = " List_1 "
-list_1 = [["Header_1","Header_2"],["R1_C1","R1_C2"], ["R2_C1","R2_C2"]]
-tbl.print_fancy_format(list_1)
-
-tbl.msg_title = " List_2 to be added to List_1 as Col, pos=1 "
-list_2 = ["New_Header",   "New_Row_Col",  "New_Row_Col"]
-tbl.print_fancy_format(list_2)
-
-tbl.msg_title = " New Complete List_1_2 "
-list_1_2 = pylo.add_col(data=list_1, new_col_data=list_2, col_posi=1)
-tbl.print_fancy_format(list_1_2)
-
-
-#------------------------------------------------------------------------------
-# Adding the list_4 as more Rows in list_3
-list_3 = [["Header_1","Header_2","Header_3"],
-          ["R1_C1","R1_C2","R1_C3"],
-          ["R2_C1","R2_C2","R2_C3"]]
-
-list_4 = [["R3_C1","R3_C2","R3_C3"],
-          ["R4_C1","R4_C2","R4_C3"]]
-
-for row in range(len(list_4)): list_3.append(list_4[row])
-
-tbl.bg_title = 23; tbl.msg_title = " Adding list_4 as rows in list_3 "
-tbl.print_fancy_format(list_3)
-
-
-#------------------------------------------------------------------------------
-# Adding list_6 as columns in list_5
-tbl.bg_title = 1
-tbl.msg_title = " Adding list_6 as cols in list_5 at the end "
-
-list_5  = [["Header_1","Header_2","Header_3"],
-          ["R1_C1","R1_C2","R1_C3"],
-          ["R2_C1","R2_C2","R2_C3"]]
-
-list_6 = [["R3_C1","R3_C2","R3_C3"],
-          ["R4_C1","R4_C2","R4_C3"]]
-
-for rows in range(len(list_6)):
-    list_5_6 = pylo.add_col(data=list_5, new_col_data=list_6[rows], col_posi=len(list_5[0]))
-
-tbl.print_fancy_format(list_5_6)
-print(list_5_6)
-```
-
-## Replace an Item from a List
-
-```python
-replace(self, data, old, new, case_sensitive=True, update=False)
-```
-
-It replaces a value for another value in a list
-The list can be a vector [1,2,3,4] or a matrix (table) [[1,2],[3,1]]
-or a combination of them [[1,2],[3,3,3],3,[5,6,7,8]].
-This methods has the option of using the case sensitive.
-
-[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
-
-```python
-import custom_print as cp
-pylo = cp.PyLO()
-
-print(f"{cp.set_font(1,1,15)} Replacing 3 for A {cp.reset_font()}")
-list_1 = [[11,[10,3],12,3],[14,15,3],[12,3,3]]
-print("Original:",list_1)
-resutl = pylo.replace(data=list_1, old=3, new="A", update=True)
-print("Result  :",resutl)
-print("Original:",list_1)
-```
-
-## number a list
-```python
-number(data, start_number=0, id_txt="Id", renumber=False, update=False)
-```
-
-This method number the rows in a list by adding a column to the left side.
-If the renumber is set to true then it will not add a new column but instead
-it will renumerate the existen one.
-
-[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
-
-```python
-import custom_print as cp
-pylo = cp.PyLO()
-tbl  = cp.FancyFormat()
-
-tbl.bg_title = 90
-tbl.align_title = cp.Align.LEFT
-tbl.bg_title = 1
-tbl.msg_title = " Adding list_6 as cols in list_5 at the end "
-
-#-----------------------------------------------------------------------------------
-list_5  = [["Header_1","Header_2","Header_3"],
-          ["R1_C1","R1_C2","R1_C3"],
-          ["R2_C1","R2_C2","R2_C3"]]
-
-list_6 = [["R3_C1","R3_C2","R3_C3"],
-          ["R4_C1","R4_C2","R4_C3"]]
-
-for rows in range(len(list_6)):
-    list_5_6 = pylo.add_col(data=list_5, new_col_data=list_6[rows], col_posi=len(list_5[0]))
-
-tbl.print_fancy_format(list_5_6)
-print(list_5_6)
-
-#-----------------------------------------------------------------------------------
-tbl.msg_title = " Adding the row numbers "
-pylo.number(data=list_5_6, start_number=1, id_txt="ID", renumber=False, update=True)
-tbl.print_fancy_format(list_5_6)
-
-#-----------------------------------------------------------------------------------
-tmp = [0,"RC","RRC","RRCC","RRRCC","RRRCCC"]
-list_5_6.append(tmp)
-tbl.msg_title = " Adding a new row "
-tbl.print_fancy_format(list_5_6)
-
-#-----------------------------------------------------------------------------------
-pylo.number(data=list_5_6, start_number=1, id_txt="ID", renumber=True, update=True)
-tbl.msg_title = " renumerating the rows "
-tbl.print_fancy_format(list_5_6)
-```
-
-## Join 2 List as a Vector
-
-```python
-join_as_vector(data, list_to_join, col_posi=0)
+new_list = join_as_vector(data, list_to_join, col_posi=0)
 ```
 
 [**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
@@ -1124,19 +1263,26 @@ print("List_2: ",list_2)
 print("\n")
 
 for n in range(len(list_1)):
-    join_list = pylo.join_as_vector(data=list_1, data2join=list_2, col_pos=n)
+    join_list = pylo.join_as_vector(data=list_1, list_to_join=list_2, col_posi=n)
     print(f"Result:{n} {join_list}")
 
-join_list = pylo.join_as_vector(data=list_1, data2join=list_2, col_pos=9)
+join_list = pylo.join_as_vector(data=list_1, list_to_join=list_2, col_posi=9)
 print(f"Result:9 {join_list}")
 ```
-## Find a Value in a List
+
+
+<!-- ---------------------------------- -->
+<!-- Shift an Item in a List Method     -->
+<!-- ---------------------------------- -->
+## Shift
+This function ***shift*** two elements in a list. It can be to the left or to the right. <br>
+update is used to save the actual list with the shift elements.
+If we set update to False, then we keep the original list and save
+the new list into another variable.
 
 ```python
-find_value(data, ref, case_sensitive=False)
+shift(data, direction=Move.RIGHT, qty=0, update=False)
 ```
-This method finds a value into a list and returns the location of the value.
-Up to 4 brackets. This methods has the option of using the case sensitive.
 
 [**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
 
@@ -1144,33 +1290,63 @@ Up to 4 brackets. This methods has the option of using the case sensitive.
 import custom_print as cp
 pylo = cp.PyLO()
 
-list_1 = [["Header 1", "Header 2", "Header 3",0],
-          ["Datito 1", "Datito 2", "Datito 3",1],
-          ["Datito 4", "Datito 5", "Datito 6",2],
-          ["Datito 1", "Datito 2", "Datito 1",3]]
+list_1 = [[1],[4],[5,6]]
 
-list_2 = [2,5,[2,7],8,8,9,"A",[8,2,2]]
+# Right Shift List
+print(f"{cp.ins_chr(n=80, unicode="-")}")
+print(f"{cp.set_font(1,23,231)}    Shift Item in a List    {cp.reset_font()}")
+print(f"{cp.ins_chr(n=80, unicode="-")}")
+cp.ins_newline(2)
+#---------------------------------------------------------------------------
+print("original_list:  ", list_1, end=""); print(f"   right_shift 2, {cp.set_font(1,21,231)} update=False {cp.reset_font()}")
+newlist = pylo.shift(list_1, "r", 2, False)
+print("shifted _list:  ",newlist)
+print("original_list:  ", list_1)
 
-list_3 = ["miGueL", "hellO",[7,8,"bB"]]
+print(f"{cp.ins_chr(n=80, unicode="-")}")
 
-result = pylo.find_value(list_1, "DATITO 1")
-print(result)
+print("original_list:  ", list_1,end=""); print(f"   right_shift 2, {cp.set_font(1,1,231)} update=True {cp.reset_font()}")
+newlist = pylo.shift(data=list_1, direction=cp.Move.RIGHT, qty= 2, update= True)
+print("shifted _list:  ",newlist)
+print("original_list:  ", list_1)
 
-result = pylo.find_value(list_2, 8)
-print(result)
+cp.ins_newline(2)
 
+# Left Shift List
+list_1 = [[1,2,3,4,5,6]]
+#---------------------------------------------------------------------------
+print("original_list:  ", list_1, end=""); print(f"   left_shift 2, {cp.set_font(1,21,231)} update=False {cp.reset_font()}")
+newlist = pylo.shift(list_1, "l", 2, False)
+print("shifted _list:  ",newlist)
+print("original_list:  ", list_1)
 
-result = pylo.find_value(list_3, "BB")
-print(result)
+print(f"{cp.ins_chr(n=80, unicode="-")}")
+
+print("original_list:  ", list_1,end=""); print(f"   left_shift 2, {cp.set_font(1,1,231)} update=True {cp.reset_font()}")
+newlist = pylo.shift(data=list_1, direction=cp.Move.LEFT, qty= 2, update= True)
+print("shifted _list:  ",newlist)
+print("original_list:  ", list_1)
 ```
 
-## Conversion to Lower Case
+
+<!-- ---------------------------------- -->
+<!-- Swap 2 items in a List Method      -->
+<!-- ---------------------------------- -->
+## Swap
+This function swap two elements in a list. <br>
+update is used to save the actual list with the swap elements. <br>
+If update is set to False, then we keep the original list and save
+the new list into another variable. <br>
+posi_1 -> position 1 to be swap with position 2 <br>
+posi_2 -> position 2 to be swap with position 1 <br>
+
+**Note:** If one of the position provided is out of range, the function
+        will return the list as original and it will print a message
+        out of range.'''
 
 ```python
-lower_case(data:list)
+new_list = swap(data, posi_1=0, posi_2=0, update=False)
 ```
-
-This method lower case all the items in a list.
 
 [**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
 
@@ -1178,24 +1354,101 @@ This method lower case all the items in a list.
 import custom_print as cp
 pylo = cp.PyLO()
 
+print(f"{cp.ins_chr(n=80, unicode="-")}")
+print(f"{cp.set_font(1,23,231)}    Swap Items in a List    {cp.reset_font()}")
+lst = [[1,2],[3,4],[5,6],[7,8]]
+print("original: ", lst,end=""); print("   update=False,  posi_1=0, posi_2=2")
+new_list = pylo.swap(data=lst, update= False, posi_1= 0, posi_2=2)
+print("swaped_l: ",new_list)
+print("original: ", lst)
 
-list_1 = [["HeadeR 1", "HeadeR 2", "HeadeR 3",0],
-          ["DatitO 1", "DatitO 2", "DatitO 3",1],
-          ["DatitO 4", "DatitO 5", "DatitO 6",2],
-          ["DatitO 1", "DatitO 2", "DatitO 1",3]]
+print(f"{cp.ins_chr(n=80, unicode="-")}")
 
-mylower = pylo.set_to_lower(list_1)
-print(mylower)
+print("original: ", lst,end=""); print(f"   {cp.set_font(1,1,231)} update=True, {cp.reset_font()} posi_1=3, posi_2=0")
+new_list = pylo.swap(data=lst, update=True, posi_1=3, posi_2=10)
+print("swaped_l: ",new_list)
+print("original: ", lst)
 ```
 
-
-## Conversion to Upper Case
+<!-- ---------------------------------- -->
+<!-- Number a List Method               -->
+<!-- ---------------------------------- -->
+## Add Number of Rows to a List
+This method set the number of rows by adding a column to the left side.
 
 ```python
-upper_case(self, data:list)
+new_list = number(data, start_number=0, id_txt="Id", renumber=False, update=False)
 ```
 
-This method upper case all the items in a list.
+[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
+
+```python
+import custom_print as cp
+
+pylo = cp.PyLO()
+tbl  = cp.FancyFormat()
+tbl.bg_title  = 90
+tbl.bold_title = True
+tbl.italic_title = True
+
+people = [\
+      ["Names",  "Lasts",   "Age"],
+      ["Pancho", "Melti",    50  ],
+      ["Javier", "Nangy",    32  ],
+      ["Melony", "Archi",    40  ],
+      ["Jose",   "Valvimar", 18  ]]
+
+print(f"{cp.ins_chr(20, cp.Unicode.BLAKC_RIGHT_POINT_TRIANGLE+cp.Unicode.BLACK_LEFT_POINTING_TRIANGLE+" ")}")
+
+tbl.msg_title = " People "
+tbl.print_fancy_format(people)
+
+number_people = pylo.number(people, 1, "Num", False, False)
+tbl.msg_title = " New People "
+tbl.print_fancy_format(number_people)
+
+tbl.msg_title = " Adding a New Person "
+number_people.insert(2,[999, "KAYLA", "ACBD",  12])
+tbl.print_fancy_format(number_people)
+
+tbl.msg_title = " Numbering Again "
+pylo.number(data=number_people, start_number=1, id_txt="No.", renumber=True, update=True)
+tbl.print_fancy_format(number_people)
+```
+
+<!-- ---------------------------------- -->
+<!-- Transpose of a List Method         -->
+<!-- ---------------------------------- -->
+## Transpose
+update is used to replace original list with the transpose list. <br>
+update is set to False to keep the original list and save
+the new list into another variable. <br>
+When the list is not square or rectangular, the list will be filled using
+the fill_value. If the autofill is set to False, some data will be lost.
+
+```python
+transpose_list = transpose(data, autofill=True, fill_value="----", update=False)
+```
+### Cases
+| Original_list                         |      Transpose_list                           |
+|---------------------------------------|-----------------------------------------------|
+| 0.- pass not a list variable          | returns a empty list                          |
+| 1.- pass empty list                   | returns a empty list                          |
+|                                       |                                               |
+| 2.- [10]                              | [[10]]                                        |
+| 3.- [[10]]                            | [10]                                          |
+|                                       |                                               |
+| 4.- [10, 20, 30]                      | [[10], [20], [30]]                            |
+| 5.- [[10, 20, 30]]                    | [10, 20, 30]                                  |
+| 6.- [[10], [20], [30]]                | [[10, 20, 30]]                                |
+|                                       |                                               |
+| 7.- [[1,2,3],  [4,5,6],   [7,8,9]]    | [[1,4,7], [2,5,8], [3,6,9]]                   |
+| 8.- [[1,2,3],  [4,5,6],   [7,8,9,10]] | [[1,4,7], [2,5,8], [3,6,9]]                   |
+| 9.- [[1,2,3],  [4,5,6,7], [7,8,9,10]] | [[1,4,7], [2,5,8], [3,6,9]]                   |
+| A.-[[1,2,3,4], [4,5,6],   [7,8,9]]    | [[1,4,7], [2,5,8], [3,6,9]]                   |
+|                                       |                                               |
+| B.-[5, 6, [4,5], 45]                  | [[5], [6], [[4,5]], [45]]                     |
+|                                       |                                               |
 
 [**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
 
@@ -1203,54 +1456,128 @@ This method upper case all the items in a list.
 import custom_print as cp
 pylo = cp.PyLO()
 
+msg = f'''
+            Inputs                     Outputs                                       Cases
+   list_1 = "hello"                    []                                              1
+   list_1 = []                         []                                              2
+   list_1 = [5]                        [[5]]                                           3
+   list_1 = [[1]]                      [1]                                             4
+   list_1 = [1,2,3,4,5,6]              [[1],[2],[3],[4],[5],[6]]                       5
+   list_1 = [[1,2],[3,4],[5,6]]        [[1,3,5],[2,4,6]           ]                    6
+   list_1 = [[1],[4],[5,6]]            [[1,4,5],[fill_value,fill_value,6]]
+                                       [[1,4,5]] -> autofill = False
+                                       [[1,4,5]] -> autofill = False, type=\'string\'
+   list_1 = [10,[50],[250],["H"],100]  [[10],[[50]],[[250]],[["H"]],[100]]             7
 
-list_1 = [["HeadeR 1", "HeadeR 2", "HeadeR 3",0],
-          ["DatitO 1", "DatitO 2", "DatitO 3",1],
-          ["DatitO 4", "DatitO 5", "DatitO 6",2],
-          ["DatitO 1", "DatitO 2", "DatitO 1",3]]
+   list_1 = [[1,2,3,4,5,6]]            [1, 2, 3, 4, 5, 6]                              8 
+   list_1 = [1, 2, 3, 4, 5, 6]         [[1], [2], [3], [4], [5], [6]]
+   list_1 = [[1],[2],[3],[4],[5],[6]]  [[1,2,3,4,5,6]]
+   '''
 
-myupper = pylo.set_to_upper(list_1)
-print(myupper)
+print(f"{cp.ins_chr(n=80, unicode="-")}")
+
+print(msg)
+a = 6+2j
+print(a)
+lst1 = "hello"
+lst2 = []
+lst3 = [5]
+lst4 = [[1]]
+lst5 = [1,2,3,4,5,6]
+lst61 = [[1,2],[3,4],[5,6]]
+lst62 = [[1],[4],[5,6]]
+lst7  = [10,[50],[250],["H"],100]
+lst81 = [[1,2,3,4,5,6]]
+lst82 = [1, 2, 3, 4, 5, 6]
+lst83 = [[1],[2],[3],[4],[5],[6]]
+
+
+print(f"{cp.ins_chr(n=80, unicode="-")}")
+print(f"{cp.ins_chr(n=80, unicode="-")}")
+
+
+print("original :", lst1)
+trans_lst = pylo.transpose(data=lst1, autofill=True, fill_value=0.5, update=False)
+print("Transpose:",trans_lst)
+
+
+print(f"{cp.ins_chr(n=80, unicode="-")}")
+
+print("original :", lst2)
+trans_lst = pylo.transpose(data=lst2, autofill=True, fill_value=0.5, update=False)
+print("Transpose:",trans_lst)
+
+print(f"{cp.ins_chr(n=80, unicode="-")}")
+
+print("original :", lst3)
+trans_lst = pylo.transpose(data=lst3, autofill=True, fill_value=0.5, update=False)
+print("Transpose:",trans_lst)
+
+print(f"{cp.ins_chr(n=80, unicode="-")}")
+
+print("original :", lst4)
+trans_lst = pylo.transpose(data=lst4, autofill=True, fill_value=0.5, update=False)
+print("Transpose:",trans_lst)
+
+print(f"{cp.ins_chr(n=80, unicode="-")}")
+
+print("original :", lst5)
+trans_lst = pylo.transpose(data=lst5, autofill=True, fill_value=0.5, update=False)
+print("Transpose:",trans_lst)
+
+print(f"{cp.ins_chr(n=80, unicode="-")}")
+
+print("original :", lst61)
+trans_lst = pylo.transpose(data=lst61, autofill=True, fill_value=15, update=False)
+print("Transpose:",trans_lst)
+
+print(f"{cp.ins_chr(n=80, unicode="-")}")
+
+print("original :", lst62)
+trans_lst = pylo.transpose(data=lst62, autofill=True, fill_value=0.5, update=False)
+print("Transpose:",trans_lst)
+
+print(f"{cp.ins_chr(n=80, unicode="-")}")
+
+print("original :", lst7)
+trans_lst = pylo.transpose(data=lst7, autofill=True, fill_value=0.5, update=False)
+print("Transpose:",trans_lst)
+
+print(f"{cp.ins_chr(n=80, unicode="-")}")
+
+print("original :", lst81)
+trans_lst = pylo.transpose(data=lst81, autofill=True, fill_value=0.5, update=False)
+print("Transpose:",trans_lst)
+
+print(f"{cp.ins_chr(n=80, unicode="-")}")
+
+print("original :", lst82)
+trans_lst = pylo.transpose(data=lst82, autofill=True, fill_value=0.5, update=False)
+print("Transpose:",trans_lst)
+
+print(f"{cp.ins_chr(n=80, unicode="-")}")
+
+print("original :", lst83)
+trans_lst = pylo.transpose(data=lst83, autofill=True, fill_value=0.5, update=False)
+print("Transpose:",trans_lst)
+
+tbl = cp.FancyFormat()
+tbl.print_fancy_format(lst61)
+pylo.transpose(data=lst61,update=True)
+tbl.print_fancy_format(lst61)
 ```
 
-## Conversion to Capitalize Case
-
+<!-- ---------------------------------- -->
+<!-- Merge Two List Method              -->
+<!-- ---------------------------------- -->
+## Merge
+This method merge two lists with two options. <br>
+It can be merge by ***ROWS*** or by ***COLUMNS***. It also,
+provide the option to pick the specific ***position***
+where to start the merge on ***list_1***.
 ```python
-capitalize_case(data:list)
+merge_list = merge(list_1, list_2, posi=0, merge_by=Appending.ROWS)
 ```
-
- This method capitalize all the items in a list.
-
-[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
-
-```python
-import custom_print as cp
-pylo = cp.PyLO()
-
-list_1 = [["HeadeR 1", "HeadeR 2", "HeadeR 3",0],
-          ["DatitO 1", "DatitO 2", "DatitO 3",1],
-          ["DatitO 4", "DatitO 5", "DatitO 6",2],
-          ["DatitO 1", "DatitO 2", "DatitO 1",3]]
-
-list_2 = ["miGueL", "hellO",[7,8,"bB"]]
-
-mycapitalize = pylo.set_to_capitalize(list_1)
-print(mycapitalize)
-
-mycapitalize = pylo.set_to_capitalize(list_2)
-print(mycapitalize)
-```
-
-## Merge 2 List
-```python
-merge(list_1, list_2, posi=0, merge_by=Appending.ROWS)
-```
-
-This method merge two list with two option of merge. It can be merge by ROWS
-or by COLUMNS. It also, provides the option to pick the specific position
-to start the merge on list_1. <br>
-**Notice** that the rows in list_2 will be all the columns to be passed to the list_1.
-
 
 [**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
 
@@ -1264,11 +1591,10 @@ tbl.bold_title = True
 tbl.italic_title = True
 tbl.align_title  = cp.Align.LEFT
 
-#-----------------------------------------------------------------------------------------
 methods = [\
-    ["Cursor",  "FontStyle"  ,    "FancyMessage"       ,    "FancyFormat"        ],
-    ["jumpTo",  "start_style",    "print_fancy_message",    "print_fancy_format" ],
-    ["jumpxy",  "stop_style" ,    "print_fancy_note"   ,    "reset_fancy_format" ],
+    ["Cursor",  "FontStyle"  ,    "FancyMessage"        ],
+    ["jumpTo",  "start_style",    "print_fancy_message" ],
+    ["jumpxy",  "stop_style" ,    "print_fancy_note"    ],
     ["moveTo",  "print_style"],
     ["movexy"]]
 
@@ -1285,47 +1611,24 @@ tbl.print_fancy_format(methods)
 tbl.msg_title = " List 2: People "
 tbl.print_fancy_format(people)
 
-tbl.msg_title = " Merge List 1 and List 2 as COLUMNS "
-merge_cols = pylo.merge(list_1=methods, list_2=people, posi=8, merge_by=pylo.Appending.COLUMNS) 
+tbl.msg_title = " Merge List people to List methods as COLUMNS Posi=2 "
+merge_cols = pylo.merge(list_1=methods, list_2=people, posi=2, merge_by=pylo.Appending.COLUMNS)
 tbl.print_fancy_format(merge_cols)
 
-tbl.msg_title = " Merge List 1 and List 2 as ROWS "
-merge_rows = pylo.merge(list_1=methods, list_2=people, posi=8, merge_by=pylo.Appending.ROWS)
-tbl.print_fancy_format(merge_rows)
-
-cp.ins_newline(2)
-print(f"{cp.set_font(1,23,231)} Methods {cp.reset_font()} ")
-print(methods)
-#-------------------------------------------------------------------------------
-print(cp.ins_chr(70,"-"))
-#-------------------------------------------------------------------------------
-cp.ins_newline(2)
-print(f"{cp.set_font(1,23,231)} People {cp.reset_font()} ")
-print(people)
-#-------------------------------------------------------------------------------
-print(cp.ins_chr(70,"-"))
-#-------------------------------------------------------------------------------
-cp.ins_newline(2)
-print(f"{cp.set_font(1,23,231)} Merge ROWS {cp.reset_font()} ")
-print(merge_rows)
-#-------------------------------------------------------------------------------
-print(cp.ins_chr(70,"-"))
-#-------------------------------------------------------------------------------
-cp.ins_newline(2)
-print(f"{cp.set_font(1,23,231)} Merge COLUMNS {cp.reset_font()} ")
-print(merge_cols)
-#-------------------------------------------------------------------------------
-print(cp.ins_chr(70,"-"))
-#-------------------------------------------------------------------------------
+tbl.msg_title = " Merge List people to List methods as ROWS Posi=4 "
+merge_cols = pylo.merge(list_1=methods, list_2=people, posi=4, merge_by=pylo.Appending.ROWS)
+tbl.print_fancy_format(merge_cols)
 ```
 
-## Delete and Item from a List.
+<!-- ---------------------------------- -->
+<!-- Reverse Row Order Method               -->
+<!-- ---------------------------------- -->
+## Reversed Row Order 
+This method reverse the order of the list keeping the headers in the same positon.
 
 ```python
-delete_item(data, ref="", case_sensitive=True, update=False)
+new_list = reversed_row_order(data, update=False)
 ```
-This method delete an item from the list. 
-This methods has the option of using the case sensitive.
 
 [**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
 
@@ -1339,35 +1642,40 @@ tbl.italic_title = True
 tbl.align_title = cp.Align.CENTER
 
 
-people = [\
-      ["Names",  "Lasts",   "Age"],
-      ["Pancho", "Melti",    50  ],
-      ["Javier", "Nangy",    32  ],
-      ["Melony", "Archi",    40  ],
-      ["Jose",   "Valvimar", 18  ]]
-tbl.msg_title = " Original People List "
-tbl.print_fancy_format(people)
+methods = [\
+    ["Header 0","Header 1"   ,    "Header 2"           ,    "Header 3",],
+    ["Cursor",  "FontStyle"  ,    "FancyMessage"       ,    "FancyFormat"        ],
+    ["jumpTo",  "start_style",    "print_fancy_message",    "print_fancy_format" ],
+    ["jumpxy",  "stop_style" ,    "print_fancy_note"   ,    "reset_fancy_format" ],
+    ["moveTo",  "print_style"],
+    ["movexy"]]
 
-print(f"{cp.set_font(1,23,231)} Delete age item on header with case_sensitive=False. {cp.reset_font()}")
-new_people = pylo.delete_item(data=people, ref="age", case_sensitive=False, update=True)
-print(new_people)
-print(f"{cp.set_font(1,23,231)} update=True {cp.reset_font()}")
-print(people)
+result = pylo.reversed_row_order(methods, False)
+tbl.msg_title = " Reversed_ROW_Order "
+tbl.print_fancy_format(result)
 
-cp.ins_newline(2)
+tbl.msg_title = " Original Values "
+tbl.print_fancy_format(methods)
 
-numbers = [[11,[10,3],12,3],[14,15,3],[12,3,3]]
-new_numbers = pylo.delete_item(numbers, 3, False, False)
-print("3 is gone: ",new_numbers)
-print("Original : ",numbers)
+tmp = []
+reversed_list = []
+for row in reversed(methods):
+    reversed_list.append(row)
+tbl.print_fancy_format(reversed_list)
 ```
 
-
-## Reverse Order of a List
-This methods reverse the order of the list keeping the headers in the same positon.
+<!-- ---------------------------------- -->
+<!-- Sort Rows by Columns Method        -->
+<!-- ---------------------------------- -->
+## Sort Rows by Columns
+***sort_by_col*** won't sort the first row because it is considered the Header of the list.
+If a column is mixed with string type and another type, like integer or float, it will
+cause an error. This method is intended to be used with all cells filled with the same
+type of data per column except the header; any empty cells will be filled automatically.
+If you want to fill those spots with a specific type, then use the ***autofill_data*** method.
 
 ```python
-reverse_order(data, update=False) 
+sort_rows_by_col(data, ref_col=0, reversed_order=False, update=False)       
 ```
 
 [**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
@@ -1377,31 +1685,105 @@ import custom_print as cp
 pylo = cp.PyLO()
 tbl  = cp.FancyFormat()
 
+lst  = [["ID","Names",  "Last",    "Age","Department"],
+        [  1, "Juan",   "Alegria",   30,  "EE"       ],
+        [ 17, "Manuel", "Alvarez",   25,  "EC"       ],
+        [  9, "Luis",   "Nanguse",   21,  "AD"       ],
+        [  3, "Pancho", "Marlo",     41,  "BE"       ],
+        [  2, "Felipe", "Cautizo",   15              ]] 
+
+result = pylo.sort_rows_by_col(data=lst, ref_col=0, reversed_order=False, update=False)
+tbl.msg_title = " Sort_by Col 0 "
+tbl.print_fancy_format(result)
+
+tbl.msg_title = " Original "
+tbl.print_fancy_format(lst)
+
+tbl.msg_title = " Sort_by Col 4 "
+result = pylo.sort_rows_by_col(data=lst, ref_col=4, reversed_order=False, update=False)
+tbl.print_fancy_format(result)
+
+tbl.msg_title = " Sort_by Col 0. reverse_order=True, update=True "
+result = pylo.sort_rows_by_col(data=lst, ref_col=0, reversed_order=True, update=True)
+tbl.print_fancy_format(result)
+
+tbl.msg_title = " New Original "
+tbl.print_fancy_format(lst)
+
+tbl.msg_title = ""
+lst_2 = [5,1,9,5]
+result2 = pylo.sort_rows_by_col(data=lst_2, ref_col=10, reversed_order=False, update=False)
+print("\n\nResult  : reverse_order=False, update=False")
+tbl.print_fancy_format(result2)
+print("Original:");  tbl.print_fancy_format(lst_2)
+
+result2 = pylo.sort_rows_by_col(data=lst_2, ref_col=0, reversed_order=True, update=True)
+print("Result  : reverse_order=True, update=True ")
+tbl.print_fancy_format(result2)
+print("Original:");  tbl.print_fancy_format(lst_2)
+```
+
+<!-- ---------------------------------- -->
+<!-- Sort Columns Method                -->
+<!-- ---------------------------------- -->
+## Sort Columns
+If the option provided is different than ***ascending*** or ***descending*** or a ***list***, it will sort as ***ascending***. If the list contains numbers not in the range of the data list, it will sort as ***ascending***. If the list contains a length different than the length of the data, it will sort as ***ascending***. If the list is ***NOT*** in the form of mXn it will return an empty list as a result.
+
+```python
+ new_list = sort_cols(data, sort_type=Order.ASCENDING, update=False)
+```
+
+[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
+
+```python
+import custom_print as cp
+pylo = cp.PyLO()
+
+tbl  = cp.FancyFormat()
 tbl.bg_title  = 90
 tbl.bold_title = True
 tbl.italic_title = True
-tbl.align_title = cp.Align.LEFT
+tbl.align_title = cp.Align.CENTER
 
-people = [\
-      ["Names",  "Lasts",   "Age"],
-      ["Pancho", "Melti",    50  ],
-      ["Javier", "Nangy",    32  ],
-      ["Melony", "Archi",    40  ],
-      ["Jose",   "Valvimar", 18  ]]
+#         0           1          2            3         4
+l1 = [["Names",    "Lasts",    "Ages",  "Department", "AWeb"    ],
+      ["Miguel",   "AC",       40,         "EE",      "uno"     ],
+      ["Tyler",    "Hig",      35,         "ECE",     "dos"     ],
+      ["Alex",     "Call",     38,         "EE",      "tres"    ],
+      ["Matt",     "Armaci",   40,         "CS",      "cuatro"  ]]
 
-reversed_list = pylo.reverse_order(people,False)
-# reversed_list = pylo.reverse_order(people,True)
 
-tbl.msg_title = " Reversed Order Of People "
-tbl.print_fancy_format(reversed_list)
 
-tbl.msg_title = " Original List People "
-tbl.print_fancy_format(people)
+new_list = pylo.sort_cols(l1, "ascending", False)
+tbl.msg_title = " Ascending Order ";    tbl.print_fancy_format(new_list)
+tbl.msg_title = " Original List ";      tbl.print_fancy_format(l1)
+
+
+new_list = pylo.sort_cols(l1, "descending", False)
+tbl.msg_title = " Descending Order ";     tbl.print_fancy_format(new_list)
+tbl.msg_title = " Original List ";        tbl.print_fancy_format(l1)
+
+new_list = pylo.sort_cols(data=l1, sort_type=[4,0,1,3,2], update=True)
+tbl.msg_title = " Order by List Reference [4,0,1,3,2] update=True "
+tbl.print_fancy_format(new_list)
+tbl.msg_title = " Original List "
+tbl.print_fancy_format(l1)
+
+
+new_list = pylo.sort_cols(data=l1, sort_type=pylo.Order.ASCENDING, update=False)
+new_list = pylo.sort_cols(data=l1, sort_type=pylo.Order.DESCENDING, update=True)
+
+tbl.msg_title = ""
+l1 = ["NaMeS",    "LaStS",    "AgeS",  "DeparTmenT", "AWeB"]
+l = sorted(l1, reverse=False)
+tbl.print_fancy_format(l)
+
+new_list = pylo.sort_cols(data=l1, sort_type=pylo.Order.ASCENDING, update=False)
+tbl.print_fancy_format(new_list)
 ```
 
-> <span style="background-color:purple">
-> <span style="color:yellow"><strong><i>
-> Note: Although the main idea is to use list type, print_fancy_format(tbl) accepts any type of variable. Refer to Demo 1 and Demo 2. 
-> </i></strong> </span> </span>
+#### [Back](README.md)
 
+https://github.com/acma82/custom_print
 
+## Report bugs at	→	acma.mex@hotmail.com

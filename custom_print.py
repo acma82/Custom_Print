@@ -3625,7 +3625,9 @@ class PyLO():
 
     #---------------------------------------------------------------------------------------------------------------------------------------------
     def str_to_list(self,data:str, option:Str_List_Option=Str_List_Option.WORD_BY_WORD, counter=False):
+        
         '''  It sets a string variable into a list as word by word or line by line  '''
+        
         if option == "word_by_word" and counter == False:
             tempo_list = data.split()
 
@@ -4014,7 +4016,7 @@ class PyLO():
         else:
             return my_list
 
-    def shift(self, data:list, direction=Move.RIGHT, qty=0, update:bool=False)->list:
+    def shift(self, data:list, direction:str=Move.RIGHT, qty=0, update:bool=False)->list:
         '''
         This function shift the elements in a list to the left or right.
 
@@ -4137,8 +4139,6 @@ class PyLO():
         dimensions(self, data:list)->list[int]
 
         This function return the number of rows and cols in a list.
-        If the list is not square, then it will pick the longest col unless 
-        otherwise specified in the length_col.
         '''
         n_rows = 0
         n_cols = 0
@@ -4186,7 +4186,7 @@ class PyLO():
             n_cols_min = min(lengths)
 
         else:       # "mix_items"
-            n_rows = 1
+            n_rows = 0
             n_cols_max = len(data)
             n_cols_min = len(data)
 
@@ -4617,6 +4617,7 @@ class PyLO():
                 data = [["H1","H2"],["R1C1","R1C2"], ["R2C1","R2C2"]]
                 new_col_data = ["New_Header",   "New_Row_Col",  "New_Row_Col"]
                 result = add_col(data, new_col_data, 1)
+            Notice that if you want to add more than one column at same time, use the merge method.
             '''
         tmp = []; new_list = []
 
@@ -4680,7 +4681,7 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Replace a Value in the List                                                                                                                    -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def replace_item(self, data:list, old:int|str, new:int|str, case_sensitive=True, update=False)->list:
+    def replace_value(self, data:list, old:int|str, new:int|str, case_sensitive:bool=True, update:bool=False)->list:
 
         '''  It replaces an item value for another in a list
              The list can be a vector [1,2,3,4] or a matrix (table) [[1,2],[3,1]]
@@ -4689,7 +4690,7 @@ class PyLO():
         new_list = []
         for value in data:
             if isinstance(value, list):
-                new_list.append(PyLO.replace_item(self, value, old, new, case_sensitive))
+                new_list.append(PyLO.replace_value(self, value, old, new, case_sensitive))
 
             else:
                 if case_sensitive == True:
@@ -4722,7 +4723,7 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     def number(self, data:list, start_number:int=0, id_txt:str="Id", renumber:bool=False, update:bool=False)->list:
 
-        '''  Enumerate a list by adding a column to the left side  '''
+        '''  This method set the number of rows by adding a column to the left side.  '''
 
         if renumber == True:
             original = PyLO.delete_col(self, data, 0, False)
@@ -4798,7 +4799,7 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Grep or Find a Value in a List.                                                                                                                -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def find_value(self, data:list, ref:int|str, case_sensitive=False)->list:
+    def find_value(self, data:list, value:int|str, case_sensitive=False)->list:
 
         '''  This method finds a value into a list and returns the location of the value.
              Up to 4 brackets.  '''
@@ -4807,12 +4808,12 @@ class PyLO():
         new_data = []
 
         if case_sensitive == False:
-            if isinstance(ref, str): new_ref = ref.lower()
-            else:                    new_ref = ref
+            if isinstance(value, str): new_value = value.lower()
+            else:                    new_value = value
 
             new_data = PyLO.lower_case(self, data)
         else:
-            new_ref = ref
+            new_value = value
             new_data = data
         
         grep_list = []
@@ -4822,16 +4823,16 @@ class PyLO():
             for row in range(len(data)):
                 for col in range(len(data[row])):
 
-                    if new_data[row][col] == new_ref:
+                    if new_data[row][col] == new_value:
                         grep_list.append([row, col, data[row][col]])
             ctrl = 1
         else:
             tmp = PyLO.make_to_vector(self, data=new_data)
             for value in range(len(tmp)):
-                if tmp[value] == new_ref:
+                if tmp[value] == new_value:
                     grep_list.append(value)
 
-        if   ctrl == 1 and len(grep_list)>0: grep_list.insert(0, ["Row","Col","Ref"])
+        if   ctrl == 1 and len(grep_list)>0: grep_list.insert(0, ["Row","Col","value"])
         elif ctrl == 2 and len(grep_list)>0:
             grep_list.insert(0, "Position(s)")
             PyLO.transpose(self, data=grep_list, update=True)
@@ -4951,8 +4952,8 @@ class PyLO():
                             merge_list.append(list_1[row])
 
             elif merge_by == "columns":
-                new_list_2 = PyLO.autofill_data(self, data=list_2, fill_value="!-py-12-@$^*-cp-?!")
-                merge = PyLO.autofill_data(self, data=list_1, fill_value="!-py-12-@$^*-cp-?!")
+                new_list_2 = PyLO.autofill_data(self, data=list_2)#, fill_value="!-py-12-@$^*-cp-?!")
+                merge_list = PyLO.autofill_data(self, data=list_1)#, fill_value="!-py-12-@$^*-cp-?!")
 
                 columnas = []
                 for n in range(len(new_list_2[0])):  columnas.append([])
@@ -4962,14 +4963,14 @@ class PyLO():
                         columnas[col].append(row[col])
 
                 for row in range(len(columnas)):
-                    merge = PyLO.add_col(self, data=merge, col_data=columnas[row], posi=posi)
+                    merge_list = PyLO.add_col(self, data=merge_list, col_data=columnas[row], posi=posi)
 
-                for row in merge:
-                    tmp = []
-                    for col in row:
-                        if col == "!-py-12-@$^*-cp-?!": pass
-                        else: tmp.append(col)
-                    merge_list.append(tmp)
+                # for row in merge:
+                #     tmp = []
+                #     for col in row:
+                #         if col == "!-py-12-@$^*-cp-?!": pass
+                #         else: tmp.append(col)
+                #     merge_list.append(tmp)
 
             else: pass
 
@@ -5074,32 +5075,32 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Delete an Item from a List                                                                                                                     -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def delete_item(self, data:list, ref:str="", case_sensitive:bool=True, update:bool=False)->list:
+    def delete_value(self, data:list, value:str="", case_sensitive:bool=True, update:bool=False)->list:
 
-        ''' This method delete an item from the list. 
+        ''' This method delete an value from the list. 
             This methods has the option of using the case sensitive. '''
     
         new_list = []
-        for value in data:
-            if isinstance(value, list):
-                new_list.append(PyLO.delete_item(self, value, ref, case_sensitive, False))
+        for my_value in data:
+            if isinstance(my_value, list):
+                new_list.append(PyLO.delete_value(self, my_value, value, case_sensitive, False))
 
             else:
                 if case_sensitive == True:
-                    if value == ref:    pass
-                    else:               new_list.append(value)
+                    if my_value == value:    pass
+                    else:               new_list.append(my_value)
                 
                 elif case_sensitive == False:
-                    if isinstance(value, str) and isinstance(ref, str):
-                        if value.lower() == ref.lower():
+                    if isinstance(my_value, str) and isinstance(value, str):
+                        if my_value.lower() == value.lower():
                             pass
                         else:
-                            new_list.append(value)
+                            new_list.append(my_value)
                     else:
-                        if value == ref:
+                        if my_value == value:
                             pass
                         else:
-                            new_list.append(value)
+                            new_list.append(my_value)
 
                 else: pass
         if update == True:
@@ -5113,7 +5114,7 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Reverse Order in a List ROWS. Keeps the Headers Untouch                                                                                        -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def reverse_order_rows(self, data:list, update:list=False):
+    def reversed_row_order(self, data:list, update:bool=False):
 
         '''  This methods reverse the order of the list keeping 
              the headers in the same positon. '''
@@ -5149,7 +5150,7 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Sort Rows of a List by Column Reference. Keep The Headers, Untouch                                                                             -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def sort_rows_by_col(self, data:list, ref_col:int=0, reverse_order:bool=False, update:bool=False)->list:
+    def sort_rows_by_col(self, data:list, ref_col:int=0, reversed_order:bool=False, update:bool=False)->list:
 
         '''  sort_by_col won't sort the first row because it is considered the Header of the list.
              If a column is mixed with string type and another type, like integer or float, it will
@@ -5162,7 +5163,7 @@ class PyLO():
             tempo_list = []
             [tempo_list.append(n) for n in in_list]
             sorted_list = sorted(tempo_list)
-            if reverse_order == True: list.reverse(sorted_list)
+            if reversed_order == True: list.reverse(sorted_list)
             return sorted_list
             #-----------------------------------------------------------------------------------------------------------------------------------------
 
@@ -5191,7 +5192,7 @@ class PyLO():
             else:
                 sorted_list = [complete_list[0]] + sorted(complete_list[1:], key=lambda x: x[ref_col])
                 # sorted_list = [new_list[0]] + sorted(new_list[1:], key=lambda x: x[str(ref_col)])
-                if reverse_order == True:
+                if reversed_order == True:
                     header_row = sorted_list.pop(0)
                     list.reverse(sorted_list)
                     sorted_list.insert(0,header_row)
@@ -5331,12 +5332,13 @@ class PyLO():
     def update_case_col(self, data:list, header_case:str=Case.CAPITALIZE, data_case:str=Case.LOWER, col_ref=0, update:bool=False):
         
         '''  This method updates the case for a specific column, header and data.  '''
-        
+
         my_type_list = _get_list_type(data)
         if my_type_list != "multiple_items_multiple_rows":
-            if   data_case == PyLO.Case.UPPER:      case_list = PyLO.upper_case(self, data=data)
-            elif data_case == PyLO.Case.LOWER:      case_list = PyLO.lower_case(self, data=data)
-            elif data_case == PyLO.Case.CAPITALIZE: case_list = PyLO.capitalize_case(self, data=data)
+
+            if   data_case.lower() == PyLO.Case.UPPER:      case_list = PyLO.upper_case(self, data=data)
+            elif data_case.lower() == PyLO.Case.LOWER:      case_list = PyLO.lower_case(self, data=data)
+            elif data_case.lower() == PyLO.Case.CAPITALIZE: case_list = PyLO.capitalize_case(self, data=data)
             else:                           case_list = []
         
         else:
@@ -5350,17 +5352,17 @@ class PyLO():
 
             if isinstance(new_headers[new_col_ref], str):
                 
-                if   header_case == PyLO.Case.UPPER:      new_headers[new_col_ref] = new_headers[new_col_ref].upper()
-                elif header_case == PyLO.Case.LOWER:      new_headers[new_col_ref] = new_headers[new_col_ref].lower()
-                elif header_case == PyLO.Case.CAPITALIZE: new_headers[new_col_ref] = new_headers[new_col_ref].capitalize()
+                if   header_case.lower() == PyLO.Case.UPPER:      new_headers[new_col_ref] = new_headers[new_col_ref].upper()
+                elif header_case.lower() == PyLO.Case.LOWER:      new_headers[new_col_ref] = new_headers[new_col_ref].lower()
+                elif header_case.lower() == PyLO.Case.CAPITALIZE: new_headers[new_col_ref] = new_headers[new_col_ref].capitalize()
                 else:                             pass
             else: pass
 
             for row in range(len(new_data)):
                 if isinstance(new_data[row][new_col_ref], str):
-                    if   data_case == PyLO.Case.UPPER:      new_data[row][new_col_ref] = new_data[row][new_col_ref].upper()
-                    elif data_case == PyLO.Case.LOWER:      new_data[row][new_col_ref] = new_data[row][new_col_ref].lower()
-                    elif data_case == PyLO.Case.CAPITALIZE: new_data[row][new_col_ref] = new_data[row][new_col_ref].capitalize()
+                    if   data_case.lower() == PyLO.Case.UPPER:      new_data[row][new_col_ref] = new_data[row][new_col_ref].upper()
+                    elif data_case.lower() == PyLO.Case.LOWER:      new_data[row][new_col_ref] = new_data[row][new_col_ref].lower()
+                    elif data_case.lower() == PyLO.Case.CAPITALIZE: new_data[row][new_col_ref] = new_data[row][new_col_ref].capitalize()
                     else: pass
                 else:
                     pass

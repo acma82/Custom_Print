@@ -1,5 +1,7 @@
 #### [Back](README.md) 
+
 # <span style="color:green"> <strong> FontStyle </strong> </span>
+
 * [**Methods**](#methods)
 * [**Default Values**](#default-values)
 * [**Examples**](#examples)

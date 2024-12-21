@@ -1,5 +1,7 @@
 #### [Back](README.md)
+
 # <span style="color:green"> <strong> FancyFormat </strong> </span>
+
 * [**Methods**](#methods)
 * [**General Section**](#general-section)
 * [**Title Section**](#title-section)
@@ -12,12 +14,12 @@
 * [**Header Section**](#header-section)
 * [**Header Under Line Section**](#header-under-line-section)
 * [**Sumarize**](#sumarize)
-* [**Demo 1**](#example-demo_1)
-* [**Demo 2**](#example-demo_2)
-* [**Demo 3**](#example-demo_3)
-* [**Demo 4**](#example-demo_4)
-* [**Demo 5**](#example-demo_5)
-* [**Demo 6**](#example-demo_6)
+* [**Demo 1**](#demo-1)
+* [**Demo 2**](#demo-2)
+* [**Demo 3**](#demo-3)
+* [**Demo 4**](#demo-4)
+* [**Demo 5**](#demo-5)
+* [**Demo 6**](#demo-6)
 
 <!-- ---------------------------------- -->
 <!-- Methods                            -->
@@ -316,7 +318,8 @@ Note: Although the main idea is to use list type, print_fancy_format(tbl) accept
 <!-- Demo 1                             -->
 <!-- ---------------------------------- -->
 
-[**Top**](#fancyformat) <span style="color:red"> <strong> Demo 1 </strong> </span>
+## <span style="color:red"> <strong> Demo 1 </strong> </span>
+[**Top**](#fancyformat)
    
 ```python
     import custom_print as cp
@@ -473,7 +476,8 @@ Note: Although the main idea is to use list type, print_fancy_format(tbl) accept
 <!-- ---------------------------------- -->
 <!-- Demo 2                             -->
 <!-- ---------------------------------- -->
-[**Top**](#fancyformat) <span style="color:red"> <strong> Demo 2 </strong> </span>
+## <span style="color:red"> <strong> Demo 2 </strong> </span>
+[**Top**](#fancyformat)
 
 ```python
     import os
@@ -582,7 +586,8 @@ Note: Although the main idea is to use list type, print_fancy_format(tbl) accept
 <!-- ---------------------------------- -->
 <!-- Demo 3                             -->
 <!-- ---------------------------------- -->
-[**Top**](#fancyformat) <span style="color:red"> <strong> Demo 3 </strong> </span>
+## <span style="color:red"> <strong> Demo 3 </strong> </span>
+[**Top**](#fancyformat)
 
 ```python    
     import os
@@ -754,7 +759,8 @@ Note: Although the main idea is to use list type, print_fancy_format(tbl) accept
 <!-- ---------------------------------- -->
 <!-- Demo 4                             -->
 <!-- ---------------------------------- -->
-[**Top**](#fancyformat) <span style="color:red"> <strong> Demo 4 </strong> </span>
+## <span style="color:red"> <strong> Demo 4 </strong> </span>
+[**Top**](#fancyformat)
 
 ```python
     import custom_print
@@ -800,7 +806,8 @@ Note: Although the main idea is to use list type, print_fancy_format(tbl) accept
 <!-- ---------------------------------- -->
 <!-- Demo 5                             -->
 <!-- ---------------------------------- -->
-[**Top**](#fancyformat) <span style="color:red"> <strong> Demo 5 </strong> </span>
+## <span style="color:red"> <strong> Demo 5 </strong> </span>
+[**Top**](#fancyformat)
 
 ```python
     import custom_print as cp
@@ -823,7 +830,9 @@ Note: Although the main idea is to use list type, print_fancy_format(tbl) accept
 <!-- ---------------------------------- -->
 <!-- Demo 6                             -->
 <!-- ---------------------------------- -->
-[**Top**](#fancyformat) <span style="color:red"> <strong> Demo 6 </strong> </span>
+
+## <span style="color:red"> <strong> Demo 6 </strong> </span>
+[**Top**](#fancyformat)
 
 ```python
     import custom_print as cp

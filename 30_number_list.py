@@ -58,11 +58,11 @@ new_result = pylo.number(result, 1, "id", True, True)
 print(new_result)
 print(result)
 
-print(f"{cp.ins_chr(n=80, unicode="-")}")
-print(f"{cp.ins_chr(n=80, unicode="-")}")
+# print(f"{cp.ins_chr(n=80, unicode="-")}")
+# print(f"{cp.ins_chr(n=80, unicode="-")}")
 
-lst = [["name"],["Miguel"],["Pedro"],["Jose"]]
-print(lst)
-result = pylo.number(data=lst, start_number=1, id_txt="id",renumber=False, update=True)
-print(result)
-print(lst)
+# lst = [["name"],["Miguel"],["Pedro"],["Jose"]]
+# print(lst)
+# result = pylo.number(data=lst, start_number=1, id_txt="id",renumber=False, update=True)
+# print(result)
+# print(lst)

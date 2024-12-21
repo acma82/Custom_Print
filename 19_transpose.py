@@ -1,10 +1,6 @@
 import custom_print as cp
 pylo = cp.PyLO()
 
-# cp.PyLO()
-# cp.PyLO()
-# cp.PyLo()
-
 msg = f'''
             Inputs                     Outputs                                       Cases
    list_1 = "hello"                    []                                              1
@@ -109,3 +105,9 @@ print(f"{cp.ins_chr(n=80, unicode="-")}")
 print("original :", lst83)
 trans_lst = pylo.transpose(data=lst83, autofill=True, fill_value=0.5, update=False)
 print("Transpose:",trans_lst)
+
+
+tbl = cp.FancyFormat()
+tbl.print_fancy_format(lst61)
+pylo.transpose(data=lst61,update=True)
+tbl.print_fancy_format(lst61)

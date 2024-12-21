@@ -14,7 +14,7 @@ l1 = [["NaMeS",    "LaStS",    "AgeS",  "DeparTmenT", "AWeB"    ],
       ["AleX",     "CalL",     38,         "EE",      "TreS"    ],
       ["MatT",     "ArmacI",   40,         "CS",      "CuatrO"  ]]
 
-l1 = [["NaMeS",    "LaStS",    "AgeS",  "DeparTmenT", "AWeB"]]
+#l1 = [["NaMeS",    "LaStS",    "AgeS",  "DeparTmenT", "AWeB"]]
 
 result = pylo.update_case(l1, pylo.Case.UPPER, pylo.Case.LOWER, False)
 tbl.msg_title = " Headers Upper, Data Lower "; tbl.print_fancy_format(result)

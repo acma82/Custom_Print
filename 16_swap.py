@@ -25,7 +25,7 @@ print("original: ", lst)
 print(f"{cp.ins_chr(n=80, unicode="-")}")
 
 print("original: ", lst,end=""); print(f"   {cp.set_font(1,1,231)} update=True, {cp.reset_font()} posi_1=3, posi_2=0")
-newlist = pylo.swap(data=lst, update=True, posi_1=3, posi_2=0)
+newlist = pylo.swap(data=lst, update=True, posi_1=3, posi_2=10)
 print("swaped_l: ",newlist)
 print("original: ", lst)
 

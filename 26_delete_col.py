@@ -84,7 +84,19 @@ print("New Original: ",lst_6)
 
 print(f"{cp.ins_chr(n=80, unicode="-")}")
 
-print(f"{cp.set_font(1,23,231)} Case 7. index = 2, update=True  {cp.reset_font()}")
+print(f"{cp.set_font(1,23,231)} Case methods = [\
+    ["Cursor",  "FontStyle"  ,  "FancyMessage"       ,  "Pen"           ],
+    ["jumpTo",  "start_style",  "print_fancy_message",  "draw_line"     ],
+    ["jumpxy",  "stop_style" ,  "print_fancy_note"   ,  "draw_rectangle"],
+    ["moveTo",  "print_style",  "----"               ,  "----"          ],
+    ["movexy",  "reset_style",  "----"               ,  "----"          ]]
+
+tbl.bg_title = 90; tbl.align_title = cp.Align.CENTER
+tbl.msg_title = " index = 2, update=False "
+tbl.print_fancy_format(methods)
+tbl.msg_title = " Result After Deleting col 2 "
+new_list = pylo.delete_col(methods, 2)
+tbl.print_fancy_format(new_list)7. index = 2, update=True  {cp.reset_font()}")
 lst_7 =  [10,[50],[250],["H"],100] 
 print("Original    : ",lst_7)
 result = pylo.delete_col(lst_7,2, update=True)
@@ -104,11 +116,11 @@ print("New Original: ",lst_8)
 print(f"{cp.ins_chr(n=80, unicode="-")}")
 
 methods = [\
-    ["Cursor",  "FontStyle"  ,  "FancyMessage"       ,  "FancyFormat"       ,  "Pen"           ],
-    ["jumpTo",  "start_style",  "print_fancy_message",  "print_fancy_format",  "draw_line"     ],
-    ["jumpxy",  "stop_style" ,  "print_fancy_note"   ,  "reset_fancy_format",  "draw_rectangle"],
-    ["moveTo",  "print_style",  "----"               ,  "----"              ,  "----"          ],
-    ["movexy",  "reset_style",  "----"               ,  "----"              ,  "----"          ]]
+    ["Cursor",  "FontStyle"  ,  "FancyMessage"       ,  "Pen"           ],
+    ["jumpTo",  "start_style",  "print_fancy_message",  "draw_line"     ],
+    ["jumpxy",  "stop_style" ,  "print_fancy_note"   ,  "draw_rectangle"],
+    ["moveTo",  "print_style",  "----"               ,  "----"          ],
+    ["movexy",  "reset_style",  "----"               ,  "----"          ]]
 
 tbl.bg_title = 90; tbl.align_title = cp.Align.CENTER
 tbl.msg_title = " index = 2, update=False "
@@ -116,6 +128,7 @@ tbl.print_fancy_format(methods)
 tbl.msg_title = " Result After Deleting col 2 "
 new_list = pylo.delete_col(methods, 2)
 tbl.print_fancy_format(new_list)
+
 
 tbl.msg_title = " Adding Numbers, update=True "
 pylo.number(methods, start_number=1, id_txt="No.", renumber=False, update=True)

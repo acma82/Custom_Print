@@ -15,9 +15,16 @@ methods = [\
     ["moveTo",  "print_style"],
     ["movexy"]]
 
-result = pylo.reverse_order_rows(methods, False)
-tbl.msg_title = " Rever_Order_ROWS "
+result = pylo.reversed_row_order(methods, False)
+tbl.msg_title = " Reversed_ROW_Order "
 tbl.print_fancy_format(result)
 
 tbl.msg_title = " Original Values "
 tbl.print_fancy_format(methods)
+
+tbl.msg_title = " Reversed_ROW_Order "
+tmp = []
+reversed_list = []
+for row in reversed(methods):
+    reversed_list.append(row)
+tbl.print_fancy_format(reversed_list)

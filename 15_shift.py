@@ -1,7 +1,7 @@
 import custom_print as cp
 
 '''  It shift a specific item from the a list  '''
-lst = cp.PyLO()
+pylo = cp.PyLO()
 msg = f'''
    Options                             Results                           Cases
    list_1 = "hello"                    incorrect_variable_type             1
@@ -15,6 +15,7 @@ msg = f'''
    list_1 = [[1,2,3,4,5,6]]            multiple_items_one_row              8 
    '''
 print(msg)
+
 list_1 = [[1],[4],[5,6]]
 # Right Shift List
 print(f"{cp.ins_chr(n=80, unicode="-")}")
@@ -23,14 +24,14 @@ print(f"{cp.ins_chr(n=80, unicode="-")}")
 cp.ins_newline(2)
 #---------------------------------------------------------------------------
 print("original_list:  ", list_1, end=""); print(f"   right_shift 2, {cp.set_font(1,21,231)} update=False {cp.reset_font()}")
-newlist = lst.shift(list_1, "r", 2, False)
+newlist = pylo.shift(list_1, "r", 2, False)
 print("shifted _list:  ",newlist)
 print("original_list:  ", list_1)
 
 print(f"{cp.ins_chr(n=80, unicode="-")}")
 
 print("original_list:  ", list_1,end=""); print(f"   right_shift 2, {cp.set_font(1,1,231)} update=True {cp.reset_font()}")
-newlist = lst.shift(data=list_1, direction=cp.Move.RIGHT, qty= 2, update= True)
+newlist = pylo.shift(data=list_1, direction=cp.Move.RIGHT, qty= 2, update= True)
 print("shifted _list:  ",newlist)
 print("original_list:  ", list_1)
 
@@ -41,14 +42,14 @@ cp.ins_newline(2)
 list_1 = [[1,2,3,4,5,6]]
 #---------------------------------------------------------------------------
 print("original_list:  ", list_1, end=""); print(f"   left_shift 2, {cp.set_font(1,21,231)} update=False {cp.reset_font()}")
-newlist = lst.shift(list_1, "l", 2, False)
+newlist = pylo.shift(list_1, "l", 2, False)
 print("shifted _list:  ",newlist)
 print("original_list:  ", list_1)
 
 print(f"{cp.ins_chr(n=80, unicode="-")}")
 
 print("original_list:  ", list_1,end=""); print(f"   left_shift 2, {cp.set_font(1,1,231)} update=True {cp.reset_font()}")
-newlist = lst.shift(data=list_1, direction=cp.Move.LEFT, qty= 2, update= True)
+newlist = pylo.shift(data=list_1, direction=cp.Move.LEFT, qty= 2, update= True)
 print("shifted _list:  ",newlist)
 print("original_list:  ", list_1)
 

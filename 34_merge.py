@@ -28,7 +28,7 @@ tbl.print_fancy_format(methods)
 tbl.msg_title = " List 2: People "
 tbl.print_fancy_format(people)
 
-tbl.msg_title = " Merge List 1 and List 2 as COLUMNS "
+tbl.msg_title = " Merge List people to List methods as COLUMNS "
 merge_cols = pylo.merge(list_1=methods, list_2=people, posi=8, merge_by=pylo.Appending.COLUMNS) 
 tbl.print_fancy_format(merge_cols)
 
