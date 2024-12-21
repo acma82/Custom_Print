@@ -1,5 +1,5 @@
 #### [Back](README.md) 
-## <span style="color:blue"> <strong> Pen </strong> </span>
+# <span style="color:blue"> <strong> Pen </strong> </span>
 ### [1. Methods](#methods)
 ### [2. Default Values](#default-values)
 ### [3. Examples](#examples)

@@ -1,6 +1,6 @@
 #### [Back](README.md)
 
-## <span style="color:blue"> <strong> Aid Classes </strong> </span>
+# <span style="color:blue"> <strong> Aid Classes </strong> </span>
 * [Align](#align)
 * [Color](#color)
 * [Layout](#layout)
@@ -9,7 +9,7 @@
 * [Move](#move)
 * [Unicode](#unicode)
 
-## <span style="color:purple"> <strong> Align </strong> </span>
+## <span style="color:blue"> <strong> Align </strong> </span>
     This class is used where alignment is needed. It contains 4 options.    
 
 - Align.RIGHT
@@ -33,7 +33,7 @@ msg.align_title = cp.Align.CENTER
 msg.align_footnote = "right"   # msg.align_footnote = "r"
 ```
 
-## <span style="color:purple"> <strong> Color </strong> </span>
+## <span style="color:blue"> <strong> Color </strong> </span>
     
 ```
 This class will help to select a color when using the set_font() function or the FancyStyle class or you can use the number for the color as well.
@@ -53,7 +53,7 @@ fst.bg = cp.Color.BLOOD_RED    # fst.bg = 52
 fst.print_style(" Hello There...! ")
 ```
 
-## <span style="color:purple"> <strong> Layout </strong> </span>
+## <span style="color:blue"> <strong> Layout </strong> </span>
     This class is used with FancyFormat class and Pen class. It contains 2 options.
 
 * Layout.HORIZONTAL
@@ -77,7 +77,7 @@ tbl.set_layout = cp.Layout.VERTICAL     # tbl.set_layout = "v"
 tbl.print_fancy_format(r)
 ```
 
-## <span style="color:purple"> <strong> Length_bg </strong> </span>
+## <span style="color:blue"> <strong> Length_bg </strong> </span>
     his class is used with FancyMessage class and contains 2 options.
 + ALL_ROW
 + ONLY_WORD
@@ -106,7 +106,7 @@ msg.print_fancy_message(path)
 ```
 
 
-## <span style="color:purple"> <strong> Line_Style </strong> </span>
+## <span style="color:blue"> <strong> Line_Style </strong> </span>
 	This class is used with FancyFormat class and Pen class. There are some options available.
 
             CUSTOMIZED          SINGLE          SPACE_COL_COLOR
@@ -151,7 +151,7 @@ tbl.print_fancy_format(r, cp.Line_Style.SQ_BRACKETS)
 
 ```
 
-## <span style="color:purple"> <strong> Move </strong> </span>
+## <span style="color:blue"> <strong> Move </strong> </span>
     This class is used with the Cursor class and it contains 4 options.
 
 + Move.RIGHT
@@ -179,7 +179,7 @@ print("I am down")
 
 ```
 
-## <span style="color:purple"> <strong> Unicode </strong> </span>
+## <span style="color:blue"> <strong> Unicode </strong> </span>
     This class is to insert some unicode characters.
 
 #### Unicode Names

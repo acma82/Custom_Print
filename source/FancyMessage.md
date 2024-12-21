@@ -1,5 +1,5 @@
 #### [Back](README.md) 
-## <span style="color:blue"> <strong> FancyMessage </strong> </span>
+# <span style="color:blue"> <strong> FancyMessage </strong> </span>
 ### [1. Methods](#methods)
 ### [2. Body Section](#body-default-values)
 ### [3. Note Section](#note-default-values)
