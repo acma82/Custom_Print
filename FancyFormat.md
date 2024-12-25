@@ -95,7 +95,7 @@ If you want to save this conversion to your original list then set to True the u
 ## Footnote Section
 
 ```python
-    msg_footnote  = ""      align_footnote  = "justify"     hidden_footnote	   = False
+    msg_footnote  = ""      align_footnote  = "justify"     hidden_footnote    = False
     bold_footnote = False   italic_footnote = False         inverse_footnote   = False
     bg_footnote	  = -1      strike_footnote = False         blinking_footnote  = False
     fg_footnote	  = -1      dim_footnote    = False         underline_footnote = False
@@ -109,7 +109,7 @@ If you want to save this conversion to your original list then set to True the u
 ## Data Section
 
 ```python
-    align_data = "justify"  hidden_data = False            	inverse_data     = False
+    align_data = "justify"  hidden_data = False             inverse_data     = False
     bold_data  = False      italic_data = False             blinking_data    = False
     bg_data    = -1         strike_data = False             underline_data   = False
     fg_data    = -1         dim_data    = False             bg_all_cell_data = True
@@ -165,8 +165,8 @@ For more reference check **Figure 1**.
 ## Middle Corner Section
 
 ```python
-    bold_inner_corner_chr = False   middle_top_corner_chr    = "+"      right_lateral_corner_chr	= "+"
-    bg_inner_corner_chr	  = -1      middle_inner_corner_chr	 = "+"      left_lateral_corner_chr	= "+"
+    bold_inner_corner_chr = False   middle_top_corner_chr    = "+"      right_lateral_corner_chr = "+"
+    bg_inner_corner_chr	  = -1      middle_inner_corner_chr  = "+"      left_lateral_corner_chr  = "+"
     fg_inner_corner_chr   = -1      middle_bottom_corner_chr = "+"
 ```
 
@@ -180,10 +180,10 @@ For reference check **Figure 3 and 4**.
 ## Header Section
 
 ```python
-    align_header = "justify"        hidden_header = False               inverse_header   = False
-    bold_header = False             italic_header = False               blinking_header  = False
-    bg_header   = -1                strike_header = False               underline_header = False
-    fg_header   = -1                dim_header    = False               bg_all_cell_ header	= True
+    align_header = "justify"        hidden_header = False               inverse_header      = False
+    bold_header = False             italic_header = False               blinking_header     = False
+    bg_header   = -1                strike_header = False               underline_header    = False
+    fg_header   = -1                dim_header    = False               bg_all_cell_ header = True
 ```
 
 **bg_all_cell_data** The bg color will affect the entire cell or just the header.
@@ -209,8 +209,8 @@ For reference check **Figure 3 and 4**.
 
 ```python
 
-    bold_under_line_header = False              horizontal_line_under_header_on	= False
-    bg_under_line_header   = -1                 horizontal_line_under_header_chr	= "-" 
+    bold_under_line_header = False              horizontal_line_under_header_on	 = False
+    bg_under_line_header   = -1                 horizontal_line_under_header_chr = "-" 
     fg_under_line_header   = -1
 ```    
     horizontal_line_under_header_on	            Horizontal lines between headers and the first data row.
@@ -220,9 +220,9 @@ For reference check **Figure 3 and 4**.
 
 ```python
 
-    bold_corner_under_line_header = False       left_corner_line_under_header_chr		= "+"
-    bg_corner_under_line_header   = -1          right_corner_line_under_header_chr	= "+"
-    fg_corner_under_line_header   = -1          middle_corner_line_under_header_chr	= "+"
+    bold_corner_under_line_header = False       left_corner_line_under_header_chr   = "+"
+    bg_corner_under_line_header   = -1          right_corner_line_under_header_chr  = "+"
+    fg_corner_under_line_header   = -1          middle_corner_line_under_header_chr = "+"
 ```
 
 For more reference check [**figure 3**](#figure-3).

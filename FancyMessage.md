@@ -34,17 +34,21 @@ This class contains 3 methods and the attributes and their default values are di
     fg_body     = 231	       italic_body = False         length         = Length_bg.ALL_ROW 
     dim_body    = False	       left_indent  = 2            inverse_body   = False			
     bold_body   = False        right_indent = 2            blinking_body  = False			
-    msg_body    = "Body Msg	   top_lines    = 1            underline_body = False			
+    msg_body    = "Body Msg"   top_lines    = 1            underline_body = False			
     help_lines  = False        bottom_lines = 1
 ```
 
-    These two options work when length is Length_bg.ONLY_WORD. They don't do anything when length is Length_bg.All_ROW.
+
+    The following options work when length is set to Length_bg.ONLY_WORD.
+
+    They don't do anything when length is set to Length_bg.All_ROW.
 
 	adj_bg_lines_to_right_indent  = False
 
 	adj_bg_msg_to_space_available = False
 
     Note: All the above variables are being used by both methods, print_fancy_message and print_fancy_note.
+
 
 [**Top**](#fancymessage)
 
@@ -61,8 +65,8 @@ This class contains 3 methods and the attributes and their default values are di
 ## Title Default Values
 
 ```python
-    msg_title  = ""         align_title   = Align.LEFT          blinking_title		= False
-    bg_title   = 4          strike_title  = False               underline_title	= False
+    msg_title  = ""         align_title   = Align.LEFT          blinking_title      = False
+    bg_title   = 4          strike_title  = False               underline_title     = False
     fg_title   = 231        italic_title  = False               title_indent		= 2
     bold_title = False      inverse_title = False               lines_title_body	= 1
     dim_title  = False      hidden_title  = False
@@ -72,7 +76,7 @@ This class contains 3 methods and the attributes and their default values are di
 
 ```python
     msg_footnote  = ""      align_footnote   = Align.RIGHT      blinking_footnote   = False
-    bg_footnote   = 4		strike_footnote  = False            underline_footnote  = False
+    bg_footnote   = 4       strike_footnote  = False            underline_footnote  = False
     fg_footnote	  = 231     italic_footnote  = False            footnote_indent     = 2
     bold_footnote = False   inverse_footnote = False            lines_body_footnote = 1
     dim_footnote  = False   hidden_footnote  = False
