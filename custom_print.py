@@ -161,34 +161,409 @@ class Unicode(enum.StrEnum):
 
     FACE = "(" + chr(0x25D5) + chr(0x25E1) + chr(0x25D5) + ")"
 
+_COLOR_NAMES = [\
+"LIGHT BLACK           ",    "RED                   ",    "LIGHT OFFICE GREEN ",
+"LIGHT BROWN           ",    "EARLY NIGHT BLUE      ",    "MID PURPLE         ",
+"CYAN                  ",    "LIGHT GRAY            ",    "DARK GRAY          ",
+"PASTEL RED            ",    "ELECTRIC LIGHT GREEN  ",    "DARKISH YELLOW     ",
+"LIGHT BLUE            ",    "LIGHT PURPLE          ",    "VERY LIGHT BLUE    ",
+"WHITE                 ",    "BLACK                 ",    "DARK BLUE          ",
+"NAVY BLUE             ",    "MIDNIGHT BLUE         ",    "MEDDIUM BLUE       ",
+"BLUE                  ",    "SUMMER GREEN          ",    "VERY DARK CYAN     ",
+"SEA BLUE              ",    "ENDEAVOUR BLUE        ",    "SCIENCE BLUE       ",
+"BLUE RIBBON           ",    "AO GREEN              ",    "DEEP SEA GREEN     ",
+"TEAL                  ",    "DEEP CERULEAN BLUE    ",    "STRONG BLUE        ",
+"AZURE BLUE            ",    "DARK LIME GREEN       ",    "GO GREEN           ",
+"DARK CYAN             ",    "BONDI BLUE            ",    "CERULEAN BLUE      ",
+"BLUE BOLT             ",    "STRONG LIME GREEN     ",    "MALACHITE GREEN    ",
+"CARIBBEAN GREEN       ",    "STRONG CYAN           ",    "DARK TURQUOISE     ",
+"VIVID SKY BLUE        ",    "ELECTRIC GREEN        ",    "SPRING GREEN       ",
+"GUPPIE GREEN          ",    "MEDIUM SPRING GREEN   ",    "BRIGHT TURQUOISE   ",
+"AQUA                  ",    "BLOOD RED             ",    "VERY DARK MAGENTA  ",
+"INDIGO                ",    "DARK VIOLET           ",    "LIGHT_VIOLET       ",
+"ELECTRIC INDIGO       ",    "VERDUN GREEN          ",    "SCORPION GRAY      ",
+"UCLA BLUE             ",    "SCAMPI BLUE           ",    "SLATE BLUE         ",
+"CORNFLOWER BLUE       ",    "ACOCADO GREEN         ",    "GLADE GREEN        ",
+"STEEL TEAL CYAN       ",    "STEEL BLUE            ",    "HAVELOCK BLUE      ",
+"BLUEBERRY             ",    "KELLY GREEN           ",    "FOREST GREEN       ",
+"POLISHED PIN GREEN    ",    "CRYSTAL BLUE          ",    "AQUA PEARL         ",
+"BLUE JEANS            ",    "HARLEQUIN GREEN       ",    "MODERATE LIME GREEN",
+"CARIBBEAN GREEN PEARL ",    "EUCALYPTUS GREEN      ",    "MEDDIUM TURQUOISE  ",
+"MAYA BLUE             ",    "BRIGHT GREEN          ",    "LIGHT LIME GREEN   ",
+"LIGHT MALACHITE GREEN ",    "MEDDIUM AQUAMARINE    ",    "AQUAMARINE GREEN   ",
+"AQUAMARINE CYAN       ",    "DEEP RED              ",    "FRENCH PLUM VIOLET ",
+"FRESH EGGPLANT VIOLET ",    "VIOLET                ",    "STRONG VIOLET      ",
+"ELECTRIC VIOLET       ",    "BROWN                 ",    "COPPER BROWN       ",
+"MOSTLY VIOLET         ",    "ROYAL PURPLE          ",    "MEDDIUM PURPLE     ",
+"BLUEBERRY PURPLE      ",    "DARK OLIVE GREEN      ",    "CLAY CREEK GREEN   ",
+"TAUPE GRAY            ",    "COOL GRAY             ",    "CHETWODE BLUE      ",
+"VIOLET BLUE           ",    "APPLE GREEN           ",    "ASPARAGUS GREEN    ",
+"LEAF GREEN            ",    "GRAYISH CYAN          ",    "COBALT BLUE        ",
+"SKY BLUE              ",    "PISTACHIO GREEN       ",    "MANTIS GREEN       ",
+"PASTEL GREEN          ",    "PEARL AQUA            ",    "SLIGHTLY CYAN      ",
+"PALE CYAN             ",    "GREEN                 ",    "LIGHT GREEN        ",
+"VERY LIGHT LIME GREEN ",    "MINT GREEN            ",    "AQUA LIME GREEN    ",
+"LIGHT CYAN            ",    "DARK RED              ",    "DARK PINK          ",
+"DARK MAGENTA          ",    "HELIOTROPE MAGENTA    ",    "VIVID PURPLE       ",
+"ELECTRIC PURPLE       ",    "DARK ORANGE BROWN     ",    "ELECTRIC BROWN     ",
+"DARK MODERATE PINK    ",    "DARK MODERATE MAGENTA ",    "RICH LILAC VIOLET  ",
+"LAVENDER INDIGO       ",    "PIRATE GOLD BROWN     ",    "BRONZE BROWN       ",
+"DARK GRAYISH RED      ",    "DARK GRAYISH MAGENTA  ",    "LAVENDER           ",
+"BRIGHT LAVENDER       ",    "LIGHT GOLD BROWN      ",    "LIGHT OLIVE GREEN  ",
+"DARK GRAYISH YELLOW   ",    "SILVER FOIL           ",    "GRAYISH BLUE       ",
+"BLUE PURPLE           ",    "VIVID LIME GREEN      ",    "MODERATE GREEN     ",
+"YELLOW GREEN          ",    "GRAYISH LIME GREEN    ",    "CRYSTAL CYAN       ",
+"PALE BLUE             ",    "LIME                  ",    "GREEN YELLOW       ",
+"VERY LIGHT GREEN      ",    "MENTHOL GREEN         ",    "AEREO BLUE         ",
+"CELESTE CYAN          ",    "STRONG RED            ",    "ROYAL RED          ",
+"MEXICAN PINK          ",    "HOLLYWOOD PINK        ",    "STRONG MAGENTA     ",
+"PHLOX VIOLET          ",    "STRONG ORANGE         ",    "INDIAN RED         ",
+"BLUSH RED             ",    "SUPER PINK            ",    "ORCHID MAGENTA     ",
+"LIGHT MAGENTA         ",    "CHOCOLATE BROWN       ",    "COPPERFIELD BROWN  ",
+"SLIGHTLY RED          ",    "SLIGHTLY PINK         ",    "LIGHT ORCHID PINK  ",
+"BRIGHT LILAC VIOLET   ",    "MUSTARD YELLOW        ",    "EARTH YELLOW       ",
+"TAN BROWN             ",    "GRAYISH RED           ",    "GRAYISH MAGENTA    ",
+"PALE VIOLET           ",    "STRONG YELLOW         ",    "MODERATE YELLOW    ",
+"DECO YELLOW           ",    "PASTEL GRAY           ",    "LIGHT SILVER       ",
+"PALE LAVENDER         ",    "NEON YELLOW           ",    "LIGHT GREEN YELLOW ",
+"MINDARO YELLOW        ",    "PALE GREEN            ",    "VERY PALE GREEN    ",
+"VERY LIGHT CYAN       ",    "LIGHT RED             ",    "RASPBERRY RED      ",
+"BRIGHT PINK           ",    "PINK                  ",    "MAGENTA            ",
+"FUCHSIA               ",    "BLAZE ORANGE          ",    "BITTERSWEET RED    ",
+"STRAWBERRY RED        ",    "HOT PINK              ",    "LIGHT PINK         ",
+"PINK FLAMINGO         ",    "DARK ORANGE           ",    "SALMON ORANGE      ",
+"TANGERINE RED         ",    "PINK SALMON           ",    "LAVENDER ROSE      ",
+"FUCHSIA PINK          ",    "ORANGE                ",    "LIGHT ORANGE       ",
+"VERY LIGHT ORANGE     ",    "PALE RED              ",    "PALE PINK          ",
+"PALE MAGENTA          ",    "GOLD                  ",    "DANDELION YELLOW   ",
+"JASMINE BROWN         ",    "PALE ORANGE           ",    "MISTY ROSE PINK    ",
+"PINK LACE             ",    "YELLOW                ",    "LEMON YELLOW       ",
+"PASTEL YELLOW         ",    "PALE YELLOW           ",    "VERY PALE YELLOW   ",
+"LIGHT WHITE           ",    "VAMPIRE BLACK         ",    "GRAY BLACK         ",
+"EERIE BLACK           ",    "RAISIN BLACK          ",    "DARK CHARCOAL      ",
+"BLACK OLIVE           ",    "OUTER SPACE GRAY      ",    "DARK LIVER GRAY    ",
+"DAVYS GRAY            ",    "GRANITE GRAY          ",    "DIM GRAY           ",
+"SONIC SILVER          ",    "GRAY                  ",    "PHILIPPINE GRAY    ",
+"DUSTY GRAY            ",    "SPANISH GRAY          ",    "LIGHTISH GRAY      ",
+"PHILIPPINE SILVER     ",    "SILVER                ",    "SILVER SAND.       ",
+"AMERICAN SILVER       ",    "ALTO GRAY             ",    "MERCURY GRAY       ",
+"DARK WHITE            ",    "DEFAULT               ",    "DEFAULT            "]
 
-class Color(enum.IntEnum):
 
+
+class No(enum.IntEnum):
     ''' Color class will help to select a specific color by name rather than using the number.
-        The number can be known by using the methods bg_ansi_color or fg_ansi_color.
-         
-        Notice that Color class works with all the classes, methods, and functions from 
-        custom_print rather than itself.
+    The number can be known by using the methods bg_ansi_color or fg_ansi_color.
 
-        import custom_print as cp
+    Notice that Color class works with all the classes, methods, and functions from
+    custom_print rather than itself.
 
-        CORRECT -> print(f"{cp.set_font(True, cp.Color.SUMMER_GREEN, cp.Color.BLACK)} Hello There...! {cp.reset_font()}")
-        
-        WRONG ->print(f"{cp.Color.SUMMER_GREEN} Hello There...! {cp.reset_font}")  
-            '''
+    import custom_print as cp
 
-    BLACK = 0;              RED = 1;                SUMMER_GREEN = 2
-    LIGHT_BROWN = 3;        MID_BLUE = 4;           LIGHT_PURPLE = 5
-    TURQUOISE = 6;          MID_WHITE = 7;          LIGHT_GRAY = 8
-    LIGHT_RED = 9
-    BLOOD_RED = 52
-    MAGENTA = 90
-    BLUE = 21
-    SKY_BLUE = 27
+    CORRECT -> print(f"{cp.set_font(True, cp.Color.SUMMER_GREEN, cp.Color.BLACK)} Hello There...! {cp.reset_font()}")
 
-    WHITE = 15
-    YELLOW = 11
+    WRONG ->print(f"{cp.Color.SUMMER_GREEN} Hello There...! {cp.reset_font}")
+    For the lates option use the Bg and Fg and Style classes.
+        '''
 
+    LIGHT_BLACK           = 0;          RED                   = 1;          LIGHT_OFFICE_GREEN  = 2
+    LIGHT_BROWN           = 3;          EARLY_NIGHT_BLUE      = 4;          MED_PURPLE          = 5
+    CYAN                  = 6;          LIGHT_GRAY            = 7;          DARK_GRAY           = 8
+    PASTEL_RED            = 9;          ELECTRIC_LIGHT_GREEN  = 10;         DARKISH_YELLOW      = 11
+    LIGHT_BLUE            = 12;         LIGHT_PURPLE          = 13;         VERY_LIGHT_BLUE     = 14
+    WHITE                 = 15;         BLACK                 = 16;         DARK_BLUE           = 17
+    NAVY_BLUE             = 18;         MIDNIGHT_BLUE         = 19;         MEDDIUM_BLUE        = 20
+    BLUE                  = 21;         SUMMER_GREEN          = 22;         VERY_DARK_CYAN      = 23
+    SEA_BLUE              = 24;         ENDEAVOUR_BLUE        = 25;         SCIENCE_BLUE        = 26
+    BLUE_RIBBON           = 27;         AO_GREEN              = 28;         DEEP_SEA_GREEN      = 29
+    TEAL                  = 30;         DEEP_CERULEAN_BLUE    = 31;         STRONG_BLUE         = 32
+    AZURE_BLUE            = 33;         DARK_LIME_GREEN       = 34;         GO_GREEN            = 35
+    DARK_CYAN             = 36;         BONDI_BLUE            = 37;         CERULEAN_BLUE       = 38
+    BLUE_BOLT             = 39;         STRONG_LIME_GREEN     = 40;         MALACHITE_GREEN     = 41
+    CARIBBEAN_GREEN       = 42;         STRONG_CYAN           = 43;         DARK_TURQUOISE      = 44
+    VIVID_SKY_BLUE        = 45;         ELECTRIC_GREEN        = 46;         SPRING_GREEN        = 47
+    GUPPIE_GREEN          = 48;         MEDIUM_SPRING_GREEN   = 49;         BRIGHT_TURQUOISE    = 50
+    AQUA                  = 51;         BLOOD_RED             = 52;         VERY_DARK_MAGENTA   = 53
+    INDIGO                = 54;         DARK_VIOLET           = 55;         LIGHT_VIOLET        = 56
+    ELECTRIC_INDIGO       = 57;         VERDUN_GREEN          = 58;         SCORPION_GRAY       = 59
+    UCLA_BLUE             = 60;         SCAMPI_BLUE           = 61;         SLATE_BLUE          = 62
+    CORNFLOWER_BLUE       = 63;         ACOCADO_GREEN         = 64;         GLADE_GREEN         = 65
+    STEEL_TEAL_CYAN       = 66;         STEEL_BLUE            = 67;         HAVELOCK_BLUE       = 68
+    BLUEBERRY             = 69;         KELLY_GREEN           = 70;         FOREST_GREEN        = 71
+    POLISHED_PIN_GREEN    = 72;         CRYSTAL_BLUE          = 73;         AQUA_PEARL          = 74
+    BLUE_JEANS            = 75;         HARLEQUIN_GREEN       = 76;         MODERATE_LIME_GREEN = 77 
+    CARIBBEAN_GREEN_PEARL = 78;         EUCALYPTUS_GREEN      = 79;         MEDDIUM_TURQUOISE   = 80 
+    MAYA_BLUE             = 81;         BRIGHT_GREEN          = 82;         LIGHT_LIME_GREEN    = 83 
+    LIGHT_MALACHITE_GREEN = 84;         MEDDIUM_AQUAMARINE    = 85;         AQUAMARINE_GREEN    = 86 
+    AQUAMARINE_CYAN       = 87;         DEEP_RED              = 88;         FRENCH_PLUM_VIOLET  = 89 
+    FRESH_EGGPLANT_VIOLET = 90;         VIOLET                = 91;         STRONG_VIOLET       = 92 
+    ELECTRIC_VIOLET       = 93;         BROWN                 = 94;         COPPER_BROWN        = 95 
+    MOSTLY_VIOLET         = 96;         ROYAL_PURPLE          = 97;         MEDDIUM_PURPLE      = 98 
+    BLUEBERRY_PURPLE      = 99;         DARK_OLIVE_GREEN      = 100;        CLAY_CREEK_GREEN    = 101
+    TAUPE_GRAY            = 102;        COOL_GRAY             = 103;        CHETWODE_BLUE       = 104
+    VIOLET_BLUE           = 105;        APPLE_GREEN           = 106;        ASPARAGUS_GREEN     = 107
+    LEAF_GREEN            = 108;        GRAYISH_CYAN          = 109;        COBALT_BLUE         = 110
+    SKY_BLUE              = 111;        PISTACHIO_GREEN       = 112;        MANTIS_GREEN        = 113
+    PASTEL_GREEN          = 114;        PEARL_AQUA            = 115;        SLIGHTLY_CYAN       = 116
+    PALE_CYAN             = 117;        GREEN                 = 118;        LIGHT_GREEN         = 119
+    VERY_LIGHT_LIME_GREEN = 120;        MINT_GREEN            = 121;        AQUA_LIME_CYAN      = 122
+    LIGHT_CYAN            = 123;        DARK_RED              = 124;        DARK_PINK           = 125
+    DARK_MAGENTA          = 126;        HELIOTROPE_MAGENTA    = 127;        VIVID_PURPLE        = 128
+    ELECTRIC_PURPLE       = 129;        DARK_ORANGE_BROWN     = 130;        ELECTRIC_BROWN      = 131
+    DARK_MODERATE_PINK    = 132;        DARK_MODERATE_MAGENTA = 133;        RICH_LILAC_VIOLET   = 134
+    LAVENDER_INDIGO       = 135;        PIRATE_GOLD_BROWN     = 136;        BRONZE_BROWN        = 137
+    DARK_GRAYISH_RED      = 138;        DARK_GRAYISH_MAGENTA  = 139;        LAVENDER            = 140
+    BRIGHT_LAVENDER       = 141;        LIGHT_GOLD_BROWN      = 142;        LIGHT_OLIVE_GREEN   = 143
+    DARK_GRAYISH_YELLOW   = 144;        SILVER_FOIL           = 145;        GRAYISH_BLUE        = 146
+    BLUE_PURPLE           = 147;        VIVID_LIME_GREEN      = 148;        MODERATE_GREEN      = 149
+    YELLOW_GREEN          = 150;        GRAYISH_LIME_GREEN    = 151;        CRYSTAL_CYAN        = 152
+    PALE_BLUE             = 153;        LIME                  = 154;        GREEN_YELLOW        = 155
+    VERY_LIGHT_GREEN      = 156;        MENTHOL_GREEN         = 157;        AEREO_BLUE          = 158
+    CELESTE_CYAN          = 159;        STRONG_RED            = 160;        ROYAL_RED           = 161
+    MEXICAN_PINK          = 162;        HOLLYWOOD_PINK        = 163;        STRONG_MAGENTA      = 164
+    PHLOX_VIOLET          = 165;        STRONG_ORANGE         = 166;        INDIAN_RED          = 167
+    BLUSH_RED             = 168;        SUPER_PINK            = 169;        ORCHID_MAGENTA      = 170
+    LIGHT_MAGENTA         = 171;        CHOCOLATE_BROWN       = 172;        COPPERFIELD_BROWN   = 173
+    SLIGHTLY_RED          = 174;        SLIGHTLY_PINK         = 175;        LIGHT_ORCHID_PINK   = 176
+    BRIGHT_LILAC_VIOLET   = 177;        MUSTARD_YELLOW        = 178;        EARTH_YELLOW        = 179
+    TAN_BROWN             = 180;        GRAYISH_RED           = 181;        GRAYISH_MAGENTA     = 182
+    PALE_VIOLET           = 183;        STRONG_YELLOW         = 184;        MODERATE_YELLOW     = 185
+    DECO_YELLOW           = 186;        PASTEL_GRAY           = 187;        LIGHT_SILVER        = 188
+    PALE_LAVENDER         = 189;        NEON_YELLOW           = 190;        LIGHT_GREEN_YELLOW  = 191
+    MINDARO_YELLOW        = 192;        PALE_GREEN            = 193;        VERY_PALE_GREEN     = 194
+    VERY_LIGHT_CYAN       = 195;        LIGHT_RED             = 196;        RASPBERRY_RED       = 197
+    BRIGHT_PINK           = 198;        PINK                  = 199;        MAGENTA             = 200
+    FUCHSIA               = 201;        BLAZE_ORANGE          = 202;        BITTERSWEET_RED     = 203
+    STRAWBERRY_RED        = 204;        HOT_PINK              = 205;        LIGHT_PINK          = 206
+    PINK_FLAMINGO         = 207;        DARK_ORANGE           = 208;        SALMON_ORANGE       = 209
+    TANGERINE_RED         = 210;        PINK_SALMON           = 211;        LAVENDER_ROSE       = 212
+    FUCHSIA_PINK          = 213;        ORANGE                = 214;        LIGHT_ORANGE        = 215
+    VERY_LIGHT_ORANGE     = 216;        PALE_RED              = 217;        PALE_PINK           = 218
+    PALE_MAGENTA          = 219;        GOLD                  = 220;        DANDELION_YELLOW    = 221
+    JASMINE_BROWN         = 222;        PALE_ORANGE           = 223;        MISTY_ROSE_PINK     = 224
+    PINK_LACE             = 225;        YELLOW                = 226;        LEMON_YELLOW        = 227
+    PASTEL_YELLOW         = 228;        PALE_YELLOW           = 229;        VERY_PALE_YELLOW    = 230
+    LIGHT_WHITE           = 231;        VAMPIRE_BLACK         = 232;        GRAY_BLACK          = 233
+    EERIE_BLACK           = 234;        RAISIN_BLACK          = 235;        DARK_CHARCOAL       = 236
+    BLACK_OLIVE           = 237;        OUTER_SPACE_GRAY      = 238;        DARK_LIVER_GRAY     = 239
+    DAVYS_GRAY            = 240;        GRANITE_GRAY          = 241;        DIM_GRAY            = 242
+    SONIC_SILVER          = 243;        GRAY                  = 244;        PHILIPPINE_GRAY     = 245
+    DUSTY_GRAY            = 246;        SPANISH_GRAY          = 247;        LIGHTISH_GRAY       = 248
+    PHILIPPINE_SILVER     = 249;        SILVER                = 250;        SILVER_SAND         = 251
+    AMERICAN_SILVER       = 252;        ALTO_GRAY             = 253;        MERCURY_GRAY        = 254
+    DARK_WHITE            = 255;        DEFAULT               = 256;        default             = -1
+
+class Bg(enum.StrEnum):
+    
+    '''  This Class uses the name of the color for background.
+         import custom_print as cp
+         print(f"{cp.Bg.INDIGO} Hello {cp.Bg.OFF} Normal")
+    '''
+    
+    LIGHT_BLACK           = "\033[48;5;0m";          RED                    = "\033[48;5;1m";         LIGHT_OFFICE_GREEN   = "\033[48;5;2m"
+    LIGHT_BROWN           = "\033[48;5;3m";          EARLY_NIGHT_BLUE       = "\033[48;5;4m";         MED_PURPLE           = "\033[48;5;5m"
+    CYAN                  = "\033[48;5;6m";          LIGHT_GRAY             = "\033[48;5;7m";         DARK_GRAY            = "\033[48;5;8m"
+    PASTEL_RED            = "\033[48;5;9m";          ELECTRIC_LIGHT_GREEN   = "\033[48;5;10m";        DARKISH_YELLOW       = "\033[48;5;11m"
+    LIGHT_BLUE            = "\033[48;5;12m";         LIGHT_PURPLE           = "\033[48;5;13m";         VERY_LIGHT_BLUE     = "\033[48;5;14m"
+    WHITE                 = "\033[48;5;15m";         BLACK                  = "\033[48;5;16m";         DARK_BLUE           = "\033[48;5;17m"
+    NAVY_BLUE             = "\033[48;5;18m";         MIDNIGHT_BLUE          = "\033[48;5;19m";         MEDDIUM_BLUE        = "\033[48;5;20m"
+    BLUE                  = "\033[48;5;21m";         SUMMER_GREEN           = "\033[48;5;22m";         VERY_DARK_CYAN      = "\033[48;5;23m"
+    SEA_BLUE              = "\033[48;5;24m";         ENDEAVOUR_BLUE         = "\033[48;5;25m";         SCIENCE_BLUE        = "\033[48;5;26m"
+    BLUE_RIBBON           = "\033[48;5;27m";         AO_GREEN               = "\033[48;5;28m";         DEEP_SEA_GREEN      = "\033[48;5;29m"
+    TEAL                  = "\033[48;5;30m";         DEEP_CERULEAN_BLUE     = "\033[48;5;31m";         STRONG_BLUE         = "\033[48;5;32m"
+    AZURE_BLUE            = "\033[48;5;33m";         DARK_LIME_GREEN        = "\033[48;5;34m";         GO_GREEN            = "\033[48;5;35m"
+    DARK_CYAN             = "\033[48;5;36m";         BONDI_BLUE             = "\033[48;5;37m";         CERULEAN_BLUE       = "\033[48;5;38m"
+    BLUE_BOLT             = "\033[48;5;39m";         STRONG_LIME_GREEN      = "\033[48;5;40m";         MALACHITE_GREEN     = "\033[48;5;41m"
+    CARIBBEAN_GREEN       = "\033[48;5;42m";         STRONG_CYAN            = "\033[48;5;43m";         DARK_TURQUOISE      = "\033[48;5;44m"
+    VIVID_SKY_BLUE        = "\033[48;5;45m";         ELECTRIC_GREEN         = "\033[48;5;46m";         SPRING_GREEN        = "\033[48;5;47m"
+    GUPPIE_GREEN          = "\033[48;5;48m";         MEDIUM_SPRING_GREEN    = "\033[48;5;49m";         BRIGHT_TURQUOISE    = "\033[48;5;50m"
+    AQUA                  = "\033[48;5;51m";         BLOOD_RED              = "\033[48;5;52m";         VERY_DARK_MAGENTA   = "\033[48;5;53m"
+    INDIGO                = "\033[48;5;54m";         DARK_VIOLET            = "\033[48;5;55m";         LIGHT_VIOLET        = "\033[48;5;56m"
+    ELECTRIC_INDIGO       = "\033[48;5;57m";         VERDUN_GREEN           = "\033[48;5;58m";         SCORPION_GRAY       = "\033[48;5;59m"
+    UCLA_BLUE             = "\033[48;5;60m";         SCAMPI_BLUE            = "\033[48;5;61m";         SLATE_BLUE          = "\033[48;5;62m"
+    CORNFLOWER_BLUE       = "\033[48;5;63m";         ACOCADO_GREEN          = "\033[48;5;64m";         GLADE_GREEN         = "\033[48;5;65m"
+    STEEL_TEAL_CYAN       = "\033[48;5;66m";         STEEL_BLUE             = "\033[48;5;67m";         HAVELOCK_BLUE       = "\033[48;5;68m"
+    BLUEBERRY             = "\033[48;5;69m";         KELLY_GREEN            = "\033[48;5;70m";         FOREST_GREEN        = "\033[48;5;71m"
+    POLISHED_PIN_GREEN    = "\033[48;5;72m";         CRYSTAL_BLUE           = "\033[48;5;73m";         AQUA_PEARL          = "\033[48;5;74m"
+    BLUE_JEANS            = "\033[48;5;75m";         HARLEQUIN_GREEN        = "\033[48;5;76m";         MODERATE_LIME_GREEN = "\033[48;5;77m" 
+    CARIBBEAN_GREEN_PEARL = "\033[48;5;78m";         EUCALYPTUS_GREEN       = "\033[48;5;79m";         MEDDIUM_TURQUOISE   = "\033[48;5;80m" 
+    MAYA_BLUE             = "\033[48;5;81m";         BRIGHT_GREEN           = "\033[48;5;82m";         LIGHT_LIME_GREEN    = "\033[48;5;83m" 
+    LIGHT_MALACHITE_GREEN = "\033[48;5;84m";         MEDDIUM_AQUAMARINE     = "\033[48;5;85m";         AQUAMARINE_GREEN    = "\033[48;5;86m" 
+    AQUAMARINE_CYAN       = "\033[48;5;87m";         DEEP_RED               = "\033[48;5;88m";         FRENCH_PLUM_VIOLET  = "\033[48;5;89m" 
+    FRESH_EGGPLANT_VIOLET = "\033[48;5;90m";         VIOLET                 = "\033[48;5;91m";         STRONG_VIOLET       = "\033[48;5;92m" 
+    ELECTRIC_VIOLET       = "\033[48;5;93m";         BROWN                  = "\033[48;5;94m";         COPPER_BROWN        = "\033[48;5;95m" 
+    MOSTLY_VIOLET         = "\033[48;5;96m";         ROYAL_PURPLE           = "\033[48;5;97m";         MEDDIUM_PURPLE      = "\033[48;5;98m" 
+    BLUEBERRY_PURPLE      = "\033[48;5;99m";         DARK_OLIVE_GREEN       = "\033[48;5;100m";        CLAY_CREEK_GREEN    = "\033[48;5;101m"
+    TAUPE_GRAY            = "\033[48;5;102m";        COOL_GRAY              = "\033[48;5;103m";        CHETWODE_BLUE       = "\033[48;5;104m"
+    VIOLET_BLUE           = "\033[48;5;105m";        APPLE_GREEN            = "\033[48;5;106m";        ASPARAGUS_GREEN     = "\033[48;5;107m"
+    LEAF_GREEN            = "\033[48;5;108m";        GRAYISH_CYAN           = "\033[48;5;109m";        COBALT_BLUE         = "\033[48;5;110m"
+    SKY_BLUE              = "\033[48;5;111m";        PISTACHIO_GREEN        = "\033[48;5;112m";        MANTIS_GREEN        = "\033[48;5;113m"
+    PASTEL_GREEN          = "\033[48;5;114m";        PEARL_AQUA             = "\033[48;5;115m";        SLIGHTLY_CYAN       = "\033[48;5;116m"
+    PALE_CYAN             = "\033[48;5;117m";        GREEN                  = "\033[48;5;118m";        LIGHT_GREEN         = "\033[48;5;119m"
+    VERY_LIGHT_LIME_GREEN = "\033[48;5;120m";        MINT_GREEN             = "\033[48;5;121m";        AQUA_LIME_CYAN      = "\033[48;5;122m"
+    LIGHT_CYAN            = "\033[48;5;123m";        DARK_RED               = "\033[48;5;124m";        DARK_PINK           = "\033[48;5;125m"
+    DARK_MAGENTA          = "\033[48;5;126m";        HELIOTROPE_MAGENTA     = "\033[48;5;127m";        VIVID_PURPLE        = "\033[48;5;128m"
+    ELECTRIC_PURPLE       = "\033[48;5;129m";        DARK_ORANGE_BROWN      = "\033[48;5;130m";        ELECTRIC_BROWN      = "\033[48;5;131m"
+    DARK_MODERATE_PINK    = "\033[48;5;132m";        DARK_MODERATE_MAGENTA  = "\033[48;5;133m";        RICH_LILAC_VIOLET   = "\033[48;5;134m"
+    LAVENDER_INDIGO       = "\033[48;5;135m";        PIRATE_GOLD_BROWN      = "\033[48;5;136m";        BRONZE_BROWN        = "\033[48;5;137m"
+    DARK_GRAYISH_RED      = "\033[48;5;138m";        DARK_GRAYISH_MAGENTA   = "\033[48;5;139m";        LAVENDER            = "\033[48;5;140m"
+    BRIGHT_LAVENDER       = "\033[48;5;141m";        LIGHT_GOLD_BROWN       = "\033[48;5;142m";        LIGHT_OLIVE_GREEN   = "\033[48;5;143m"
+    DARK_GRAYISH_YELLOW   = "\033[48;5;144m";        SILVER_FOIL            = "\033[48;5;145m";        GRAYISH_BLUE        = "\033[48;5;146m"
+    BLUE_PURPLE           = "\033[48;5;147m";        VIVID_LIME_GREEN       = "\033[48;5;148m";        MODERATE_GREEN      = "\033[48;5;149m"
+    YELLOW_GREEN          = "\033[48;5;150m";        GRAYISH_LIME_GREEN     = "\033[48;5;151m";        CRYSTAL_CYAN        = "\033[48;5;152m"
+    PALE_BLUE             = "\033[48;5;153m";        LIME                   = "\033[48;5;154m";        GREEN_YELLOW        = "\033[48;5;155m"
+    VERY_LIGHT_GREEN      = "\033[48;5;156m";        MENTHOL_GREEN          = "\033[48;5;157m";        AEREO_BLUE          = "\033[48;5;158m"
+    CELESTE_CYAN          = "\033[48;5;159m";        STRONG_RED             = "\033[48;5;160m";        ROYAL_RED           = "\033[48;5;161m"
+    MEXICAN_PINK          = "\033[48;5;162m";        HOLLYWOOD_PINK         = "\033[48;5;163m";        STRONG_MAGENTA      = "\033[48;5;164m"
+    PHLOX_VIOLET          = "\033[48;5;165m";        STRONG_ORANGE          = "\033[48;5;166m";        INDIAN_RED          = "\033[48;5;167m"
+    BLUSH_RED             = "\033[48;5;168m";        SUPER_PINK             = "\033[48;5;169m";        ORCHID_MAGENTA      = "\033[48;5;170m"
+    LIGHT_MAGENTA         = "\033[48;5;171m";        CHOCOLATE_BROWN        = "\033[48;5;172m";        COPPERFIELD_BROWN   = "\033[48;5;173m"
+    SLIGHTLY_RED          = "\033[48;5;174m";        SLIGHTLY_PINK          = "\033[48;5;175m";        LIGHT_ORCHID_PINK   = "\033[48;5;176m"
+    BRIGHT_LILAC_VIOLET   = "\033[48;5;177m";        MUSTARD_YELLOW         = "\033[48;5;178m";        EARTH_YELLOW        = "\033[48;5;179m"
+    TAN_BROWN             = "\033[48;5;180m";        GRAYISH_RED            = "\033[48;5;181m";        GRAYISH_MAGENTA     = "\033[48;5;182m"
+    PALE_VIOLET           = "\033[48;5;183m";        STRONG_YELLOW          = "\033[48;5;184m";        MODERATE_YELLOW     = "\033[48;5;185m"
+    DECO_YELLOW           = "\033[48;5;186m";        PASTEL_GRAY            = "\033[48;5;187m";        LIGHT_SILVER        = "\033[48;5;188m"
+    PALE_LAVENDER         = "\033[48;5;189m";        NEON_YELLOW            = "\033[48;5;190m";        LIGHT_GREEN_YELLOW  = "\033[48;5;191m"
+    MINDARO_YELLOW        = "\033[48;5;192m";        PALE_GREEN             = "\033[48;5;193m";        VERY_PALE_GREEN     = "\033[48;5;194m"
+    VERY_LIGHT_CYAN       = "\033[48;5;195m";        LIGHT_RED              = "\033[48;5;196m";        RASPBERRY_RED       = "\033[48;5;197m"
+    BRIGHT_PINK           = "\033[48;5;198m";        PINK                   = "\033[48;5;199m";        MAGENTA             = "\033[48;5;200m"
+    FUCHSIA               = "\033[48;5;201m";        BLAZE_ORANGE           = "\033[48;5;202m";        BITTERSWEET_RED     = "\033[48;5;203m"
+    STRAWBERRY_RED        = "\033[48;5;204m";        HOT_PINK               = "\033[48;5;205m";        LIGHT_PINK          = "\033[48;5;206m"
+    PINK_FLAMINGO         = "\033[48;5;207m";        DARK_ORANGE            = "\033[48;5;208m";        SALMON_ORANGE       = "\033[48;5;209m"
+    TANGERINE_RED         = "\033[48;5;210m";        PINK_SALMON            = "\033[48;5;211m";        LAVENDER_ROSE       = "\033[48;5;212m"
+    FUCHSIA_PINK          = "\033[48;5;213m";        ORANGE                 = "\033[48;5;214m";        LIGHT_ORANGE        = "\033[48;5;215m"
+    VERY_LIGHT_ORANGE     = "\033[48;5;216m";        PALE_RED               = "\033[48;5;217m";        PALE_PINK           = "\033[48;5;218m"
+    PALE_MAGENTA          = "\033[48;5;219m";        GOLD                   = "\033[48;5;220m";        DANDELION_YELLOW    = "\033[48;5;221m"
+    JASMINE_BROWN         = "\033[48;5;222m";        PALE_ORANGE            = "\033[48;5;223m";        MISTY_ROSE_PINK     = "\033[48;5;224m"
+    PINK_LACE             = "\033[48;5;225m";        YELLOW                 = "\033[48;5;226m";        LEMON_YELLOW        = "\033[48;5;227m"
+    PASTEL_YELLOW         = "\033[48;5;228m";        PALE_YELLOW            = "\033[48;5;229m";        VERY_PALE_YELLOW    = "\033[48;5;230m"
+    LIGHT_WHITE           = "\033[48;5;231m";        VAMPIRE_BLACK          = "\033[48;5;232m";        GRAY_BLACK          = "\033[48;5;233m"
+    EERIE_BLACK           = "\033[48;5;234m";        RAISIN_BLACK           = "\033[48;5;235m";        DARK_CHARCOAL       = "\033[48;5;236m"
+    BLACK_OLIVE           = "\033[48;5;237m";        OUTER_SPACE_GRAY       = "\033[48;5;238m";        DARK_LIVER_GRAY     = "\033[48;5;239m"
+    DAVYS_GRAY            = "\033[48;5;240m";        GRANITE_GRAY           = "\033[48;5;241m";        DIM_GRAY            = "\033[48;5;242m"
+    SONIC_SILVER          = "\033[48;5;243m";        GRAY                   = "\033[48;5;244m";        PHILIPPINE_GRAY     = "\033[48;5;245m"
+    DUSTY_GRAY            = "\033[48;5;246m";        SPANISH_GRAY           = "\033[48;5;247m";        LIGHTISH_GRAY       = "\033[48;5;248m"
+    PHILIPPINE_SILVER     = "\033[48;5;249m";        SILVER                 = "\033[48;5;250m";        SILVER_SAND         = "\033[48;5;251m"
+    AMERICAN_SILVER       = "\033[48;5;252m";        ALTO_GRAY              = "\033[48;5;253m";        MERCURY_GRAY        = "\033[48;5;254m"
+    DARK_WHITE            = "\033[48;5;255m";        DEFAULT                = "\033[49m";              OFF                 = "\033[49m"  
+
+
+
+
+
+class Fg(enum.StrEnum):
+
+    '''  This Class uses the name of the color for the foreground.
+         import custom_print as cp
+         print(f"{cp.Fg.YELLOW} Hello {cp.Fg.OFF} Normal")
+    '''
+
+    LIGHT_BLACK           = "\033[38;5;0m";          RED                    = "\033[38;5;1m";         LIGHT_OFFICE_GREEN   = "\033[38;5;2m"
+    LIGHT_BROWN           = "\033[38;5;3m";          EARLY_NIGHT_BLUE       = "\033[38;5;4m";         MED_PURPLE           = "\033[38;5;5m"
+    CYAN                  = "\033[38;5;6m";          LIGHT_GRAY             = "\033[38;5;7m";         DARK_GRAY            = "\033[38;5;8m"
+    PASTEL_RED            = "\033[38;5;9m";          ELECTRIC_LIGHT_GREEN   = "\033[38;5;10m";        DARKISH_YELLOW       = "\033[38;5;11m"
+    LIGHT_BLUE            = "\033[38;5;12m";         LIGHT_PURPLE           = "\033[38;5;13m";         VERY_LIGHT_BLUE     = "\033[38;5;14m"
+    WHITE                 = "\033[38;5;15m";         BLACK                  = "\033[38;5;16m";         DARK_BLUE           = "\033[38;5;17m"
+    NAVY_BLUE             = "\033[38;5;18m";         MIDNIGHT_BLUE          = "\033[38;5;19m";         MEDDIUM_BLUE        = "\033[38;5;20m"
+    BLUE                  = "\033[38;5;21m";         SUMMER_GREEN           = "\033[38;5;22m";         VERY_DARK_CYAN      = "\033[38;5;23m"
+    SEA_BLUE              = "\033[38;5;24m";         ENDEAVOUR_BLUE         = "\033[38;5;25m";         SCIENCE_BLUE        = "\033[38;5;26m"
+    BLUE_RIBBON           = "\033[38;5;27m";         AO_GREEN               = "\033[38;5;28m";         DEEP_SEA_GREEN      = "\033[38;5;29m"
+    TEAL                  = "\033[38;5;30m";         DEEP_CERULEAN_BLUE     = "\033[38;5;31m";         STRONG_BLUE         = "\033[38;5;32m"
+    AZURE_BLUE            = "\033[38;5;33m";         DARK_LIME_GREEN        = "\033[38;5;34m";         GO_GREEN            = "\033[38;5;35m"
+    DARK_CYAN             = "\033[38;5;36m";         BONDI_BLUE             = "\033[38;5;37m";         CERULEAN_BLUE       = "\033[38;5;38m"
+    BLUE_BOLT             = "\033[38;5;39m";         STRONG_LIME_GREEN      = "\033[38;5;40m";         MALACHITE_GREEN     = "\033[38;5;41m"
+    CARIBBEAN_GREEN       = "\033[38;5;42m";         STRONG_CYAN            = "\033[38;5;43m";         DARK_TURQUOISE      = "\033[38;5;44m"
+    VIVID_SKY_BLUE        = "\033[38;5;45m";         ELECTRIC_GREEN         = "\033[38;5;46m";         SPRING_GREEN        = "\033[38;5;47m"
+    GUPPIE_GREEN          = "\033[38;5;48m";         MEDIUM_SPRING_GREEN    = "\033[38;5;49m";         BRIGHT_TURQUOISE    = "\033[38;5;50m"
+    AQUA                  = "\033[38;5;51m";         BLOOD_RED              = "\033[38;5;52m";         VERY_DARK_MAGENTA   = "\033[38;5;53m"
+    INDIGO                = "\033[38;5;54m";         DARK_VIOLET            = "\033[38;5;55m";         LIGHT_VIOLET        = "\033[38;5;56m"
+    ELECTRIC_INDIGO       = "\033[38;5;57m";         VERDUN_GREEN           = "\033[38;5;58m";         SCORPION_GRAY       = "\033[38;5;59m"
+    UCLA_BLUE             = "\033[38;5;60m";         SCAMPI_BLUE            = "\033[38;5;61m";         SLATE_BLUE          = "\033[38;5;62m"
+    CORNFLOWER_BLUE       = "\033[38;5;63m";         ACOCADO_GREEN          = "\033[38;5;64m";         GLADE_GREEN         = "\033[38;5;65m"
+    STEEL_TEAL_CYAN       = "\033[38;5;66m";         STEEL_BLUE             = "\033[38;5;67m";         HAVELOCK_BLUE       = "\033[38;5;68m"
+    BLUEBERRY             = "\033[38;5;69m";         KELLY_GREEN            = "\033[38;5;70m";         FOREST_GREEN        = "\033[38;5;71m"
+    POLISHED_PIN_GREEN    = "\033[38;5;72m";         CRYSTAL_BLUE           = "\033[38;5;73m";         AQUA_PEARL          = "\033[38;5;74m"
+    BLUE_JEANS            = "\033[38;5;75m";         HARLEQUIN_GREEN        = "\033[38;5;76m";         MODERATE_LIME_GREEN = "\033[38;5;77m" 
+    CARIBBEAN_GREEN_PEARL = "\033[38;5;78m";         EUCALYPTUS_GREEN       = "\033[38;5;79m";         MEDDIUM_TURQUOISE   = "\033[38;5;80m" 
+    MAYA_BLUE             = "\033[38;5;81m";         BRIGHT_GREEN           = "\033[38;5;82m";         LIGHT_LIME_GREEN    = "\033[38;5;83m" 
+    LIGHT_MALACHITE_GREEN = "\033[38;5;84m";         MEDDIUM_AQUAMARINE     = "\033[38;5;85m";         AQUAMARINE_GREEN    = "\033[38;5;86m" 
+    AQUAMARINE_CYAN       = "\033[38;5;87m";         DEEP_RED               = "\033[38;5;88m";         FRENCH_PLUM_VIOLET  = "\033[38;5;89m" 
+    FRESH_EGGPLANT_VIOLET = "\033[38;5;90m";         VIOLET                 = "\033[38;5;91m";         STRONG_VIOLET       = "\033[38;5;92m" 
+    ELECTRIC_VIOLET       = "\033[38;5;93m";         BROWN                  = "\033[38;5;94m";         COPPER_BROWN        = "\033[38;5;95m" 
+    MOSTLY_VIOLET         = "\033[38;5;96m";         ROYAL_PURPLE           = "\033[38;5;97m";         MEDDIUM_PURPLE      = "\033[38;5;98m" 
+    BLUEBERRY_PURPLE      = "\033[38;5;99m";         DARK_OLIVE_GREEN       = "\033[38;5;100m";        CLAY_CREEK_GREEN    = "\033[38;5;101m"
+    TAUPE_GRAY            = "\033[38;5;102m";        COOL_GRAY              = "\033[38;5;103m";        CHETWODE_BLUE       = "\033[38;5;104m"
+    VIOLET_BLUE           = "\033[38;5;105m";        APPLE_GREEN            = "\033[38;5;106m";        ASPARAGUS_GREEN     = "\033[38;5;107m"
+    LEAF_GREEN            = "\033[38;5;108m";        GRAYISH_CYAN           = "\033[38;5;109m";        COBALT_BLUE         = "\033[38;5;110m"
+    SKY_BLUE              = "\033[38;5;111m";        PISTACHIO_GREEN        = "\033[38;5;112m";        MANTIS_GREEN        = "\033[38;5;113m"
+    PASTEL_GREEN          = "\033[38;5;114m";        PEARL_AQUA             = "\033[38;5;115m";        SLIGHTLY_CYAN       = "\033[38;5;116m"
+    PALE_CYAN             = "\033[38;5;117m";        GREEN                  = "\033[38;5;118m";        LIGHT_GREEN         = "\033[38;5;119m"
+    VERY_LIGHT_LIME_GREEN = "\033[38;5;120m";        MINT_GREEN             = "\033[38;5;121m";        AQUA_LIME_CYAN      = "\033[38;5;122m"
+    LIGHT_CYAN            = "\033[38;5;123m";        DARK_RED               = "\033[38;5;124m";        DARK_PINK           = "\033[38;5;125m"
+    DARK_MAGENTA          = "\033[38;5;126m";        HELIOTROPE_MAGENTA     = "\033[38;5;127m";        VIVID_PURPLE        = "\033[38;5;128m"
+    ELECTRIC_PURPLE       = "\033[38;5;129m";        DARK_ORANGE_BROWN      = "\033[38;5;130m";        ELECTRIC_BROWN      = "\033[38;5;131m"
+    DARK_MODERATE_PINK    = "\033[38;5;132m";        DARK_MODERATE_MAGENTA  = "\033[38;5;133m";        RICH_LILAC_VIOLET   = "\033[38;5;134m"
+    LAVENDER_INDIGO       = "\033[38;5;135m";        PIRATE_GOLD_BROWN      = "\033[38;5;136m";        BRONZE_BROWN        = "\033[38;5;137m"
+    DARK_GRAYISH_RED      = "\033[38;5;138m";        DARK_GRAYISH_MAGENTA   = "\033[38;5;139m";        LAVENDER            = "\033[38;5;140m"
+    BRIGHT_LAVENDER       = "\033[38;5;141m";        LIGHT_GOLD_BROWN       = "\033[38;5;142m";        LIGHT_OLIVE_GREEN   = "\033[38;5;143m"
+    DARK_GRAYISH_YELLOW   = "\033[38;5;144m";        SILVER_FOIL            = "\033[38;5;145m";        GRAYISH_BLUE        = "\033[38;5;146m"
+    BLUE_PURPLE           = "\033[38;5;147m";        VIVID_LIME_GREEN       = "\033[38;5;148m";        MODERATE_GREEN      = "\033[38;5;149m"
+    YELLOW_GREEN          = "\033[38;5;150m";        GRAYISH_LIME_GREEN     = "\033[38;5;151m";        CRYSTAL_CYAN        = "\033[38;5;152m"
+    PALE_BLUE             = "\033[38;5;153m";        LIME                   = "\033[38;5;154m";        GREEN_YELLOW        = "\033[38;5;155m"
+    VERY_LIGHT_GREEN      = "\033[38;5;156m";        MENTHOL_GREEN          = "\033[38;5;157m";        AEREO_BLUE          = "\033[38;5;158m"
+    CELESTE_CYAN          = "\033[38;5;159m";        STRONG_RED             = "\033[38;5;160m";        ROYAL_RED           = "\033[38;5;161m"
+    MEXICAN_PINK          = "\033[38;5;162m";        HOLLYWOOD_PINK         = "\033[38;5;163m";        STRONG_MAGENTA      = "\033[38;5;164m"
+    PHLOX_VIOLET          = "\033[38;5;165m";        STRONG_ORANGE          = "\033[38;5;166m";        INDIAN_RED          = "\033[38;5;167m"
+    BLUSH_RED             = "\033[38;5;168m";        SUPER_PINK             = "\033[38;5;169m";        ORCHID_MAGENTA      = "\033[38;5;170m"
+    LIGHT_MAGENTA         = "\033[38;5;171m";        CHOCOLATE_BROWN        = "\033[38;5;172m";        COPPERFIELD_BROWN   = "\033[38;5;173m"
+    SLIGHTLY_RED          = "\033[38;5;174m";        SLIGHTLY_PINK          = "\033[38;5;175m";        LIGHT_ORCHID_PINK   = "\033[38;5;176m"
+    BRIGHT_LILAC_VIOLET   = "\033[38;5;177m";        MUSTARD_YELLOW         = "\033[38;5;178m";        EARTH_YELLOW        = "\033[38;5;179m"
+    TAN_BROWN             = "\033[38;5;180m";        GRAYISH_RED            = "\033[38;5;181m";        GRAYISH_MAGENTA     = "\033[38;5;182m"
+    PALE_VIOLET           = "\033[38;5;183m";        STRONG_YELLOW          = "\033[38;5;184m";        MODERATE_YELLOW     = "\033[38;5;185m"
+    DECO_YELLOW           = "\033[38;5;186m";        PASTEL_GRAY            = "\033[38;5;187m";        LIGHT_SILVER        = "\033[38;5;188m"
+    PALE_LAVENDER         = "\033[38;5;189m";        NEON_YELLOW            = "\033[38;5;190m";        LIGHT_GREEN_YELLOW  = "\033[38;5;191m"
+    MINDARO_YELLOW        = "\033[38;5;192m";        PALE_GREEN             = "\033[38;5;193m";        VERY_PALE_GREEN     = "\033[38;5;194m"
+    VERY_LIGHT_CYAN       = "\033[38;5;195m";        LIGHT_RED              = "\033[38;5;196m";        RASPBERRY_RED       = "\033[38;5;197m"
+    BRIGHT_PINK           = "\033[38;5;198m";        PINK                   = "\033[38;5;199m";        MAGENTA             = "\033[38;5;200m"
+    FUCHSIA               = "\033[38;5;201m";        BLAZE_ORANGE           = "\033[38;5;202m";        BITTERSWEET_RED     = "\033[38;5;203m"
+    STRAWBERRY_RED        = "\033[38;5;204m";        HOT_PINK               = "\033[38;5;205m";        LIGHT_PINK          = "\033[38;5;206m"
+    PINK_FLAMINGO         = "\033[38;5;207m";        DARK_ORANGE            = "\033[38;5;208m";        SALMON_ORANGE       = "\033[38;5;209m"
+    TANGERINE_RED         = "\033[38;5;210m";        PINK_SALMON            = "\033[38;5;211m";        LAVENDER_ROSE       = "\033[38;5;212m"
+    FUCHSIA_PINK          = "\033[38;5;213m";        ORANGE                 = "\033[38;5;214m";        LIGHT_ORANGE        = "\033[38;5;215m"
+    VERY_LIGHT_ORANGE     = "\033[38;5;216m";        PALE_RED               = "\033[38;5;217m";        PALE_PINK           = "\033[38;5;218m"
+    PALE_MAGENTA          = "\033[38;5;219m";        GOLD                   = "\033[38;5;220m";        DANDELION_YELLOW    = "\033[38;5;221m"
+    JASMINE_BROWN         = "\033[38;5;222m";        PALE_ORANGE            = "\033[38;5;223m";        MISTY_ROSE_PINK     = "\033[38;5;224m"
+    PINK_LACE             = "\033[38;5;225m";        YELLOW                 = "\033[38;5;226m";        LEMON_YELLOW        = "\033[38;5;227m"
+    PASTEL_YELLOW         = "\033[38;5;228m";        PALE_YELLOW            = "\033[38;5;229m";        VERY_PALE_YELLOW    = "\033[38;5;230m"
+    LIGHT_WHITE           = "\033[38;5;231m";        VAMPIRE_BLACK          = "\033[38;5;232m";        GRAY_BLACK          = "\033[38;5;233m"
+    EERIE_BLACK           = "\033[38;5;234m";        RAISIN_BLACK           = "\033[38;5;235m";        DARK_CHARCOAL       = "\033[38;5;236m"
+    BLACK_OLIVE           = "\033[38;5;237m";        OUTER_SPACE_GRAY       = "\033[38;5;238m";        DARK_LIVER_GRAY     = "\033[38;5;239m"
+    DAVYS_GRAY            = "\033[38;5;240m";        GRANITE_GRAY           = "\033[38;5;241m";        DIM_GRAY            = "\033[38;5;242m"
+    SONIC_SILVER          = "\033[38;5;243m";        GRAY                   = "\033[38;5;244m";        PHILIPPINE_GRAY     = "\033[38;5;245m"
+    DUSTY_GRAY            = "\033[38;5;246m";        SPANISH_GRAY           = "\033[38;5;247m";        LIGHTISH_GRAY       = "\033[38;5;248m"
+    PHILIPPINE_SILVER     = "\033[38;5;249m";        SILVER                 = "\033[38;5;250m";        SILVER_SAND         = "\033[38;5;251m"
+    AMERICAN_SILVER       = "\033[38;5;252m";        ALTO_GRAY              = "\033[38;5;253m";        MERCURY_GRAY        = "\033[38;5;254m"
+    DARK_WHITE            = "\033[38;5;255m";        DEFAULT                = "\033[39m";              OFF                 = "\033[39m"
+
+
+
+class Style(enum.StrEnum):
+
+    '''  This Class uses the name of the style rather than bool.
+         import custom_print as cp
+         print(f"{cp.Fg.YELLOW} Hello {cp.Fg.OFF} Normal")
+    '''
+
+    BOLD_ON      = "\033[1m";       BOLD_OFF      = "\033[22m"
+    DIM_ON       = "\033[2m";       DIM_OFF       = "\033[22m"
+    ITALIC_ON    = "\033[3m";       ITALIC_OFF    = "\033[23m"
+    UNDERLINE_ON = "\033[4m";       UNDERLINE_OFF = "\033[24m"
+    BLINKING_ON  = "\033[5m";       BLINKING_OFF  = "\033[25m"
+    INVERSE_ON   = "\033[7m";       INVERSE_OFF   = "\033[27m"
+    HIDDEN_ON    = "\033[8m";       HIDDEN_OFF    = "\033[28m"
+    STRIKE_ON    = "\033[9m";       STRIKE_OFF    = "\033[29m"
+    RESET_ALL    = "\033[0m"
+    OFF = "\033[22m"+"\033[23m"+"\033[24m"+"\033[25m"+"\033[27m"+"\033[28m"+"\033[29m"
 
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 # Screen Functions Windows and Linux                                                                                                                 -
@@ -308,7 +683,6 @@ def bg_ansi_colors(bold=False, fg=-1, n_line=0):
     reset = "\033[0m"
     space = "   "
     ctrl  = 0
-    msg   = " bg color number "
 
     if fg < 0 or fg > 256: fg_color = "-1"
     else:                  fg_color = str(fg)
@@ -324,24 +698,24 @@ def bg_ansi_colors(bold=False, fg=-1, n_line=0):
         if ctrl <= 1:
             ctrl += 1
             if fg_color == "-1":
-                print(f"\033[{b};48;5;{color}m {msg} {reset}{color}",end=space)
+                print(f"\033[{b};48;5;{color}m {_COLOR_NAMES[color]} {reset}{color}",end=space)
             else:
-                print(f"\033[{b};48;5;{color};38;5;{fg_color}m {msg} {reset}{color}",end=space)
+                print(f"\033[{b};48;5;{color};38;5;{fg_color}m {_COLOR_NAMES[color]} {reset}{color}",end=space)
         else:
             ctrl = 0
             if fg_color == "-1":
                 if n_line > 0:
-                    print(f"\033[{b};48;5;{color}m {msg} {reset}{color}")
+                    print(f"\033[{b};48;5;{color}m {_COLOR_NAMES[color]} {reset}{color}")
                     ins_newline(n_line)
                 else:
-                    print(f"\033[{b};48;5;{color}m {msg} {reset}{color}")
+                    print(f"\033[{b};48;5;{color}m {_COLOR_NAMES[color]} {reset}{color}")
 
             else:
                 if n_line > 0:
-                    print(f"\033[{b};48;5;{color};38;5;{fg_color}m {msg} {reset}{color}")
+                    print(f"\033[{b};48;5;{color};38;5;{fg_color}m {_COLOR_NAMES[color]} {reset}{color}")
                     ins_newline(n_line)
                 else:
-                    print(f"\033[{b};48;5;{color};38;5;{fg_color}m {msg} {reset}{color}")
+                    print(f"\033[{b};48;5;{color};38;5;{fg_color}m {_COLOR_NAMES[color]} {reset}{color}")
 
     print("\x1B[0m  bg default color  -1")
 
@@ -357,7 +731,6 @@ def fg_ansi_colors(bold=False, bg=-1, n_line=0):
     reset = "\033[0m"
     space = "   "
     ctrl  = 0
-    msg   = " fg color number "
 
     if bg < 0 or bg > 256: bg_color = "-1"
     else:                  bg_color = str(bg)
@@ -376,23 +749,23 @@ def fg_ansi_colors(bold=False, bg=-1, n_line=0):
         if ctrl <= 1:
             ctrl += 1
             if bg_color == "-1":
-                print(f"\033[{b};38;5;{color}m {msg} {reset}{color}",end=space)
+                print(f"\033[{b};38;5;{color}m {_COLOR_NAMES[color]} {reset}{color}",end=space)
             else:
-                print(f"\033[{b};48;5;{bg_color};38;5;{color}m {msg} {reset}{color}",end=space)
+                print(f"\033[{b};48;5;{bg_color};38;5;{color}m {_COLOR_NAMES[color]} {reset}{color}",end=space)
         else:
             ctrl = 0
             if bg_color == "-1":
                 if n_line > 0:
-                    print(f"\033[{b};38;5;{color}m {msg} {reset}{color}")
+                    print(f"\033[{b};38;5;{color}m {_COLOR_NAMES[color]} {reset}{color}")
                     ins_newline(n_line)
                 else:
-                    print(f"\033[{b};38;5;{color}m {msg} {reset}{color}")
+                    print(f"\033[{b};38;5;{color}m {_COLOR_NAMES[color]} {reset}{color}")
             else:
                 if n_line > 0:
-                    print(f"\033[{b};48;5;{bg_color};38;5;{color}m {msg} {reset}{color}")
+                    print(f"\033[{b};48;5;{bg_color};38;5;{color}m {_COLOR_NAMES[color]} {reset}{color}")
                     ins_newline(n_line)
                 else:
-                    print(f"\033[{b};48;5;{bg_color};38;5;{color}m {msg} {reset}{color}")
+                    print(f"\033[{b};48;5;{bg_color};38;5;{color}m {_COLOR_NAMES[color]} {reset}{color}")
 
     print("\x1B[0m  fg default color  -1")
 
@@ -2500,7 +2873,7 @@ class FontStyle:
     def _set_font(self)->str:
 
         '''  This function changes the attributes of the font (bold=bool, bg=int, fg=int).
-       
+
         Colors range from -1 to 256, where -1 or 256 is the defualt one.  '''
 
 
@@ -3625,9 +3998,9 @@ class PyLO():
 
     #---------------------------------------------------------------------------------------------------------------------------------------------
     def str_to_list(self,data:str, option:Str_List_Option=Str_List_Option.WORD_BY_WORD, counter=False):
-        
+
         '''  It sets a string variable into a list as word by word or line by line  '''
-        
+
         if option == "word_by_word" and counter == False:
             tempo_list = data.split()
 
@@ -4400,9 +4773,9 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     def write_csv_file(self, data:list, file_path:str="CSV_List")->str:
 
-        '''  It writes a list into a CSV file  
+        '''  It writes a list into a CSV file
              E.g: file_path -> /home/User_Name/Documents/My_First_Table.csv  '''
-             
+
         current_path = os.getcwd()
         ext = ""
         for l in file_path[-4:]:
@@ -4610,9 +4983,9 @@ class PyLO():
     def add_col(self, data:list, col_data:list, posi:int=0)->list:
 
         '''  This method adds a column into the list in a specific postion.
-             The original list has to be in the form of a matrix or table 
+             The original list has to be in the form of a matrix or table
              and the column to be added needs to be as a vector list.
-             
+
              Ex.
                 data = [["H1","H2"],["R1C1","R1C2"], ["R2C1","R2C2"]]
                 new_col_data = ["New_Header",   "New_Row_Col",  "New_Row_Col"]
@@ -4696,7 +5069,7 @@ class PyLO():
                 if case_sensitive == True:
                     if value == old:    new_list.append(new)
                     else:               new_list.append(value)
-                
+
                 elif case_sensitive == False:
                     if isinstance(value, str) and isinstance(old, str):
                         if value.lower() == old.lower():
@@ -4815,7 +5188,7 @@ class PyLO():
         else:
             new_value = value
             new_data = data
-        
+
         grep_list = []
         ctrl = 0
 
@@ -5077,9 +5450,9 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     def delete_value(self, data:list, value:str="", case_sensitive:bool=True, update:bool=False)->list:
 
-        ''' This method delete an value from the list. 
+        ''' This method delete an value from the list.
             This methods has the option of using the case sensitive. '''
-    
+
         new_list = []
         for my_value in data:
             if isinstance(my_value, list):
@@ -5089,7 +5462,7 @@ class PyLO():
                 if case_sensitive == True:
                     if my_value == value:    pass
                     else:               new_list.append(my_value)
-                
+
                 elif case_sensitive == False:
                     if isinstance(my_value, str) and isinstance(value, str):
                         if my_value.lower() == value.lower():
@@ -5116,15 +5489,15 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     def reversed_row_order(self, data:list, update:bool=False):
 
-        '''  This methods reverse the order of the list keeping 
+        '''  This methods reverse the order of the list keeping
              the headers in the same positon. '''
-        
+
         headers = [];       body = [];      ctrl = 0
         reversed_list = []; tmp = []
-    
+
         my_type = _get_list_type(data)
         if my_type == "multiple_items_multiple_rows":
-        
+
             for row in data:
                 if ctrl == 0:
                     headers.append(row)
@@ -5134,7 +5507,7 @@ class PyLO():
                         tmp.append(col)
                     body.append(tmp)
                     tmp = []
-            
+
             for row in reversed(body):
                 reversed_list.append(row)
             reversed_list.insert(0,headers[0])
@@ -5144,7 +5517,7 @@ class PyLO():
                 for r in reversed_list:
                     data.append(r)
         else: pass
-        return reversed_list      
+        return reversed_list
 
 
     #-------------------------------------------------------------------------------------------------------------------------------------------------
@@ -5211,7 +5584,7 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     def sort_cols(self, data:list, sort_type:str|list=Order.ASCENDING, update:bool=False)->list:
         ''' If the option provided is different than ascending or descending or a list, it will sort as ascending.
-            If the list contains numbers not in the range of the data list, it will sort as ascending. 
+            If the list contains numbers not in the range of the data list, it will sort as ascending.
             If the list contains a length different than the length of the data, it will sort as ascending.
             If the list is NOT in the form of rXc it will return an empty list as a result.  '''
 
@@ -5264,7 +5637,7 @@ class PyLO():
             if sort_type == PyLO.Order.ASCENDING:    order_list = sorted(data, reverse=False)
 
             elif sort_type == PyLO.Order.DESCENDING: order_list = sorted(data, reverse=True )
-            
+
             else: order_list = data
 
         elif my_type_list == "multiple_items_one_row":
@@ -5284,12 +5657,12 @@ class PyLO():
 
         return order_list
 
-    
+
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Update Case in a List.                                                                                                                         -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     def update_case(self, data:list, header_case:str=Case.CAPITALIZE, data_case:str=Case.LOWER, update:bool=False):
-        
+
         '''  This method updates the case to the headers and the data. '''
 
         my_type_list = _get_list_type(data)
@@ -5300,7 +5673,7 @@ class PyLO():
             else:                           case_list = []
         else:
             new_data  = PyLO.autofill_data(self, data=data)
-            headers = new_data.pop(0)    
+            headers = new_data.pop(0)
 
             if   header_case == PyLO.Case.UPPER:      new_headers = PyLO.upper_case(self, data=headers)
             elif header_case == PyLO.Case.LOWER:      new_headers = PyLO.lower_case(self, data=headers)
@@ -5312,17 +5685,17 @@ class PyLO():
             elif data_case == PyLO.Case.LOWER:        new_data = PyLO.lower_case(self, data=new_data)
             elif data_case == PyLO.Case.CAPITALIZE:   new_data = PyLO.capitalize_case(self, data=new_data)
             else:                             pass
-            
+
             case_list = []
             case_list.append(new_headers)
 
             for n in new_data:
                 case_list.append(n)
-                
+
         if update == True:
             data.clear()
             [data.append(n) for n in case_list]
-            
+
         return case_list
 
 
@@ -5330,7 +5703,7 @@ class PyLO():
     # Update Case in a Specific Column in a List.                                                                                                    -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     def update_case_col(self, data:list, header_case:str=Case.CAPITALIZE, data_case:str=Case.LOWER, col_ref=0, update:bool=False):
-        
+
         '''  This method updates the case for a specific column, header and data.  '''
 
         my_type_list = _get_list_type(data)
@@ -5340,18 +5713,18 @@ class PyLO():
             elif data_case.lower() == PyLO.Case.LOWER:      case_list = PyLO.lower_case(self, data=data)
             elif data_case.lower() == PyLO.Case.CAPITALIZE: case_list = PyLO.capitalize_case(self, data=data)
             else:                           case_list = []
-        
+
         else:
             new_data  = PyLO.autofill_data(self, data=data)
             if col_ref > len(new_data[0]): new_col_ref = len(new_data[0])
             elif col_ref < 0:              new_col_ref = 0
             else:                          new_col_ref = col_ref
 
-            
+
             new_headers = new_data.pop(0)
 
             if isinstance(new_headers[new_col_ref], str):
-                
+
                 if   header_case.lower() == PyLO.Case.UPPER:      new_headers[new_col_ref] = new_headers[new_col_ref].upper()
                 elif header_case.lower() == PyLO.Case.LOWER:      new_headers[new_col_ref] = new_headers[new_col_ref].lower()
                 elif header_case.lower() == PyLO.Case.CAPITALIZE: new_headers[new_col_ref] = new_headers[new_col_ref].capitalize()
@@ -5372,14 +5745,53 @@ class PyLO():
 
             for n in new_data:
                 case_list.append(n)
-                
+
         if update == True:
             data.clear()
             [data.append(n) for n in case_list]
-        
+
         return case_list
 
 
+    def find_duplicate(self, data:list, case_sensitive:bool=True):
+
+        '''  This method find all duplicate values into a list and returns
+             all duplicate values into a list.  '''
+
+        new_data = PyLO.make_to_vector(self, data=data)
+        duplicate_list = []
+
+        for i in range(len(new_data)):
+            for j in range(i + 1, len(new_data)):
+                tmp = []
+                if case_sensitive == True:
+                    if new_data[i] == new_data[j]:
+                        tmp.append(new_data[i])
+                        tmp.append(i)
+                        tmp.append(new_data[j])
+                        tmp.append(j)
+                        duplicate_list.append(tmp)
+                else:
+                    if isinstance(new_data[i], str) and isinstance(new_data[j], str):
+                        if new_data[i].lower() == new_data[j].lower():
+                            tmp.append(new_data[i])
+                            tmp.append(i)
+                            tmp.append(new_data[j])
+                            tmp.append(j)
+                            duplicate_list.append(tmp)
+                    else:
+                        if new_data[i] == new_data[j]:
+                            tmp.append(new_data[i])
+                            tmp.append(i)
+                            tmp.append(new_data[j])
+                            tmp.append(j)
+                            duplicate_list.append(tmp)
+
+        if len(duplicate_list)>0:
+            p = ["Data 1", "Posi 1", "Data 2", "Posi 2"]
+            duplicate_list.insert(0,p)
+        
+        return duplicate_list
 
 
 

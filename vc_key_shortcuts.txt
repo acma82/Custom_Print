@@ -18,8 +18,12 @@ Visual Code
 |                                                                                                    |
 |  File -> Preferences -> Settings -> Window -> Zoom Level -> to make bigger the letters             |
 |                                                                                                    |
-|  https://code.visualstudio.com/docs/setup/linux#_rhel-fedora-and-centos-based-distributions        |
+|  File -> Preferences -> KeyboardShortCuts -> Look for Transform to map Upper, Lower and Cpatilize  |                                                                                                           |
+|  Alt + U -> Upper Case                                                                             |
+|  Alt + L -> Lower Case                                                                             |
+|  Alt + C -> Capitalize Case                                                                        |
 |                                                                                                    |
+|  https://code.visualstudio.com/docs/setup/linux#_rhel-fedora-and-centos-based-distributions        |
 |                                                                                                    |
 +----------------------------------------------------------------------------------------------------+
 

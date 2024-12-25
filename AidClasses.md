@@ -3,6 +3,8 @@
 # Aid Classes
 * [**Align**](#align)
 * [**Color**](#color)
+* [**Bg and Fg**](#bg-and-fg)
+* [**Style**](#style)
 * [**Layout**](#layout)
 * [**Length_bg**](#length_bg)
 * [**Line_Style**](#line_style)
@@ -58,6 +60,14 @@ fst = cp.FontStyle()
 fst.bg = cp.Color.BLOOD_RED    # fst.bg = 52
 fst.print_style(" Hello There...! ")
 ```
+## <span style="color:green"> <strong> Bg and Fg </strong> </span>
+
+[**Top**](#aid-classes) <span style="color:red"> <strong> Example: </strong> </span>
+
+## <span style="color:green"> <strong> Style </strong> </span>
+
+[**Top**](#aid-classes) <span style="color:red"> <strong> Example: </strong> </span>
+
 
 ## <span style="color:green"> <strong> Layout </strong> </span>
     This class is used with FancyFormat class and Pen class. It contains 2 options.

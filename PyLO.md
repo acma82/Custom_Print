@@ -1782,6 +1782,44 @@ new_list = pylo.sort_cols(data=l1, sort_type=pylo.Order.ASCENDING, update=False)
 tbl.print_fancy_format(new_list)
 ```
 
+
+<!-- ---------------------------------- -->
+<!-- Find Duplicate Method              -->
+<!-- ---------------------------------- -->
+## Find Duplicate
+This method find all duplicate values into a list and returns all duplicate values into a list.
+
+```python
+find_duplicate(data, case_sensitive=True)
+```
+
+[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
+
+```python
+import custom_print as cp
+pylo = cp.PyLO()
+tbl  = cp.FancyFormat()
+
+tbl.bg_title  = 90
+tbl.bold_title = True
+tbl.italic_title = True
+tbl.align_title  = cp.Align.LEFT
+tbl.bg_header = 90
+tbl.bold_header = True
+
+result = pylo.find_duplicate(data=COLOR_NAMES, case_sensitive=True)
+tbl.print_fancy_format(result)
+
+NEW_LIST = ["HELLO","HI","BYE","hellO","Hola","Hi","HELLO"]
+rst = pylo.find_duplicate(data=NEW_LIST, case_sensitive=True)
+tbl.print_fancy_format(rst)
+
+rst = pylo.find_duplicate(data=NEW_LIST, case_sensitive=False)
+tbl.print_fancy_format(rst)
+```
+
+
+
 #### [Back](README.md)
 
 https://github.com/acma82/custom_print

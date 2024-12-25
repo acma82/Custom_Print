@@ -4,7 +4,7 @@
 ## [3. Cursor](Cursor.md)
 ## [4. FancyFormat](FancyFormat.md)
 ## [5. FancyMessage](FancyMessage.md)
-## [6. FontColor](BgFgStyle.md)
+## [6. FontColor (Bg, Fg, and Style)](BgFgStyle.md)
 ## [7. FontStyle](FontStyle.md)
 ## [8. Pen](Pen.md)
 ## [9. PyLO Class](PyLO.md)
