@@ -104,17 +104,18 @@
 >  **print(f"{cp.Fg.YELLOW} Hello {cp.Fg.OFF} Normal")** <br>
 
 
-| Table          |               |
+| Style          | Options       |
 |----------------|---------------|
-| BOLD_ON        | BOLD_OFF      |
 | DIM_ON         | DIM_OFF       |
+| BOLD_ON        | BOLD_OFF      |
 | ITALIC_ON      | ITALIC_OFF    |
-| UNDERLINE_ON   | UNDERLINE_OFF |
-| BLINKING_ON    | BLINKING_OFF  |
-| INVERSE_ON     | INVERSE_OFF   |
-| HIDDEN_ON      | HIDDEN_OFF    |
 | STRIKE_ON      | STRIKE_OFF    |
+| HIDDEN_ON      | HIDDEN_OFF    |
+| INVERSE_ON     | INVERSE_OFF   |
+| BLINKING_ON    | BLINKING_OFF  |
+| UNDERLINE_ON   | UNDERLINE_OFF |
 | RESET_ALL      | OFF           |
+
 
 ## No, Bg, Fg, and Style Examples
 

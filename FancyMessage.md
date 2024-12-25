@@ -31,7 +31,7 @@ This class contains 3 methods and the attributes and their default values are di
 
 ```python
     bg_body     = 4            hidden_body  = False        strike_body    = False			
-    fg_body     = 231	       italic_body = False         length         = Length_bg.ALL_ROW 
+    fg_body     = 231	       italic_body  = False         length         = Length_bg.ALL_ROW 
     dim_body    = False	       left_indent  = 2            inverse_body   = False			
     bold_body   = False        right_indent = 2            blinking_body  = False			
     msg_body    = "Body Msg"   top_lines    = 1            underline_body = False			
@@ -55,9 +55,9 @@ This class contains 3 methods and the attributes and their default values are di
 ## Note Default Values
 
 ```python
-    msg_note = " Note: "    align_note   = Align.JUSTIFY        blinking_note    = False
-    bg_note    = 231        strike_note  = False                underline_note   = False
-    fg_note     = 0         italic_note  = False                position_note    = 1 
+    msg_note  = " Note: "   align_note   = Align.JUSTIFY        blinking_note    = False
+    bg_note   = 231         strike_note  = False                underline_note   = False
+    fg_note   = 0           italic_note  = False                position_note    = 1 
     bold_note = False       inverse_note = False                right_space_note = 2
     dim_note  = False       hidden_note  = False                left_space_note	 = 2	
 ```
@@ -67,8 +67,8 @@ This class contains 3 methods and the attributes and their default values are di
 ```python
     msg_title  = ""         align_title   = Align.LEFT          blinking_title      = False
     bg_title   = 4          strike_title  = False               underline_title     = False
-    fg_title   = 231        italic_title  = False               title_indent		= 2
-    bold_title = False      inverse_title = False               lines_title_body	= 1
+    fg_title   = 231        italic_title  = False               title_indent        = 2
+    bold_title = False      inverse_title = False               lines_title_body    = 1
     dim_title  = False      hidden_title  = False
 ```
 
