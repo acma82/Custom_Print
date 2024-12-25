@@ -70,6 +70,7 @@
     * [**reversed_row_order**](#reversed-row-order)
     * [**sort_rows_by_cols**](#sort-rows-by-columns)
     * [**sort_cols**](#sort-columns)
+    * [**find_duplicate**](#find-duplicate)
  
 <!-- ---------------------------------- -->
 <!-- Appending                          -->
