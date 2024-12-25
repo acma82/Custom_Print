@@ -549,7 +549,7 @@ class Fg(enum.StrEnum):
 
 class Style(enum.StrEnum):
 
-    '''  This Class uses the name of the style rather than bool.
+    '''  This class uses the style name rather than the bool value.
          import custom_print as cp
          print(f"{cp.Fg.YELLOW} Hello {cp.Fg.OFF} Normal")
     '''

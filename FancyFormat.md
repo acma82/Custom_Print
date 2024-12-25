@@ -1,11 +1,9 @@
 #### [Back](README.md)
 
 # <span style="color:green"> <strong> FancyFormat </strong> </span>
-
-* [**Methods**](#methods)
 * [**General Section**](#general-section)
-* [**Title Section**](#title-section)
-* [**Footnote Section**](#footnote-section)
+* [**FF Title Section**](#ff-title-section)
+* [**FF Footnote Section**](#ff-footnote-section)
 * [**Data Section**](#data-section)
 * [**Horizontal Line Section**](#horizontal-line-section)
 * [**Vertical Line Section**](#vertical-line-section)
@@ -25,7 +23,6 @@
 <!-- Methods                            -->
 <!-- ---------------------------------- -->
 ## Methods
-
 This class contains two methods:
 + ***print_fancy_format(data, style)*** <br>
     by default is set up to customized option. This method take two parameters, **data** and **line style**. <br>
@@ -83,7 +80,7 @@ If you want to save this conversion to your original list then set to True the u
 <!-- ---------------------------------- -->
 <!-- Title Section                      -->
 <!-- ---------------------------------- -->
-## Title Section
+## FF Title Section
 
 ```python
     msg_title	= ""        align_title  = "justify"         hidden_title    = False
@@ -99,7 +96,7 @@ If you want to save this conversion to your original list then set to True the u
 <!-- --------------------------------- -->
 <!-- Footnote Section                  -->
 <!-- --------------------------------- -->
-## Footnote Section
+## FF Footnote Section
 
 ```python
     msg_footnote  = ""      align_footnote  = "justify"     hidden_footnote	   = False

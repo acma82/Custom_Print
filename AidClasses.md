@@ -2,9 +2,6 @@
 
 # Aid Classes
 * [**Align**](#align)
-* [**Color**](#color)
-* [**Bg and Fg**](#bg-and-fg)
-* [**Style**](#style)
 * [**Layout**](#layout)
 * [**Length_bg**](#length_bg)
 * [**Line_Style**](#line_style)
@@ -29,10 +26,7 @@
 | "right"     | "left"     |"center"      | "justify"     |
 | "r"         | "l"        |"c"           | "j"           |
 
-
-|Color Names|         |
-|-----------|---------|
-|s           |  s       |
+[**Top**](#aid-classes) <span style="color:red"> <strong> Example: </strong> </span>
 
 ```python
 import custom_print as cp
@@ -40,34 +34,6 @@ msg = cp.FancyMessage()
 msg.align_title = cp.Align.CENTER
 msg.align_footnote = "right"   # msg.align_footnote = "r"
 ```
-
-## <span style="color:green"> <strong> Color </strong> </span>
-    
-
-> This class will help to select a color when using the set_font() function or the FancyStyle class or you can use the number for the color as well.
-
-| List of Color | Available in  | Custom Print | Module      |
-|:-------------:|:-------------:|:------------:|:-----------:|
-| BLACK    | RED        | BLUE          | GREEN        |             |
-
-[**Top**](#aid-classes) <span style="color:red"> <strong> Example: </strong> </span>
-```python
-import custom_print as cp
-print(f"{cp.set_font(True, cp.Color.BLOOD_RED, cp.Color.YELLOW)} ---Hello There...! {cp.reset_font()}")
-print(f" Number of Blood Red Color: {cp.Color.BLOOD_RED} ")
-
-fst = cp.FontStyle()
-fst.bg = cp.Color.BLOOD_RED    # fst.bg = 52
-fst.print_style(" Hello There...! ")
-```
-## <span style="color:green"> <strong> Bg and Fg </strong> </span>
-
-[**Top**](#aid-classes) <span style="color:red"> <strong> Example: </strong> </span>
-
-## <span style="color:green"> <strong> Style </strong> </span>
-
-[**Top**](#aid-classes) <span style="color:red"> <strong> Example: </strong> </span>
-
 
 ## <span style="color:green"> <strong> Layout </strong> </span>
     This class is used with FancyFormat class and Pen class. It contains 2 options.

@@ -2,12 +2,11 @@
 
 # <span style="color:green"> <strong> FancyMessage </strong> </span>
 
-* [**Methods**](#methods)
 * [**Body Section**](#body-default-values)
 * [**Note Section**](#note-default-values)
 * [**Title Section**](#title-default-values)
 * [**Footnote Section**](#footnote-default-values)
-* [**Examples**](#examples)
+* [**Examples**](#fancy-message-examples)
 
 
 <!-- ---------------------------------- -->
@@ -16,15 +15,15 @@
 ## Methods
 
 This class contains 3 methods and the attributes and their default values are displays below.
-+ print_fancy_message(msg_body="")
++ **print_fancy_message(msg_body="")**
 
 	→ This method works with Body Default Values, Title and Footnote Attributes.
 
-+ print_fancy_note(msg_body="")
++ **print_fancy_note(msg_body="")**
 
 	→ This method works with Body Default Values, and Note Default Attributes.
 
-+ get_message_attributes(msg_body="", print_attributes=True)
++ **get_message_attributes(msg_body="", print_attributes=True)**
 
 	→This method returns the attributes of the message in 2 variables. A list with all the attributes of the message and another list with all the words of the message. It has the option to print all the attributes at the same time.
 
@@ -84,7 +83,7 @@ This class contains 3 methods and the attributes and their default values are di
     dim_footnote  = False   hidden_footnote  = False
 ```
 
-## Examples
+## Fancy Message Examples
 [**Top**](#fancymessage) <span style="color:red"> <strong> Example 1: </strong> </span>
 
 ```python

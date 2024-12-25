@@ -4,7 +4,7 @@
 
 * [**Methods**](#methods)
 * [**Default Values**](#default-values)
-* [**Examples**](#examples)
+* [**Font Style Examples**](#font-style-examples)
 
 
 ## Methods
@@ -39,7 +39,7 @@ This class contains 4 methods and the attributes and their default values are di
 	bg_top_lines  and bg_bottom_lines → these are lines above and below the message with the bg specified.
 ```
 
-## Examples
+## Font Style Examples
 
 [**Top**](#fontstyle) <span style="color:red"> <strong> Example 1: <span style="color:purple"> style_on() and style_off() </span> </strong> </span>
 

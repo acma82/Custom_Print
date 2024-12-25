@@ -1,6 +1,6 @@
 #### [Back](README.md) 
 # Colors
-* [**Names of Color Available**](#table-of-bg-and-fg-color-names)
+* [**Style Options**](#table-of-styles)
 * [**Example of Using No, Bg, and Fg Classes**](#examples)
 
 # <span style="color:green"> <strong> Bg and Fg Names </strong> </span>
@@ -96,6 +96,25 @@
 |    AMERICAN_SILVER       | 252 |        ALTO_GRAY             | 253 |        MERCURY_GRAY        | 254 |
 |    DARK_WHITE            | 255 |        DEFAULT               | 256 |        default             |  -1 |
 
+
+## Table of Styles
+[**Top**](#colors) **This class uses the style name rather than the bool value. <br>**
+
+>  import custom_print as cp <br>
+>  **print(f"{cp.Fg.YELLOW} Hello {cp.Fg.OFF} Normal")** <br>
+
+
+| Table          |               |
+|----------------|---------------|
+| BOLD_ON        | BOLD_OFF      |
+| DIM_ON         | DIM_OFF       |
+| ITALIC_ON      | ITALIC_OFF    |
+| UNDERLINE_ON   | UNDERLINE_OFF |
+| BLINKING_ON    | BLINKING_OFF  |
+| INVERSE_ON     | INVERSE_OFF   |
+| HIDDEN_ON      | HIDDEN_OFF    |
+| STRIKE_ON      | STRIKE_OFF    |
+| RESET_ALL      | OFF           |
 
 ## Examples
 
