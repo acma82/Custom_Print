@@ -1,12 +1,12 @@
 #### [Back](README.md) 
-
-# <span style="color:green"> <strong> FancyMessage </strong> </span>
+# FancyMessage
+<!--- # <span style="color:green"> <strong> FancyMessage </strong> </span> --->
 
 * [**Body Section**](#body-default-values)
 * [**Note Section**](#note-default-values)
-* [**Title Section**](#title-default-values)
-* [**Footnote Section**](#footnote-default-values)
-* [**Examples**](#fancy-message-examples)
+* [**FM Title Section**](#title-default-values)
+* [**FM Footnote Section**](#footnote-default-values)
+* [**Fancy Message Examples**](#fancy-message-examples)
 
 
 <!-- ---------------------------------- -->

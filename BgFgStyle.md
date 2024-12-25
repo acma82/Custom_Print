@@ -1,7 +1,7 @@
 #### [Back](README.md) 
 # Colors
 * [**Style Options**](#table-of-styles)
-* [**Example of Using No, Bg, and Fg Classes**](#examples)
+* [**Example of Using No, Bg, Fg and Style Classes**](#no-bg-fg-and-style-examples)
 
 # <span style="color:green"> <strong> Bg and Fg Names </strong> </span>
 
@@ -116,7 +116,7 @@
 | STRIKE_ON      | STRIKE_OFF    |
 | RESET_ALL      | OFF           |
 
-## Examples
+## No, Bg, Fg, and Style Examples
 
 [**Top**](#colors) <span style="color:red"> <strong> Example: </strong> </span>
 

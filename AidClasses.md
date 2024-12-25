@@ -9,11 +9,9 @@
 * [**Unicode**](#unicode)
 
 
-## <span style="color:green"> <strong> Align </strong> </span>
-<!-- >> <span style="color:blue" ><strong>  This class is used where alignment is needed. It contains 4 options.   -->
-
-> This class is used where alignment is needed. It contains 4 options.
-
+## Align
+<!--- ## <span style="color:green"> <strong> Align </strong> </span> --->
+> <span style="color:blue" ><strong>  This class is used where alignment is needed. It contains 4 options.
 - Align.RIGHT
 - Align.LEFT
 - Align.CENTER
@@ -35,7 +33,8 @@ msg.align_title = cp.Align.CENTER
 msg.align_footnote = "right"   # msg.align_footnote = "r"
 ```
 
-## <span style="color:green"> <strong> Layout </strong> </span>
+## Layout
+<!--- ## <span style="color:green"> <strong> Layout </strong> </span> --->
     This class is used with FancyFormat class and Pen class. It contains 2 options.
 
 * Layout.HORIZONTAL
@@ -58,8 +57,8 @@ tbl.print_fancy_format(r)
 tbl.set_layout = cp.Layout.VERTICAL     # tbl.set_layout = "v" 
 tbl.print_fancy_format(r)
 ```
-
-## <span style="color:green"> <strong> Length_bg </strong> </span>
+## Length_bg
+<!--- ## <span style="color:green"> <strong> Length_bg </strong> </span> --->
     his class is used with FancyMessage class and contains 2 options.
 + ALL_ROW
 + ONLY_WORD
@@ -87,8 +86,8 @@ msg.length = cp.Length_bg.ALL_ROW # all the width of the terminal
 msg.print_fancy_message(path)
 ```
 
-
-## <span style="color:green"> <strong> Line_Style </strong> </span>
+## Line_Style
+<!--- ## <span style="color:green"> <strong> Line_Style </strong> </span> --->
 	This class is used with FancyFormat class and Pen class. There are some options available.
 
             CUSTOMIZED          SINGLE          SPACE_COL_COLOR
@@ -132,8 +131,8 @@ tbl.set_layout = cp.Layout.VERTICAL
 tbl.print_fancy_format(r, cp.Line_Style.SQ_BRACKETS)
 
 ```
-
-## <span style="color:green"> <strong> Move </strong> </span>
+## Move
+<!--- ## <span style="color:green"> <strong> Move </strong> </span> --->
     This class is used with the Cursor class and it contains 4 options.
 
 + Move.RIGHT
@@ -160,8 +159,8 @@ crs.jumpTo(qty=2, direction = Move.DOWN) # direction = "d"
 print("I am down")
 
 ```
-
-## <span style="color:green"> <strong> Unicode </strong> </span>
+## Unicode
+<!--- ## <span style="color:green"> <strong> Unicode </strong> </span> --->
     This class is to insert some unicode characters.
 
 #### Unicode Names

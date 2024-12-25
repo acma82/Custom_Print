@@ -1,6 +1,6 @@
 #### [Back](README.md)
-
-# <span style="color:green"> <strong> FancyFormat </strong> </span>
+# FancyFormat
+<!--- # <span style="color:green"> <strong> FancyFormat </strong> </span> --->
 * [**General Section**](#general-section)
 * [**FF Title Section**](#ff-title-section)
 * [**FF Footnote Section**](#ff-footnote-section)
