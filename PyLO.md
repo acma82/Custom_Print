@@ -117,7 +117,8 @@ This class is used with ***str_to_list*** method. There are two options.
 <!-- ---------------------------------- -->
 # Conversions
 
-## <span style="color:purple"> <strong> Bool Type to List Type </strong> </span> 
+## Bool Type to List Type
+<!--- ## <span style="color:purple"> <strong> Bool Type to List Type </strong> </span> --->
 
 ```python
 bool_to_list(data, convert_to_str=False)
@@ -140,8 +141,8 @@ This method sets a bool variable into a list where ***data*** is the bool type. 
     print(result) 
 ```
 
-
-## <span style="color:purple"> <strong> Integer Type to List Type </strong> </span>
+## Integer Type to List Type
+<!--- ## <span style="color:purple"> <strong> Integer Type to List Type </strong> </span> --->
 
 ```python
 int_to_list(data, convert_to_str=False)
@@ -164,8 +165,8 @@ This method sets an int variable into a list where ***data*** is the int type. I
     print(result)
 ```
 
-
-## <span style="color:purple"> <strong> Float Type to List Type </strong> </span>
+## Float Type to List Type
+<!--- ## <span style="color:purple"> <strong> Float Type to List Type </strong> </span> --->
 
 ```python
 float_to_list(data, convert_to_str=False)
@@ -189,8 +190,8 @@ This method sets an int variable into a list where ***data*** is the float type.
     print(result)
 ```
 
-
-## <span style="color:purple"> <strong> Complex Type to List Type </strong> </span>
+## Complex Type to List Type
+ <!--- ## <span style="color:purple"> <strong> Complex Type to List Type </strong> </span> --->
 [**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
 
 ```python
@@ -204,7 +205,8 @@ This method sets an int variable into a list where ***data*** is the float type.
     print(result)
 ```
 
-## <span style="color:purple"> <strong> String Type to List Type </strong> </span>
+## String Type to List Type
+<!--- ## <span style="color:purple"> <strong> String Type to List Type </strong> </span> --->
 
 [**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
 
@@ -232,7 +234,8 @@ This method sets an int variable into a list where ***data*** is the float type.
     print(result)
 ```
 
-## <span style="color:purple"> <strong> Dictionary Type to List Type </strong> </span>
+## Dictionary Type to List Type
+<!--- ## <span style="color:purple"> <strong> Dictionary Type to List Type </strong> </span> --->
 
 [**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
 
@@ -268,7 +271,8 @@ This method sets an int variable into a list where ***data*** is the float type.
 
 > <span style="color:red">**Note:**</span> with one of then that is __"none"__ or __None__, it won't set the <span style="color:blue"> ***key_title*** </span> neither the <span style="color:blue"> ***value_title*** </span>.
 
-## <span style="color:purple"> <strong> Range Type to List Type </strong> </span>
+## Range Type to List Type
+<!--- ## <span style="color:purple"> <strong> Range Type to List Type </strong> </span> --->
 
 >   | Note: values for range            |                                               |
 >   |-----------------------------------|-----------------------------------------------|
@@ -310,8 +314,8 @@ This method sets an int variable into a list where ***data*** is the float type.
     cp.ins_newline(2)
 ```
 
-
-## <span style="color:purple"> <strong> Set or Frozenset Type to List Type </strong> </span>
+## Set or Frozenset Type to List Type
+<!--- ## <span style="color:purple"> <strong> Set or Frozenset Type to List Type </strong> </span> --->
 
 >   | Note: values for set              |                                               |
 >   |-----------------------------------|-----------------------------------------------|
@@ -375,8 +379,8 @@ This method sets an int variable into a list where ***data*** is the float type.
     print(f"{cp.ins_chr(n=100, unicode="-")}")
     cp.ins_newline(2)
 ```
-
-## <span style="color:purple"> <strong> Tuple Type to List Type </strong> </span>
+## Tuple Type to List Type
+<!--- ## <span style="color:purple"> <strong> Tuple Type to List Type </strong> </span> --->
 
 [**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
 

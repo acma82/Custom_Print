@@ -4,8 +4,8 @@
 
 * [**Body Section**](#body-default-values)
 * [**Note Section**](#note-default-values)
-* [**FM Title Section**](#title-default-values)
-* [**FM Footnote Section**](#footnote-default-values)
+* [**Title Section**](#title-default-values)
+* [**Footnote Section**](#footnote-default-values)
 * [**Fancy Message Examples**](#fancy-message-examples)
 
 
@@ -26,8 +26,6 @@ This class contains 3 methods and the attributes and their default values are di
 + **get_message_attributes(msg_body="", print_attributes=True)**
 
 	→This method returns the attributes of the message in 2 variables. A list with all the attributes of the message and another list with all the words of the message. It has the option to print all the attributes at the same time.
-
-[**Top**](#fancymessage)
 
 ## Body Default Values
 
@@ -60,8 +58,6 @@ This class contains 3 methods and the attributes and their default values are di
     dim_note  = False       hidden_note  = False                left_space_note	 = 2	
 ```
 
-[**Top**](#fancymessage)
-
 ## Title Default Values
 
 ```python
@@ -71,7 +67,6 @@ This class contains 3 methods and the attributes and their default values are di
     bold_title = False      inverse_title = False               lines_title_body	= 1
     dim_title  = False      hidden_title  = False
 ```
-[**Top**](#fancymessage)
 
 ## Footnote Default Values
 

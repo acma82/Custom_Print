@@ -2,8 +2,8 @@
 # FancyFormat
 <!--- # <span style="color:green"> <strong> FancyFormat </strong> </span> --->
 * [**General Section**](#general-section)
-* [**FF Title Section**](#ff-title-section)
-* [**FF Footnote Section**](#ff-footnote-section)
+* [**Title Section**](#title-section)
+* [**Footnote Section**](#footnote-section)
 * [**Data Section**](#data-section)
 * [**Horizontal Line Section**](#horizontal-line-section)
 * [**Vertical Line Section**](#vertical-line-section)
@@ -32,8 +32,6 @@ This class contains two methods:
 + ***reset_fancy_format()*** <br>
     Any modification on the section variables will be affected on the customized line style. This method will reset all
     section variables to their default values at once.
-
-[**Top**](#fancyformat)
 
 <!-- ---------------------------------- -->
 <!-- General Section                    -->
@@ -80,23 +78,21 @@ If you want to save this conversion to your original list then set to True the u
 <!-- ---------------------------------- -->
 <!-- Title Section                      -->
 <!-- ---------------------------------- -->
-## FF Title Section
+## Title Section
 
 ```python
     msg_title	= ""        align_title  = "justify"         hidden_title    = False
-    bold_title	= False     italic_title = False             inverse_title    = False
+    bold_title	= False     italic_title = False             inverse_title   = False
     bg_title	= -1        strike_title = False             blinking_title  = False
     fg_title	= -1        dim_title    = False             underline_title = False
 ```
 
 **msg_title** is the title name for the list. It only accepts string values, by defaults is empty.
 
-[**Top**](#fancyformat)
-
 <!-- --------------------------------- -->
 <!-- Footnote Section                  -->
 <!-- --------------------------------- -->
-## FF Footnote Section
+## Footnote Section
 
 ```python
     msg_footnote  = ""      align_footnote  = "justify"     hidden_footnote	   = False
@@ -106,8 +102,6 @@ If you want to save this conversion to your original list then set to True the u
 ```
 
 **msg_footnote** The title name for the list. It only accepts string values, by default is empty.
-
-[**Top**](#fancyformat)
 
 <!-- ---------------------------------- -->
 <!-- Data Section                       -->
@@ -122,8 +116,6 @@ If you want to save this conversion to your original list then set to True the u
 ```
 
 **bg_all_cell_data** The bg color will affect the entire cell or just the data.
-
-[**Top**](#fancyformat)
 
 <!-- ---------------------------------- -->
 <!-- Horizontal Line Section            -->
@@ -154,8 +146,6 @@ For more reference check **Figure 1**.
 
 For more reference check **Figure 1 and Figure 2**.
 
-[**Top**](#fancyformat)
-
 <!-- ---------------------------------- -->
 <!-- External Corner Section            -->
 <!-- ---------------------------------- -->
@@ -168,9 +158,6 @@ For more reference check **Figure 1 and Figure 2**.
 ```
 
 For more reference check **Figure 1**.
-
-[**Top**](#fancyformat)
-
 
 <!-- ---------------------------------- -->
 <!-- Middle Corner Section              -->
@@ -315,7 +302,7 @@ Note: Although the main idea is to use list type, print_fancy_format(tbl) accept
 <!-- Demo 1                             -->
 <!-- ---------------------------------- -->
 
-## <span style="color:red"> <strong> Demo 1 </strong> </span>
+## Demo 1 
 [**Top**](#fancyformat)
    
 ```python
@@ -473,7 +460,7 @@ Note: Although the main idea is to use list type, print_fancy_format(tbl) accept
 <!-- ---------------------------------- -->
 <!-- Demo 2                             -->
 <!-- ---------------------------------- -->
-## <span style="color:red"> <strong> Demo 2 </strong> </span>
+## Demo 2
 [**Top**](#fancyformat)
 
 ```python
@@ -583,7 +570,7 @@ Note: Although the main idea is to use list type, print_fancy_format(tbl) accept
 <!-- ---------------------------------- -->
 <!-- Demo 3                             -->
 <!-- ---------------------------------- -->
-## <span style="color:red"> <strong> Demo 3 </strong> </span>
+## Demo 3
 [**Top**](#fancyformat)
 
 ```python    
@@ -756,7 +743,7 @@ Note: Although the main idea is to use list type, print_fancy_format(tbl) accept
 <!-- ---------------------------------- -->
 <!-- Demo 4                             -->
 <!-- ---------------------------------- -->
-## <span style="color:red"> <strong> Demo 4 </strong> </span>
+## Demo 4
 [**Top**](#fancyformat)
 
 ```python
@@ -803,7 +790,7 @@ Note: Although the main idea is to use list type, print_fancy_format(tbl) accept
 <!-- ---------------------------------- -->
 <!-- Demo 5                             -->
 <!-- ---------------------------------- -->
-## <span style="color:red"> <strong> Demo 5 </strong> </span>
+## Demo 5
 [**Top**](#fancyformat)
 
 ```python
@@ -828,7 +815,7 @@ Note: Although the main idea is to use list type, print_fancy_format(tbl) accept
 <!-- Demo 6                             -->
 <!-- ---------------------------------- -->
 
-## <span style="color:red"> <strong> Demo 6 </strong> </span>
+## Demo 6
 [**Top**](#fancyformat)
 
 ```python
