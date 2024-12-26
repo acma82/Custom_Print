@@ -181,9 +181,9 @@ For reference check **Figure 3 and 4**.
 
 ```python
     align_header = "justify"        hidden_header = False               inverse_header      = False
-    bold_header = False             italic_header = False               blinking_header     = False
-    bg_header   = -1                strike_header = False               underline_header    = False
-    fg_header   = -1                dim_header    = False               bg_all_cell_ header = True
+    bold_header  = False            italic_header = False               blinking_header     = False
+    bg_header    = -1               strike_header = False               underline_header    = False
+    fg_header    = -1               dim_header    = False               bg_all_cell_ header = True
 ```
 
 **bg_all_cell_data** The bg color will affect the entire cell or just the header.
