@@ -27,14 +27,15 @@ This class contains 4 methods and the attributes and their default values are di
 ## Default Values
 
 ```python
-	bg     = -1           hidden   = False        force_align     = False 
+    bg     = -1           hidden   = False        force_align     = False 
     fg     = -1           indent   = 0            blinking        = False
     dim    = False        strike   = False        underline       = False
-	bold   = False        italic   = False        bg_top_lines    = 0
-    align  = "j"          inverse  = False	      bg_bottom_lines = 0
+    bold   = False        italic   = False        bg_top_lines    = 0
+    align  = "j"          inverse  = False        bg_bottom_lines = 0
         	   
 
-	indent → this defines how far we want to start to print the message from the left, it works with style_on and print_style.
+	indent → this defines how far we want to start to print the message from the left,
+    it works with style_on and print_style.
 
 	bg_top_lines  and bg_bottom_lines → these are lines above and below the message with the bg specified.
 ```

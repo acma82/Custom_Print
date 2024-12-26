@@ -104,7 +104,7 @@
 >  **print(f"{cp.Fg.YELLOW} Hello {cp.Fg.OFF} Normal")** <br>
 
 
-| Style          | Options       |
+| Ansi Code      | Style Options |
 |----------------|---------------|
 | DIM_ON         | DIM_OFF       |
 | BOLD_ON        | BOLD_OFF      |

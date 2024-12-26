@@ -154,7 +154,7 @@ For more reference check **Figure 1 and Figure 2**.
 ```python
     top_left_corner_chr  = "+"        bottom_right_corner_chr = "+"       bg_corner_chr = -1
     top_right_corner_chr = "+"        bottom_left_corner_chr  = "+"       fg_corner_chr = -1
-	bold_corner_chr      = False
+    bold_corner_chr      = False
 ```
 
 For more reference check **Figure 1**.

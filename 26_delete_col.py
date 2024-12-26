@@ -84,7 +84,9 @@ print("New Original: ",lst_6)
 
 print(f"{cp.ins_chr(n=80, unicode="-")}")
 
-print(f"{cp.set_font(1,23,231)} Case methods = [\
+print(f"{cp.set_font(1,23,231)} Case methods{cp.reset_font()}")
+      
+methods = [\
     ["Cursor",  "FontStyle"  ,  "FancyMessage"       ,  "Pen"           ],
     ["jumpTo",  "start_style",  "print_fancy_message",  "draw_line"     ],
     ["jumpxy",  "stop_style" ,  "print_fancy_note"   ,  "draw_rectangle"],
@@ -96,7 +98,9 @@ tbl.msg_title = " index = 2, update=False "
 tbl.print_fancy_format(methods)
 tbl.msg_title = " Result After Deleting col 2 "
 new_list = pylo.delete_col(methods, 2)
-tbl.print_fancy_format(new_list)7. index = 2, update=True  {cp.reset_font()}")
+tbl.print_fancy_format(new_list)
+
+
 lst_7 =  [10,[50],[250],["H"],100] 
 print("Original    : ",lst_7)
 result = pylo.delete_col(lst_7,2, update=True)
@@ -133,3 +137,6 @@ tbl.print_fancy_format(new_list)
 tbl.msg_title = " Adding Numbers, update=True "
 pylo.number(methods, start_number=1, id_txt="No.", renumber=False, update=True)
 tbl.print_fancy_format(methods)
+
+result = pylo.delete_col(data=methods, index=2, update=False)
+tbl.print_fancy_format(result)

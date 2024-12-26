@@ -291,14 +291,14 @@ class No(enum.IntEnum):
     STEEL_TEAL_CYAN       = 66;         STEEL_BLUE            = 67;         HAVELOCK_BLUE       = 68
     BLUEBERRY             = 69;         KELLY_GREEN           = 70;         FOREST_GREEN        = 71
     POLISHED_PIN_GREEN    = 72;         CRYSTAL_BLUE          = 73;         AQUA_PEARL          = 74
-    BLUE_JEANS            = 75;         HARLEQUIN_GREEN       = 76;         MODERATE_LIME_GREEN = 77 
-    CARIBBEAN_GREEN_PEARL = 78;         EUCALYPTUS_GREEN      = 79;         MEDDIUM_TURQUOISE   = 80 
-    MAYA_BLUE             = 81;         BRIGHT_GREEN          = 82;         LIGHT_LIME_GREEN    = 83 
-    LIGHT_MALACHITE_GREEN = 84;         MEDDIUM_AQUAMARINE    = 85;         AQUAMARINE_GREEN    = 86 
-    AQUAMARINE_CYAN       = 87;         DEEP_RED              = 88;         FRENCH_PLUM_VIOLET  = 89 
-    FRESH_EGGPLANT_VIOLET = 90;         VIOLET                = 91;         STRONG_VIOLET       = 92 
-    ELECTRIC_VIOLET       = 93;         BROWN                 = 94;         COPPER_BROWN        = 95 
-    MOSTLY_VIOLET         = 96;         ROYAL_PURPLE          = 97;         MEDDIUM_PURPLE      = 98 
+    BLUE_JEANS            = 75;         HARLEQUIN_GREEN       = 76;         MODERATE_LIME_GREEN = 77
+    CARIBBEAN_GREEN_PEARL = 78;         EUCALYPTUS_GREEN      = 79;         MEDDIUM_TURQUOISE   = 80
+    MAYA_BLUE             = 81;         BRIGHT_GREEN          = 82;         LIGHT_LIME_GREEN    = 83
+    LIGHT_MALACHITE_GREEN = 84;         MEDDIUM_AQUAMARINE    = 85;         AQUAMARINE_GREEN    = 86
+    AQUAMARINE_CYAN       = 87;         DEEP_RED              = 88;         FRENCH_PLUM_VIOLET  = 89
+    FRESH_EGGPLANT_VIOLET = 90;         VIOLET                = 91;         STRONG_VIOLET       = 92
+    ELECTRIC_VIOLET       = 93;         BROWN                 = 94;         COPPER_BROWN        = 95
+    MOSTLY_VIOLET         = 96;         ROYAL_PURPLE          = 97;         MEDDIUM_PURPLE      = 98
     BLUEBERRY_PURPLE      = 99;         DARK_OLIVE_GREEN      = 100;        CLAY_CREEK_GREEN    = 101
     TAUPE_GRAY            = 102;        COOL_GRAY             = 103;        CHETWODE_BLUE       = 104
     VIOLET_BLUE           = 105;        APPLE_GREEN           = 106;        ASPARAGUS_GREEN     = 107
@@ -354,12 +354,12 @@ class No(enum.IntEnum):
     DARK_WHITE            = 255;        DEFAULT               = 256;        default             = -1
 
 class Bg(enum.StrEnum):
-    
+
     '''  This Class uses the name of the color for background.
          import custom_print as cp
          print(f"{cp.Bg.INDIGO} Hello {cp.Bg.OFF} Normal")
     '''
-    
+
     LIGHT_BLACK           = "\033[48;5;0m";          RED                    = "\033[48;5;1m";         LIGHT_OFFICE_GREEN   = "\033[48;5;2m"
     LIGHT_BROWN           = "\033[48;5;3m";          EARLY_NIGHT_BLUE       = "\033[48;5;4m";         MED_PURPLE           = "\033[48;5;5m"
     CYAN                  = "\033[48;5;6m";          LIGHT_GRAY             = "\033[48;5;7m";         DARK_GRAY            = "\033[48;5;8m"
@@ -385,14 +385,14 @@ class Bg(enum.StrEnum):
     STEEL_TEAL_CYAN       = "\033[48;5;66m";         STEEL_BLUE             = "\033[48;5;67m";         HAVELOCK_BLUE       = "\033[48;5;68m"
     BLUEBERRY             = "\033[48;5;69m";         KELLY_GREEN            = "\033[48;5;70m";         FOREST_GREEN        = "\033[48;5;71m"
     POLISHED_PIN_GREEN    = "\033[48;5;72m";         CRYSTAL_BLUE           = "\033[48;5;73m";         AQUA_PEARL          = "\033[48;5;74m"
-    BLUE_JEANS            = "\033[48;5;75m";         HARLEQUIN_GREEN        = "\033[48;5;76m";         MODERATE_LIME_GREEN = "\033[48;5;77m" 
-    CARIBBEAN_GREEN_PEARL = "\033[48;5;78m";         EUCALYPTUS_GREEN       = "\033[48;5;79m";         MEDDIUM_TURQUOISE   = "\033[48;5;80m" 
-    MAYA_BLUE             = "\033[48;5;81m";         BRIGHT_GREEN           = "\033[48;5;82m";         LIGHT_LIME_GREEN    = "\033[48;5;83m" 
-    LIGHT_MALACHITE_GREEN = "\033[48;5;84m";         MEDDIUM_AQUAMARINE     = "\033[48;5;85m";         AQUAMARINE_GREEN    = "\033[48;5;86m" 
-    AQUAMARINE_CYAN       = "\033[48;5;87m";         DEEP_RED               = "\033[48;5;88m";         FRENCH_PLUM_VIOLET  = "\033[48;5;89m" 
-    FRESH_EGGPLANT_VIOLET = "\033[48;5;90m";         VIOLET                 = "\033[48;5;91m";         STRONG_VIOLET       = "\033[48;5;92m" 
-    ELECTRIC_VIOLET       = "\033[48;5;93m";         BROWN                  = "\033[48;5;94m";         COPPER_BROWN        = "\033[48;5;95m" 
-    MOSTLY_VIOLET         = "\033[48;5;96m";         ROYAL_PURPLE           = "\033[48;5;97m";         MEDDIUM_PURPLE      = "\033[48;5;98m" 
+    BLUE_JEANS            = "\033[48;5;75m";         HARLEQUIN_GREEN        = "\033[48;5;76m";         MODERATE_LIME_GREEN = "\033[48;5;77m"
+    CARIBBEAN_GREEN_PEARL = "\033[48;5;78m";         EUCALYPTUS_GREEN       = "\033[48;5;79m";         MEDDIUM_TURQUOISE   = "\033[48;5;80m"
+    MAYA_BLUE             = "\033[48;5;81m";         BRIGHT_GREEN           = "\033[48;5;82m";         LIGHT_LIME_GREEN    = "\033[48;5;83m"
+    LIGHT_MALACHITE_GREEN = "\033[48;5;84m";         MEDDIUM_AQUAMARINE     = "\033[48;5;85m";         AQUAMARINE_GREEN    = "\033[48;5;86m"
+    AQUAMARINE_CYAN       = "\033[48;5;87m";         DEEP_RED               = "\033[48;5;88m";         FRENCH_PLUM_VIOLET  = "\033[48;5;89m"
+    FRESH_EGGPLANT_VIOLET = "\033[48;5;90m";         VIOLET                 = "\033[48;5;91m";         STRONG_VIOLET       = "\033[48;5;92m"
+    ELECTRIC_VIOLET       = "\033[48;5;93m";         BROWN                  = "\033[48;5;94m";         COPPER_BROWN        = "\033[48;5;95m"
+    MOSTLY_VIOLET         = "\033[48;5;96m";         ROYAL_PURPLE           = "\033[48;5;97m";         MEDDIUM_PURPLE      = "\033[48;5;98m"
     BLUEBERRY_PURPLE      = "\033[48;5;99m";         DARK_OLIVE_GREEN       = "\033[48;5;100m";        CLAY_CREEK_GREEN    = "\033[48;5;101m"
     TAUPE_GRAY            = "\033[48;5;102m";        COOL_GRAY              = "\033[48;5;103m";        CHETWODE_BLUE       = "\033[48;5;104m"
     VIOLET_BLUE           = "\033[48;5;105m";        APPLE_GREEN            = "\033[48;5;106m";        ASPARAGUS_GREEN     = "\033[48;5;107m"
@@ -445,7 +445,7 @@ class Bg(enum.StrEnum):
     DUSTY_GRAY            = "\033[48;5;246m";        SPANISH_GRAY           = "\033[48;5;247m";        LIGHTISH_GRAY       = "\033[48;5;248m"
     PHILIPPINE_SILVER     = "\033[48;5;249m";        SILVER                 = "\033[48;5;250m";        SILVER_SAND         = "\033[48;5;251m"
     AMERICAN_SILVER       = "\033[48;5;252m";        ALTO_GRAY              = "\033[48;5;253m";        MERCURY_GRAY        = "\033[48;5;254m"
-    DARK_WHITE            = "\033[48;5;255m";        DEFAULT                = "\033[49m";              OFF                 = "\033[49m"  
+    DARK_WHITE            = "\033[48;5;255m";        DEFAULT                = "\033[49m";              OFF                 = "\033[49m"
 
 
 
@@ -483,14 +483,14 @@ class Fg(enum.StrEnum):
     STEEL_TEAL_CYAN       = "\033[38;5;66m";         STEEL_BLUE             = "\033[38;5;67m";         HAVELOCK_BLUE       = "\033[38;5;68m"
     BLUEBERRY             = "\033[38;5;69m";         KELLY_GREEN            = "\033[38;5;70m";         FOREST_GREEN        = "\033[38;5;71m"
     POLISHED_PIN_GREEN    = "\033[38;5;72m";         CRYSTAL_BLUE           = "\033[38;5;73m";         AQUA_PEARL          = "\033[38;5;74m"
-    BLUE_JEANS            = "\033[38;5;75m";         HARLEQUIN_GREEN        = "\033[38;5;76m";         MODERATE_LIME_GREEN = "\033[38;5;77m" 
-    CARIBBEAN_GREEN_PEARL = "\033[38;5;78m";         EUCALYPTUS_GREEN       = "\033[38;5;79m";         MEDDIUM_TURQUOISE   = "\033[38;5;80m" 
-    MAYA_BLUE             = "\033[38;5;81m";         BRIGHT_GREEN           = "\033[38;5;82m";         LIGHT_LIME_GREEN    = "\033[38;5;83m" 
-    LIGHT_MALACHITE_GREEN = "\033[38;5;84m";         MEDDIUM_AQUAMARINE     = "\033[38;5;85m";         AQUAMARINE_GREEN    = "\033[38;5;86m" 
-    AQUAMARINE_CYAN       = "\033[38;5;87m";         DEEP_RED               = "\033[38;5;88m";         FRENCH_PLUM_VIOLET  = "\033[38;5;89m" 
-    FRESH_EGGPLANT_VIOLET = "\033[38;5;90m";         VIOLET                 = "\033[38;5;91m";         STRONG_VIOLET       = "\033[38;5;92m" 
-    ELECTRIC_VIOLET       = "\033[38;5;93m";         BROWN                  = "\033[38;5;94m";         COPPER_BROWN        = "\033[38;5;95m" 
-    MOSTLY_VIOLET         = "\033[38;5;96m";         ROYAL_PURPLE           = "\033[38;5;97m";         MEDDIUM_PURPLE      = "\033[38;5;98m" 
+    BLUE_JEANS            = "\033[38;5;75m";         HARLEQUIN_GREEN        = "\033[38;5;76m";         MODERATE_LIME_GREEN = "\033[38;5;77m"
+    CARIBBEAN_GREEN_PEARL = "\033[38;5;78m";         EUCALYPTUS_GREEN       = "\033[38;5;79m";         MEDDIUM_TURQUOISE   = "\033[38;5;80m"
+    MAYA_BLUE             = "\033[38;5;81m";         BRIGHT_GREEN           = "\033[38;5;82m";         LIGHT_LIME_GREEN    = "\033[38;5;83m"
+    LIGHT_MALACHITE_GREEN = "\033[38;5;84m";         MEDDIUM_AQUAMARINE     = "\033[38;5;85m";         AQUAMARINE_GREEN    = "\033[38;5;86m"
+    AQUAMARINE_CYAN       = "\033[38;5;87m";         DEEP_RED               = "\033[38;5;88m";         FRENCH_PLUM_VIOLET  = "\033[38;5;89m"
+    FRESH_EGGPLANT_VIOLET = "\033[38;5;90m";         VIOLET                 = "\033[38;5;91m";         STRONG_VIOLET       = "\033[38;5;92m"
+    ELECTRIC_VIOLET       = "\033[38;5;93m";         BROWN                  = "\033[38;5;94m";         COPPER_BROWN        = "\033[38;5;95m"
+    MOSTLY_VIOLET         = "\033[38;5;96m";         ROYAL_PURPLE           = "\033[38;5;97m";         MEDDIUM_PURPLE      = "\033[38;5;98m"
     BLUEBERRY_PURPLE      = "\033[38;5;99m";         DARK_OLIVE_GREEN       = "\033[38;5;100m";        CLAY_CREEK_GREEN    = "\033[38;5;101m"
     TAUPE_GRAY            = "\033[38;5;102m";        COOL_GRAY              = "\033[38;5;103m";        CHETWODE_BLUE       = "\033[38;5;104m"
     VIOLET_BLUE           = "\033[38;5;105m";        APPLE_GREEN            = "\033[38;5;106m";        ASPARAGUS_GREEN     = "\033[38;5;107m"
@@ -3939,13 +3939,16 @@ class PyLO():
 
     class Appending(enum.StrEnum):
 
-        '''  How the 2 list will be merge. '''
+        '''  How the two list will be merge. '''
 
         ROWS    = "rows"
         COLUMNS = "columns"
 
 
     class Order(enum.StrEnum):
+
+        ''' how the order of the list will take priority  '''
+
         ASCENDING  = "ascending"
         DESCENDING = "descending"
 
@@ -4902,52 +4905,54 @@ class PyLO():
 
 
         else:
-            if index > n_cmax-1 or index < 0:
-                print("col_ref is out of range in one or more columns in the list")
-            else:
-                #                 Done  ["dato"]                    Done [["dato"]]
-                if list_type == "one_item_no_row" or list_type == "one_item_one_row":
-                    if update == True: data.pop(0)
+            if   index > n_cmax-1: index = n_cmax -1
+            elif index < 0:        index = 0
+            else:                  pass
+
+            #                 Done  ["dato"]                    Done [["dato"]]
+            if list_type == "one_item_no_row" or list_type == "one_item_one_row":
+                if update == True: data.pop(0)
 
 
-                # multiple_items_no_row -> ["Hello","bye","good"]          mix_items -> [10,[50],[250],["H"],100]
-                elif list_type == "multiple_items_no_row" or list_type == "mix_items":
-                    value =  data.pop(index)
-                    for n in data: new_list.append(n)
-                    if update == False: data.insert(index,value)
+            # multiple_items_no_row -> ["Hello","bye","good"]          mix_items -> [10,[50],[250],["H"],100]
+            elif list_type == "multiple_items_no_row" or list_type == "mix_items":
+                value =  data.pop(index)
+                for n in data: new_list.append(n)
+                if update == False: data.insert(index,value)
 
 
-                elif list_type == "multiple_items_one_row":       # Done [["Hello","bye","good"]]
-                    if index >= len(data[0]):
-                        print("col_ref is out of range in one or more columns in the list")
-                    else:
-                        tempo = []
-                        value = data[0].pop(index)
-                        for n in data[0]: tempo.append(n)
-                        new_list.append(tempo)
-                        if update == False: data[0].insert(index,value)
-
-
-                # Done [["Hello"],["bye"],["good"]] or [["Hello","mio"],["bye"],["good","hh"]]
-                elif list_type == "multiple_items_multiple_rows":
-                    new_list = []
-                    for row in data:
-                        tempo = []
-                        for col in range(len(row)):
-                            if index == col:  pass
-                            else:             tempo.append(row[col])
-
-                        if tempo != []: new_list.append(tempo)
-
-                    if update == True:
-                        data.clear()
-                        for row in new_list:
-                            for col in row:
-                                tempo_rows.append(col)
-                            data.append(tempo_rows)
-                            tempo_rows = []
+            elif list_type == "multiple_items_one_row":       # Done [["Hello","bye","good"]]
+                if index >= len(data[0]):
+                    print("col_ref is out of range in one or more columns in the list")
                 else:
-                    pass
+                    tempo = []
+                    value = data[0].pop(index)
+                    for n in data[0]: tempo.append(n)
+                    new_list.append(tempo)
+                    if update == False: data[0].insert(index,value)
+
+
+            # Done [["Hello"],["bye"],["good"]] or [["Hello","mio"],["bye"],["good","hh"]]
+            elif list_type == "multiple_items_multiple_rows":
+                new_list = []
+                for row in data:
+                    tempo = []
+                    for col in range(len(row)):
+                        if index == col:  pass
+                        else:             tempo.append(row[col])
+
+                    # if tempo != []: new_list.append(tempo)
+                    if len(tempo)>0 : new_list.append(tempo)
+
+                if update == True:
+                    data.clear()
+                    for row in new_list:
+                        for col in row:
+                            tempo_rows.append(col)
+                        data.append(tempo_rows)
+                        tempo_rows = []
+            else:
+                pass
         return new_list
 
 
@@ -5790,7 +5795,7 @@ class PyLO():
         if len(duplicate_list)>0:
             p = ["Data 1", "Posi 1", "Data 2", "Posi 2"]
             duplicate_list.insert(0,p)
-        
+
         return duplicate_list
 
 

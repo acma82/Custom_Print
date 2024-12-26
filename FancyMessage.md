@@ -1,4 +1,4 @@
-#### [Back](README.md) 
+#### [Back](README.md)
 # FancyMessage
 <!--- # <span style="color:green"> <strong> FancyMessage </strong> </span> --->
 
@@ -30,11 +30,11 @@ This class contains 3 methods and the attributes and their default values are di
 ## Body Default Values
 
 ```python
-    bg_body     = 4            hidden_body  = False        strike_body    = False			
-    fg_body     = 231	       italic_body  = False         length         = Length_bg.ALL_ROW 
-    dim_body    = False	       left_indent  = 2            inverse_body   = False			
-    bold_body   = False        right_indent = 2            blinking_body  = False			
-    msg_body    = "Body Msg"   top_lines    = 1            underline_body = False			
+    bg_body     = 4            hidden_body  = False        strike_body    = False
+    fg_body     = 231          italic_body  = False        length         = Length_bg.ALL_ROW
+    dim_body    = False        left_indent  = 2            inverse_body   = False
+    bold_body   = False        right_indent = 2            blinking_body  = False
+    msg_body    = "Body Msg"   top_lines    = 1            underline_body = False
     help_lines  = False        bottom_lines = 1
 ```
 
@@ -57,9 +57,9 @@ This class contains 3 methods and the attributes and their default values are di
 ```python
     msg_note  = " Note: "   align_note   = Align.JUSTIFY        blinking_note    = False
     bg_note   = 231         strike_note  = False                underline_note   = False
-    fg_note   = 0           italic_note  = False                position_note    = 1 
+    fg_note   = 0           italic_note  = False                position_note    = 1
     bold_note = False       inverse_note = False                right_space_note = 2
-    dim_note  = False       hidden_note  = False                left_space_note	 = 2	
+    dim_note  = False       hidden_note  = False                left_space_note  = 2
 ```
 
 ## Title Default Values
