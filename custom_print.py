@@ -135,17 +135,17 @@ class Unicode(enum.StrEnum):
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Triangle                                                                                                                                       -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    BLACK_UP_POINTING_TRIANGLE   = "\N{BLACK UP-POINTING TRIANGLE}"     # \u25B2  up fill arrow
-    WHITE_UP_POINTING_TRIANGLE   = "\N{WHITE UP-POINTING TRIANGLE}"     # \u25B3  up empty arrow
+    BLACK_UP_POINTING_TRIANGLE   = "\N{BLACK UP-POINTING TRIANGLE}"      # \u25B2  up fill arrow
+    WHITE_UP_POINTING_TRIANGLE   = "\N{WHITE UP-POINTING TRIANGLE}"      # \u25B3  up empty arrow
 
-    BLAKC_RIGHT_POINT_TRIANGLE   = "\N{BLACK RIGHT-POINTING TRIANGLE}"  # \u25B6  right fill  arrow
-    WHITE_RIGHT_POINT_TRIANGLE   = "\N{WHITE RIGHT-POINTING TRIANGLE}"  # \u25B7  right empty arrow
+    BLAKC_RIGHT_POINTING_TRIANGLE = "\N{BLACK RIGHT-POINTING TRIANGLE}"  # \u25B6  right fill  arrow
+    WHITE_RIGHT_POINTING_TRIANGLE = "\N{WHITE RIGHT-POINTING TRIANGLE}"  # \u25B7  right empty arrow
 
-    BLACK_DOWN_POINTING_TRIANGLE = "\N{BLACK DOWN-POINTING TRIANGLE}"   # \u25BC  down fill  arrow
-    WHITE_DOWN_POINTING_TRIANGLE = "\N{BLACK DOWN-POINTING TRIANGLE}"   # \u25BD  down empty arrow
+    BLACK_DOWN_POINTING_TRIANGLE = "\N{BLACK DOWN-POINTING TRIANGLE}"    # \u25BC  down fill  arrow
+    WHITE_DOWN_POINTING_TRIANGLE = "\N{BLACK DOWN-POINTING TRIANGLE}"    # \u25BD  down empty arrow
 
-    BLACK_LEFT_POINTING_TRIANGLE = "\N{BLACK LEFT-POINTING TRIANGLE}"   # \u25C0  left fill arrow
-    WHITE_LEFT_POINTING_TRIANGLE = "\N{WHITE LEFT-POINTING TRIANGLE}"   # \u25C1  left empty arrow
+    BLACK_LEFT_POINTING_TRIANGLE = "\N{BLACK LEFT-POINTING TRIANGLE}"    # \u25C0  left fill arrow
+    WHITE_LEFT_POINTING_TRIANGLE = "\N{WHITE LEFT-POINTING TRIANGLE}"    # \u25C1  left empty arrow
 
     EM_DASH = "\N{EM DASH}"
     #-------------------------------------------------------------------------------------------------------------------------------------------------
