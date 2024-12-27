@@ -105,8 +105,12 @@ result = pylo.find_duplicate(data=COLOR_NAMES, case_sensitive=True)
 tbl.print_fancy_format(result)
 
 NEW_LIST = ["HELLO","HI","BYE","hellO","Hola","Hi","HELLO"]
+print(f"{cp.Bg.ACOCADO_GREEN+cp.Fg.BLACK} case_sensitive=True {cp.Bg.OFF+cp.Fg.OFF}")
+print(NEW_LIST)
 rst = pylo.find_duplicate(data=NEW_LIST, case_sensitive=True)
 tbl.print_fancy_format(rst)
 
+print(f"{cp.Bg.ACOCADO_GREEN+cp.Fg.BLACK} case_sensitive=False {cp.Bg.OFF+cp.Fg.OFF}")
+print(NEW_LIST)
 rst = pylo.find_duplicate(data=NEW_LIST, case_sensitive=False)
 tbl.print_fancy_format(rst)

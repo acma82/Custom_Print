@@ -9,7 +9,7 @@
 ## [8. Pen](Pen.md)
 ## [9. PyLO Class](PyLO.md)
 
-
+> Custom_Print Module **requires** Python 3.12 or greater.
 
 <span style="background-color:purple">
 <span style="color:yellow"><strong>

@@ -250,7 +250,7 @@ print(f"{cp.set_font(1,90,231)}  Case 5  {cp.reset_font()}")
 lst = ["-1.5",2,"3","4.5","5",6,"(5+5j)"];      print("original: ", lst)
 result = pylo.data_to_num(data=lst, fill_value="0.1", update=False)
 print("result  : ",result)
-print(f"Addition:  (1+2j)+result[6] {(1+2j)+result[6]}")
+print(f"Addition:  (1+2j)+result[6] = {(1+2j)+result[6]}")
 
 
 #-------------------------------------------------------------------------------------------
@@ -268,7 +268,7 @@ print("result  : ",result)
 #-------------------------------------------------------------------------------------------
 print(f"{cp.ins_chr(n=80, unicode="-")}")
 
-print(f"{cp.set_font(1,90,231)}  Case 7  {cp.reset_font()}")
+print(f"{cp.set_font(1,90,231)}  Case 7  fill_value = 10 {cp.reset_font()}")
 lst = ["-10.5","-40",["50"],[250],["a","H"],"10"]
 print("original: ", lst)
 result = pylo.data_to_num(data=lst, fill_value=10, update=False)
@@ -277,7 +277,10 @@ print("original: ", lst)
 
 print(f"{cp.ins_chr(n=80, unicode="-")}")
 
+print(f"{cp.set_font(1,90,231)}  fill_value = \'A\' {cp.reset_font()}")
 print("original: ", lst)
 result = pylo.data_to_num(data=lst, fill_value='A', update=True)
 print("result  : ",result)
 print("original: ", lst)
+
+print(f"{cp.Bg.BLOOD_RED} When NOT possible the conversion, it will set to 0 {cp.Bg.OFF}")

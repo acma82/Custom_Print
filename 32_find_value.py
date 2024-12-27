@@ -50,11 +50,16 @@ result = pylo.find_value(data=list_1, value="DATITO 1", case_sensitive=False)
 tbl.print_fancy_format(result)
 tbl.print_fancy_format(list_1)
 
+cp.ins_newline(2)
 
+print(f"{cp.Bg.BLOOD_RED} Finding 8 {cp.Bg.OFF} {list_2}")
 result = pylo.find_value(list_2, 8, True) # Number are NOT Case Sensitive
 print("Case_Sensitive=False: ",result)
 
+cp.ins_newline(2)
 
+print(f"{cp.Bg.BLOOD_RED} Finding \"BB\" {cp.Bg.OFF} {list_3}")
 result = pylo.find_value(list_3, "BB", True)
 print("Case_Sensitive=True:  ",result)
+
 
