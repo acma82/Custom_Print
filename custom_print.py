@@ -5795,5 +5795,3 @@ class PyLO():
             duplicate_list.insert(0,p)
 
         return duplicate_list
-
-
