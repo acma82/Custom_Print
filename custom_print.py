@@ -47,7 +47,6 @@ custom_print module can handle any type of variable.
 # Required Modules                                                                                                                                   -
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 import os
-import sys
 import enum
 import platform
 import csv             # PyLO class
@@ -142,11 +141,11 @@ class Unicode(enum.StrEnum):
     BLAKC_RIGHT_POINT_TRIANGLE   = "\N{BLACK RIGHT-POINTING TRIANGLE}"  # \u25B6  right fill  arrow
     WHITE_RIGHT_POINT_TRIANGLE   = "\N{WHITE RIGHT-POINTING TRIANGLE}"  # \u25B7  right empty arrow
 
-    BLACK_DOWN_POINTING_TRIANGLE = "\N{BLACK DOWN-POINTING TRIANGLE}" # \u25BC  down fill  arrow
-    WHITE_DOWN_POINTING_TRIANGLE = "\N{BLACK DOWN-POINTING TRIANGLE}" # \u25BD  down empty arrow
+    BLACK_DOWN_POINTING_TRIANGLE = "\N{BLACK DOWN-POINTING TRIANGLE}"   # \u25BC  down fill  arrow
+    WHITE_DOWN_POINTING_TRIANGLE = "\N{BLACK DOWN-POINTING TRIANGLE}"   # \u25BD  down empty arrow
 
-    BLACK_LEFT_POINTING_TRIANGLE = "\N{BLACK LEFT-POINTING TRIANGLE}" # \u25C0  left fill arrow
-    WHITE_LEFT_POINTING_TRIANGLE = "\N{WHITE LEFT-POINTING TRIANGLE}" # \u25C1  left empty arrow
+    BLACK_LEFT_POINTING_TRIANGLE = "\N{BLACK LEFT-POINTING TRIANGLE}"   # \u25C0  left fill arrow
+    WHITE_LEFT_POINTING_TRIANGLE = "\N{WHITE LEFT-POINTING TRIANGLE}"   # \u25C1  left empty arrow
 
     EM_DASH = "\N{EM DASH}"
     #-------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1096,7 +1095,7 @@ def tuple2list(my_tuple):
                                                 # string              ("")         -> Case 0   String
                                                 # "empty_tuple"       ("",)        -> Case 1   Empty
         tempo_list.append(my_tuple[0])          # "one_item_no_row"   ("Apple",)   -> Case 2   Tuple
-        #return tempo_list                       # "one_item_one_row"  (("Apple",)) -> Case 3   Tuple inside Tuple
+        #return tempo_list                      # "one_item_one_row"  (("Apple",)) -> Case 3   Tuple inside Tuple
 
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     #elif len(my_tuple) > 1:
@@ -1234,11 +1233,11 @@ def _get_list_type(my_list):
     if len(my_list) == 1:
         if isinstance(my_list[0], list):
             if len(my_list[0]) > 1:
-                return "multiple_items_one_row"           # [[1,2,3]]   Case 5
+                return "multiple_items_one_row"         # [[1,2,3]]   Case 5
             else:
-                return "one_item_one_row"                 # [[1]]  Case 4
+                return "one_item_one_row"               # [[1]]  Case 4
         else:
-            return "one_item_no_row"                      # [1]   Case 2
+            return "one_item_no_row"                    # [1]   Case 2
 
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     if len(my_list) > 1:
@@ -2281,7 +2280,7 @@ class FancyFormat:
         # Corner Section
         self.middle_top_corner_chr    =  "+"       # all the middle corners between top_left_corner_chr and top_right_corner_chr. Only matrix list
         self.middle_bottom_corner_chr = "+"        # all the middle corners between top_left_corner_chr and top_right_corner_chr. Only matrix list
-        self.middle_inner_corner_chr  = "|"       # corner inside the matrix and sides but not top(left,right), or bottom(left, right). Only matrix list
+        self.middle_inner_corner_chr  = "|"        # corner inside the matrix and sides but not top(left,right), or bottom(left, right). Only matrix list
 
         self.left_lateral_corner_chr  = "|"        # chr only for matrix list
         self.right_lateral_corner_chr = "|"        # chr only for matrix list
@@ -3140,7 +3139,7 @@ class FancyMessage(Cursor):
     FancyMessage class
     '''
     def __init__(self):
-        super().__init__()       # Super Class to use all (vars and funs) from Cursor Class
+        super().__init__()          # Super Class to use all (vars and funs) from Cursor Class
                                     # with the Initialization Draw Class(self), ex. self.gotoxy(x,y)
         self.bg_body        = 4;          self.underline_body = False     # 4         False
         self.fg_body        = 231;        self.blinking_body  = False     # 231       False
@@ -3438,7 +3437,7 @@ class FancyMessage(Cursor):
 
         #---------------------------------------------------------------------------------------------------------------------------------------------
         #---------------------------------------------------------------------------------------------------------------------------------------------
-        if not self.msg_title == "": #!= None:
+        if not self.msg_title == "":
             # working with the font color
             self.bg_body     = self.bg_title;          self.underline_body = self.underline_title
             self.fg_body     = self.fg_title;          self.blinking_body  = self.blinking_title
@@ -3456,7 +3455,7 @@ class FancyMessage(Cursor):
                 sp = space_available - len(self.msg_title) # 1 for not jumping line and finished
                 self.msg_title = ins_chr(sp) + self.msg_title
 
-            else:                                         # Align.JUSTIFY
+            else:                                          # Align.JUSTIFY
                 self.msg_title = ins_chr(self.title_indent) + self.msg_title
 
             self.bottom_lines = self.lines_title_body
@@ -3591,7 +3590,7 @@ class FancyMessage(Cursor):
             tbl.align_title = Align.LEFT
             tbl.bold_title   = True;   tbl.bg_title = 231
             tbl.italic_title = True;   tbl.fg_title = 21
-               # bg colors
+            # bg colors
             tbl.bg_horizontal_line = 21
             tbl.bg_vertical_line   = 21
             tbl.bg_corner_chr      = 21
@@ -3630,15 +3629,15 @@ class FancyMessage(Cursor):
 # Class Draw Pictures Around The Terminal                                                                                                           --
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
-class Pen(Cursor):                      # Inheritance the Cursor Class here.
+class Pen(Cursor):                         # Inheritance the Cursor Class here.
     '''
     Pen class will draw lines nad squares
     '''
-    def __init__(self):                  # Initializing Draw Class as self
-        super().__init__()                # Super Class to use all (vars and funs) from Cursor Class
-                                          # with the Initialization Draw Class(self), ex. self.gotoxy(x,y)
+    def __init__(self):                    # Initializing Draw Class as self
+        super().__init__()                 # Super Class to use all (vars and funs) from Cursor Class
+                                           # with the Initialization Draw Class(self), ex. self.gotoxy(x,y)
         # General Section
-        self.adj_indent = 0               # space from the terminal to the box
+        self.adj_indent = 0                # space from the terminal to the box
         self.bold_draw_line = False
         self.bg_draw_line = -1
         self.fg_draw_line = -1
