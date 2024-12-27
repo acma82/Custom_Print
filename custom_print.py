@@ -49,11 +49,10 @@ custom_print module can handle any type of variable.
 import os
 import sys
 import enum
-import copy
 import platform
-import csv          # PyLO class
-import json         # PyLO class
-import readline     # to use input and not cause problem with pylint
+import csv             # PyLO class
+import json            # PyLO class
+# import readline      # to use input and not cause problem with pylint
 
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 # Layout is used for the Range, Set, Frozenset.                                                                                                      -
@@ -5206,9 +5205,9 @@ class PyLO():
             ctrl = 1
         else:
             tmp = PyLO.make_to_vector(self, data=new_data)
-            for value in range(len(tmp)):
-                if tmp[value] == new_value:
-                    grep_list.append(value)
+            for v in range(len(tmp)):
+                if tmp[v] == new_value:
+                    grep_list.append(v)
 
         if   ctrl == 1 and len(grep_list)>0: grep_list.insert(0, ["Row","Col","value"])
         elif ctrl == 2 and len(grep_list)>0:
@@ -5799,13 +5798,3 @@ class PyLO():
         return duplicate_list
 
 
-
-# Planning to use this script as help of the Module custom_print.
-if __name__ == "__main__":
-    print("Working on The Documentation Here")
-    cmdl_argv = []
-    for argv in sys.argv:
-        cmdl_argv.append(argv.lower())
-
-    table = FancyFormat()
-    table.print_fancy_format(cmdl_argv)
