@@ -421,18 +421,65 @@ def Ansi_Color_Function():
  
 ''' 
     print(message)
-    print(f"      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}  {cp.set_font(1,11,21)} Python is {cp.set_font(0,1)} Wonderful. {cp.reset_font()}")
+    print(f"       {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}  {cp.set_font(1,11,21)} Python is {cp.set_font(0,1)} Wonderful. {cp.reset_font()}")
     print()
     message = '''Colors range goes from -1 to 256.
 To  set the default color from the system use -1 or 256, for both bg and fg.
  
 bli nking might not work in all the OS. We use Red Hat Family.
  
-Not e: These functions are being used by the FancyFormat Class. Feel free to ignore them      if not useful to you.
+Note: These functions are being used by the FancyFormat Class. Feel free to ignore them      if not useful to you.
 '''   
     white_msg.print_fancy_note(message)
- 
 
+    cp.ins_newline(2)
+
+    purple_msg.print_fancy_message("No Class")
+    message = f'''
+    If using the number is hard to remember the color, the No Class can be used to sustitute the 
+    number for the name as the example below. Use the bg_ansi_colors or fg_ansi_colors methods
+    to learn the names of the colors available in custom_print.
+
+       {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp
+                   print(cp.set_font(True,cp.No.DARKISH_YELLOW,cp.No.BLUE) + " Python is " +
+                    cp.set_font(False,cp.No.RED) + " Wonderful." + cp.reset_font())
+    '''
+    print(message)
+    print(f"       {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}\
+{cp.set_font(1,cp.No.DARKISH_YELLOW,cp.No.BLUE)} Python is {cp.set_font(False,cp.No.RED)} Wonderful. {cp.reset_font()}")
+    print()
+    message = '''Remember that we are still using the number, but using the name of the color.'''
+    white_msg.print_fancy_note(message)
+    print()
+    print(f"{cp.Fg.AQUA}No Class {cp.Fg.OFF}can be used where a number color is required for example with FontStyle class,\
+ FancyMessage class, FancyFormat class, etc.\n")
+        
+    purple_msg.print_fancy_message("Bg, Fg, and Style Classes")
+    print()
+    message =f'''
+       Style values:
+       
+       1) bold=False      4) italic=False         7) blinking=False
+       2) inverse         5) underline=False      8) dim=False
+       3) hidden          6) strike=False
+
+       Bg and Fg colors name use the bg_ansi_colors function or fg_ansi_colors function
+       to learn more the name of the colors available in custom_print.
+
+       {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp'''
+             
+    print(message)
+    print("                   print(f\"{cp.Bg.WHITE+cp.Fg.BLUEBERRY_PURPLE} Background and Foreground")
+    print("                   {cp.Bg.OFF} Only Foreground {cp.Fg.OFF} Normal....! \"\n")
+
+    print(f"       {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}  {cp.Bg.WHITE+cp.Fg.BLUEBERRY_PURPLE} Background and Foreground {cp.Bg.OFF} Only Foreground {cp.Fg.OFF} Normal....!\n")
+
+    message = f'''       {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp'''
+    print(message)
+    print("                   print(f\"{cp.Style.UNDERLINE_ON} Underline Style {cp.Style.UNDERLINE_OFF} Normal\"")
+    
+    print(f"\n       {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}",end="")
+    print(f" {cp.Style.UNDERLINE_ON} UnderOnly Style {cp.Style.UNDERLINE_OFF} Normal....! \"\n")
 
 def Terminal_Bell_Function():
     #------------------------------------------------------------------------------------------------
