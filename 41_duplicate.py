@@ -34,7 +34,7 @@ COLOR_NAMES = [\
 "INDIGO",               "DARK VIOLET",           "ELECTRIC VOILET",             #56
 "ELECTRIC INDIGO",      "VERDUN GREEN",          "SCORPION GRAY",               #59
 "UCLA BLUE",            "SCAMPI BLUE",           "SLATE BLUE",                  #62
-"CORNFLOWER BLUE",      "ACOCADO GREEN",         "GLADE GREEN",                 #65
+"CORNFLOWER BLUE",      "AVOCADO GREEN",         "GLADE GREEN",                 #65
 "STEEL TEAL CYAN",      "STEEL BLUE",            "HAVELOCK BLUE",               #68
 "BLUEBERRY",            "KELLY GREEN",           "FOREST GREEN",                #71
 "POLISHED PIN GREEN",   "CRYSTAL BLUE",          "AQUA PEARL",                  #74
@@ -105,12 +105,12 @@ result = pylo.find_duplicate(data=COLOR_NAMES, case_sensitive=True)
 tbl.print_fancy_format(result)
 
 NEW_LIST = ["HELLO","HI","BYE","hellO","Hola","Hi","HELLO"]
-print(f"{cp.Bg.ACOCADO_GREEN+cp.Fg.BLACK} case_sensitive=True {cp.Bg.OFF+cp.Fg.OFF}")
+print(f"{cp.Bg.AVOCADO_GREEN+cp.Fg.BLACK} case_sensitive=True {cp.Bg.OFF+cp.Fg.OFF}")
 print(NEW_LIST)
 rst = pylo.find_duplicate(data=NEW_LIST, case_sensitive=True)
 tbl.print_fancy_format(rst)
 
-print(f"{cp.Bg.ACOCADO_GREEN+cp.Fg.BLACK} case_sensitive=False {cp.Bg.OFF+cp.Fg.OFF}")
+print(f"{cp.Bg.AVOCADO_GREEN+cp.Fg.BLACK} case_sensitive=False {cp.Bg.OFF+cp.Fg.OFF}")
 print(NEW_LIST)
 rst = pylo.find_duplicate(data=NEW_LIST, case_sensitive=False)
 tbl.print_fancy_format(rst)
