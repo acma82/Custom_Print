@@ -1,0 +1,87 @@
+
+#first {
+    background-color: cadetblue;
+    padding: 20px;
+    border: 10px solid black;
+    color: rgb(241, 234, 234);
+    font-weight: bold;
+    font-size: xx-large;
+}
+
+#second {
+    background-color: gold;
+    border: solid black;
+    border-width: 20px 10px;
+    margin-left: 260px;
+    font-size: large;
+    color: blue;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: italic;
+
+}
+
+#third {
+    background-color: rgb(152, 50, 50);
+    border: 10px solid black;
+    color: white;
+    margin-left: 20px;
+    padding: 40px;
+    font-weight: bold;
+    font-size: xx-large;   
+}
+
+#purple
+{
+    background-color: indigo;
+    font: white;
+    padding: 10px;
+    border: 10px solid rgb(188,180,180)
+}
+
+
+.container_grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Creates two columns of equal width */
+  gap: 20px; /* Adds a 20px gap between columns */
+}
+
+
+.container_flex
+{
+  display: flex;
+  justify-content: space-between; /* Distributes space between columns */
+}
+
+.column {
+  flex: 2; /* Makes columns take up equal available space */
+  /* Or, you can set specific widths: */
+  /* width: 50%; */
+}
+
+.text-container {
+  column-count: 3; /* Divides the content into two columns */
+  column-gap: 20px; /* Adds a gap between the text columns */
+}
+
+
+.float-left {
+  float: left;
+  margin: 0 15px 15px 0; /* Creates space on the right and bottom */
+}
+
+.float-right {
+  float: right;
+  margin: 0 0 15px 15px; /* Creates space on the left and bottom */
+}
+
+.circle-wrap {
+  float: left;
+  width: 300px;
+  border-radius: 50%; /* Creates a circular shape for the image itself */
+  /* shape-outside: circle(50%); /* Defines the wrap shape*/
+  margin: 0 15px 15px 0;
+}
+
+.clear {
+  clear: both; /* Prevents wrapping for elements below the float */
+}
