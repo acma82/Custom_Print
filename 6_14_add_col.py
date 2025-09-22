@@ -43,12 +43,12 @@ tmp = list_3
 for rows in range(len(list_4)):
     tmp = pylo.add_col(data=tmp, col_data=list_4[rows], posi=len(tmp)+1)
 
-tbl.print_fancy_format(tmp, cp.Line_Style.DOUBLE)
+tbl.print_fancy_format(tmp, cp.Line_Style.DOUBLE_LINE)
 
 tmp = list_3
 for rows in range(len(list_4)):
     tmp = pylo.add_col(data=tmp, col_data=list_4[rows], posi=len(tmp))
 
-tbl.print_fancy_format(tmp, cp.Line_Style.DOUBLE)
+tbl.print_fancy_format(tmp, cp.Line_Style.DOUBLE_LINE)
 
 

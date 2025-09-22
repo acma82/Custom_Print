@@ -41,16 +41,16 @@ custom_print module can handle any type of variable.
 #12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
 #        1         2         3         4         5         6         7         8         9         A         B         C         D         E         F
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
-
-from custom_print.ref_names import Move
-from custom_print.ref_names import Layout
-from custom_print.fancy_functions import get_list_type
 #from typing import Union
 import os              # PyLO class
 import csv             # PyLO class
 import json            # PyLO class
 import enum            # PyLO class
 import typing          # To define in the function type of arguments that are accepted
+
+from custom_print.ref_names import Move
+from custom_print.ref_names import Layout
+from custom_print.fancy_functions import get_list_type
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 # Python List Operation Functions (PyLO)                                                                                                             -
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1098,7 +1098,8 @@ class PyLO():
     def make_to_vector(self, data:list)->list:
 
         '''  This function makes any list in a form as a vector. [1,2,3,4,5,etc.],
-             up to 4 brackets. '''
+             up to 4 brackets.
+        '''
 
         vector_lista = []
         for item in data:
@@ -1132,7 +1133,7 @@ class PyLO():
                 new_col_data = ["New_Header",   "New_Row_Col",  "New_Row_Col"]
                 result = add_col(data, new_col_data, 1)
             Notice that if you want to add more than one column at same time, use the merge method.
-            '''
+        '''
         tmp = []; new_list = []
 
         if col_data == [] or col_data == [[]] or col_data == [[[]]]:  pass
@@ -1199,7 +1200,8 @@ class PyLO():
 
         '''  It replaces an item value for another in a list
              The list can be a vector [1,2,3,4] or a matrix (table) [[1,2],[3,1]]
-             or a combination of them [[1,2],[3,3,3],3,[5,6,7,8]]  '''
+             or a combination of them [[1,2],[3,3,3],3,[5,6,7,8]]
+        '''
 
         new_list = []
         for value in data:
@@ -1316,7 +1318,8 @@ class PyLO():
     def find_value(self, data:list, value:int|str, case_sensitive=False)->list:
 
         '''  This method finds a value into a list and returns the location of the value.
-             Up to 4 brackets.  '''
+             Up to 4 brackets.
+        '''
 
         my_type = get_list_type(data)
         new_data = []
@@ -1425,7 +1428,8 @@ class PyLO():
         '''  This method merge two list with two option of merge.
              It can be merge by ROWS or by COLUMNS. It also,
              provide the option to pick the specific position
-             where to start the merge on list_1.  '''
+             where to start the merge on list_1.
+        '''
 
         merge_list = []
 
@@ -1592,7 +1596,8 @@ class PyLO():
     def delete_value(self, data:list, value:str="", case_sensitive:bool=True, update:bool=False)->list:
 
         ''' This method delete an value from the list.
-            This methods has the option of using the case sensitive. '''
+            This methods has the option of using the case sensitive.
+        '''
 
         new_list = []
         for my_value in data:
@@ -1631,7 +1636,8 @@ class PyLO():
     def reversed_row_order(self, data:list, update:bool=False):
 
         '''  This methods reverse the order of the list keeping
-             the headers in the same positon. '''
+             the headers in the same positon.
+        '''
 
         headers = [];       body = [];      ctrl = 0
         reversed_list = []; tmp = []
@@ -1897,7 +1903,8 @@ class PyLO():
     def find_duplicate(self, data:list, case_sensitive:bool=True):
 
         '''  This method find all duplicate values into a list and returns
-             all duplicate values into a list.  '''
+             all duplicate values into a list.
+        '''
 
         new_data = PyLO.make_to_vector(self, data=data)
         duplicate_list = []
@@ -1942,10 +1949,17 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
 
     def matrix(self, matrix_a:list, operation, matrix_b:list)->list:
+        '''
+            matrix operation
+        '''
+
         return operation(matrix_a, matrix_b)
-    
-    
+
+
     def multiply_by(self,matrix_a:list, component_b:int):
+        '''
+            matrix multiplication
+        '''
         result = []
         if isinstance(component_b, (int,float,complex)):
             for row in range(len(matrix_a)):
@@ -1955,10 +1969,14 @@ class PyLO():
                 result.append(tempo)
             return result
 
-        
+
         return result
 
     def matrix_multiply_by_scalar(self, matrix:list, scalar:typing.Union[int,float,complex])->list:
+        '''
+            multiply a matrix with an scalar
+        '''
+
         result = []
         if isinstance(scalar, (int,float,complex)):
             for row in range(len(matrix)):
@@ -1973,6 +1991,9 @@ class PyLO():
     # Mathematic Vector Operation with List.                                                                                                         -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     def vector_multiply_by_scalar(self, vector:list, scalar:typing.Union[int,float,complex])->list:
+        '''
+            vector multiply by a scalar
+        '''
         if isinstance(scalar, (int,float,complex)):
             resutl = []
             for row in vector:
@@ -1980,14 +2001,10 @@ class PyLO():
             return resutl
 
     def vector_dot_product(self, vector_a:list, vector_b:list)->typing.Union[int, float, complex]:
+        '''
+            dot product for two vectors
+        '''
         result = 0
         for row in range(len(vector_a)):
             result = vector_a[row]*vector_b[row] + result
         return result
-    
-
-
-
-        
-            
-
