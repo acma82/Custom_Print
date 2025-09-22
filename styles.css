@@ -30,15 +30,6 @@
     font-size: xx-large;   
 }
 
-#purple
-{
-    background-color: indigo;
-    font: white;
-    padding: 10px;
-    border: 10px solid rgb(188,180,180)
-}
-
-
 .container_grid {
   display: grid;
   grid-template-columns: 1fr 1fr; /* Creates two columns of equal width */
