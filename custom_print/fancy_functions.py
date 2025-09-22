@@ -21,6 +21,7 @@ custom_print module can handle any type of variable.
 #pylint: disable=unspecified-encoding
 #pylint: disable=unnecessary-negation
 #pylint: disable=singleton-comparison
+#pylint: disable=too-few-public-methods
 #pylint: disable=too-many-nested-blocks
 #pylint: disable=too-many-public-methods
 #pylint: disable=expression-not-assigned
@@ -387,6 +388,9 @@ def reset_font():
 # Get List Type                                                                                                                                      -
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 def get_list_type(my_list):
+    '''
+        getting the type of list
+    '''
     if not isinstance(my_list, list):
         return "incorrect_variable_type"                # [Not a List] Case 0
     #-------------------------------------------------------------------------------------------------------------------------------------------------
@@ -432,6 +436,9 @@ def get_list_type(my_list):
 # Subscript Letter                                                                                                                                   -
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 def subscript(number):
+    '''
+        subscript form
+    '''
     subscript_map = {
         'a' : '\u2090',    'b' : '?',         'c' : '?',         'd' : '?',         'e' : '\u2091',
         'f' : '?',         'g' : '?',         'h' : '\u2095',    'i' : '\u1d62',    'j' : '\u2c7c',
@@ -479,6 +486,9 @@ def subscript(number):
 # Superscript Letter                                                                                                                                 -
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 def superscript(number):
+    '''
+        superscript form
+    '''
     superscript_map = {
 
         'a' : '\u1d43',   'b' : '\u1d47',   'c' : '\u1d9c',   'd' : '\u1d48',   'e' : '\u1d49',
@@ -497,7 +507,7 @@ def superscript(number):
 
         '0' : '\u2070',    '1' : '\u00B9',    '2' : '\u00B2',    '3' : '\u00B3',    '4' : '\u2074',
         '5' : '\u2075',    '6' : '\u2076',    '7' : '\u2077',    '8' : '\u2078',    '9' : '\u2079',
-        
+
         '+' : '\u207A',    '-' : '\u207B',    '=' : '\u207C',    '(' : '\u207D',    ')' : '\u207E',
 
         'alpha'   : '\u1d45',

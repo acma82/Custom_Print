@@ -8,6 +8,7 @@ custom_print module can handle any type of variable.
 #pylint: disable=line-too-long
 #pylint: disable=too-many-lines
 #pylint: disable=no-else-return
+#pylint: disable=wildcard-import
 #pylint: disable=unused-variable
 #pylint: disable=too-many-locals
 #pylint: disable=protected-access
@@ -21,6 +22,7 @@ custom_print module can handle any type of variable.
 #pylint: disable=unspecified-encoding
 #pylint: disable=unnecessary-negation
 #pylint: disable=singleton-comparison
+#pylint: disable=too-few-public-methods
 #pylint: disable=too-many-nested-blocks
 #pylint: disable=too-many-public-methods
 #pylint: disable=expression-not-assigned
@@ -209,7 +211,7 @@ class Pen(Cursor):                         # Inheritance the Cursor Class here.
                 #---------------------------------------------------------------------------------------------------------------
                 # start drwaing the rectangle                                                                                  -
                 #---------------------------------------------------------------------------------------------------------------
-                if style.lower() == Line_Style.SINGLE:
+                if style.lower() == Line_Style.SINGLE_LINE:
 
                     # Horizontal Line Section
                     self.top_horizontal_line_chr = "\u2500";      self.bottom_horizontal_line_chr="\u2500"
@@ -247,7 +249,7 @@ class Pen(Cursor):                         # Inheritance the Cursor Class here.
                     self.bottom_right_corner_chr="\u2588";        self.bottom_left_corner_chr="\u2588"
 
 
-                elif style.lower() == Line_Style.DOUBLE:
+                elif style.lower() == Line_Style.DOUBLE_LINE:
                     # Horizontal Line Section
                     self.top_horizontal_line_chr = "\u2550";      self.bottom_horizontal_line_chr="\u2550"
 

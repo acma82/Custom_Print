@@ -21,6 +21,7 @@ custom_print module can handle any type of variable.
 #pylint: disable=unspecified-encoding
 #pylint: disable=unnecessary-negation
 #pylint: disable=singleton-comparison
+#pylint: disable=too-few-public-methods
 #pylint: disable=too-many-nested-blocks
 #pylint: disable=too-many-public-methods
 #pylint: disable=expression-not-assigned

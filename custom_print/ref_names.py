@@ -8,6 +8,7 @@ custom_print module can handle any type of variable.
 #pylint: disable=line-too-long
 #pylint: disable=too-many-lines
 #pylint: disable=no-else-return
+#pylint: disable=wildcard-import
 #pylint: disable=unused-variable
 #pylint: disable=too-many-locals
 #pylint: disable=protected-access
@@ -21,6 +22,7 @@ custom_print module can handle any type of variable.
 #pylint: disable=unspecified-encoding
 #pylint: disable=unnecessary-negation
 #pylint: disable=singleton-comparison
+#pylint: disable=too-few-public-methods
 #pylint: disable=too-many-nested-blocks
 #pylint: disable=too-many-public-methods
 #pylint: disable=expression-not-assigned
@@ -94,6 +96,9 @@ class Length_bg(enum.Enum):
     ONLY_WORD = 2
 
 class Divider_Style(enum.Enum):
+    '''
+    Divider Styles
+    '''
     CUSTOMIZED   = "customized"
     SINGLE_LINE  = "single_line"
     SINGLE_BOLD  = "single_bold"
@@ -106,7 +111,7 @@ class Divider_Style(enum.Enum):
     BLUE_WHITE_2 = "blue_white_2"
 
 
-   
+
 class Line_Style(enum.StrEnum):
 # class Line_Style():
     '''
@@ -119,13 +124,13 @@ class Line_Style(enum.StrEnum):
     SINGLE_BOLD  = "single_bold"
     SINGLE_HEAVY = "single_heavy"
     SQ_BRACKETS  = "sq_brackets"
-    
+
     # This two option are for making their own custom color for the user
     SINGLE_SPACE  = "single_space"
     DOUBLE_SPACE  = "double_space"
     NONE          = "none"
     # Color Designs ( DEF -> Default )
-    # set_color_for_spaces_on_tbl(self, bg_color_line, bg_color_header, fg_color_header, bg_color_data, fg_color_data)  
+    # set_color_for_spaces_on_tbl(self, bg_color_line, bg_color_header, fg_color_header, bg_color_data, fg_color_data)
     # Design 1
     WHITE_PURPLE        = "white_purple"
     WHITE_BLACK_PURPLE  = "white_black_purple"
@@ -135,16 +140,16 @@ class Line_Style(enum.StrEnum):
     TURQUOISE_WHITE     = "turquoise_white"
 
 
-    TEAL_WHITE      = "teal_white"  
+    TEAL_WHITE      = "teal_white"
     GRAY_TEAL_WHITE = "gray_teal_white"
     BLUE_PURPLE_WHITE_1 = "blue_purple_white_1"
     BLUE_PURPLE_WHITE_2 = "blue_purple_white_2"
     GREEN_GREEN_BLACK   = "green_green_black"
-    
+
     # set_color_2_for_tbl(self,bg_h, fg_h, bg_l, bg_d, fg_d)
     # Design 2
     WHITE_BLACK_1   = "white_black"
-    WHITE_BLACK_2   = "white_black_v2" 
+    WHITE_BLACK_2   = "white_black_v2"
     TURQUOISE_BLACK = "turquoise_black"
 
     DESIGN_1  = "design_1"

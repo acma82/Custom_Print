@@ -21,6 +21,7 @@ custom_print module can handle any type of variable.
 #pylint: disable=unspecified-encoding
 #pylint: disable=unnecessary-negation
 #pylint: disable=singleton-comparison
+#pylint: disable=too-few-public-methods
 #pylint: disable=too-many-nested-blocks
 #pylint: disable=too-many-public-methods
 #pylint: disable=expression-not-assigned
@@ -130,8 +131,8 @@ def dict2list(my_dict, layout:Layout=Layout.HORIZONTAL):
     my_key_list  = list(my_dict.keys())
     my_data_list = list(my_dict.values())
     complete_list = [];  tempo_list = []
-    
-    
+
+
     for d in range(len(my_dict)):
         tempo_list.append(my_key_list[d])
         tempo_list.append(my_data_list[d])
@@ -146,10 +147,10 @@ def dict2list(my_dict, layout:Layout=Layout.HORIZONTAL):
             tempo_list = []
             for r in range(len(complete_list)):
                 tempo_list.append(complete_list[r][c])
-            transpose_list.append(tempo_list)        
+            transpose_list.append(tempo_list)
         complete_list = transpose_list
 
-    
+
     return complete_list
 
 
@@ -377,6 +378,9 @@ def data2list(self,dato):
 # Get Total Length of the Columns                                                                                                                    -
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 def get_total_length(self,my_list):
+    '''
+        getting the length of the table
+    '''
     my_length = 0
     list_dimensions = get_list_type(my_list)
     if list_dimensions == "one_item_no_row":     # ["item"]
@@ -450,6 +454,9 @@ def get_total_length(self,my_list):
 # Print Title On Terminal with Its Attributes: Bold, Bg and Fg Color (title)                                                                         -
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 def print_title(self,my_list):
+    '''
+        printing the title of the table
+    '''
 
     if self.title_msg == "":  return
 
@@ -495,6 +502,9 @@ def print_title(self,my_list):
 # Print Footnote On Terminal with Its Attributes: Bold, Bg and Fg Color (footnote)                                                                   -
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 def print_notefoot(self,my_list):
+    '''
+        printing the notefoot of the table
+    '''
 
     if self.footnote_msg == "": return
 
@@ -539,6 +549,9 @@ def print_notefoot(self,my_list):
 # Print Horizontal Line                                                                                                                              -
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 def print_horizontal_segment(self,start_chr,end_chr,times,indent,option):
+    '''
+        print the horizontal line by segment
+    '''
 
     set_v   = set_font(self.vertical_line_bold, self.vertical_line_bg, self.vertical_line_fg)
     set_h   = set_font(self.horizontal_line_bold, self.horizontal_line_bg, self.horizontal_line_fg)
@@ -579,6 +592,9 @@ def print_horizontal_segment(self,start_chr,end_chr,times,indent,option):
 # Print Single Element                                                                                                                               -
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 def print_single_element(self,my_list):
+    '''
+        print the table when it is a single element
+    '''
 
     if isinstance(my_list[0],list): item = my_list[0][0]
     else:                           item = my_list[0]
@@ -645,6 +661,9 @@ def print_single_element(self,my_list):
 # Print Multiple Horizontal Items (One Row OR No Row)                                                                                                -
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 def print_multiple_horizontal_items(self,my_list):
+    '''
+        print the table when is a horizontal items only
+    '''
     ins_newline(self.adj_top_margin)
     # print title
     print_title(self,my_list)
@@ -743,6 +762,9 @@ def print_multiple_horizontal_items(self,my_list):
 # Get Number of Rows and Cols of the List                                                                                                            -
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 def get_number_rows_cols_list(my_list):
+    '''
+        getting the number of rows and cols from the list
+    '''
     n_rows = len(my_list)
     n_cols = 0
 
@@ -758,6 +780,9 @@ def get_number_rows_cols_list(my_list):
 # Complete Information in the List, if need it                                                                                                       -
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 def complete_info_list(self,my_list):
+    '''
+        complete the list
+    '''
     n_rows, n_cols = get_number_rows_cols_list(my_list)
     row_tempo_list = []; matrix_update = []
 
@@ -776,6 +801,9 @@ def complete_info_list(self,my_list):
 # Get the Odd or Even Space Adjustment for the Word                                                                                                  -
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 def get_odd_even_space_adj(length,len_dato):
+    '''
+        calculting the space for the type of alignment chosen
+    '''
     sp_start = 0; sp_end=0
     odd_l = length%2
     odd_len_dato = len_dato%2
@@ -798,6 +826,9 @@ def get_odd_even_space_adj(length,len_dato):
 # Print Matrix List                                                                                                                                  -
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 def print_matrix_list(self,my_list):
+    '''
+        printing the table 
+    '''
     # d  :data,   v: vertical,   hcl: left_corner_header,   mch:middle_corner_header, rch:right_corner_header,   t:title(header)
     # get all the settings for the list
 
@@ -1133,6 +1164,9 @@ def print_matrix_list(self,my_list):
 # Making all the spaces in the table free of chars. This is for not spaces between the columns in the header and data                                          -
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 def make_double_empty_space_on_tbl(self):
+    '''
+        makes double space rather than print the character for the line
+    '''
     # Horizontal Line Section
     self.top_horizontal_line_chr = " ";         self.bottom_horizontal_line_chr = " ";      self.middle_horizontal_line_chr = " "
 
@@ -1161,14 +1195,17 @@ def make_double_empty_space_on_tbl(self):
 # Setting all the color for the table between header and data                                                                                        -
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 def set_color_for_spaces_on_tbl(self, bg_color_line, bg_color_header, fg_color_header, bg_color_data, fg_color_data):
+    '''
+        setting the colors for the spaces
+    '''
     self.horizontal_line_bg = bg_color_line
-    self.outer_corner_bg = bg_color_line
-    self.inner_corner_bg = bg_color_line
-    self.header_corner_bg = bg_color_line
+    self.outer_corner_bg    = bg_color_line
+    self.inner_corner_bg    = bg_color_line
+    self.header_corner_bg   = bg_color_line
     self.header_horizontal_line_bg = bg_color_line
-    self.header_vertical_line_bg = bg_color_line
-    self.vertical_line_bg = bg_color_line    
-     
+    self.header_vertical_line_bg   = bg_color_line
+    self.vertical_line_bg = bg_color_line
+
     self.header_bg = bg_color_header
     self.header_fg = fg_color_header
     self.data_bg   = bg_color_data
@@ -1182,22 +1219,24 @@ def set_color_for_spaces_on_tbl(self, bg_color_line, bg_color_header, fg_color_h
 
 
 def set_color_2_for_tbl(self,bg_h, fg_h, bg_l, bg_d, fg_d):
+    '''
+        setting the colors for the designs
+    '''
     self.header_corner_bg = bg_h
-    self.header_horizontal_line_bg        = bg_h
-    self.header_vertical_line_bg     = bg_h
+    self.header_horizontal_line_bg = bg_h
+    self.header_vertical_line_bg   = bg_h
     self.header_bg = bg_h
 
     self.header_fg = fg_h
 
-    self.outer_corner_bg         = bg_l
+    self.outer_corner_bg    = bg_l
     self.horizontal_line_bg = bg_l
-    self.inner_corner_bg    = bg_l         
+    self.inner_corner_bg    = bg_l
     self.vertical_line_bg   = bg_l
 
     self.data_bg = bg_d
-   
     self.data_fg = fg_d
-       
+
     self.header_bold = True
     self.middle_horizontal_line_on = False
     self.top_horizontal_line_on    = False
@@ -1208,6 +1247,9 @@ def set_color_2_for_tbl(self,bg_h, fg_h, bg_l, bg_d, fg_d):
 # Making all the spaces in the table free of chars. This is for spaces between the columns in the header and data                                    -
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 def make_single_empty_space_on_tbl(self):
+    '''
+        makes single space rather than print the character for the line
+    '''
     # Horizontal Line Section
     self.top_horizontal_line_chr = " ";         self.bottom_horizontal_line_chr = " ";      self.middle_horizontal_line_chr = " "
 
@@ -1228,8 +1270,8 @@ def make_single_empty_space_on_tbl(self):
     self.header_middle_vertical_line_chr = " "
 
     # Under Line Header Section  Only for Matrix List
-    self.header_horizontal_line_chr   = " ";      self.header_left_corner_chr   = " "
-    self.header_right_corner_chr = " ";      self.header_middle_corner_chr = " " 
+    self.header_horizontal_line_chr = " ";      self.header_left_corner_chr   = " "
+    self.header_right_corner_chr    = " ";      self.header_middle_corner_chr = " "
 
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1254,7 +1296,7 @@ class FancyFormat:
         self.set_fill_chr      = "----"            # to fill the empty spots when the list is not complete
         self.set_layout        = Layout.HORIZONTAL # This is only for Range, Set, Frozenset and dictionary type
         self.update_list       = False             # if we want to save the data as it's presented, but string each element in list
-        
+
     #    +------------------------------------------------------------------------------+
     #    |    Color Design Template, Demos                                              |
     #    |    The following are some predesign (Design 1,2)                             |
@@ -1355,7 +1397,7 @@ class FancyFormat:
         self.outer_corner_bold = False                  # two values False and True (0 and 1)
         self.outer_corner_bg   = -1                     # values -1 to 255
         self.outer_corner_fg   = -1                     # values -1 to 255
-    
+
         #---------------------------------------------------------------------------------------------------------------------------------------------
         # Middle Corner Section
         self.middle_top_corner_chr    = " "        # all the middle corners between top_left_corner_chr and top_right_corner_chr. Only matrix list
@@ -1392,7 +1434,7 @@ class FancyFormat:
         self.header_vertical_line_fg     = -1            # values -1 to 255
 
         #---------------------------------------------------------------------------------------------------------------------------------------------
-        # Header horizontal line                           Section  Only for Matrix List        
+        # Header horizontal line                           Section  Only for Matrix List
         self.header_horizontal_line_on  = False    # horizontal line between headers and the firs data row. 1 shows it and 0 hides it
         self.header_horizontal_line_chr = "-"      # chr to be printed for theheader line
 
@@ -1425,7 +1467,7 @@ class FancyFormat:
         self.set_fill_chr      = "----"            # to fill the empty spots when the list is not complete
         self.set_layout        = Layout.HORIZONTAL # This is only for Range, Set, Frozenset and dictionary type
         self.update_list       = False             # if we want to save the data as it's presented, but string each element in list
-        
+
     #    +------------------------------------------------------------------------------+
     #    |    Color Design Template, Demos                                              |
     #    |    The following are some predesign (Design 1,2)                             |
@@ -1526,7 +1568,7 @@ class FancyFormat:
         self.outer_corner_bold = False                  # two values False and True (0 and 1)
         self.outer_corner_bg   = -1                     # values -1 to 255
         self.outer_corner_fg   = -1                     # values -1 to 255
-    
+
         #---------------------------------------------------------------------------------------------------------------------------------------------
         # Middle Corner Section
         self.middle_top_corner_chr    = " "        # all the middle corners between top_left_corner_chr and top_right_corner_chr. Only matrix list
@@ -1563,7 +1605,7 @@ class FancyFormat:
         self.header_vertical_line_fg     = -1            # values -1 to 255
 
         #---------------------------------------------------------------------------------------------------------------------------------------------
-        # Header horizontal line                           Section  Only for Matrix List        
+        # Header horizontal line                           Section  Only for Matrix List
         self.header_horizontal_line_on  = False    # horizontal line between headers and the firs data row. 1 shows it and 0 hides it
         self.header_horizontal_line_chr = "-"      # chr to be printed for theheader line
 
@@ -1577,7 +1619,7 @@ class FancyFormat:
         self.header_middle_corner_chr = " "   # only for header line
         self.header_corner_bold       = False # two values False and True (0 and 1)
         self.header_corner_bg         = -1    # values -1 to 255
-        self.header_corner_fg         = -1    # values -1 to 255        
+        self.header_corner_fg         = -1    # values -1 to 255
 
 
 
@@ -1600,11 +1642,11 @@ class FancyFormat:
         #                                                                                                                                            |
         #    Backup all the default values                                                                                                           |
         #                                                                                                                                            |
-        #--------------------------------------------------------------------------------------------------------------------------------------------+        
+        #--------------------------------------------------------------------------------------------------------------------------------------------+
         # Horizontal Line Section                           Vertical Line Section
         thlc = self.top_horizontal_line_chr;                lvlc = self.left_vertical_line_chr
         bhlc = self.bottom_horizontal_line_chr;             mvlc = self.middle_vertical_line_chr
-        hlc = self.middle_horizontal_line_chr;              rvlc = self.right_vertical_line_chr      
+        hlc = self.middle_horizontal_line_chr;              rvlc = self.right_vertical_line_chr
 
         # Corner Section
         tlcc = self.top_left_corner_chr;                    trcc = self.top_right_corner_chr
@@ -1621,17 +1663,17 @@ class FancyFormat:
         # Under Line Header Section  Only for Matrix List
         hluhc = self.header_horizontal_line_chr
 
-        # Colors 
+        # Colors
         bg_H    = self.header_bg;                           fg_H    = self.header_fg
         bg_D    = self.data_bg;                             fg_D    = self.data_fg
         bg_hl   = self.horizontal_line_bg;                  fg_hl   = self.horizontal_line_fg
-        bg_cc   = self.outer_corner_bg;                          fg_cc   = self.outer_corner_fg                  
-        bg_ic   = self.inner_corner_bg;                     fg_vl   = self.vertical_line_fg            
-        bg_culh = self.header_corner_bg;         fg_ic   = self.inner_corner_fg             
-        bg_ulh  = self.header_horizontal_line_bg;                fg_vhl  = self.header_vertical_line_fg     
-        bg_vhlc = self.header_vertical_line_bg;             fg_ulh  = self.header_horizontal_line_fg         
-        bg_vl   = self.vertical_line_bg;                    fg_culh = self.header_corner_fg 
-      
+        bg_cc   = self.outer_corner_bg;                     fg_cc   = self.outer_corner_fg
+        bg_ic   = self.inner_corner_bg;                     fg_vl   = self.vertical_line_fg
+        bg_culh = self.header_corner_bg;                    fg_ic   = self.inner_corner_fg
+        bg_ulh  = self.header_horizontal_line_bg;           fg_vhl  = self.header_vertical_line_fg
+        bg_vhlc = self.header_vertical_line_bg;             fg_ulh  = self.header_horizontal_line_fg
+        bg_vl   = self.vertical_line_bg;                    fg_culh = self.header_corner_fg
+
         # Lines ON
         thlo = self.top_horizontal_line_on
         mhl0 = self.middle_horizontal_line_on
@@ -1643,17 +1685,17 @@ class FancyFormat:
 
         # Bold_lines
         bculh = self.header_corner_bold
-        bulh  = self.header_horizontal_line_bold       
+        bulh  = self.header_horizontal_line_bold
         bvhl  = self.header_vertical_line_bold
         bic   = self.inner_corner_bold
-        bc    = self.outer_corner_bold                 
-        bvl   = self.vertical_line_bold 
-        bhl   = self.horizontal_line_bold      
+        bc    = self.outer_corner_bold
+        bvl   = self.vertical_line_bold
+        bhl   = self.horizontal_line_bold
 
         # fill_chr
-        fill_c = self.set_fill_chr   
+        fill_c = self.set_fill_chr
 
-        
+
         # Assign Color to all the List for BG and FG
         if self.bg_line_colors <= -1 or self.bg_line_colors >= 256: pass
         else:
@@ -1679,28 +1721,28 @@ class FancyFormat:
             self.header_corner_bold          = True
             self.header_horizontal_line_bold = True
             self.header_vertical_line_bold   = True
-            self.inner_corner_bold           = True 
-            self.outer_corner_bold           = True 
+            self.inner_corner_bold           = True
+            self.outer_corner_bold           = True
             self.vertical_line_bold          = True
             self.horizontal_line_bold        = True
         else: pass
-        
+
 
 
         if style.lower() == Line_Style.SINGLE_LINE:
             # Horizontal Line Section
-            self.top_horizontal_line_chr = "\u2500";   self.bottom_horizontal_line_chr = "\u2500";  self.middle_horizontal_line_chr = "\u2500"
+            self.top_horizontal_line_chr = "\u2500";    self.bottom_horizontal_line_chr = "\u2500";  self.middle_horizontal_line_chr = "\u2500"
 
             # Vertical Line Section
-            self.left_vertical_line_chr  = "\u2502";   self.middle_vertical_line_chr = "\u2502";    self.right_vertical_line_chr = "\u2502"
+            self.left_vertical_line_chr  = "\u2502";    self.middle_vertical_line_chr = "\u2502";    self.right_vertical_line_chr = "\u2502"
 
             # Outside Corner Section
-            self.top_left_corner_chr     = "\u250C";   self.top_right_corner_chr   = "\u2510"
-            self.bottom_right_corner_chr = "\u2518";   self.bottom_left_corner_chr = "\u2514"
+            self.top_left_corner_chr     = "\u250C";    self.top_right_corner_chr   = "\u2510"
+            self.bottom_right_corner_chr = "\u2518";    self.bottom_left_corner_chr = "\u2514"
 
             # Middle Corner Section
-            self.middle_top_corner_chr   = "\u252C";   self.middle_bottom_corner_chr = "\u2534";    self.middle_inner_corner_chr = "\u253C"
-            self.left_lateral_corner_chr = "\u251C";   self.right_lateral_corner_chr = "\u2524"
+            self.middle_top_corner_chr   = "\u252C";    self.middle_bottom_corner_chr = "\u2534";    self.middle_inner_corner_chr = "\u253C"
+            self.left_lateral_corner_chr = "\u251C";    self.right_lateral_corner_chr = "\u2524"
 
             # Header Section  Only for Matrix List
             self.header_left_vertical_line_chr   = "\u2502"
@@ -1708,8 +1750,8 @@ class FancyFormat:
             self.header_right_vertical_line_chr  = "\u2502"
 
             # Under Line Header Section  Only for Matrix List
-            self.header_horizontal_line_chr   = "\u2500";          self.header_left_corner_chr   = "\u251C"
-            self.header_right_corner_chr = "\u2524";          self.header_middle_corner_chr = "\u253C"
+            self.header_horizontal_line_chr = "\u2500"; self.header_left_corner_chr   = "\u251C"
+            self.header_right_corner_chr    = "\u2524"; self.header_middle_corner_chr = "\u253C"
 
 
         elif style.lower() == Line_Style.SINGLE_BOLD:
@@ -1734,8 +1776,8 @@ class FancyFormat:
             self.header_middle_vertical_line_chr = "\u2503"
 
             # Under Line Header Section  Only for Matrix List* <span style="color:blue"> <strong>print_separator </strong> </span>
-            self.header_horizontal_line_chr   = "\u2501";          self.header_left_corner_chr   = "\u2523"
-            self.header_right_corner_chr = "\u252B";          self.header_middle_corner_chr = "\u254B"
+            self.header_horizontal_line_chr = "\u2501"; self.header_left_corner_chr   = "\u2523"
+            self.header_right_corner_chr    = "\u252B"; self.header_middle_corner_chr = "\u254B"
 
 
         elif style.lower() == Line_Style.SINGLE_HEAVY:
@@ -1759,8 +1801,8 @@ class FancyFormat:
             self.header_middle_vertical_line_chr = "\u2588"
 
             # Under Line Header Section  Only for Matrix List
-            self.header_horizontal_line_chr   = "\u2586";          self.header_left_corner_chr   = "\u2588"
-            self.header_right_corner_chr = "\u2588";          self.header_middle_corner_chr = "\u2588" #"\u2586"
+            self.header_horizontal_line_chr = "\u2586"; self.header_left_corner_chr   = "\u2588"
+            self.header_right_corner_chr    = "\u2588"; self.header_middle_corner_chr = "\u2588"
 
 
         elif style.lower() == Line_Style.DOUBLE_LINE:
@@ -1784,8 +1826,8 @@ class FancyFormat:
             self.header_middle_vertical_line_chr = "\u2551"
 
             # Under Line Header Section  Only for Matrix List
-            self.header_horizontal_line_chr   = "\u2550";          self.header_left_corner_chr   = "\u2560"
-            self.header_right_corner_chr = "\u2563";          self.header_middle_corner_chr = "\u256C"
+            self.header_horizontal_line_chr = "\u2550"; self.header_left_corner_chr   = "\u2560"
+            self.header_right_corner_chr    = "\u2563"; self.header_middle_corner_chr = "\u256C"
 
 
         elif style.lower() == Line_Style.SQ_BRACKETS:
@@ -1809,24 +1851,24 @@ class FancyFormat:
             self.header_middle_vertical_line_chr = " "
 
             # Under Line Header Section  Only for Matrix List
-            self.header_horizontal_line_chr   = " ";               self.header_left_corner_chr   = "\u2502"
-            self.header_right_corner_chr = "\u2502";          self.header_middle_corner_chr = " "
+            self.header_horizontal_line_chr = " ";        self.header_left_corner_chr   = "\u2502"
+            self.header_right_corner_chr    = "\u2502";   self.header_middle_corner_chr = " "
 
 
         elif style.lower() == Line_Style.DASH:
             # Horizontal Line Section
-            self.top_horizontal_line_chr = "\u002D";   self.bottom_horizontal_line_chr = "\u002D";  self.middle_horizontal_line_chr = "\u002D"
+            self.top_horizontal_line_chr = "\u002D";    self.bottom_horizontal_line_chr = "\u002D";  self.middle_horizontal_line_chr = "\u002D"
 
             # Vertical Line Section
-            self.left_vertical_line_chr  = "\u254E";   self.middle_vertical_line_chr = "\u254E";    self.right_vertical_line_chr = "\u254E"
+            self.left_vertical_line_chr  = "\u254E";    self.middle_vertical_line_chr = "\u254E";    self.right_vertical_line_chr = "\u254E"
 
             # Outside Corner Section
-            self.top_left_corner_chr     = "\u002B";   self.top_right_corner_chr   = "+" #"\u002B"
-            self.bottom_right_corner_chr = "\u002B";   self.bottom_left_corner_chr = "\u002B"
+            self.top_left_corner_chr     = "\u002B";    self.top_right_corner_chr   = "+" #"\u002B"
+            self.bottom_right_corner_chr = "\u002B";    self.bottom_left_corner_chr = "\u002B"
 
             # Middle Corner Section
-            self.middle_top_corner_chr   =  "\u002B";  self.middle_bottom_corner_chr = "\u002B";    self.middle_inner_corner_chr = "\u002B"
-            self.left_lateral_corner_chr =  "\u002B";  self.right_lateral_corner_chr = "\u002B"
+            self.middle_top_corner_chr   =  "\u002B";   self.middle_bottom_corner_chr = "\u002B";    self.middle_inner_corner_chr = "\u002B"
+            self.left_lateral_corner_chr =  "\u002B";   self.right_lateral_corner_chr = "\u002B"
 
             # Header Section  Only for Matrix List
             self.header_left_vertical_line_chr   = "\u254E"
@@ -1834,8 +1876,8 @@ class FancyFormat:
             self.header_middle_vertical_line_chr = "\u254E"
 
             # Under Line Header Section  Only for Matrix List
-            self.header_horizontal_line_chr   = "\u002D";          self.header_left_corner_chr   = "\u002B"
-            self.header_right_corner_chr = "\u002B";          self.header_middle_corner_chr = "\u002B"
+            self.header_horizontal_line_chr = "\u002D"; self.header_left_corner_chr   = "\u002B"
+            self.header_right_corner_chr    = "\u002B"; self.header_middle_corner_chr = "\u002B"
 
         #    +-------------------------------------------------------------------------+
         #    |    Color Design Template, Demos                                         |
@@ -1847,10 +1889,10 @@ class FancyFormat:
             flag_row_col_insert = 1
             make_single_empty_space_on_tbl(self)
             set_color_2_for_tbl(self,231, 0, 90, 90, 231)
-                                
+
         elif style.lower() == Line_Style.WHITE_BLACK_PURPLE:
             flag_row_col_insert = 1
-            make_single_empty_space_on_tbl(self)        
+            make_single_empty_space_on_tbl(self)
             set_color_2_for_tbl(self,231, 234, 90, 234, 231)
 
         elif style.lower() == Line_Style.RED_WHITE:
@@ -1890,7 +1932,6 @@ class FancyFormat:
             set_color_for_spaces_on_tbl(self, -1, 23, 231, 231, 21)
 
         elif style.lower() == Line_Style.GRAY_TEAL_WHITE:
-            # flag_row_col_insert = 1
             make_double_empty_space_on_tbl(self)
             set_color_for_spaces_on_tbl(self, 237, 23, 231, 231, 21)
             self.header_horizontal_line_chr = "-"
@@ -1909,7 +1950,7 @@ class FancyFormat:
         elif style.lower() == Line_Style.GREEN_GREEN_BLACK:
             flag_row_col_insert = 1
             make_double_empty_space_on_tbl(self)
-            set_color_for_spaces_on_tbl(self, 121, 121, 0, 234, 231)         
+            set_color_for_spaces_on_tbl(self, 121, 121, 0, 234, 231)
 
         elif style.lower() == Line_Style.BLUE_PURPLE_WHITE_1:
             flag_row_col_insert = 1
@@ -1926,7 +1967,7 @@ class FancyFormat:
             make_double_empty_space_on_tbl(self)
             set_color_for_spaces_on_tbl(self, 44, 44, 234, 234, 231)
 
-            
+
 
 
         #    +-------------------------------------------------------------------------+
@@ -1936,15 +1977,15 @@ class FancyFormat:
         #    |    This option is for the user to create its own customization          |
         #    |    The user needs to set the colors manually                            |
         #    |    Remember: set_bg_list_on = False                                     |
-        #    +-------------------------------------------------------------------------+ 
+        #    +-------------------------------------------------------------------------+
         elif style.lower() == Line_Style.SINGLE_SPACE:
             make_single_empty_space_on_tbl(self)
-            
+
         elif style.lower() == Line_Style.DOUBLE_SPACE:
-            make_double_empty_space_on_tbl(self)            
+            make_double_empty_space_on_tbl(self)
 
         elif style.lower() == Line_Style.CUSTOMIZED: pass
-        
+
     #    +------------------------------------------------------------------------------+
     #    |    Color Design Template, Demos                                              |
     #    |    The following are some predesign (Design 1)                               |
@@ -1956,115 +1997,115 @@ class FancyFormat:
         elif style.lower() == Line_Style.DESIGN_1:
             make_single_empty_space_on_tbl(self)
             self.top_horizontal_line_on    = True
-            self.bottom_horizontal_line_on = True 
-            self.middle_vertical_line_on   = True  
-            
-            self.horizontal_line_bg          = self.design_color
-            self.outer_corner_bg                  = self.design_color
-            self.vertical_line_bg            = self.design_color
-            self.inner_corner_bg             = self.design_color
-            self.header_vertical_line_bg     = self.design_color
-            self.header_horizontal_line_bg        = self.design_color
-            self.header_corner_bg = self.design_color
+            self.bottom_horizontal_line_on = True
+            self.middle_vertical_line_on   = True
+
+            self.horizontal_line_bg        = self.design_color
+            self.outer_corner_bg           = self.design_color
+            self.vertical_line_bg          = self.design_color
+            self.inner_corner_bg           = self.design_color
+            self.header_vertical_line_bg   = self.design_color
+            self.header_horizontal_line_bg = self.design_color
+            self.header_corner_bg          = self.design_color
 
 
         elif style.lower() == Line_Style.DESIGN_2:
             flag_row_col_insert = 1
             make_single_empty_space_on_tbl(self)
             self.top_horizontal_line_on    = True
-            self.bottom_horizontal_line_on = True 
+            self.bottom_horizontal_line_on = True
             self.middle_vertical_line_on   = True
             self.middle_horizontal_line_on = False
             self.header_horizontal_line_on = False
 
             self.horizontal_line_bg          = self.design_color
-            self.outer_corner_bg                  = self.design_color    
+            self.outer_corner_bg             = self.design_color
             self.inner_corner_bg             = self.design_color
             self.vertical_line_bg            = self.header_bg
             self.header_vertical_line_bg     = self.header_bg
-            self.header_horizontal_line_bg        = self.header_bg
-            self.header_corner_bg = self.header_bg
+            self.header_horizontal_line_bg   = self.header_bg
+            self.header_corner_bg            = self.header_bg
 
         elif style.lower() == Line_Style.DESIGN_3:
             flag_row_col_insert = 1
             make_single_empty_space_on_tbl(self)
             self.top_horizontal_line_on    = False
-            self.bottom_horizontal_line_on = False 
+            self.bottom_horizontal_line_on = False
             self.middle_vertical_line_on   = True
             self.middle_horizontal_line_on = False
             self.header_horizontal_line_on = False
 
             self.vertical_line_bg            = self.design_color
             self.header_vertical_line_bg     = self.header_bg
-            self.header_horizontal_line_bg        = self.header_bg
-            self.header_corner_bg = self.header_bg
+            self.header_horizontal_line_bg   = self.header_bg
+            self.header_corner_bg            = self.header_bg
 
 
         elif style.lower() == Line_Style.DESIGN_4:
             flag_row_col_insert = 1
             make_single_empty_space_on_tbl(self)
             self.top_horizontal_line_on    = True
-            self.bottom_horizontal_line_on = False 
+            self.bottom_horizontal_line_on = False
             self.left_vertical_line_on     = True
             self.middle_vertical_line_on   = True
             self.right_vertical_line_on    = True
             self.middle_horizontal_line_on = False
             self.header_horizontal_line_on = True
 
-            self.horizontal_line_bg          = self.design_color
-            self.outer_corner_bg                  = self.design_color    
-            self.inner_corner_bg             = self.design_color
-            self.vertical_line_bg            = self.header_bg
-            self.header_vertical_line_bg     = self.header_bg
-            self.header_horizontal_line_bg        = self.design_color
-            self.header_corner_bg = self.header_bg
+            self.horizontal_line_bg        = self.design_color
+            self.outer_corner_bg           = self.design_color
+            self.inner_corner_bg           = self.design_color
+            self.vertical_line_bg          = self.header_bg
+            self.header_vertical_line_bg   = self.header_bg
+            self.header_horizontal_line_bg = self.design_color
+            self.header_corner_bg          = self.header_bg
 
 
         elif style.lower() == Line_Style.DESIGN_5:
             flag_row_col_insert = 1
             make_single_empty_space_on_tbl(self)
             self.top_horizontal_line_on    = True
-            self.bottom_horizontal_line_on = False 
+            self.bottom_horizontal_line_on = False
             self.left_vertical_line_on     = True
             self.middle_vertical_line_on   = True
             self.right_vertical_line_on    = True
             self.middle_horizontal_line_on = False
             self.header_horizontal_line_on = True
 
-            self.horizontal_line_bg          = self.design_color
-            self.outer_corner_bg                  = self.design_color    
-            self.inner_corner_bg             = self.design_color
-            self.vertical_line_bg            = self.header_bg
-            self.header_vertical_line_bg     = self.header_bg
-            self.header_horizontal_line_bg        = self.design_color
-            self.header_corner_bg = self.design_color
+            self.horizontal_line_bg        = self.design_color
+            self.outer_corner_bg           = self.design_color
+            self.inner_corner_bg           = self.design_color
+            self.vertical_line_bg          = self.header_bg
+            self.header_vertical_line_bg   = self.header_bg
+            self.header_horizontal_line_bg = self.design_color
+            self.header_corner_bg          = self.design_color
 
 
         elif style.lower() == Line_Style.DESIGN_6:
             flag_row_col_insert = 1
             make_single_empty_space_on_tbl(self)
             self.top_horizontal_line_on    = True
-            self.bottom_horizontal_line_on = False 
+            self.bottom_horizontal_line_on = False
             self.left_vertical_line_on     = True
             self.middle_vertical_line_on   = True
             self.right_vertical_line_on    = True
             self.middle_horizontal_line_on = False
             self.header_horizontal_line_on = True
 
-            self.horizontal_line_bg          = self.design_color
-            self.outer_corner_bg                  = self.design_color    
-            self.inner_corner_bg             = self.design_color
-            self.vertical_line_bg            = self.data_bg
-            self.header_vertical_line_bg     = self.design_color
-            self.header_horizontal_line_bg        = self.design_color
-            self.header_corner_bg = self.design_color
+            self.horizontal_line_bg        = self.design_color
+            self.outer_corner_bg           = self.design_color
+            self.inner_corner_bg           = self.design_color
+            self.vertical_line_bg          = self.data_bg
+            self.header_vertical_line_bg   = self.design_color
+            self.header_horizontal_line_bg = self.design_color
+            self.header_corner_bg          = self.design_color
 
 
         elif style.lower() == Line_Style.DESIGN_7:
             flag_row_col_insert = 1
             make_single_empty_space_on_tbl(self)
             self.top_horizontal_line_on    = True
-            self.bottom_horizontal_line_on = False 
+            self.bottom_horizontal_line_on = False
             self.left_vertical_line_on     = True
             self.middle_vertical_line_on   = True
             self.right_vertical_line_on    = False
@@ -2073,20 +2114,20 @@ class FancyFormat:
             self.header_horizontal_line_on = False
 
 
-            self.horizontal_line_bg          = self.design_color
-            self.outer_corner_bg                  = self.design_color    
-            self.inner_corner_bg             = self.design_color
-            self.vertical_line_bg            = self.design_color
-            self.header_vertical_line_bg     = self.design_color
-            self.header_horizontal_line_bg        = self.header_bg
-            self.header_corner_bg = self.design_color
+            self.horizontal_line_bg        = self.design_color
+            self.outer_corner_bg           = self.design_color
+            self.inner_corner_bg           = self.design_color
+            self.vertical_line_bg          = self.design_color
+            self.header_vertical_line_bg   = self.design_color
+            self.header_horizontal_line_bg = self.header_bg
+            self.header_corner_bg          = self.design_color
 
 
         elif style.lower() == Line_Style.DESIGN_8:
             flag_row_col_insert = 1
             make_single_empty_space_on_tbl(self)
             self.top_horizontal_line_on    = False
-            self.bottom_horizontal_line_on = True 
+            self.bottom_horizontal_line_on = True
             self.left_vertical_line_on     = False
             self.middle_vertical_line_on   = True
             self.right_vertical_line_on    = True
@@ -2095,20 +2136,20 @@ class FancyFormat:
             self.header_horizontal_line_on = False
 
 
-            self.horizontal_line_bg          = self.design_color
-            self.outer_corner_bg                  = self.design_color    
-            self.inner_corner_bg             = self.design_color
-            self.vertical_line_bg            = self.design_color
-            self.header_vertical_line_bg     = self.design_color
-            self.header_horizontal_line_bg        = self.header_bg
-            self.header_corner_bg = self.design_color
+            self.horizontal_line_bg        = self.design_color
+            self.outer_corner_bg           = self.design_color
+            self.inner_corner_bg           = self.design_color
+            self.vertical_line_bg          = self.design_color
+            self.header_vertical_line_bg   = self.design_color
+            self.header_horizontal_line_bg = self.header_bg
+            self.header_corner_bg          = self.design_color
 
 
         elif style.lower() == Line_Style.DESIGN_9:
             flag_row_col_insert = 1
-            make_single_empty_space_on_tbl(self)
+            make_double_empty_space_on_tbl(self)
             self.top_horizontal_line_on    = True
-            self.bottom_horizontal_line_on = False 
+            self.bottom_horizontal_line_on = False
             self.left_vertical_line_on     = True
             self.middle_vertical_line_on   = False
             self.right_vertical_line_on    = False
@@ -2117,20 +2158,20 @@ class FancyFormat:
             self.header_horizontal_line_on = False
 
 
-            self.horizontal_line_bg          = self.design_color
-            self.outer_corner_bg                  = self.design_color    
-            self.inner_corner_bg             = self.design_color
-            self.vertical_line_bg            = self.design_color
-            self.header_vertical_line_bg     = self.design_color
-            self.header_horizontal_line_bg        = self.header_bg
-            self.header_corner_bg = self.design_color    
+            self.horizontal_line_bg        = self.design_color
+            self.outer_corner_bg           = self.design_color
+            self.inner_corner_bg           = self.design_color
+            self.vertical_line_bg          = self.design_color
+            self.header_vertical_line_bg   = self.design_color
+            self.header_horizontal_line_bg = self.header_bg
+            self.header_corner_bg          = self.design_color
 
 
         elif style.lower() == Line_Style.DESIGN_10:
             flag_row_col_insert = 1
-            make_single_empty_space_on_tbl(self)
+            make_double_empty_space_on_tbl(self)
             self.top_horizontal_line_on    = False
-            self.bottom_horizontal_line_on = True 
+            self.bottom_horizontal_line_on = True
             self.left_vertical_line_on     = False
             self.middle_vertical_line_on   = False
             self.right_vertical_line_on    = True
@@ -2139,39 +2180,39 @@ class FancyFormat:
             self.header_horizontal_line_on = False
 
 
-            self.horizontal_line_bg          = self.design_color
-            self.outer_corner_bg                  = self.design_color    
-            self.inner_corner_bg             = self.design_color
-            self.vertical_line_bg            = self.design_color
-            self.header_vertical_line_bg     = self.design_color
-            self.header_horizontal_line_bg        = self.header_bg
-            self.header_corner_bg = self.design_color                   
+            self.horizontal_line_bg        = self.design_color
+            self.outer_corner_bg           = self.design_color
+            self.inner_corner_bg           = self.design_color
+            self.vertical_line_bg          = self.design_color
+            self.header_vertical_line_bg   = self.design_color
+            self.header_horizontal_line_bg = self.header_bg
+            self.header_corner_bg          = self.design_color
 
         else:
             make_single_empty_space_on_tbl(self)
-            self.horizontal_line_bg          = -1
-            self.outer_corner_bg                  = -1
-            self.inner_corner_bg             = -1
-            self.header_corner_bg = -1
-            self.header_horizontal_line_bg        = -1
-            self.header_vertical_line_bg     = -1
-            self.vertical_line_bg            = -1
+            self.horizontal_line_bg        = -1
+            self.outer_corner_bg           = -1
+            self.inner_corner_bg           = -1
+            self.header_corner_bg          = -1
+            self.header_horizontal_line_bg = -1
+            self.header_vertical_line_bg   = -1
+            self.vertical_line_bg          = -1
 
-            self.horizontal_line_fg          = -1
-            self.outer_corner_fg                  = -1
-            self.inner_corner_fg             = -1
-            self.header_corner_fg = -1
-            self.header_horizontal_line_fg        = -1
-            self.header_vertical_line_fg     = -1
-            self.vertical_line_fg            = -1
+            self.horizontal_line_fg        = -1
+            self.outer_corner_fg           = -1
+            self.inner_corner_fg           = -1
+            self.header_corner_fg          = -1
+            self.header_horizontal_line_fg = -1
+            self.header_vertical_line_fg   = -1
+            self.vertical_line_fg          = -1
 
-            self.horizontal_line_bold          = False
-            self.outer_corner_bold                  = False
-            self.inner_corner_bold             = False
-            self.header_corner_bold = False
-            self.header_horizontal_line_bold        = False
-            self.header_vertical_line_bold     = False
-            self.vertical_line_bold            = False
+            self.horizontal_line_bold        = False
+            self.outer_corner_bold           = False
+            self.inner_corner_bold           = False
+            self.header_corner_bold          = False
+            self.header_horizontal_line_bold = False
+            self.header_vertical_line_bold   = False
+            self.vertical_line_bold          = False
 
             self.header_bg = -1
             self.header_fg = -1
@@ -2188,27 +2229,27 @@ class FancyFormat:
         if  self.right_vertical_line_on == False:
             self.top_right_corner_chr = ""                 # 14
             self.header_right_vertical_line_chr = ""       # 23
-            self.header_right_corner_chr = ""   # 25
-            self.right_vertical_line_chr  = ""             # 12 
+            self.header_right_corner_chr  = ""             # 25
+            self.right_vertical_line_chr  = ""             # 12
             self.right_lateral_corner_chr = ""             # 28
             self.bottom_right_corner_chr  = ""             # 15
 
         if  self.left_vertical_line_on == False:
             self.top_left_corner_chr = ""                  # 13
             self.header_left_vertical_line_chr = ""        # 22
-            self.header_left_corner_chr = ""    # 24
+            self.header_left_corner_chr  = ""              # 24
             self.left_vertical_line_chr  = ""              # 11
             self.left_lateral_corner_chr = ""              # 27
             self.bottom_left_corner_chr  = ""              # 16
-        
+
         if self.middle_vertical_line_on == False:
-            self.middle_top_corner_chr    = ""             # 17            
+            self.middle_top_corner_chr = ""                # 17
             self.header_middle_vertical_line_chr = ""      # 29
-            self.header_middle_corner_chr = ""  # 30
+            self.header_middle_corner_chr = ""             # 30
             self.middle_vertical_line_chr = ""             # 18
             self.middle_inner_corner_chr  = ""             # 31
             self.middle_bottom_corner_chr = ""             # 19
-        
+
 
         #---------------------------------------------------------------------------------------------------------------------------------------------
         # Checking the list_type                                                                                                                     -
@@ -2269,7 +2310,7 @@ class FancyFormat:
                                                           # "C",["H","K","P","o"]]
            # also convert the elements in my_list to string. all of them
             for n in (data_list):
-                my_list.append(str(n))                
+                my_list.append(str(n))
 
             print_multiple_horizontal_items(self,my_list)
 
@@ -2288,23 +2329,23 @@ class FancyFormat:
                 for col in row:
                     tempo_list1.append(str(col))
                 tempo_list2.append(tempo_list1)
-                tempo_list1 = []            
-            
+                tempo_list1 = []
 
-            if flag_row_col_insert == 1:                
+
+            if flag_row_col_insert == 1:
                 tempo_row = [" "];        self.set_fill_chr = " "
-                tempo_list2.insert(1,tempo_row); tempo_list2.append(tempo_row)                
+                tempo_list2.insert(1,tempo_row); tempo_list2.append(tempo_row)
 
-                my_list = complete_info_list(self,tempo_list2)  # make the list complete                
+                my_list = complete_info_list(self,tempo_list2)  # make the list complete
                 print_matrix_list(self,my_list)                 # print list
-                
+
                 # putting back as original
                 my_list.pop(1);    last = len(my_list) - 1;    my_list.pop(last)
 
             else:
                 my_list = complete_info_list(self,tempo_list2)  # make the list complete
                 print_matrix_list(self,my_list)
-            
+
 
 
               # if we want to save the new list to into the old one as string
@@ -2321,7 +2362,7 @@ class FancyFormat:
         #    Putting back all the default values                                                                                                     |
         #                                                                                                                                            |
         #--------------------------------------------------------------------------------------------------------------------------------------------+
-        # Horizontal Line Section                       # Vertical Line Section 
+        # Horizontal Line Section                       # Vertical Line Section
         self.top_horizontal_line_chr    = thlc;         self.left_vertical_line_chr   = lvlc
         self.bottom_horizontal_line_chr = bhlc;         self.middle_vertical_line_chr = mvlc
         self.middle_horizontal_line_chr = hlc;          self.right_vertical_line_chr  = rvlc
@@ -2340,48 +2381,48 @@ class FancyFormat:
         self.header_middle_vertical_line_chr = mvhlc;   self.header_middle_corner_chr = mculhc
 
         # Under Line Header Section  Only for Matrix List
-        self.header_horizontal_line_chr = hluhc       
+        self.header_horizontal_line_chr = hluhc
 
         # Colors
         self.header_bg = bg_H
         self.header_fg = fg_H
 
         self.data_bg = bg_D
-        self.data_fg = fg_D 
-        
-        self.horizontal_line_bg   = bg_hl  
-        self.outer_corner_bg           = bg_cc  
-        self.inner_corner_bg      = bg_ic              
-        self.header_horizontal_line_bg = bg_ulh 
-        self.vertical_line_bg     = bg_vl  
-        self.header_vertical_line_bg      = bg_vhlc
-        self.header_corner_bg  = bg_culh
+        self.data_fg = fg_D
 
-        self.horizontal_line_fg           = fg_hl  
-        self.outer_corner_fg                   = fg_cc  
-        self.vertical_line_fg             = fg_vl  
-        self.inner_corner_fg              = fg_ic  
-        self.header_vertical_line_fg      = fg_vhl 
-        self.header_horizontal_line_fg         = fg_ulh 
-        self.header_corner_fg  = fg_culh
-        
+        self.horizontal_line_bg        = bg_hl
+        self.outer_corner_bg           = bg_cc
+        self.inner_corner_bg           = bg_ic
+        self.header_horizontal_line_bg = bg_ulh
+        self.vertical_line_bg          = bg_vl
+        self.header_vertical_line_bg   = bg_vhlc
+        self.header_corner_bg          = bg_culh
+
+        self.horizontal_line_fg        = fg_hl
+        self.outer_corner_fg           = fg_cc
+        self.vertical_line_fg          = fg_vl
+        self.inner_corner_fg           = fg_ic
+        self.header_vertical_line_fg   = fg_vhl
+        self.header_horizontal_line_fg = fg_ulh
+        self.header_corner_fg          = fg_culh
+
         # Line ON
-        self.top_horizontal_line_on    = thlo 
-        self.middle_horizontal_line_on = mhl0 
-        self.bottom_horizontal_line_on = bhlo 
-        self.right_vertical_line_on    = rvlo 
-        self.left_vertical_line_on     = lvlo 
-        self.middle_vertical_line_on   = mvlo 
+        self.top_horizontal_line_on    = thlo
+        self.middle_horizontal_line_on = mhl0
+        self.bottom_horizontal_line_on = bhlo
+        self.right_vertical_line_on    = rvlo
+        self.left_vertical_line_on     = lvlo
+        self.middle_vertical_line_on   = mvlo
         self.header_horizontal_line_on = hluho
 
         # Bold_lines
-        self.header_corner_bold = bculh 
-        self.header_horizontal_line_bold        = bulh  
-        self.header_vertical_line_bold     = bvhl  
-        self.inner_corner_bold             = bic   
-        self.outer_corner_bold                  = bc    
-        self.vertical_line_bold            = bvl   
-        self.horizontal_line_bold          = bhl   
+        self.header_corner_bold          = bculh
+        self.header_horizontal_line_bold = bulh
+        self.header_vertical_line_bold   = bvhl
+        self.inner_corner_bold           = bic
+        self.outer_corner_bold           = bc
+        self.vertical_line_bold          = bvl
+        self.horizontal_line_bold        = bhl
 
         # fill chr
-        self.set_fill_chr = fill_c 
+        self.set_fill_chr = fill_c

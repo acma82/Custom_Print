@@ -8,6 +8,7 @@ custom_print module can handle any type of variable.
 #pylint: disable=line-too-long
 #pylint: disable=too-many-lines
 #pylint: disable=no-else-return
+#pylint: disable=wildcard-import
 #pylint: disable=unused-variable
 #pylint: disable=too-many-locals
 #pylint: disable=protected-access
@@ -21,6 +22,7 @@ custom_print module can handle any type of variable.
 #pylint: disable=unspecified-encoding
 #pylint: disable=unnecessary-negation
 #pylint: disable=singleton-comparison
+#pylint: disable=too-few-public-methods
 #pylint: disable=too-many-nested-blocks
 #pylint: disable=too-many-public-methods
 #pylint: disable=expression-not-assigned
@@ -44,6 +46,7 @@ custom_print module can handle any type of variable.
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 # Required Modules                                                                                                                                   -
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
+import os
 from custom_print.fancy_cursor import*            # cursor already import Move Class
 
 from custom_print.ref_names import Align
@@ -56,11 +59,6 @@ from custom_print.fancy_functions import ins_chr
 from custom_print.fancy_functions import set_font
 from custom_print.fancy_functions import reset_font
 from custom_print.fancy_functions import move_cursor_right
-
-
-
-import os
-
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 # Fancy Message Class (Single line or a Paragraph Text in the Terminal)                                                                             --
@@ -119,6 +117,9 @@ class FancyMessage(Cursor):
     # Get Message Attributes                                                                                                                         -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     def get_msg_attributes(self,data:str="Message",all_attribute:bool=False):
+        '''
+            getting the attributes from the message
+        '''
         msg = str(data)
         tncols, tnrows = os.get_terminal_size()
 
@@ -220,6 +221,9 @@ class FancyMessage(Cursor):
     # Send the Data To the Terminal                                                                                                                  -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     def send_msg_terminal(self,data="Message"):
+        '''
+            printing the message
+        '''
         def print_bg_lines(lines, bg_format_line_color="\033[0m"):
             if lines == 0:
                 print("\033[0m",end="")
@@ -297,8 +301,9 @@ class FancyMessage(Cursor):
     # Print Fancy Note                                                                                                                                 -
     #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     def print_fancy_note(self, body_msg:str="")->None:
-
-        '''  It prints the fancy note with the attributes defined  '''
+        '''
+            It prints the fancy note with the attributes defined
+        '''
 
         if body_msg == "":  body_msg = self.body_msg
 
