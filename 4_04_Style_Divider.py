@@ -38,7 +38,7 @@ div.msg_fg = 231;
 # +---------------------------------------------------------------------------------------+
 # bold
 div.msg_bold    = True;                 div.vertical_line_bold   = True
-div.all_corner_bold = True;                 div.horizontal_line_bold = True
+div.all_corner_bold = True;             div.horizontal_line_bold = True
  
 
 # +---------------------------------------------------------------------------------------+
