@@ -40,9 +40,9 @@ This class contains two methods:
     
     adj_top_space  = 0        adj_bottom_space  = 0        adj_space  = 2        updata_list  = False 
 
-    design_color = 4          bg_line_colors = -1          fg_line_colors = -1   bold_lines = False
+    design_color   = 4        bg_line_colors    = -1       fg_line_colors = -1   bold_lines   = False
 
-    set_layout   = Layout.HORIZONTAL
+    set_layout     = Layout.HORIZONTAL
 
 ```
 

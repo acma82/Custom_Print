@@ -21,8 +21,8 @@ div.right_vertical_line_bg = cp.No.WHITE
 
 div.all_fill_bg  = cp.No.WHITE
 
-div.align = cp.Align.JUSTIFY
-div.adj_indent = 55
+div.msg_align = cp.Align.JUSTIFY
+div.adj_indent = 20
 div.msg_bold = True
 
 
@@ -30,6 +30,7 @@ div.msg_bold = True
 # | Printing the Divider                                                                       |
 # +--------------------------------------------------------------------------------------------+
 div.print_fancy_divider(message=" SQ BRACKET OPTION ", style=cp.Divider_Style.SQ_BRACKETS)
+# div.print_fancy_divider()
 
 cp.ins_newline(2)
 div.msg_bg = 231

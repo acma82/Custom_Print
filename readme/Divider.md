@@ -62,8 +62,8 @@ div.right_vertical_line_bg = cp.No.WHITE
 
 div.all_fill_bg  = cp.No.WHITE
 
-div.align = cp.Align.JUSTIFY
-div.adj_indent = 55
+div.msg_align = cp.Align.JUSTIFY
+div.adj_indent = 20
 div.msg_bold = True
 
 

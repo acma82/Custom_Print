@@ -33,7 +33,7 @@ my_list = [["Header 1","Header 2","Header 3","Header 4"],["R2C1","R2C2","R2C3","
 
 list1.print_fancy_format(my_list, custom_print.Line_Style.SINGLE_LINE)
 
-list1.top_horizontal_line_on = 0
+list1.top_horizontal_line_on    = 0
 list1.header_horizontal_line_on = 0
 list1.middle_horizontal_line_on = 0
 list1.bottom_horizontal_line_on = 0
