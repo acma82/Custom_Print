@@ -184,9 +184,9 @@ These are the variables to visualize when using **SINGLE_SPACE** or **DOUBLE_SPA
 |-------------------------------|------------------------------------|---------------------------------------| 
 |horizontal_line_bg        = 21 | header_bg                   = 90   | data_bg                   = 231       |
 |vertical_line_bg          = 21 | header_fg                   = 231  | data_fg                   = 0         |
-|bg_corner_chr             = 21 | header_bold                 = True | data_bold                 = True      |
-|inner_corner_bg_chr       = 21 | header_corner_bg            = 21   | middle_horizontal_line_on = True      |
-|header_horizontal_line_bg = 21 | header_vertical_line_bg_chr = 21	 | header_horizontal_line_on = True      |
+|outer_corner_bg           = 21 | header_bold                 = True | data_bold                 = True      |
+|inner_corner_bg           = 21 | header_corner_bg            = 21   | middle_horizontal_line_on = True      |
+|header_horizontal_line_bg = 21 | header_vertical_line_bg     = 21	 | header_horizontal_line_on = True      |
 
 **Note:** Play with the colors and see your creation. Use the No.Name_Color if you prefer rather than the number.
 
@@ -196,8 +196,7 @@ These are the variables to visualize when using **SINGLE_SPACE** or **DOUBLE_SPA
 ```python
 import custom_print as cp
 div = cp.Divider()
-my_color = cp.No.EARLY_NIGHT_BLUE        # cp.No.INDIGO
-
+my_color = cp.No.EARLY_NIGHT_BLUE
 div.all_corner_bg             = my_color
 div.top_horizontal_line_bg    = my_color
 div.bottom_horizontal_line_bg = my_color
@@ -205,7 +204,6 @@ div.left_vertical_line_bg     = cp.No.WHITE
 div.right_vertical_line_bg    = cp.No.WHITE
 
 div.all_fill_bg  = cp.No.WHITE
-
 div.msg_align = cp.Align.JUSTIFY
 div.adj_indent = 20
 div.msg_bold = True
@@ -215,6 +213,46 @@ div.msg_bold = True
 # | Printing the Divider                                                                       |
 # +--------------------------------------------------------------------------------------------+
 div.print_fancy_divider(message=" SQ BRACKET OPTION ", style=cp.Divider_Style.SQ_BRACKETS)
+
+
+
+
+lst = [["Header 0","Header 1","Header 2","Header 3"],
+       ["Col 0 Row 1", "Col 1 Row 1", "Col 2 Row 1", "Col 3 Row 1"],
+       ["Col 0 Row 2", "Col 1 Row 2", "Col 2 Row 2", "Col 3 Row 2"],
+       ["Col 0 Row 3", "Col 1 Row 3", "Col 2 Row 3", "Col 3 Row 3"]]
+
+
+tbl = cp.FancyFormat()
+tbl.title_msg = cp.Unicode.FACE + "  Main Table "
+tbl.title_align = "center"
+tbl.title_bg = cp.No.WHITE
+tbl.title_fg = cp.No.BLACK
+tbl.title_bold = True
+
+tbl.adj_top_space  = 1;    tbl.adj_bottom_space  = 1
+tbl.adj_top_margin = 4;    tbl.adj_bottom_margin = 2
+
+
+tbl.footnote_msg = "Released on Friday, December 27, 2024"
+
+tbl.header_bg = cp.No.INDIGO;   tbl.data_bg = cp.No.WHITE
+tbl.header_fg = cp.No.WHITE;    tbl.data_fg = cp.No.BLACK
+tbl.header_bold = True;         tbl.data_bold  = True
+tbl.adj_top_margin = 4;         tbl.adj_indent = 4
+
+
+
+tbl.horizontal_line_bg = cp.No.BLUE;           tbl.header_corner_bg          = cp.No.BLUE
+tbl.vertical_line_bg   = cp.No.BLUE;           tbl.header_vertical_line_bg   = cp.No.BLUE
+tbl.outer_corner_bg    = cp.No.BLUE;           tbl.middle_horizontal_line_on = True
+tbl.inner_corner_bg    = cp.No.BLUE;           tbl.header_horizontal_line_on = True
+tbl.header_horizontal_line_bg = cp.No.BLUE	
+
+# +--------------------------------------------------------------------------------------------+
+# | Printing Fancy Format                                                                      |
+# +--------------------------------------------------------------------------------------------+
+tbl.print_fancy_format(data=lst, style=cp.Line_Style.DOUBLE_SPACE)
 
 ```
 
