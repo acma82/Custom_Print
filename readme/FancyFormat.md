@@ -300,7 +300,7 @@ Note: Although the main idea is to use list type, print_fancy_format(tbl) accept
 <!-- Demo 1                             -->
 <!-- ---------------------------------- -->
 
-## Demo 
+## Example 1 
 [**Top**](#fancyformat)
    
 ```python
@@ -349,10 +349,37 @@ list1.print_fancy_format(my_list)
 ![Alt text](Demo.png)
 
 
+## Example 2
+```python
+
+import custom_print as cp
+
+lst = [["Header 0",    "Header 1",    "Header 2",    "Header 3"   ],
+       ["Col 0 Row 1", "Col 1 Row 1", "Col 2 Row 1", "Col 3 Row 1"],
+       ["Col 0 Row 2", "Col 1 Row 2", "Col 2 Row 2", "Col 3 Row 2"],
+       ["Col 0 Row 3", "Col 1 Row 3", "Col 2 Row 3", "Col 3 Row 3"]]
+
+tbl = cp.FancyFormat()
+
+# Header settings                       Data settings
+tbl.header_bg = cp.No.INDIGO;           tbl.data_bg = cp.No.SUMMER_GREEN
+tbl.header_fg = cp.No.WHITE;            tbl.data_fg = cp.No.LIGHT_WHITE
+tbl.header_bold = True;                 tbl.data_bold  = False
+tbl.header_align = cp.Align.CENTER;     tbl.data_align = cp.Align.LEFT
+
+# table settings
+tbl.adj_top_margin = 4;                 tbl.adj_bottom_margin = 4 
+tbl.adj_indent = 8;                     tbl.adj_space = 4        
+tbl.design_color = cp.No.YELLOW_GREEN
 
 
+# +--------------------------------------------------------------------------------------------+
+# | Printing Fancy Format                                                                      |
+# +--------------------------------------------------------------------------------------------+
+tbl.print_fancy_format(data=lst, style=cp.Line_Style.DESIGN_5)
 
+```
 
-
+![Alt text](Demo2.png)
 
 #### [Back](README.md)
