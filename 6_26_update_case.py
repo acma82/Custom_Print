@@ -29,3 +29,40 @@ tbl.title_msg = " Headers Lower, Data Upper. update=True "; tbl.print_fancy_form
 tbl.title_msg = " Original List ";             tbl.print_fancy_format(l1)
 
 
+lista_lowcase = ["a","b","c","&","A",">","6","q","ñ"]
+result = pylo.update_case(data=lista_lowcase, header_case=pylo.Case.LOWER, data_case=pylo.Case.UPPER, update=False )
+tbl.print_fancy_format(result)
+
+lista_lowcase = ["A","B","C","&","A",">","6","Q","Ñ"]
+result = pylo.update_case(data=lista_lowcase, header_case=pylo.Case.LOWER, data_case=pylo.Case.LOWER, update=False )
+tbl.print_fancy_format(result)
+
+
+Doh_ñ = []
+Doh_ñ.append("ñ")
+
+Doh_Ñ = []
+Doh_Ñ.append("Ñ")
+
+print("\u00F1")  # ñ
+print("\u00D1")  # Ñ
+print(cp.Unicode.UPPERCASE_N_TILDE) # ñ
+print(cp.Unicode.LOWERCASE_N_TILDE) # Ñ
+
+
+a = "\u00F1"
+if a == "ñ":
+    print("success....!")
+    my_l = eval(f"Doh_{a}")
+    print(my_l)
+    print(my_l[0])      
+
+
+
+
+a = cp.Unicode.UPPERCASE_N_TILDE
+if a == "Ñ":
+    print("success....!")
+    my_l = eval(f"Doh_{a}")
+    print(my_l)
+    print(my_l[0])      
