@@ -6,6 +6,7 @@ height = 18
 # +-------------------------------------------------------------+
 # |  Doh Ascii Upper Case Letters                               |
 # +-------------------------------------------------------------+
+Doh_A_width = 33
 Doh_A = []
 Doh_A.append("                                 ")# Top,    0 
 Doh_A.append("               AAA               ")#         1 
@@ -27,6 +28,7 @@ Doh_A.append("AAAAAAA                   AAAAAAA")#         16
 Doh_A.append("                                 ")# Bottom, 17
 
 
+Doh_B_width = 20
 Doh_B = []
 Doh_B.append("                    ")  # Top,    0 
 Doh_B.append("BBBBBBBBBBBBBBBBB   ")  #         1 
@@ -48,6 +50,7 @@ Doh_B.append("BBBBBBBBBBBBBBBBB   ")  #         16
 Doh_B.append("                    ")  # Bottom, 17
 
 
+Doh_C_width = 21
 Doh_C = []
 Doh_C.append("                     ")  # Top,    0 
 Doh_C.append("        CCCCCCCCCCCCC")  #         1 
@@ -69,6 +72,7 @@ Doh_C.append("        CCCCCCCCCCCCC")  #         16
 Doh_C.append("                     ")  # Bottom, 17
 
 
+Doh_Y_width = 21
 Doh_Y = []
 Doh_Y.append("                     ")  # Top,    0 
 Doh_Y.append("YYYYYYY       YYYYYYY")  #         1 
@@ -90,6 +94,7 @@ Doh_Y.append("    YYYYYYYYYYYYY    ")  #         16
 Doh_Y.append("                     ")  # Bottom, 17
 
 
+Doh_space_width = 1
 Doh_space = []
 Doh_space.append(" ")  # Top,    0 
 Doh_space.append(" ")  #         1 
@@ -111,6 +116,7 @@ Doh_space.append(" ")  #         16
 Doh_space.append(" ")  # Bottom, 17
 
 
+Doh_NA_width = 3
 Doh_NA = []
 Doh_NA.append("   ")  # Top,    0 
 Doh_NA.append("N/A")  #         1 
