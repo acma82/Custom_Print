@@ -1,17 +1,22 @@
 import custom_print as cp
 crs = cp.Cursor()
 
-def multi_art(self,lista, sets_bold, sets_bg, sets_fg,):
+# set_font(bold=False,bg=-1,fg=-1,italic=False,underline=False,strike=False,blinking=False,dim=False,hidden=False,inverse=False)
+
+def print_multi_ascii_art(self,lista, sets_bold, sets_bg, sets_fg, sets_italic, sets_underline, sets_strike, sets_blinking, sets_dim, sets_hidden, sets_inverse ):
     # adj_indent cannot be changed or it will be messy
     ctrl_dist = 0
     for row in range(len(lista)):
         self.bold = sets_bold[row]
         self.bg = sets_bg[row]
         self.fg = sets_fg[row]
-
-        # self.underline = set_underline[row]               # you can add more settings here.
-        # self.blinking = set_blinking[row]
-        # self.italic = set_italic[row]
+        self.italic    = sets_italic[row]
+        self.underline = sets_underline[row]               # you can add more settings here.
+        self.strike    = sets_strike[row]
+        self.blinking  = sets_blinking[row]
+        self.dim       = sets_dim[row]
+        self.hidden    = sets_hidden[row]
+        self.inverse   = sets_inverse[row]
 
         for col in range(len(lista[row])):
             self.print_ascii_art(lista[row][col])

@@ -52,6 +52,7 @@ from .fancy_format     import FancyFormat
 from .fancy_message    import FancyMessage
 from .fancy_divider    import Divider
 from .ascii_letters    import Art
+from .ascii_art        import print_multi_ascii_art
 from .Alpha_Letters    import* # import all the letters
 from .Doh_Letters      import* # import all the letters
 

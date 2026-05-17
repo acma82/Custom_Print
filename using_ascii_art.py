@@ -98,21 +98,21 @@ crs = cp.Cursor()
 
 
 
-import multi_art
+# import multi_art
 
-data = [["AB"],["BC"],["DY"]]
-msg = cp.Art()
-msg.set_layout = "horizontal"
-msg.set_bottom_line = True
-msg.set_top_line    = True
-msg.adj_indent = 2
-msg.adj_left_space = 4
-msg.adj_right_space = 6
-msg.adj_middle_space = 2
-msg.delay_ms = 100
-msg.ascii_type = "Doh"
+# data = [["AB"],["BC"],["DY"]]
+# msg = cp.Art()
+# msg.set_layout = "horizontal"
+# msg.set_bottom_line = True
+# msg.set_top_line    = True
+# msg.adj_indent = 2
+# msg.adj_left_space = 4
+# msg.adj_right_space = 6
+# msg.adj_middle_space = 2
+# msg.delay_ms = 100
+# msg.ascii_type = "Doh"
 
-multi_art.multi_art(msg, data, [False,True,False], [87,90,11], [16,231,21])
+# cp.multi_art(msg, data, [False,True,False], [87,90,11], [16,231,21])
 
 
 

@@ -130,8 +130,6 @@
 
 
 import time
-# from custom_print.fancy_cursor    import Cursor
-# from custom_print.ref_names       import Move
 
 from custom_print.fancy_functions import ins_chr
 from custom_print.fancy_functions import move_cursor_right
