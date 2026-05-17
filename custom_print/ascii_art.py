@@ -1,17 +1,16 @@
 import custom_print as cp
 crs = cp.Cursor()
 
-# set_font(bold=False,bg=-1,fg=-1,italic=False,underline=False,strike=False,blinking=False,dim=False,hidden=False,inverse=False)
-
 def print_multi_ascii_art(self,lista, sets_bold, sets_bg, sets_fg, sets_italic, sets_underline, sets_strike, sets_blinking, sets_dim, sets_hidden, sets_inverse ):
     # adj_indent cannot be changed or it will be messy
     ctrl_dist = 0
     for row in range(len(lista)):
         self.bold = sets_bold[row]
-        self.bg = sets_bg[row]
-        self.fg = sets_fg[row]
+        self.bg   = sets_bg[row]
+        self.fg   = sets_fg[row]
+
         self.italic    = sets_italic[row]
-        self.underline = sets_underline[row]               # you can add more settings here.
+        self.underline = sets_underline[row]
         self.strike    = sets_strike[row]
         self.blinking  = sets_blinking[row]
         self.dim       = sets_dim[row]
@@ -38,21 +37,3 @@ def print_multi_ascii_art(self,lista, sets_bold, sets_bg, sets_fg, sets_italic, 
 
     crs.jumpTo(qty=eval("cp."+ self.ascii_type + "_Letters.height"), direction = cp.Move.DOWN)
 
-
-
-# data = [["A"],["B"],["Y"]]
-
-# msg = cp.Art()
-# msg.set_layout = "horizontal"
-# msg.set_bottom_line = True
-# msg.set_top_line    = True
-# msg.adj_indent = 2
-# msg.adj_left_space = 4
-# msg.adj_right_space = 6
-# msg.adj_middle_space = 2
-# msg.delay_ms = 100
-# msg.ascii_type = "Doh"
-
-
-# fun,    class, data, bold_settings      bg_settings  fg_settings, you can add more settings 
-# multi_art(msg, data, [False,True,False], [87,90,11], [16,231,21])
