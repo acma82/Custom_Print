@@ -26,7 +26,7 @@
 #         self.set_bottom_line = False
         
 
-#     def print_ascii_art(self, word_list=["P","Y"], ascii_type="Doh"):
+#     def print_ascii_art(self, word_list=["P","Y"], self.ascii_type="Doh"):
 #         # Defining variables
 #         rows = 0;           result = [];   copy_word_list = []
 #         tempo_row = "";     retardo = self.delay_ms/1000
@@ -41,7 +41,7 @@
 
 #         pylo = PyLO()
 #         # -------------------------------------------------------- Finding the Type of Ascii Letters
-#         if ascii_type == "Alpha":
+#         if self.ascii_type == "Alpha":
 #             # this only have uppercase available
 #             rows = AL.height
 #             key_letter = "AL."
@@ -50,11 +50,11 @@
 #             # print(result)
 #             # we convert the copy_word_list to all capital
 
-#         elif ascii_type == "Doh":
+#         elif self.ascii_type == "Doh":
 #             rows = DL.height
 #             key_letter = "DL."
 
-#         elif ascii_type == "Big":
+#         elif self.ascii_type == "Big":
 #             rows = AL.height
 #         else:                 pass
 #         # -------------------------------------------------------- Ending Finding the Type of Ascii Letters
@@ -67,11 +67,11 @@
 #                 else:
 #                     for l in range(len(copy_word_list)):
 #                         try:
-#                             row_info = key_letter + ascii_type + "_" + copy_word_list[l] + "[" + str(r) + "]"
+#                             row_info = key_letter + self.ascii_type + "_" + copy_word_list[l] + "[" + str(r) + "]"
 #                             tempo_row = tempo_row + eval(row_info) + ins_chr(self.adj_space)
 #                         except:
 #                             pass
-#                             row_info = key_letter + ascii_type + "_NA" + "[" + str(r) + "]"
+#                             row_info = key_letter + self.ascii_type + "_NA" + "[" + str(r) + "]"
 #                             tempo_row = tempo_row + eval(row_info) + ins_chr(self.adj_space)
 
 #                 if skip_top_row == False: skip_top_row = True
@@ -99,8 +99,8 @@
 
 
 #             for w in range(len(copy_word_list)):
-#                 try:    list_letter = eval(key_letter + ascii_type + "_" + copy_word_list[w])
-#                 except: list_letter = eval(key_letter + ascii_type + "_" + "NA")
+#                 try:    list_letter = eval(key_letter + self.ascii_type + "_" + copy_word_list[w])
+#                 except: list_letter = eval(key_letter + self.ascii_type + "_" + "NA")
 
 #                 for r in range(rows):
 #                     if skip_top_row == False: skip_top_row = True
@@ -130,6 +130,8 @@
 
 
 import time
+# from custom_print.fancy_cursor    import Cursor
+# from custom_print.ref_names       import Move
 
 from custom_print.fancy_functions import ins_chr
 from custom_print.fancy_functions import move_cursor_right
@@ -146,19 +148,18 @@ import custom_print.Doh_Letters as DL
 class Art:
     def __init__(self):
         self.bold     = True
-        self.bold     = False;    self.bg = -1;              self.fg = -1
-        self.italic   = False;    self.underline = False;    self.strike = False
-        self.blinking = False;    self.dim = False;          self.hidden = False
-        self.inverse  = False
+        self.bold     = False;        self.bg = -1;              self.fg = -1
+        self.italic   = False;        self.underline = False;    self.strike = False
+        self.blinking = False;        self.dim = False;          self.hidden = False
+        self.inverse  = False;        self.ascii_type="Doh"
               
-        self.adj_indent = 0;      self.adj_space  = 0;       self.delay_ms   = 0
-        self.set_layout = "vertical"
-        self.set_top_line    = False
-        self.set_bottom_line = False
-        self.adj_left_space = 0; self.adj_middle_space = 0;  self.adj_right_space = 0
+        self.adj_indent = 0;          self.adj_space  = 0;       self.delay_ms   = 0
+        self.set_layout = "vertical"; self.set_top_line = False; self.set_bottom_line = False; 
+
+        self.adj_left_space = 0;      self.adj_middle_space = 0; self.adj_right_space = 0
         
 
-    def print_ascii_art(self, msg="AB", ascii_type="Doh"):
+    def print_ascii_art(self, msg="AB"):
         # Defining variables
         rows = 0;                        result = []
         tempo_row = "";                  retardo = self.delay_ms/1000
@@ -171,18 +172,18 @@ class Art:
         
         data = msg
         # -------------------------------------------------------- Finding the Type of Ascii Letters
-        if ascii_type == "Alpha":
+        if self.ascii_type == "Alpha":
             # this only have uppercase available
             rows = AL.height
             key_letter = "AL."
             data = msg.upper()
             
 
-        elif ascii_type == "Doh":
+        elif self.ascii_type == "Doh":
             rows = DL.height
             key_letter = "DL."
 
-        elif ascii_type == "Big":
+        elif self.ascii_type == "Big":
             rows = AL.height
         else:                 pass
         # -------------------------------------------------------- Ending Finding the Type of Ascii Letters
@@ -198,8 +199,8 @@ class Art:
                 else:
                     for l in range(len(data)):
                         try:
-                            if data[l] == " ": row_info = key_letter + ascii_type + "_space" + "[" + str(r) + "]"
-                            else:              row_info = key_letter + ascii_type + "_" + data[l] + "[" + str(r) + "]"
+                            if data[l] == " ": row_info = key_letter + self.ascii_type + "_space" + "[" + str(r) + "]"
+                            else:              row_info = key_letter + self.ascii_type + "_" + data[l] + "[" + str(r) + "]"
 
                             if l == (len(data)-1):
                                 tempo_row = tempo_row + ins_chr(middle_sp) + eval(row_info) + ins_chr(right_sp)   # last item
@@ -209,7 +210,7 @@ class Art:
                                 tempo_row = tempo_row + ins_chr(left_sp) + eval(row_info) #+ ins_chr(middle_sp)   # first item
                         
                         except:
-                            row_info = key_letter + ascii_type + "_NA" + "[" + str(r) + "]"
+                            row_info = key_letter + self.ascii_type + "_NA" + "[" + str(r) + "]"
                             if l == (len(data)-1):
                                 tempo_row = tempo_row + ins_chr(middle_sp) + eval(row_info) + ins_chr(right_sp)   # last item
                             elif l >= 1:
@@ -249,10 +250,10 @@ class Art:
             for w in range(len(data)):
                 try:    
                     if data[w] == " ":
-                        list_letter = eval(key_letter + ascii_type + "_space")
+                        list_letter = eval(key_letter + self.ascii_type + "_space")
                     else:
-                        list_letter = eval(key_letter + ascii_type + "_" + data[w])    
-                except: list_letter = eval(key_letter + ascii_type + "_" + "NA")
+                        list_letter = eval(key_letter + self.ascii_type + "_" + data[w])    
+                except: list_letter = eval(key_letter + self.ascii_type + "_" + "NA")
 
                 for r in range(rows):
                     if skip_top_row == False: skip_top_row = True
@@ -281,5 +282,47 @@ class Art:
             for row in result:
                 for col in row:
                     time.sleep(retardo); print(self.adj_indent+col)
-    
-    def print_multi_col_art(self, )
+
+
+
+
+
+    # def multi_art(self,lista=["A"]):
+    #     crs = Cursor()
+
+
+    #     # Combining Colors and options    
+    #     set_bg = [87,90,11]  # we have 3 set of data
+    #     set_fg = [16,231,21]
+    #     # set_underline = [True,False,True]
+    #     # set_blinking = [True,True,False]
+    #     # set_italic = [True,False,True]
+
+    #     # adj_indent cannot be changed or it will be messy
+    #     ctrl_dist = 0
+    #     for row in range(len(lista)):
+    #         self.bg = set_bg[row]
+    #         self.fg = set_fg[row]
+    #         # self.underline = set_underline[row]
+    #         # self.blinking = set_blinking[row]
+    #         # self.italic = set_italic[row]
+
+    #         for col in range(len(lista[row])):
+    #             self.print_ascii_art(lista[row][col])
+    #             text = lista[row][col]
+    #             for n in text:
+    #                 try:
+    #                     letter_width = eval(self.ascii_type+"_"+ n +"_width")
+    #                     ctrl_dist = ctrl_dist + letter_width  # contains all the width of the letters inside the row, if the letter exist, here
+    #                 except:
+    #                     letter_width = eval(self.ascii_type+"_"+ "NA" +"_width")
+    #                     ctrl_dist = ctrl_dist + letter_width  # contains all the width of the letters inside the row, if the letter does not exist, here
+
+
+    #         if (len(lista[row])) >= 2: self.adj_indent = self.adj_indent+self.adj_left_space+ ctrl_dist+self.adj_middle_space+self.adj_right_space
+    #         else:                      self.adj_indent = self.adj_indent+self.adj_left_space+ ctrl_dist+self.adj_right_space
+    #         ctrl_dist = 0
+
+    #         crs.jumpTo(qty=eval(self.ascii_type + "_Letters.height"), direction = Move.UP)  # self.ascii_type is the name of the type following the name
+
+    #     crs.jumpTo(qty=eval(self.ascii_type + "_Letters.height"), direction = Move.DOWN)    

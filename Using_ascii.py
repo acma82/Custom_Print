@@ -4,93 +4,143 @@ crs = cp.Cursor()
 # For Spanish Language (Mexico....!)
 # print(cp.Unicode.UPPERCASE_N_TILDE) # Ñ
 # print(cp.Unicode.LOWERCASE_N_TILDE) # ñ
-#-----------------------------------------------------------------------------------------
-# msg = cp.Art()
-# msg.set_bottom_line = True
-# msg.set_top_line    = True
-# # msg.set_layout = "horizontal"
-# msg.adj_indent = 2
-# msg.delay_ms = 100
-# msg.bold = True
-# msg.bg = 87
-# msg.fg = 16
-
-# option = "Doh"
-# option = "Alpha"
-# print(cp.Unicode.UPPERCASE_N_TILDE) # Ñ
-# print(cp.Unicode.LOWERCASE_N_TILDE) # ñ
-
 # lista  = ["B","a",cp.Unicode.UPPERCASE_N_TILDE, cp.Unicode.LOWERCASE_N_TILDE]
-# msg.adj_left_space = 4
-# msg.adj_right_space = 6
-# dato = "ABC"
-# msg.adj_middle_space = 2
-# msg.print_ascii_art(dato, option)
+# print(cp.Unicode.LOWERCASE_N_TILDE) # ñ
+# print(cp.Unicode.UPPERCASE_N_TILDE) # Ñ
 
-
-
-
-
-
-
-
-
-
-def multi_art(lista=["A"]):
+#-----------------------------------------------------------------------------------------
+def art(dato):
     msg = cp.Art()
     msg.set_bottom_line = True
     msg.set_top_line    = True
     # msg.set_layout = "horizontal"
     msg.adj_indent = 2
+    msg.delay_ms = 100
+    msg.bold = True
+    msg.bg = 87
+    msg.fg = 16
+    msg.ascii_type = "Doh"
     msg.adj_left_space = 4
     msg.adj_right_space = 6
     msg.adj_middle_space = 2
-
-    msg.delay_ms = 100
-    msg.bold = True
-    option = "Doh"
+    msg.print_ascii_art(dato)
 
 
-    # Combining Colors and options    
-    set_bg = [87,90,11]  # we have 3 set of data
-    set_fg = [16,231,21]
-    # set_underline = [True,False,True]
-    # set_blinking = [True,True,False]
-    # set_italic = [True,False,True]
+# dato = "ABC"
+# art(dato=dato)
 
+
+
+
+
+
+
+# def multi_art(lista=["A"]):
+#     msg = cp.Art()
+#     msg.set_bottom_line = True
+#     msg.set_top_line    = True
+#     # msg.set_layout = "horizontal"
+#     msg.adj_indent = 2
+#     msg.adj_left_space = 4
+#     msg.adj_right_space = 6
+#     msg.adj_middle_space = 2
+
+#     msg.delay_ms = 100
+#     msg.bold = True
+#     msg.ascii_type = "Doh"
+
+
+#     # Combining Colors and options    
+#     set_bg = [87,90,11]  # we have 3 set of data
+#     set_fg = [16,231,21]
+#     # set_underline = [True,False,True]
+#     # set_blinking = [True,True,False]
+#     # set_italic = [True,False,True]
+
+#     # adj_indent cannot be changed or it will be messy
+#     ctrl_dist = 0
+#     for row in range(len(lista)):
+#         msg.bg = set_bg[row]
+#         msg.fg = set_fg[row]
+#         # msg.underline = set_underline[row]
+#         # msg.blinking = set_blinking[row]
+#         # msg.italic = set_italic[row]
+
+#         for col in range(len(lista[row])):
+#             msg.print_ascii_art(lista[row][col])
+#             text = lista[row][col]
+#             for n in text:
+#                 try:
+#                     letter_width = eval("cp."+msg.ascii_type+"_"+ n +"_width")
+#                     ctrl_dist = ctrl_dist + letter_width  # contains all the width of the letters inside the row, if the letter exist, here
+#                 except:
+#                     letter_width = eval("cp."+msg.ascii_type+"_"+ "NA" +"_width")
+#                     ctrl_dist = ctrl_dist + letter_width  # contains all the width of the letters inside the row, if the letter does not exist, here
+
+
+#         if (len(lista[row])) >= 2: msg.adj_indent = msg.adj_indent+msg.adj_left_space+ ctrl_dist+msg.adj_middle_space+msg.adj_right_space
+#         else:                      msg.adj_indent = msg.adj_indent+msg.adj_left_space+ ctrl_dist+msg.adj_right_space
+#         ctrl_dist = 0
+
+#         crs.jumpTo(qty=eval("cp."+ msg.ascii_type + "_Letters.height"), direction = cp.Move.UP)  # msg.ascii_type is the name of the type following the name
+
+#     crs.jumpTo(qty=eval("cp."+ msg.ascii_type + "_Letters.height"), direction = cp.Move.DOWN)
+
+
+
+# lista = [["AB"],["BC"],["DY"]]
+# multi_art(lista)
+
+
+
+
+def multi_art(self,lista, sets_bold, sets_bg, sets_fg,):
     # adj_indent cannot be changed or it will be messy
     ctrl_dist = 0
     for row in range(len(lista)):
-        msg.bg = set_bg[row]
-        msg.fg = set_fg[row]
-        # msg.underline = set_underline[row]
-        # msg.blinking = set_blinking[row]
-        # msg.italic = set_italic[row]
+        self.bold = sets_bold[row]
+        self.bg = sets_bg[row]
+        self.fg = sets_fg[row]
+
+        # self.underline = set_underline[row]               # you can add more settings here.
+        # self.blinking = set_blinking[row]
+        # self.italic = set_italic[row]
 
         for col in range(len(lista[row])):
-            msg.print_ascii_art(lista[row][col], option)
+            self.print_ascii_art(lista[row][col])
             text = lista[row][col]
             for n in text:
                 try:
-                    letter_width = eval("cp."+option+"_"+ n +"_width")
+                    letter_width = eval("cp."+self.ascii_type+"_"+ n +"_width")
                     ctrl_dist = ctrl_dist + letter_width  # contains all the width of the letters inside the row, if the letter exist, here
                 except:
-                    letter_width = eval("cp."+option+"_"+ "NA" +"_width")
+                    letter_width = eval("cp."+self.ascii_type+"_"+ "NA" +"_width")
                     ctrl_dist = ctrl_dist + letter_width  # contains all the width of the letters inside the row, if the letter does not exist, here
 
 
-        if (len(lista[row])) >= 2: msg.adj_indent = msg.adj_indent+msg.adj_left_space+ ctrl_dist+msg.adj_middle_space+msg.adj_right_space
-        else:                      msg.adj_indent = msg.adj_indent+msg.adj_left_space+ ctrl_dist+msg.adj_right_space
+        if (len(lista[row])) >= 2: self.adj_indent = self.adj_indent+self.adj_left_space+ ctrl_dist+self.adj_middle_space+self.adj_right_space
+        else:                      self.adj_indent = self.adj_indent+self.adj_left_space+ ctrl_dist+self.adj_right_space
         ctrl_dist = 0
 
-        crs.jumpTo(qty=eval("cp."+ option + "_Letters.height"), direction = cp.Move.UP)  # option is the name of the type following the name
+        crs.jumpTo(qty=eval("cp."+ self.ascii_type + "_Letters.height"), direction = cp.Move.UP)  # self.ascii_type is the name of the type following the name
 
-    crs.jumpTo(qty=eval("cp."+ option + "_Letters.height"), direction = cp.Move.DOWN)
+    crs.jumpTo(qty=eval("cp."+ self.ascii_type + "_Letters.height"), direction = cp.Move.DOWN)
 
 
 
-lista = [["AB"],["BC"],["DY"]]
-# multi_art(lista)
-    # lista = [["A"],["B"],["Y"]]
-    # lista = [["A"],["A"]]
-    
+data = [["A"],["B"],["Y"]]
+
+msg = cp.Art()
+# msg.set_layout = "horizontal"
+msg.set_bottom_line = True
+msg.set_top_line    = True
+msg.adj_indent = 2
+msg.adj_left_space = 4
+msg.adj_right_space = 6
+msg.adj_middle_space = 2
+msg.delay_ms = 100
+msg.ascii_type = "Doh"
+
+
+# fun,    class, data, bold_settings      bg_settings  fg_settings, you can add more settings 
+multi_art(msg, data, [False,True,False], [87,90,11], [16,231,21])
