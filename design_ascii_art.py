@@ -1,16 +1,16 @@
 import custom_print as cp
 #-------------------------------------------------------------------------------------------------------------------------------
-def art_logo_1(dato):
+def art_logo_1(dato, option):
     msg = cp.Art()
     msg.set_bottom_line = True
     msg.set_top_line    = True
-    msg.set_layout = "horizontal"
+    # msg.set_layout = "horizontal"
     msg.adj_indent = 2
     msg.delay_ms = 100
     msg.bold = True
     msg.bg = 87
     msg.fg = 16
-    msg.ascii_type = "Alpha"
+    msg.ascii_type = option
     msg.adj_left_space = 4
     msg.adj_right_space = 6
     msg.adj_middle_space = 2
@@ -18,17 +18,17 @@ def art_logo_1(dato):
 
 
 #-------------------------------------------------------------------------------------------------------------------------------
-def art_logo_2(data):
+def art_logo_2(data, option):
     # create the class and set the settings
     multi_msg = cp.Art()
     
-    multi_msg.set_layout = cp.Layout.HORIZONTAL
+    # multi_msg.set_layout = cp.Layout.HORIZONTAL
     # multi_msg.set_layout = cp.Layout.VERTICAL
 
     multi_msg.set_bottom_line  = True;                 multi_msg.set_top_line   = True
     multi_msg.adj_middle_space = 2;                    multi_msg.adj_indent     = 4
     multi_msg.adj_right_space  = 6;                    multi_msg.adj_left_space = 4
-    multi_msg.delay_ms = 80;                           multi_msg.ascii_type     = "Alpha"#"Doh"
+    multi_msg.delay_ms = 80;                           multi_msg.ascii_type     = option
 
     # we have 3 data, we need 3 settings for every single data
     #data       = [["A"], ["B"], ["Y"]]
@@ -50,11 +50,9 @@ def art_logo_2(data):
 # We have to pass all the parameters since we don't know the number of data that we will be passing 
 # This function is making a combination of the Art class.
 if __name__ == "__main__":
-    art_logo_1("ABY")
-
-    print("\n Next Line Art \n")
+    art_logo_1("@B? O","Alpha");         print("\n Next Line Art \n")
     
-    art_logo_2([["AA"], ["BB"], ["Yx"]])
+    art_logo_2([["@A"], ["+"], ["?="]], cp.Ascii_Letter.Alpha)
     
 
 

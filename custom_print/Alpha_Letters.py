@@ -3,11 +3,10 @@
 # |  Alpha Letters, Upper Case, Number and Symbols                                                                                     |
 # |  --------------------------------------------------------------------------------------------------------------------------------  |
 # +------------------------------------------------------------------------------------------------------------------------------------+
-height = 23
+Alpha_height = 23
 # +-------------------------------------------------------------+
 # |  Alpha Ascii Upper Case Letters                             |
 # +-------------------------------------------------------------+
-Alpha_A_width = 25
 Alpha_A = []
 Alpha_A.append("                         ")  # Top 0
 Alpha_A.append("          _____          ")  # 1
@@ -34,7 +33,34 @@ Alpha_A.append("         \/____/         ")  # 21
 Alpha_A.append("                         ")  # Bottom 22
 
 
-Alpha_B_width = 25
+Alpha_arroba = []
+Alpha_arroba.append("                         ")  # Top 0
+Alpha_arroba.append("          _____          ")  # 1
+Alpha_arroba.append("         /\    \         ")  # 2
+Alpha_arroba.append("        /::\    \        ")  # 3
+Alpha_arroba.append("       /::::\    \       ")  # 4
+Alpha_arroba.append("      /::::::\    \      ")  # 5
+Alpha_arroba.append("     /:::/\:::\    \     ")  # 6
+Alpha_arroba.append("    /:::/__\:::\    \    ")  # 7
+Alpha_arroba.append("   /::::\   \:::\    \   ")  # 8
+Alpha_arroba.append("  /::::::\   \:::\    \  ")  # 9
+Alpha_arroba.append(" /:::/\:::\   \:::\    \ ")  # 10
+Alpha_arroba.append("/:::/  \:::\   \:::\____|")  # 11
+Alpha_arroba.append("\::/    \:::\  /:::/    /")  # 12
+Alpha_arroba.append(" \/____/ \:::\/:::/    / ")  # 13
+Alpha_arroba.append("          \::::::/    /  ")  # 14
+Alpha_arroba.append("           \::::/    /   ")  # 15
+Alpha_arroba.append("           /:::/    /    ")  # 16
+Alpha_arroba.append("          /:::/    /     ")  # 17
+Alpha_arroba.append("         /:::/    /      ")  # 18
+Alpha_arroba.append("        /:::/    /       ")  # 19
+Alpha_arroba.append("        \::/    /        ")  # 20
+Alpha_arroba.append("         \/____/         ")  # 21
+Alpha_arroba.append("                         ")  # Bottom 22
+
+
+
+
 Alpha_B = []
 Alpha_B.append("                         ")  # Top 0
 Alpha_B.append("          _____          ")  # 1
@@ -61,7 +87,6 @@ Alpha_B.append("         ~~              ")  # 21
 Alpha_B.append("                         ")  # Bottom 22
 
 
-Alpha_Y_width = 29
 Alpha_Y = []
 Alpha_Y.append("                             ")  # Top 0
 Alpha_Y.append("         _________           ")  # 1
@@ -89,30 +114,30 @@ Alpha_Y.append("                             ")  # Bottom 22
                      
 
 
-Alpha_Ñ = []
-Alpha_Ñ.append("                             ")  # Top 0
-Alpha_Ñ.append("         _________           ")  # 1
-Alpha_Ñ.append("        |:\       \          ")  # 2
-Alpha_Ñ.append("        |::\_______\         ")  # 3
-Alpha_Ñ.append("        |:::|      |         ")  # 4
-Alpha_Ñ.append("        |:::|      |         ")  # 5
-Alpha_Ñ.append("        |:::|      |         ")  # 6
-Alpha_Ñ.append("        |:::|      |         ")  # 7
-Alpha_Ñ.append("        |:::|      |         ")  # 8
-Alpha_Ñ.append("        |:::|______|______   ")  # 9
-Alpha_Ñ.append("        /::::::::::\      \  ")  # 10
-Alpha_Ñ.append("       /::::::::::::\      \ ")  # 11
-Alpha_Ñ.append("      /::::::::::::::\______|")  # 12
-Alpha_Ñ.append("     /:::::/~~~~~~/~~        ")  # 13
-Alpha_Ñ.append("    /:::::/      /           ")  # 14
-Alpha_Ñ.append("   /:::::/      /            ")  # 15
-Alpha_Ñ.append("  /:::::/      /             ")  # 16
-Alpha_Ñ.append(" /:::::/      /              ")  # 17
-Alpha_Ñ.append("/:::::/      /               ")  # 18
-Alpha_Ñ.append("\::::/      /                ")  # 19
-Alpha_Ñ.append(" \::/      /                 ")  # 20                     
-Alpha_Ñ.append("  \/______/                  ")  # 21                     
-Alpha_Ñ.append("                             ")  # Bottom 22
+Alpha_question = []
+Alpha_question.append("                             ")  # Top 0
+Alpha_question.append("         _________           ")  # 1
+Alpha_question.append("        |:\       \          ")  # 2
+Alpha_question.append("        |::\_______\         ")  # 3
+Alpha_question.append("        |:::|      |         ")  # 4
+Alpha_question.append("        |:::|      |         ")  # 5
+Alpha_question.append("        |:::|      |         ")  # 6
+Alpha_question.append("        |:::|      |         ")  # 7
+Alpha_question.append("        |:::|      |         ")  # 8
+Alpha_question.append("        |:::|______|______   ")  # 9
+Alpha_question.append("        /::::::::::\      \  ")  # 10
+Alpha_question.append("       /::::::::::::\      \ ")  # 11
+Alpha_question.append("      /::::::::::::::\______|")  # 12
+Alpha_question.append("     /:::::/~~~~~~/~~        ")  # 13
+Alpha_question.append("    /:::::/      /           ")  # 14
+Alpha_question.append("   /:::::/      /            ")  # 15
+Alpha_question.append("  /:::::/      /             ")  # 16
+Alpha_question.append(" /:::::/      /              ")  # 17
+Alpha_question.append("/:::::/      /               ")  # 18
+Alpha_question.append("\::::/      /                ")  # 19
+Alpha_question.append(" \::/      /                 ")  # 20                     
+Alpha_question.append("  \/______/                  ")  # 21                     
+Alpha_question.append("                             ")  # Bottom 22
 
 
 Alpha_space = []
@@ -141,8 +166,8 @@ Alpha_space.append(" ")  # 21
 Alpha_space.append(" ")  # Bottom 22
 
 
-Alpha_NA_width = 3
 Alpha_NA = []
+Alpha_NA_width = 3
 Alpha_NA.append("   ")  # Top 0
 Alpha_NA.append("N/A")  # 1
 Alpha_NA.append("N/A")  # 2
