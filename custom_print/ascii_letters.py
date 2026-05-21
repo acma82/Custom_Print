@@ -8,8 +8,8 @@ from custom_print.pylo      import PyLO
 from custom_print.ref_names import Layout, Ascii_Letter
 
 
-import custom_print.Alpha_Letters as AL
-import custom_print.Doh_Letters   as DL
+import custom_print.Alpha_Letters
+import custom_print.Doh_Letters
 
 
 # +------------------------------------------------------------------------------------------------------------------------------------+
@@ -19,15 +19,14 @@ import custom_print.Doh_Letters   as DL
 class Art:
     def __init__(self):
         self.bold     = True
-        self.bold     = False;        self.bg = -1;              self.fg = -1
-        self.italic   = False;        self.underline = False;    self.strike = False
-        self.blinking = False;        self.dim = False;          self.hidden = False
-        self.inverse  = False;        self.ascii_type="Doh"
+        self.bold     = False;                self.bg = -1;                           self.fg = -1
+        self.italic   = False;                self.underline = False;                 self.strike = False
+        self.blinking = False;                self.dim = False;                       self.hidden = False
+        self.inverse  = False;                self.ascii_type = Ascii_Letter.Big
               
-        self.adj_indent = 0;          self.adj_space  = 0;       self.delay_ms   = 0
-        self.set_layout = "vertical"; self.set_top_line = False; self.set_bottom_line = False; 
-
-        self.adj_left_space = 0;      self.adj_middle_space = 0; self.adj_right_space = 0
+        self.adj_indent = 0;                  self.adj_space  = 0;                    self.delay_ms   = 0
+        self.set_layout = Layout.VERTICAL;    self.set_top_line = False;              self.set_bottom_line = False; 
+        self.adj_left_space = 0;              self.adj_middle_space = 0;              self.adj_right_space = 0
         
 
     def print_ascii_art(self, msg="AB"):
@@ -37,35 +36,57 @@ class Art:
         key_letter = "";                 skip_top_row = self.set_top_line
         left_sp = self.adj_left_space;   middle_sp = self.adj_middle_space
         right_sp = self.adj_right_space
-        symbol_chrs = ["?","~","@","!"]
-        symbol_name = ["question","uno","arroba","dos"] 
+        
+        symbol_chrs = ["`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=", "[", "]", "\\", ";", "'",  ",", ".", "/",
+                       "~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+", "{", "}", "|",  ":", "\"", "<", ">", "?", " "]
+        
+        symbol_name = ["backtick", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "zero", "minus", "equal",
+                       "open_bracket", "close_bracket", "backward_slash", "semicolon", "apostrophe", "comma", "period",   "forwad_slash",
+                       "tilde", "exclamation", "arroba", "pound", "dollar", "percent", "caret", "ampersand", "asterisk",  "open_parenthesis",
+                       "close_parenthesis", "underscore", "plus", "pipe", "open_curly", "close_curly", "colon", "quotation","less_than",
+                       "greater_than", "question", "space"]
 
         color = set_font(self.bold, self.bg, self.fg, self.italic, self.underline, self.strike,
                         self.blinking, self.dim, self.hidden, self.inverse)
         
         data = msg
         pylo = PyLO()
-        # ------------------------------------------------------------ Finding the Type of Ascii Letters
-        if self.ascii_type == Ascii_Letter.Alpha:                   #  Alpha only have uppercase available
-            rows = AL.Alpha_height
-            key_letter = "AL."
+        key_letter = "custom_print."+self.ascii_type + "_Letters."
+
+        # Make sure always exist a letter A or a in all the Letters Type
+        try:
+            list_name = eval("custom_print."+self.ascii_type+"_Letters."+self.ascii_type+"_A")
+            rows = len(list_name)
+        except:
+            list_name = eval("custom_print."+self.ascii_type+"_Letters."+self.ascii_type+"_a")
+            rows = len(list_name) 
+
+        # ------------------------------------------------------------ Finding the Type of Ascii Letters       
+        if self.ascii_type == Ascii_Letter.Alpha:
+            #  Alpha only have uppercase available
             if type(msg) is list:
-                result = pylo.update_case(data=data, header_case=pylo.Case.UPPER, data_case=pylo.Case.LOWER, update=True )
+                result = pylo.update_case(data=data, header_case=pylo.Case.UPPER, data_case=pylo.Case.UPPER, update=True )
             else:
                 data = msg.upper()
             
 
-        elif self.ascii_type == Ascii_Letter.Doh:
-            rows = DL.Doh_height
-            key_letter = "DL."
+        elif self.ascii_type == Ascii_Letter.Crazy:
+            # Crazy Only have lowercase available
+            if type(msg) is list:
+                result = pylo.update_case(data=data, header_case=pylo.Case.LOWER, data_case=pylo.Case.LOWER, update=True )
+            else:
+                data = msg.lower()
 
-        elif self.ascii_type == Ascii_Letter.Big:
-            rows = AL.Alpha_height
-        else:                 pass
+        else:
+            # Other letters that have uppercase and lower case
+            list_name = eval("custom_print."+self.ascii_type+"_Letters."+self.ascii_type+"_A")
         # -------------------------------------------------------- Ending Finding the Type of Ascii Letters
-      
-        #--------------------------------------------------------- Making the list result in vertical form
-        if self.set_layout == Layout.VERTICAL:   #  "vertical":
+
+
+        # +---------------------------------------------------------------------------------------------------+
+        # |                          Making the list result in vertical form                                  |
+        # +---------------------------------------------------------------------------------------------------+
+        if self.set_layout == Layout.VERTICAL:
             if len(data) == 1: middle_sp = left_sp
             else:              pass
 
@@ -75,8 +96,7 @@ class Art:
                 else:
                     for l in range(len(data)):
                         try:
-                            if data[l] == " ": row_info = key_letter + self.ascii_type + "_space" + "[" + str(r) + "]"
-                            else:              row_info = key_letter + self.ascii_type + "_" + data[l] + "[" + str(r) + "]"
+                            row_info = key_letter + self.ascii_type + "_" + data[l] + "[" + str(r) + "]"
 
                             if l == (len(data)-1):
                                 tempo_row = tempo_row + ins_chr(middle_sp) + eval(row_info) + ins_chr(right_sp)   # last item
@@ -86,24 +106,28 @@ class Art:
                                 tempo_row = tempo_row + ins_chr(left_sp) + eval(row_info) #+ ins_chr(middle_sp)   # first item
                         
                         except:
+                            
                             if data[l] in symbol_chrs:
                                 position = symbol_chrs.index(data[l])
                                 symbol_chr = symbol_name[position]
-                                row_info = key_letter + self.ascii_type + "_" + symbol_chr + "[" + str(r) + "]"
-
+                            
+                            
+                                try:
+                                    row_info = eval(key_letter + self.ascii_type + "_" + symbol_chr + "[" + str(r) + "]")
+                                except:
+                                    row_info = eval(key_letter + self.ascii_type + "_NA" + "[" + str(r) + "]")
                             else:
-                                row_info = key_letter + self.ascii_type + "_NA" + "[" + str(r) + "]"
+                                row_info = eval(key_letter + self.ascii_type + "_NA" + "[" + str(r) + "]")
 
                             if l == (len(data)-1):
-                                tempo_row = tempo_row + ins_chr(middle_sp) + eval(row_info) + ins_chr(right_sp)   # last item
+                                tempo_row = tempo_row + ins_chr(middle_sp) + row_info + ins_chr(right_sp)   # last item
                             elif l >= 1:
-                                tempo_row = tempo_row + ins_chr(middle_sp) + eval(row_info) #+ ins_chr(middle_sp) # middle items
+                                tempo_row = tempo_row + ins_chr(middle_sp) + row_info # + ins_chr(middle_sp) # middle items
                             else:
-                                tempo_row = tempo_row + ins_chr(left_sp) + eval(row_info) #+ ins_chr(middle_sp)   # first item
+                                tempo_row = tempo_row + ins_chr(left_sp) + row_info   # + ins_chr(middle_sp)   # first item
 
                 if skip_top_row == False: skip_top_row = True
                 else:
-                    # result.append([f"{ins_chr(self.adj_indent)}{color}{tempo_row}\033[0m"])
                     result.append([f"{move_cursor_right(self.adj_indent)}{color}{tempo_row}\033[0m"])
                 tempo_row = ""
 
@@ -114,9 +138,10 @@ class Art:
                 for col in row:
                     time.sleep(retardo); print(col)
 
-        #--------------------------------------------------------- Making the list result in horizontal form
-        elif self.set_layout == Layout.HORIZONTAL: #"horizontal":
-            # left_sp = self.adj_left_space; middle_sp = self.adj_middle_space; right_sp = self.adj_right_space
+        # +---------------------------------------------------------------------------------------------------+
+        # |                          Making the list result in horizontal form                                |
+        # +---------------------------------------------------------------------------------------------------+
+        elif self.set_layout == Layout.HORIZONTAL:
             if len(data) == 1: middle_sp = left_sp
             else:              pass
 
@@ -132,17 +157,15 @@ class Art:
 
             for w in range(len(data)):
                 try:    
-                    if data[w] == " ":
-                        list_letter = eval(key_letter + self.ascii_type + "_space")
-                    else:
-                        list_letter = eval(key_letter + self.ascii_type + "_" + data[w])    
-                except: 
                     if data[w] in symbol_chrs:
                         position = symbol_chrs.index(data[w])
                         symbol_chr = symbol_name[position]
+                        
                         list_letter = eval(key_letter + self.ascii_type + "_" + symbol_chr)
 
                     else:
+                        list_letter = eval(key_letter + self.ascii_type + "_" + data[w])    
+                except: 
                         list_letter = eval(key_letter + self.ascii_type + "_" + "NA")
 
                 for r in range(rows):
@@ -155,7 +178,7 @@ class Art:
                             elif w == (len(data)-1): print(f"{color}\033[{str(move_right)}C{list_letter[r]}{ins_chr(right_sp)}\033[0m")                        # last item
                             else:                    print(f"{color}\033[{str(move_right)}C{list_letter[r]}{ins_chr(middle_sp)}\033[0m")                       # middle items# w >= 1:
                    
-                if w == 0: move_right = move_right + left_sp + len(list_letter[0]) + middle_sp  # first item   AL.Alpha+"_"+
+                if w == 0: move_right = move_right + left_sp + len(list_letter[0]) + middle_sp  # first item
                 else:      move_right = move_right + len(list_letter[0]) + middle_sp            # middle item
 
                 print(f"\033[{str(move_up)}A",end="")
