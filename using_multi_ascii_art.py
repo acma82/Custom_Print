@@ -28,7 +28,7 @@ inverses   = [False, False, False]
 
 # We have to pass all the parameters since we don't know the number of data that we will be passing 
 # This function is making a combination of the Art class.
-cp.print_multi_ascii_art(msg, data, bolds, bgs, fgs, italics, underlines, strikes, blinkings, dims, hiddens, inverses)
+msg.print_multi_ascii_art(data, bolds, bgs, fgs, italics, underlines, strikes, blinkings, dims, hiddens, inverses)
 
 print("Hello")
 

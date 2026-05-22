@@ -55,6 +55,37 @@ import os
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 # Layout is used for the Range, Set, Frozenset.                                                                                                      -
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
+class Align(enum.StrEnum):
+    # class Align():
+    '''
+    Align reference class
+    '''
+    LEFT     = "left"
+    CENTER   = "center"
+    RIGHT    = "right"
+    JUSTIFY  = "justify"
+
+class Ascii_Letter(enum.StrEnum):
+    Alpha        = "Alpha"
+    Ansi_Shadow  = "Ansi_Shadow"
+    Big          = "Big"
+    Big_Money_NE = "Big_Money_NE"
+    Big_Money_NW = "Big_Money_NW"
+    Big_Money_SE = "Big_Money_SE"
+    Big_Money_SW = "Big_Money_SW"
+    Blocks       = "Blocks"
+    Bulbhead     = "Bulbhead"
+    Colossal     = "Colossal"
+    Crazy        = "Crazy"
+    Doh          = "Doh"
+    Epic         = "Epic"
+    Font_Font    = "Font_Font"
+    Mono         = "Mono"
+    Roman        = "Roman"
+    Standar      = "Standar"
+    Sweat        = "Sweat"
+
+
 #class Move(str, enum.Enum): # python3.9.18
 class Move(enum.StrEnum):    # python3.12.1
 # class Move():
@@ -65,18 +96,6 @@ class Move(enum.StrEnum):    # python3.12.1
     RIGHT = "right"
     DOWN  = "down"
     LEFT  = "left"
-
-
-class Align(enum.StrEnum):
-# class Align():
-    '''
-    Align reference class
-    '''
-    LEFT     = "left"
-    CENTER   = "center"
-    RIGHT    = "right"
-    JUSTIFY  = "justify"
-
 
 class Layout(enum.StrEnum):
 # class Layout():
@@ -614,22 +633,3 @@ class Style(enum.StrEnum):
     RESET_ALL    = "\033[0m"
     OFF = "\033[22m"+"\033[23m"+"\033[24m"+"\033[25m"+"\033[27m"+"\033[28m"+"\033[29m"
 
-class Ascii_Letter(enum.StrEnum):
-    Alpha        = "Alpha"
-    Ansi_Shadow  = "Ansi_Shadow"
-    Big          = "Big"
-    Big_Money_NE = "Big_Money_NE"
-    Big_Money_NW = "Big_Money_NW"
-    Big_Money_SE = "Big_Money_SE"
-    Big_Money_SW = "Big_Money_SW"
-    Blocks       = "Blocks"
-    Bulbhead     = "Bulbhead"
-    Colossal     = "Colossal"
-    Crazy        = "Crazy"
-    Doh          = "Doh"
-    Epic         = "Epic"
-    Font_Font    = "Font_Font"
-    Mono         = "Mono"
-    Roman        = "Roman"
-    Standar      = "Standar"
-    Sweat        = "Sweat"
