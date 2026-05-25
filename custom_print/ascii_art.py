@@ -1,8 +1,9 @@
 import time
 
 from custom_print.fancy_functions import ins_chr
-from custom_print.fancy_functions import move_cursor_right
 from custom_print.fancy_functions import set_font
+from custom_print.fancy_functions import ins_newline
+from custom_print.fancy_functions import move_cursor_right
 
 from custom_print           import Move
 from custom_print.pylo      import PyLO
@@ -382,4 +383,78 @@ class Art:
 
   
 
+    # +--------------------------------------------------------------------------------------------------------------------------------+
+    # |    Only One Setting for Bold, Bg, Fg, italic, underline, strike, blinking, dim, and inverse for the customized logos.          |
+    # |    For the specific logos like Linux, Debian, Alma, and so on. No settings will be applied for them.                           |
+    # +--------------------------------------------------------------------------------------------------------------------------------+
+    def print_reversed_image_ascii_art(self):
+        retardo = self.delay_ms/1000;           key_letter = "";      crs = Cursor()
 
+        color = set_font(self.bold, self.bg, self.fg, self.italic, self.underline, self.strike,
+                        self.blinking, self.dim, self.hidden, self.inverse)
+        
+        defined_logos = ["Windows","Apple","Unix_Logo","Linux", "Red_Hat", "Centos", "Alma","Fedora", "Archict", "Kalib", "Python"]
+
+        if self.ascii_type in defined_logos: key_letter = eval("custom_print." + "Logos." + self.ascii_type)
+        else:                                key_letter = self.ascii_type
+
+
+        if self.set_layout == Layout.VERTICAL:
+            pos_crs = len(self.ascii_type) - 1
+            ins_newline(len(self.ascii_type))
+            
+
+            for n in  range(len(key_letter)):
+                print(move_cursor_right(self.adj_indent)+color+ins_chr(self.adj_left_space)+key_letter[pos_crs]+ins_chr(self.adj_right_space)+"\033[0m")
+                crs.jumpTo(qty = 2, direction= Move.UP)
+                time.sleep(retardo)
+                pos_crs -= 1
+            crs.jumpTo(qty = (len(self.ascii_type)), direction= Move.DOWN)
+
+        
+        elif self.set_layout == Layout.HORIZONTAL:
+            ctrl_cols = 1
+            n_rows = len(key_letter);           n_cols = len(key_letter[0])           
+            x = n_cols
+
+            for col in range(n_cols):
+                x -= 1
+                for row in range(n_rows):
+                    if col == 0:  # first col
+                        print(move_cursor_right(self.adj_indent)+color+ins_chr(self.adj_left_space+n_cols-1)+key_letter[row][x]+ins_chr(self.adj_right_space)+"\033[0m")
+                    elif col == (n_cols - 1 ): # last col
+                        print(move_cursor_right(self.adj_indent+self.adj_left_space)+color+key_letter[row][x]+"\033[0m")
+                        
+                    else: # middle cols
+                        print(move_cursor_right(self.adj_indent+self.adj_left_space+n_cols-ctrl_cols)+color+key_letter[row][x]+"\033[0m")
+                
+                
+                ctrl_cols += 1
+                time.sleep(retardo)
+                if col == (n_cols -1): pass
+                else:                  crs.jumpTo(qty = n_rows, direction= Move.UP)
+            # crs.jumpTo(qty = n_rows, direction= Move.DOWN)
+
+        else:
+            # +-------------------------------------------------------------------------------------+
+            # | LayOut NOT Specified                                                                |
+            # +-------------------------------------------------------------------------------------+
+            color = set_font(True, 196, 231)
+            error_layout = []
+            error_layout.append("                                                                    ")
+            error_layout.append("   ______                       _                             _     ")
+            error_layout.append("  |  ____|                     | |                           | |    ")
+            error_layout.append("  | |__   _ __ _ __ ___  _ __  | |     __ _ _   _  ___  _   _| |_   ")
+            error_layout.append("  |  __| | '__| '__/ _ \\| '__| | |    / _` | | | |/ _ \\| | | | __|  ")
+            error_layout.append("  | |____| |  | | | (_) | |    | |___| (_| | |_| | (_) | |_| | |_   ")
+            error_layout.append("  |______|_|  |_|  \\___/|_|    |______\\__,_|\\__, |\\___/ \\__,_|\\__|  ")
+            error_layout.append("                                             __/ |                  ")
+            error_layout.append("                                            |___/                   ")
+            error_layout.append("                                                                    ")
+            for row in error_layout:
+                print(f"    {color}{row}\033[0m")
+            print("    Form more help visit: ")
+            print("    https://github.com/acma82/Custom_Print/tree/main/readme ")
+            print("    Thank you for using custom_print")
+
+  

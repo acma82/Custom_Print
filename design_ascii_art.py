@@ -125,13 +125,17 @@ if __name__ == "__main__":
     art_logo.bg = 90; art_logo.fg = 231; art_logo.delay_ms = 80
     art_logo.adj_indent = 10;  art_logo.adj_left_space = 2
     art_logo.set_layout = cp.Layout.HORIZONTAL
-    art_logo.ascii_type = mym
+    art_logo.ascii_type = cp.Alpha_M # mym
+    
+    back_up = len(cp.Alpha_M)
+    width = len(cp.Alpha_M[0])
+
     art_logo.print_image_ascii_art()
 
 
-    crs.jumpTo(qty=10, direction=cp.Move.UP)
-    art_logo.ascii_type = mye
-    art_logo.adj_indent = 10 + 2 + 17-1; art_logo.adj_right_space = 2
+    crs.jumpTo(qty=back_up, direction=cp.Move.UP)
+    art_logo.ascii_type = cp.Alpha_E # mye
+    art_logo.adj_indent = 10 + 2 + width ; art_logo.adj_right_space = 2
     art_logo.print_image_ascii_art()
 
 
