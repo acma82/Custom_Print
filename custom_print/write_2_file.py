@@ -16,14 +16,17 @@
 # https://budavariam.github.io/asciiart-text/
 
 #------------------------------------------------------------------------------------------------
-file_name = "Alpha_Letters"
-key_word = "Alpha"
-heigh = 16
+file_name = "Crazy_Letters"
+key_word = "Crazy"
+heigh = 11
 #------------------------------------------------------------------------------------------------
-letters = [["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "em1", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"],
-           ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "em2", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"],
+letters = [["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "Ñ", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"],
+           
+           ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "ñ", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"],
+           
            ["backtick", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "zero", "minus", "equal", "backward_slash",
             "open_bracket", "close_bracket", "bemicolon", "apostrophe", "comma", "period", "forwad_slash"],
+
            ["tilde", "exclamation", "arroba", "pound", "dollar", "percent", "caret", "ampersand", "asterisk", "open_parenthesis",
             "close_parenthesis", "underscore", "plus", "pipe", "open_curly", "close_curly", "colon", "quotation","less_than",
              "greater_than", "question", "space", "NA"]]
@@ -33,11 +36,11 @@ letters = [["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N"
 with open(file_name+".py", "w") as file:
 
     file.write("# +-----------------------------------------------------------------------------------------------+\n")
-    file.write(f"# |                                {file_name}                                                  |\n")
+    file.write(f"# |                                {file_name}                                                    |\n")
     file.write("# +-----------------------------------------------------------------------------------------------+\n")
-    file.write("#    Uppercase :    A B C D E F G H I J K L M N em1 O P Q R S T U V W X Y Z                        \n")
+    file.write("#    Uppercase :    A B C D E F G H I J K L M N Ñ O P Q R S T U V W X Y Z                          \n")
     file.write("#                                                                                                  \n")
-    file.write("#    Lowercase :    a b c d e f g h i j k l m n em2 o p q r s t u v w x y z                        \n")
+    file.write("#    Lowercase :    a b c d e f g h i j k l m n ñ o p q r s t u v w x y z                          \n")
     file.write("#                                                                                                  \n")
     file.write("#    Shift_Off :    ` 1 2 3 4 5 6 7 8 9 0 - = \ [ ] ; ' , . /                                      \n")
     file.write("#                                                                                                  \n")
@@ -54,7 +57,7 @@ with open(file_name+".py", "w") as file:
     file.write("# |   % : Percent             ^ : Caret                & : Ampersand        * : Asterisk          |\n")
     file.write("# |   ( : Open_Parenthesis    ) : Close_Parenthesis    _ : Underscore       + : Plus              |\n")
     file.write("# |   | : Pipe                { : Open_Curly           } : Close_Curly      : : Colon             |\n")
-    file.write('# |   " : Quotation          < : Less_Than            > : Greater_Than     ? : Question           |\n')
+    file.write('# |   " : Quotation           < : Less_Than            > : Greater_Than     ? : Question          |\n')
     file.write("# +-----------------------------------------------------------------------------------------------+\n")
 
     heigh += 2  # letter_hight + top_line + bottom_line

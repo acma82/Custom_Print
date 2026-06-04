@@ -1,13 +1,13 @@
 # +--------------------------------------------------------------------------+
-# |                           Alpha Letters                                  |
+# |                           Letters Alpha                                  |
 # +--------------------------------------------------------------------------+
 #    Uppercase :    A B C D E F G H I J K L M N Ñ O P Q R S T U V W X Y Z
 #                                                                        
-#    Lowercase :    a b c d e f g h i j k l m n ñ o p q r s t u v w x y z
+#    Lowercase :    a b c d e f g h i j k l m n ñ o p q r s t u v w x y z  (N/A)
 #                                                                        
-#    Shift_Off :    ` 1 2 3 4 5 6 7 8 9 0 - = \ [ ] ; ' , . /            
+#    Shift_Off :    ` 1 2 3 4 5 6 7 8 9 0 - = \ [ ] ; ' , . /              (N/A)
 #                                                                        
-#    Shift_On  :    ~ ! @ # $ % ^ & * ( ) _ + | { } : " < > ?           
+#    Shift_On  :    ~ ! @ # $ % ^ & * ( ) _ + | { } : " < > ?              (N/A)
 #
 #    Note      : Alpha only ocntains uppercase.
 #
@@ -38,7 +38,7 @@ Alpha_A.append("    /:::/__\:::\    \    ")  # 7
 Alpha_A.append("   /::::\   \:::\    \   ")  # 8
 Alpha_A.append("  /::::::\   \:::\    \  ")  # 9
 Alpha_A.append(" /:::/\:::\   \:::\    \ ")  # 10
-Alpha_A.append("/:::/  \:::\   \:::\____\\") # 11
+Alpha_A.append("/:::/  \:::\   \:::\____\\")  # 11
 Alpha_A.append("\::/    \:::\  /:::/    /")  # 12
 Alpha_A.append(" \/____/ \:::\/:::/    / ")  # 13
 Alpha_A.append("          \::::::/    /  ")  # 14
@@ -815,14 +815,13 @@ Alpha_space.append(" ") # 18
 Alpha_space.append(" ") # 19
 Alpha_space.append(" ") # 20
 Alpha_space.append(" ") # 21
-Alpha_space.append(" ") # Bottom 22
-
+Alpha_space.append(" ") # Bottom 22space = []
 
 # +--------------------------------+
 #   NA Letter
 # +--------------------------------+
 Alpha_NA = []
-Alpha_NA.append("   ") # Top 0
+Alpha_NA.append("N/A") # Top 0
 Alpha_NA.append("N/A") # 1
 Alpha_NA.append("N/A") # 2
 Alpha_NA.append("N/A") # 3
@@ -844,4 +843,4 @@ Alpha_NA.append("N/A") # 18
 Alpha_NA.append("N/A") # 19
 Alpha_NA.append("N/A") # 20
 Alpha_NA.append("N/A") # 21
-Alpha_NA.append("   ") # Bottom 22
+Alpha_NA.append("N/A") # Bottom 22space = []

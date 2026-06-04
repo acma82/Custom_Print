@@ -14,7 +14,7 @@ msg.delay_ms = 100
 msg.ascii_type = "Alpha"#"Doh"
 
 # we have 3 data, we need 3 settings for every single data
-data = [     ["A"], ["B"],["Y"]]
+data = [     ["AB"], ["CB"],["ZY"]]
 bolds      = [True,  True,  True]
 bgs        = [1,     90,    21]
 fgs        = [7,     231,   11]
@@ -30,7 +30,6 @@ inverses   = [False, False, False]
 # This function is making a combination of the Art class.
 msg.print_multi_ascii_art(data, bolds, bgs, fgs, italics, underlines, strikes, blinkings, dims, hiddens, inverses)
 
-print("Hello")
 
 
 

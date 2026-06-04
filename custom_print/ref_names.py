@@ -67,7 +67,7 @@ class Align(enum.StrEnum):
 
 class Ascii_Letter(enum.StrEnum):
     Alpha        = "Alpha"
-    Ansi_Shadow  = "Ansi_Shadow"
+    ANSI_Shadow  = "ANSI_Shadow"
     Big          = "Big"
     Big_Money_NE = "Big_Money_NE"
     Big_Money_NW = "Big_Money_NW"
@@ -78,12 +78,13 @@ class Ascii_Letter(enum.StrEnum):
     Colossal     = "Colossal"
     Crazy        = "Crazy"
     Doh          = "Doh"
+    Doom         = "Doom"
     Epic         = "Epic"
     Font_Font    = "Font_Font"
     Mono         = "Mono"
     Roman        = "Roman"
-    Standar      = "Standar"
-    Sweat        = "Sweat"
+    Standard     = "Standard"
+    Sweet        = "Sweet"
 
 
 #class Move(str, enum.Enum): # python3.9.18
@@ -226,6 +227,9 @@ class Unicode(enum.StrEnum):
 
     LOWERCASE_N_TILDE = "\N{LATIN SMALL LETTER N WITH TILDE}"   # ñ
     UPPERCASE_N_TILDE = "\N{LATIN CAPITAL LETTER N WITH TILDE}" # Ñ
+
+    LEFT_CURLY_BRACKET  = "\N{LEFT CURLY BRACKET}"
+    RIGHT_CURLY_BRACKET = "\N{RIGHT CURLY BRACKET}"
 
     FACE = "(" + chr(0x25D5) + chr(0x25E1) + chr(0x25D5) + ")"
 

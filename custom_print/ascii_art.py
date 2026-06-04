@@ -6,14 +6,29 @@ from custom_print.fancy_functions import ins_newline
 from custom_print.fancy_functions import move_cursor_right
 
 from custom_print           import Move
+from custom_print           import FancyFormat
+from custom_print           import Line_Style
 from custom_print.pylo      import PyLO
 from custom_print           import Cursor
 from custom_print.ref_names import Layout, Ascii_Letter
 
 
 # importing the files with the ascii_art
-import custom_print.Alpha_Letters  
+import custom_print.Alpha_Letters
+import custom_print.ANSI_Shadow_Letters
+import custom_print.Big_Letters
+import custom_print.Blocks_Letters
+import custom_print.Bulbhead_Letters
+import custom_print.Colossal_Letters
+import custom_print.Crazy_Letters
 import custom_print.Doh_Letters
+import custom_print.Doom_Letters
+import custom_print.Epic_Letters
+import custom_print.Graceful_Letters
+import custom_print.Larry_Letters
+import custom_print.Roman_Letters
+import custom_print.Standard_Letters
+import custom_print.Sweet_Letters
 import custom_print.Logos
 
 # +------------------------------------------------------------------------------------------------------------------------------------+
@@ -31,6 +46,24 @@ class Art:
         self.set_layout = Layout.VERTICAL;    self.set_top_line = False;              self.set_bottom_line = False; 
         self.adj_left_space = 0;              self.adj_middle_space = 0;              self.adj_right_space = 0
         
+    def description_ascii_letters(self):
+        tbl = FancyFormat()
+        ascii_letter_description = [["Type", "Uppercase", "Lowercase","Shiff_On", "Shift_Off"],
+                                    [Ascii_Letter.Alpha,       "Yes", "No",  "No",  "No" ],
+                                    [Ascii_Letter.ANSI_Shadow, "Yes", "No",  "Yes", "Yes"],
+                                    [Ascii_Letter.Big,         "Yes", "Yes", "Yes", "Yes"]]
+        
+        
+        tbl.title_align = "center"; tbl.title_msg   = "  Description of Ascii Letters  "
+        tbl.title_bg    = 231;       tbl.title_fg = 21;   tbl.title_bold = True
+        
+        tbl.footnote_align = "right"; tbl.footnote_msg = " Table Ascii Letters "
+        tbl.footnote_bold  = True;    tbl.footnote_bg  = 90;  tbl.footnote_fg = 231
+
+        tbl.adj_bottom_margin = 2; tbl.adj_top_margin = 2
+        tbl.adj_bottom_space  = 0; tbl.adj_top_space  = 2
+
+        tbl.print_fancy_format(data=ascii_letter_description, style=Line_Style.WHITE_BLACK_PURPLE)
 
     # +--------------------------------------------------------------------------------------------------------------------------------+
     # |    Only One Setting for Bold, Bg, Fg, italic, underline, strike, blinking, dim, and inverse                                    |
@@ -43,13 +76,14 @@ class Art:
         left_sp = self.adj_left_space;   middle_sp = self.adj_middle_space
         right_sp = self.adj_right_space
         
-        symbol_chrs = ["`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=", "[", "]", "\\", ";", "'",  ",", ".", "/",
+        symbol_chrs = ["`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=",
+                       "[", "]", "\\", ";", "'",  ",", ".", "/",
                        "~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+", "{", "}", "|",  ":", "\"", "<", ">", "?", " "]
         
         symbol_name = ["backtick", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "zero", "minus", "equal",
-                       "open_bracket", "close_bracket", "backward_slash", "semicolon", "apostrophe", "comma", "period",   "forwad_slash",
+                       "open_bracket", "closed_bracket", "backward_slash", "semicolon", "apostrophe", "comma", "period", "forward_slash",
                        "tilde", "exclamation", "arroba", "pound", "dollar", "percent", "caret", "ampersand", "asterisk",  "open_parenthesis",
-                       "close_parenthesis", "underscore", "plus", "pipe", "open_curly", "close_curly", "colon", "quotation","less_than",
+                       "closed_parenthesis", "underscore", "plus", "pipe", "open_curly", "closed_curly", "colon", "quotation","less_than",
                        "greater_than", "question", "space"]
 
         color = set_font(self.bold, self.bg, self.fg, self.italic, self.underline, self.strike,
@@ -61,10 +95,10 @@ class Art:
 
         # Make sure always exist a letter A or a in all the Letters Type
         try:
-            list_name = eval("custom_print."+self.ascii_type+"_Letters."+self.ascii_type+"_A")
+            list_name = eval("custom_print."+self.ascii_type+"_Letters."+self.ascii_type+"_NA")
             rows = len(list_name)
         except:
-            list_name = eval("custom_print."+self.ascii_type+"_Letters."+self.ascii_type+"_a")
+            list_name = eval("custom_print."+self.ascii_type+"_Letters."+self.ascii_type+"_space")
             rows = len(list_name) 
 
         # ------------------------------------------------------------ Finding the Type of Ascii Letters       
@@ -87,6 +121,25 @@ class Art:
             # Other letters that have uppercase and lower case
             list_name = eval("custom_print."+self.ascii_type+"_Letters."+self.ascii_type+"_A")
         # -------------------------------------------------------- Ending Finding the Type of Ascii Letters
+
+
+        # +------------------------------------------------------            error_layout = []
+            error_layout.append("                                                                    ")
+            error_layout.append("   ______                       _                             _     ")
+            error_layout.append("  |  ____|                     | |                           | |    ")
+            error_layout.append("  | |__   _ __ _ __ ___  _ __  | |     __ _ _   _  ___  _   _| |_   ")
+            error_layout.append("  |  __| | '__| '__/ _ \\| '__| | |    / _` | | | |/ _ \\| | | | __|  ")
+            error_layout.append("  | |____| |  | | | (_) | |    | |___| (_| | |_| | (_) | |_| | |_   ")
+            error_layout.append("  |______|_|  |_|  \\___/|_|    |______\\__,_|\\__, |\\___/ \\__,_|\\__|  ")
+            error_layout.append("                                             __/ |                  ")
+            error_layout.append("                                            |___/                   ")
+            error_layout.append("                                                                    ")
+            for row in error_layout:
+                print(f"    {color}{row}\033[0m")
+            print("    Form more help visit: ")
+            print("    https://github.com/acma82/Custom_Print/tree/main/readme ")
+            print("    Thank you for using custom_print")
+
 
 
         # +---------------------------------------------------------------------------------------------------+
@@ -214,6 +267,7 @@ class Art:
             print("    Form more help visit: ")
             print("    https://github.com/acma82/Custom_Print/tree/main/readme ")
             print("    Thank you for using custom_print")
+            exit()
 
 
 
@@ -380,6 +434,7 @@ class Art:
             print("    Form more help visit: ")
             print("    https://github.com/acma82/Custom_Print/tree/main/readme ")
             print("    Thank you for using custom_print")
+            exit()
 
   
 
@@ -439,7 +494,6 @@ class Art:
             # +-------------------------------------------------------------------------------------+
             # | LayOut NOT Specified                                                                |
             # +-------------------------------------------------------------------------------------+
-            color = set_font(True, 196, 231)
             error_layout = []
             error_layout.append("                                                                    ")
             error_layout.append("   ______                       _                             _     ")
@@ -456,5 +510,6 @@ class Art:
             print("    Form more help visit: ")
             print("    https://github.com/acma82/Custom_Print/tree/main/readme ")
             print("    Thank you for using custom_print")
+            exit()
 
   

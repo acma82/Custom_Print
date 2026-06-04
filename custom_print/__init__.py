@@ -53,7 +53,20 @@ from .fancy_message    import FancyMessage
 from .fancy_divider    import Divider
 from .ascii_art        import Art
 
-from .Alpha_Letters    import* # import all the letters
-from .Doh_Letters      import* # import all the letters
-from .Logos            import* # import all the logos
-
+# import all the letters
+from .Alpha_Letters        import*
+from .ANSI_Shadow_Letters  import*
+from .Big_Letters          import*
+from .Blocks_Letters       import*
+from .Bulbhead_Letters     import*
+from .Colossal_Letters     import*
+from .Crazy_Letters        import*
+from .Doh_Letters          import*
+from .Doom_Letters         import*
+from .Epic_Letters         import*
+from .Graceful_Letters     import*
+from .Larry_Letters        import*
+from .Roman_Letters        import*
+from .Standard_Letters     import*
+from .Sweet_Letters        import*
+from .Logos                import*
