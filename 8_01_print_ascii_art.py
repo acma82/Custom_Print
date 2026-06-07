@@ -11,13 +11,11 @@ import custom_print as cp
 #-----------------------------------------------------------------------------------------
 def art(dato):
     msg = cp.Art()
-    msg.description_ascii_letters()
-    exit()
 
     msg.set_bottom_line = True
     msg.set_top_line    = True
-    # msg.set_layout = cp.Layout.HORIZONTAL
-    msg.set_layout = cp.Layout.VERTICAL
+    msg.set_layout = cp.Layout.HORIZONTAL
+    # msg.set_layout = cp.Layout.VERTICAL
     msg.adj_indent = 2
     msg.delay_ms = 40
     msg.bold = True
@@ -26,7 +24,9 @@ def art(dato):
     # msg.ascii_type = cp.Ascii_Letter.Alpha
     # msg.ascii_type = cp.Ascii_Letter.ANSI_Shadow
     # msg.ascii_type = cp.Ascii_Letter.Big
-    msg.ascii_type = cp.Ascii_Letter.Blocks
+    # msg.ascii_type = cp.Ascii_Letter.Blocks
+    # msg.ascii_type = cp.Ascii_Letter.Bulbhead
+    msg.ascii_type = cp.Ascii_Letter.Colossal
 
     msg.adj_left_space = 4
     msg.adj_right_space = 6
@@ -35,10 +35,11 @@ def art(dato):
 
 
 
-lista = [["ABCD"],["EFGH"],["IJKL"],[f"MN{cp.Unicode.UPPERCASE_N_TILDE}O"],["PQRS"],["TUVW"],["XYZ"],
-         ["abcd"],["efgh"],["ijkl"],[f"mn{cp.Unicode.LOWERCASE_N_TILDE}o"],["pqrs"],["tuvw"],["xyz"],
-         ["`123"],["4567"],["890-"],["=[]\\"],[";',\""],["./"],
-         ["~!@#"],["$%^&"],["*()_"],[F"+{cp.Unicode.LEFT_CURLY_BRACKET}{cp.Unicode.RIGHT_CURLY_BRACKET}|"],[":\"<>"],["? "]]
+
+lista = [["ABCDE"],["FGHIJ"],[f"KLMN{cp.Unicode.UPPERCASE_N_TILDE}"],["OPQRS"],["TUVWX"],["YZ"],  # 27
+         ["abcde"],["fghij"],[f"klmn{cp.Unicode.LOWERCASE_N_TILDE}"],["opqrs"],["tuvwx"],["yz"],  # 27
+         ["`123"] ,["4567"] ,["890-"], ["=[]\\"],[";',./"],                                       # 21
+         ["~!@#"], ["$%^&"], ["*()_"], [f"+{cp.Unicode.LEFT_CURLY_BRACKET}{cp.Unicode.RIGHT_CURLY_BRACKET}|"],[":\"<>? "]] # 22
 
 
 ctrl = 0
@@ -50,5 +51,4 @@ for row in range(len(lista)):
         art(dato=lista[row][col])
     ctrl += 1
     
-
 

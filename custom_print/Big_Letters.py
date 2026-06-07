@@ -508,7 +508,7 @@ Big_j.append("|__/ ") # Bottom, 7
 #   Letter k 
 # +--------------------------------+
 Big_k = []
-Big_k.append("") # Top, 0
+Big_k.append("      ") # Top, 0
 Big_k.append(" _    ") # 1
 Big_k.append("| |   ") # 2
 Big_k.append("| | __") # 3

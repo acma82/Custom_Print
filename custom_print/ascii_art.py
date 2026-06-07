@@ -48,10 +48,14 @@ class Art:
         
     def description_ascii_letters(self):
         tbl = FancyFormat()
-        ascii_letter_description = [["Type", "Uppercase", "Lowercase","Shiff_On", "Shift_Off"],
-                                    [Ascii_Letter.Alpha,       "Yes", "No",  "No",  "No" ],
-                                    [Ascii_Letter.ANSI_Shadow, "Yes", "No",  "Yes", "Yes"],
-                                    [Ascii_Letter.Big,         "Yes", "Yes", "Yes", "Yes"]]
+        ascii_letter_description = [["Type",                      "Uppercase",    "Lowercase",    "Shiff_On",     "Shift_Off"],
+                                    [Ascii_Letter.Alpha,          "Yes",          "No",           "No",           "No"       ],
+                                    [Ascii_Letter.ANSI_Shadow,    "Yes",          "No",           "Yes",          "Yes"      ],
+                                    [Ascii_Letter.Big,            "Yes",          "Yes",          "Yes",          "Yes"      ],
+                                    [Ascii_Letter.Blocks,         "Yes",          "No",           "Yes",          "Yes"      ],
+                                    [Ascii_Letter.Bulbhead,       "Yes",          "Yes",          "Yes",          "Yes"      ]
+
+                                    ]
         
         
         tbl.title_align = "center"; tbl.title_msg   = "  Description of Ascii Letters  "
@@ -78,7 +82,7 @@ class Art:
         
         symbol_chrs = ["`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=",
                        "[", "]", "\\", ";", "'",  ",", ".", "/",
-                       "~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+", "{", "}", "|",  ":", "\"", "<", ">", "?", " "]
+                       "~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+", "|","{", "}", ":", "\"", "<", ">", "?", " "]
         
         symbol_name = ["backtick", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "zero", "minus", "equal",
                        "open_bracket", "closed_bracket", "backward_slash", "semicolon", "apostrophe", "comma", "period", "forward_slash",
@@ -102,43 +106,44 @@ class Art:
             rows = len(list_name) 
 
         # ------------------------------------------------------------ Finding the Type of Ascii Letters       
-        if self.ascii_type == Ascii_Letter.Alpha:
-            #  Alpha only have uppercase available
-            if type(msg) is list:
-                result = pylo.update_case(data=data, header_case=pylo.Case.UPPER, data_case=pylo.Case.UPPER, update=True )
-            else:
-                data = msg.upper()
+        # if self.ascii_type == Ascii_Letter.Alpha:
+        #     #  Alpha only have uppercase available
+        #     if type(msg) is list:
+        #         result = pylo.update_case(data=data, header_case=pylo.Case.UPPER, data_case=pylo.Case.UPPER, update=True )
+        #     else:
+        #         data = msg.upper()
             
 
-        elif self.ascii_type == Ascii_Letter.Crazy:
-            # Crazy Only have lowercase available
-            if type(msg) is list:
-                result = pylo.update_case(data=data, header_case=pylo.Case.LOWER, data_case=pylo.Case.LOWER, update=True )
-            else:
-                data = msg.lower()
+        # elif self.ascii_type == Ascii_Letter.Crazy:
+        #     # Crazy Only have lowercase available
+        #     if type(msg) is list:
+        #         result = pylo.update_case(data=data, header_case=pylo.Case.LOWER, data_case=pylo.Case.LOWER, update=True )
+        #     else:
+        #         data = msg.lower()
 
-        else:
-            # Other letters that have uppercase and lower case
-            list_name = eval("custom_print."+self.ascii_type+"_Letters."+self.ascii_type+"_A")
-        # -------------------------------------------------------- Ending Finding the Type of Ascii Letters
+        # else:
+        #     # Other letters that have uppercase and lower case
+        #     list_name = eval("custom_print."+self.ascii_type+"_Letters."+self.ascii_type+"_A")            
+        # # +--------------------------------------------------------+
+        # #  Ending Finding the Type of Ascii Letters                |
+        # # +--------------------------------------------------------+
 
-
-        # +------------------------------------------------------            error_layout = []
-            error_layout.append("                                                                    ")
-            error_layout.append("   ______                       _                             _     ")
-            error_layout.append("  |  ____|                     | |                           | |    ")
-            error_layout.append("  | |__   _ __ _ __ ___  _ __  | |     __ _ _   _  ___  _   _| |_   ")
-            error_layout.append("  |  __| | '__| '__/ _ \\| '__| | |    / _` | | | |/ _ \\| | | | __|  ")
-            error_layout.append("  | |____| |  | | | (_) | |    | |___| (_| | |_| | (_) | |_| | |_   ")
-            error_layout.append("  |______|_|  |_|  \\___/|_|    |______\\__,_|\\__, |\\___/ \\__,_|\\__|  ")
-            error_layout.append("                                             __/ |                  ")
-            error_layout.append("                                            |___/                   ")
-            error_layout.append("                                                                    ")
-            for row in error_layout:
-                print(f"    {color}{row}\033[0m")
-            print("    Form more help visit: ")
-            print("    https://github.com/acma82/Custom_Print/tree/main/readme ")
-            print("    Thank you for using custom_print")
+        #     error_layout = []
+        #     error_layout.append("                                                                    ")
+        #     error_layout.append("   ______                       _                             _     ")
+        #     error_layout.append("  |  ____|                     | |                           | |    ")
+        #     error_layout.append("  | |__   _ __ _ __ ___  _ __  | |     __ _ _   _  ___  _   _| |_   ")
+        #     error_layout.append("  |  __| | '__| '__/ _ \\| '__| | |    / _` | | | |/ _ \\| | | | __|  ")
+        #     error_layout.append("  | |____| |  | | | (_) | |    | |___| (_| | |_| | (_) | |_| | |_   ")
+        #     error_layout.append("  |______|_|  |_|  \\___/|_|    |______\\__,_|\\__, |\\___/ \\__,_|\\__|  ")
+        #     error_layout.append("                                             __/ |                  ")
+        #     error_layout.append("                                            |___/                   ")
+        #     error_layout.append("                                                                    ")
+        #     for row in error_layout:
+        #         print(f"    {color}{row}\033[0m")
+        #     print("    Form more help visit: ")
+        #     print("    https://github.com/acma82/Custom_Print/tree/main/readme ")
+        #     print("    Thank you for using custom_print")
 
 
 

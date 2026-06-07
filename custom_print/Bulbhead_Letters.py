@@ -159,7 +159,7 @@ Bulbhead_L.append("      ") # Bottom, 5
 #   Letter M 
 # +--------------------------------+
 Bulbhead_M = []
-Bulbhead_M.append("       ") # Top, 0
+Bulbhead_M.append("        ") # Top, 0
 Bulbhead_M.append(" __  __ ") # 1
 Bulbhead_M.append("(  \/  )") # 2
 Bulbhead_M.append(" )    ( ") # 3
@@ -218,7 +218,7 @@ Bulbhead_Q.append("       ") # Top, 0
 Bulbhead_Q.append(" _____ ") # 1
 Bulbhead_Q.append("(  _  )") # 2
 Bulbhead_Q.append(" )(_)( ") # 3
-Bulbhead_Q.append("(___/\\\\ ") # 4
+Bulbhead_Q.append("(___/\\\\") # 4
 Bulbhead_Q.append("       ") # Bottom, 5
 
 # +--------------------------------+
@@ -637,7 +637,7 @@ Bulbhead_ampersand.append("  _  ") # 1
 Bulbhead_ampersand.append(" ( ) ") # 2
 Bulbhead_ampersand.append(" /_\/") # 3
 Bulbhead_ampersand.append("(__/\\") # 4
-Bulbhead_ampersand.append("      ") # Bottom, 5
+Bulbhead_ampersand.append("     ") # Bottom, 5
 
 # +--------------------------------+
 #   Letter asterisk 
@@ -731,12 +731,12 @@ Bulbhead_closed_curly.append("   ") # Bottom, 5
 #   Letter colon 
 # +--------------------------------+
 Bulbhead_colon = []
-Bulbhead_colon.append("") # Top, 0
+Bulbhead_colon.append("  ") # Top, 0
 Bulbhead_colon.append("  ") # 1
 Bulbhead_colon.append("()") # 2
 Bulbhead_colon.append("  ") # 3
 Bulbhead_colon.append("()") # 4
-Bulbhead_colon.append("") # Bottom, 5
+Bulbhead_colon.append("  ") # Bottom, 5
 
 # +--------------------------------+
 #   Letter quotation 

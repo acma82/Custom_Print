@@ -495,12 +495,12 @@ Colossal_e = []
 Colossal_e.append("        ") # Top, 0
 Colossal_e.append("        ") # 1
 Colossal_e.append("        ") # 2
-Colossal_e.append(" .d88b. ") # 3
-Colossal_e.append("d8P  Y8b") # 4
-Colossal_e.append("88888888") # 5
-Colossal_e.append("Y8b.    ") # 6
-Colossal_e.append(" \"Y8888 ") # 7
-Colossal_e.append("        ") # 8
+Colossal_e.append("        ") # 3
+Colossal_e.append(" .d88b. ") # 4
+Colossal_e.append("d8P  Y8b") # 5
+Colossal_e.append("88888888") # 6
+Colossal_e.append("Y8b.    ") # 7
+Colossal_e.append(" \"Y8888 ") # 8
 Colossal_e.append("        ") # Bottom, 9
 
 # +--------------------------------+
