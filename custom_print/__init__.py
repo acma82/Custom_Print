@@ -55,10 +55,10 @@ from .ascii_art        import Art
 
 # import all the letters
 from .Alpha_Letters        import*
-from .ANSI_Shadow_Letters  import*
 from .Big_Letters          import*
 from .Blocks_Letters       import*
 from .Bulbhead_Letters     import*
+from .Classy_Letters       import*
 from .Colossal_Letters     import*
 from .Crazy_Letters        import*
 from .Doh_Letters          import*

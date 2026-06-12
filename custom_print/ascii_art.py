@@ -19,8 +19,8 @@ import custom_print.ANSI_Shadow_Letters
 import custom_print.Big_Letters
 import custom_print.Blocks_Letters
 import custom_print.Bulbhead_Letters
+import custom_print.Classy_Letters
 import custom_print.Colossal_Letters
-import custom_print.Crazy_Letters
 import custom_print.Doh_Letters
 import custom_print.Doom_Letters
 import custom_print.Epic_Letters

@@ -1,5 +1,5 @@
 # +-----------------------------------------------------------------------------------------------+
-# |                                Crazy_Letters                                                    |
+# |                                Crazy_Letters                                                  |
 # +-----------------------------------------------------------------------------------------------+
 #    Uppercase :    A B C D E F G H I J K L M N Ñ O P Q R S T U V W X Y Z                          
 #                                                                                                  
@@ -27,91 +27,101 @@
 #   Letter A 
 # +--------------------------------+
 Crazy_A = []
-Crazy_A.append("") # Top, 0
-Crazy_A.append("") # 1
-Crazy_A.append("") # 2
-Crazy_A.append("") # 3
-Crazy_A.append("") # 4
-Crazy_A.append("") # 5
-Crazy_A.append("") # 6
-Crazy_A.append("") # 7
-Crazy_A.append("") # 8
-Crazy_A.append("") # 9
-Crazy_A.append("") # 10
-Crazy_A.append("") # 11
-Crazy_A.append("") # Bottom, 12
+Crazy_A.append("          ") # Top, 0
+Crazy_A.append("          ") # 1
+Crazy_A.append("          ") # 2
+Crazy_A.append("          ") # 3
+Crazy_A.append("          ") # 4
+Crazy_A.append("          ") # 5
+Crazy_A.append("    __    ") # 6
+Crazy_A.append(" .:--.'.  ") # 7
+Crazy_A.append("/ |   \ | ") # 8
+Crazy_A.append('`" __ | | ') # 9
+Crazy_A.append(" .'.''| | ") # 10
+Crazy_A.append("/ /   | |_") # 11
+Crazy_A.append("\ \._,\ '/") # 12
+Crazy_A.append(" `--'  `\" ") # 13
+Crazy_A.append("          ") # Bottom, 14
 
 # +--------------------------------+
 #   Letter B 
 # +--------------------------------+
 Crazy_B = []
-Crazy_B.append("") # Top, 0
-Crazy_B.append("") # 1
-Crazy_B.append("") # 2
-Crazy_B.append("") # 3
-Crazy_B.append("") # 4
-Crazy_B.append("") # 5
-Crazy_B.append("") # 6
-Crazy_B.append("") # 7
-Crazy_B.append("") # 8
-Crazy_B.append("") # 9
-Crazy_B.append("") # 10
-Crazy_B.append("") # 11
-Crazy_B.append("") # Bottom, 12
+Crazy_B.append("          ") # Top, 0
+Crazy_B.append("          ") # 1
+Crazy_B.append("          ") # 2
+Crazy_B.append("          ") # 3
+Crazy_B.append("/|        ") # 4
+Crazy_B.append("||        ") # 5
+Crazy_B.append("||        ") # 6
+Crazy_B.append("||  __    ") # 7
+Crazy_B.append("||/'__ '. ") # 8
+Crazy_B.append("|:/`  '. '") # 9
+Crazy_B.append("||     | |") # 10
+Crazy_B.append("||\    / '") # 11
+Crazy_B.append("|/\'..' / ") # 12
+Crazy_B.append("'  `'-'`  ") # 13
+Crazy_B.append("          ") # Bottom, 14
 
 # +--------------------------------+
 #   Letter C 
 # +--------------------------------+
 Crazy_C = []
-Crazy_C.append("") # Top, 0
-Crazy_C.append("") # 1
-Crazy_C.append("") # 2
-Crazy_C.append("") # 3
-Crazy_C.append("") # 4
-Crazy_C.append("") # 5
-Crazy_C.append("") # 6
-Crazy_C.append("") # 7
-Crazy_C.append("") # 8
-Crazy_C.append("") # 9
-Crazy_C.append("") # 10
-Crazy_C.append("") # 11
-Crazy_C.append("") # Bottom, 12
+Crazy_C.append("                ") # Top, 0
+Crazy_C.append("                ") # 1
+Crazy_C.append("                ") # 2
+Crazy_C.append("                ") # 3
+Crazy_C.append("    .-'_..._''. ") # 4
+Crazy_C.append("  .' .'      '.\\") # 5
+Crazy_C.append(" / .'           ") # 6
+Crazy_C.append(". '             ") # 7
+Crazy_C.append("| |             ") # 8
+Crazy_C.append("| |             ") # 9
+Crazy_C.append(". '             ") # 10
+Crazy_C.append(" \ '.          .") # 11
+Crazy_C.append("  '. `._____.-'/") # 12
+Crazy_C.append("    `-.______ / ") # 13
+Crazy_C.append("             `  ") # Bottom, 14
 
 # +--------------------------------+
 #   Letter D 
 # +--------------------------------+
 Crazy_D = []
-Crazy_D.append("") # Top, 0
-Crazy_D.append("") # 1
-Crazy_D.append("") # 2
-Crazy_D.append("") # 3
-Crazy_D.append("") # 4
-Crazy_D.append("") # 5
-Crazy_D.append("") # 6
-Crazy_D.append("") # 7
-Crazy_D.append("") # 8
-Crazy_D.append("") # 9
-Crazy_D.append("") # 10
-Crazy_D.append("") # 11
-Crazy_D.append("") # Bottom, 12
+Crazy_D.append("             ") # Top, 0
+Crazy_D.append("             ") # 1
+Crazy_D.append("             ") # 2
+Crazy_D.append("_______      ") # 3
+Crazy_D.append("\  ___ `'.   ") # 4
+Crazy_D.append(" ' |--.\  \  ") # 5
+Crazy_D.append(" | |    \  ' ") # 6
+Crazy_D.append(" | |     |  '") # 7
+Crazy_D.append(" | |     |  |") # 8
+Crazy_D.append(" | |     ' .'") # 9
+Crazy_D.append(" | |___.' /' ") # 10
+Crazy_D.append("/_______.'/  ") # 11
+Crazy_D.append("\_______|/   ") # 12
+Crazy_D.append("             ") # 13
+Crazy_D.append("             ") # Bottom, 14
 
 # +--------------------------------+
 #   Letter E 
 # +--------------------------------+
 Crazy_E = []
-Crazy_E.append("") # Top, 0
-Crazy_E.append("") # 1
-Crazy_E.append("") # 2
-Crazy_E.append("") # 3
-Crazy_E.append("") # 4
-Crazy_E.append("") # 5
-Crazy_E.append("") # 6
-Crazy_E.append("") # 7
-Crazy_E.append("") # 8
-Crazy_E.append("") # 9
-Crazy_E.append("") # 10
-Crazy_E.append("") # 11
-Crazy_E.append("") # Bottom, 12
+Crazy_E.append("                    ") # Top, 0
+Crazy_E.append("                    ") # 1
+Crazy_E.append("      __.....__     ") # 2
+Crazy_E.append("  .-''         '.   ") # 3
+Crazy_E.append(" /     .-''\"'-.  `. ") # 4
+Crazy_E.append("/     /________\   \\") # 5
+Crazy_E.append("|                  |") # 6
+Crazy_E.append("\    .-------------'") # 7
+Crazy_E.append(" \    '-.____...---.") # 8
+Crazy_E.append("  `.             .' ") # 9
+Crazy_E.append("    `''-...... -'   ") # 10
+Crazy_E.append("                    ") # 11
+Crazy_E.append("                    ") # 12
+Crazy_E.append("                    ") # 13
+Crazy_E.append("                    ") # Bottom, 14
 
 # +--------------------------------+
 #   Letter F 
@@ -129,7 +139,9 @@ Crazy_F.append("") # 8
 Crazy_F.append("") # 9
 Crazy_F.append("") # 10
 Crazy_F.append("") # 11
-Crazy_F.append("") # Bottom, 12
+Crazy_F.append("") # 12
+Crazy_F.append("") # 13
+Crazy_F.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter G 
@@ -147,7 +159,9 @@ Crazy_G.append("") # 8
 Crazy_G.append("") # 9
 Crazy_G.append("") # 10
 Crazy_G.append("") # 11
-Crazy_G.append("") # Bottom, 12
+Crazy_G.append("") # 12
+Crazy_G.append("") # 13
+Crazy_G.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter H 
@@ -165,7 +179,9 @@ Crazy_H.append("") # 8
 Crazy_H.append("") # 9
 Crazy_H.append("") # 10
 Crazy_H.append("") # 11
-Crazy_H.append("") # Bottom, 12
+Crazy_H.append("") # 12
+Crazy_H.append("") # 13
+Crazy_H.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter I 
@@ -183,7 +199,9 @@ Crazy_I.append("") # 8
 Crazy_I.append("") # 9
 Crazy_I.append("") # 10
 Crazy_I.append("") # 11
-Crazy_I.append("") # Bottom, 12
+Crazy_I.append("") # 12
+Crazy_I.append("") # 13
+Crazy_I.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter J 
@@ -201,7 +219,9 @@ Crazy_J.append("") # 8
 Crazy_J.append("") # 9
 Crazy_J.append("") # 10
 Crazy_J.append("") # 11
-Crazy_J.append("") # Bottom, 12
+Crazy_J.append("") # 12
+Crazy_J.append("") # 13
+Crazy_J.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter K 
@@ -219,7 +239,9 @@ Crazy_K.append("") # 8
 Crazy_K.append("") # 9
 Crazy_K.append("") # 10
 Crazy_K.append("") # 11
-Crazy_K.append("") # Bottom, 12
+Crazy_K.append("") # 12
+Crazy_K.append("") # 13
+Crazy_K.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter L 
@@ -237,7 +259,9 @@ Crazy_L.append("") # 8
 Crazy_L.append("") # 9
 Crazy_L.append("") # 10
 Crazy_L.append("") # 11
-Crazy_L.append("") # Bottom, 12
+Crazy_L.append("") # 12
+Crazy_L.append("") # 13
+Crazy_L.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter M 
@@ -255,7 +279,9 @@ Crazy_M.append("") # 8
 Crazy_M.append("") # 9
 Crazy_M.append("") # 10
 Crazy_M.append("") # 11
-Crazy_M.append("") # Bottom, 12
+Crazy_M.append("") # 12
+Crazy_M.append("") # 13
+Crazy_M.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter N 
@@ -273,7 +299,9 @@ Crazy_N.append("") # 8
 Crazy_N.append("") # 9
 Crazy_N.append("") # 10
 Crazy_N.append("") # 11
-Crazy_N.append("") # Bottom, 12
+Crazy_N.append("") # 12
+Crazy_N.append("") # 13
+Crazy_N.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter Ñ 
@@ -291,7 +319,9 @@ Crazy_Ñ.append("") # 8
 Crazy_Ñ.append("") # 9
 Crazy_Ñ.append("") # 10
 Crazy_Ñ.append("") # 11
-Crazy_Ñ.append("") # Bottom, 12
+Crazy_Ñ.append("") # 12
+Crazy_Ñ.append("") # 13
+Crazy_Ñ.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter O 
@@ -309,7 +339,9 @@ Crazy_O.append("") # 8
 Crazy_O.append("") # 9
 Crazy_O.append("") # 10
 Crazy_O.append("") # 11
-Crazy_O.append("") # Bottom, 12
+Crazy_O.append("") # 12
+Crazy_O.append("") # 13
+Crazy_O.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter P 
@@ -327,7 +359,9 @@ Crazy_P.append("") # 8
 Crazy_P.append("") # 9
 Crazy_P.append("") # 10
 Crazy_P.append("") # 11
-Crazy_P.append("") # Bottom, 12
+Crazy_P.append("") # 12
+Crazy_P.append("") # 13
+Crazy_P.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter Q 
@@ -345,7 +379,9 @@ Crazy_Q.append("") # 8
 Crazy_Q.append("") # 9
 Crazy_Q.append("") # 10
 Crazy_Q.append("") # 11
-Crazy_Q.append("") # Bottom, 12
+Crazy_Q.append("") # 12
+Crazy_Q.append("") # 13
+Crazy_Q.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter R 
@@ -363,7 +399,9 @@ Crazy_R.append("") # 8
 Crazy_R.append("") # 9
 Crazy_R.append("") # 10
 Crazy_R.append("") # 11
-Crazy_R.append("") # Bottom, 12
+Crazy_R.append("") # 12
+Crazy_R.append("") # 13
+Crazy_R.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter S 
@@ -381,7 +419,9 @@ Crazy_S.append("") # 8
 Crazy_S.append("") # 9
 Crazy_S.append("") # 10
 Crazy_S.append("") # 11
-Crazy_S.append("") # Bottom, 12
+Crazy_S.append("") # 12
+Crazy_S.append("") # 13
+Crazy_S.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter T 
@@ -399,7 +439,9 @@ Crazy_T.append("") # 8
 Crazy_T.append("") # 9
 Crazy_T.append("") # 10
 Crazy_T.append("") # 11
-Crazy_T.append("") # Bottom, 12
+Crazy_T.append("") # 12
+Crazy_T.append("") # 13
+Crazy_T.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter U 
@@ -417,7 +459,9 @@ Crazy_U.append("") # 8
 Crazy_U.append("") # 9
 Crazy_U.append("") # 10
 Crazy_U.append("") # 11
-Crazy_U.append("") # Bottom, 12
+Crazy_U.append("") # 12
+Crazy_U.append("") # 13
+Crazy_U.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter V 
@@ -435,7 +479,9 @@ Crazy_V.append("") # 8
 Crazy_V.append("") # 9
 Crazy_V.append("") # 10
 Crazy_V.append("") # 11
-Crazy_V.append("") # Bottom, 12
+Crazy_V.append("") # 12
+Crazy_V.append("") # 13
+Crazy_V.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter W 
@@ -453,7 +499,9 @@ Crazy_W.append("") # 8
 Crazy_W.append("") # 9
 Crazy_W.append("") # 10
 Crazy_W.append("") # 11
-Crazy_W.append("") # Bottom, 12
+Crazy_W.append("") # 12
+Crazy_W.append("") # 13
+Crazy_W.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter X 
@@ -471,7 +519,9 @@ Crazy_X.append("") # 8
 Crazy_X.append("") # 9
 Crazy_X.append("") # 10
 Crazy_X.append("") # 11
-Crazy_X.append("") # Bottom, 12
+Crazy_X.append("") # 12
+Crazy_X.append("") # 13
+Crazy_X.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter Y 
@@ -489,7 +539,9 @@ Crazy_Y.append("") # 8
 Crazy_Y.append("") # 9
 Crazy_Y.append("") # 10
 Crazy_Y.append("") # 11
-Crazy_Y.append("") # Bottom, 12
+Crazy_Y.append("") # 12
+Crazy_Y.append("") # 13
+Crazy_Y.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter Z 
@@ -507,7 +559,9 @@ Crazy_Z.append("") # 8
 Crazy_Z.append("") # 9
 Crazy_Z.append("") # 10
 Crazy_Z.append("") # 11
-Crazy_Z.append("") # Bottom, 12
+Crazy_Z.append("") # 12
+Crazy_Z.append("") # 13
+Crazy_Z.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter a 
@@ -525,7 +579,9 @@ Crazy_a.append("") # 8
 Crazy_a.append("") # 9
 Crazy_a.append("") # 10
 Crazy_a.append("") # 11
-Crazy_a.append("") # Bottom, 12
+Crazy_a.append("") # 12
+Crazy_a.append("") # 13
+Crazy_a.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter b 
@@ -543,7 +599,9 @@ Crazy_b.append("") # 8
 Crazy_b.append("") # 9
 Crazy_b.append("") # 10
 Crazy_b.append("") # 11
-Crazy_b.append("") # Bottom, 12
+Crazy_b.append("") # 12
+Crazy_b.append("") # 13
+Crazy_b.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter c 
@@ -561,7 +619,9 @@ Crazy_c.append("") # 8
 Crazy_c.append("") # 9
 Crazy_c.append("") # 10
 Crazy_c.append("") # 11
-Crazy_c.append("") # Bottom, 12
+Crazy_c.append("") # 12
+Crazy_c.append("") # 13
+Crazy_c.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter d 
@@ -579,7 +639,9 @@ Crazy_d.append("") # 8
 Crazy_d.append("") # 9
 Crazy_d.append("") # 10
 Crazy_d.append("") # 11
-Crazy_d.append("") # Bottom, 12
+Crazy_d.append("") # 12
+Crazy_d.append("") # 13
+Crazy_d.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter e 
@@ -597,7 +659,9 @@ Crazy_e.append("") # 8
 Crazy_e.append("") # 9
 Crazy_e.append("") # 10
 Crazy_e.append("") # 11
-Crazy_e.append("") # Bottom, 12
+Crazy_e.append("") # 12
+Crazy_e.append("") # 13
+Crazy_e.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter f 
@@ -615,7 +679,9 @@ Crazy_f.append("") # 8
 Crazy_f.append("") # 9
 Crazy_f.append("") # 10
 Crazy_f.append("") # 11
-Crazy_f.append("") # Bottom, 12
+Crazy_f.append("") # 12
+Crazy_f.append("") # 13
+Crazy_f.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter g 
@@ -633,7 +699,9 @@ Crazy_g.append("") # 8
 Crazy_g.append("") # 9
 Crazy_g.append("") # 10
 Crazy_g.append("") # 11
-Crazy_g.append("") # Bottom, 12
+Crazy_g.append("") # 12
+Crazy_g.append("") # 13
+Crazy_g.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter h 
@@ -651,7 +719,9 @@ Crazy_h.append("") # 8
 Crazy_h.append("") # 9
 Crazy_h.append("") # 10
 Crazy_h.append("") # 11
-Crazy_h.append("") # Bottom, 12
+Crazy_h.append("") # 12
+Crazy_h.append("") # 13
+Crazy_h.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter i 
@@ -669,7 +739,9 @@ Crazy_i.append("") # 8
 Crazy_i.append("") # 9
 Crazy_i.append("") # 10
 Crazy_i.append("") # 11
-Crazy_i.append("") # Bottom, 12
+Crazy_i.append("") # 12
+Crazy_i.append("") # 13
+Crazy_i.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter j 
@@ -687,7 +759,9 @@ Crazy_j.append("") # 8
 Crazy_j.append("") # 9
 Crazy_j.append("") # 10
 Crazy_j.append("") # 11
-Crazy_j.append("") # Bottom, 12
+Crazy_j.append("") # 12
+Crazy_j.append("") # 13
+Crazy_j.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter k 
@@ -705,7 +779,9 @@ Crazy_k.append("") # 8
 Crazy_k.append("") # 9
 Crazy_k.append("") # 10
 Crazy_k.append("") # 11
-Crazy_k.append("") # Bottom, 12
+Crazy_k.append("") # 12
+Crazy_k.append("") # 13
+Crazy_k.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter l 
@@ -723,7 +799,9 @@ Crazy_l.append("") # 8
 Crazy_l.append("") # 9
 Crazy_l.append("") # 10
 Crazy_l.append("") # 11
-Crazy_l.append("") # Bottom, 12
+Crazy_l.append("") # 12
+Crazy_l.append("") # 13
+Crazy_l.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter m 
@@ -741,7 +819,9 @@ Crazy_m.append("") # 8
 Crazy_m.append("") # 9
 Crazy_m.append("") # 10
 Crazy_m.append("") # 11
-Crazy_m.append("") # Bottom, 12
+Crazy_m.append("") # 12
+Crazy_m.append("") # 13
+Crazy_m.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter n 
@@ -759,7 +839,9 @@ Crazy_n.append("") # 8
 Crazy_n.append("") # 9
 Crazy_n.append("") # 10
 Crazy_n.append("") # 11
-Crazy_n.append("") # Bottom, 12
+Crazy_n.append("") # 12
+Crazy_n.append("") # 13
+Crazy_n.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter ñ 
@@ -777,7 +859,9 @@ Crazy_ñ.append("") # 8
 Crazy_ñ.append("") # 9
 Crazy_ñ.append("") # 10
 Crazy_ñ.append("") # 11
-Crazy_ñ.append("") # Bottom, 12
+Crazy_ñ.append("") # 12
+Crazy_ñ.append("") # 13
+Crazy_ñ.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter o 
@@ -795,7 +879,9 @@ Crazy_o.append("") # 8
 Crazy_o.append("") # 9
 Crazy_o.append("") # 10
 Crazy_o.append("") # 11
-Crazy_o.append("") # Bottom, 12
+Crazy_o.append("") # 12
+Crazy_o.append("") # 13
+Crazy_o.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter p 
@@ -813,7 +899,9 @@ Crazy_p.append("") # 8
 Crazy_p.append("") # 9
 Crazy_p.append("") # 10
 Crazy_p.append("") # 11
-Crazy_p.append("") # Bottom, 12
+Crazy_p.append("") # 12
+Crazy_p.append("") # 13
+Crazy_p.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter q 
@@ -831,7 +919,9 @@ Crazy_q.append("") # 8
 Crazy_q.append("") # 9
 Crazy_q.append("") # 10
 Crazy_q.append("") # 11
-Crazy_q.append("") # Bottom, 12
+Crazy_q.append("") # 12
+Crazy_q.append("") # 13
+Crazy_q.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter r 
@@ -849,7 +939,9 @@ Crazy_r.append("") # 8
 Crazy_r.append("") # 9
 Crazy_r.append("") # 10
 Crazy_r.append("") # 11
-Crazy_r.append("") # Bottom, 12
+Crazy_r.append("") # 12
+Crazy_r.append("") # 13
+Crazy_r.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter s 
@@ -867,7 +959,9 @@ Crazy_s.append("") # 8
 Crazy_s.append("") # 9
 Crazy_s.append("") # 10
 Crazy_s.append("") # 11
-Crazy_s.append("") # Bottom, 12
+Crazy_s.append("") # 12
+Crazy_s.append("") # 13
+Crazy_s.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter t 
@@ -885,7 +979,9 @@ Crazy_t.append("") # 8
 Crazy_t.append("") # 9
 Crazy_t.append("") # 10
 Crazy_t.append("") # 11
-Crazy_t.append("") # Bottom, 12
+Crazy_t.append("") # 12
+Crazy_t.append("") # 13
+Crazy_t.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter u 
@@ -903,7 +999,9 @@ Crazy_u.append("") # 8
 Crazy_u.append("") # 9
 Crazy_u.append("") # 10
 Crazy_u.append("") # 11
-Crazy_u.append("") # Bottom, 12
+Crazy_u.append("") # 12
+Crazy_u.append("") # 13
+Crazy_u.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter v 
@@ -921,7 +1019,9 @@ Crazy_v.append("") # 8
 Crazy_v.append("") # 9
 Crazy_v.append("") # 10
 Crazy_v.append("") # 11
-Crazy_v.append("") # Bottom, 12
+Crazy_v.append("") # 12
+Crazy_v.append("") # 13
+Crazy_v.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter w 
@@ -939,7 +1039,9 @@ Crazy_w.append("") # 8
 Crazy_w.append("") # 9
 Crazy_w.append("") # 10
 Crazy_w.append("") # 11
-Crazy_w.append("") # Bottom, 12
+Crazy_w.append("") # 12
+Crazy_w.append("") # 13
+Crazy_w.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter x 
@@ -957,7 +1059,9 @@ Crazy_x.append("") # 8
 Crazy_x.append("") # 9
 Crazy_x.append("") # 10
 Crazy_x.append("") # 11
-Crazy_x.append("") # Bottom, 12
+Crazy_x.append("") # 12
+Crazy_x.append("") # 13
+Crazy_x.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter y 
@@ -975,7 +1079,9 @@ Crazy_y.append("") # 8
 Crazy_y.append("") # 9
 Crazy_y.append("") # 10
 Crazy_y.append("") # 11
-Crazy_y.append("") # Bottom, 12
+Crazy_y.append("") # 12
+Crazy_y.append("") # 13
+Crazy_y.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter z 
@@ -993,7 +1099,9 @@ Crazy_z.append("") # 8
 Crazy_z.append("") # 9
 Crazy_z.append("") # 10
 Crazy_z.append("") # 11
-Crazy_z.append("") # Bottom, 12
+Crazy_z.append("") # 12
+Crazy_z.append("") # 13
+Crazy_z.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter backtick 
@@ -1011,7 +1119,9 @@ Crazy_backtick.append("") # 8
 Crazy_backtick.append("") # 9
 Crazy_backtick.append("") # 10
 Crazy_backtick.append("") # 11
-Crazy_backtick.append("") # Bottom, 12
+Crazy_backtick.append("") # 12
+Crazy_backtick.append("") # 13
+Crazy_backtick.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter one 
@@ -1029,7 +1139,9 @@ Crazy_one.append("") # 8
 Crazy_one.append("") # 9
 Crazy_one.append("") # 10
 Crazy_one.append("") # 11
-Crazy_one.append("") # Bottom, 12
+Crazy_one.append("") # 12
+Crazy_one.append("") # 13
+Crazy_one.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter two 
@@ -1047,7 +1159,9 @@ Crazy_two.append("") # 8
 Crazy_two.append("") # 9
 Crazy_two.append("") # 10
 Crazy_two.append("") # 11
-Crazy_two.append("") # Bottom, 12
+Crazy_two.append("") # 12
+Crazy_two.append("") # 13
+Crazy_two.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter three 
@@ -1065,7 +1179,9 @@ Crazy_three.append("") # 8
 Crazy_three.append("") # 9
 Crazy_three.append("") # 10
 Crazy_three.append("") # 11
-Crazy_three.append("") # Bottom, 12
+Crazy_three.append("") # 12
+Crazy_three.append("") # 13
+Crazy_three.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter four 
@@ -1083,7 +1199,9 @@ Crazy_four.append("") # 8
 Crazy_four.append("") # 9
 Crazy_four.append("") # 10
 Crazy_four.append("") # 11
-Crazy_four.append("") # Bottom, 12
+Crazy_four.append("") # 12
+Crazy_four.append("") # 13
+Crazy_four.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter five 
@@ -1101,7 +1219,9 @@ Crazy_five.append("") # 8
 Crazy_five.append("") # 9
 Crazy_five.append("") # 10
 Crazy_five.append("") # 11
-Crazy_five.append("") # Bottom, 12
+Crazy_five.append("") # 12
+Crazy_five.append("") # 13
+Crazy_five.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter six 
@@ -1119,7 +1239,9 @@ Crazy_six.append("") # 8
 Crazy_six.append("") # 9
 Crazy_six.append("") # 10
 Crazy_six.append("") # 11
-Crazy_six.append("") # Bottom, 12
+Crazy_six.append("") # 12
+Crazy_six.append("") # 13
+Crazy_six.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter seven 
@@ -1137,7 +1259,9 @@ Crazy_seven.append("") # 8
 Crazy_seven.append("") # 9
 Crazy_seven.append("") # 10
 Crazy_seven.append("") # 11
-Crazy_seven.append("") # Bottom, 12
+Crazy_seven.append("") # 12
+Crazy_seven.append("") # 13
+Crazy_seven.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter eight 
@@ -1155,7 +1279,9 @@ Crazy_eight.append("") # 8
 Crazy_eight.append("") # 9
 Crazy_eight.append("") # 10
 Crazy_eight.append("") # 11
-Crazy_eight.append("") # Bottom, 12
+Crazy_eight.append("") # 12
+Crazy_eight.append("") # 13
+Crazy_eight.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter nine 
@@ -1173,7 +1299,9 @@ Crazy_nine.append("") # 8
 Crazy_nine.append("") # 9
 Crazy_nine.append("") # 10
 Crazy_nine.append("") # 11
-Crazy_nine.append("") # Bottom, 12
+Crazy_nine.append("") # 12
+Crazy_nine.append("") # 13
+Crazy_nine.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter zero 
@@ -1191,7 +1319,9 @@ Crazy_zero.append("") # 8
 Crazy_zero.append("") # 9
 Crazy_zero.append("") # 10
 Crazy_zero.append("") # 11
-Crazy_zero.append("") # Bottom, 12
+Crazy_zero.append("") # 12
+Crazy_zero.append("") # 13
+Crazy_zero.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter minus 
@@ -1209,7 +1339,9 @@ Crazy_minus.append("") # 8
 Crazy_minus.append("") # 9
 Crazy_minus.append("") # 10
 Crazy_minus.append("") # 11
-Crazy_minus.append("") # Bottom, 12
+Crazy_minus.append("") # 12
+Crazy_minus.append("") # 13
+Crazy_minus.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter equal 
@@ -1227,7 +1359,9 @@ Crazy_equal.append("") # 8
 Crazy_equal.append("") # 9
 Crazy_equal.append("") # 10
 Crazy_equal.append("") # 11
-Crazy_equal.append("") # Bottom, 12
+Crazy_equal.append("") # 12
+Crazy_equal.append("") # 13
+Crazy_equal.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter backward_slash 
@@ -1245,7 +1379,9 @@ Crazy_backward_slash.append("") # 8
 Crazy_backward_slash.append("") # 9
 Crazy_backward_slash.append("") # 10
 Crazy_backward_slash.append("") # 11
-Crazy_backward_slash.append("") # Bottom, 12
+Crazy_backward_slash.append("") # 12
+Crazy_backward_slash.append("") # 13
+Crazy_backward_slash.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter open_bracket 
@@ -1263,7 +1399,9 @@ Crazy_open_bracket.append("") # 8
 Crazy_open_bracket.append("") # 9
 Crazy_open_bracket.append("") # 10
 Crazy_open_bracket.append("") # 11
-Crazy_open_bracket.append("") # Bottom, 12
+Crazy_open_bracket.append("") # 12
+Crazy_open_bracket.append("") # 13
+Crazy_open_bracket.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter close_bracket 
@@ -1281,7 +1419,9 @@ Crazy_close_bracket.append("") # 8
 Crazy_close_bracket.append("") # 9
 Crazy_close_bracket.append("") # 10
 Crazy_close_bracket.append("") # 11
-Crazy_close_bracket.append("") # Bottom, 12
+Crazy_close_bracket.append("") # 12
+Crazy_close_bracket.append("") # 13
+Crazy_close_bracket.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter bemicolon 
@@ -1299,7 +1439,9 @@ Crazy_bemicolon.append("") # 8
 Crazy_bemicolon.append("") # 9
 Crazy_bemicolon.append("") # 10
 Crazy_bemicolon.append("") # 11
-Crazy_bemicolon.append("") # Bottom, 12
+Crazy_bemicolon.append("") # 12
+Crazy_bemicolon.append("") # 13
+Crazy_bemicolon.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter apostrophe 
@@ -1317,7 +1459,9 @@ Crazy_apostrophe.append("") # 8
 Crazy_apostrophe.append("") # 9
 Crazy_apostrophe.append("") # 10
 Crazy_apostrophe.append("") # 11
-Crazy_apostrophe.append("") # Bottom, 12
+Crazy_apostrophe.append("") # 12
+Crazy_apostrophe.append("") # 13
+Crazy_apostrophe.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter comma 
@@ -1335,7 +1479,9 @@ Crazy_comma.append("") # 8
 Crazy_comma.append("") # 9
 Crazy_comma.append("") # 10
 Crazy_comma.append("") # 11
-Crazy_comma.append("") # Bottom, 12
+Crazy_comma.append("") # 12
+Crazy_comma.append("") # 13
+Crazy_comma.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter period 
@@ -1353,7 +1499,9 @@ Crazy_period.append("") # 8
 Crazy_period.append("") # 9
 Crazy_period.append("") # 10
 Crazy_period.append("") # 11
-Crazy_period.append("") # Bottom, 12
+Crazy_period.append("") # 12
+Crazy_period.append("") # 13
+Crazy_period.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter forwad_slash 
@@ -1371,7 +1519,9 @@ Crazy_forwad_slash.append("") # 8
 Crazy_forwad_slash.append("") # 9
 Crazy_forwad_slash.append("") # 10
 Crazy_forwad_slash.append("") # 11
-Crazy_forwad_slash.append("") # Bottom, 12
+Crazy_forwad_slash.append("") # 12
+Crazy_forwad_slash.append("") # 13
+Crazy_forwad_slash.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter tilde 
@@ -1389,7 +1539,9 @@ Crazy_tilde.append("") # 8
 Crazy_tilde.append("") # 9
 Crazy_tilde.append("") # 10
 Crazy_tilde.append("") # 11
-Crazy_tilde.append("") # Bottom, 12
+Crazy_tilde.append("") # 12
+Crazy_tilde.append("") # 13
+Crazy_tilde.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter exclamation 
@@ -1407,7 +1559,9 @@ Crazy_exclamation.append("") # 8
 Crazy_exclamation.append("") # 9
 Crazy_exclamation.append("") # 10
 Crazy_exclamation.append("") # 11
-Crazy_exclamation.append("") # Bottom, 12
+Crazy_exclamation.append("") # 12
+Crazy_exclamation.append("") # 13
+Crazy_exclamation.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter arroba 
@@ -1425,7 +1579,9 @@ Crazy_arroba.append("") # 8
 Crazy_arroba.append("") # 9
 Crazy_arroba.append("") # 10
 Crazy_arroba.append("") # 11
-Crazy_arroba.append("") # Bottom, 12
+Crazy_arroba.append("") # 12
+Crazy_arroba.append("") # 13
+Crazy_arroba.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter pound 
@@ -1443,7 +1599,9 @@ Crazy_pound.append("") # 8
 Crazy_pound.append("") # 9
 Crazy_pound.append("") # 10
 Crazy_pound.append("") # 11
-Crazy_pound.append("") # Bottom, 12
+Crazy_pound.append("") # 12
+Crazy_pound.append("") # 13
+Crazy_pound.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter dollar 
@@ -1461,7 +1619,9 @@ Crazy_dollar.append("") # 8
 Crazy_dollar.append("") # 9
 Crazy_dollar.append("") # 10
 Crazy_dollar.append("") # 11
-Crazy_dollar.append("") # Bottom, 12
+Crazy_dollar.append("") # 12
+Crazy_dollar.append("") # 13
+Crazy_dollar.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter percent 
@@ -1479,7 +1639,9 @@ Crazy_percent.append("") # 8
 Crazy_percent.append("") # 9
 Crazy_percent.append("") # 10
 Crazy_percent.append("") # 11
-Crazy_percent.append("") # Bottom, 12
+Crazy_percent.append("") # 12
+Crazy_percent.append("") # 13
+Crazy_percent.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter caret 
@@ -1497,7 +1659,9 @@ Crazy_caret.append("") # 8
 Crazy_caret.append("") # 9
 Crazy_caret.append("") # 10
 Crazy_caret.append("") # 11
-Crazy_caret.append("") # Bottom, 12
+Crazy_caret.append("") # 12
+Crazy_caret.append("") # 13
+Crazy_caret.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter ampersand 
@@ -1515,7 +1679,9 @@ Crazy_ampersand.append("") # 8
 Crazy_ampersand.append("") # 9
 Crazy_ampersand.append("") # 10
 Crazy_ampersand.append("") # 11
-Crazy_ampersand.append("") # Bottom, 12
+Crazy_ampersand.append("") # 12
+Crazy_ampersand.append("") # 13
+Crazy_ampersand.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter asterisk 
@@ -1533,7 +1699,9 @@ Crazy_asterisk.append("") # 8
 Crazy_asterisk.append("") # 9
 Crazy_asterisk.append("") # 10
 Crazy_asterisk.append("") # 11
-Crazy_asterisk.append("") # Bottom, 12
+Crazy_asterisk.append("") # 12
+Crazy_asterisk.append("") # 13
+Crazy_asterisk.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter open_parenthesis 
@@ -1551,7 +1719,9 @@ Crazy_open_parenthesis.append("") # 8
 Crazy_open_parenthesis.append("") # 9
 Crazy_open_parenthesis.append("") # 10
 Crazy_open_parenthesis.append("") # 11
-Crazy_open_parenthesis.append("") # Bottom, 12
+Crazy_open_parenthesis.append("") # 12
+Crazy_open_parenthesis.append("") # 13
+Crazy_open_parenthesis.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter close_parenthesis 
@@ -1569,7 +1739,9 @@ Crazy_close_parenthesis.append("") # 8
 Crazy_close_parenthesis.append("") # 9
 Crazy_close_parenthesis.append("") # 10
 Crazy_close_parenthesis.append("") # 11
-Crazy_close_parenthesis.append("") # Bottom, 12
+Crazy_close_parenthesis.append("") # 12
+Crazy_close_parenthesis.append("") # 13
+Crazy_close_parenthesis.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter underscore 
@@ -1587,7 +1759,9 @@ Crazy_underscore.append("") # 8
 Crazy_underscore.append("") # 9
 Crazy_underscore.append("") # 10
 Crazy_underscore.append("") # 11
-Crazy_underscore.append("") # Bottom, 12
+Crazy_underscore.append("") # 12
+Crazy_underscore.append("") # 13
+Crazy_underscore.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter plus 
@@ -1605,7 +1779,9 @@ Crazy_plus.append("") # 8
 Crazy_plus.append("") # 9
 Crazy_plus.append("") # 10
 Crazy_plus.append("") # 11
-Crazy_plus.append("") # Bottom, 12
+Crazy_plus.append("") # 12
+Crazy_plus.append("") # 13
+Crazy_plus.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter pipe 
@@ -1623,7 +1799,9 @@ Crazy_pipe.append("") # 8
 Crazy_pipe.append("") # 9
 Crazy_pipe.append("") # 10
 Crazy_pipe.append("") # 11
-Crazy_pipe.append("") # Bottom, 12
+Crazy_pipe.append("") # 12
+Crazy_pipe.append("") # 13
+Crazy_pipe.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter open_curly 
@@ -1641,7 +1819,9 @@ Crazy_open_curly.append("") # 8
 Crazy_open_curly.append("") # 9
 Crazy_open_curly.append("") # 10
 Crazy_open_curly.append("") # 11
-Crazy_open_curly.append("") # Bottom, 12
+Crazy_open_curly.append("") # 12
+Crazy_open_curly.append("") # 13
+Crazy_open_curly.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter close_curly 
@@ -1659,7 +1839,9 @@ Crazy_close_curly.append("") # 8
 Crazy_close_curly.append("") # 9
 Crazy_close_curly.append("") # 10
 Crazy_close_curly.append("") # 11
-Crazy_close_curly.append("") # Bottom, 12
+Crazy_close_curly.append("") # 12
+Crazy_close_curly.append("") # 13
+Crazy_close_curly.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter colon 
@@ -1677,7 +1859,9 @@ Crazy_colon.append("") # 8
 Crazy_colon.append("") # 9
 Crazy_colon.append("") # 10
 Crazy_colon.append("") # 11
-Crazy_colon.append("") # Bottom, 12
+Crazy_colon.append("") # 12
+Crazy_colon.append("") # 13
+Crazy_colon.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter quotation 
@@ -1695,7 +1879,9 @@ Crazy_quotation.append("") # 8
 Crazy_quotation.append("") # 9
 Crazy_quotation.append("") # 10
 Crazy_quotation.append("") # 11
-Crazy_quotation.append("") # Bottom, 12
+Crazy_quotation.append("") # 12
+Crazy_quotation.append("") # 13
+Crazy_quotation.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter less_than 
@@ -1713,7 +1899,9 @@ Crazy_less_than.append("") # 8
 Crazy_less_than.append("") # 9
 Crazy_less_than.append("") # 10
 Crazy_less_than.append("") # 11
-Crazy_less_than.append("") # Bottom, 12
+Crazy_less_than.append("") # 12
+Crazy_less_than.append("") # 13
+Crazy_less_than.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter greater_than 
@@ -1731,7 +1919,9 @@ Crazy_greater_than.append("") # 8
 Crazy_greater_than.append("") # 9
 Crazy_greater_than.append("") # 10
 Crazy_greater_than.append("") # 11
-Crazy_greater_than.append("") # Bottom, 12
+Crazy_greater_than.append("") # 12
+Crazy_greater_than.append("") # 13
+Crazy_greater_than.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter question 
@@ -1749,7 +1939,9 @@ Crazy_question.append("") # 8
 Crazy_question.append("") # 9
 Crazy_question.append("") # 10
 Crazy_question.append("") # 11
-Crazy_question.append("") # Bottom, 12
+Crazy_question.append("") # 12
+Crazy_question.append("") # 13
+Crazy_question.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter space 
@@ -1767,7 +1959,9 @@ Crazy_space.append("") # 8
 Crazy_space.append("") # 9
 Crazy_space.append("") # 10
 Crazy_space.append("") # 11
-Crazy_space.append("") # Bottom, 12
+Crazy_space.append("") # 12
+Crazy_space.append("") # 13
+Crazy_space.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter NA 
@@ -1785,4 +1979,6 @@ Crazy_NA.append("") # 8
 Crazy_NA.append("") # 9
 Crazy_NA.append("") # 10
 Crazy_NA.append("") # 11
-Crazy_NA.append("") # Bottom, 12
+Crazy_NA.append("") # 12
+Crazy_NA.append("") # 13
+Crazy_NA.append("") # Bottom, 14
