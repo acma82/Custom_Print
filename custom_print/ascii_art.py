@@ -43,7 +43,7 @@ class Art:
         self.inverse  = False;                self.ascii_type = Ascii_Letter.Big
               
         self.adj_indent = 0;                  self.adj_space  = 0;                    self.delay_ms   = 0
-        self.set_layout = Layout.VERTICAL;    self.set_top_line = False;              self.set_bottom_line = False; 
+        self.set_layout = Layout.VERTICAL;    self.set_top_line = True;              self.set_bottom_line = True; 
         self.adj_left_space = 0;              self.adj_middle_space = 0;              self.adj_right_space = 0
         
     def description_ascii_letters(self):
@@ -123,7 +123,6 @@ class Art:
         #         result = pylo.update_case(data=data, header_case=pylo.Case.LOWER, data_case=pylo.Case.LOWER, update=True )
         #     else:
         #         data = msg.lower()
-
         # else:
         #     # Other letters that have uppercase and lower case
         #     list_name = eval("custom_print."+self.ascii_type+"_Letters."+self.ascii_type+"_A")            
