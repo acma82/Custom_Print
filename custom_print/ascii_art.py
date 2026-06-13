@@ -48,14 +48,17 @@ class Art:
         
     def description_ascii_letters(self):
         tbl = FancyFormat()
-        ascii_letter_description = [["Type",                      "Uppercase",    "Lowercase",    "Shiff_On",     "Shift_Off"],
-                                    [Ascii_Letter.Alpha,          "Yes",          "No",           "No",           "No"       ],
-                                    [Ascii_Letter.ANSI_Shadow,    "Yes",          "No",           "Yes",          "Yes"      ],
-                                    [Ascii_Letter.Big,            "Yes",          "Yes",          "Yes",          "Yes"      ],
-                                    [Ascii_Letter.Blocks,         "Yes",          "No",           "Yes",          "Yes"      ],
-                                    [Ascii_Letter.Bulbhead,       "Yes",          "Yes",          "Yes",          "Yes"      ]
-
-                                    ]
+        ascii_letter_description = [["No.", "Type",                      "Uppercase",    "Lowercase",    "Shiff_On",     "Shift_Off"],
+                                    [1,     Ascii_Letter.Alpha,          "Yes",          "No",           "No",           "No"       ],
+                                    [2,     Ascii_Letter.ANSI_Shadow,    "Yes",          "No",           "Yes",          "Yes"      ],
+                                    [3,     Ascii_Letter.Big,            "Yes",          "Yes",          "Yes",          "Yes"      ],
+                                    [4,     Ascii_Letter.Blocks,         "Yes",          "No",           "Yes",          "Yes"      ],
+                                    [5,     Ascii_Letter.Bulbhead,       "Yes",          "Yes",          "Yes",          "Yes"      ],
+                                    [6,     Ascii_Letter.Classy,         "Yes",          "Yes",          "Yes",          "Yes"      ],
+                                    [7,     Ascii_Letter.Colossal,       "Yes",          "Yes",          "Yes",          "Yes"      ],
+                                    [8,     Ascii_Letter.Doh,            "Yes",          "Yes",          "Yes",          "Yes"      ],
+                                    [9,     Ascii_Letter.Doom,           "Yes",          "Yes",          "Yes",          "Yes"      ]
+                                   ]
         
         
         tbl.title_align = "center"; tbl.title_msg   = "  Description of Ascii Letters  "

@@ -75,6 +75,7 @@ class Ascii_Letter(enum.StrEnum):
     Big_Money_SW = "Big_Money_SW"
     Blocks       = "Blocks"
     Bulbhead     = "Bulbhead"
+    Classy       = "Classy"
     Colossal     = "Colossal"
     Crazy        = "Crazy"
     Doh          = "Doh"

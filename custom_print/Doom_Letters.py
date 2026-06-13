@@ -209,8 +209,8 @@ Doom_N.append("       ") # Bottom, 7
 #   Letter Ñ 
 # +--------------------------------+
 Doom_Ñ = []
-Doom_Ñ.append("      ") # Top, 0
-Doom_Ñ.append(" ~~~~~") # 1
+Doom_Ñ.append("       ") # Top, 0
+Doom_Ñ.append(" ~~~~~ ") # 1
 Doom_Ñ.append("| \ | |") # 2
 Doom_Ñ.append("|  \| |") # 3
 Doom_Ñ.append("| . ` |") # 4
@@ -432,11 +432,11 @@ Doom_d.append("       ") # Bottom, 7
 Doom_e = []
 Doom_e.append("      ") # Top, 0
 Doom_e.append("      ") # 1
-Doom_e.append("  ___ ") # 2
-Doom_e.append(" / _ \\") # 3
-Doom_e.append("|  __/") # 4
-Doom_e.append(" \___|") # 5
-Doom_e.append("      ") # 6
+Doom_e.append("      ") # 2
+Doom_e.append("  ___ ") # 3
+Doom_e.append(" / _ \\") # 4
+Doom_e.append("|  __/") # 5
+Doom_e.append(" \___|") # 6
 Doom_e.append("      ") # Bottom, 7
 
 # +--------------------------------+

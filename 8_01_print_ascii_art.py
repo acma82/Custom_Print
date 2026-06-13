@@ -14,8 +14,8 @@ def art(dato):
 
     msg.set_bottom_line = True
     msg.set_top_line    = True
-    msg.set_layout = cp.Layout.HORIZONTAL
-    # msg.set_layout = cp.Layout.VERTICAL
+    # msg.set_layout = cp.Layout.HORIZONTAL
+    msg.set_layout = cp.Layout.VERTICAL
     msg.adj_indent = 2
     msg.delay_ms = 40
     msg.bold = True
@@ -26,7 +26,10 @@ def art(dato):
     # msg.ascii_type = cp.Ascii_Letter.Big
     # msg.ascii_type = cp.Ascii_Letter.Blocks
     # msg.ascii_type = cp.Ascii_Letter.Bulbhead
-    msg.ascii_type = cp.Ascii_Letter.Colossal
+    # msg.ascii_type = cp.Ascii_Letter.Classy
+    # msg.ascii_type = cp.Ascii_Letter.Colossal
+    # msg.ascii_type = cp.Ascii_Letter.Doh
+    msg.ascii_type = cp.Ascii_Letter.Doom
 
     msg.adj_left_space = 4
     msg.adj_right_space = 6

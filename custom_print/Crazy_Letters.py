@@ -1406,42 +1406,42 @@ Crazy_open_bracket.append("") # Bottom, 14
 # +--------------------------------+
 #   Letter close_bracket 
 # +--------------------------------+
-Crazy_close_bracket = []
-Crazy_close_bracket.append("") # Top, 0
-Crazy_close_bracket.append("") # 1
-Crazy_close_bracket.append("") # 2
-Crazy_close_bracket.append("") # 3
-Crazy_close_bracket.append("") # 4
-Crazy_close_bracket.append("") # 5
-Crazy_close_bracket.append("") # 6
-Crazy_close_bracket.append("") # 7
-Crazy_close_bracket.append("") # 8
-Crazy_close_bracket.append("") # 9
-Crazy_close_bracket.append("") # 10
-Crazy_close_bracket.append("") # 11
-Crazy_close_bracket.append("") # 12
-Crazy_close_bracket.append("") # 13
-Crazy_close_bracket.append("") # Bottom, 14
+Crazy_closd_bracket = []
+Crazy_closd_bracket.append("") # Top, 0
+Crazy_closd_bracket.append("") # 1
+Crazy_closd_bracket.append("") # 2
+Crazy_closd_bracket.append("") # 3
+Crazy_closd_bracket.append("") # 4
+Crazy_closd_bracket.append("") # 5
+Crazy_closd_bracket.append("") # 6
+Crazy_closd_bracket.append("") # 7
+Crazy_closd_bracket.append("") # 8
+Crazy_closd_bracket.append("") # 9
+Crazy_closd_bracket.append("") # 10
+Crazy_closd_bracket.append("") # 11
+Crazy_closd_bracket.append("") # 12
+Crazy_closd_bracket.append("") # 13
+Crazy_closd_bracket.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter bemicolon 
 # +--------------------------------+
-Crazy_bemicolon = []
-Crazy_bemicolon.append("") # Top, 0
-Crazy_bemicolon.append("") # 1
-Crazy_bemicolon.append("") # 2
-Crazy_bemicolon.append("") # 3
-Crazy_bemicolon.append("") # 4
-Crazy_bemicolon.append("") # 5
-Crazy_bemicolon.append("") # 6
-Crazy_bemicolon.append("") # 7
-Crazy_bemicolon.append("") # 8
-Crazy_bemicolon.append("") # 9
-Crazy_bemicolon.append("") # 10
-Crazy_bemicolon.append("") # 11
-Crazy_bemicolon.append("") # 12
-Crazy_bemicolon.append("") # 13
-Crazy_bemicolon.append("") # Bottom, 14
+Crazy_semicolon = []
+Crazy_semicolon.append("") # Top, 0
+Crazy_semicolon.append("") # 1
+Crazy_semicolon.append("") # 2
+Crazy_semicolon.append("") # 3
+Crazy_semicolon.append("") # 4
+Crazy_semicolon.append("") # 5
+Crazy_semicolon.append("") # 6
+Crazy_semicolon.append("") # 7
+Crazy_semicolon.append("") # 8
+Crazy_semicolon.append("") # 9
+Crazy_semicolon.append("") # 10
+Crazy_semicolon.append("") # 11
+Crazy_semicolon.append("") # 12
+Crazy_semicolon.append("") # 13
+Crazy_semicolon.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter apostrophe 
@@ -1506,22 +1506,22 @@ Crazy_period.append("") # Bottom, 14
 # +--------------------------------+
 #   Letter forwad_slash 
 # +--------------------------------+
-Crazy_forwad_slash = []
-Crazy_forwad_slash.append("") # Top, 0
-Crazy_forwad_slash.append("") # 1
-Crazy_forwad_slash.append("") # 2
-Crazy_forwad_slash.append("") # 3
-Crazy_forwad_slash.append("") # 4
-Crazy_forwad_slash.append("") # 5
-Crazy_forwad_slash.append("") # 6
-Crazy_forwad_slash.append("") # 7
-Crazy_forwad_slash.append("") # 8
-Crazy_forwad_slash.append("") # 9
-Crazy_forwad_slash.append("") # 10
-Crazy_forwad_slash.append("") # 11
-Crazy_forwad_slash.append("") # 12
-Crazy_forwad_slash.append("") # 13
-Crazy_forwad_slash.append("") # Bottom, 14
+Crazy_forward_slash = []
+Crazy_forward_slash.append("") # Top, 0
+Crazy_forward_slash.append("") # 1
+Crazy_forward_slash.append("") # 2
+Crazy_forward_slash.append("") # 3
+Crazy_forward_slash.append("") # 4
+Crazy_forward_slash.append("") # 5
+Crazy_forward_slash.append("") # 6
+Crazy_forward_slash.append("") # 7
+Crazy_forward_slash.append("") # 8
+Crazy_forward_slash.append("") # 9
+Crazy_forward_slash.append("") # 10
+Crazy_forward_slash.append("") # 11
+Crazy_forward_slash.append("") # 12
+Crazy_forward_slash.append("") # 13
+Crazy_forward_slash.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter tilde 
@@ -1726,22 +1726,22 @@ Crazy_open_parenthesis.append("") # Bottom, 14
 # +--------------------------------+
 #   Letter close_parenthesis 
 # +--------------------------------+
-Crazy_close_parenthesis = []
-Crazy_close_parenthesis.append("") # Top, 0
-Crazy_close_parenthesis.append("") # 1
-Crazy_close_parenthesis.append("") # 2
-Crazy_close_parenthesis.append("") # 3
-Crazy_close_parenthesis.append("") # 4
-Crazy_close_parenthesis.append("") # 5
-Crazy_close_parenthesis.append("") # 6
-Crazy_close_parenthesis.append("") # 7
-Crazy_close_parenthesis.append("") # 8
-Crazy_close_parenthesis.append("") # 9
-Crazy_close_parenthesis.append("") # 10
-Crazy_close_parenthesis.append("") # 11
-Crazy_close_parenthesis.append("") # 12
-Crazy_close_parenthesis.append("") # 13
-Crazy_close_parenthesis.append("") # Bottom, 14
+Crazy_closed_parenthesis = []
+Crazy_closed_parenthesis.append("") # Top, 0
+Crazy_closed_parenthesis.append("") # 1
+Crazy_closed_parenthesis.append("") # 2
+Crazy_closed_parenthesis.append("") # 3
+Crazy_closed_parenthesis.append("") # 4
+Crazy_closed_parenthesis.append("") # 5
+Crazy_closed_parenthesis.append("") # 6
+Crazy_closed_parenthesis.append("") # 7
+Crazy_closed_parenthesis.append("") # 8
+Crazy_closed_parenthesis.append("") # 9
+Crazy_closed_parenthesis.append("") # 10
+Crazy_closed_parenthesis.append("") # 11
+Crazy_closed_parenthesis.append("") # 12
+Crazy_closed_parenthesis.append("") # 13
+Crazy_closed_parenthesis.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter underscore 
@@ -1826,22 +1826,22 @@ Crazy_open_curly.append("") # Bottom, 14
 # +--------------------------------+
 #   Letter close_curly 
 # +--------------------------------+
-Crazy_close_curly = []
-Crazy_close_curly.append("") # Top, 0
-Crazy_close_curly.append("") # 1
-Crazy_close_curly.append("") # 2
-Crazy_close_curly.append("") # 3
-Crazy_close_curly.append("") # 4
-Crazy_close_curly.append("") # 5
-Crazy_close_curly.append("") # 6
-Crazy_close_curly.append("") # 7
-Crazy_close_curly.append("") # 8
-Crazy_close_curly.append("") # 9
-Crazy_close_curly.append("") # 10
-Crazy_close_curly.append("") # 11
-Crazy_close_curly.append("") # 12
-Crazy_close_curly.append("") # 13
-Crazy_close_curly.append("") # Bottom, 14
+Crazy_closed_curly = []
+Crazy_closed_curly.append("") # Top, 0
+Crazy_closed_curly.append("") # 1
+Crazy_closed_curly.append("") # 2
+Crazy_closed_curly.append("") # 3
+Crazy_closed_curly.append("") # 4
+Crazy_closed_curly.append("") # 5
+Crazy_closed_curly.append("") # 6
+Crazy_closed_curly.append("") # 7
+Crazy_closed_curly.append("") # 8
+Crazy_closed_curly.append("") # 9
+Crazy_closed_curly.append("") # 10
+Crazy_closed_curly.append("") # 11
+Crazy_closed_curly.append("") # 12
+Crazy_closed_curly.append("") # 13
+Crazy_closed_curly.append("") # Bottom, 14
 
 # +--------------------------------+
 #   Letter colon 

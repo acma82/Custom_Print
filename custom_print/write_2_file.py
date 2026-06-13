@@ -25,10 +25,10 @@ letters = [["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N"
            ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "ñ", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"],
            
            ["backtick", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "zero", "minus", "equal", "backward_slash",
-            "open_bracket", "close_bracket", "bemicolon", "apostrophe", "comma", "period", "forwad_slash"],
+            "open_bracket", "closed_bracket", "semicolon", "apostrophe", "comma", "period", "forward_slash"],
 
            ["tilde", "exclamation", "arroba", "pound", "dollar", "percent", "caret", "ampersand", "asterisk", "open_parenthesis",
-            "close_parenthesis", "underscore", "plus", "pipe", "open_curly", "close_curly", "colon", "quotation","less_than",
+            "closed_parenthesis", "underscore", "plus", "pipe", "open_curly", "closed_curly", "colon", "quotation","less_than",
              "greater_than", "question", "space", "NA"]]
 
 
