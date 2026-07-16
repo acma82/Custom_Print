@@ -56,12 +56,19 @@ class Art:
                                     [5,     Ascii_Letter.Bulbhead,       "Yes",          "Yes",          "Yes",          "Yes"      ],
                                     [6,     Ascii_Letter.Classy,         "Yes",          "Yes",          "Yes",          "Yes"      ],
                                     [7,     Ascii_Letter.Colossal,       "Yes",          "Yes",          "Yes",          "Yes"      ],
-                                    [8,     Ascii_Letter.Doh,            "Yes",          "Yes",          "Yes",          "Yes"      ],
-                                    [9,     Ascii_Letter.Doom,           "Yes",          "Yes",          "Yes",          "Yes"      ]
+                                    [8,     Ascii_Letter.Crazy,          "Yes",          "Yes",          "Yes",          "Yes"      ],
+                                    [9,     Ascii_Letter.Doh,            "Yes",          "Yes",          "Yes",          "Yes"      ],
+                                    [10,    Ascii_Letter.Doom,           "Yes",          "Yes",          "Yes",          "Yes"      ],
+                                    [11,    Ascii_Letter.Epic,           "Yes",          "No",           "Yes",          "Yes"      ],
+                                    [12,    Ascii_Letter.Graceful,       "Yes",          "No",           "Yes",          "Yes"      ],
+                                    [13,    Ascii_Letter.Larry,          "Yes",          "Yes",          "Yes",          "Yes"      ],
+                                    [14,    Ascii_Letter.Roman,          "Yes",          "Yes",          "Yes",          "Yes"      ],
+                                    [15,    Ascii_Letter.Standard,       "Yes",          "Yes",          "Yes",          "Yes"      ],
+                                    [16,    Ascii_Letter.Sweet,          "No",           "Yes",          "Yes",          "Yes"      ]
                                    ]
         
         
-        tbl.title_align = "center"; tbl.title_msg   = "  Description of Ascii Letters  "
+        tbl.title_align = "center"; tbl.title_msg   = "  Description of Ascii Letters Keyboard  "
         tbl.title_bg    = 231;       tbl.title_fg = 21;   tbl.title_bold = True
         
         tbl.footnote_align = "right"; tbl.footnote_msg = " Table Ascii Letters "

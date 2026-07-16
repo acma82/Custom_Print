@@ -27,7 +27,13 @@ def art(dato):
     # msg.ascii_type = cp.Ascii_Letter.Colossal
     # msg.ascii_type = cp.Ascii_Letter.Crazy
     # msg.ascii_type = cp.Ascii_Letter.Doh
-    msg.ascii_type = cp.Ascii_Letter.Doom
+    # msg.ascii_type = cp.Ascii_Letter.Doom
+    # msg.ascii_type = cp.Ascii_Letter.Epic
+    # msg.ascii_type = cp.Ascii_Letter.Graceful
+    msg.ascii_type = cp.Ascii_Letter.Larry  # check the invalid scape from here.
+    # msg.ascii_type = cp.Ascii_Letter.Roman
+    # msg.ascii_type = cp.Ascii_Letter.Standard
+    # msg.ascii_type = cp.Ascii_Letter.Sweet
 
     msg.adj_left_space  = 2
     msg.adj_right_space = 2
@@ -37,20 +43,19 @@ def art(dato):
 
 
 # ABC in group of 5 and 4
-# lista = [["ABCDE"],["FGHIJ"],[f"KLMN{cp.Unicode.UPPERCASE_N_TILDE}"],["OPQRS"],["TUVWX"],["YZ"],  # 27
-#          ["abcde"],["fghij"],[f"klmn{cp.Unicode.LOWERCASE_N_TILDE}"],["opqrs"],["tuvwx"],["yz"],  # 27
-#          ["`123"] ,["4567"] ,["890-"], ["=[]\\"],[";',./"],                                       # 21
-#          ["~!@#"], ["$%^&"], ["*()_"], [f"+{cp.Unicode.LEFT_CURLY_BRACKET}{cp.Unicode.RIGHT_CURLY_BRACKET}|"],[":\"<>? "]] # 22
+lista = [["ABCDE"],["FGHIJ"],[f"KLMN{cp.Unicode.UPPERCASE_N_TILDE}"],["OPQRS"],["TUVWX"],["YZ"],  # 27  Upper Case
+         ["abcde"],["fghij"],[f"klmn{cp.Unicode.LOWERCASE_N_TILDE}"],["opqrs"],["tuvwx"],["yz"],  # 27  Lower Case
+         ["`123"] ,["4567"] ,["890-"], ["=[]\\"],[";',./"],                                       # 21  Symbols (Shift_Off)
+         ["~!@#"], ["$%^&"], ["*()_"], [f"+{cp.Unicode.LEFT_CURLY_BRACKET}{cp.Unicode.RIGHT_CURLY_BRACKET}|"],[":\"<>? "]] # 22 Symbols Shift_On
 
-
-# ctrl = 0
-# for row in range(len(lista)):
-#     for col in range(len(lista[row])):
-#         if ctrl == 0:    print(f"  {cp.set_font(1,231,21)} Letters: {lista[row][col]} {cp.reset_font()}")
-#         elif ctrl == 25: input(f"  {cp.set_font(1,231,21)} Enter to Continue with: {lista[row][col]}and space {cp.reset_font()}")
-#         else:            input(f"  {cp.set_font(1,231,21)} Enter to Continue with: {lista[row][col]} {cp.reset_font()}")
-#         art(dato=lista[row][col])
-#     ctrl += 1
+ctrl = 0
+for row in range(len(lista)):
+    for col in range(len(lista[row])):
+        if ctrl == 0:    print(f"  {cp.set_font(1,231,21)} Letters: {lista[row][col]} {cp.reset_font()}")
+        elif ctrl == 25: input(f"  {cp.set_font(1,231,21)} Enter to Continue with: {lista[row][col]}and space {cp.reset_font()}")
+        else:            input(f"  {cp.set_font(1,231,21)} Enter to Continue with: {lista[row][col]} {cp.reset_font()}")
+        art(dato=lista[row][col])
+    ctrl += 1
     
 
 
@@ -58,10 +63,15 @@ def art(dato):
 # ABC indivudually
 # lista = f"ABCDEFGHIJKLMNÑOPQRSTUVWXYZabcdefghijklmnñopqrstuvwxyz`1234567890-=[]\\;',./~!@#$%^&*()_+{cp.Unicode.LEFT_CURLY_BRACKET}{cp.Unicode.RIGHT_CURLY_BRACKET}|:\"<>?"
 # for l in lista:    
-#     print(f"{cp.set_font(1,231,21)} Letter:{l}, Enter to Continue {cp.reset_font()}")
-#     # input(f"{cp.set_font(1,231,21)} Letter:{l}, Enter to Continue {cp.reset_font()}")
+#     # print(f"{cp.set_font(1,231,21)} Letter:{l}, Enter to Continue {cp.reset_font()}")
+#     input(f"{cp.set_font(1,231,21)} Letter:{l}, Enter to Continue {cp.reset_font()}")
 #     art(dato=l)
 
 
-# A word
-art("GatO")
+
+
+
+
+
+
+# Note: Working on Epic and Graceful

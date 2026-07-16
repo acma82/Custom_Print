@@ -1223,9 +1223,9 @@ Roman_closed_parenthesis.append("'8. ") # 2
 Roman_closed_parenthesis.append(" '8.") # 3
 Roman_closed_parenthesis.append("  88") # 4
 Roman_closed_parenthesis.append(" '8.") # 5
-Roman_closed_parenthesis.append("'8.") # 6
-Roman_closed_parenthesis.append("o. ") # 7
-Roman_closed_parenthesis.append("   ") # Bottom, 8
+Roman_closed_parenthesis.append("'8. ") # 6
+Roman_closed_parenthesis.append("o.  ") # 7
+Roman_closed_parenthesis.append("    ") # Bottom, 8
 
 # +--------------------------------+
 #   Letter underscore 

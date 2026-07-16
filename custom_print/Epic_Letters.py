@@ -920,9 +920,9 @@ Epic_underscore.append("       ") # 3
 Epic_underscore.append("       ") # 4
 Epic_underscore.append("       ") # 5
 Epic_underscore.append("       ") # 6
-Epic_underscore.append("       ") # 7
-Epic_underscore.append(" _____ ") # 8
-Epic_underscore.append("(_____)") # Bottom, 9
+Epic_underscore.append(" _____ ") # 7
+Epic_underscore.append("(_____)") # 8
+Epic_underscore.append("       ") # Bottom, 9
 
 # +--------------------------------+
 #   Letter plus 

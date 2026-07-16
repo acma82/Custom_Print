@@ -66,6 +66,10 @@ from .Doom_Letters         import*
 from .Epic_Letters         import*
 from .Graceful_Letters     import*
 from .Larry_Letters        import*
+from .Money_NE_Letters     import*
+from .Money_NW_Letters     import*
+from .Money_SE_Letters     import*
+from .Money_SW_Letters     import*
 from .Roman_Letters        import*
 from .Standard_Letters     import*
 from .Sweet_Letters        import*

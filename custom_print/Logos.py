@@ -1,26 +1,41 @@
-Unix_Logo = []
-Unix_Logo.append("                                                         ")          # 0
-Unix_Logo.append("                                     ,        ,          ")          # 1
-Unix_Logo.append("  _    _           _                /(        )`         ")          # 2
-Unix_Logo.append(" | |  | |         (_)               \\ \\___   / |         ")        # 3
-Unix_Logo.append(" | |  | |  _ __    _  __  __        /- _  `-/  '         ")          # 4
-Unix_Logo.append(" | |  | | | '_ \\  | | \\ \\/ /       (/\\/ \\ \\   /\\         ")   # 5
-Unix_Logo.append(" | |__| | | | | | | |  >  <        / /   | `    \\        ")         # 6
-Unix_Logo.append("  \\____/  |_| |_| |_| /_/\\_\\       O O   ) /    |        ")       # 7
-Unix_Logo.append("                                   `-^--'`<     '        ")          # 8
-Unix_Logo.append("                                  (_.)  _  )   /         ")          # 9
-Unix_Logo.append("                                   `.___/`    /          ")          # 10
-Unix_Logo.append("                                     `-----' /           ")          # 11
-Unix_Logo.append("                        <----.     __ / __   \\           ")         # 12
-Unix_Logo.append("                        <----|====O)))==) \\) /====       ")         # 13
-Unix_Logo.append("                        <----'    `--' `.__,' \\          ")         # 14
-Unix_Logo.append("                                     |        |          ")          # 15
-Unix_Logo.append("                                      \\       /          ")         # 16
-Unix_Logo.append("                                 ______( (_  / \\______   ")         # 17
-Unix_Logo.append("                               ,'  ,-----'   |        \\  ")         # 18
-Unix_Logo.append("                               `--{__________)        \\/ ")         # 19
-Unix_Logo.append("                                                         ")          # 20
+Logo_Unix = []
+Logo_Unix.append("                                                         ")          # 0
+Logo_Unix.append("                                     ,        ,          ")          # 1
+Logo_Unix.append("  _    _           _                /(        )`         ")          # 2
+Logo_Unix.append(" | |  | |         (_)               \\ \\___   / |         ")        # 3
+Logo_Unix.append(" | |  | |  _ __    _  __  __        /- _  `-/  '         ")          # 4
+Logo_Unix.append(" | |  | | | '_ \\  | | \\ \\/ /       (/\\/ \\ \\   /\\         ")   # 5
+Logo_Unix.append(" | |__| | | | | | | |  >  <        / /   | `    \\        ")         # 6
+Logo_Unix.append("  \\____/  |_| |_| |_| /_/\\_\\       O O   ) /    |        ")       # 7
+Logo_Unix.append("                                   `-^--'`<     '        ")          # 8
+Logo_Unix.append("                                  (_.)  _  )   /         ")          # 9
+Logo_Unix.append("                                   `.___/`    /          ")          # 10
+Logo_Unix.append("                                     `-----' /           ")          # 11
+Logo_Unix.append("                        <----.     __ / __   \\           ")         # 12
+Logo_Unix.append("                        <----|====O)))==) \\) /====       ")         # 13
+Logo_Unix.append("                        <----'    `--' `.__,' \\          ")         # 14
+Logo_Unix.append("                                     |        |          ")          # 15
+Logo_Unix.append("                                      \\       /          ")         # 16
+Logo_Unix.append("                                 ______( (_  / \\______   ")         # 17
+Logo_Unix.append("                               ,'  ,-----'   |        \\  ")         # 18
+Logo_Unix.append("                               `--{__________)        \\/ ")         # 19
+Logo_Unix.append("                                                         ")          # 20
 
+
+Logo_Frog = []
+Logo_Frog.append("           .--._.--.           ")  # 35
+Logo_Frog.append("          ( O     O )          ")
+Logo_Frog.append("          /   . .   \\          ")
+Logo_Frog.append("         .`._______.'.         ")
+Logo_Frog.append("        /(           )\\        ")
+Logo_Frog.append("      _/  \\  \\   /  /  \\_       ")
+Logo_Frog.append("   .~   `  \\  \\ /  /  '   ~.   ")
+Logo_Frog.append("  {    -.   \\  V  /   .-    }  ")
+Logo_Frog.append("_ _`.    \\  |  |  |  \\/    .'_ ")
+Logo_Frog.append(">_       _} |  |  | {_       _<")
+Logo_Frog.append(" /. - ~ ,_-'  .^.  `-_, ~ - .\\ ")
+Logo_Frog.append("         '-'|/   \\|`-`         ")
+Logo_Frog.append("                               ")
 
                                     
 # 0                                    

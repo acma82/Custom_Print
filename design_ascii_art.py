@@ -25,8 +25,7 @@ def art_logo_2(data, option, ctrl=0):
     # multi_msg.set_layout = cp.Layout.VERTICAL
 
     multi_msg.set_bottom_line  = True;                 multi_msg.set_top_line   = True
-    multi_msg.adj_middle_space = 1;                    multi_msg.adj_indent     = 4
-    multi_msg.adj_right_space  = 1;                    multi_msg.adj_left_space = 1
+    multi_msg.adj_middle_space = 0;                    multi_msg.adj_indent     = 4
     multi_msg.delay_ms = 10;                           multi_msg.ascii_type     = option
 
 
@@ -44,16 +43,19 @@ def art_logo_2(data, option, ctrl=0):
     hiddens    = [False, False, False]
     inverses   = [False, False, False]
     
-    # if ctrl == 0:
-    #     multi_msg.adj_indent = 4
-    #     ctrl += 1
-    # elif ctrl == 1:
-    #     multi_msg.adj_indent = 56
-    #     bgs = [231]
-    #     fgs = [16]
-    #     ctrl += 1
-    # else:
-    #     multi_msg.adj_indent = 4
+    if ctrl == 0:
+        multi_msg.adj_right_space  = 6
+        multi_msg.adj_left_space   = 2
+        # bgs = [196,     231,    22]
+    elif ctrl == 1:
+        multi_msg.adj_left_space   = 2
+        multi_msg.adj_right_space  = 5
+        # multi_msg.adj_middle_space = 0
+        # bgs = [-1,     231,    -1]
+    else:
+            multi_msg.adj_right_space  = 2
+            multi_msg.adj_left_space   = 2
+            # bgs = [196,     231,    22]
 
     multi_msg.print_multi_ascii_art(data, bolds, bgs, fgs, italics, underlines, strikes, blinkings, dims, hiddens, inverses)
 
@@ -77,20 +79,7 @@ if __name__ == "__main__":
 
 
 
-    frog = []
-    frog.append("           .--._.--.           ")  # 35
-    frog.append("          ( O     O )          ")
-    frog.append("          /   . .   \\          ")
-    frog.append("         .`._______.'.         ")
-    frog.append("        /(           )\\        ")
-    frog.append("      _/  \\  \\   /  /  \\_       ")
-    frog.append("   .~   `  \\  \\ /  /  '   ~.   ")
-    frog.append("  {    -.   \\  V  /   .-    }  ")
-    frog.append("_ _`.    \\  |  |  |  \\/    .'_ ")
-    frog.append(">_       _} |  |  | {_       _<")
-    frog.append(" /. - ~ ,_-'  .^.  `-_, ~ - .\\ ")
-    frog.append("         '-'|/   \\|`-`         ")
-    frog.append("                               ")
+
 
 
                       
@@ -122,29 +111,29 @@ if __name__ == "__main__":
                  
     art_logo = cp.Art()
     crs = cp.Cursor()
-    art_logo.bg = 90; art_logo.fg = 231; art_logo.delay_ms = 80
+    art_logo.bg = 90; art_logo.fg = 231; art_logo.delay_ms = 10
     art_logo.adj_indent = 10;  art_logo.adj_left_space = 2
     art_logo.set_layout = cp.Layout.HORIZONTAL
-    art_logo.ascii_type = cp.Alpha_M # mym
-    
+    art_logo.ascii_type = cp.Alpha_M # M    art_logo.ascii_type = mym
+    # Printing M
     back_up = len(cp.Alpha_M)
     width = len(cp.Alpha_M[0])
-
     art_logo.print_image_ascii_art()
-
-
+    # Printin E
     crs.jumpTo(qty=back_up, direction=cp.Move.UP)
-    art_logo.ascii_type = cp.Alpha_E # mye
+    art_logo.ascii_type = cp.Alpha_E # E   art_logo.ascii_type = mye
     art_logo.adj_indent = 10 + 2 + width ; art_logo.adj_right_space = 2
     art_logo.print_image_ascii_art()
 
 
+    # Printing the Logo_Unix
     art_logo.bg = 22
-    art_logo.ascii_type = "Unix_Logo"
+    art_logo.ascii_type = cp.Logo_Unix     # "Unix_Logo"
     art_logo.print_image_ascii_art()
-
-    art_logo.bg = 196
-    art_logo.ascii_type = frog; art_logo.adj_right_space = 28
+    # Printing the Logo_Frog
+    art_logo.bg = 208
+    art_logo.fg = 231
+    art_logo.ascii_type = cp.Logo_Frog; art_logo.adj_right_space = 28
     art_logo.print_image_ascii_art()
 
 

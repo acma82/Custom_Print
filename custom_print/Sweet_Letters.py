@@ -46,7 +46,7 @@ Sweet_b = []
 Sweet_b.append(" ___     ") # Top, 0
 Sweet_b.append("(   )    ") # 1
 Sweet_b.append(" | |.-.  ") # 2
-Sweet_b.append(" | /   \ ") # 3
+Sweet_b.append(" | /   \\ ") # 3
 Sweet_b.append(" |  .-. |") # 4
 Sweet_b.append(" | |  | |") # 5
 Sweet_b.append(" | |  | |") # 6
@@ -63,7 +63,7 @@ Sweet_c = []
 Sweet_c.append("         ") # Top, 0
 Sweet_c.append("         ") # 1
 Sweet_c.append("  .--.   ") # 2
-Sweet_c.append(" /    \  ") # 3
+Sweet_c.append(" /    \\  ") # 3
 Sweet_c.append("|  .-. ; ") # 4
 Sweet_c.append("|  |(___)") # 5
 Sweet_c.append("|  |     ") # 6
@@ -80,7 +80,7 @@ Sweet_d = []
 Sweet_d.append("     ___ ") # Top, 0
 Sweet_d.append("    (   )") # 1
 Sweet_d.append("  .-.| | ") # 2
-Sweet_d.append(" /   \ | ") # 3
+Sweet_d.append(" /   \\ | ") # 3
 Sweet_d.append("|  .-. | ") # 4
 Sweet_d.append("| |  | | ") # 5
 Sweet_d.append("| |  | | ") # 6
@@ -97,7 +97,7 @@ Sweet_e = []
 Sweet_e.append("        ") # Top, 0
 Sweet_e.append("        ") # 1
 Sweet_e.append("  .--.  ") # 2
-Sweet_e.append(" /    \ ") # 3
+Sweet_e.append(" /    \\ ") # 3
 Sweet_e.append("|  .-. ;") # 4
 Sweet_e.append("|  | | |") # 5
 Sweet_e.append("|  |/  |") # 6
@@ -827,7 +827,7 @@ Sweet_period.append("     ") # Bottom, 11
 Sweet_forward_slash = []
 Sweet_forward_slash.append("          ") # Top, 0
 Sweet_forward_slash.append("          ") # 1
-Sweet_forward_slash.append("       /\\") # 2
+Sweet_forward_slash.append("       /\\ ") # 2
 Sweet_forward_slash.append("      / / ") # 3
 Sweet_forward_slash.append("     / /  ") # 4
 Sweet_forward_slash.append("    / /   ") # 5
@@ -1068,7 +1068,7 @@ Sweet_pipe.append(" _ ") # 1
 Sweet_pipe.append("( )") # 2
 Sweet_pipe.append("| |") # 3
 Sweet_pipe.append("| |") # 4
-Sweet_pipe.append("(.) ") # 5
+Sweet_pipe.append("(.)") # 5
 Sweet_pipe.append(" _ ") # 6
 Sweet_pipe.append("( )") # 7
 Sweet_pipe.append("| |") # 8

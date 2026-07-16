@@ -703,14 +703,21 @@ Doom_x.append("      ") # Bottom, 7
 #   Letter y 
 # +--------------------------------+
 Doom_y = []
-Doom_y.append("      ") # Top, 0
-Doom_y.append("_   _ ") # 1
-Doom_y.append(" | | |") # 2
-Doom_y.append(" |_| |") # 3
-Doom_y.append("\__, |") # 4
-Doom_y.append(" __/ |") # 5
-Doom_y.append("|___/ ") # 6
-Doom_y.append("      ") # Bottom, 7
+Doom_y.append("       ") # Top, 0
+Doom_y.append(" _   _ ") # 1
+Doom_y.append("| | | |") # 2
+Doom_y.append("| |_| |") # 3
+Doom_y.append(" \__, |") # 4
+Doom_y.append("  __/ |") # 5
+Doom_y.append(" |___/ ") # 6
+Doom_y.append("       ") # Bottom, 7
+       
+       
+
+
+
+
+
 
 # +--------------------------------+
 #   Letter z 

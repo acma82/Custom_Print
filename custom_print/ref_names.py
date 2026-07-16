@@ -81,6 +81,8 @@ class Ascii_Letter(enum.StrEnum):
     Doh          = "Doh"
     Doom         = "Doom"
     Epic         = "Epic"
+    Graceful     = "Graceful"
+    Larry        = "Larry"
     Font_Font    = "Font_Font"
     Mono         = "Mono"
     Roman        = "Roman"

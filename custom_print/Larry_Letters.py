@@ -369,7 +369,7 @@ Larry_X.append("/\ \ /\ \    ") # 2
 Larry_X.append("\ `\`\/'/'   ") # 3
 Larry_X.append(" `\/ > <     ") # 4
 Larry_X.append("    \/'/\`\  ") # 5
-Larry_X.append("    /\_\\ \_\\") # 6
+Larry_X.append("    /\_\\\\ \_\\") # 6
 Larry_X.append("    \/_/ \/_/") # 7
 Larry_X.append("             ") # Bottom, 8
 
@@ -786,7 +786,7 @@ Larry_backtick = []
 Larry_backtick.append("    ") # Top, 0
 Larry_backtick.append(" __ ") # 1
 Larry_backtick.append("/\ \\") # 2
-Larry_backtick.append("\ \\") # 3
+Larry_backtick.append("\ \\\\") # 3
 Larry_backtick.append(" \//") # 4
 Larry_backtick.append("    ") # 5
 Larry_backtick.append("    ") # 6
@@ -1121,11 +1121,11 @@ Larry_arroba.append("           ") # Bottom, 8
 Larry_pound = []
 Larry_pound.append("             ") # Top, 0
 Larry_pound.append("  __ __      ") # 1
-Larry_pound.append(" _\ \\ \__   ") # 2
+Larry_pound.append(" _\ \\\\ \__   ") # 2
 Larry_pound.append("/\__  _  _\  ") # 3
-Larry_pound.append("\/_L\ \\ \L_ ") # 4
+Larry_pound.append("\/_L\ \\\\ \L_ ") # 4
 Larry_pound.append("  /\_   _  _\\") # 5
-Larry_pound.append("  \/_/\_\\_\/") # 6
+Larry_pound.append("  \/_/\_\\\\_\/") # 6
 Larry_pound.append("     \/_//_/ ") # 7
 Larry_pound.append("             ") # Bottom, 8
 
