@@ -29,7 +29,7 @@
 Money_SW_A = []
 Money_SW_A.append("          ") # Top, 0
 Money_SW_A.append("  ______  ") # 1
-Money_SW_A.append(" /      \ ") # 2
+Money_SW_A.append(" /      \\ ") # 2
 Money_SW_A.append("/$$$$$$  |") # 3
 Money_SW_A.append("$$ |__$$ |") # 4
 Money_SW_A.append("$$    $$ |") # 5
@@ -45,7 +45,7 @@ Money_SW_A.append("          ") # Bottom, 10
 Money_SW_B = []
 Money_SW_B.append("          ") # Top, 0
 Money_SW_B.append(" _______  ") # 1
-Money_SW_B.append("/       \ ") # 2
+Money_SW_B.append("/       \\ ") # 2
 Money_SW_B.append("$$$$$$$  |") # 3
 Money_SW_B.append("$$ |__$$ |") # 4
 Money_SW_B.append("$$    $$< ") # 5
@@ -61,12 +61,12 @@ Money_SW_B.append("          ") # Bottom, 10
 Money_SW_C = []
 Money_SW_C.append("          ") # Top, 0
 Money_SW_C.append("  ______  ") # 1
-Money_SW_C.append(" /      \ ") # 2
+Money_SW_C.append(" /      \\ ") # 2
 Money_SW_C.append("/$$$$$$  |") # 3
 Money_SW_C.append("$$ |  $$/ ") # 4
 Money_SW_C.append("$$ |      ") # 5
 Money_SW_C.append("$$ |   __ ") # 6
-Money_SW_C.append("$$ \__/  |") # 7
+Money_SW_C.append("$$ \\__/  |") # 7
 Money_SW_C.append("$$    $$/ ") # 8
 Money_SW_C.append(" $$$$$$/  ") # 9
 Money_SW_C.append("          ") # Bottom, 10
@@ -77,7 +77,7 @@ Money_SW_C.append("          ") # Bottom, 10
 Money_SW_D = []
 Money_SW_D.append("          ") # Top, 0
 Money_SW_D.append(" _______  ") # 1
-Money_SW_D.append("/       \ ") # 2
+Money_SW_D.append("/       \\ ") # 2
 Money_SW_D.append("$$$$$$$  |") # 3
 Money_SW_D.append("$$ |  $$ |") # 4
 Money_SW_D.append("$$ |  $$ |") # 5
@@ -125,12 +125,12 @@ Money_SW_F.append("          ") # Bottom, 10
 Money_SW_G = []
 Money_SW_G.append("          ") # Top, 0
 Money_SW_G.append("  ______  ") # 1
-Money_SW_G.append(" /      \ ") # 2
+Money_SW_G.append(" /      \\ ") # 2
 Money_SW_G.append("/$$$$$$  |") # 3
 Money_SW_G.append("$$ | _$$/ ") # 4
 Money_SW_G.append("$$ |/    |") # 5
 Money_SW_G.append("$$ |$$$$ |") # 6
-Money_SW_G.append("$$ \__$$ |") # 7
+Money_SW_G.append("$$ \\__$$ |") # 7
 Money_SW_G.append("$$    $$/ ") # 8
 Money_SW_G.append(" $$$$$$/  ") # 9
 Money_SW_G.append("          ") # Bottom, 10
@@ -178,7 +178,7 @@ Money_SW_J.append("   $$$$$ |") # 3
 Money_SW_J.append("      $$ |") # 4
 Money_SW_J.append(" __   $$ |") # 5
 Money_SW_J.append("/  |  $$ |") # 6
-Money_SW_J.append("$$ \__$$ |") # 7
+Money_SW_J.append("$$ \\__$$ |") # 7
 Money_SW_J.append("$$    $$/ ") # 8
 Money_SW_J.append(" $$$$$$/  ") # 9
 Money_SW_J.append("          ") # Bottom, 10
@@ -193,8 +193,8 @@ Money_SW_K.append("/  |  /  |") # 2
 Money_SW_K.append("$$ | /$$/ ") # 3
 Money_SW_K.append("$$ |/$$/  ") # 4
 Money_SW_K.append("$$  $$<   ") # 5
-Money_SW_K.append("$$$$$  \  ") # 6
-Money_SW_K.append("$$ |$$  \ ") # 7
+Money_SW_K.append("$$$$$  \\  ") # 6
+Money_SW_K.append("$$ |$$  \\ ") # 7
 Money_SW_K.append("$$ | $$  |") # 8
 Money_SW_K.append("$$/   $$/ ") # 9
 Money_SW_K.append("          ") # Bottom, 10
@@ -221,9 +221,9 @@ Money_SW_L.append("          ") # Bottom, 10
 Money_SW_M = []
 Money_SW_M.append("             ") # Top, 0
 Money_SW_M.append(" __       __ ") # 1
-Money_SW_M.append("/  \     /  |") # 2
-Money_SW_M.append("$$  \   /$$ |") # 3
-Money_SW_M.append("$$$  \ /$$$ |") # 4
+Money_SW_M.append("/  \\     /  |") # 2
+Money_SW_M.append("$$  \\   /$$ |") # 3
+Money_SW_M.append("$$$  \\ /$$$ |") # 4
 Money_SW_M.append("$$$$  /$$$$ |") # 5
 Money_SW_M.append("$$ $$ $$/$$ |") # 6
 Money_SW_M.append("$$ |$$$/ $$ |") # 7
@@ -237,9 +237,9 @@ Money_SW_M.append("             ") # Bottom, 10
 Money_SW_N = []
 Money_SW_N.append("          ") # Top, 0
 Money_SW_N.append(" __    __ ") # 1
-Money_SW_N.append("/  \  /  |") # 2
-Money_SW_N.append("$$  \ $$ |") # 3
-Money_SW_N.append("$$$  \$$ |") # 4
+Money_SW_N.append("/  \\  /  |") # 2
+Money_SW_N.append("$$  \\ $$ |") # 3
+Money_SW_N.append("$$$  \\$$ |") # 4
 Money_SW_N.append("$$$$  $$ |") # 5
 Money_SW_N.append("$$ $$ $$ |") # 6
 Money_SW_N.append("$$ |$$$$ |") # 7
@@ -253,9 +253,9 @@ Money_SW_N.append("          ") # Bottom, 10
 Money_SW_Ñ = []
 Money_SW_Ñ.append("          ") # Top, 0
 Money_SW_Ñ.append(" ~~    ~~ ") # 1
-Money_SW_Ñ.append("/  \  /  |") # 2
-Money_SW_Ñ.append("$$  \ $$ |") # 3
-Money_SW_Ñ.append("$$$  \$$ |") # 4
+Money_SW_Ñ.append("/  \\  /  |") # 2
+Money_SW_Ñ.append("$$  \\ $$ |") # 3
+Money_SW_Ñ.append("$$$  \\$$ |") # 4
 Money_SW_Ñ.append("$$$$  $$ |") # 5
 Money_SW_Ñ.append("$$ $$ $$ |") # 6
 Money_SW_Ñ.append("$$ |$$$$ |") # 7
@@ -269,12 +269,12 @@ Money_SW_Ñ.append("          ") # Bottom, 10
 Money_SW_O = []
 Money_SW_O.append("          ") # Top, 0
 Money_SW_O.append("  ______  ") # 1
-Money_SW_O.append(" /      \ ") # 2
+Money_SW_O.append(" /      \\ ") # 2
 Money_SW_O.append("/$$$$$$  |") # 3
 Money_SW_O.append("$$ |  $$ |") # 4
 Money_SW_O.append("$$ |  $$ |") # 5
 Money_SW_O.append("$$ |  $$ |") # 6
-Money_SW_O.append("$$ \__$$ |") # 7
+Money_SW_O.append("$$ \\__$$ |") # 7
 Money_SW_O.append("$$    $$/ ") # 8
 Money_SW_O.append(" $$$$$$/  ") # 9
 Money_SW_O.append("          ") # Bottom, 10
@@ -285,7 +285,7 @@ Money_SW_O.append("          ") # Bottom, 10
 Money_SW_P = []
 Money_SW_P.append("          ") # Top, 0
 Money_SW_P.append(" _______  ") # 1
-Money_SW_P.append("/       \ ") # 2
+Money_SW_P.append("/       \\ ") # 2
 Money_SW_P.append("$$$$$$$  |") # 3
 Money_SW_P.append("$$ |__$$ |") # 4
 Money_SW_P.append("$$    $$/ ") # 5
@@ -301,11 +301,11 @@ Money_SW_P.append("          ") # Bottom, 10
 Money_SW_Q = []
 Money_SW_Q.append("          ") # Top, 0
 Money_SW_Q.append("  ______  ") # 1
-Money_SW_Q.append(" /      \ ") # 2
+Money_SW_Q.append(" /      \\ ") # 2
 Money_SW_Q.append("/$$$$$$  |") # 3
 Money_SW_Q.append("$$ |  $$ |") # 4
 Money_SW_Q.append("$$ |_ $$ |") # 5
-Money_SW_Q.append("$$ / \$$ |") # 6
+Money_SW_Q.append("$$ / \\$$ |") # 6
 Money_SW_Q.append("$$ $$ $$< ") # 7
 Money_SW_Q.append(" $$$$$$  |") # 8
 Money_SW_Q.append("     $$$/ ") # 9
@@ -317,7 +317,7 @@ Money_SW_Q.append("          ") # Bottom, 10
 Money_SW_R = []
 Money_SW_R.append("          ") # Top, 0
 Money_SW_R.append(" _______  ") # 1
-Money_SW_R.append("/       \ ") # 2
+Money_SW_R.append("/       \\ ") # 2
 Money_SW_R.append("$$$$$$$  |") # 3
 Money_SW_R.append("$$ |__$$ |") # 4
 Money_SW_R.append("$$    $$< ") # 5
@@ -333,12 +333,12 @@ Money_SW_R.append("          ") # Bottom, 10
 Money_SW_S = []
 Money_SW_S.append("          ") # Top, 0
 Money_SW_S.append("  ______  ") # 1
-Money_SW_S.append(" /      \ ") # 2
+Money_SW_S.append(" /      \\ ") # 2
 Money_SW_S.append("/$$$$$$  |") # 3
-Money_SW_S.append("$$ \__$$/ ") # 4
-Money_SW_S.append("$$      \ ") # 5
+Money_SW_S.append("$$ \\__$$/ ") # 4
+Money_SW_S.append("$$      \\ ") # 5
 Money_SW_S.append(" $$$$$$  |") # 6
-Money_SW_S.append("/  \__$$ |") # 7
+Money_SW_S.append("/  \\__$$ |") # 7
 Money_SW_S.append("$$    $$/ ") # 8
 Money_SW_S.append(" $$$$$$/  ") # 9
 Money_SW_S.append("          ") # Bottom, 10
@@ -370,7 +370,7 @@ Money_SW_U.append("$$ |  $$ |") # 3
 Money_SW_U.append("$$ |  $$ |") # 4
 Money_SW_U.append("$$ |  $$ |") # 5
 Money_SW_U.append("$$ |  $$ |") # 6
-Money_SW_U.append("$$ \__$$ |") # 7
+Money_SW_U.append("$$ \\__$$ |") # 7
 Money_SW_U.append("$$    $$/ ") # 8
 Money_SW_U.append(" $$$$$$/  ") # 9
 Money_SW_U.append("          ") # Bottom, 10
@@ -384,7 +384,7 @@ Money_SW_V.append(" __     __ ") # 1
 Money_SW_V.append("/  |   /  |") # 2
 Money_SW_V.append("$$ |   $$ |") # 3
 Money_SW_V.append("$$ |   $$ |") # 4
-Money_SW_V.append("$$  \ /$$/ ") # 5
+Money_SW_V.append("$$  \\ /$$/ ") # 5
 Money_SW_V.append(" $$  /$$/  ") # 6
 Money_SW_V.append("  $$ $$/   ") # 7
 Money_SW_V.append("   $$$/    ") # 8
@@ -398,8 +398,8 @@ Money_SW_W = []
 Money_SW_W.append("             ") # Top, 0
 Money_SW_W.append(" __       __ ") # 1
 Money_SW_W.append("/  |  _  /  |") # 2
-Money_SW_W.append("$$ | / \ $$ |") # 3
-Money_SW_W.append("$$ |/$  \$$ |") # 4
+Money_SW_W.append("$$ | / \\ $$ |") # 3
+Money_SW_W.append("$$ |/$  \\$$ |") # 4
 Money_SW_W.append("$$ /$$$  $$ |") # 5
 Money_SW_W.append("$$ $$/$$ $$ |") # 6
 Money_SW_W.append("$$$$/  $$$$ |") # 7
@@ -415,9 +415,9 @@ Money_SW_X.append("          ") # Top, 0
 Money_SW_X.append(" __    __ ") # 1
 Money_SW_X.append("/  |  /  |") # 2
 Money_SW_X.append("$$ |  $$ |") # 3
-Money_SW_X.append("$$  \/$$/ ") # 4
+Money_SW_X.append("$$  \\/$$/ ") # 4
 Money_SW_X.append(" $$  $$<  ") # 5
-Money_SW_X.append("  $$$$  \ ") # 6
+Money_SW_X.append("  $$$$  \\ ") # 6
 Money_SW_X.append(" $$ /$$  |") # 7
 Money_SW_X.append("$$ |  $$ |") # 8
 Money_SW_X.append("$$/   $$/ ") # 9
@@ -429,9 +429,9 @@ Money_SW_X.append("          ") # Bottom, 10
 Money_SW_Y = []
 Money_SW_Y.append("            ") # Top, 0
 Money_SW_Y.append(" __      __ ") # 1
-Money_SW_Y.append("/  \    /  |") # 2
-Money_SW_Y.append("$$  \  /$$/ ") # 3
-Money_SW_Y.append(" $$  \/$$/  ") # 4
+Money_SW_Y.append("/  \\    /  |") # 2
+Money_SW_Y.append("$$  \\  /$$/ ") # 3
+Money_SW_Y.append(" $$  \\/$$/  ") # 4
 Money_SW_Y.append("  $$  $$/   ") # 5
 Money_SW_Y.append("   $$$$/    ") # 6
 Money_SW_Y.append("    $$ |    ") # 7
@@ -463,7 +463,7 @@ Money_SW_a.append("          ") # Top, 0
 Money_SW_a.append("          ") # 1
 Money_SW_a.append("          ") # 2
 Money_SW_a.append("  ______  ") # 3
-Money_SW_a.append(" /      \ ") # 4
+Money_SW_a.append(" /      \\ ") # 4
 Money_SW_a.append(" $$$$$$  |") # 5
 Money_SW_a.append(" /    $$ |") # 6
 Money_SW_a.append("/$$$$$$$ |") # 7
@@ -479,7 +479,7 @@ Money_SW_b.append("          ") # Top, 0
 Money_SW_b.append(" __       ") # 1
 Money_SW_b.append("/  |      ") # 2
 Money_SW_b.append("$$ |____  ") # 3
-Money_SW_b.append("$$      \ ") # 4
+Money_SW_b.append("$$      \\ ") # 4
 Money_SW_b.append("$$$$$$$  |") # 5
 Money_SW_b.append("$$ |  $$ |") # 6
 Money_SW_b.append("$$ |__$$ |") # 7
@@ -498,7 +498,7 @@ Money_SW_c.append("  _______ ") # 3
 Money_SW_c.append(" /       |") # 4
 Money_SW_c.append("/$$$$$$$/ ") # 5
 Money_SW_c.append("$$ |      ") # 6
-Money_SW_c.append("$$ \_____ ") # 7
+Money_SW_c.append("$$ \\_____ ") # 7
 Money_SW_c.append("$$       |") # 8
 Money_SW_c.append(" $$$$$$$/ ") # 9
 Money_SW_c.append("          ") # Bottom, 10
@@ -514,7 +514,7 @@ Money_SW_d.append("  ____$$ |") # 3
 Money_SW_d.append(" /    $$ |") # 4
 Money_SW_d.append("/$$$$$$$ |") # 5
 Money_SW_d.append("$$ |  $$ |") # 6
-Money_SW_d.append("$$ \__$$ |") # 7
+Money_SW_d.append("$$ \\__$$ |") # 7
 Money_SW_d.append("$$    $$ |") # 8
 Money_SW_d.append(" $$$$$$$/ ") # 9
 Money_SW_d.append("          ") # Bottom, 10
@@ -527,7 +527,7 @@ Money_SW_e.append("          ") # Top, 0
 Money_SW_e.append("          ") # 1
 Money_SW_e.append("          ") # 2
 Money_SW_e.append("  ______  ") # 3
-Money_SW_e.append(" /      \ ") # 4
+Money_SW_e.append(" /      \\ ") # 4
 Money_SW_e.append("/$$$$$$  |") # 5
 Money_SW_e.append("$$    $$ |") # 6
 Money_SW_e.append("$$$$$$$$/ ") # 7
@@ -541,7 +541,7 @@ Money_SW_e.append("          ") # Bottom, 10
 Money_SW_f = []
 Money_SW_f.append("          ") # Top, 0
 Money_SW_f.append("  ______  ") # 1
-Money_SW_f.append(" /      \ ") # 2
+Money_SW_f.append(" /      \\ ") # 2
 Money_SW_f.append("/$$$$$$  |") # 3
 Money_SW_f.append("$$ |_ $$/ ") # 4
 Money_SW_f.append("$$   |    ") # 5
@@ -557,12 +557,12 @@ Money_SW_f.append("          ") # Bottom, 10
 Money_SW_g = []
 Money_SW_g.append("          ") # Top, 0
 Money_SW_g.append("  ______  ") # 1
-Money_SW_g.append(" /      \ ") # 2
+Money_SW_g.append(" /      \\ ") # 2
 Money_SW_g.append("/$$$$$$  |") # 3
-Money_SW_g.append("$$ \__$$ |") # 4
+Money_SW_g.append("$$ \\__$$ |") # 4
 Money_SW_g.append("$$    $$ |") # 5
 Money_SW_g.append(" $$$$$$$ |") # 6
-Money_SW_g.append("/  \__$$ |") # 7
+Money_SW_g.append("/  \\__$$ |") # 7
 Money_SW_g.append("$$    $$/ ") # 8
 Money_SW_g.append(" $$$$$$/  ") # 9
 Money_SW_g.append("          ") # Bottom, 10
@@ -575,7 +575,7 @@ Money_SW_h.append("          ") # Top, 0
 Money_SW_h.append(" __       ") # 1
 Money_SW_h.append("/  |      ") # 2
 Money_SW_h.append("$$ |____  ") # 3
-Money_SW_h.append("$$      \ ") # 4
+Money_SW_h.append("$$      \\ ") # 4
 Money_SW_h.append("$$$$$$$  |") # 5
 Money_SW_h.append("$$ |  $$ |") # 6
 Money_SW_h.append("$$ |  $$ |") # 7
@@ -612,7 +612,7 @@ Money_SW_j.append("      $$/ ") # 3
 Money_SW_j.append("      /  |") # 4
 Money_SW_j.append("      $$ |") # 5
 Money_SW_j.append(" __   $$ |") # 6
-Money_SW_j.append("/  \__$$ |") # 7
+Money_SW_j.append("/  \\__$$ |") # 7
 Money_SW_j.append("$$    $$/ ") # 8
 Money_SW_j.append(" $$$$$$/  ") # 9
 Money_SW_j.append("          ") # Bottom, 10
@@ -628,7 +628,7 @@ Money_SW_k.append("$$ |   __ ") # 3
 Money_SW_k.append("$$ |  /  |") # 4
 Money_SW_k.append("$$ |_/$$/ ") # 5
 Money_SW_k.append("$$   $$<  ") # 6
-Money_SW_k.append("$$$$$$  \ ") # 7
+Money_SW_k.append("$$$$$$  \\ ") # 7
 Money_SW_k.append("$$ | $$  |") # 8
 Money_SW_k.append("$$/   $$/ ") # 9
 Money_SW_k.append("          ") # Bottom, 10
@@ -657,7 +657,7 @@ Money_SW_m.append("              ") # Top, 0
 Money_SW_m.append("              ") # 1
 Money_SW_m.append("              ") # 2
 Money_SW_m.append(" _____  ____  ") # 3
-Money_SW_m.append("/     \/    \ ") # 4
+Money_SW_m.append("/     \\/    \\ ") # 4
 Money_SW_m.append("$$$$$$ $$$$  |") # 5
 Money_SW_m.append("$$ | $$ | $$ |") # 6
 Money_SW_m.append("$$ | $$ | $$ |") # 7
@@ -673,7 +673,7 @@ Money_SW_n.append("          ") # Top, 0
 Money_SW_n.append("          ") # 1
 Money_SW_n.append("          ") # 2
 Money_SW_n.append(" _______  ") # 3
-Money_SW_n.append("/       \ ") # 4
+Money_SW_n.append("/       \\ ") # 4
 Money_SW_n.append("$$$$$$$  |") # 5
 Money_SW_n.append("$$ |  $$ |") # 6
 Money_SW_n.append("$$ |  $$ |") # 7
@@ -705,10 +705,10 @@ Money_SW_o.append("          ") # Top, 0
 Money_SW_o.append("          ") # 1
 Money_SW_o.append("          ") # 2
 Money_SW_o.append("  ______  ") # 3
-Money_SW_o.append(" /      \ ") # 4
+Money_SW_o.append(" /      \\ ") # 4
 Money_SW_o.append("/$$$$$$  |") # 5
 Money_SW_o.append("$$ |  $$ |") # 6
-Money_SW_o.append("$$ \__$$ |") # 7
+Money_SW_o.append("$$ \\__$$ |") # 7
 Money_SW_o.append("$$    $$/ ") # 8
 Money_SW_o.append(" $$$$$$/  ") # 9
 Money_SW_o.append("          ") # Bottom, 10
@@ -719,7 +719,7 @@ Money_SW_o.append("          ") # Bottom, 10
 Money_SW_p = []
 Money_SW_p.append("          ") # Top, 0
 Money_SW_p.append(" _______  ") # 1
-Money_SW_p.append("/       \ ") # 2
+Money_SW_p.append("/       \\ ") # 2
 Money_SW_p.append("$$$$$$$  |") # 3
 Money_SW_p.append("$$ |__$$ |") # 4
 Money_SW_p.append("$$    $$/ ") # 5
@@ -737,7 +737,7 @@ Money_SW_q.append("          ") # Top, 0
 Money_SW_q.append(" ________ ") # 1
 Money_SW_q.append("/$$$$$$  \\") # 2
 Money_SW_q.append("$$ |  $$ |") # 3
-Money_SW_q.append("$$ \__$$ |") # 4
+Money_SW_q.append("$$ \\__$$ |") # 4
 Money_SW_q.append("$$    $$ |") # 5
 Money_SW_q.append(" $$$$$$$ |") # 6
 Money_SW_q.append("      $$ |") # 7
@@ -753,7 +753,7 @@ Money_SW_r.append("          ") # Top, 0
 Money_SW_r.append("          ") # 1
 Money_SW_r.append("          ") # 2
 Money_SW_r.append("  ______  ") # 3
-Money_SW_r.append(" /      \ ") # 4
+Money_SW_r.append(" /      \\ ") # 4
 Money_SW_r.append("/$$$$$$  |") # 5
 Money_SW_r.append("$$ |  $$/ ") # 6
 Money_SW_r.append("$$ |      ") # 7
@@ -771,7 +771,7 @@ Money_SW_s.append("          ") # 2
 Money_SW_s.append("  _______ ") # 3
 Money_SW_s.append(" /       |") # 4
 Money_SW_s.append("/$$$$$$$/ ") # 5
-Money_SW_s.append("$$      \ ") # 6
+Money_SW_s.append("$$      \\ ") # 6
 Money_SW_s.append(" $$$$$$  |") # 7
 Money_SW_s.append("/     $$/ ") # 8
 Money_SW_s.append("$$$$$$$/  ") # 9
@@ -804,7 +804,7 @@ Money_SW_u.append(" __    __ ") # 3
 Money_SW_u.append("/  |  /  |") # 4
 Money_SW_u.append("$$ |  $$ |") # 5
 Money_SW_u.append("$$ |  $$ |") # 6
-Money_SW_u.append("$$ \__$$ |") # 7
+Money_SW_u.append("$$ \\__$$ |") # 7
 Money_SW_u.append("$$    $$/ ") # 8
 Money_SW_u.append(" $$$$$$/  ") # 9
 Money_SW_u.append("          ") # Bottom, 10
@@ -817,8 +817,8 @@ Money_SW_v.append("           ") # Top, 0
 Money_SW_v.append("           ") # 1
 Money_SW_v.append("           ") # 2
 Money_SW_v.append(" __     __ ") # 3
-Money_SW_v.append("/  \   /  |") # 4
-Money_SW_v.append("$$  \ /$$/ ") # 5
+Money_SW_v.append("/  \\   /  |") # 4
+Money_SW_v.append("$$  \\ /$$/ ") # 5
 Money_SW_v.append(" $$  /$$/  ") # 6
 Money_SW_v.append("  $$ $$/   ") # 7
 Money_SW_v.append("   $$$/    ") # 8
@@ -836,7 +836,7 @@ Money_SW_w.append(" __   __   __ ") # 3
 Money_SW_w.append("/  | /  | /  |") # 4
 Money_SW_w.append("$$ | $$ | $$ |") # 5
 Money_SW_w.append("$$ | $$ | $$ |") # 6
-Money_SW_w.append("$$ \_$$ \_$$ |") # 7
+Money_SW_w.append("$$ \\_$$ \\_$$ |") # 7
 Money_SW_w.append("$$   $$   $$/ ") # 8
 Money_SW_w.append(" $$$$$/$$$$/  ") # 9
 Money_SW_w.append("              ") # Bottom, 10
@@ -849,10 +849,10 @@ Money_SW_x.append("          ") # Top, 0
 Money_SW_x.append("          ") # 1
 Money_SW_x.append("          ") # 2
 Money_SW_x.append(" __    __ ") # 3
-Money_SW_x.append("/  \  /  |") # 4
-Money_SW_x.append("$$  \/$$/ ") # 5
+Money_SW_x.append("/  \\  /  |") # 4
+Money_SW_x.append("$$  \\/$$/ ") # 5
 Money_SW_x.append(" $$  $$<  ") # 6
-Money_SW_x.append(" /$$$$  \ ") # 7
+Money_SW_x.append(" /$$$$  \\ ") # 7
 Money_SW_x.append("/$$/ $$  |") # 8
 Money_SW_x.append("$$/   $$/ ") # 9
 Money_SW_x.append("          ") # Bottom, 10
@@ -865,10 +865,10 @@ Money_SW_y.append("          ") # Top, 0
 Money_SW_y.append(" __    __ ") # 1
 Money_SW_y.append("/  |  /  |") # 2
 Money_SW_y.append("$$ |  $$ |") # 3
-Money_SW_y.append("$$ \__$$ |") # 4
+Money_SW_y.append("$$ \\__$$ |") # 4
 Money_SW_y.append("$$    $$ |") # 5
 Money_SW_y.append(" $$$$$$$ |") # 6
-Money_SW_y.append("/  \__$$ |") # 7
+Money_SW_y.append("/  \\__$$ |") # 7
 Money_SW_y.append("$$    $$/ ") # 8
 Money_SW_y.append(" $$$$$$/  ") # 9
 Money_SW_y.append("          ") # Bottom, 10
@@ -927,7 +927,7 @@ Money_SW_one.append("        ") # Bottom, 10
 Money_SW_two = []
 Money_SW_two.append("          ") # Top, 0
 Money_SW_two.append("  ______  ") # 1
-Money_SW_two.append(" /      \ ") # 2
+Money_SW_two.append(" /      \\ ") # 2
 Money_SW_two.append("/$$$$$$  |") # 3
 Money_SW_two.append("$$____$$ |") # 4
 Money_SW_two.append(" /    $$/ ") # 5
@@ -935,7 +935,7 @@ Money_SW_two.append("/$$$$$$/  ") # 6
 Money_SW_two.append("$$ |_____ ") # 7
 Money_SW_two.append("$$       |") # 8
 Money_SW_two.append("$$$$$$$$/ ") # 9
-Money_SW_two.append("          ") # Bottom, 10
+Money_SW_two.append("          ") # Bottom, 10msg.ascii_type = cp.Ascii_Letter.Money_NW
 
 # +--------------------------------+
 #   Letter three 
@@ -943,19 +943,19 @@ Money_SW_two.append("          ") # Bottom, 10
 Money_SW_three = []
 Money_SW_three.append("          ") # Top, 0
 Money_SW_three.append("  ______  ") # 1
-Money_SW_three.append(" /      \ ") # 2
+Money_SW_three.append(" /      \\ ") # 2
 Money_SW_three.append("/$$$$$$  |") # 3
 Money_SW_three.append("$$ ___$$ |") # 4
 Money_SW_three.append("  /   $$< ") # 5
 Money_SW_three.append(" _$$$$$  |") # 6
-Money_SW_three.append("/  \__$$ |") # 7
+Money_SW_three.append("/  \\__$$ |") # 7
 Money_SW_three.append("$$    $$/ ") # 8
 Money_SW_three.append(" $$$$$$/  ") # 9
 Money_SW_three.append("          ") # Bottom, 10
 
 # +--------------------------------+
 #   Letter four 
-# +--------------------------------+
+# +--------------------------------+msg.ascii_type = cp.Ascii_Letter.Money_NW
 Money_SW_four = []
 Money_SW_four.append("          ") # Top, 0
 Money_SW_four.append(" __    __ ") # 1
@@ -978,10 +978,10 @@ Money_SW_five.append(" _______  ") # 1
 Money_SW_five.append("/       | ") # 2
 Money_SW_five.append("$$$$$$$/  ") # 3
 Money_SW_five.append("$$ |____  ") # 4
-Money_SW_five.append("$$      \ ") # 5
+Money_SW_five.append("$$      \\ ") # 5
 Money_SW_five.append("$$$$$$$  |") # 6
-Money_SW_five.append("/  \__$$ |") # 7
-Money_SW_five.append("$$    $$/ ") # 8
+Money_SW_five.append("/  \\__$$ |") # 7
+Money_SW_five.append("$$    $$/ ") # 8msg.ascii_type = cp.Ascii_Letter.Money_NW
 Money_SW_five.append(" $$$$$$/  ") # 9
 Money_SW_five.append("          ") # Bottom, 10
 
@@ -991,12 +991,12 @@ Money_SW_five.append("          ") # Bottom, 10
 Money_SW_six = []
 Money_SW_six.append("          ") # Top, 0
 Money_SW_six.append("  ______  ") # 1
-Money_SW_six.append(" /      \ ") # 2
+Money_SW_six.append(" /      \\ ") # 2
 Money_SW_six.append("/$$$$$$  |") # 3
-Money_SW_six.append("$$ \__$$/ ") # 4
-Money_SW_six.append("$$      \ ") # 5
+Money_SW_six.append("$$ \\__$$/ ") # 4
+Money_SW_six.append("$$      \\ ") # 5
 Money_SW_six.append("$$$$$$$  |") # 6
-Money_SW_six.append("$$ \__$$ |") # 7
+Money_SW_six.append("$$ \\__$$ |") # 7
 Money_SW_six.append("$$    $$/ ") # 8
 Money_SW_six.append(" $$$$$$/  ") # 9
 Money_SW_six.append("          ") # Bottom, 10
@@ -1023,12 +1023,12 @@ Money_SW_seven.append("          ") # Bottom, 10
 Money_SW_eight = []
 Money_SW_eight.append("          ") # Top, 0
 Money_SW_eight.append("  ______  ") # 1
-Money_SW_eight.append(" /      \ ") # 2
+Money_SW_eight.append(" /      \\ ") # 2
 Money_SW_eight.append("/$$$$$$  |") # 3
-Money_SW_eight.append("$$ \__$$ |") # 4
+Money_SW_eight.append("$$ \\__$$ |") # 4
 Money_SW_eight.append("$$    $$< ") # 5
 Money_SW_eight.append(" $$$$$$  |") # 6
-Money_SW_eight.append("$$ \__$$ |") # 7
+Money_SW_eight.append("$$ \\__$$ |") # 7
 Money_SW_eight.append("$$    $$/ ") # 8
 Money_SW_eight.append(" $$$$$$/  ") # 9
 Money_SW_eight.append("          ") # Bottom, 10
@@ -1039,12 +1039,12 @@ Money_SW_eight.append("          ") # Bottom, 10
 Money_SW_nine = []
 Money_SW_nine.append("          ") # Top, 0
 Money_SW_nine.append("  ______  ") # 1
-Money_SW_nine.append(" /      \ ") # 2
+Money_SW_nine.append(" /      \\ ") # 2
 Money_SW_nine.append("/$$$$$$  |") # 3
-Money_SW_nine.append("$$ \__$$ |") # 4
+Money_SW_nine.append("$$ \\__$$ |") # 4
 Money_SW_nine.append("$$    $$ |") # 5
 Money_SW_nine.append(" $$$$$$$ |") # 6
-Money_SW_nine.append("/  \__$$ |") # 7
+Money_SW_nine.append("/  \\__$$ |") # 7
 Money_SW_nine.append("$$    $$/ ") # 8
 Money_SW_nine.append(" $$$$$$/  ") # 9
 Money_SW_nine.append("          ") # Bottom, 10
@@ -1055,12 +1055,12 @@ Money_SW_nine.append("          ") # Bottom, 10
 Money_SW_zero = []
 Money_SW_zero.append("          ") # Top, 0
 Money_SW_zero.append("  ______  ") # 1
-Money_SW_zero.append(" /      \ ") # 2
+Money_SW_zero.append(" /      \\ ") # 2
 Money_SW_zero.append("/$$$$$$  |") # 3
-Money_SW_zero.append("$$$  \$$ |") # 4
+Money_SW_zero.append("$$$  \\$$ |") # 4
 Money_SW_zero.append("$$$$  $$ |") # 5
 Money_SW_zero.append("$$ $$ $$ |") # 6
-Money_SW_zero.append("$$ \$$$$ |") # 7
+Money_SW_zero.append("$$ \\$$$$ |") # 7
 Money_SW_zero.append("$$   $$$/ ") # 8
 Money_SW_zero.append(" $$$$$$/  ") # 9
 Money_SW_zero.append("          ") # Bottom, 10
@@ -1103,12 +1103,12 @@ Money_SW_equal.append("      ") # Bottom, 10
 Money_SW_backward_slash = []
 Money_SW_backward_slash.append("          ") # Top, 0
 Money_SW_backward_slash.append(" __       ") # 1
-Money_SW_backward_slash.append("/  \      ") # 2
-Money_SW_backward_slash.append("$$  \     ") # 3
-Money_SW_backward_slash.append(" $$  \    ") # 4
-Money_SW_backward_slash.append("  $$  \   ") # 5
-Money_SW_backward_slash.append("   $$  \  ") # 6
-Money_SW_backward_slash.append("    $$  \ ") # 7
+Money_SW_backward_slash.append("/  \\      ") # 2
+Money_SW_backward_slash.append("$$  \\     ") # 3
+Money_SW_backward_slash.append(" $$  \\    ") # 4
+Money_SW_backward_slash.append("  $$  \\   ") # 5
+Money_SW_backward_slash.append("   $$  \\  ") # 6
+Money_SW_backward_slash.append("    $$  \\ ") # 7
 Money_SW_backward_slash.append("     $$  |") # 8
 Money_SW_backward_slash.append("      $$/ ") # 9
 Money_SW_backward_slash.append("          ") # Bottom, 10
@@ -1231,7 +1231,7 @@ Money_SW_forward_slash.append("          ") # Bottom, 10
 Money_SW_tilde = []
 Money_SW_tilde.append("          ") # Top, 0
 Money_SW_tilde.append("  ___  __ ") # 1
-Money_SW_tilde.append(" /   \/  |") # 2
+Money_SW_tilde.append(" /   \\/  |") # 2
 Money_SW_tilde.append("/$$$  $$ |") # 3
 Money_SW_tilde.append("$$ $$ $$/ ") # 4
 Money_SW_tilde.append("$$/ $$$/  ") # 5
@@ -1262,14 +1262,14 @@ Money_SW_exclamation.append("    ") # Bottom, 10
 # +--------------------------------+
 Money_SW_arroba = []
 Money_SW_arroba.append("   __________   ") # Top, 0
-Money_SW_arroba.append("  / $$$$$$   \  ") # 1
-Money_SW_arroba.append(" /$$$ ___$$$  \ ") # 2
+Money_SW_arroba.append("  / $$$$$$   \\  ") # 1
+Money_SW_arroba.append(" /$$$ ___$$$  \\ ") # 2
 Money_SW_arroba.append("/$$/ /     $$  |") # 3
 Money_SW_arroba.append("$$ |/$$$$$ |$$ |") # 4
 Money_SW_arroba.append("$$ |$$  $$ |$$ |") # 5
 Money_SW_arroba.append("$$ |$$  $$  $$/ ") # 6
-Money_SW_arroba.append("$$  \$$$$$$$$/  ") # 7
-Money_SW_arroba.append(" $$   \__/   |  ") # 8
+Money_SW_arroba.append("$$  \\$$$$$$$$/  ") # 7
+Money_SW_arroba.append(" $$   \\__/   |  ") # 8
 Money_SW_arroba.append("  $$$    $$$/   ") # 9
 Money_SW_arroba.append("    $$$$$$/     ") # Bottom, 10
 
@@ -1295,12 +1295,12 @@ Money_SW_pound.append("            ") # Bottom, 10
 Money_SW_dollar = []
 Money_SW_dollar.append("    __    ") # Top, 0
 Money_SW_dollar.append("  _/  |_  ") # 1
-Money_SW_dollar.append(" / $$   \ ") # 2
+Money_SW_dollar.append(" / $$   \\ ") # 2
 Money_SW_dollar.append("/$$$$$$  |") # 3
-Money_SW_dollar.append("$$ \__$$/ ") # 4
-Money_SW_dollar.append("$$      \ ") # 5
+Money_SW_dollar.append("$$ \\__$$/ ") # 4
+Money_SW_dollar.append("$$      \\ ") # 5
 Money_SW_dollar.append(" $$$$$$  |") # 6
-Money_SW_dollar.append("/  \__$$ |") # 7
+Money_SW_dollar.append("/  \\__$$ |") # 7
 Money_SW_dollar.append("$$    $$/ ") # 8
 Money_SW_dollar.append(" $$$$$$/  ") # 9
 Money_SW_dollar.append("   $$/    ") # Bottom, 10
@@ -1327,9 +1327,9 @@ Money_SW_percent.append("          ") # Bottom, 10
 Money_SW_caret = []
 Money_SW_caret.append("         ") # Top, 0
 Money_SW_caret.append("    _    ") # 1
-Money_SW_caret.append("   / \   ") # 2
-Money_SW_caret.append("  /$  \  ") # 3
-Money_SW_caret.append(" /$$$  \ ") # 4
+Money_SW_caret.append("   / \\   ") # 2
+Money_SW_caret.append("  /$  \\  ") # 3
+Money_SW_caret.append(" /$$$  \\ ") # 4
 Money_SW_caret.append("/$$/$$  |") # 5
 Money_SW_caret.append("$$/  $$/ ") # 6
 Money_SW_caret.append("         ") # 7
@@ -1343,12 +1343,12 @@ Money_SW_caret.append("         ") # Bottom, 10
 Money_SW_ampersand = []
 Money_SW_ampersand.append("          ") # Top, 0
 Money_SW_ampersand.append("  ___     ") # 1
-Money_SW_ampersand.append(" /   \    ") # 2
+Money_SW_ampersand.append(" /   \\    ") # 2
 Money_SW_ampersand.append("/$$$  |   ") # 3
-Money_SW_ampersand.append("$$ $$ \__ ") # 4
+Money_SW_ampersand.append("$$ $$ \\__ ") # 4
 Money_SW_ampersand.append("/$$$     |") # 5
 Money_SW_ampersand.append("$$ $$ $$/ ") # 6
-Money_SW_ampersand.append("$$ \$$  \ ") # 7
+Money_SW_ampersand.append("$$ \\$$  \\ ") # 7
 Money_SW_ampersand.append("$$   $$  |") # 8
 Money_SW_ampersand.append(" $$$$/$$/ ") # 9
 Money_SW_ampersand.append("          ") # Bottom, 10
@@ -1380,7 +1380,7 @@ Money_SW_open_parenthesis.append(" /$$$/ ") # 3
 Money_SW_open_parenthesis.append("/$$ /  ") # 4
 Money_SW_open_parenthesis.append("$$ |   ") # 5
 Money_SW_open_parenthesis.append("$$ |   ") # 6
-Money_SW_open_parenthesis.append("$$  \_ ") # 7
+Money_SW_open_parenthesis.append("$$  \\_ ") # 7
 Money_SW_open_parenthesis.append(" $$   |") # 8
 Money_SW_open_parenthesis.append("  $$$/ ") # 9
 Money_SW_open_parenthesis.append("       ") # Bottom, 10
@@ -1391,8 +1391,8 @@ Money_SW_open_parenthesis.append("       ") # Bottom, 10
 Money_SW_closed_parenthesis = []
 Money_SW_closed_parenthesis.append("       ") # Top, 0
 Money_SW_closed_parenthesis.append(" ___   ") # 1
-Money_SW_closed_parenthesis.append("/   \  ") # 2
-Money_SW_closed_parenthesis.append("$$$  \ ") # 3
+Money_SW_closed_parenthesis.append("/   \\  ") # 2
+Money_SW_closed_parenthesis.append("$$$  \\ ") # 3
 Money_SW_closed_parenthesis.append("  $$  |") # 4
 Money_SW_closed_parenthesis.append("   $$ |") # 5
 Money_SW_closed_parenthesis.append("   $$ |") # 6
@@ -1471,9 +1471,9 @@ Money_SW_open_curly.append("       ") # Bottom, 10
 Money_SW_closed_curly = []
 Money_SW_closed_curly.append("       ") # Top, 0
 Money_SW_closed_curly.append(" ___   ") # 1
-Money_SW_closed_curly.append("/   \  ") # 2
+Money_SW_closed_curly.append("/   \\  ") # 2
 Money_SW_closed_curly.append("$$$  | ") # 3
-Money_SW_closed_curly.append("  $$ \ ") # 4
+Money_SW_closed_curly.append("  $$ \\ ") # 4
 Money_SW_closed_curly.append("  $$  |") # 5
 Money_SW_closed_curly.append("  $$$/ ") # 6
 Money_SW_closed_curly.append(" _$$ | ") # 7
@@ -1523,8 +1523,8 @@ Money_SW_less_than.append("   /  |") # 2
 Money_SW_less_than.append("  /$$/ ") # 3
 Money_SW_less_than.append(" /$$/  ") # 4
 Money_SW_less_than.append("/$$<   ") # 5
-Money_SW_less_than.append("$$  \  ") # 6
-Money_SW_less_than.append(" $$  \ ") # 7
+Money_SW_less_than.append("$$  \\  ") # 6
+Money_SW_less_than.append(" $$  \\ ") # 7
 Money_SW_less_than.append("  $$  |") # 8
 Money_SW_less_than.append("   $$/ ") # 9
 Money_SW_less_than.append("       ") # Bottom, 10
@@ -1535,9 +1535,9 @@ Money_SW_less_than.append("       ") # Bottom, 10
 Money_SW_greater_than = []
 Money_SW_greater_than.append("       ") # Top, 0
 Money_SW_greater_than.append(" __    ") # 1
-Money_SW_greater_than.append("/  \   ") # 2
-Money_SW_greater_than.append("$$  \  ") # 3
-Money_SW_greater_than.append(" $$  \ ") # 4
+Money_SW_greater_than.append("/  \\   ") # 2
+Money_SW_greater_than.append("$$  \\  ") # 3
+Money_SW_greater_than.append(" $$  \\ ") # 4
 Money_SW_greater_than.append("  $$  |") # 5
 Money_SW_greater_than.append("  /$$/ ") # 6
 Money_SW_greater_than.append(" /$$/  ") # 7
@@ -1551,7 +1551,7 @@ Money_SW_greater_than.append("       ") # Bottom, 10
 Money_SW_question = []
 Money_SW_question.append("        ") # Top, 0
 Money_SW_question.append("  ____  ") # 1
-Money_SW_question.append(" /    \ ") # 2
+Money_SW_question.append(" /    \\ ") # 2
 Money_SW_question.append("/$$$$  |") # 3
 Money_SW_question.append("$$  $$ |") # 4
 Money_SW_question.append("   /$$/ ") # 5

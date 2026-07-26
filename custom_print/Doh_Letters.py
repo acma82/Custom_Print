@@ -762,24 +762,24 @@ Doh_e.append("                    ") # Bottom, 17
 #   Letter f 
 # +--------------------------------+
 Doh_f = []
-Doh_f.append("                      ") # Top, 0
-Doh_f.append("    ffffffffffffffff  ") # 1
-Doh_f.append("   f::::::::::::::::f ") # 2
-Doh_f.append("  f::::::::::::::::::f") # 3
-Doh_f.append("  f::::::fffffff:::::f") # 4
-Doh_f.append("  f:::::f       ffffff") # 5
-Doh_f.append("  f:::::f             ") # 6
-Doh_f.append(" f:::::::ffffff       ") # 7
-Doh_f.append(" f::::::::::::f       ") # 8
-Doh_f.append(" f::::::::::::f       ") # 9
-Doh_f.append(" f:::::::ffffff       ") # 10
-Doh_f.append("  f:::::f             ") # 11
-Doh_f.append("  f:::::f             ") # 12
-Doh_f.append(" f:::::::f            ") # 13
-Doh_f.append(" f:::::::f            ") # 14
-Doh_f.append(" f:::::::f            ") # 15
-Doh_f.append(" fffffffff            ") # 16
-Doh_f.append("                      ") # Bottom, 17
+Doh_f.append("                     ") # Top, 0
+Doh_f.append("   ffffffffffffffff  ") # 1
+Doh_f.append("  f::::::::::::::::f ") # 2
+Doh_f.append(" f::::::::::::::::::f") # 3
+Doh_f.append(" f::::::fffffff:::::f") # 4
+Doh_f.append(" f:::::f       ffffff") # 5
+Doh_f.append(" f:::::f             ") # 6
+Doh_f.append("f:::::::ffffff       ") # 7
+Doh_f.append("f::::::::::::f       ") # 8
+Doh_f.append("f::::::::::::f       ") # 9
+Doh_f.append("f:::::::ffffff       ") # 10
+Doh_f.append(" f:::::f             ") # 11
+Doh_f.append(" f:::::f             ") # 12
+Doh_f.append("f:::::::f            ") # 13
+Doh_f.append("f:::::::f            ") # 14
+Doh_f.append("f:::::::f            ") # 15
+Doh_f.append("fffffffff            ") # 16
+Doh_f.append("                     ") # Bottom, 17
 
 # +--------------------------------+
 #   Letter g 
@@ -854,24 +854,24 @@ Doh_i.append("        ") # Bottom, 17
 #   Letter j 
 # +--------------------------------+
 Doh_j = []
-Doh_j.append("                ") # Top, 0
-Doh_j.append("           jjjj ") # 1
-Doh_j.append("          j::::j") # 2
-Doh_j.append("           jjjj ") # 3
-Doh_j.append("                ") # 4
-Doh_j.append("          jjjjjj") # 5
-Doh_j.append("          j::::j") # 6
-Doh_j.append("           j:::j") # 7
-Doh_j.append("           j:::j") # 8
-Doh_j.append("           j:::j") # 9
-Doh_j.append("           j:::j") # 10
-Doh_j.append("           j:::j") # 11
-Doh_j.append("  jjjj     j:::j") # 12
-Doh_j.append(" j:::jj   j::::j") # 13
-Doh_j.append(" j::::jjjj::::j ") # 14
-Doh_j.append("  jj:::::::::j  ") # 15
-Doh_j.append("     jjjjjj     ") # 16
-Doh_j.append("                ") # Bottom, 17
+Doh_j.append("               ") # Top, 0
+Doh_j.append("          jjjj ") # 1
+Doh_j.append("         j::::j") # 2
+Doh_j.append("          jjjj ") # 3
+Doh_j.append("               ") # 4
+Doh_j.append("         jjjjjj") # 5
+Doh_j.append("         j::::j") # 6
+Doh_j.append("          j:::j") # 7
+Doh_j.append("          j:::j") # 8
+Doh_j.append("          j:::j") # 9
+Doh_j.append("          j:::j") # 10
+Doh_j.append("          j:::j") # 11
+Doh_j.append(" jjjj     j:::j") # 12
+Doh_j.append("j:::jj   j::::j") # 13
+Doh_j.append("j::::jjjj::::j ") # 14
+Doh_j.append(" jj:::::::::j  ") # 15
+Doh_j.append("    jjjjjj     ") # 16
+Doh_j.append("               ") # Bottom, 17
 
 # +--------------------------------+
 #   Letter k 
@@ -1222,24 +1222,24 @@ Doh_x.append("                    ") # Bottom, 17
 #   Letter y 
 # +--------------------------------+
 Doh_y = []
-Doh_y.append("                         ") # Top, 0
-Doh_y.append(" yyyyyy           yyyyyy ") # 1
-Doh_y.append("  y:::::y       y:::::y  ") # 2
-Doh_y.append("   y:::::y     y:::::y   ") # 3
-Doh_y.append("    y:::::y   y:::::y    ") # 4
-Doh_y.append("     y:::::y y:::::y     ") # 5
-Doh_y.append("      y:::::y:::::y      ") # 6
-Doh_y.append("       y:::::::::y       ") # 7
-Doh_y.append("        y:::::::y        ") # 8
-Doh_y.append("         y:::::y         ") # 9
-Doh_y.append("        y:::::y          ") # 10
-Doh_y.append("       y:::::y           ") # 11
-Doh_y.append("      y:::::y            ") # 12
-Doh_y.append("     y:::::y             ") # 13
-Doh_y.append("    y:::::y              ") # 14
-Doh_y.append("   y:::::y               ") # 15
-Doh_y.append("  yyyyyyy                ") # 16
-Doh_y.append("                         ") # Bottom, 17
+Doh_y.append("                       ") # Top, 0
+Doh_y.append("yyyyyy           yyyyyy") # 1
+Doh_y.append(" y:::::y       y:::::y ") # 2
+Doh_y.append("  y:::::y     y:::::y  ") # 3
+Doh_y.append("   y:::::y   y:::::y   ") # 4
+Doh_y.append("    y:::::y y:::::y    ") # 5
+Doh_y.append("     y:::::y:::::y     ") # 6
+Doh_y.append("      y:::::::::y      ") # 7
+Doh_y.append("       y:::::::y       ") # 8
+Doh_y.append("        y:::::y        ") # 9
+Doh_y.append("       y:::::y         ") # 10
+Doh_y.append("      y:::::y          ") # 11
+Doh_y.append("     y:::::y           ") # 12
+Doh_y.append("    y:::::y            ") # 13
+Doh_y.append("   y:::::y             ") # 14
+Doh_y.append("  y:::::y              ") # 15
+Doh_y.append(" yyyyyyy               ") # 16
+Doh_y.append("                       ") # Bottom, 17
 
 # +--------------------------------+
 #   Letter z 
@@ -1521,69 +1521,69 @@ Doh_zero.append("                   ") # Bottom, 17
 #   Letter minus 
 # +--------------------------------+
 Doh_minus = []
-Doh_minus.append("                 ") # Top, 0
-Doh_minus.append("                 ") # 1
-Doh_minus.append("                 ") # 2
-Doh_minus.append("                 ") # 3
-Doh_minus.append("                 ") # 4
-Doh_minus.append("                 ") # 5
-Doh_minus.append("                 ") # 6
-Doh_minus.append(" --------------- ") # 7
-Doh_minus.append(" -:::::::::::::- ") # 8
-Doh_minus.append(" --------------- ") # 9
-Doh_minus.append("                 ") # 10
-Doh_minus.append("                 ") # 11
-Doh_minus.append("                 ") # 12
-Doh_minus.append("                 ") # 13
-Doh_minus.append("                 ") # 14
-Doh_minus.append("                 ") # 15
-Doh_minus.append("                 ") # 16
-Doh_minus.append("                 ") # Bottom, 17
+Doh_minus.append("               ") # Top, 0
+Doh_minus.append("               ") # 1
+Doh_minus.append("               ") # 2
+Doh_minus.append("               ") # 3
+Doh_minus.append("               ") # 4
+Doh_minus.append("               ") # 5
+Doh_minus.append("               ") # 6
+Doh_minus.append("---------------") # 7
+Doh_minus.append("-:::::::::::::-") # 8
+Doh_minus.append("---------------") # 9
+Doh_minus.append("               ") # 10
+Doh_minus.append("               ") # 11
+Doh_minus.append("               ") # 12
+Doh_minus.append("               ") # 13
+Doh_minus.append("               ") # 14
+Doh_minus.append("               ") # 15
+Doh_minus.append("               ") # 16
+Doh_minus.append("               ") # Bottom, 17
 
 # +--------------------------------+
 #   Letter equal 
 # +--------------------------------+
 Doh_equal = []
-Doh_equal.append("                 ") # Top, 0
-Doh_equal.append("                 ") # 1
-Doh_equal.append("                 ") # 2
-Doh_equal.append("                 ") # 3
-Doh_equal.append("                 ") # 4
-Doh_equal.append("                 ") # 5
-Doh_equal.append(" =============== ") # 6
-Doh_equal.append(" =:::::::::::::= ") # 7
-Doh_equal.append(" =============== ") # 8
-Doh_equal.append("                 ") # 9
-Doh_equal.append(" =============== ") # 10
-Doh_equal.append(" =:::::::::::::= ") # 11
-Doh_equal.append(" =============== ") # 12
-Doh_equal.append("                 ") # 13
-Doh_equal.append("                 ") # 14
-Doh_equal.append("                 ") # 15
-Doh_equal.append("                 ") # 16
-Doh_equal.append("                 ") # Bottom, 17
+Doh_equal.append("               ") # Top, 0
+Doh_equal.append("               ") # 1
+Doh_equal.append("               ") # 2
+Doh_equal.append("               ") # 3
+Doh_equal.append("               ") # 4
+Doh_equal.append("               ") # 5
+Doh_equal.append("===============") # 6
+Doh_equal.append("=:::::::::::::=") # 7
+Doh_equal.append("===============") # 8
+Doh_equal.append("               ") # 9
+Doh_equal.append("===============") # 10
+Doh_equal.append("=:::::::::::::=") # 11
+Doh_equal.append("===============") # 12
+Doh_equal.append("               ") # 13
+Doh_equal.append("               ") # 14
+Doh_equal.append("               ") # 15
+Doh_equal.append("               ") # 16
+Doh_equal.append("               ") # Bottom, 17
 
 # +--------------------------------+
 #   Letter backward_slash 
 # +--------------------------------+
 Doh_backward_slash = []
 Doh_backward_slash.append("                      ") # Top, 0
-Doh_backward_slash.append("|:::::\               ") # 1
-Doh_backward_slash.append(" \:::::\              ") # 2
-Doh_backward_slash.append("  \:::::\             ") # 3
-Doh_backward_slash.append("   \:::::\            ") # 4
-Doh_backward_slash.append("    \:::::\           ") # 5
-Doh_backward_slash.append("     \:::::\          ") # 6
-Doh_backward_slash.append("      \:::::\         ") # 7
-Doh_backward_slash.append("       \:::::\        ") # 8
-Doh_backward_slash.append("        \:::::\       ") # 9
-Doh_backward_slash.append("         \:::::\      ") # 10
-Doh_backward_slash.append("          \:::::\     ") # 11
-Doh_backward_slash.append("           \:::::\    ") # 12
-Doh_backward_slash.append("            \:::::\   ") # 13
-Doh_backward_slash.append("             \:::::\  ") # 14
-Doh_backward_slash.append("              \:::::\ ") # 15
-Doh_backward_slash.append("               \:::::|") # 16
+Doh_backward_slash.append("|:::::\\               ") # 1
+Doh_backward_slash.append(" \\:::::\\              ") # 2
+Doh_backward_slash.append("  \\:::::\\             ") # 3
+Doh_backward_slash.append("   \\:::::\\            ") # 4
+Doh_backward_slash.append("    \\:::::\\           ") # 5
+Doh_backward_slash.append("     \\:::::\\          ") # 6
+Doh_backward_slash.append("      \\:::::\\         ") # 7
+Doh_backward_slash.append("       \\:::::\\        ") # 8
+Doh_backward_slash.append("        \\:::::\\       ") # 9
+Doh_backward_slash.append("         \\:::::\\      ") # 10
+Doh_backward_slash.append("          \\:::::\\     ") # 11
+Doh_backward_slash.append("           \\:::::\\    ") # 12
+Doh_backward_slash.append("            \\:::::\\   ") # 13
+Doh_backward_slash.append("             \\:::::\\  ") # 14
+Doh_backward_slash.append("              \\:::::\\ ") # 15
+Doh_backward_slash.append("               \\:::::|") # 16
 Doh_backward_slash.append("                      ") # Bottom, 17
 
 # +--------------------------------+
@@ -1636,24 +1636,24 @@ Doh_closed_bracket.append("         ") # Bottom, 17
 #   Letter bemicolon 
 # +--------------------------------+
 Doh_semicolon = []
-Doh_semicolon.append("         ") # Top, 0
-Doh_semicolon.append("         ") # 1
-Doh_semicolon.append("         ") # 2
-Doh_semicolon.append("  ;;;;;; ") # 3
-Doh_semicolon.append("  ;::::; ") # 4
-Doh_semicolon.append("  ;;;;;; ") # 5
-Doh_semicolon.append("         ") # 6
-Doh_semicolon.append("         ") # 7
-Doh_semicolon.append("         ") # 8
-Doh_semicolon.append("  ;;;;;; ") # 9
-Doh_semicolon.append("  ;::::; ") # 10
-Doh_semicolon.append("  ;:::;; ") # 11
-Doh_semicolon.append(" ;:::;   ") # 12
-Doh_semicolon.append(" ;;;;    ") # 13
-Doh_semicolon.append("         ") # 14
-Doh_semicolon.append("         ") # 15
-Doh_semicolon.append("         ") # 16
-Doh_semicolon.append("         ") # Bottom, 17
+Doh_semicolon.append("       ") # Top, 0
+Doh_semicolon.append("       ") # 1
+Doh_semicolon.append("       ") # 2
+Doh_semicolon.append(" ;;;;;;") # 3
+Doh_semicolon.append(" ;::::;") # 4
+Doh_semicolon.append(" ;;;;;;") # 5
+Doh_semicolon.append("       ") # 6
+Doh_semicolon.append("       ") # 7
+Doh_semicolon.append("       ") # 8
+Doh_semicolon.append(" ;;;;;;") # 9
+Doh_semicolon.append(" ;::::;") # 10
+Doh_semicolon.append(" ;:::;;") # 11
+Doh_semicolon.append(";:::;  ") # 12
+Doh_semicolon.append(";;;;   ") # 13
+Doh_semicolon.append("       ") # 14
+Doh_semicolon.append("       ") # 15
+Doh_semicolon.append("       ") # 16
+Doh_semicolon.append("       ") # Bottom, 17
 
 # +--------------------------------+
 #   Letter apostrophe 
@@ -1705,24 +1705,24 @@ Doh_comma.append("       ") # Bottom, 17
 #   Letter period 
 # +--------------------------------+
 Doh_period = []
-Doh_period.append("        ") # Top, 0
-Doh_period.append("        ") # 1
-Doh_period.append("        ") # 2
-Doh_period.append("        ") # 3
-Doh_period.append("        ") # 4
-Doh_period.append("        ") # 5
-Doh_period.append("        ") # 6
-Doh_period.append("        ") # 7
-Doh_period.append("        ") # 8
-Doh_period.append("        ") # 9
-Doh_period.append("        ") # 10
-Doh_period.append("        ") # 11
-Doh_period.append("        ") # 12
-Doh_period.append("        ") # 13
-Doh_period.append(" ...... ") # 14
-Doh_period.append(" .::::. ") # 15
-Doh_period.append(" ...... ") # 16
-Doh_period.append("        ") # Bottom, 17
+Doh_period.append("      ") # Top, 0
+Doh_period.append("      ") # 1
+Doh_period.append("      ") # 2
+Doh_period.append("      ") # 3
+Doh_period.append("      ") # 4
+Doh_period.append("      ") # 5
+Doh_period.append("      ") # 6
+Doh_period.append("      ") # 7
+Doh_period.append("      ") # 8
+Doh_period.append("      ") # 9
+Doh_period.append("      ") # 10
+Doh_period.append("      ") # 11
+Doh_period.append("      ") # 12
+Doh_period.append("      ") # 13
+Doh_period.append("......") # 14
+Doh_period.append(".::::.") # 15
+Doh_period.append("......") # 16
+Doh_period.append("      ") # Bottom, 17
 
 # +--------------------------------+
 #   Letter forwad_slash 
@@ -1912,24 +1912,24 @@ Doh_caret.append("                 ") # Bottom, 17
 #   Letter ampersand 
 # +--------------------------------+
 Doh_ampersand = []
-Doh_ampersand.append("                    ") # Top, 0
-Doh_ampersand.append("      &&&&&&&&&&    ") # 1
-Doh_ampersand.append("     &::::::::::&   ") # 2
-Doh_ampersand.append("    &::::&&&:::::&  ") # 3
-Doh_ampersand.append("   &::::&   &::::&  ") # 4
-Doh_ampersand.append("   &::::&   &::::&  ") # 5
-Doh_ampersand.append("    &::::&&&::::&   ") # 6
-Doh_ampersand.append("    &::::::::::&    ") # 7
-Doh_ampersand.append("     &:::::::&&     ") # 8
-Doh_ampersand.append("   &::::::::&   &&&&") # 9
-Doh_ampersand.append("  &:::::&&::&  &:::&") # 10
-Doh_ampersand.append(" &:::::&  &::&&:::&&") # 11
-Doh_ampersand.append(" &:::::&   &:::::&  ") # 12
-Doh_ampersand.append(" &:::::&    &::::&  ") # 13
-Doh_ampersand.append(" &::::::&&&&::::::&&") # 14
-Doh_ampersand.append("  &&::::::::&&&::::&") # 15
-Doh_ampersand.append("    &&&&&&&&   &&&&&") # 16
-Doh_ampersand.append("                    ") # Bottom, 17
+Doh_ampersand.append("                   ") # Top, 0
+Doh_ampersand.append("     &&&&&&&&&&    ") # 1
+Doh_ampersand.append("    &::::::::::&   ") # 2
+Doh_ampersand.append("   &::::&&&:::::&  ") # 3
+Doh_ampersand.append("  &::::&   &::::&  ") # 4
+Doh_ampersand.append("  &::::&   &::::&  ") # 5
+Doh_ampersand.append("   &::::&&&::::&   ") # 6
+Doh_ampersand.append("   &::::::::::&    ") # 7
+Doh_ampersand.append("    &:::::::&&     ") # 8
+Doh_ampersand.append("  &::::::::&   &&&&") # 9
+Doh_ampersand.append(" &:::::&&::&  &:::&") # 10
+Doh_ampersand.append("&:::::&  &::&&:::&&") # 11
+Doh_ampersand.append("&:::::&   &:::::&  ") # 12
+Doh_ampersand.append("&:::::&    &::::&  ") # 13
+Doh_ampersand.append("&::::::&&&&::::::&&") # 14
+Doh_ampersand.append(" &&::::::::&&&::::&") # 15
+Doh_ampersand.append("   &&&&&&&&   &&&&&") # 16
+Doh_ampersand.append("                   ") # Bottom, 17
 
 # +--------------------------------+
 #   Letter asterisk 
@@ -1958,24 +1958,24 @@ Doh_asterisk.append("                     ") # Bottom, 17
 #   Letter open_parenthesis 
 # +--------------------------------+
 Doh_open_parenthesis = []
-Doh_open_parenthesis.append("              ") # Top, 0
-Doh_open_parenthesis.append("       (((((( ") # 1
-Doh_open_parenthesis.append("     ((::::::(") # 2
-Doh_open_parenthesis.append("   ((:::::::( ") # 3
-Doh_open_parenthesis.append("  (:::::::((  ") # 4
-Doh_open_parenthesis.append("  (::::::(    ") # 5
-Doh_open_parenthesis.append("  (:::::(     ") # 6
-Doh_open_parenthesis.append("  (:::::(     ") # 7
-Doh_open_parenthesis.append("  (:::::(     ") # 8
-Doh_open_parenthesis.append("  (:::::(     ") # 9
-Doh_open_parenthesis.append("  (:::::(     ") # 10
-Doh_open_parenthesis.append("  (:::::(     ") # 11
-Doh_open_parenthesis.append("  (::::::(    ") # 12
-Doh_open_parenthesis.append("  (:::::::((  ") # 13
-Doh_open_parenthesis.append("   ((:::::::( ") # 14
-Doh_open_parenthesis.append("     ((::::::(") # 15
-Doh_open_parenthesis.append("       (((((( ") # 16
-Doh_open_parenthesis.append("              ") # Bottom, 17
+Doh_open_parenthesis.append("            ") # Top, 0
+Doh_open_parenthesis.append("     (((((( ") # 1
+Doh_open_parenthesis.append("   ((::::::(") # 2
+Doh_open_parenthesis.append(" ((:::::::( ") # 3
+Doh_open_parenthesis.append("(:::::::((  ") # 4
+Doh_open_parenthesis.append("(::::::(    ") # 5
+Doh_open_parenthesis.append("(:::::(     ") # 6
+Doh_open_parenthesis.append("(:::::(     ") # 7
+Doh_open_parenthesis.append("(:::::(     ") # 8
+Doh_open_parenthesis.append("(:::::(     ") # 9
+Doh_open_parenthesis.append("(:::::(     ") # 10
+Doh_open_parenthesis.append("(:::::(     ") # 11
+Doh_open_parenthesis.append("(::::::(    ") # 12
+Doh_open_parenthesis.append("(:::::::((  ") # 13
+Doh_open_parenthesis.append(" ((:::::::( ") # 14
+Doh_open_parenthesis.append("   ((::::::(") # 15
+Doh_open_parenthesis.append("     (((((( ") # 16
+Doh_open_parenthesis.append("            ") # Bottom, 17
 
 # +--------------------------------+
 #   Letter close_parenthesis 
@@ -1998,7 +1998,7 @@ Doh_closed_parenthesis.append("  )):::::::)") # 13
 Doh_closed_parenthesis.append(" ):::::::)) ") # 14
 Doh_closed_parenthesis.append(")::::::)    ") # 15
 Doh_closed_parenthesis.append(" ))))))     ") # 16
-Doh_closed_parenthesis.append("        ") # Bottom, 17
+Doh_closed_parenthesis.append("            ") # Bottom, 17
 
 # +--------------------------------+
 #   Letter underscore 
@@ -2027,70 +2027,70 @@ Doh_underscore.append("                        ") # Bottom, 17
 #   Letter plus 
 # +--------------------------------+
 Doh_plus = []
-Doh_plus.append("                     ") # Top, 0
-Doh_plus.append("                     ") # 1
-Doh_plus.append("                     ") # 2
-Doh_plus.append("                     ") # 3
-Doh_plus.append("       +++++++       ") # 4
-Doh_plus.append("       +:::::+       ") # 5
-Doh_plus.append("       +:::::+       ") # 6
-Doh_plus.append(" +++++++:::::+++++++ ") # 7
-Doh_plus.append(" +:::::::::::::::::+ ") # 8
-Doh_plus.append(" +:::::::::::::::::+ ") # 9
-Doh_plus.append(" +++++++:::::+++++++ ") # 10
-Doh_plus.append("       +:::::+       ") # 11
-Doh_plus.append("       +:::::+       ") # 12
-Doh_plus.append("       +++++++       ") # 13
-Doh_plus.append("                     ") # 14
-Doh_plus.append("                     ") # 15
-Doh_plus.append("                     ") # 16
-Doh_plus.append("                     ") # Bottom, 17
+Doh_plus.append("                   ") # Top, 0
+Doh_plus.append("                   ") # 1
+Doh_plus.append("                   ") # 2
+Doh_plus.append("                   ") # 3
+Doh_plus.append("      +++++++      ") # 4
+Doh_plus.append("      +:::::+      ") # 5
+Doh_plus.append("      +:::::+      ") # 6
+Doh_plus.append("+++++++:::::+++++++") # 7
+Doh_plus.append("+:::::::::::::::::+") # 8
+Doh_plus.append("+:::::::::::::::::+") # 9
+Doh_plus.append("+++++++:::::+++++++") # 10
+Doh_plus.append("      +:::::+      ") # 11
+Doh_plus.append("      +:::::+      ") # 12
+Doh_plus.append("      +++++++      ") # 13
+Doh_plus.append("                   ") # 14
+Doh_plus.append("                   ") # 15
+Doh_plus.append("                   ") # 16
+Doh_plus.append("                   ") # Bottom, 17
 
 # +--------------------------------+
 #   Letter pipe 
 # +--------------------------------+
 Doh_pipe = []
-Doh_pipe.append("         ") # Top, 0
-Doh_pipe.append(" ||||||| ") # 1
-Doh_pipe.append(" |:::::| ") # 2
-Doh_pipe.append(" |:::::| ") # 3
-Doh_pipe.append(" |:::::| ") # 4
-Doh_pipe.append(" |:::::| ") # 5
-Doh_pipe.append(" |:::::| ") # 6
-Doh_pipe.append(" ||||||| ") # 7
-Doh_pipe.append("         ") # 8
-Doh_pipe.append("         ") # 9
-Doh_pipe.append(" ||||||| ") # 10
-Doh_pipe.append(" |:::::| ") # 11
-Doh_pipe.append(" |:::::| ") # 12
-Doh_pipe.append(" |:::::| ") # 13
-Doh_pipe.append(" |:::::| ") # 14
-Doh_pipe.append(" |:::::| ") # 15
-Doh_pipe.append(" ||||||| ") # 16
-Doh_pipe.append("         ") # Bottom, 17
+Doh_pipe.append("       ") # Top, 0
+Doh_pipe.append("|||||||") # 1
+Doh_pipe.append("|:::::|") # 2
+Doh_pipe.append("|:::::|") # 3
+Doh_pipe.append("|:::::|") # 4
+Doh_pipe.append("|:::::|") # 5
+Doh_pipe.append("|:::::|") # 6
+Doh_pipe.append("|||||||") # 7
+Doh_pipe.append("       ") # 8
+Doh_pipe.append("       ") # 9
+Doh_pipe.append("|||||||") # 10
+Doh_pipe.append("|:::::|") # 11
+Doh_pipe.append("|:::::|") # 12
+Doh_pipe.append("|:::::|") # 13
+Doh_pipe.append("|:::::|") # 14
+Doh_pipe.append("|:::::|") # 15
+Doh_pipe.append("|||||||") # 16
+Doh_pipe.append("       ") # Bottom, 17
 
 # +--------------------------------+
 #   Letter open_curly 
 # +--------------------------------+
 Doh_open_curly = []
 Doh_open_curly.append("           ") # Top, 0
-Doh_open_curly.append("      {{{{{") # 1
-Doh_open_curly.append("     {::::{") # 2
-Doh_open_curly.append("    {:::::{") # 3
-Doh_open_curly.append("    {::::{{") # 4
-Doh_open_curly.append("   {::::{  ") # 5
-Doh_open_curly.append("  {:::::{  ") # 6
-Doh_open_curly.append(" {:::::{   ") # 7
-Doh_open_curly.append("{:::::{    ") # 8
-Doh_open_curly.append(" {:::::{   ") # 9
-Doh_open_curly.append("  {:::::{  ") # 10
-Doh_open_curly.append("   {::::{  ") # 11
-Doh_open_curly.append("   {:::::{{") # 12
-Doh_open_curly.append("    {:::::{") # 13
-Doh_open_curly.append("     {::::{") # 14
-Doh_open_curly.append("      {{{{{") # 15
-Doh_open_curly.append("           ") # 16
-Doh_open_curly.append("") # Bottom, 17
+Doh_open_curly.append("           ") # 1
+Doh_open_curly.append("      {{{{{") # 2
+Doh_open_curly.append("     {::::{") # 3
+Doh_open_curly.append("    {:::::{") # 4
+Doh_open_curly.append("    {::::{{") # 5
+Doh_open_curly.append("   {::::{  ") # 6
+Doh_open_curly.append("  {:::::{  ") # 7
+Doh_open_curly.append(" {:::::{   ") # 8
+Doh_open_curly.append("{:::::{    ") # 9
+Doh_open_curly.append(" {:::::{   ") # 10
+Doh_open_curly.append("  {:::::{  ") # 11
+Doh_open_curly.append("   {::::{  ") # 12
+Doh_open_curly.append("   {:::::{{") # 13
+Doh_open_curly.append("    {:::::{") # 14
+Doh_open_curly.append("     {::::{") # 15
+Doh_open_curly.append("      {{{{{") # 16
+Doh_open_curly.append("           ") # Bottom, 17
 
 # +--------------------------------+
 #   Letter close_curly 
@@ -2119,24 +2119,24 @@ Doh_closed_curly.append("           ") # Bottom, 17
 #   Letter colon 
 # +--------------------------------+
 Doh_colon = []
-Doh_colon.append("        ") # Top, 0
-Doh_colon.append("        ") # 1
-Doh_colon.append("        ") # 2
-Doh_colon.append("        ") # 3
-Doh_colon.append("        ") # 4
-Doh_colon.append(" :::::: ") # 5
-Doh_colon.append(" :::::: ") # 6
-Doh_colon.append(" :::::: ") # 7
-Doh_colon.append("        ") # 8
-Doh_colon.append("        ") # 9
-Doh_colon.append("        ") # 10
-Doh_colon.append(" :::::: ") # 11
-Doh_colon.append(" :::::: ") # 12
-Doh_colon.append(" :::::: ") # 13
-Doh_colon.append("        ") # 14
-Doh_colon.append("        ") # 15
-Doh_colon.append("        ") # 16
-Doh_colon.append("        ") # Bottom, 17
+Doh_colon.append("      ") # Top, 0
+Doh_colon.append("      ") # 1
+Doh_colon.append("      ") # 2
+Doh_colon.append("      ") # 3
+Doh_colon.append("      ") # 4
+Doh_colon.append("::::::") # 5
+Doh_colon.append("::::::") # 6
+Doh_colon.append("::::::") # 7
+Doh_colon.append("      ") # 8
+Doh_colon.append("      ") # 9
+Doh_colon.append("      ") # 10
+Doh_colon.append("::::::") # 11
+Doh_colon.append("::::::") # 12
+Doh_colon.append("::::::") # 13
+Doh_colon.append("      ") # 14
+Doh_colon.append("      ") # 15
+Doh_colon.append("      ") # 16
+Doh_colon.append("      ") # Bottom, 17
 
 # +--------------------------------+
 #   Letter quotation 
@@ -2181,8 +2181,8 @@ Doh_less_than.append("   <:::::<   ") # 12
 Doh_less_than.append("    <:::::<  ") # 13
 Doh_less_than.append("     <:::::< ") # 14
 Doh_less_than.append("      <<<<<<<") # 15
-Doh_less_than.append("              ") # 16
-Doh_less_than.append("              ") # Bottom, 17
+Doh_less_than.append("             ") # 16
+Doh_less_than.append("             ") # Bottom, 17
 
 # +--------------------------------+
 #   Letter greater_than 
@@ -2211,24 +2211,24 @@ Doh_greater_than.append("             ") # Bottom, 17
 #   Letter question 
 # +--------------------------------+
 Doh_question = []
-Doh_question.append("      ???????     ") # Top, 0
-Doh_question.append("    ??:::::::??   ") # 1
-Doh_question.append("  ??:::::::::::?  ") # 2
-Doh_question.append(" ?:::::????:::::? ") # 3
-Doh_question.append(" ?::::?    ?::::? ") # 4
-Doh_question.append(" ?::::?     ?::::?") # 5
-Doh_question.append(" ??????     ?::::?") # 6
-Doh_question.append("           ?::::? ") # 7
-Doh_question.append("          ?::::?  ") # 8
-Doh_question.append("         ?::::?   ") # 9
-Doh_question.append("        ?::::?    ") # 10
-Doh_question.append("        ?::::?    ") # 11
-Doh_question.append("        ??::??    ") # 12
-Doh_question.append("         ????     ") # 13
-Doh_question.append("                  ") # 14
-Doh_question.append("         ???      ") # 15
-Doh_question.append("        ??:??     ") # 16
-Doh_question.append("         ???      ") # Bottom, 17
+Doh_question.append("     ???????     ") # Top, 0
+Doh_question.append("   ??:::::::??   ") # 1
+Doh_question.append(" ??:::::::::::?  ") # 2
+Doh_question.append("?:::::????:::::? ") # 3
+Doh_question.append("?::::?    ?::::? ") # 4
+Doh_question.append("?::::?     ?::::?") # 5
+Doh_question.append("??????     ?::::?") # 6
+Doh_question.append("          ?::::? ") # 7
+Doh_question.append("         ?::::?  ") # 8
+Doh_question.append("        ?::::?   ") # 9
+Doh_question.append("       ?::::?    ") # 10
+Doh_question.append("       ?::::?    ") # 11
+Doh_question.append("       ??::??    ") # 12
+Doh_question.append("        ????     ") # 13
+Doh_question.append("                 ") # 14
+Doh_question.append("        ???      ") # 15
+Doh_question.append("       ??:??     ") # 16
+Doh_question.append("        ???      ") # Bottom, 17
 
 # +--------------------------------+
 #   Letter space 

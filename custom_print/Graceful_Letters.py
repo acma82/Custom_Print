@@ -29,9 +29,9 @@
 Graceful_A = []
 Graceful_A.append("      ") # Top, 0
 Graceful_A.append("  __  ") # 1
-Graceful_A.append(" / _\ ") # 2
+Graceful_A.append(" / _\\ ") # 2
 Graceful_A.append("/    \\") # 3
-Graceful_A.append("\_/\_/") # 4
+Graceful_A.append("\\_/\\_/") # 4
 Graceful_A.append("      ") # Bottom, 5
 
 # +--------------------------------+
@@ -53,7 +53,7 @@ Graceful_C.append("      ") # Top, 0
 Graceful_C.append("  ___ ") # 1
 Graceful_C.append(" / __)") # 2
 Graceful_C.append("( (__ ") # 3
-Graceful_C.append(" \___)") # 4
+Graceful_C.append(" \\___)") # 4
 Graceful_C.append("      ") # Bottom, 5
 
 # +--------------------------------+
@@ -97,7 +97,7 @@ Graceful_G.append("      ") # Top, 0
 Graceful_G.append("  ___ ") # 1
 Graceful_G.append(" / __)") # 2
 Graceful_G.append("( (_ \\") # 3
-Graceful_G.append(" \___/") # 4
+Graceful_G.append(" \\___/") # 4
 Graceful_G.append("      ") # Bottom, 5
 
 # +--------------------------------+
@@ -108,7 +108,7 @@ Graceful_H.append("      ") # Top, 0
 Graceful_H.append(" _  _ ") # 1
 Graceful_H.append("/ )( \\") # 2
 Graceful_H.append(") __ (") # 3
-Graceful_H.append("\_)(_/") # 4
+Graceful_H.append("\\_)(_/") # 4
 Graceful_H.append("      ") # Bottom, 5
 
 # +--------------------------------+
@@ -129,8 +129,8 @@ Graceful_J = []
 Graceful_J.append("      ") # Top, 0
 Graceful_J.append("   __ ") # 1
 Graceful_J.append(" _(  )") # 2
-Graceful_J.append("/ \) \\") # 3
-Graceful_J.append("\____/") # 4
+Graceful_J.append("/ \\) \\") # 3
+Graceful_J.append("\\____/") # 4
 Graceful_J.append("      ") # Bottom, 5
 
 # +--------------------------------+
@@ -141,7 +141,7 @@ Graceful_K.append("      ") # Top, 0
 Graceful_K.append(" __ _ ") # 1
 Graceful_K.append("(  / )") # 2
 Graceful_K.append(" )  ( ") # 3
-Graceful_K.append("(__\_)") # 4
+Graceful_K.append("(__\\_)") # 4
 Graceful_K.append("      ") # Bottom, 5
 
 # +--------------------------------+
@@ -152,7 +152,7 @@ Graceful_L.append("      ") # Top, 0
 Graceful_L.append(" __   ") # 1
 Graceful_L.append("(  )  ") # 2
 Graceful_L.append("/ (_/\\") # 3
-Graceful_L.append("\____/") # 4
+Graceful_L.append("\\____/") # 4
 Graceful_L.append("      ") # Bottom, 5
 
 # +--------------------------------+
@@ -161,9 +161,9 @@ Graceful_L.append("      ") # Bottom, 5
 Graceful_M = []
 Graceful_M.append("      ") # Top, 0
 Graceful_M.append(" _  _ ") # 1
-Graceful_M.append("( \/ )") # 2
-Graceful_M.append("/ \/ \\") # 3
-Graceful_M.append("\_)(_/") # 4
+Graceful_M.append("( \\/ )") # 2
+Graceful_M.append("/ \\/ \\") # 3
+Graceful_M.append("\\_)(_/") # 4
 Graceful_M.append("      ") # Bottom, 5
 
 # +--------------------------------+
@@ -174,7 +174,7 @@ Graceful_N.append("      ") # Top, 0
 Graceful_N.append(" __ _ ") # 1
 Graceful_N.append("(  ( \\") # 2
 Graceful_N.append("/    /") # 3
-Graceful_N.append("\_)__)") # 4
+Graceful_N.append("\\_)__)") # 4
 Graceful_N.append("      ") # Bottom, 5
 
 # +--------------------------------+
@@ -185,7 +185,7 @@ Graceful_Ñ.append("      ") # Top, 0
 Graceful_Ñ.append(" ~~~~~") # 1
 Graceful_Ñ.append("(  ( \\") # 2
 Graceful_Ñ.append("/    /") # 3
-Graceful_Ñ.append("\_)__)") # 4
+Graceful_Ñ.append("\\_)__)") # 4
 Graceful_Ñ.append("      ") # Bottom, 5
 
 # +--------------------------------+
@@ -194,9 +194,9 @@ Graceful_Ñ.append("      ") # Bottom, 5
 Graceful_O = []
 Graceful_O.append("      ") # Top, 0
 Graceful_O.append("  __  ") # 1
-Graceful_O.append(" /  \ ") # 2
+Graceful_O.append(" /  \\ ") # 2
 Graceful_O.append("(  O )") # 3
-Graceful_O.append(" \__/ ") # 4
+Graceful_O.append(" \\__/ ") # 4
 Graceful_O.append("      ") # Bottom, 5
 
 # +--------------------------------+
@@ -216,9 +216,9 @@ Graceful_P.append("      ") # Bottom, 5
 Graceful_Q = []
 Graceful_Q.append("      ") # Top, 0
 Graceful_Q.append("  __  ") # 1
-Graceful_Q.append(" /  \ ") # 2
+Graceful_Q.append(" /  \\ ") # 2
 Graceful_Q.append("(  O )") # 3
-Graceful_Q.append(" \__\)") # 4
+Graceful_Q.append(" \\__\\)") # 4
 Graceful_Q.append("      ") # Bottom, 5
 
 # +--------------------------------+
@@ -229,7 +229,7 @@ Graceful_R.append("      ") # Top, 0
 Graceful_R.append(" ____ ") # 1
 Graceful_R.append("(  _ \\") # 2
 Graceful_R.append(" )   /") # 3
-Graceful_R.append("(__\_)") # 4
+Graceful_R.append("(__\\_)") # 4
 Graceful_R.append("      ") # Bottom, 5
 
 # +--------------------------------+
@@ -239,7 +239,7 @@ Graceful_S = []
 Graceful_S.append("      ") # Top, 0
 Graceful_S.append(" ____ ") # 1
 Graceful_S.append("/ ___)") # 2
-Graceful_S.append("\___ \\") # 3
+Graceful_S.append("\\___ \\") # 3
 Graceful_S.append("(____/") # 4
 Graceful_S.append("      ") # Bottom, 5
 
@@ -261,8 +261,8 @@ Graceful_U = []
 Graceful_U.append("      ") # Top, 0
 Graceful_U.append(" _  _ ") # 1
 Graceful_U.append("/ )( \\") # 2
-Graceful_U.append(") \/ (") # 3
-Graceful_U.append("\____/") # 4
+Graceful_U.append(") \\/ (") # 3
+Graceful_U.append("\\____/") # 4
 Graceful_U.append("      ") # Bottom, 5
 
 # +--------------------------------+
@@ -272,19 +272,19 @@ Graceful_V = []
 Graceful_V.append("      ") # Top, 0
 Graceful_V.append(" _  _ ") # 1
 Graceful_V.append("/ )( \\") # 2
-Graceful_V.append("\ \/ /") # 3
-Graceful_V.append(" \__/ ") # 4
+Graceful_V.append("\\ \\/ /") # 3
+Graceful_V.append(" \\__/ ") # 4
 Graceful_V.append("      ") # Bottom, 5
 
 # +--------------------------------+
 #   Letter W 
-# +--------------------------------+
+# +--------------------------------+check the invalid scape from here.
 Graceful_W = []
 Graceful_W.append("      ") # Top, 0
 Graceful_W.append(" _  _ ") # 1
 Graceful_W.append("/ )( \\") # 2
-Graceful_W.append("\ /\ /") # 3
-Graceful_W.append("(_/\_)") # 4
+Graceful_W.append("\\ /\\ /") # 3
+Graceful_W.append("(_/\\_)") # 4
 Graceful_W.append("      ") # Bottom, 5
 
 # +--------------------------------+
@@ -293,9 +293,9 @@ Graceful_W.append("      ") # Bottom, 5
 Graceful_X = []
 Graceful_X.append("      ") # Top, 0
 Graceful_X.append(" _  _ ") # 1
-Graceful_X.append("( \/ )") # 2
+Graceful_X.append("( \\/ )") # 2
 Graceful_X.append(" )  ( ") # 3
-Graceful_X.append("(_/\_)") # 4
+Graceful_X.append("(_/\\_)") # 4
 Graceful_X.append("      ") # Bottom, 5
 
 # +--------------------------------+
@@ -304,7 +304,7 @@ Graceful_X.append("      ") # Bottom, 5
 Graceful_Y = []
 Graceful_Y.append("      ") # Top, 0
 Graceful_Y.append(" _  _ ") # 1
-Graceful_Y.append("( \/ )") # 2
+Graceful_Y.append("( \\/ )") # 2
 Graceful_Y.append(" )  / ") # 3
 Graceful_Y.append("(__/  ") # 4
 Graceful_Y.append("      ") # Bottom, 5
@@ -328,7 +328,7 @@ Graceful_Z.append("      ") # Bottom, 5
 Graceful_backtick = []
 Graceful_backtick.append("  ") # Top, 0
 Graceful_backtick.append("_ ") # 1
-Graceful_backtick.append("\)") # 2
+Graceful_backtick.append("\\)") # 2
 Graceful_backtick.append("  ") # 3
 Graceful_backtick.append("  ") # 4
 Graceful_backtick.append("  ") # Bottom, 5
@@ -396,7 +396,7 @@ Graceful_six.append("      ") # Top, 0
 Graceful_six.append("  ___ ") # 1
 Graceful_six.append(" / __)") # 2
 Graceful_six.append("(  _ \\") # 3
-Graceful_six.append(" \___/") # 4
+Graceful_six.append(" \\___/") # 4
 Graceful_six.append("      ") # Bottom, 5
 
 # +--------------------------------+
@@ -418,7 +418,7 @@ Graceful_eight.append("      ") # Top, 0
 Graceful_eight.append(" ____ ") # 1
 Graceful_eight.append("/ _  \\") # 2
 Graceful_eight.append(") _  (") # 3
-Graceful_eight.append("\____/") # 4
+Graceful_eight.append("\\____/") # 4
 Graceful_eight.append("      ") # Bottom, 5
 
 # +--------------------------------+
@@ -427,8 +427,8 @@ Graceful_eight.append("      ") # Bottom, 5
 Graceful_nine = []
 Graceful_nine.append("      ") # Top, 0
 Graceful_nine.append(" ___  ") # 1
-Graceful_nine.append("/ _ \ ") # 2
-Graceful_nine.append("\__  )") # 3
+Graceful_nine.append("/ _ \\ ") # 2
+Graceful_nine.append("\\__  )") # 3
 Graceful_nine.append("(___/ ") # 4
 Graceful_nine.append("      ") # Bottom, 5
 
@@ -438,9 +438,9 @@ Graceful_nine.append("      ") # Bottom, 5
 Graceful_zero = []
 Graceful_zero.append("      ") # Top, 0
 Graceful_zero.append("  __  ") # 1
-Graceful_zero.append(" /  \ ") # 2
+Graceful_zero.append(" /  \\ ") # 2
 Graceful_zero.append("(  0 )") # 3
-Graceful_zero.append(" \__/ ") # 4
+Graceful_zero.append(" \\__/ ") # 4
 Graceful_zero.append("      ") # Bottom, 5
 
 # +--------------------------------+
@@ -471,9 +471,9 @@ Graceful_equal.append("     ") # Bottom, 5
 Graceful_backward_slash = []
 Graceful_backward_slash.append("     ") # Top, 0
 Graceful_backward_slash.append(" _   ") # 1
-Graceful_backward_slash.append("( \  ") # 2
-Graceful_backward_slash.append(" \ \ ") # 3
-Graceful_backward_slash.append("  \_)") # 4
+Graceful_backward_slash.append("( \\  ") # 2
+Graceful_backward_slash.append(" \\ \\ ") # 3
+Graceful_backward_slash.append("  \\_)") # 4
 Graceful_backward_slash.append("     ") # Bottom, 5
 
 # +--------------------------------+
@@ -484,7 +484,7 @@ Graceful_open_bracket.append("     ") # Top, 0
 Graceful_open_bracket.append(" ___ ") # 1
 Graceful_open_bracket.append("/  _)") # 2
 Graceful_open_bracket.append(") (_ ") # 3
-Graceful_open_bracket.append("\___)") # 4
+Graceful_open_bracket.append("\\___)") # 4
 Graceful_open_bracket.append("     ") # Bottom, 5
 
 # +--------------------------------+
@@ -559,8 +559,8 @@ Graceful_forward_slash.append("     ") # Bottom, 5
 Graceful_tilde = []
 Graceful_tilde.append("      ") # Top, 0
 Graceful_tilde.append(" __   ") # 1
-Graceful_tilde.append("(_ \_ ") # 2
-Graceful_tilde.append("  \__)") # 3
+Graceful_tilde.append("(_ \\_ ") # 2
+Graceful_tilde.append("  \\__)") # 3
 Graceful_tilde.append("      ") # 4
 Graceful_tilde.append("      ") # Bottom, 5
 
@@ -571,7 +571,7 @@ Graceful_exclamation = []
 Graceful_exclamation.append("   ") # Top, 0
 Graceful_exclamation.append(" _ ") # 1
 Graceful_exclamation.append("/ \\") # 2
-Graceful_exclamation.append("\_/") # 3
+Graceful_exclamation.append("\\_/") # 3
 Graceful_exclamation.append("(_)") # 4
 Graceful_exclamation.append("   ") # Bottom, 5
 
@@ -583,7 +583,7 @@ Graceful_arroba.append("      ") # Top, 0
 Graceful_arroba.append("  ___ ") # 1
 Graceful_arroba.append(" /   \\") # 2
 Graceful_arroba.append("( (__/") # 3
-Graceful_arroba.append(" \___)") # 4
+Graceful_arroba.append(" \\___)") # 4
 Graceful_arroba.append("      ") # Bottom, 5
 
 # +--------------------------------+
@@ -594,7 +594,7 @@ Graceful_pound.append("      ") # Top, 0
 Graceful_pound.append(" _  _ ") # 1
 Graceful_pound.append("/ )( \\") # 2
 Graceful_pound.append(")    (") # 3
-Graceful_pound.append("\_)(_/") # 4
+Graceful_pound.append("\\_)(_/") # 4
 Graceful_pound.append("      ") # Bottom, 5
 
 # +--------------------------------+
@@ -604,7 +604,7 @@ Graceful_dollar = []
 Graceful_dollar.append("      ") # Top, 0
 Graceful_dollar.append(" ____ ") # 1
 Graceful_dollar.append("/ (__)") # 2
-Graceful_dollar.append("\__  \\") # 3
+Graceful_dollar.append("\\__  \\") # 3
 Graceful_dollar.append("(__)_/") # 4
 Graceful_dollar.append("      ") # Bottom, 5
 
@@ -625,8 +625,8 @@ Graceful_percent.append("     ") # Bottom, 5
 Graceful_caret = []
 Graceful_caret.append("      ") # Top, 0
 Graceful_caret.append("  __  ") # 1
-Graceful_caret.append(" /  \ ") # 2
-Graceful_caret.append("(_/\_)") # 3
+Graceful_caret.append(" /  \\ ") # 2
+Graceful_caret.append("(_/\\_)") # 3
 Graceful_caret.append("      ") # 4
 Graceful_caret.append("      ") # Bottom, 5
 
@@ -638,19 +638,19 @@ Graceful_ampersand.append("      ") # Top, 0
 Graceful_ampersand.append("  ___ ") # 1
 Graceful_ampersand.append(" ( _ \\") # 2
 Graceful_ampersand.append("/ _  /") # 3
-Graceful_ampersand.append("\__\_)") # 4
+Graceful_ampersand.append("\\__\\_)") # 4
 Graceful_ampersand.append("      ") # Bottom, 5
 
 # +--------------------------------+
 #   Letter asterisk 
 # +--------------------------------+
 Graceful_asterisk = []
-Graceful_asterisk.append("     ") # Top, 0
-Graceful_asterisk.append("     ") # 1
-Graceful_asterisk.append("(\/\/)") # 2
-Graceful_asterisk.append(" )  (") # 3
-Graceful_asterisk.append("(/\/\)") # 4
-Graceful_asterisk.append("     ") # Bottom, 5
+Graceful_asterisk.append("      ") # Top, 0
+Graceful_asterisk.append("      ") # 1
+Graceful_asterisk.append("(\\/\\/)") # 2
+Graceful_asterisk.append(" )  ( ") # 3
+Graceful_asterisk.append("(/\\/\\)") # 4
+Graceful_asterisk.append("      ") # Bottom, 5
 
 # +--------------------------------+
 #   Letter open_parenthesis 
@@ -658,21 +658,21 @@ Graceful_asterisk.append("     ") # Bottom, 5
 Graceful_open_parenthesis = []
 Graceful_open_parenthesis.append("    ") # Top, 0
 Graceful_open_parenthesis.append("  _ ") # 1
-Graceful_open_parenthesis.append(")/ )") # 2
+Graceful_open_parenthesis.append(" / )") # 2
 Graceful_open_parenthesis.append("( ( ") # 3
-Graceful_open_parenthesis.append(")\_)") # 4
+Graceful_open_parenthesis.append(" \\_)") # 4
 Graceful_open_parenthesis.append("    ") # Bottom, 5
 
 # +--------------------------------+
 #   Letter closed_parenthesis 
 # +--------------------------------+
 Graceful_closed_parenthesis = []
-Graceful_closed_parenthesis.append("   ") # Top, 0
-Graceful_closed_parenthesis.append(" _ ") # 1
-Graceful_closed_parenthesis.append("( \\") # 2
+Graceful_closed_parenthesis.append("    ") # Top, 0
+Graceful_closed_parenthesis.append(" _  ") # 1
+Graceful_closed_parenthesis.append("( \\ ") # 2
 Graceful_closed_parenthesis.append(" ) )") # 3
-Graceful_closed_parenthesis.append("(_/") # 4
-Graceful_closed_parenthesis.append("   ") # Bottom, 5
+Graceful_closed_parenthesis.append("(_/ ") # 4
+Graceful_closed_parenthesis.append("    ") # Bottom, 5
 
 # +--------------------------------+
 #   Letter underscore 
@@ -704,7 +704,7 @@ Graceful_pipe.append("   ") # Top, 0
 Graceful_pipe.append(" _ ") # 1
 Graceful_pipe.append("( \\") # 2
 Graceful_pipe.append("/ /") # 3
-Graceful_pipe.append("\_)") # 4
+Graceful_pipe.append("\\_)") # 4
 Graceful_pipe.append("   ") # Bottom, 5
 
 # +--------------------------------+
@@ -759,7 +759,7 @@ Graceful_less_than.append("    ") # Top, 0
 Graceful_less_than.append("  __") # 1
 Graceful_less_than.append(" / /") # 2
 Graceful_less_than.append("( ( ") # 3
-Graceful_less_than.append(" \_\\") # 4
+Graceful_less_than.append(" \\_\\") # 4
 Graceful_less_than.append("    ") # Bottom, 5
 
 # +--------------------------------+
@@ -768,7 +768,7 @@ Graceful_less_than.append("    ") # Bottom, 5
 Graceful_greater_than = []
 Graceful_greater_than.append("    ") # Top, 0
 Graceful_greater_than.append("__  ") # 1
-Graceful_greater_than.append("\ \ ") # 2
+Graceful_greater_than.append("\\ \\ ") # 2
 Graceful_greater_than.append(" ) )") # 3
 Graceful_greater_than.append("/_/ ") # 4
 Graceful_greater_than.append("    ") # Bottom, 5

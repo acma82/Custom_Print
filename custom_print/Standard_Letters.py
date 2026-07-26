@@ -29,10 +29,10 @@
 Standard_A = []
 Standard_A.append("          ") # Top, 0
 Standard_A.append("     _    ") # 1
-Standard_A.append("    / \   ") # 2
-Standard_A.append("   / _ \  ") # 3
-Standard_A.append("  / ___ \ ") # 4
-Standard_A.append(" /_/   \_\\") # 5
+Standard_A.append("    / \\   ") # 2
+Standard_A.append("   / _ \\  ") # 3
+Standard_A.append("  / ___ \\ ") # 4
+Standard_A.append(" /_/   \\_\\") # 5
 Standard_A.append("          ") # Bottom, 6
 
 # +--------------------------------+
@@ -42,7 +42,7 @@ Standard_B = []
 Standard_B.append("       ") # Top, 0
 Standard_B.append(" ____  ") # 1
 Standard_B.append("| __ ) ") # 2
-Standard_B.append("|  _ \ ") # 3
+Standard_B.append("|  _ \\ ") # 3
 Standard_B.append("| |_) |") # 4
 Standard_B.append("|____/ ") # 5
 Standard_B.append("       ") # Bottom, 6
@@ -56,7 +56,7 @@ Standard_C.append("  ____ ") # 1
 Standard_C.append(" / ___|") # 2
 Standard_C.append("| |    ") # 3
 Standard_C.append("| |___ ") # 4
-Standard_C.append(" \____|") # 5
+Standard_C.append(" \\____|") # 5
 Standard_C.append("       ") # Bottom, 6
 
 # +--------------------------------+
@@ -65,7 +65,7 @@ Standard_C.append("       ") # Bottom, 6
 Standard_D = []
 Standard_D.append("       ") # Top, 0
 Standard_D.append(" ____  ") # 1
-Standard_D.append("|  _ \ ") # 2
+Standard_D.append("|  _ \\ ") # 2
 Standard_D.append("| | | |") # 3
 Standard_D.append("| |_| |") # 4
 Standard_D.append("|____/ ") # 5
@@ -104,7 +104,7 @@ Standard_G.append("  ____ ") # 1
 Standard_G.append(" / ___|") # 2
 Standard_G.append("| |  _ ") # 3
 Standard_G.append("| |_| |") # 4
-Standard_G.append(" \____|") # 5
+Standard_G.append(" \\____|") # 5
 Standard_G.append("       ") # Bottom, 6
 
 # +--------------------------------+
@@ -140,7 +140,7 @@ Standard_J.append("     _ ") # 1
 Standard_J.append("    | |") # 2
 Standard_J.append(" _  | |") # 3
 Standard_J.append("| |_| |") # 4
-Standard_J.append(" \___/ ") # 5
+Standard_J.append(" \\___/ ") # 5
 Standard_J.append("       ") # Bottom, 6
 
 # +--------------------------------+
@@ -151,8 +151,8 @@ Standard_K.append("      ") # Top, 0
 Standard_K.append(" _  __") # 1
 Standard_K.append("| |/ /") # 2
 Standard_K.append("| ' / ") # 3
-Standard_K.append("| . \ ") # 4
-Standard_K.append("|_|\_\\") # 5
+Standard_K.append("| . \\ ") # 4
+Standard_K.append("|_|\\_\\") # 5
 Standard_K.append("      ") # Bottom, 6
 
 # +--------------------------------+
@@ -173,8 +173,8 @@ Standard_L.append("       ") # Bottom, 6
 Standard_M = []
 Standard_M.append("        ") # Top, 0
 Standard_M.append(" __  __ ") # 1
-Standard_M.append("|  \/  |") # 2
-Standard_M.append("| |\/| |") # 3
+Standard_M.append("|  \\/  |") # 2
+Standard_M.append("| |\\/| |") # 3
 Standard_M.append("| |  | |") # 4
 Standard_M.append("|_|  |_|") # 5
 Standard_M.append("        ") # Bottom, 6
@@ -185,10 +185,10 @@ Standard_M.append("        ") # Bottom, 6
 Standard_N = []
 Standard_N.append("       ") # Top, 0
 Standard_N.append(" _   _ ") # 1
-Standard_N.append("| \ | |") # 2
-Standard_N.append("|  \| |") # 3
-Standard_N.append("| |\  |") # 4
-Standard_N.append("|_| \_|") # 5
+Standard_N.append("| \\ | |") # 2
+Standard_N.append("|  \\| |") # 3
+Standard_N.append("| |\\  |") # 4
+Standard_N.append("|_| \\_|") # 5
 Standard_N.append("       ") # Bottom, 6
 
 # +--------------------------------+
@@ -197,10 +197,10 @@ Standard_N.append("       ") # Bottom, 6
 Standard_Ñ = []
 Standard_Ñ.append("       ") # Top, 0
 Standard_Ñ.append(" ~~~~~ ") # 1
-Standard_Ñ.append("| \ | |") # 2
-Standard_Ñ.append("|  \| |") # 3
-Standard_Ñ.append("| |\  |") # 4
-Standard_Ñ.append("|_| \_|") # 5
+Standard_Ñ.append("| \\ | |") # 2
+Standard_Ñ.append("|  \\| |") # 3
+Standard_Ñ.append("| |\\  |") # 4
+Standard_Ñ.append("|_| \\_|") # 5
 Standard_Ñ.append("       ") # Bottom, 6
 
 # +--------------------------------+
@@ -209,10 +209,10 @@ Standard_Ñ.append("       ") # Bottom, 6
 Standard_O = []
 Standard_O.append("       ") # Top, 0
 Standard_O.append("  ___  ") # 1
-Standard_O.append(" / _ \ ") # 2
+Standard_O.append(" / _ \\ ") # 2
 Standard_O.append("| | | |") # 3
 Standard_O.append("| |_| |") # 4
-Standard_O.append(" \___/ ") # 5
+Standard_O.append(" \\___/ ") # 5
 Standard_O.append("       ") # Bottom, 6
 
 # +--------------------------------+
@@ -221,7 +221,7 @@ Standard_O.append("       ") # Bottom, 6
 Standard_P = []
 Standard_P.append("       ") # Top, 0
 Standard_P.append(" ____  ") # 1
-Standard_P.append("|  _ \ ") # 2
+Standard_P.append("|  _ \\ ") # 2
 Standard_P.append("| |_) |") # 3
 Standard_P.append("|  __/ ") # 4
 Standard_P.append("|_|    ") # 5
@@ -233,7 +233,7 @@ Standard_P.append("       ") # Bottom, 6
 Standard_Q = []
 Standard_Q.append("       ") # Top, 0
 Standard_Q.append("  ___  ") # 1
-Standard_Q.append(" / _ \ ") # 2
+Standard_Q.append(" / _ \\ ") # 2
 Standard_Q.append("| | | |") # 3
 Standard_Q.append("| |_| |") # 4
 Standard_Q.append(" \\__\\_\\") # 5
@@ -245,10 +245,10 @@ Standard_Q.append("       ") # Bottom, 6
 Standard_R = []
 Standard_R.append("       ") # Top, 0
 Standard_R.append(" ____  ") # 1
-Standard_R.append("|  _ \ ") # 2
+Standard_R.append("|  _ \\ ") # 2
 Standard_R.append("| |_) |") # 3
 Standard_R.append("|  _ < ") # 4
-Standard_R.append("|_| \_\\") # 5
+Standard_R.append("|_| \\_\\") # 5
 Standard_R.append("       ") # Bottom, 6
 
 # +--------------------------------+
@@ -258,7 +258,7 @@ Standard_S = []
 Standard_S.append("       ") # Top, 0
 Standard_S.append(" ____  ") # 1
 Standard_S.append("/ ___| ") # 2
-Standard_S.append("\___ \ ") # 3
+Standard_S.append("\\___ \\ ") # 3
 Standard_S.append(" ___) |") # 4
 Standard_S.append("|____/ ") # 5
 Standard_S.append("       ") # Bottom, 6
@@ -284,7 +284,7 @@ Standard_U.append(" _   _ ") # 1
 Standard_U.append("| | | |") # 2
 Standard_U.append("| | | |") # 3
 Standard_U.append("| |_| |") # 4
-Standard_U.append(" \___/ ") # 5
+Standard_U.append(" \\___/ ") # 5
 Standard_U.append("       ") # Bottom, 6
 
 # +--------------------------------+
@@ -293,10 +293,10 @@ Standard_U.append("       ") # Bottom, 6
 Standard_V = []
 Standard_V.append("         ") # Top, 0
 Standard_V.append("__     __") # 1
-Standard_V.append("\ \   / /") # 2
-Standard_V.append(" \ \ / / ") # 3
-Standard_V.append("  \ V /  ") # 4
-Standard_V.append("   \_/   ") # 5
+Standard_V.append("\\ \\   / /") # 2
+Standard_V.append(" \\ \\ / / ") # 3
+Standard_V.append("  \\ V /  ") # 4
+Standard_V.append("   \\_/   ") # 5
 Standard_V.append("         ") # Bottom, 6
 
 # +--------------------------------+
@@ -305,10 +305,10 @@ Standard_V.append("         ") # Bottom, 6
 Standard_W = []
 Standard_W.append("            ") # Top, 0
 Standard_W.append("__        __") # 1
-Standard_W.append("\ \      / /") # 2
-Standard_W.append(" \ \ /\ / / ") # 3
-Standard_W.append("  \ V  V /  ") # 4
-Standard_W.append("   \_/\_/   ") # 5
+Standard_W.append("\\ \\      / /") # 2
+Standard_W.append(" \\ \\ /\\ / / ") # 3
+Standard_W.append("  \\ V  V /  ") # 4
+Standard_W.append("   \\_/\\_/   ") # 5
 Standard_W.append("            ") # Bottom, 6
 
 # +--------------------------------+
@@ -317,9 +317,9 @@ Standard_W.append("            ") # Bottom, 6
 Standard_X = []
 Standard_X.append("      ") # Top, 0
 Standard_X.append("__  __") # 1
-Standard_X.append("\ \/ /") # 2
-Standard_X.append(" \  / ") # 3
-Standard_X.append(" /  \ ") # 4
+Standard_X.append("\\ \\/ /") # 2
+Standard_X.append(" \\  / ") # 3
+Standard_X.append(" /  \\ ") # 4
 Standard_X.append("/_/\\_\\") # 5
 Standard_X.append("      ") # Bottom, 6
 
@@ -329,8 +329,8 @@ Standard_X.append("      ") # Bottom, 6
 Standard_Y = []
 Standard_Y.append("       ") # Top, 0
 Standard_Y.append("__   __") # 1
-Standard_Y.append("\ \ / /") # 2
-Standard_Y.append(" \ V / ") # 3
+Standard_Y.append("\\ \\ / /") # 2
+Standard_Y.append(" \\ V / ") # 3
 Standard_Y.append("  | |  ") # 4
 Standard_Y.append("  |_|  ") # 5
 Standard_Y.append("       ") # Bottom, 6
@@ -356,7 +356,7 @@ Standard_a.append("       ") # 1
 Standard_a.append("  __ _ ") # 2
 Standard_a.append(" / _` |") # 3
 Standard_a.append("| (_| |") # 4
-Standard_a.append(" \__,_|") # 5
+Standard_a.append(" \\__,_|") # 5
 Standard_a.append("       ") # Bottom, 6
 
 # +--------------------------------+
@@ -366,7 +366,7 @@ Standard_b = []
 Standard_b.append("       ") # Top, 0
 Standard_b.append(" _     ") # 1
 Standard_b.append("| |__  ") # 2
-Standard_b.append("| '_ \ ") # 3
+Standard_b.append("| '_ \\ ") # 3
 Standard_b.append("| |_) |") # 4
 Standard_b.append("|_.__/ ") # 5
 Standard_b.append("       ") # Bottom, 6
@@ -380,7 +380,7 @@ Standard_c.append("      ") # 1
 Standard_c.append("  ___ ") # 2
 Standard_c.append(" / __|") # 3
 Standard_c.append("| (__ ") # 4
-Standard_c.append(" \___|") # 5
+Standard_c.append(" \\___|") # 5
 Standard_c.append("      ") # Bottom, 6
 
 # +--------------------------------+
@@ -392,7 +392,7 @@ Standard_d.append("     _ ") # 1
 Standard_d.append("  __| |") # 2
 Standard_d.append(" / _` |") # 3
 Standard_d.append("| (_| |") # 4
-Standard_d.append(" \__,_|") # 5
+Standard_d.append(" \\__,_|") # 5
 Standard_d.append("       ") # Bottom, 6
 
 # +--------------------------------+
@@ -404,7 +404,7 @@ Standard_e.append("      ") # 1
 Standard_e.append("  ___ ") # 2
 Standard_e.append(" / _ \\") # 3
 Standard_e.append("|  __/") # 4
-Standard_e.append(" \___|") # 5
+Standard_e.append(" \\___|") # 5
 Standard_e.append("      ") # Bottom, 6
 
 # +--------------------------------+
@@ -427,7 +427,7 @@ Standard_g.append("       ") # Top, 0
 Standard_g.append("  __ _ ") # 1
 Standard_g.append(" / _` |") # 2
 Standard_g.append("| (_| |") # 3
-Standard_g.append(" \__, |") # 4
+Standard_g.append(" \\__, |") # 4
 Standard_g.append(" |___/ ") # 5
 Standard_g.append("       ") # Bottom, 6
 
@@ -438,7 +438,7 @@ Standard_h = []
 Standard_h.append("       ") # Top, 0
 Standard_h.append(" _     ") # 1
 Standard_h.append("| |__  ") # 2
-Standard_h.append("| '_ \ ") # 3
+Standard_h.append("| '_ \\ ") # 3
 Standard_h.append("| | | |") # 4
 Standard_h.append("|_| |_|") # 5
 Standard_h.append("       ") # Bottom, 6
@@ -476,7 +476,7 @@ Standard_k.append(" _    ") # 1
 Standard_k.append("| | __") # 2
 Standard_k.append("| |/ /") # 3
 Standard_k.append("|   < ") # 4
-Standard_k.append("|_|\_\\") # 5
+Standard_k.append("|_|\\_\\") # 5
 Standard_k.append("      ") # Bottom, 6
 
 # +--------------------------------+
@@ -498,7 +498,7 @@ Standard_m = []
 Standard_m.append("           ") # Top, 0
 Standard_m.append("           ") # 1
 Standard_m.append(" _ __ ___  ") # 2
-Standard_m.append("| '_ ` _ \ ") # 3
+Standard_m.append("| '_ ` _ \\ ") # 3
 Standard_m.append("| | | | | |") # 4
 Standard_m.append("|_| |_| |_|") # 5
 Standard_m.append("           ") # Bottom, 6
@@ -510,7 +510,7 @@ Standard_n = []
 Standard_n.append("       ") # Top, 0
 Standard_n.append("       ") # 1
 Standard_n.append(" _ __  ") # 2
-Standard_n.append("| '_ \ ") # 3
+Standard_n.append("| '_ \\ ") # 3
 Standard_n.append("| | | |") # 4
 Standard_n.append("|_| |_|") # 5
 Standard_n.append("       ") # Bottom, 6
@@ -520,9 +520,9 @@ Standard_n.append("       ") # Bottom, 6
 # +--------------------------------+
 Standard_ñ = []
 Standard_ñ.append("       ") # Top, 0
-Standard_ñ.append("  /\/| ") # 1
-Standard_ñ.append(" |/\/  ") # 2
-Standard_ñ.append("| '_ \ ") # 3
+Standard_ñ.append("  /\\/| ") # 1
+Standard_ñ.append(" |/\\/  ") # 2
+Standard_ñ.append("| '_ \\ ") # 3
 Standard_ñ.append("| | | |") # 4
 Standard_ñ.append("|_| |_|") # 5
 Standard_ñ.append("       ") # Bottom, 6
@@ -534,9 +534,9 @@ Standard_o = []
 Standard_o.append("       ") # Top, 0
 Standard_o.append("       ") # 1
 Standard_o.append("  ___  ") # 2
-Standard_o.append(" / _ \ ") # 3
+Standard_o.append(" / _ \\ ") # 3
 Standard_o.append("| (_) |") # 4
-Standard_o.append(" \___/ ") # 5
+Standard_o.append(" \\___/ ") # 5
 Standard_o.append("       ") # Bottom, 6
 
 # +--------------------------------+
@@ -545,7 +545,7 @@ Standard_o.append("       ") # Bottom, 6
 Standard_p = []
 Standard_p.append("       ") # Top, 0
 Standard_p.append(" _ __  ") # 1
-Standard_p.append("| '_ \ ") # 2
+Standard_p.append("| '_ \\ ") # 2
 Standard_p.append("| |_) |") # 3
 Standard_p.append("| .__/ ") # 4
 Standard_p.append("|_|    ") # 5
@@ -559,7 +559,7 @@ Standard_q.append("       ") # Top, 0
 Standard_q.append("  __ _ ") # 1
 Standard_q.append(" / _` |") # 2
 Standard_q.append("| (_| |") # 3
-Standard_q.append(" \__, |") # 4
+Standard_q.append(" \\__, |") # 4
 Standard_q.append("    |_|") # 5
 Standard_q.append("       ") # Bottom, 6
 
@@ -583,7 +583,7 @@ Standard_s.append("     ") # Top, 0
 Standard_s.append("     ") # 1
 Standard_s.append(" ___ ") # 2
 Standard_s.append("/ __|") # 3
-Standard_s.append("\__ \\") # 4
+Standard_s.append("\\__ \\") # 4
 Standard_s.append("|___/") # 5
 Standard_s.append("     ") # Bottom, 6
 
@@ -596,7 +596,7 @@ Standard_t.append(" _   ") # 1
 Standard_t.append("| |_ ") # 2
 Standard_t.append("| __|") # 3
 Standard_t.append("| |_ ") # 4
-Standard_t.append(" \__|") # 5
+Standard_t.append(" \\__|") # 5
 Standard_t.append("     ") # Bottom, 6
 
 # +--------------------------------+
@@ -608,7 +608,7 @@ Standard_u.append("       ") # 1
 Standard_u.append(" _   _ ") # 2
 Standard_u.append("| | | |") # 3
 Standard_u.append("| |_| |") # 4
-Standard_u.append(" \__,_|") # 5
+Standard_u.append(" \\__,_|") # 5
 Standard_u.append("       ") # Bottom, 6
 
 # +--------------------------------+
@@ -618,9 +618,9 @@ Standard_v = []
 Standard_v.append("       ") # Top, 0
 Standard_v.append("       ") # 1
 Standard_v.append("__   __") # 2
-Standard_v.append("\ \ / /") # 3
-Standard_v.append(" \ V / ") # 4
-Standard_v.append("  \_/  ") # 5
+Standard_v.append("\\ \\ / /") # 3
+Standard_v.append(" \\ V / ") # 4
+Standard_v.append("  \\_/  ") # 5
 Standard_v.append("       ") # Bottom, 6
 
 # +--------------------------------+
@@ -630,9 +630,9 @@ Standard_w = []
 Standard_w.append("          ") # Top, 0
 Standard_w.append("          ") # 1
 Standard_w.append("__      __") # 2
-Standard_w.append("\ \ /\ / /") # 3
-Standard_w.append(" \ V  V / ") # 4
-Standard_w.append("  \_/\_/  ") # 5
+Standard_w.append("\\ \\ /\\ / /") # 3
+Standard_w.append(" \\ V  V / ") # 4
+Standard_w.append("  \\_/\\_/  ") # 5
 Standard_w.append("          ") # Bottom, 6
 
 # +--------------------------------+
@@ -642,9 +642,9 @@ Standard_x = []
 Standard_x.append("      ") # Top, 0
 Standard_x.append("      ") # 1
 Standard_x.append("__  __") # 2
-Standard_x.append("\ \/ /") # 3
+Standard_x.append("\\ \\/ /") # 3
 Standard_x.append(" >  < ") # 4
-Standard_x.append("/_/\_\\") # 5
+Standard_x.append("/_/\\_\\") # 5
 Standard_x.append("      ") # Bottom, 6
 
 # +--------------------------------+
@@ -655,7 +655,7 @@ Standard_y.append("       ") # Top, 0
 Standard_y.append(" _   _ ") # 1
 Standard_y.append("| | | |") # 2
 Standard_y.append("| |_| |") # 3
-Standard_y.append(" \__, |") # 4
+Standard_y.append(" \\__, |") # 4
 Standard_y.append(" |___/ ") # 5
 Standard_y.append("       ") # Bottom, 6
 
@@ -678,7 +678,7 @@ Standard_backtick = []
 Standard_backtick.append("   ") # Top, 0
 Standard_backtick.append(" _ ") # 1
 Standard_backtick.append("( )") # 2
-Standard_backtick.append(" \|") # 3
+Standard_backtick.append(" \\|") # 3
 Standard_backtick.append("   ") # 4
 Standard_backtick.append("   ") # 5
 Standard_backtick.append("   ") # Bottom, 6
@@ -701,7 +701,7 @@ Standard_one.append("   ") # Bottom, 6
 Standard_two = []
 Standard_two.append("       ") # Top, 0
 Standard_two.append(" ____  ") # 1
-Standard_two.append("|___ \ ") # 2
+Standard_two.append("|___ \\ ") # 2
 Standard_two.append("  __) |") # 3
 Standard_two.append(" / __/ ") # 4
 Standard_two.append("|_____|") # 5
@@ -714,7 +714,7 @@ Standard_three = []
 Standard_three.append("       ") # Top, 0
 Standard_three.append(" _____ ") # 1
 Standard_three.append("|___ / ") # 2
-Standard_three.append("  |_ \ ") # 3
+Standard_three.append("  |_ \\ ") # 3
 Standard_three.append(" ___) |") # 4
 Standard_three.append("|____/ ") # 5
 Standard_three.append("       ") # Bottom, 6
@@ -738,7 +738,7 @@ Standard_five = []
 Standard_five.append("       ") # Top, 0
 Standard_five.append(" ____  ") # 1
 Standard_five.append("| ___| ") # 2
-Standard_five.append("|___ \ ") # 3
+Standard_five.append("|___ \\ ") # 3
 Standard_five.append(" ___) |") # 4
 Standard_five.append("|____/ ") # 5
 Standard_five.append("       ") # Bottom, 6
@@ -750,9 +750,9 @@ Standard_six = []
 Standard_six.append("       ") # Top, 0
 Standard_six.append("  __   ") # 1
 Standard_six.append(" / /_  ") # 2
-Standard_six.append("| '_ \ ") # 3
+Standard_six.append("| '_ \\ ") # 3
 Standard_six.append("| (_) |") # 4
-Standard_six.append(" \___/ ") # 5
+Standard_six.append(" \\___/ ") # 5
 Standard_six.append("       ") # Bottom, 6
 
 # +--------------------------------+
@@ -774,9 +774,9 @@ Standard_eight = []
 Standard_eight.append("       ") # Top, 0
 Standard_eight.append("  ___  ") # 1
 Standard_eight.append(" ( _ ) ") # 2
-Standard_eight.append(" / _ \ ") # 3
+Standard_eight.append(" / _ \\ ") # 3
 Standard_eight.append("| (_) |") # 4
-Standard_eight.append(" \___/ ") # 5
+Standard_eight.append(" \\___/ ") # 5
 Standard_eight.append("       ") # Bottom, 6
 
 # +--------------------------------+
@@ -785,9 +785,9 @@ Standard_eight.append("       ") # Bottom, 6
 Standard_nine = []
 Standard_nine.append("       ") # Top, 0
 Standard_nine.append("  ___  ") # 1
-Standard_nine.append(" / _ \ ") # 2
+Standard_nine.append(" / _ \\ ") # 2
 Standard_nine.append("| (_) |") # 3
-Standard_nine.append(" \__, |") # 4
+Standard_nine.append(" \\__, |") # 4
 Standard_nine.append("   /_/ ") # 5
 Standard_nine.append("       ") # Bottom, 6
 
@@ -797,10 +797,10 @@ Standard_nine.append("       ") # Bottom, 6
 Standard_zero = []
 Standard_zero.append("       ") # Top, 0
 Standard_zero.append("  ___  ") # 1
-Standard_zero.append(" / _ \ ") # 2
+Standard_zero.append(" / _ \\ ") # 2
 Standard_zero.append("| | | |") # 3
 Standard_zero.append("| |_| |") # 4
-Standard_zero.append(" \___/ ") # 5
+Standard_zero.append(" \\___/ ") # 5
 Standard_zero.append("       ") # Bottom, 6
 
 # +--------------------------------+
@@ -833,10 +833,10 @@ Standard_equal.append("       ") # Bottom, 6
 Standard_backward_slash = []
 Standard_backward_slash.append("       ") # Top, 0
 Standard_backward_slash.append(" __    ") # 1
-Standard_backward_slash.append(" \ \   ") # 2
-Standard_backward_slash.append("  \ \  ") # 3
-Standard_backward_slash.append("   \ \ ") # 4
-Standard_backward_slash.append("    \_\\") # 5
+Standard_backward_slash.append(" \\ \\   ") # 2
+Standard_backward_slash.append("  \\ \\  ") # 3
+Standard_backward_slash.append("   \\ \\ ") # 4
+Standard_backward_slash.append("    \\_\\") # 5
 Standard_backward_slash.append("       ") # Bottom, 6
 
 # +--------------------------------+
@@ -928,8 +928,8 @@ Standard_forward_slash.append("      ") # Bottom, 6
 # +--------------------------------+
 Standard_tilde = []
 Standard_tilde.append("      ") # Top, 0
-Standard_tilde.append("  /\/|") # 1
-Standard_tilde.append(" |/\/ ") # 2
+Standard_tilde.append("  /\\/|") # 1
+Standard_tilde.append(" |/\\/ ") # 2
 Standard_tilde.append("      ") # 3
 Standard_tilde.append("      ") # 4
 Standard_tilde.append("      ") # 5
@@ -952,11 +952,11 @@ Standard_exclamation.append("   ") # Bottom, 6
 # +--------------------------------+
 Standard_arroba = []
 Standard_arroba.append("   ____  ") # Top, 0
-Standard_arroba.append("  / __ \ ") # 1
+Standard_arroba.append("  / __ \\ ") # 1
 Standard_arroba.append(" / / _` |") # 2
 Standard_arroba.append("| | (_| |") # 3
-Standard_arroba.append(" \ \__,_|") # 4
-Standard_arroba.append("  \____/ ") # 5
+Standard_arroba.append(" \\ \\__,_|") # 4
+Standard_arroba.append("  \\____/ ") # 5
 Standard_arroba.append("         ") # Bottom, 6
 
 # +--------------------------------+
@@ -978,7 +978,7 @@ Standard_dollar = []
 Standard_dollar.append("  _  ") # Top, 0
 Standard_dollar.append(" | | ") # 1
 Standard_dollar.append("/ __)") # 2
-Standard_dollar.append("\__ \\") # 3
+Standard_dollar.append("\\__ \\") # 3
 Standard_dollar.append("(   /") # 4
 Standard_dollar.append(" |_| ") # 5
 Standard_dollar.append("     ") # Bottom, 6
@@ -1000,8 +1000,8 @@ Standard_percent.append("      ") # Bottom, 6
 # +--------------------------------+
 Standard_caret = []
 Standard_caret.append("    ") # Top, 0
-Standard_caret.append(" /\ ") # 1
-Standard_caret.append("|/\|") # 2
+Standard_caret.append(" /\\ ") # 1
+Standard_caret.append("|/\\|") # 2
 Standard_caret.append("    ") # 3
 Standard_caret.append("    ") # 4
 Standard_caret.append("    ") # 5
@@ -1014,9 +1014,9 @@ Standard_ampersand = []
 Standard_ampersand.append("        ") # Top, 0
 Standard_ampersand.append("  ___   ") # 1
 Standard_ampersand.append(" ( _ )  ") # 2
-Standard_ampersand.append(" / _ \/\\") # 3
+Standard_ampersand.append(" / _ \\/\\") # 3
 Standard_ampersand.append("| (_>  <") # 4
-Standard_ampersand.append(" \___/\/") # 5
+Standard_ampersand.append(" \\___/\\/") # 5
 Standard_ampersand.append("        ") # Bottom, 6
 
 # +--------------------------------+
@@ -1025,10 +1025,10 @@ Standard_ampersand.append("        ") # Bottom, 6
 Standard_asterisk = []
 Standard_asterisk.append("      ") # Top, 0
 Standard_asterisk.append("      ") # 1
-Standard_asterisk.append("__/\__") # 2
-Standard_asterisk.append("\    /") # 3
+Standard_asterisk.append("__/\\__") # 2
+Standard_asterisk.append("\\    /") # 3
 Standard_asterisk.append("/_  _\\") # 4
-Standard_asterisk.append("  \/  ") # 5
+Standard_asterisk.append("  \\/  ") # 5
 Standard_asterisk.append("      ") # Bottom, 6
 
 # +--------------------------------+
@@ -1040,7 +1040,7 @@ Standard_open_parenthesis.append(" / /") # 1
 Standard_open_parenthesis.append("| | ") # 2
 Standard_open_parenthesis.append("| | ") # 3
 Standard_open_parenthesis.append("| | ") # 4
-Standard_open_parenthesis.append(" \_\\") # 5
+Standard_open_parenthesis.append(" \\_\\") # 5
 Standard_open_parenthesis.append("    ") # Bottom, 6
 
 # +--------------------------------+
@@ -1048,7 +1048,7 @@ Standard_open_parenthesis.append("    ") # Bottom, 6
 # +--------------------------------+
 Standard_closed_parenthesis = []
 Standard_closed_parenthesis.append("__  ") # Top, 0
-Standard_closed_parenthesis.append("\ \ ") # 1
+Standard_closed_parenthesis.append("\\ \\ ") # 1
 Standard_closed_parenthesis.append(" | |") # 2
 Standard_closed_parenthesis.append(" | |") # 3
 Standard_closed_parenthesis.append(" | |") # 4
@@ -1100,7 +1100,7 @@ Standard_open_curly.append("  / /") # 1
 Standard_open_curly.append(" | | ") # 2
 Standard_open_curly.append("< <  ") # 3
 Standard_open_curly.append(" | | ") # 4
-Standard_open_curly.append("  \_\\") # 5
+Standard_open_curly.append("  \\_\\") # 5
 Standard_open_curly.append("     ") # Bottom, 6
 
 # +--------------------------------+
@@ -1108,7 +1108,7 @@ Standard_open_curly.append("     ") # Bottom, 6
 # +--------------------------------+
 Standard_closed_curly = []
 Standard_closed_curly.append("__   ") # Top, 0
-Standard_closed_curly.append("\ \  ") # 1
+Standard_closed_curly.append("\\ \\  ") # 1
 Standard_closed_curly.append(" | | ") # 2
 Standard_closed_curly.append("  > >") # 3
 Standard_closed_curly.append(" | | ") # 4
@@ -1126,7 +1126,7 @@ Standard_colon.append(" _ ") # 3
 Standard_colon.append("(_)") # 4
 Standard_colon.append("   ") # 5
 Standard_colon.append("   ") # Bottom, 6
-
+# checked (spaces and invalid characters,\)
 # +--------------------------------+
 #   Letter quotation 
 # +--------------------------------+
@@ -1146,8 +1146,8 @@ Standard_less_than = []
 Standard_less_than.append("  __") # Top, 0
 Standard_less_than.append(" / /") # 1
 Standard_less_than.append("/ / ") # 2
-Standard_less_than.append("\ \ ") # 3
-Standard_less_than.append(" \_\\") # 4
+Standard_less_than.append("\\ \\ ") # 3
+Standard_less_than.append(" \\_\\") # 4
 Standard_less_than.append("    ") # 5
 Standard_less_than.append("    ") # Bottom, 6
 
@@ -1156,8 +1156,8 @@ Standard_less_than.append("    ") # Bottom, 6
 # +--------------------------------+
 Standard_greater_than = []
 Standard_greater_than.append(" __  ") # Top, 0
-Standard_greater_than.append(" \ \ ") # 1
-Standard_greater_than.append("  \ \\") # 2
+Standard_greater_than.append(" \\ \\ ") # 1
+Standard_greater_than.append("  \\ \\") # 2
 Standard_greater_than.append("  / /") # 3
 Standard_greater_than.append(" /_/ ") # 4
 Standard_greater_than.append("     ") # 5

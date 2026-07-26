@@ -112,7 +112,7 @@ Sweet_e.append("        ") # Bottom, 11
 # +--------------------------------+
 Sweet_f = []
 Sweet_f.append("  .-.    ") # Top, 0
-Sweet_f.append(" /    \  ") # 1
+Sweet_f.append(" /    \\  ") # 1
 Sweet_f.append(" | .`. ; ") # 2
 Sweet_f.append(" | |(___)") # 3
 Sweet_f.append(" | |_    ") # 4
@@ -129,7 +129,7 @@ Sweet_f.append("         ") # Bottom, 11
 # +--------------------------------+
 Sweet_g = []
 Sweet_g.append("  .--.  ") # Top, 0
-Sweet_g.append(" /    \ ") # 1
+Sweet_g.append(" /    \\ ") # 1
 Sweet_g.append(";  ,-. '") # 2
 Sweet_g.append("| |  | |") # 3
 Sweet_g.append("| |  | |") # 4
@@ -148,7 +148,7 @@ Sweet_h = []
 Sweet_h.append(" ___      ") # Top, 0
 Sweet_h.append("(   )     ") # 1
 Sweet_h.append(" | | .-.  ") # 2
-Sweet_h.append(" | |/   \ ") # 3
+Sweet_h.append(" | |/   \\ ") # 3
 Sweet_h.append(" |  .-. . ") # 4
 Sweet_h.append(" | |  | | ") # 5
 Sweet_h.append(" | |  | | ") # 6
@@ -203,9 +203,9 @@ Sweet_k.append(" | |  (   ) ") # 3
 Sweet_k.append(" | |  ' /   ") # 4
 Sweet_k.append(" | |,' /    ") # 5
 Sweet_k.append(" | .  '.    ") # 6
-Sweet_k.append(" | | `. \   ") # 7
-Sweet_k.append(" | |   \ \  ") # 8
-Sweet_k.append(" | |    \ . ") # 9
+Sweet_k.append(" | | `. \\   ") # 7
+Sweet_k.append(" | |   \\ \\  ") # 8
+Sweet_k.append(" | |    \\ . ") # 9
 Sweet_k.append("(___ ) (___)") # 10
 Sweet_k.append("            ") # Bottom, 11
 
@@ -233,7 +233,7 @@ Sweet_m = []
 Sweet_m.append("               ") # Top, 0
 Sweet_m.append("               ") # 1
 Sweet_m.append(" ___ .-. .-.   ") # 2
-Sweet_m.append("(   )   '   \  ") # 3
+Sweet_m.append("(   )   '   \\  ") # 3
 Sweet_m.append(" |  .-.  .-. ; ") # 4
 Sweet_m.append(" | |  | |  | | ") # 5
 Sweet_m.append(" | |  | |  | | ") # 6
@@ -250,7 +250,7 @@ Sweet_n = []
 Sweet_n.append("          ") # Top, 0
 Sweet_n.append("          ") # 1
 Sweet_n.append(" ___ .-.  ") # 2
-Sweet_n.append("(   )   \ ") # 3
+Sweet_n.append("(   )   \\ ") # 3
 Sweet_n.append(" |  .-. . ") # 4
 Sweet_n.append(" | |  | | ") # 5
 Sweet_n.append(" | |  | | ") # 6
@@ -267,7 +267,7 @@ Sweet_ñ = []
 Sweet_ñ.append("          ") # Top, 0
 Sweet_ñ.append("'.~.~.~.' ") # 1
 Sweet_ñ.append(" ___ .-.  ") # 2
-Sweet_ñ.append("(   )   \ ") # 3
+Sweet_ñ.append("(   )   \\ ") # 3
 Sweet_ñ.append(" |  .-. . ") # 4
 Sweet_ñ.append(" | |  | | ") # 5
 Sweet_ñ.append(" | |  | | ") # 6
@@ -284,7 +284,7 @@ Sweet_o = []
 Sweet_o.append("        ") # Top, 0
 Sweet_o.append("        ") # 1
 Sweet_o.append("  .--.  ") # 2
-Sweet_o.append(" /    \ ") # 3
+Sweet_o.append(" /    \\ ") # 3
 Sweet_o.append("|  .-. ;") # 4
 Sweet_o.append("| |  | |") # 5
 Sweet_o.append("| |  | |") # 6
@@ -299,14 +299,14 @@ Sweet_o.append("        ") # Bottom, 11
 # +--------------------------------+
 Sweet_p = []
 Sweet_p.append("   .-..  ") # Top, 0
-Sweet_p.append("  /    \ ") # 1
+Sweet_p.append("  /    \\ ") # 1
 Sweet_p.append(" ' .-,  ;") # 2
 Sweet_p.append(" | |  . |") # 3
 Sweet_p.append(" | |  | |") # 4
 Sweet_p.append(" | |  | |") # 5
 Sweet_p.append(" | |  ' |") # 6
 Sweet_p.append(" | `-'  '") # 7
-Sweet_p.append(" | \__.' ") # 8
+Sweet_p.append(" | \\__.' ") # 8
 Sweet_p.append(" | |     ") # 9
 Sweet_p.append("(___)    ") # 10
 Sweet_p.append("         ") # Bottom, 11
@@ -316,7 +316,7 @@ Sweet_p.append("         ") # Bottom, 11
 # +--------------------------------+
 Sweet_q = []
 Sweet_q.append("  .--.   ") # Top, 0
-Sweet_q.append(" /    \  ") # 1
+Sweet_q.append(" /    \\  ") # 1
 Sweet_q.append("|  .-. ' ") # 2
 Sweet_q.append("| |  | | ") # 3
 Sweet_q.append("| |  | | ") # 4
@@ -335,7 +335,7 @@ Sweet_r = []
 Sweet_r.append("           ") # Top, 0
 Sweet_r.append("           ") # 1
 Sweet_r.append(" ___ .-.   ") # 2
-Sweet_r.append("(   )   \  ") # 3
+Sweet_r.append("(   )   \\  ") # 3
 Sweet_r.append(" | ' .-. ; ") # 4
 Sweet_r.append(" |  / (___)") # 5
 Sweet_r.append(" | |       ") # 6
@@ -352,12 +352,12 @@ Sweet_s = []
 Sweet_s.append("          ") # Top, 0
 Sweet_s.append("          ") # 1
 Sweet_s.append("   .--.   ") # 2
-Sweet_s.append(" /  _  \  ") # 3
+Sweet_s.append(" /  _  \\  ") # 3
 Sweet_s.append(". .' `. ; ") # 4
 Sweet_s.append("| '   | | ") # 5
-Sweet_s.append("_\_`.(___)") # 6
+Sweet_s.append("_\\_`.(___)") # 6
 Sweet_s.append("   ). '.  ") # 7
-Sweet_s.append("| |  `\ | ") # 8
+Sweet_s.append("| |  `\\ | ") # 8
 Sweet_s.append("; '._,' ' ") # 9
 Sweet_s.append(" '.___.'  ") # 10
 Sweet_s.append("          ") # Bottom, 11
@@ -409,7 +409,7 @@ Sweet_v.append(" | |  | | ") # 5
 Sweet_v.append(" | |  | | ") # 6
 Sweet_v.append(" | |  | | ") # 7
 Sweet_v.append(" ' '  ; ' ") # 8
-Sweet_v.append("  \ `' /  ") # 9
+Sweet_v.append("  \\ `' /  ") # 9
 Sweet_v.append("   '_.'   ") # 10
 Sweet_v.append("          ") # Bottom, 11
 
@@ -439,8 +439,8 @@ Sweet_x.append("          ") # 1
 Sweet_x.append(" ___  ___ ") # 2
 Sweet_x.append("(   )(   )") # 3
 Sweet_x.append(" | |  | | ") # 4
-Sweet_x.append("  \ `' /  ") # 5
-Sweet_x.append("  / ,. \  ") # 6
+Sweet_x.append("  \\ `' /  ") # 5
+Sweet_x.append("  / ,. \\  ") # 6
 Sweet_x.append(" ' .  ; . ") # 7
 Sweet_x.append(" | |  | | ") # 8
 Sweet_x.append(" | |  | | ") # 9
@@ -470,14 +470,14 @@ Sweet_y.append("          ") # Bottom, 11
 Sweet_z = []
 Sweet_z.append("          ") # Top, 0
 Sweet_z.append("   .--.   ") # 1
-Sweet_z.append("  /    \  ") # 2
+Sweet_z.append("  /    \\  ") # 2
 Sweet_z.append(" .  .-. | ") # 3
 Sweet_z.append(" | |  | | ") # 4
 Sweet_z.append("(___)-` / ") # 5
-Sweet_z.append("    '. \  ") # 6
-Sweet_z.append("  ___ \ ' ") # 7
+Sweet_z.append("    '. \\  ") # 6
+Sweet_z.append("  ___ \\ ' ") # 7
 Sweet_z.append(" (   ) ; |") # 8
-Sweet_z.append("  \ `-'  /") # 9
+Sweet_z.append("  \\ `-'  /") # 9
 Sweet_z.append("   ',__.' ") # 10
 Sweet_z.append("          ") # Bottom, 11
 
@@ -487,7 +487,7 @@ Sweet_z.append("          ") # Bottom, 11
 Sweet_backtick = []
 Sweet_backtick.append("      ") # Top, 0
 Sweet_backtick.append(" ,-.  ") # 1
-Sweet_backtick.append("(   \ ") # 2
+Sweet_backtick.append("(   \\ ") # 2
 Sweet_backtick.append(" `.__)") # 3
 Sweet_backtick.append("      ") # 4
 Sweet_backtick.append("      ") # 5
@@ -522,7 +522,7 @@ Sweet_two = []
 Sweet_two.append("         ") # Top, 0
 Sweet_two.append("         ") # 1
 Sweet_two.append("  .--.   ") # 2
-Sweet_two.append(" ;  _  \ ") # 3
+Sweet_two.append(" ;  _  \\ ") # 3
 Sweet_two.append("(___)` | ") # 4
 Sweet_two.append("     ' ' ") # 5
 Sweet_two.append("    / /  ") # 6
@@ -539,13 +539,13 @@ Sweet_three = []
 Sweet_three.append("         ") # Top, 0
 Sweet_three.append("         ") # 1
 Sweet_three.append("   .--.  ") # 2
-Sweet_three.append(" /     \ ") # 3
+Sweet_three.append(" /     \\ ") # 3
 Sweet_three.append("(___)`. |") # 4
 Sweet_three.append("   .-' / ") # 5
-Sweet_three.append("   '. \  ") # 6
-Sweet_three.append(" ___ \ ' ") # 7
+Sweet_three.append("   '. \\  ") # 6
+Sweet_three.append(" ___ \\ ' ") # 7
 Sweet_three.append("(   ) ; |") # 8
-Sweet_three.append(" \ `-'  /") # 9
+Sweet_three.append(" \\ `-'  /") # 9
 Sweet_three.append("  ',__.' ") # 10
 Sweet_three.append("         ") # Bottom, 11
 
@@ -624,12 +624,12 @@ Sweet_eight = []
 Sweet_eight.append("         ") # Top, 0
 Sweet_eight.append("         ") # 1
 Sweet_eight.append("   .--.  ") # 2
-Sweet_eight.append(" /  _  \ ") # 3
+Sweet_eight.append(" /  _  \\ ") # 3
 Sweet_eight.append(". .' `. ;") # 4
-Sweet_eight.append("| \   | |") # 5
-Sweet_eight.append(" \ `.(_.'") # 6
+Sweet_eight.append("| \\   | |") # 5
+Sweet_eight.append(" \\ `.(_.'") # 6
 Sweet_eight.append(" /`'. '. ") # 7
-Sweet_eight.append("| |  `\ |") # 8
+Sweet_eight.append("| |  `\\ |") # 8
 Sweet_eight.append("; '._,' '") # 9
 Sweet_eight.append(" '.___.' ") # 10
 Sweet_eight.append("         ") # Bottom, 11
@@ -641,7 +641,7 @@ Sweet_nine = []
 Sweet_nine.append("        ") # Top, 0
 Sweet_nine.append("        ") # 1
 Sweet_nine.append("  .--.  ") # 2
-Sweet_nine.append(" /    \ ") # 3
+Sweet_nine.append(" /    \\ ") # 3
 Sweet_nine.append(";  ,-. '") # 4
 Sweet_nine.append("| |  | |") # 5
 Sweet_nine.append("'  `-' |") # 6
@@ -658,7 +658,7 @@ Sweet_zero = []
 Sweet_zero.append("        ") # Top, 0
 Sweet_zero.append("        ") # 1
 Sweet_zero.append("   .-.  ") # 2
-Sweet_zero.append(" /    \ ") # 3
+Sweet_zero.append(" /    \\ ") # 3
 Sweet_zero.append("|  .-. ;") # 4
 Sweet_zero.append("| |  | |") # 5
 Sweet_zero.append("| |  | |") # 6
@@ -707,16 +707,16 @@ Sweet_equal.append("          ") # Bottom, 11
 # +--------------------------------+
 Sweet_backward_slash = []
 Sweet_backward_slash.append("          ") # Top, 0
-Sweet_backward_slash.append("/\        ") # 1
-Sweet_backward_slash.append("\ \       ") # 2
-Sweet_backward_slash.append(" \ \      ") # 3
-Sweet_backward_slash.append("  \ \     ") # 4
-Sweet_backward_slash.append("   \ \    ") # 5
-Sweet_backward_slash.append("    \ \\   ") # 6
-Sweet_backward_slash.append("     \ \\  ") # 7
-Sweet_backward_slash.append("      \ \\ ") # 8
-Sweet_backward_slash.append("       \ \\") # 9
-Sweet_backward_slash.append("        \/") # 10
+Sweet_backward_slash.append("/\\        ") # 1
+Sweet_backward_slash.append("\\ \\       ") # 2
+Sweet_backward_slash.append(" \\ \\      ") # 3
+Sweet_backward_slash.append("  \\ \\     ") # 4
+Sweet_backward_slash.append("   \\ \\    ") # 5
+Sweet_backward_slash.append("    \\ \\   ") # 6
+Sweet_backward_slash.append("     \\ \\  ") # 7
+Sweet_backward_slash.append("      \\ \\ ") # 8
+Sweet_backward_slash.append("       \\ \\") # 9
+Sweet_backward_slash.append("        \\/") # 10
 Sweet_backward_slash.append("          ") # Bottom, 11
 
 # +--------------------------------+
@@ -765,7 +765,7 @@ Sweet_semicolon.append(" .-.  ") # 4
 Sweet_semicolon.append("(   ) ") # 5
 Sweet_semicolon.append(" `-'  ") # 6
 Sweet_semicolon.append(" ,-.  ") # 7
-Sweet_semicolon.append("(   \ ") # 8
+Sweet_semicolon.append("(   \\ ") # 8
 Sweet_semicolon.append(" `.__)") # 9
 Sweet_semicolon.append("      ") # 10
 Sweet_semicolon.append("      ") # Bottom, 11
@@ -800,7 +800,7 @@ Sweet_comma.append("      ") # 5
 Sweet_comma.append("      ") # 6
 Sweet_comma.append("      ") # 7
 Sweet_comma.append(" ,-.  ") # 8
-Sweet_comma.append("(   \ ") # 9
+Sweet_comma.append("(   \\ ") # 9
 Sweet_comma.append(" `.__)") # 10
 Sweet_comma.append("      ") # Bottom, 11
 
@@ -835,7 +835,7 @@ Sweet_forward_slash.append("   / /    ") # 6
 Sweet_forward_slash.append("  / /     ") # 7
 Sweet_forward_slash.append(" / /      ") # 8
 Sweet_forward_slash.append("/ /       ") # 9
-Sweet_forward_slash.append("\/        ") # 10
+Sweet_forward_slash.append("\\/        ") # 10
 Sweet_forward_slash.append("          ") # Bottom, 11
 
 # +--------------------------------+
@@ -844,8 +844,8 @@ Sweet_forward_slash.append("          ") # Bottom, 11
 Sweet_tilde = []
 Sweet_tilde.append("       ") # Top, 0
 Sweet_tilde.append("  .    ") # 1
-Sweet_tilde.append(" /.\_/)") # 2
-Sweet_tilde.append("(/ \_/ ") # 3
+Sweet_tilde.append(" /.\\_/)") # 2
+Sweet_tilde.append("(/ \\_/ ") # 3
 Sweet_tilde.append("       ") # 4
 Sweet_tilde.append("       ") # 5
 Sweet_tilde.append("       ") # 6
@@ -880,13 +880,13 @@ Sweet_arroba.append("           ") # Top, 0
 Sweet_arroba.append("           ") # 1
 Sweet_arroba.append("           ") # 2
 Sweet_arroba.append("   _____   ") # 3
-Sweet_arroba.append("  / ___ \  ") # 4
-Sweet_arroba.append(" / / . \ \ ") # 5
-Sweet_arroba.append("( ( / \ ) )") # 6
+Sweet_arroba.append("  / ___ \\  ") # 4
+Sweet_arroba.append(" / / . \\ \\ ") # 5
+Sweet_arroba.append("( ( / \\ ) )") # 6
 Sweet_arroba.append("| |(()// / ") # 7
-Sweet_arroba.append("( ( \___/  ") # 8
-Sweet_arroba.append(" \ \____/\ ") # 9
-Sweet_arroba.append("  \______/ ") # 10
+Sweet_arroba.append("( ( \\___/  ") # 8
+Sweet_arroba.append(" \\ \\____/\\ ") # 9
+Sweet_arroba.append("  \\______/ ") # 10
 Sweet_arroba.append("           ") # Bottom, 11
 
 # +--------------------------------+
@@ -918,8 +918,8 @@ Sweet_dollar.append(" __|.|___") # 4
 Sweet_dollar.append("(  _____/") # 5
 Sweet_dollar.append("| (|.|__ ") # 6
 Sweet_dollar.append("(_____  )") # 7
-Sweet_dollar.append("/\_|.|) |") # 8
-Sweet_dollar.append("\_______)") # 9
+Sweet_dollar.append("/\\_|.|) |") # 8
+Sweet_dollar.append("\\_______)") # 9
 Sweet_dollar.append("   |_|   ") # 10
 Sweet_dollar.append("         ") # Bottom, 11
 
@@ -937,7 +937,7 @@ Sweet_percent.append("   / / ") # 6
 Sweet_percent.append("  / /  ") # 7
 Sweet_percent.append(" / /   ") # 8
 Sweet_percent.append("/ /  ()") # 9
-Sweet_percent.append("\/     ") # 10
+Sweet_percent.append("\\/     ") # 10
 Sweet_percent.append("       ") # Bottom, 11
 
 # +--------------------------------+
@@ -945,7 +945,7 @@ Sweet_percent.append("       ") # Bottom, 11
 # +--------------------------------+
 Sweet_caret = []
 Sweet_caret.append("  ,---,  ") # Top, 0
-Sweet_caret.append(" /    '\ ") # 1
+Sweet_caret.append(" /    '\\ ") # 1
 Sweet_caret.append("(__.'`._)") # 2
 Sweet_caret.append("         ") # 3
 Sweet_caret.append("         ") # 4
@@ -965,13 +965,13 @@ Sweet_ampersand.append("        ") # Top, 0
 Sweet_ampersand.append("        ") # 1
 Sweet_ampersand.append("        ") # 2
 Sweet_ampersand.append("   __   ") # 3
-Sweet_ampersand.append("  /__\  ") # 4
-Sweet_ampersand.append(" ( \/ ) ") # 5
-Sweet_ampersand.append("  \  /  ") # 6
-Sweet_ampersand.append("  /  \/\\") # 7
-Sweet_ampersand.append(" / /\  /") # 8
-Sweet_ampersand.append("(  \/  \\") # 9
-Sweet_ampersand.append(" \___/\/") # 10
+Sweet_ampersand.append("  /__\\  ") # 4
+Sweet_ampersand.append(" ( \\/ ) ") # 5
+Sweet_ampersand.append("  \\  /  ") # 6
+Sweet_ampersand.append("  /  \\/\\") # 7
+Sweet_ampersand.append(" / /\\  /") # 8
+Sweet_ampersand.append("(  \\/  \\") # 9
+Sweet_ampersand.append(" \\___/\\/") # 10
 Sweet_ampersand.append("        ") # Bottom, 11
 
 # +--------------------------------+
@@ -982,13 +982,13 @@ Sweet_asterisk.append("          ") # Top, 0
 Sweet_asterisk.append("          ") # 1
 Sweet_asterisk.append("          ") # 2
 Sweet_asterisk.append("          ") # 3
-Sweet_asterisk.append(" /\     /\\") # 4
-Sweet_asterisk.append(" \ \   / /") # 5
+Sweet_asterisk.append(" /\\     /\\") # 4
+Sweet_asterisk.append(" \\ \\   / /") # 5
 Sweet_asterisk.append(" _) (.) (_") # 6
 Sweet_asterisk.append("(_      _)") # 7
 Sweet_asterisk.append("  ) (.) ( ") # 8
-Sweet_asterisk.append(" / /  \ \ ") # 9
-Sweet_asterisk.append(" \/    \/ ") # 10
+Sweet_asterisk.append(" / /  \\ \\ ") # 9
+Sweet_asterisk.append(" \\/    \\/ ") # 10
 Sweet_asterisk.append("          ") # Bottom, 11
 
 # +--------------------------------+
@@ -997,7 +997,7 @@ Sweet_asterisk.append("          ") # Bottom, 11
 Sweet_open_parenthesis = []
 Sweet_open_parenthesis.append("        ") # Top, 0
 Sweet_open_parenthesis.append(" .-.    ") # 1
-Sweet_open_parenthesis.append("/  . \  ") # 2
+Sweet_open_parenthesis.append("/  . \\  ") # 2
 Sweet_open_parenthesis.append("| .(___)") # 3
 Sweet_open_parenthesis.append("| |     ") # 4
 Sweet_open_parenthesis.append("| |     ") # 5
@@ -1088,7 +1088,7 @@ Sweet_open_curly.append("/ |  ") # 4
 Sweet_open_curly.append("| |  ") # 5
 Sweet_open_curly.append("| |  ") # 6
 Sweet_open_curly.append("| |  ") # 7
-Sweet_open_curly.append("\ |  ") # 8
+Sweet_open_curly.append("\\ |  ") # 8
 Sweet_open_curly.append(" )(_ ") # 9
 Sweet_open_curly.append(" (..)") # 10
 Sweet_open_curly.append("     ") # Bottom, 11
@@ -1155,10 +1155,10 @@ Sweet_less_than.append("   / / ") # 3
 Sweet_less_than.append("  / /  ") # 4
 Sweet_less_than.append(" / /   ") # 5
 Sweet_less_than.append("( (    ") # 6
-Sweet_less_than.append(" \ \   ") # 7
-Sweet_less_than.append("  \ \  ") # 8
-Sweet_less_than.append("   \ \ ") # 9
-Sweet_less_than.append("    \_)") # 10
+Sweet_less_than.append(" \\ \\   ") # 7
+Sweet_less_than.append("  \\ \\  ") # 8
+Sweet_less_than.append("   \\ \\ ") # 9
+Sweet_less_than.append("    \\_)") # 10
 Sweet_less_than.append("       ") # Bottom, 11
 
 # +--------------------------------+
@@ -1167,10 +1167,10 @@ Sweet_less_than.append("       ") # Bottom, 11
 Sweet_greater_than = []
 Sweet_greater_than.append("       ") # Top, 0
 Sweet_greater_than.append(" _     ") # 1
-Sweet_greater_than.append("( \    ") # 2
-Sweet_greater_than.append(" \ \   ") # 3
-Sweet_greater_than.append("  \ \  ") # 4
-Sweet_greater_than.append("   \ \ ") # 5
+Sweet_greater_than.append("( \\    ") # 2
+Sweet_greater_than.append(" \\ \\   ") # 3
+Sweet_greater_than.append("  \\ \\  ") # 4
+Sweet_greater_than.append("   \\ \\ ") # 5
 Sweet_greater_than.append("    ) )") # 6
 Sweet_greater_than.append("   / / ") # 7
 Sweet_greater_than.append("  / /  ") # 8
@@ -1184,7 +1184,7 @@ Sweet_greater_than.append("       ") # Bottom, 11
 Sweet_question = []
 Sweet_question.append("           ") # Top, 0
 Sweet_question.append("   .---.   ") # 1
-Sweet_question.append("  /  _   \ ") # 2
+Sweet_question.append("  /  _   \\ ") # 2
 Sweet_question.append(" | |   `. .") # 3
 Sweet_question.append("(___)   | |") # 4
 Sweet_question.append("     .-'_/ ") # 5

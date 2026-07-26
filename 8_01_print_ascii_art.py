@@ -13,32 +13,49 @@ def art(dato):
     msg = cp.Art()
     # msg.set_layout = cp.Layout.HORIZONTAL
     msg.set_layout = cp.Layout.VERTICAL
-    msg.adj_indent = 2
+    msg.adj_indent = 10
     msg.delay_ms = 40
     msg.bold = True
-    msg.bg = 87
-    msg.fg = 16
-    # msg.ascii_type = cp.Ascii_Letter.Alpha
-    # msg.ascii_type = cp.Ascii_Letter.ANSI_Shadow
-    # msg.ascii_type = cp.Ascii_Letter.Big
-    # msg.ascii_type = cp.Ascii_Letter.Blocks
-    # msg.ascii_type = cp.Ascii_Letter.Bulbhead
-    # msg.ascii_type = cp.Ascii_Letter.Classy
-    # msg.ascii_type = cp.Ascii_Letter.Colossal
-    # msg.ascii_type = cp.Ascii_Letter.Crazy
-    # msg.ascii_type = cp.Ascii_Letter.Doh
-    # msg.ascii_type = cp.Ascii_Letter.Doom
-    # msg.ascii_type = cp.Ascii_Letter.Epic
-    # msg.ascii_type = cp.Ascii_Letter.Graceful
-    msg.ascii_type = cp.Ascii_Letter.Larry  # check the invalid scape from here.
-    # msg.ascii_type = cp.Ascii_Letter.Roman
-    # msg.ascii_type = cp.Ascii_Letter.Standard
-    # msg.ascii_type = cp.Ascii_Letter.Sweet
+    msg.bg = 90
+    msg.fg = 231
+    # msg.ascii_type = cp.Ascii_Letter.Alpha        # checked (spaces and invalid characters,\)
+    # msg.ascii_type = cp.Ascii_Letter.ANSI_Shadow  # checked (spaces and invalid characters,\)
+    # msg.ascii_type = cp.Ascii_Letter.Big          # checked (spaces and invalid characters,\)
+    # msg.ascii_type = cp.Ascii_Letter.Blocks       # checked (spaces and invalid characters,\)
+    # msg.ascii_type = cp.Ascii_Letter.Bulbhead     # checked (spaces and invalid characters,\)
+    # msg.ascii_type = cp.Ascii_Letter.Classy       # checked (spaces and invalid characters,\)
+    # msg.ascii_type = cp.Ascii_Letter.Colossal     # checked (spaces and invalid characters,\)
+    # msg.ascii_type = cp.Ascii_Letter.Crazy        # checked (spaces and invalid characters,\)
+    # msg.ascii_type = cp.Ascii_Letter.Doh          # checked (spaces and invalid characters,\)
+    # msg.ascii_type = cp.Ascii_Letter.Doom         # checked (spaces and invalid characters,\)
+    # msg.ascii_type = cp.Ascii_Letter.Epic         # checked (spaces and invalid characters,\)
+    # msg.ascii_type = cp.Ascii_Letter.Graceful     # checked (spaces and invalid characters,\)
+    # msg.ascii_type = cp.Ascii_Letter.Larry        # checked (spaces and invalid characters,\)
+    # msg.ascii_type = cp.Ascii_Letter.Money_NE     # checked (spaces and invalid characters,\)
+    # msg.ascii_type = cp.Ascii_Letter.Money_NW     # checked (spaces and invalid characters,\)
+    # msg.ascii_type = cp.Ascii_Letter.Money_SE     # checked (spaces and invalid characters,\)
+    # msg.ascii_type = cp.Ascii_Letter.Money_SW     # checked (spaces and invalid characters,\)
+    # msg.ascii_type = cp.Ascii_Letter.Mono         # checked (spaces and invalid characters,\)
+    # msg.ascii_type = cp.Ascii_Letter.Moon         # checked (spaces and invalid characters,\)
+    # msg.ascii_type = cp.Ascii_Letter.Moon2        # Does not respect bg and fg colors. # checked (spaces and invalid characters,\)
+    # msg.ascii_type = cp.Ascii_Letter.Roman        # checked (spaces and invalid characters,\)
+    # msg.ascii_type = cp.Ascii_Letter.Standard     # checked (spaces and invalid characters,\)
+    # msg.ascii_type = cp.Ascii_Letter.Sweet        # checked (spaces and invalid characters,\)
+    
+    
 
-    msg.adj_left_space  = 2
-    msg.adj_right_space = 2
-    msg.adj_middle_space = 1
+    # msg.set_top_line    = False
+    # msg.set_bottom_line = False
+    
+    msg.adj_left_space   = 1
+    msg.adj_right_space  = 1
+    msg.adj_middle_space = 2
     msg.print_ascii_art(dato)
+
+
+# art("(")
+# exit()
+                                                                      
 
 
 
@@ -59,8 +76,7 @@ for row in range(len(lista)):
     
 
 
-
-# ABC indivudually
+# ABC individually
 # lista = f"ABCDEFGHIJKLMNÑOPQRSTUVWXYZabcdefghijklmnñopqrstuvwxyz`1234567890-=[]\\;',./~!@#$%^&*()_+{cp.Unicode.LEFT_CURLY_BRACKET}{cp.Unicode.RIGHT_CURLY_BRACKET}|:\"<>?"
 # for l in lista:    
 #     # print(f"{cp.set_font(1,231,21)} Letter:{l}, Enter to Continue {cp.reset_font()}")
@@ -68,10 +84,28 @@ for row in range(len(lista)):
 #     art(dato=l)
 
 
+# art("AHXYELL")
+
+# for l in cp.Moon2_Letters.Moon2_A:
+#     print(len(l))
+
+# print(len(cp.Moon2_Letters.Moon2_A[0]))
+
+# crs = cp.Cursor()
+# right_sp = cp.ins_chr(n = 4, unicode = " ")
+# left_sp  = cp.ins_chr(n = 14, unicode = " ")
+# Moon2_bg = "\033[0;48;5;0m"
+# indent = cp.ins_chr(n=4, unicode=" ")
+
+# for l in cp.Moon2_Letters.Moon2_A:
+#     print(f"{indent}{Moon2_bg}{left_sp}{l}{Moon2_bg}{right_sp}\033[0m")
+
+# print(crs.moveTo(qty=5,direction=cp.Move.UP))
+
+# new_indent =  cp.ins_chr(n=14+len(cp.Moon2_A[0]),unicode=" ")
+
+# for l in cp.Moon2_Letters.Moon2_B:
+#     print(f"{new_indent}{Moon2_bg}{left_sp}{l}{Moon2_bg}{right_sp}\033[0m")
 
 
 
-
-
-
-# Note: Working on Epic and Graceful

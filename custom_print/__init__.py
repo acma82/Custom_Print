@@ -70,6 +70,9 @@ from .Money_NE_Letters     import*
 from .Money_NW_Letters     import*
 from .Money_SE_Letters     import*
 from .Money_SW_Letters     import*
+from .Mono_Letters         import*
+from .Moon_Letters         import*
+from .Moon2_Letters        import*
 from .Roman_Letters        import*
 from .Standard_Letters     import*
 from .Sweet_Letters        import*

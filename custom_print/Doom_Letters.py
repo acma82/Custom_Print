@@ -29,11 +29,11 @@
 Doom_A = []
 Doom_A.append("       ") # Top, 0
 Doom_A.append("  ___  ") # 1
-Doom_A.append(" / _ \ ") # 2
-Doom_A.append("/ /_\ \\") # 3
+Doom_A.append(" / _ \\ ") # 2
+Doom_A.append("/ /_\\ \\") # 3
 Doom_A.append("|  _  |") # 4
 Doom_A.append("| | | |") # 5
-Doom_A.append("\_| |_/") # 6
+Doom_A.append("\\_| |_/") # 6
 Doom_A.append("       ") # Bottom, 7
 
 # +--------------------------------+
@@ -46,7 +46,7 @@ Doom_B.append("| ___ \\") # 2
 Doom_B.append("| |_/ /") # 3
 Doom_B.append("| ___ \\") # 4
 Doom_B.append("| |_/ /") # 5
-Doom_B.append("\____/ ") # 6
+Doom_B.append("\\____/ ") # 6
 Doom_B.append("       ") # Bottom, 7
 
 # +--------------------------------+
@@ -56,10 +56,10 @@ Doom_C = []
 Doom_C.append("       ") # Top, 0
 Doom_C.append(" _____ ") # 1
 Doom_C.append("/  __ \\") # 2
-Doom_C.append("| /  \/") # 3
+Doom_C.append("| /  \\/") # 3
 Doom_C.append("| |    ") # 4
-Doom_C.append("| \__/\\") # 5
-Doom_C.append(" \____/") # 6
+Doom_C.append("| \\__/\\") # 5
+Doom_C.append(" \\____/") # 6
 Doom_C.append("       ") # Bottom, 7
 
 # +--------------------------------+
@@ -85,7 +85,7 @@ Doom_E.append("|  ___|") # 2
 Doom_E.append("| |__  ") # 3
 Doom_E.append("|  __| ") # 4
 Doom_E.append("| |___ ") # 5
-Doom_E.append("\____/ ") # 6
+Doom_E.append("\\____/ ") # 6
 Doom_E.append("       ") # Bottom, 7
 
 # +--------------------------------+
@@ -98,7 +98,7 @@ Doom_F.append("|  ___|") # 2
 Doom_F.append("| |_   ") # 3
 Doom_F.append("|  _|  ") # 4
 Doom_F.append("| |    ") # 5
-Doom_F.append("\_|    ") # 6
+Doom_F.append("\\_|    ") # 6
 Doom_F.append("       ") # Bottom, 7
 
 # +--------------------------------+
@@ -108,10 +108,10 @@ Doom_G = []
 Doom_G.append("       ") # Top, 0
 Doom_G.append(" _____ ") # 1
 Doom_G.append("|  __ \\") # 2
-Doom_G.append("| |  \/") # 3
+Doom_G.append("| |  \\/") # 3
 Doom_G.append("| | __ ") # 4
-Doom_G.append("| |_\ \\") # 5
-Doom_G.append(" \____/") # 6
+Doom_G.append("| |_\\ \\") # 5
+Doom_G.append(" \\____/") # 6
 Doom_G.append("       ") # Bottom, 7
 
 # +--------------------------------+
@@ -124,7 +124,7 @@ Doom_H.append("| | | |") # 2
 Doom_H.append("| |_| |") # 3
 Doom_H.append("|  _  |") # 4
 Doom_H.append("| | | |") # 5
-Doom_H.append("\_| |_/") # 6
+Doom_H.append("\\_| |_/") # 6
 Doom_H.append("       ") # Bottom, 7
 
 # +--------------------------------+
@@ -137,7 +137,7 @@ Doom_I.append("|_   _|") # 2
 Doom_I.append("  | |  ") # 3
 Doom_I.append("  | |  ") # 4
 Doom_I.append(" _| |_ ") # 5
-Doom_I.append(" \___/ ") # 6
+Doom_I.append(" \\___/ ") # 6
 Doom_I.append("       ") # Bottom, 7
 
 # +--------------------------------+
@@ -149,8 +149,8 @@ Doom_J.append("   ___ ") # 1
 Doom_J.append("  |_  |") # 2
 Doom_J.append("    | |") # 3
 Doom_J.append("    | |") # 4
-Doom_J.append("/\__/ /") # 5
-Doom_J.append("\____/ ") # 6
+Doom_J.append("/\\__/ /") # 5
+Doom_J.append("\\____/ ") # 6
 Doom_J.append("       ") # Bottom, 7
 
 # +--------------------------------+
@@ -161,9 +161,9 @@ Doom_K.append("       ") # Top, 0
 Doom_K.append(" _   __") # 1
 Doom_K.append("| | / /") # 2
 Doom_K.append("| |/ / ") # 3
-Doom_K.append("|    \ ") # 4
-Doom_K.append("| |\  \\") # 5
-Doom_K.append("\_| \_/") # 6
+Doom_K.append("|    \\ ") # 4
+Doom_K.append("| |\\  \\") # 5
+Doom_K.append("\\_| \\_/") # 6
 Doom_K.append("       ") # Bottom, 7
 
 # +--------------------------------+
@@ -176,7 +176,7 @@ Doom_L.append("| |    ") # 2
 Doom_L.append("| |    ") # 3
 Doom_L.append("| |    ") # 4
 Doom_L.append("| |____") # 5
-Doom_L.append("\_____/") # 6
+Doom_L.append("\\_____/") # 6
 Doom_L.append("       ") # Bottom, 7
 
 # +--------------------------------+
@@ -185,11 +185,11 @@ Doom_L.append("       ") # Bottom, 7
 Doom_M = []
 Doom_M.append("        ") # Top, 0
 Doom_M.append("___  ___") # 1
-Doom_M.append("|  \/  |") # 2
+Doom_M.append("|  \\/  |") # 2
 Doom_M.append("| .  . |") # 3
-Doom_M.append("| |\/| |") # 4
+Doom_M.append("| |\\/| |") # 4
 Doom_M.append("| |  | |") # 5
-Doom_M.append("\_|  |_/") # 6
+Doom_M.append("\\_|  |_/") # 6
 Doom_M.append("        ") # Bottom, 7
 
 # +--------------------------------+
@@ -198,11 +198,11 @@ Doom_M.append("        ") # Bottom, 7
 Doom_N = []
 Doom_N.append("       ") # Top, 0
 Doom_N.append(" _   _ ") # 1
-Doom_N.append("| \ | |") # 2
-Doom_N.append("|  \| |") # 3
+Doom_N.append("| \\ | |") # 2
+Doom_N.append("|  \\| |") # 3
 Doom_N.append("| . ` |") # 4
-Doom_N.append("| |\  |") # 5
-Doom_N.append("\_| \_/") # 6
+Doom_N.append("| |\\  |") # 5
+Doom_N.append("\\_| \\_/") # 6
 Doom_N.append("       ") # Bottom, 7
 
 # +--------------------------------+
@@ -211,11 +211,11 @@ Doom_N.append("       ") # Bottom, 7
 Doom_Ñ = []
 Doom_Ñ.append("       ") # Top, 0
 Doom_Ñ.append(" ~~~~~ ") # 1
-Doom_Ñ.append("| \ | |") # 2
-Doom_Ñ.append("|  \| |") # 3
+Doom_Ñ.append("| \\ | |") # 2
+Doom_Ñ.append("|  \\| |") # 3
 Doom_Ñ.append("| . ` |") # 4
-Doom_Ñ.append("| |\  |") # 5
-Doom_Ñ.append("\_| \_/") # 6
+Doom_Ñ.append("| |\\  |") # 5
+Doom_Ñ.append("\\_| \\_/") # 6
 Doom_Ñ.append("       ") # Bottom, 7
 
 # +--------------------------------+
@@ -227,8 +227,8 @@ Doom_O.append(" _____ ") # 1
 Doom_O.append("|  _  |") # 2
 Doom_O.append("| | | |") # 3
 Doom_O.append("| | | |") # 4
-Doom_O.append("\ \_/ /") # 5
-Doom_O.append(" \___/ ") # 6
+Doom_O.append("\\ \\_/ /") # 5
+Doom_O.append(" \\___/ ") # 6
 Doom_O.append("       ") # Bottom, 7
 
 # +--------------------------------+
@@ -241,7 +241,7 @@ Doom_P.append("| ___ \\") # 2
 Doom_P.append("| |_/ /") # 3
 Doom_P.append("|  __/ ") # 4
 Doom_P.append("| |    ") # 5
-Doom_P.append("\_|    ") # 6
+Doom_P.append("\\_|    ") # 6
 Doom_P.append("       ") # Bottom, 7
 
 # +--------------------------------+
@@ -253,8 +253,8 @@ Doom_Q.append(" _____ ") # 1
 Doom_Q.append("|  _  |") # 2
 Doom_Q.append("| | | |") # 3
 Doom_Q.append("| | | |") # 4
-Doom_Q.append("\ \/' /") # 5
-Doom_Q.append(" \_/\_\\") # 6
+Doom_Q.append("\\ \\/' /") # 5
+Doom_Q.append(" \\_/\\_\\") # 6
 Doom_Q.append("       ") # Bottom, 7
 
 # +--------------------------------+
@@ -266,8 +266,8 @@ Doom_R.append("______ ") # 1
 Doom_R.append("| ___ \\") # 2
 Doom_R.append("| |_/ /") # 3
 Doom_R.append("|    / ") # 4
-Doom_R.append("| |\ \ ") # 5
-Doom_R.append("\_| \_|") # 6
+Doom_R.append("| |\\ \\ ") # 5
+Doom_R.append("\\_| \\_|") # 6
 Doom_R.append("       ") # Bottom, 7
 
 # +--------------------------------+
@@ -277,10 +277,10 @@ Doom_S = []
 Doom_S.append("       ") # Top, 0
 Doom_S.append(" _____ ") # 1
 Doom_S.append("/  ___|") # 2
-Doom_S.append("\ `--. ") # 3
+Doom_S.append("\\ `--. ") # 3
 Doom_S.append(" `--. \\") # 4
-Doom_S.append("/\__/ /") # 5
-Doom_S.append("\____/ ") # 6
+Doom_S.append("/\\__/ /") # 5
+Doom_S.append("\\____/ ") # 6
 Doom_S.append("       ") # Bottom, 7
 
 # +--------------------------------+
@@ -293,7 +293,7 @@ Doom_T.append("|_   _|") # 2
 Doom_T.append("  | |  ") # 3
 Doom_T.append("  | |  ") # 4
 Doom_T.append("  | |  ") # 5
-Doom_T.append("  \_/  ") # 6
+Doom_T.append("  \\_/  ") # 6
 Doom_T.append("       ") # Bottom, 7
 
 # +--------------------------------+
@@ -306,7 +306,7 @@ Doom_U.append("| | | |") # 2
 Doom_U.append("| | | |") # 3
 Doom_U.append("| | | |") # 4
 Doom_U.append("| |_| |") # 5
-Doom_U.append(" \___/ ") # 6
+Doom_U.append(" \\___/ ") # 6
 Doom_U.append("       ") # Bottom, 7
 
 # +--------------------------------+
@@ -318,8 +318,8 @@ Doom_V.append(" _   _ ") # 1
 Doom_V.append("| | | |") # 2
 Doom_V.append("| | | |") # 3
 Doom_V.append("| | | |") # 4
-Doom_V.append("\ \_/ /") # 5
-Doom_V.append(" \___/ ") # 6
+Doom_V.append("\\ \\_/ /") # 5
+Doom_V.append(" \\___/ ") # 6
 Doom_V.append("       ") # Bottom, 7
 
 # +--------------------------------+
@@ -330,9 +330,9 @@ Doom_W.append("        ") # Top, 0
 Doom_W.append(" _    _ ") # 1
 Doom_W.append("| |  | |") # 2
 Doom_W.append("| |  | |") # 3
-Doom_W.append("| |/\| |") # 4
-Doom_W.append("\  /\  /") # 5
-Doom_W.append(" \/  \/ ") # 6
+Doom_W.append("| |/\\| |") # 4
+Doom_W.append("\\  /\\  /") # 5
+Doom_W.append(" \\/  \\/ ") # 6
 Doom_W.append("        ") # Bottom, 7
 
 # +--------------------------------+
@@ -341,11 +341,11 @@ Doom_W.append("        ") # Bottom, 7
 Doom_X = []
 Doom_X.append("       ") # Top, 0
 Doom_X.append("__   __") # 1
-Doom_X.append("\ \ / /") # 2
-Doom_X.append(" \ V / ") # 3
-Doom_X.append(" /   \ ") # 4
-Doom_X.append("/ /^\ \\") # 5
-Doom_X.append("\/   \/") # 6
+Doom_X.append("\\ \\ / /") # 2
+Doom_X.append(" \\ V / ") # 3
+Doom_X.append(" /   \\ ") # 4
+Doom_X.append("/ /^\\ \\") # 5
+Doom_X.append("\\/   \\/") # 6
 Doom_X.append("       ") # Bottom, 7
 
 # +--------------------------------+
@@ -354,11 +354,11 @@ Doom_X.append("       ") # Bottom, 7
 Doom_Y = []
 Doom_Y.append("       ") # Top, 0
 Doom_Y.append("__   __") # 1
-Doom_Y.append("\ \ / /") # 2
-Doom_Y.append(" \ V / ") # 3
-Doom_Y.append("  \ /  ") # 4
+Doom_Y.append("\\ \\ / /") # 2
+Doom_Y.append(" \\ V / ") # 3
+Doom_Y.append("  \\ /  ") # 4
 Doom_Y.append("  | |  ") # 5
-Doom_Y.append("  \_/  ") # 6
+Doom_Y.append("  \\_/  ") # 6
 Doom_Y.append("       ") # Bottom, 7
 
 # +--------------------------------+
@@ -371,7 +371,7 @@ Doom_Z.append("|___  /") # 2
 Doom_Z.append("   / / ") # 3
 Doom_Z.append("  / /  ") # 4
 Doom_Z.append("./ /___") # 5
-Doom_Z.append("\_____/") # 6
+Doom_Z.append("\\_____/") # 6
 Doom_Z.append("       ") # Bottom, 7
 
 # +--------------------------------+
@@ -384,7 +384,7 @@ Doom_a.append("       ") # 2
 Doom_a.append("  __ _ ") # 3
 Doom_a.append(" / _` |") # 4
 Doom_a.append("| (_| |") # 5
-Doom_a.append(" \__,_|") # 6
+Doom_a.append(" \\__,_|") # 6
 Doom_a.append("       ") # Bottom, 7
 
 # +--------------------------------+
@@ -395,7 +395,7 @@ Doom_b.append("       ") # Top, 0
 Doom_b.append(" _     ") # 1
 Doom_b.append("| |    ") # 2
 Doom_b.append("| |__  ") # 3
-Doom_b.append("| '_ \ ") # 4
+Doom_b.append("| '_ \\ ") # 4
 Doom_b.append("| |_) |") # 5
 Doom_b.append("|_.__/ ") # 6
 Doom_b.append("       ") # Bottom, 7
@@ -410,7 +410,7 @@ Doom_c.append("      ") # 2
 Doom_c.append("  ___ ") # 3
 Doom_c.append(" / __|") # 4
 Doom_c.append("| (__ ") # 5
-Doom_c.append(" \___|") # 6
+Doom_c.append(" \\___|") # 6
 Doom_c.append("      ") # Bottom, 7
 
 # +--------------------------------+
@@ -423,7 +423,7 @@ Doom_d.append("    | |") # 2
 Doom_d.append("  __| |") # 3
 Doom_d.append(" / _` |") # 4
 Doom_d.append("| (_| |") # 5
-Doom_d.append(" \__,_|") # 6
+Doom_d.append(" \\__,_|") # 6
 Doom_d.append("       ") # Bottom, 7
 
 # +--------------------------------+
@@ -436,7 +436,7 @@ Doom_e.append("      ") # 2
 Doom_e.append("  ___ ") # 3
 Doom_e.append(" / _ \\") # 4
 Doom_e.append("|  __/") # 5
-Doom_e.append(" \___|") # 6
+Doom_e.append(" \\___|") # 6
 Doom_e.append("      ") # Bottom, 7
 
 # +--------------------------------+
@@ -460,7 +460,7 @@ Doom_g.append("       ") # Top, 0
 Doom_g.append("  __ _ ") # 1
 Doom_g.append(" / _` |") # 2
 Doom_g.append("| (_| |") # 3
-Doom_g.append(" \__, |") # 4
+Doom_g.append(" \\__, |") # 4
 Doom_g.append("  __/ |") # 5
 Doom_g.append(" |___/ ") # 6
 Doom_g.append("       ") # Bottom, 7
@@ -473,7 +473,7 @@ Doom_h.append("       ") # Top, 0
 Doom_h.append(" _     ") # 1
 Doom_h.append("| |    ") # 2
 Doom_h.append("| |__  ") # 3
-Doom_h.append("| '_ \ ") # 4
+Doom_h.append("| '_ \\ ") # 4
 Doom_h.append("| | | |") # 5
 Doom_h.append("|_| |_|") # 6
 Doom_h.append("       ") # Bottom, 7
@@ -514,7 +514,7 @@ Doom_k.append("| |   ") # 2
 Doom_k.append("| | __") # 3
 Doom_k.append("| |/ /") # 4
 Doom_k.append("|   < ") # 5
-Doom_k.append("|_|\_\\") # 6
+Doom_k.append("|_|\\_\\") # 6
 Doom_k.append("      ") # Bottom, 7
 
 # +--------------------------------+
@@ -538,7 +538,7 @@ Doom_m.append("           ") # Top, 0
 Doom_m.append("           ") # 1
 Doom_m.append("           ") # 2
 Doom_m.append(" _ __ ___  ") # 3
-Doom_m.append("| '_ ` _ \ ") # 4
+Doom_m.append("| '_ ` _ \\ ") # 4
 Doom_m.append("| | | | | |") # 5
 Doom_m.append("|_| |_| |_|") # 6
 Doom_m.append("           ") # Bottom, 7
@@ -551,7 +551,7 @@ Doom_n.append("       ") # Top, 0
 Doom_n.append("       ") # 1
 Doom_n.append("       ") # 2
 Doom_n.append(" _ __  ") # 3
-Doom_n.append("| '_ \ ") # 4
+Doom_n.append("| '_ \\ ") # 4
 Doom_n.append("| | | |") # 5
 Doom_n.append("|_| |_|") # 6
 Doom_n.append("       ") # Bottom, 7
@@ -564,7 +564,7 @@ Doom_ñ.append("       ") # Top, 0
 Doom_ñ.append("  /~~~/") # 1
 Doom_ñ.append(" /~~~~/") # 2
 Doom_ñ.append(" _ __  ") # 3
-Doom_ñ.append("| '_ \ ") # 4
+Doom_ñ.append("| '_ \\ ") # 4
 Doom_ñ.append("| | | |") # 5
 Doom_ñ.append("|_| |_|") # 6
 Doom_ñ.append("       ") # Bottom, 7
@@ -577,9 +577,9 @@ Doom_o.append("       ") # Top, 0
 Doom_o.append("       ") # 1
 Doom_o.append("       ") # 2
 Doom_o.append("  ___  ") # 3
-Doom_o.append(" / _ \ ") # 4
+Doom_o.append(" / _ \\ ") # 4
 Doom_o.append("| (_) |") # 5
-Doom_o.append(" \___/ ") # 6
+Doom_o.append(" \\___/ ") # 6
 Doom_o.append("       ") # Bottom, 7
 
 # +--------------------------------+
@@ -588,7 +588,7 @@ Doom_o.append("       ") # Bottom, 7
 Doom_p = []
 Doom_p.append("       ") # Top, 0
 Doom_p.append(" _ __  ") # 1
-Doom_p.append("| '_ \ ") # 2
+Doom_p.append("| '_ \\ ") # 2
 Doom_p.append("| |_) |") # 3
 Doom_p.append("| .__/ ") # 4
 Doom_p.append("| |    ") # 5
@@ -603,7 +603,7 @@ Doom_q.append("       ") # Top, 0
 Doom_q.append("  __ _ ") # 1
 Doom_q.append(" / _` |") # 2
 Doom_q.append("| (_| |") # 3
-Doom_q.append(" \__, |") # 4
+Doom_q.append(" \\__, |") # 4
 Doom_q.append("    | |") # 5
 Doom_q.append("    |_|") # 6
 Doom_q.append("       ") # Bottom, 7
@@ -630,7 +630,7 @@ Doom_s.append("     ") # 1
 Doom_s.append("     ") # 2
 Doom_s.append(" ___ ") # 3
 Doom_s.append("/ __|") # 4
-Doom_s.append("\__ \\") # 5
+Doom_s.append("\\__ \\") # 5
 Doom_s.append("|___/") # 6
 Doom_s.append("     ") # Bottom, 7
 
@@ -644,7 +644,7 @@ Doom_t.append("| |  ") # 2
 Doom_t.append("| |_ ") # 3
 Doom_t.append("| __|") # 4
 Doom_t.append("| |_ ") # 5
-Doom_t.append(" \__|") # 6
+Doom_t.append(" \\__|") # 6
 Doom_t.append("     ") # Bottom, 7
 
 # +--------------------------------+
@@ -657,7 +657,7 @@ Doom_u.append("       ") # 2
 Doom_u.append(" _   _ ") # 3
 Doom_u.append("| | | |") # 4
 Doom_u.append("| |_| |") # 5
-Doom_u.append(" \__,_|") # 6
+Doom_u.append(" \\__,_|") # 6
 Doom_u.append("       ") # Bottom, 7
 
 # +--------------------------------+
@@ -668,9 +668,9 @@ Doom_v.append("       ") # Top, 0
 Doom_v.append("       ") # 1
 Doom_v.append("       ") # 2
 Doom_v.append("__   __") # 3
-Doom_v.append("\ \ / /") # 4
-Doom_v.append(" \ V / ") # 5
-Doom_v.append("  \_/  ") # 6
+Doom_v.append("\\ \\ / /") # 4
+Doom_v.append(" \\ V / ") # 5
+Doom_v.append("  \\_/  ") # 6
 Doom_v.append("       ") # Bottom, 7
 
 # +--------------------------------+
@@ -681,9 +681,9 @@ Doom_w.append("          ") # Top, 0
 Doom_w.append("          ") # 1
 Doom_w.append("          ") # 2
 Doom_w.append("__      __") # 3
-Doom_w.append("\ \ /\ / /") # 4
-Doom_w.append(" \ V  V / ") # 5
-Doom_w.append("  \_/\_/  ") # 6
+Doom_w.append("\\ \\ /\\ / /") # 4
+Doom_w.append(" \\ V  V / ") # 5
+Doom_w.append("  \\_/\\_/  ") # 6
 Doom_w.append("          ") # Bottom, 7
 
 # +--------------------------------+
@@ -694,9 +694,9 @@ Doom_x.append("      ") # Top, 0
 Doom_x.append("      ") # 1
 Doom_x.append("      ") # 2
 Doom_x.append("__  __") # 3
-Doom_x.append("\ \/ /") # 4
+Doom_x.append("\\ \\/ /") # 4
 Doom_x.append(" >  < ") # 5
-Doom_x.append("/_/\_\\") # 6
+Doom_x.append("/_/\\_\\") # 6
 Doom_x.append("      ") # Bottom, 7
 
 # +--------------------------------+
@@ -707,17 +707,10 @@ Doom_y.append("       ") # Top, 0
 Doom_y.append(" _   _ ") # 1
 Doom_y.append("| | | |") # 2
 Doom_y.append("| |_| |") # 3
-Doom_y.append(" \__, |") # 4
+Doom_y.append(" \\__, |") # 4
 Doom_y.append("  __/ |") # 5
 Doom_y.append(" |___/ ") # 6
 Doom_y.append("       ") # Bottom, 7
-       
-       
-
-
-
-
-
 
 # +--------------------------------+
 #   Letter z 
@@ -739,7 +732,7 @@ Doom_backtick = []
 Doom_backtick.append("   ") # Top, 0
 Doom_backtick.append(" _ ") # 1
 Doom_backtick.append("( )") # 2
-Doom_backtick.append(" \|") # 3
+Doom_backtick.append(" \\|") # 3
 Doom_backtick.append("   ") # 4
 Doom_backtick.append("   ") # 5
 Doom_backtick.append("   ") # 6
@@ -755,7 +748,7 @@ Doom_one.append("/  | ") # 2
 Doom_one.append("`| | ") # 3
 Doom_one.append(" | | ") # 4
 Doom_one.append("_| |_") # 5
-Doom_one.append("\___/") # 6
+Doom_one.append("\\___/") # 6
 Doom_one.append("     ") # Bottom, 7
 
 # +--------------------------------+
@@ -768,7 +761,7 @@ Doom_two.append("/ __  \\") # 2
 Doom_two.append("`' / /'") # 3
 Doom_two.append("  / /  ") # 4
 Doom_two.append("./ /___") # 5
-Doom_two.append("\_____/") # 6
+Doom_two.append("\\_____/") # 6
 Doom_two.append("       ") # Bottom, 7
 
 # +--------------------------------+
@@ -779,9 +772,9 @@ Doom_three.append("       ") # Top, 0
 Doom_three.append(" _____ ") # 1
 Doom_three.append("|____ |") # 2
 Doom_three.append("    / /") # 3
-Doom_three.append("    \ \\") # 4
+Doom_three.append("    \\ \\") # 4
 Doom_three.append(".___/ /") # 5
-Doom_three.append("\____/ ") # 6
+Doom_three.append("\\____/ ") # 6
 Doom_three.append("       ") # Bottom, 7
 
 # +--------------------------------+
@@ -793,7 +786,7 @@ Doom_four.append("   ___ ") # 1
 Doom_four.append("  /   |") # 2
 Doom_four.append(" / /| |") # 3
 Doom_four.append("/ /_| |") # 4
-Doom_four.append("\___  |") # 5
+Doom_four.append("\\___  |") # 5
 Doom_four.append("    |_/") # 6
 Doom_four.append("       ") # Bottom, 7
 
@@ -804,10 +797,10 @@ Doom_five = []
 Doom_five.append("       ") # Top, 0
 Doom_five.append(" _____ ") # 1
 Doom_five.append("|  ___|") # 2
-Doom_five.append("|___ \ ") # 3
-Doom_five.append("    \ \\") # 4
-Doom_five.append("/\__/ /") # 5
-Doom_five.append("\____/ ") # 6
+Doom_five.append("|___ \\ ") # 3
+Doom_five.append("    \\ \\") # 4
+Doom_five.append("/\\__/ /") # 5
+Doom_five.append("\\____/ ") # 6
 Doom_five.append("       ") # Bottom, 7
 
 # +--------------------------------+
@@ -819,8 +812,8 @@ Doom_six.append("  ____ ") # 1
 Doom_six.append(" / ___|") # 2
 Doom_six.append("/ /___ ") # 3
 Doom_six.append("| ___ \\") # 4
-Doom_six.append("| \_/ |") # 5
-Doom_six.append("\_____/") # 6
+Doom_six.append("| \\_/ |") # 5
+Doom_six.append("\\_____/") # 6
 Doom_six.append("       ") # Bottom, 7
 
 # +--------------------------------+
@@ -833,7 +826,7 @@ Doom_seven.append("|___  /") # 2
 Doom_seven.append("   / / ") # 3
 Doom_seven.append("  / /  ") # 4
 Doom_seven.append("./ /   ") # 5
-Doom_seven.append("\_/    ") # 6
+Doom_seven.append("\\_/    ") # 6
 Doom_seven.append("       ") # Bottom, 7
 
 # +--------------------------------+
@@ -843,10 +836,10 @@ Doom_eight = []
 Doom_eight.append("       ") # Top, 0
 Doom_eight.append(" _____ ") # 1
 Doom_eight.append("|  _  |") # 2
-Doom_eight.append(" \ V / ") # 3
-Doom_eight.append(" / _ \ ") # 4
+Doom_eight.append(" \\ V / ") # 3
+Doom_eight.append(" / _ \\ ") # 4
 Doom_eight.append("| |_| |") # 5
-Doom_eight.append("\_____/") # 6
+Doom_eight.append("\\_____/") # 6
 Doom_eight.append("       ") # Bottom, 7
 
 # +--------------------------------+
@@ -857,9 +850,9 @@ Doom_nine.append("       ") # Top, 0
 Doom_nine.append(" _____ ") # 1
 Doom_nine.append("|  _  |") # 2
 Doom_nine.append("| |_| |") # 3
-Doom_nine.append("\____ |") # 4
+Doom_nine.append("\\____ |") # 4
 Doom_nine.append(".___/ /") # 5
-Doom_nine.append("\____/ ") # 6
+Doom_nine.append("\\____/ ") # 6
 Doom_nine.append("       ") # Bottom, 7
 
 # +--------------------------------+
@@ -871,8 +864,8 @@ Doom_zero.append(" _____ ") # 1
 Doom_zero.append("|  _  |") # 2
 Doom_zero.append("| |/' |") # 3
 Doom_zero.append("|  /| |") # 4
-Doom_zero.append("\ |_/ /") # 5
-Doom_zero.append(" \___/ ") # 6
+Doom_zero.append("\\ |_/ /") # 5
+Doom_zero.append(" \\___/ ") # 6
 Doom_zero.append("       ") # Bottom, 7
 
 # +--------------------------------+
@@ -907,11 +900,11 @@ Doom_equal.append("        ") # Bottom, 7
 Doom_backward_slash = []
 Doom_backward_slash.append("       ") # Top, 0
 Doom_backward_slash.append("__     ") # 1
-Doom_backward_slash.append("\ \    ") # 2
-Doom_backward_slash.append(" \ \   ") # 3
-Doom_backward_slash.append("  \ \  ") # 4
-Doom_backward_slash.append("   \ \ ") # 5
-Doom_backward_slash.append("    \_\\") # 6
+Doom_backward_slash.append("\\ \\    ") # 2
+Doom_backward_slash.append(" \\ \\   ") # 3
+Doom_backward_slash.append("  \\ \\  ") # 4
+Doom_backward_slash.append("   \\ \\ ") # 5
+Doom_backward_slash.append("    \\_\\") # 6
 Doom_backward_slash.append("       ") # Bottom, 7
 
 # +--------------------------------+
@@ -1010,8 +1003,8 @@ Doom_forward_slash.append("       ") # Bottom, 7
 # +--------------------------------+
 Doom_tilde = []
 Doom_tilde.append("     ") # Top, 0
-Doom_tilde.append(" /\/|") # 1
-Doom_tilde.append("|/\/ ") # 2
+Doom_tilde.append(" /\\/|") # 1
+Doom_tilde.append("|/\\/ ") # 2
 Doom_tilde.append("     ") # 3
 Doom_tilde.append("     ") # 4
 Doom_tilde.append("     ") # 5
@@ -1038,11 +1031,11 @@ Doom_arroba = []
 Doom_arroba.append("         ") # Top, 0
 Doom_arroba.append("         ") # 1
 Doom_arroba.append("   ____  ") # 2
-Doom_arroba.append("  / __ \ ") # 3
+Doom_arroba.append("  / __ \\ ") # 3
 Doom_arroba.append(" / / _` |") # 4
 Doom_arroba.append("| | (_| |") # 5
-Doom_arroba.append(" \ \__,_|") # 6
-Doom_arroba.append("  \____/ ") # Bottom, 7
+Doom_arroba.append(" \\ \\__,_|") # 6
+Doom_arroba.append("  \\____/ ") # Bottom, 7
 
 # +--------------------------------+
 #   Letter pound 
@@ -1064,7 +1057,7 @@ Doom_dollar.append("     ") # Top, 0
 Doom_dollar.append("  _  ") # 1
 Doom_dollar.append(" | | ") # 2
 Doom_dollar.append("/ __)") # 3
-Doom_dollar.append("\__ \\") # 4
+Doom_dollar.append("\\__ \\") # 4
 Doom_dollar.append("(   /") # 5
 Doom_dollar.append(" |_| ") # 6
 Doom_dollar.append("     ") # Bottom, 7
@@ -1087,8 +1080,8 @@ Doom_percent.append("       ") # Bottom, 7
 # +--------------------------------+
 Doom_caret = []
 Doom_caret.append("    ") # Top, 0
-Doom_caret.append(" /\ ") # 1
-Doom_caret.append("|/\|") # 2
+Doom_caret.append(" /\\ ") # 1
+Doom_caret.append("|/\\|") # 2
 Doom_caret.append("    ") # 3
 Doom_caret.append("    ") # 4
 Doom_caret.append("    ") # 5
@@ -1103,9 +1096,9 @@ Doom_ampersand.append("        ") # Top, 0
 Doom_ampersand.append("        ") # 1
 Doom_ampersand.append("  ___   ") # 2
 Doom_ampersand.append(" ( _ )  ") # 3
-Doom_ampersand.append(" / _ \/\\") # 4
+Doom_ampersand.append(" / _ \\/\\") # 4
 Doom_ampersand.append("| (_>  <") # 5
-Doom_ampersand.append(" \___/\/") # 6
+Doom_ampersand.append(" \\___/\\/") # 6
 Doom_ampersand.append("        ") # Bottom, 7
 
 # +--------------------------------+
@@ -1114,11 +1107,11 @@ Doom_ampersand.append("        ") # Bottom, 7
 Doom_asterisk = []
 Doom_asterisk.append("         ") # Top, 0
 Doom_asterisk.append("    _    ") # 1
-Doom_asterisk.append(" /\| |/\ ") # 2
-Doom_asterisk.append(" \ ` ' / ") # 3
+Doom_asterisk.append(" /\\| |/\\ ") # 2
+Doom_asterisk.append(" \\ ` ' / ") # 3
 Doom_asterisk.append("|_     _|") # 4
-Doom_asterisk.append(" / , . \ ") # 5
-Doom_asterisk.append(" \/|_|\/ ") # 6
+Doom_asterisk.append(" / , . \\ ") # 5
+Doom_asterisk.append(" \\/|_|\\/ ") # 6
 Doom_asterisk.append("         ") # Bottom, 7
 
 # +--------------------------------+
@@ -1131,7 +1124,7 @@ Doom_open_parenthesis.append("  / /") # 2
 Doom_open_parenthesis.append(" | | ") # 3
 Doom_open_parenthesis.append(" | | ") # 4
 Doom_open_parenthesis.append(" | | ") # 5
-Doom_open_parenthesis.append("  \_\\") # 6
+Doom_open_parenthesis.append("  \\_\\") # 6
 Doom_open_parenthesis.append("     ") # Bottom, 7
 
 # +--------------------------------+
@@ -1140,7 +1133,7 @@ Doom_open_parenthesis.append("     ") # Bottom, 7
 Doom_closed_parenthesis = []
 Doom_closed_parenthesis.append("    ") # Top, 0
 Doom_closed_parenthesis.append("__  ") # 1
-Doom_closed_parenthesis.append("\ \ ") # 2
+Doom_closed_parenthesis.append("\\ \\ ") # 2
 Doom_closed_parenthesis.append(" | |") # 3
 Doom_closed_parenthesis.append(" | |") # 4
 Doom_closed_parenthesis.append(" | |") # 5
@@ -1194,9 +1187,9 @@ Doom_open_curly.append("   __") # Top, 0
 Doom_open_curly.append("  / /") # 1
 Doom_open_curly.append(" | | ") # 2
 Doom_open_curly.append("/ /  ") # 3
-Doom_open_curly.append("\ \  ") # 4
+Doom_open_curly.append("\\ \\  ") # 4
 Doom_open_curly.append(" | | ") # 5
-Doom_open_curly.append("  \_\\") # 6
+Doom_open_curly.append("  \\_\\") # 6
 Doom_open_curly.append("     ") # Bottom, 7
 
 # +--------------------------------+
@@ -1204,9 +1197,9 @@ Doom_open_curly.append("     ") # Bottom, 7
 # +--------------------------------+
 Doom_closed_curly = []
 Doom_closed_curly.append("__   ") # Top, 0
-Doom_closed_curly.append("\ \  ") # 1
+Doom_closed_curly.append("\\ \\  ") # 1
 Doom_closed_curly.append(" | | ") # 2
-Doom_closed_curly.append("  \ \\") # 3
+Doom_closed_curly.append("  \\ \\") # 3
 Doom_closed_curly.append("  / /") # 4
 Doom_closed_curly.append(" | | ") # 5
 Doom_closed_curly.append("/_/  ") # 6
@@ -1247,8 +1240,8 @@ Doom_less_than.append("   __") # 1
 Doom_less_than.append("  / /") # 2
 Doom_less_than.append(" / / ") # 3
 Doom_less_than.append("< <  ") # 4
-Doom_less_than.append(" \ \ ") # 5
-Doom_less_than.append("  \_\\") # 6
+Doom_less_than.append(" \\ \\ ") # 5
+Doom_less_than.append("  \\_\\") # 6
 Doom_less_than.append("     ") # Bottom, 7
 
 # +--------------------------------+
@@ -1257,8 +1250,8 @@ Doom_less_than.append("     ") # Bottom, 7
 Doom_greater_than = []
 Doom_greater_than.append("     ") # Top, 0
 Doom_greater_than.append("__   ") # 1
-Doom_greater_than.append("\ \  ") # 2
-Doom_greater_than.append(" \ \ ") # 3
+Doom_greater_than.append("\\ \\  ") # 2
+Doom_greater_than.append(" \\ \\ ") # 3
 Doom_greater_than.append("  > >") # 4
 Doom_greater_than.append(" / / ") # 5
 Doom_greater_than.append("/_/  ") # 6
@@ -1270,7 +1263,7 @@ Doom_greater_than.append("     ") # Bottom, 7
 Doom_question = []
 Doom_question.append("      ") # Top, 0
 Doom_question.append(" ___  ") # 1
-Doom_question.append("|__ \ ") # 2
+Doom_question.append("|__ \\ ") # 2
 Doom_question.append("   ) |") # 3
 Doom_question.append("  / / ") # 4
 Doom_question.append(" |_|  ") # 5

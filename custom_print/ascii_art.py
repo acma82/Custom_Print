@@ -21,15 +21,27 @@ import custom_print.Blocks_Letters
 import custom_print.Bulbhead_Letters
 import custom_print.Classy_Letters
 import custom_print.Colossal_Letters
+import custom_print.Crazy_Letters
 import custom_print.Doh_Letters
 import custom_print.Doom_Letters
 import custom_print.Epic_Letters
 import custom_print.Graceful_Letters
 import custom_print.Larry_Letters
+import custom_print.Money_NE_Letters
+import custom_print.Money_NW_Letters
+import custom_print.Money_SE_Letters
+import custom_print.Money_SW_Letters
+import custom_print.Mono_Letters
+import custom_print.Moon_Letters
+import custom_print.Moon2_Letters
 import custom_print.Roman_Letters
 import custom_print.Standard_Letters
 import custom_print.Sweet_Letters
-import custom_print.Logos
+
+
+# import custom_print.Mono
+
+# import custom_print.Logos
 
 # +------------------------------------------------------------------------------------------------------------------------------------+
 # |  Creating the Ascii Word                                                                                                           |
@@ -40,7 +52,7 @@ class Art:
         self.bold     = False;                self.bg = -1;                           self.fg = -1
         self.italic   = False;                self.underline = False;                 self.strike = False
         self.blinking = False;                self.dim = False;                       self.hidden = False
-        self.inverse  = False;                self.ascii_type = Ascii_Letter.Big
+        self.inverse  = False;                self.ascii_type = Ascii_Letter.Standard
               
         self.adj_indent = 0;                  self.adj_space  = 0;                    self.delay_ms   = 0
         self.set_layout = Layout.VERTICAL;    self.set_top_line = True;              self.set_bottom_line = True; 
@@ -53,7 +65,7 @@ class Art:
                                     [2,     Ascii_Letter.ANSI_Shadow,    "Yes",          "No",           "Yes",          "Yes"      ],
                                     [3,     Ascii_Letter.Big,            "Yes",          "Yes",          "Yes",          "Yes"      ],
                                     [4,     Ascii_Letter.Blocks,         "Yes",          "No",           "Yes",          "Yes"      ],
-                                    [5,     Ascii_Letter.Bulbhead,       "Yes",          "Yes",          "Yes",          "Yes"      ],
+                                    [5,     Ascii_Letter.Bulbhead,       "Yes",          "No",           "Yes",          "Yes"      ],
                                     [6,     Ascii_Letter.Classy,         "Yes",          "Yes",          "Yes",          "Yes"      ],
                                     [7,     Ascii_Letter.Colossal,       "Yes",          "Yes",          "Yes",          "Yes"      ],
                                     [8,     Ascii_Letter.Crazy,          "Yes",          "Yes",          "Yes",          "Yes"      ],
@@ -62,9 +74,16 @@ class Art:
                                     [11,    Ascii_Letter.Epic,           "Yes",          "No",           "Yes",          "Yes"      ],
                                     [12,    Ascii_Letter.Graceful,       "Yes",          "No",           "Yes",          "Yes"      ],
                                     [13,    Ascii_Letter.Larry,          "Yes",          "Yes",          "Yes",          "Yes"      ],
-                                    [14,    Ascii_Letter.Roman,          "Yes",          "Yes",          "Yes",          "Yes"      ],
-                                    [15,    Ascii_Letter.Standard,       "Yes",          "Yes",          "Yes",          "Yes"      ],
-                                    [16,    Ascii_Letter.Sweet,          "No",           "Yes",          "Yes",          "Yes"      ]
+                                    [14,    Ascii_Letter.Money_NE,       "Yes",          "Yes",          "Yes",          "Yes"      ],
+                                    [15,    Ascii_Letter.Money_NW,       "Yes",          "Yes",          "Yes",          "Yes"      ],
+                                    [16,    Ascii_Letter.Money_SE,       "Yes",          "Yes",          "Yes",          "Yes"      ],
+                                    [17,    Ascii_Letter.Money_SW,       "Yes",          "Yes",          "Yes",          "Yes"      ],
+                                    [18,    Ascii_Letter.Mono,           "Yes",          "Yes",          "Yes",          "Yes"      ],
+                                    [19,    Ascii_Letter.Moon,           "Yes",          "No",           "No",           "No"       ],
+                                    [20,    Ascii_Letter.Moon2,          "Yes",          "No",           "No",           "No"       ],
+                                    [21,    Ascii_Letter.Roman,          "Yes",          "Yes",          "Yes",          "Yes"      ],
+                                    [22,    Ascii_Letter.Standard,       "Yes",          "Yes",          "Yes",          "Yes"      ],
+                                    [23,    Ascii_Letter.Sweet,          "No",           "Yes",          "Yes",          "Yes"      ]
                                    ]
         
         
@@ -82,10 +101,10 @@ class Art:
     # +--------------------------------------------------------------------------------------------------------------------------------+
     # |    Only One Setting for Bold, Bg, Fg, italic, underline, strike, blinking, dim, and inverse                                    |
     # +--------------------------------------------------------------------------------------------------------------------------------+
-    def print_ascii_art(self, msg="AB"):
+    def print_ascii_art(self, msg="ABC"):
         # Defining variables
         rows = 0;                        result = []
-        tempo_row = "";                  retardo = self.delay_ms/1000
+        tempo_row = "";                  retardo = self.delay_ms/1000            
         key_letter = "";                 skip_top_row = self.set_top_line
         left_sp = self.adj_left_space;   middle_sp = self.adj_middle_space
         right_sp = self.adj_right_space
@@ -99,61 +118,26 @@ class Art:
                        "tilde", "exclamation", "arroba", "pound", "dollar", "percent", "caret", "ampersand", "asterisk",  "open_parenthesis",
                        "closed_parenthesis", "underscore", "plus", "pipe", "open_curly", "closed_curly", "colon", "quotation","less_than",
                        "greater_than", "question", "space"]
-
-        color = set_font(self.bold, self.bg, self.fg, self.italic, self.underline, self.strike,
-                        self.blinking, self.dim, self.hidden, self.inverse)
-        
+      
         data = msg
-        pylo = PyLO()
         key_letter = "custom_print."+self.ascii_type + "_Letters."
 
-        # Make sure always exist a letter A or a in all the Letters Type
+        # Make sure always exist NA list or a space list in the Type of Letters Using
         try:
             list_name = eval("custom_print."+self.ascii_type+"_Letters."+self.ascii_type+"_NA")
+            # from custom_print.Alpha_Letters import*
+            # list_name = eval(self.ascii_type+"_NA")
             rows = len(list_name)
         except:
             list_name = eval("custom_print."+self.ascii_type+"_Letters."+self.ascii_type+"_space")
             rows = len(list_name) 
 
-        # ------------------------------------------------------------ Finding the Type of Ascii Letters       
-        # if self.ascii_type == Ascii_Letter.Alpha:
-        #     #  Alpha only have uppercase available
-        #     if type(msg) is list:
-        #         result = pylo.update_case(data=data, header_case=pylo.Case.UPPER, data_case=pylo.Case.UPPER, update=True )
-        #     else:
-        #         data = msg.upper()
-            
-
-        # elif self.ascii_type == Ascii_Letter.Crazy:
-        #     # Crazy Only have lowercase available
-        #     if type(msg) is list:
-        #         result = pylo.update_case(data=data, header_case=pylo.Case.LOWER, data_case=pylo.Case.LOWER, update=True )
-        #     else:
-        #         data = msg.lower()
-        # else:
-        #     # Other letters that have uppercase and lower case
-        #     list_name = eval("custom_print."+self.ascii_type+"_Letters."+self.ascii_type+"_A")            
-        # # +--------------------------------------------------------+
-        # #  Ending Finding the Type of Ascii Letters                |
-        # # +--------------------------------------------------------+
-
-        #     error_layout = []
-        #     error_layout.append("                                                                    ")
-        #     error_layout.append("   ______                       _                             _     ")
-        #     error_layout.append("  |  ____|                     | |                           | |    ")
-        #     error_layout.append("  | |__   _ __ _ __ ___  _ __  | |     __ _ _   _  ___  _   _| |_   ")
-        #     error_layout.append("  |  __| | '__| '__/ _ \\| '__| | |    / _` | | | |/ _ \\| | | | __|  ")
-        #     error_layout.append("  | |____| |  | | | (_) | |    | |___| (_| | |_| | (_) | |_| | |_   ")
-        #     error_layout.append("  |______|_|  |_|  \\___/|_|    |______\\__,_|\\__, |\\___/ \\__,_|\\__|  ")
-        #     error_layout.append("                                             __/ |                  ")
-        #     error_layout.append("                                            |___/                   ")
-        #     error_layout.append("                                                                    ")
-        #     for row in error_layout:
-        #         print(f"    {color}{row}\033[0m")
-        #     print("    Form more help visit: ")
-        #     print("    https://github.com/acma82/Custom_Print/tree/main/readme ")
-        #     print("    Thank you for using custom_print")
-
+        if self.ascii_type == Ascii_Letter.Moon2:
+            color = set_font(self.bold, 0, self.fg, self.italic, self.underline, self.strike,
+                        self.blinking, self.dim, self.hidden, self.inverse)
+        else:
+            color = set_font(self.bold, self.bg, self.fg, self.italic, self.underline, self.strike,
+                        self.blinking, self.dim, self.hidden, self.inverse)
 
 
         # +---------------------------------------------------------------------------------------------------+
@@ -235,7 +219,8 @@ class Art:
                         symbol_chr = symbol_name[position]
                         
                         list_letter = eval(key_letter + self.ascii_type + "_" + symbol_chr)
-
+                        # from custom_print.Alpha_Letters import*
+                        # list_letter = eval(self.ascii_type + "_" + symbol_chr)
                     else:
                         list_letter = eval(key_letter + self.ascii_type + "_" + data[w])    
                 except: 
@@ -245,14 +230,27 @@ class Art:
                     if skip_top_row == False: skip_top_row = True
                     else:
                         if (len(data)) == 1:
-                            print(f"{move_cursor_right(self.adj_indent)}{color}{ins_chr(left_sp)}{list_letter[r]}{ins_chr(right_sp)}\033[0m")  # first item
+                            print(f"{move_cursor_right(self.adj_indent)}{color}{ins_chr(left_sp)}{list_letter[r]}{ins_chr(right_sp)}\033[0m")       # first item
                         else:
-                            if w == 0:               print(f"{move_cursor_right(self.adj_indent)}{color}{ins_chr(left_sp)}{list_letter[r]}{ins_chr(middle_sp)}\033[0m")  # first item
-                            elif w == (len(data)-1): print(f"{color}\033[{str(move_right)}C{list_letter[r]}{ins_chr(right_sp)}\033[0m")                        # last item
-                            else:                    print(f"{color}\033[{str(move_right)}C{list_letter[r]}{ins_chr(middle_sp)}\033[0m")                       # middle items# w >= 1:
+                            if w == 0:
+                                print(f"{move_cursor_right(self.adj_indent)}{color}{ins_chr(left_sp)}{list_letter[r]}{ins_chr(middle_sp)}\033[0m")  # first item
+                            elif w == (len(data)-1):
+                                print(f"{color}\033[{str(move_right)}C{list_letter[r]}{ins_chr(right_sp)}\033[0m")                                  # last item
+                            else:
+                                print(f"{color}\033[{str(move_right)}C{color}{list_letter[r]}{ins_chr(middle_sp)}\033[0m")                          # middle items# w >= 1:
                    
-                if w == 0: move_right = move_right + left_sp + len(list_letter[0]) + middle_sp  # first item
-                else:      move_right = move_right + len(list_letter[0]) + middle_sp            # middle item
+                if w == 0:
+                    # Because Moon2 has predefined color and the length of those color is 12, we have to subtract 12
+                    if self.ascii_type == Ascii_Letter.Moon2:
+                        move_right = move_right + left_sp + len(list_letter[0]) + middle_sp - 12  # first item
+                    else:
+                        move_right = move_right + left_sp + len(list_letter[0]) + middle_sp       # first item   original
+                    
+                else:
+                    if self.ascii_type == Ascii_Letter.Moon2:
+                        move_right = move_right + len(list_letter[0]) + middle_sp - 12            # middle item
+                    else:
+                        move_right = move_right + len(list_letter[0]) + middle_sp                 # middle item (original)
 
                 print(f"\033[{str(move_up)}A",end="")
                 skip_top_row = self.set_top_line

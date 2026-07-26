@@ -29,8 +29,8 @@
 Bulbhead_A = []
 Bulbhead_A.append("        ") # Top, 0
 Bulbhead_A.append("   __   ") # 1
-Bulbhead_A.append("  /__\  ") # 2
-Bulbhead_A.append(" /(__)\ ") # 3
+Bulbhead_A.append("  /__\\  ") # 2
+Bulbhead_A.append(" /(__)\\ ") # 3
 Bulbhead_A.append("(__)(__)") # 4
 Bulbhead_A.append("        ") # Bottom, 5
 
@@ -53,7 +53,7 @@ Bulbhead_C.append("      ") # Top, 0
 Bulbhead_C.append("  ___ ") # 1
 Bulbhead_C.append(" / __)") # 2
 Bulbhead_C.append("( (__ ") # 3
-Bulbhead_C.append(" \___)") # 4
+Bulbhead_C.append(" \\___)") # 4
 Bulbhead_C.append("      ") # Bottom, 5
 
 # +--------------------------------+
@@ -62,7 +62,7 @@ Bulbhead_C.append("      ") # Bottom, 5
 Bulbhead_D = []
 Bulbhead_D.append("       ") # Top, 0
 Bulbhead_D.append(" ____  ") # 1
-Bulbhead_D.append("(  _ \ ") # 2
+Bulbhead_D.append("(  _ \\ ") # 2
 Bulbhead_D.append(" )(_) )") # 3
 Bulbhead_D.append("(____/ ") # 4
 Bulbhead_D.append("       ") # Bottom, 5
@@ -97,7 +97,7 @@ Bulbhead_G.append("      ") # Top, 0
 Bulbhead_G.append("  ___ ") # 1
 Bulbhead_G.append(" / __)") # 2
 Bulbhead_G.append("( (_-.") # 3
-Bulbhead_G.append(" \___/") # 4
+Bulbhead_G.append(" \\___/") # 4
 Bulbhead_G.append("      ") # Bottom, 5
 
 # +--------------------------------+
@@ -130,7 +130,7 @@ Bulbhead_J.append("       ") # Top, 0
 Bulbhead_J.append("  ____ ") # 1
 Bulbhead_J.append(" (_  _)") # 2
 Bulbhead_J.append(".-_)(  ") # 3
-Bulbhead_J.append("\____) ") # 4
+Bulbhead_J.append("\\____) ") # 4
 Bulbhead_J.append("       ") # Bottom, 5
 
 # +--------------------------------+
@@ -141,7 +141,7 @@ Bulbhead_K.append("      ") # Top, 0
 Bulbhead_K.append(" _  _ ") # 1
 Bulbhead_K.append("( )/ )") # 2
 Bulbhead_K.append(" )  ( ") # 3
-Bulbhead_K.append("(_)\_)") # 4
+Bulbhead_K.append("(_)\\_)") # 4
 Bulbhead_K.append("      ") # Bottom, 5
 
 # +--------------------------------+
@@ -161,9 +161,9 @@ Bulbhead_L.append("      ") # Bottom, 5
 Bulbhead_M = []
 Bulbhead_M.append("        ") # Top, 0
 Bulbhead_M.append(" __  __ ") # 1
-Bulbhead_M.append("(  \/  )") # 2
+Bulbhead_M.append("(  \\/  )") # 2
 Bulbhead_M.append(" )    ( ") # 3
-Bulbhead_M.append("(_/\/\_)") # 4
+Bulbhead_M.append("(_/\\/\\_)") # 4
 Bulbhead_M.append("        ") # Bottom, 5
 
 # +--------------------------------+
@@ -172,9 +172,9 @@ Bulbhead_M.append("        ") # Bottom, 5
 Bulbhead_N = []
 Bulbhead_N.append("      ") # Top, 0
 Bulbhead_N.append(" _  _ ") # 1
-Bulbhead_N.append("( \( )") # 2
+Bulbhead_N.append("( \\( )") # 2
 Bulbhead_N.append(" )  ( ") # 3
-Bulbhead_N.append("(_)\_)") # 4
+Bulbhead_N.append("(_)\\_)") # 4
 Bulbhead_N.append("      ") # Bottom, 5
 
 # +--------------------------------+
@@ -183,9 +183,9 @@ Bulbhead_N.append("      ") # Bottom, 5
 Bulbhead_Ñ = []
 Bulbhead_Ñ.append("      ") # Top, 0
 Bulbhead_Ñ.append("~~~~~~") # 1
-Bulbhead_Ñ.append("( \( )") # 2
+Bulbhead_Ñ.append("( \\( )") # 2
 Bulbhead_Ñ.append(" )  ( ") # 3
-Bulbhead_Ñ.append("(_)\_)") # 4
+Bulbhead_Ñ.append("(_)\\_)") # 4
 Bulbhead_Ñ.append("      ") # Bottom, 5
 
 # +--------------------------------+
@@ -239,7 +239,7 @@ Bulbhead_S = []
 Bulbhead_S.append("     ") # Top, 0
 Bulbhead_S.append(" ___ ") # 1
 Bulbhead_S.append("/ __)") # 2
-Bulbhead_S.append("\__ \\") # 3
+Bulbhead_S.append("\\__ \\") # 3
 Bulbhead_S.append("(___/") # 4
 Bulbhead_S.append("     ") # Bottom, 5
 
@@ -271,9 +271,9 @@ Bulbhead_U.append("        ") # Bottom, 5
 Bulbhead_V = []
 Bulbhead_V.append("      ") # Top, 0
 Bulbhead_V.append(" _  _ ") # 1
-Bulbhead_V.append("( \/ )") # 2
-Bulbhead_V.append(" \  / ") # 3
-Bulbhead_V.append("  \/  ") # 4
+Bulbhead_V.append("( \\/ )") # 2
+Bulbhead_V.append(" \\  / ") # 3
+Bulbhead_V.append("  \\/  ") # 4
 Bulbhead_V.append("      ") # Bottom, 5
 
 # +--------------------------------+
@@ -282,9 +282,9 @@ Bulbhead_V.append("      ") # Bottom, 5
 Bulbhead_W = []
 Bulbhead_W.append("        ") # Top, 0
 Bulbhead_W.append(" _    _ ") # 1
-Bulbhead_W.append("( \/\/ )") # 2
+Bulbhead_W.append("( \\/\\/ )") # 2
 Bulbhead_W.append(" )    ( ") # 3
-Bulbhead_W.append("(__/\__)") # 4
+Bulbhead_W.append("(__/\\__)") # 4
 Bulbhead_W.append("        ") # Bottom, 5
 
 # +--------------------------------+
@@ -293,9 +293,9 @@ Bulbhead_W.append("        ") # Bottom, 5
 Bulbhead_X = []
 Bulbhead_X.append("      ") # Top, 0
 Bulbhead_X.append(" _  _ ") # 1
-Bulbhead_X.append("( \/ )") # 2
+Bulbhead_X.append("( \\/ )") # 2
 Bulbhead_X.append(" )  ( ") # 3
-Bulbhead_X.append("(_/\_)") # 4
+Bulbhead_X.append("(_/\\_)") # 4
 Bulbhead_X.append("      ") # Bottom, 5
 
 # +--------------------------------+
@@ -304,8 +304,8 @@ Bulbhead_X.append("      ") # Bottom, 5
 Bulbhead_Y = []
 Bulbhead_Y.append("      ") # Top, 0
 Bulbhead_Y.append(" _  _ ") # 1
-Bulbhead_Y.append("( \/ )") # 2
-Bulbhead_Y.append(" \  / ") # 3
+Bulbhead_Y.append("( \\/ )") # 2
+Bulbhead_Y.append(" \\  / ") # 3
 Bulbhead_Y.append(" (__) ") # 4
 Bulbhead_Y.append("      ") # Bottom, 5
 
@@ -327,7 +327,7 @@ Bulbhead_backtick = []
 Bulbhead_backtick.append("   ") # Top, 0
 Bulbhead_backtick.append(" _ ") # 1
 Bulbhead_backtick.append("( )") # 2
-Bulbhead_backtick.append(" \|") # 3
+Bulbhead_backtick.append(" \\|") # 3
 Bulbhead_backtick.append("   ") # 4
 Bulbhead_backtick.append("   ") # Bottom, 5
 
@@ -348,7 +348,7 @@ Bulbhead_one.append("    ") # Bottom, 5
 Bulbhead_two = []
 Bulbhead_two.append("      ") # Top, 0
 Bulbhead_two.append(" ___  ") # 1
-Bulbhead_two.append("(__ \ ") # 2
+Bulbhead_two.append("(__ \\ ") # 2
 Bulbhead_two.append(" / _/ ") # 3
 Bulbhead_two.append("(____)") # 4
 Bulbhead_two.append("      ") # Bottom, 5
@@ -394,7 +394,7 @@ Bulbhead_six.append("     ") # Top, 0
 Bulbhead_six.append("  _  ") # 1
 Bulbhead_six.append(" / ) ") # 2
 Bulbhead_six.append("/ _ \\") # 3
-Bulbhead_six.append("\___/") # 4
+Bulbhead_six.append("\\___/") # 4
 Bulbhead_six.append("     ") # Bottom, 5
 
 # +--------------------------------+
@@ -416,7 +416,7 @@ Bulbhead_eight.append("     ") # Top, 0
 Bulbhead_eight.append(" ___ ") # 1
 Bulbhead_eight.append("( _ )") # 2
 Bulbhead_eight.append("/ _ \\") # 3
-Bulbhead_eight.append("\___/") # 4
+Bulbhead_eight.append("\\___/") # 4
 Bulbhead_eight.append("     ") # Bottom, 5
 
 # +--------------------------------+
@@ -426,7 +426,7 @@ Bulbhead_nine = []
 Bulbhead_nine.append("     ") # Top, 0
 Bulbhead_nine.append(" ___ ") # 1
 Bulbhead_nine.append("/ _ \\") # 2
-Bulbhead_nine.append("\_  /") # 3
+Bulbhead_nine.append("\\_  /") # 3
 Bulbhead_nine.append(" (_/ ") # 4
 Bulbhead_nine.append("     ") # Bottom, 5
 
@@ -436,9 +436,9 @@ Bulbhead_nine.append("     ") # Bottom, 5
 Bulbhead_zero = []
 Bulbhead_zero.append("       ") # Top, 0
 Bulbhead_zero.append("  ___  ") # 1
-Bulbhead_zero.append(" / _ \ ") # 2
+Bulbhead_zero.append(" / _ \\ ") # 2
 Bulbhead_zero.append("( (_) )") # 3
-Bulbhead_zero.append(" \___/ ") # 4
+Bulbhead_zero.append(" \\___/ ") # 4
 Bulbhead_zero.append("       ") # Bottom, 5
 
 # +--------------------------------+
@@ -469,9 +469,9 @@ Bulbhead_equal.append("     ") # Bottom, 5
 Bulbhead_backward_slash = []
 Bulbhead_backward_slash.append("     ") # Top, 0
 Bulbhead_backward_slash.append(" _   ") # 1
-Bulbhead_backward_slash.append("( \  ") # 2
-Bulbhead_backward_slash.append(" \ \ ") # 3
-Bulbhead_backward_slash.append("  \_)") # 4
+Bulbhead_backward_slash.append("( \\  ") # 2
+Bulbhead_backward_slash.append(" \\ \\ ") # 3
+Bulbhead_backward_slash.append("  \\_)") # 4
 Bulbhead_backward_slash.append("     ") # Bottom, 5
 
 # +--------------------------------+
@@ -556,7 +556,7 @@ Bulbhead_forward_slash.append("     ") # Bottom, 5
 # +--------------------------------+
 Bulbhead_tilde = []
 Bulbhead_tilde.append("   ") # Top, 0
-Bulbhead_tilde.append("/\/") # 1
+Bulbhead_tilde.append("/\\/") # 1
 Bulbhead_tilde.append("   ") # 2
 Bulbhead_tilde.append("   ") # 3
 Bulbhead_tilde.append("   ") # 4
@@ -569,7 +569,7 @@ Bulbhead_exclamation = []
 Bulbhead_exclamation.append("  ") # Top, 0
 Bulbhead_exclamation.append("/\\") # 1
 Bulbhead_exclamation.append(")(") # 2
-Bulbhead_exclamation.append("\/") # 3
+Bulbhead_exclamation.append("\\/") # 3
 Bulbhead_exclamation.append("()") # 4
 Bulbhead_exclamation.append("  ") # Bottom, 5
 
@@ -581,7 +581,7 @@ Bulbhead_arroba.append("     ") # Top, 0
 Bulbhead_arroba.append("  __ ") # 1
 Bulbhead_arroba.append(" /  \\") # 2
 Bulbhead_arroba.append("| ()/") # 3
-Bulbhead_arroba.append(" \__ ") # 4
+Bulbhead_arroba.append(" \\__ ") # 4
 Bulbhead_arroba.append("     ") # Bottom, 5
 
 # +--------------------------------+
@@ -602,7 +602,7 @@ Bulbhead_dollar = []
 Bulbhead_dollar.append("     ") # Top, 0
 Bulbhead_dollar.append(" _|_ ") # 1
 Bulbhead_dollar.append("/ |_)") # 2
-Bulbhead_dollar.append("\_| \\") # 3
+Bulbhead_dollar.append("\\_| \\") # 3
 Bulbhead_dollar.append("(_|_/") # 4
 Bulbhead_dollar.append("     ") # Bottom, 5
 
@@ -622,7 +622,7 @@ Bulbhead_percent.append("       ") # Bottom, 5
 # +--------------------------------+
 Bulbhead_caret = []
 Bulbhead_caret.append("     ") # Top, 0
-Bulbhead_caret.append(" / \ ") # 1
+Bulbhead_caret.append(" / \\ ") # 1
 Bulbhead_caret.append("(_^_)") # 2
 Bulbhead_caret.append("     ") # 3
 Bulbhead_caret.append("     ") # 4
@@ -635,7 +635,7 @@ Bulbhead_ampersand = []
 Bulbhead_ampersand.append("     ") # Top, 0
 Bulbhead_ampersand.append("  _  ") # 1
 Bulbhead_ampersand.append(" ( ) ") # 2
-Bulbhead_ampersand.append(" /_\/") # 3
+Bulbhead_ampersand.append(" /_\\/") # 3
 Bulbhead_ampersand.append("(__/\\") # 4
 Bulbhead_ampersand.append("     ") # Bottom, 5
 
@@ -644,7 +644,7 @@ Bulbhead_ampersand.append("     ") # Bottom, 5
 # +--------------------------------+
 Bulbhead_asterisk = []
 Bulbhead_asterisk.append("   ") # Top, 0
-Bulbhead_asterisk.append("\|/") # 1
+Bulbhead_asterisk.append("\\|/") # 1
 Bulbhead_asterisk.append("/|\\") # 2
 Bulbhead_asterisk.append("   ") # 3
 Bulbhead_asterisk.append("   ") # 4
@@ -658,7 +658,7 @@ Bulbhead_open_parenthesis.append("    ") # Top, 0
 Bulbhead_open_parenthesis.append("  _ ") # 1
 Bulbhead_open_parenthesis.append(" / )") # 2
 Bulbhead_open_parenthesis.append("( ( ") # 3
-Bulbhead_open_parenthesis.append(" \_)") # 4
+Bulbhead_open_parenthesis.append(" \\_)") # 4
 Bulbhead_open_parenthesis.append("    ") # Bottom, 5
 
 # +--------------------------------+
@@ -667,7 +667,7 @@ Bulbhead_open_parenthesis.append("    ") # Bottom, 5
 Bulbhead_closed_parenthesis = []
 Bulbhead_closed_parenthesis.append("    ") # Top, 0
 Bulbhead_closed_parenthesis.append(" _  ") # 1
-Bulbhead_closed_parenthesis.append("( \ ") # 2
+Bulbhead_closed_parenthesis.append("( \\ ") # 2
 Bulbhead_closed_parenthesis.append(" ) )") # 3
 Bulbhead_closed_parenthesis.append("(_/ ") # 4
 Bulbhead_closed_parenthesis.append("    ") # Bottom, 5
@@ -702,7 +702,7 @@ Bulbhead_pipe.append("  ") # Top, 0
 Bulbhead_pipe.append("/\\") # 1
 Bulbhead_pipe.append("||") # 2
 Bulbhead_pipe.append("||") # 3
-Bulbhead_pipe.append("\/") # 4
+Bulbhead_pipe.append("\\/") # 4
 Bulbhead_pipe.append("  ") # Bottom, 5
 
 # +--------------------------------+
@@ -757,7 +757,7 @@ Bulbhead_less_than.append("    ") # Top, 0
 Bulbhead_less_than.append("  __") # 1
 Bulbhead_less_than.append(" / /") # 2
 Bulbhead_less_than.append("< < ") # 3
-Bulbhead_less_than.append(" \_\\") # 4
+Bulbhead_less_than.append(" \\_\\") # 4
 Bulbhead_less_than.append("    ") # Bottom, 5
 
 # +--------------------------------+
@@ -766,7 +766,7 @@ Bulbhead_less_than.append("    ") # Bottom, 5
 Bulbhead_greater_than = []
 Bulbhead_greater_than.append("    ") # Top, 0
 Bulbhead_greater_than.append("__  ") # 1
-Bulbhead_greater_than.append("\ \ ") # 2
+Bulbhead_greater_than.append("\\ \\ ") # 2
 Bulbhead_greater_than.append(" > >") # 3
 Bulbhead_greater_than.append("/_/ ") # 4
 Bulbhead_greater_than.append("    ") # Bottom, 5

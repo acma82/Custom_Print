@@ -31,10 +31,10 @@ Blocks_A.append("                    ") # Top, 0
 Blocks_A.append(" .----------------. ") # 1
 Blocks_A.append("| .--------------. |") # 2
 Blocks_A.append("| |      __      | |") # 3
-Blocks_A.append("| |     /  \     | |") # 4
-Blocks_A.append("| |    / /\ \    | |") # 5
-Blocks_A.append("| |   / ____ \   | |") # 6
-Blocks_A.append("| | _/ /    \ \_ | |") # 7
+Blocks_A.append("| |     /  \\     | |") # 4
+Blocks_A.append("| |    / /\\ \\    | |") # 5
+Blocks_A.append("| |   / ____ \\   | |") # 6
+Blocks_A.append("| | _/ /    \\ \\_ | |") # 7
 Blocks_A.append("| ||____|  |____|| |") # 8
 Blocks_A.append("| |              | |") # 9
 Blocks_A.append("| '--------------' |") # 10
@@ -49,7 +49,7 @@ Blocks_B.append("                    ") # Top, 0
 Blocks_B.append(" .----------------. ") # 1
 Blocks_B.append("| .--------------. |") # 2
 Blocks_B.append("| |   ______     | |") # 3
-Blocks_B.append("| |  |_   _ \    | |") # 4
+Blocks_B.append("| |  |_   _ \\    | |") # 4
 Blocks_B.append("| |    | |_) |   | |") # 5
 Blocks_B.append("| |    |  __'.   | |") # 6
 Blocks_B.append("| |   _| |__) |  | |") # 7
@@ -68,9 +68,9 @@ Blocks_C.append(" .----------------. ") # 1
 Blocks_C.append("| .--------------. |") # 2
 Blocks_C.append("| |     ______   | |") # 3
 Blocks_C.append("| |   .' ___  |  | |") # 4
-Blocks_C.append("| |  / .'   \_|  | |") # 5
+Blocks_C.append("| |  / .'   \\_|  | |") # 5
 Blocks_C.append("| |  | |         | |") # 6
-Blocks_C.append("| |  \ `.___.'\  | |") # 7
+Blocks_C.append("| |  \\ `.___.'\\  | |") # 7
 Blocks_C.append("| |   `._____.'  | |") # 8
 Blocks_C.append("| |              | |") # 9
 Blocks_C.append("| '--------------' |") # 10
@@ -86,7 +86,7 @@ Blocks_D.append(" .----------------. ") # 1
 Blocks_D.append("| .--------------. |") # 2
 Blocks_D.append("| |  ________    | |") # 3
 Blocks_D.append("| | |_   ___ `.  | |") # 4
-Blocks_D.append("| |   | |   `. \ | |") # 5
+Blocks_D.append("| |   | |   `. \\ | |") # 5
 Blocks_D.append("| |   | |    | | | |") # 6
 Blocks_D.append("| |  _| |___.' / | |") # 7
 Blocks_D.append("| | |________.'  | |") # 8
@@ -104,7 +104,7 @@ Blocks_E.append(" .----------------. ") # 1
 Blocks_E.append("| .--------------. |") # 2
 Blocks_E.append("| |  _________   | |") # 3
 Blocks_E.append("| | |_   ___  |  | |") # 4
-Blocks_E.append("| |   | |_  \_|  | |") # 5
+Blocks_E.append("| |   | |_  \\_|  | |") # 5
 Blocks_E.append("| |   |  _|  _   | |") # 6
 Blocks_E.append("| |  _| |___/ |  | |") # 7
 Blocks_E.append("| | |_________|  | |") # 8
@@ -122,7 +122,7 @@ Blocks_F.append(" .----------------. ") # 1
 Blocks_F.append("| .--------------. |") # 2
 Blocks_F.append("| |  _________   | |") # 3
 Blocks_F.append("| | |_   ___  |  | |") # 4
-Blocks_F.append("| |   | |_  \_|  | |") # 5
+Blocks_F.append("| |   | |_  \\_|  | |") # 5
 Blocks_F.append("| |   |  _|      | |") # 6
 Blocks_F.append("| |  _| |_       | |") # 7
 Blocks_F.append("| | |_____|      | |") # 8
@@ -140,9 +140,9 @@ Blocks_G.append(" .----------------. ") # 1
 Blocks_G.append("| .--------------. |") # 2
 Blocks_G.append("| |    ______    | |") # 3
 Blocks_G.append("| |  .' ___  |   | |") # 4
-Blocks_G.append("| | / .'   \_|   | |") # 5
+Blocks_G.append("| | / .'   \\_|   | |") # 5
 Blocks_G.append("| | | |    ____  | |") # 6
-Blocks_G.append("| | \ `.___]  _| | |") # 7
+Blocks_G.append("| | \\ `.___]  _| | |") # 7
 Blocks_G.append("| |  `._____.'   | |") # 8
 Blocks_G.append("| |              | |") # 9
 Blocks_G.append("| '--------------' |") # 10
@@ -214,7 +214,7 @@ Blocks_K.append("| |  ___  ____   | |") # 3
 Blocks_K.append("| | |_  ||_  _|  | |") # 4
 Blocks_K.append("| |   | |_/ /    | |") # 5
 Blocks_K.append("| |   |  __'.    | |") # 6
-Blocks_K.append("| |  _| |  \ \_  | |") # 7
+Blocks_K.append("| |  _| |  \\ \\_  | |") # 7
 Blocks_K.append("| | |____||____| | |") # 8
 Blocks_K.append("| |              | |") # 9
 Blocks_K.append("| '--------------' |") # 10
@@ -247,10 +247,10 @@ Blocks_M.append("                    ") # Top, 0
 Blocks_M.append(" .----------------. ") # 1
 Blocks_M.append("| .--------------. |") # 2
 Blocks_M.append("| | ____    ____ | |") # 3
-Blocks_M.append("| ||_   \  /   _|| |") # 4
-Blocks_M.append("| |  |   \/   |  | |") # 5
-Blocks_M.append("| |  | |\  /| |  | |") # 6
-Blocks_M.append("| | _| |_\/_| |_ | |") # 7
+Blocks_M.append("| ||_   \\  /   _|| |") # 4
+Blocks_M.append("| |  |   \\/   |  | |") # 5
+Blocks_M.append("| |  | |\\  /| |  | |") # 6
+Blocks_M.append("| | _| |_\\/_| |_ | |") # 7
 Blocks_M.append("| ||_____||_____|| |") # 8
 Blocks_M.append("| |              | |") # 9
 Blocks_M.append("| '--------------' |") # 10
@@ -265,11 +265,11 @@ Blocks_N.append("                    ") # Top, 0
 Blocks_N.append(" .-----------------.") # 1
 Blocks_N.append("| .--------------. |") # 2
 Blocks_N.append("| | ____  _____  | |") # 3
-Blocks_N.append("| ||_   \|_   _| | |") # 4
-Blocks_N.append("| |  |   \ | |   | |") # 5
-Blocks_N.append("| |  | |\ \| |   | |") # 6
-Blocks_N.append("| | _| |_\   |_  | |") # 7
-Blocks_N.append("| ||_____|\____| | |") # 8
+Blocks_N.append("| ||_   \\|_   _| | |") # 4
+Blocks_N.append("| |  |   \\ | |   | |") # 5
+Blocks_N.append("| |  | |\\ \\| |   | |") # 6
+Blocks_N.append("| | _| |_\\   |_  | |") # 7
+Blocks_N.append("| ||_____|\\____| | |") # 8
 Blocks_N.append("| |              | |") # 9
 Blocks_N.append("| '--------------' |") # 10
 Blocks_N.append(" '----------------' ") # 11
@@ -283,11 +283,11 @@ Blocks_Ñ.append("                    ") # Top, 0
 Blocks_Ñ.append(" .-----------------.") # 1
 Blocks_Ñ.append("| .~~~~~~~~~~~~~~. |") # 2
 Blocks_Ñ.append("| | ____  _____  | |") # 3
-Blocks_Ñ.append("| ||_   \|_   _| | |") # 4
-Blocks_Ñ.append("| |  |   \ | |   | |") # 5
-Blocks_Ñ.append("| |  | |\ \| |   | |") # 6
-Blocks_Ñ.append("| | _| |_\   |_  | |") # 7
-Blocks_Ñ.append("| ||_____|\____| | |") # 8
+Blocks_Ñ.append("| ||_   \\|_   _| | |") # 4
+Blocks_Ñ.append("| |  |   \\ | |   | |") # 5
+Blocks_Ñ.append("| |  | |\\ \\| |   | |") # 6
+Blocks_Ñ.append("| | _| |_\\   |_  | |") # 7
+Blocks_Ñ.append("| ||_____|\\____| | |") # 8
 Blocks_Ñ.append("| |              | |") # 9
 Blocks_Ñ.append("| '--------------' |") # 10
 Blocks_Ñ.append(" '----------------' ") # 11
@@ -302,9 +302,9 @@ Blocks_O.append(" .----------------. ") # 1
 Blocks_O.append("| .--------------. |") # 2
 Blocks_O.append("| |     ____     | |") # 3
 Blocks_O.append("| |   .'    `.   | |") # 4
-Blocks_O.append("| |  /  .--.  \  | |") # 5
+Blocks_O.append("| |  /  .--.  \\  | |") # 5
 Blocks_O.append("| |  | |    | |  | |") # 6
-Blocks_O.append("| |  \  `--'  /  | |") # 7
+Blocks_O.append("| |  \\  `--'  /  | |") # 7
 Blocks_O.append("| |   `.____.'   | |") # 8
 Blocks_O.append("| |              | |") # 9
 Blocks_O.append("| '--------------' |") # 10
@@ -319,7 +319,7 @@ Blocks_P.append("                    ") # Top, 0
 Blocks_P.append(" .----------------. ") # 1
 Blocks_P.append("| .--------------. |") # 2
 Blocks_P.append("| |   ______     | |") # 3
-Blocks_P.append("| |  |_   __ \   | |") # 4
+Blocks_P.append("| |  |_   __ \\   | |") # 4
 Blocks_P.append("| |    | |__) |  | |") # 5
 Blocks_P.append("| |    |  ___/   | |") # 6
 Blocks_P.append("| |   _| |_      | |") # 7
@@ -338,10 +338,10 @@ Blocks_Q.append(" .----------------. ") # 1
 Blocks_Q.append("| .--------------. |") # 2
 Blocks_Q.append("| |    ___       | |") # 3
 Blocks_Q.append("| |  .'   '.     | |") # 4
-Blocks_Q.append("| | /  .-.  \    | |") # 5
+Blocks_Q.append("| | /  .-.  \\    | |") # 5
 Blocks_Q.append("| | | |   | |    | |") # 6
-Blocks_Q.append("| | \  `-'  \_   | |") # 7
-Blocks_Q.append("| |  `.___.\__|  | |") # 8
+Blocks_Q.append("| | \\  `-'  \\_   | |") # 7
+Blocks_Q.append("| |  `.___.\\__|  | |") # 8
 Blocks_Q.append("| |              | |") # 9
 Blocks_Q.append("| '--------------' |") # 10
 Blocks_Q.append(" '----------------' ") # 11
@@ -355,10 +355,10 @@ Blocks_R.append("                    ") # Top, 0
 Blocks_R.append(" .----------------. ") # 1
 Blocks_R.append("| .--------------. |") # 2
 Blocks_R.append("| |  _______     | |") # 3
-Blocks_R.append("| | |_   __ \    | |") # 4
+Blocks_R.append("| | |_   __ \\    | |") # 4
 Blocks_R.append("| |   | |__) |   | |") # 5
 Blocks_R.append("| |   |  __ /    | |") # 6
-Blocks_R.append("| |  _| |  \ \_  | |") # 7
+Blocks_R.append("| |  _| |  \\ \\_  | |") # 7
 Blocks_R.append("| | |____| |___| | |") # 8
 Blocks_R.append("| |              | |") # 9
 Blocks_R.append("| '--------------' |") # 10
@@ -374,9 +374,9 @@ Blocks_S.append(" .----------------. ") # 1
 Blocks_S.append("| .--------------. |") # 2
 Blocks_S.append("| |    _______   | |") # 3
 Blocks_S.append("| |   /  ___  |  | |") # 4
-Blocks_S.append("| |  |  (__ \_|  | |") # 5
+Blocks_S.append("| |  |  (__ \\_|  | |") # 5
 Blocks_S.append("| |   '.___`-.   | |") # 6
-Blocks_S.append("| |  |`\____) |  | |") # 7
+Blocks_S.append("| |  |`\\____) |  | |") # 7
 Blocks_S.append("| |  |_______.'  | |") # 8
 Blocks_S.append("| |              | |") # 9
 Blocks_S.append("| '--------------' |") # 10
@@ -392,7 +392,7 @@ Blocks_T.append(" .----------------. ") # 1
 Blocks_T.append("| .--------------. |") # 2
 Blocks_T.append("| |  _________   | |") # 3
 Blocks_T.append("| | |  _   _  |  | |") # 4
-Blocks_T.append("| | |_/ | | \_|  | |") # 5
+Blocks_T.append("| | |_/ | | \\_|  | |") # 5
 Blocks_T.append("| |     | |      | |") # 6
 Blocks_T.append("| |    _| |_     | |") # 7
 Blocks_T.append("| |   |_____|    | |") # 8
@@ -412,7 +412,7 @@ Blocks_U.append("| | _____  _____ | |") # 3
 Blocks_U.append("| ||_   _||_   _|| |") # 4
 Blocks_U.append("| |  | |    | |  | |") # 5
 Blocks_U.append("| |  | '    ' |  | |") # 6
-Blocks_U.append("| |   \ `--' /   | |") # 7
+Blocks_U.append("| |   \\ `--' /   | |") # 7
 Blocks_U.append("| |    `.__.'    | |") # 8
 Blocks_U.append("| |              | |") # 9
 Blocks_U.append("| '--------------' |") # 10
@@ -428,10 +428,10 @@ Blocks_V.append(" .----------------. ") # 1
 Blocks_V.append("| .--------------. |") # 2
 Blocks_V.append("| | ____   ____  | |") # 3
 Blocks_V.append("| ||_  _| |_  _| | |") # 4
-Blocks_V.append("| |  \ \   / /   | |") # 5
-Blocks_V.append("| |   \ \ / /    | |") # 6
-Blocks_V.append("| |    \ ' /     | |") # 7
-Blocks_V.append("| |     \_/      | |") # 8
+Blocks_V.append("| |  \\ \\   / /   | |") # 5
+Blocks_V.append("| |   \\ \\ / /    | |") # 6
+Blocks_V.append("| |    \\ ' /     | |") # 7
+Blocks_V.append("| |     \\_/      | |") # 8
 Blocks_V.append("| |              | |") # 9
 Blocks_V.append("| '--------------' |") # 10
 Blocks_V.append(" '----------------' ") # 11
@@ -446,10 +446,10 @@ Blocks_W.append(" .----------------. ") # 1
 Blocks_W.append("| .--------------. |") # 2
 Blocks_W.append("| | _____  _____ | |") # 3
 Blocks_W.append("| ||_   _||_   _|| |") # 4
-Blocks_W.append("| |  | | /\ | |  | |") # 5
-Blocks_W.append("| |  | |/  \| |  | |") # 6
-Blocks_W.append("| |  |   /\   |  | |") # 7
-Blocks_W.append("| |  |__/  \__|  | |") # 8
+Blocks_W.append("| |  | | /\\ | |  | |") # 5
+Blocks_W.append("| |  | |/  \\| |  | |") # 6
+Blocks_W.append("| |  |   /\\   |  | |") # 7
+Blocks_W.append("| |  |__/  \\__|  | |") # 8
 Blocks_W.append("| |              | |") # 9
 Blocks_W.append("| '--------------' |") # 10
 Blocks_W.append(" '----------------' ") # 11
@@ -464,9 +464,9 @@ Blocks_X.append(" .----------------. ") # 1
 Blocks_X.append("| .--------------. |") # 2
 Blocks_X.append("| |  ____  ____  | |") # 3
 Blocks_X.append("| | |_  _||_  _| | |") # 4
-Blocks_X.append("| |   \ \  / /   | |") # 5
+Blocks_X.append("| |   \\ \\  / /   | |") # 5
 Blocks_X.append("| |    > `' <    | |") # 6
-Blocks_X.append("| |  _/ /'`\ \_  | |") # 7
+Blocks_X.append("| |  _/ /'`\\ \\_  | |") # 7
 Blocks_X.append("| | |____||____| | |") # 8
 Blocks_X.append("| |              | |") # 9
 Blocks_X.append("| '--------------' |") # 10
@@ -482,8 +482,8 @@ Blocks_Y.append(" .----------------. ") # 1
 Blocks_Y.append("| .--------------. |") # 2
 Blocks_Y.append("| |  ____  ____  | |") # 3
 Blocks_Y.append("| | |_  _||_  _| | |") # 4
-Blocks_Y.append("| |   \ \  / /   | |") # 5
-Blocks_Y.append("| |    \ \/ /    | |") # 6
+Blocks_Y.append("| |   \\ \\  / /   | |") # 5
+Blocks_Y.append("| |    \\ \\/ /    | |") # 6
 Blocks_Y.append("| |    _|  |_    | |") # 7
 Blocks_Y.append("| |   |______|   | |") # 8
 Blocks_Y.append("| |              | |") # 9
@@ -519,7 +519,7 @@ Blocks_backtick.append("| .--------------. |") # 2
 Blocks_backtick.append("| |              | |") # 3
 Blocks_backtick.append("| |      __      | |") # 4
 Blocks_backtick.append("| |     |  |     | |") # 5
-Blocks_backtick.append("| |      \_|     | |") # 6
+Blocks_backtick.append("| |      \\_|     | |") # 6
 Blocks_backtick.append("| |              | |") # 7
 Blocks_backtick.append("| |              | |") # 8
 Blocks_backtick.append("| |              | |") # 9
@@ -574,8 +574,8 @@ Blocks_three.append("| |    ______    | |") # 3
 Blocks_three.append("| |   / ____ `.  | |") # 4
 Blocks_three.append("| |   `'  __) |  | |") # 5
 Blocks_three.append("| |   _  |__ '.  | |") # 6
-Blocks_three.append("| |  | \____) |  | |") # 7
-Blocks_three.append("| |   \______.'  | |") # 8
+Blocks_three.append("| |  | \\____) |  | |") # 7
+Blocks_three.append("| |   \\______.'  | |") # 8
 Blocks_three.append("| |              | |") # 9
 Blocks_three.append("| '--------------' |") # 10
 Blocks_three.append(" '----------------' ") # 11
@@ -610,8 +610,8 @@ Blocks_five.append("| |   _______    | |") # 3
 Blocks_five.append("| |  |  _____|   | |") # 4
 Blocks_five.append("| |  | |____     | |") # 5
 Blocks_five.append("| |  '_.____''.  | |") # 6
-Blocks_five.append("| |  | \____) |  | |") # 7
-Blocks_five.append("| |   \______.'  | |") # 8
+Blocks_five.append("| |  | \\____) |  | |") # 7
+Blocks_five.append("| |   \\______.'  | |") # 8
 Blocks_five.append("| |              | |") # 9
 Blocks_five.append("| '--------------' |") # 10
 Blocks_five.append(" '----------------' ") # 11
@@ -625,8 +625,8 @@ Blocks_six.append("                    ") # Top, 0
 Blocks_six.append(" .----------------. ") # 1
 Blocks_six.append("| .--------------. |") # 2
 Blocks_six.append("| |    ______    | |") # 3
-Blocks_six.append("| |  .' ____ \   | |") # 4
-Blocks_six.append("| |  | |____\_|  | |") # 5
+Blocks_six.append("| |  .' ____ \\   | |") # 4
+Blocks_six.append("| |  | |____\\_|  | |") # 5
 Blocks_six.append("| |  | '____`'.  | |") # 6
 Blocks_six.append("| |  | (____) |  | |") # 7
 Blocks_six.append("| |  '.______.'  | |") # 8
@@ -682,8 +682,8 @@ Blocks_nine.append("| |    ______    | |") # 3
 Blocks_nine.append("| |  .' ____ '.  | |") # 4
 Blocks_nine.append("| |  | (____) |  | |") # 5
 Blocks_nine.append("| |  '_.____. |  | |") # 6
-Blocks_nine.append("| |  | \____| |  | |") # 7
-Blocks_nine.append("| |   \______,'  | |") # 8
+Blocks_nine.append("| |  | \\____| |  | |") # 7
+Blocks_nine.append("| |   \\______,'  | |") # 8
 Blocks_nine.append("| |              | |") # 9
 Blocks_nine.append("| '--------------' |") # 10
 Blocks_nine.append(" '----------------' ") # 11
@@ -751,11 +751,11 @@ Blocks_backward_slash.append("                    ") # Top, 0
 Blocks_backward_slash.append(" .----------------. ") # 1
 Blocks_backward_slash.append("| .--------------. |") # 2
 Blocks_backward_slash.append("| |    __        | |") # 3
-Blocks_backward_slash.append("| |    \ \       | |") # 4
-Blocks_backward_slash.append("| |     \ \      | |") # 5
-Blocks_backward_slash.append("| |      \ \     | |") # 6
-Blocks_backward_slash.append("| |       \ \    | |") # 7
-Blocks_backward_slash.append("| |        \_\   | |") # 8
+Blocks_backward_slash.append("| |    \\ \\       | |") # 4
+Blocks_backward_slash.append("| |     \\ \\      | |") # 5
+Blocks_backward_slash.append("| |      \\ \\     | |") # 6
+Blocks_backward_slash.append("| |       \\ \\    | |") # 7
+Blocks_backward_slash.append("| |        \\_\\   | |") # 8
 Blocks_backward_slash.append("| |              | |") # 9
 Blocks_backward_slash.append("| '--------------' |") # 10
 Blocks_backward_slash.append(" '----------------' ") # 11
@@ -824,7 +824,7 @@ Blocks_apostrophe.append(" .----------------. ") # 1
 Blocks_apostrophe.append("| .--------------. |") # 2
 Blocks_apostrophe.append("| |      _       | |") # 3
 Blocks_apostrophe.append("| |     | |      | |") # 4
-Blocks_apostrophe.append("| |     \_|      | |") # 5
+Blocks_apostrophe.append("| |     \\_|      | |") # 5
 Blocks_apostrophe.append("| |              | |") # 6
 Blocks_apostrophe.append("| |              | |") # 7
 Blocks_apostrophe.append("| |              | |") # 8
@@ -931,10 +931,10 @@ Blocks_arroba.append("                    ") # Top, 0
 Blocks_arroba.append(" .----------------. ") # 1
 Blocks_arroba.append("| .--------------. |") # 2
 Blocks_arroba.append("| |     ____     | |") # 3
-Blocks_arroba.append("| |   .' __ \    | |") # 4
-Blocks_arroba.append("| |  / .'  \ |   | |") # 5
+Blocks_arroba.append("| |   .' __ \\    | |") # 4
+Blocks_arroba.append("| |  / .'  \\ |   | |") # 5
 Blocks_arroba.append("| |  | | (_/ |   | |") # 6
-Blocks_arroba.append("| |  \ `.__.'\   | |") # 7
+Blocks_arroba.append("| |  \\ `.__.'\\   | |") # 7
 Blocks_arroba.append("| |   `.___ .'   | |") # 8
 Blocks_arroba.append("| |              | |") # 9
 Blocks_arroba.append("| '--------------' |") # 10
@@ -968,9 +968,9 @@ Blocks_dollar.append(" .----------------. ") # 1
 Blocks_dollar.append("| .--------------. |") # 2
 Blocks_dollar.append("| |    __||___   | |") # 3
 Blocks_dollar.append("| |   /  ||_  |  | |") # 4
-Blocks_dollar.append("| |  |  (__ \_|  | |") # 5
+Blocks_dollar.append("| |  |  (__ \\_|  | |") # 5
 Blocks_dollar.append("| |   '.___`-.   | |") # 6
-Blocks_dollar.append("| |  |`\_||_) |  | |") # 7
+Blocks_dollar.append("| |  |`\\_||_) |  | |") # 7
 Blocks_dollar.append("| |  |___||__.'  | |") # 8
 Blocks_dollar.append("| |              | |") # 9
 Blocks_dollar.append("| '--------------' |") # 10
@@ -1003,8 +1003,8 @@ Blocks_caret.append("                    ") # Top, 0
 Blocks_caret.append(" .----------------. ") # 1
 Blocks_caret.append("| .--------------. |") # 2
 Blocks_caret.append("| |     ___      | |") # 3
-Blocks_caret.append("| |    / _ \     | |") # 4
-Blocks_caret.append("| |   |_/ \_|    | |") # 5
+Blocks_caret.append("| |    / _ \\     | |") # 4
+Blocks_caret.append("| |   |_/ \\_|    | |") # 5
 Blocks_caret.append("| |              | |") # 6
 Blocks_caret.append("| |              | |") # 7
 Blocks_caret.append("| |              | |") # 8
@@ -1024,8 +1024,8 @@ Blocks_ampersand.append("| |    ___       | |") # 3
 Blocks_ampersand.append("| |  .' _ '.     | |") # 4
 Blocks_ampersand.append("| |  | (_) '___  | |") # 5
 Blocks_ampersand.append("| |  .`___'/ _/  | |") # 6
-Blocks_ampersand.append("| | | (___)  \_  | |") # 7
-Blocks_ampersand.append("| | `._____.\__| | |") # 8
+Blocks_ampersand.append("| | | (___)  \\_  | |") # 7
+Blocks_ampersand.append("| | `._____.\\__| | |") # 8
 Blocks_ampersand.append("| |              | |") # 9
 Blocks_ampersand.append("| '--------------' |") # 10
 Blocks_ampersand.append(" '----------------' ") # 11
@@ -1039,11 +1039,11 @@ Blocks_asterisk.append("                    ") # Top, 0
 Blocks_asterisk.append(" .----------------. ") # 1
 Blocks_asterisk.append("| .--------------. |") # 2
 Blocks_asterisk.append("| |      _       | |") # 3
-Blocks_asterisk.append("| |   /\| |/\    | |") # 4
-Blocks_asterisk.append("| |   \     /    | |") # 5
+Blocks_asterisk.append("| |   /\\| |/\\    | |") # 4
+Blocks_asterisk.append("| |   \\     /    | |") # 5
 Blocks_asterisk.append("| |  |_     _|   | |") # 6
-Blocks_asterisk.append("| |   /     \    | |") # 7
-Blocks_asterisk.append("| |   \/|_|\/    | |") # 8
+Blocks_asterisk.append("| |   /     \\    | |") # 7
+Blocks_asterisk.append("| |   \\/|_|\\/    | |") # 8
 Blocks_asterisk.append("| |              | |") # 9
 Blocks_asterisk.append("| '--------------' |") # 10
 Blocks_asterisk.append(" '----------------' ") # 11
@@ -1151,7 +1151,7 @@ Blocks_open_curly.append("| |     .' _/    | |") # 4
 Blocks_open_curly.append("| |     | |      | |") # 5
 Blocks_open_curly.append("| |    < <       | |") # 6
 Blocks_open_curly.append("| |     | |_     | |") # 7
-Blocks_open_curly.append("| |     `.__\    | |") # 8
+Blocks_open_curly.append("| |     `.__\\    | |") # 8
 Blocks_open_curly.append("| |              | |") # 9
 Blocks_open_curly.append("| '--------------' |") # 10
 Blocks_open_curly.append(" '----------------' ") # 11
@@ -1165,7 +1165,7 @@ Blocks_closed_curly.append("                    ") # Top, 0
 Blocks_closed_curly.append(" .----------------. ") # 1
 Blocks_closed_curly.append("| .--------------. |") # 2
 Blocks_closed_curly.append("| |     __       | |") # 3
-Blocks_closed_curly.append("| |    \_ `.     | |") # 4
+Blocks_closed_curly.append("| |    \\_ `.     | |") # 4
 Blocks_closed_curly.append("| |      | |     | |") # 5
 Blocks_closed_curly.append("| |       > >    | |") # 6
 Blocks_closed_curly.append("| |     _| |     | |") # 7
@@ -1202,7 +1202,7 @@ Blocks_quotation.append(" .----------------. ") # 1
 Blocks_quotation.append("| .--------------. |") # 2
 Blocks_quotation.append("| |     _  _     | |") # 3
 Blocks_quotation.append("| |    | || |    | |") # 4
-Blocks_quotation.append("| |    \_|\_|    | |") # 5
+Blocks_quotation.append("| |    \\_|\\_|    | |") # 5
 Blocks_quotation.append("| |              | |") # 6
 Blocks_quotation.append("| |              | |") # 7
 Blocks_quotation.append("| |              | |") # 8
@@ -1222,8 +1222,8 @@ Blocks_less_than.append("| |       _      | |") # 3
 Blocks_less_than.append("| |      / /     | |") # 4
 Blocks_less_than.append("| |     / /      | |") # 5
 Blocks_less_than.append("| |    < <       | |") # 6
-Blocks_less_than.append("| |     \ \      | |") # 7
-Blocks_less_than.append("| |      \_\     | |") # 8
+Blocks_less_than.append("| |     \\ \\      | |") # 7
+Blocks_less_than.append("| |      \\_\\     | |") # 8
 Blocks_less_than.append("| |              | |") # 9
 Blocks_less_than.append("| '--------------' |") # 10
 Blocks_less_than.append(" '----------------' ") # 11
@@ -1237,8 +1237,8 @@ Blocks_greater_than.append("                    ") # Top, 0
 Blocks_greater_than.append(" .----------------. ") # 1
 Blocks_greater_than.append("| .--------------. |") # 2
 Blocks_greater_than.append("| |      _       | |") # 3
-Blocks_greater_than.append("| |     \ \      | |") # 4
-Blocks_greater_than.append("| |      \ \     | |") # 5
+Blocks_greater_than.append("| |     \\ \\      | |") # 4
+Blocks_greater_than.append("| |      \\ \\     | |") # 5
 Blocks_greater_than.append("| |       > >    | |") # 6
 Blocks_greater_than.append("| |      / /     | |") # 7
 Blocks_greater_than.append("| |     /_/      | |") # 8

@@ -35,7 +35,7 @@ Epic_A.append("| (___) |") # 4
 Epic_A.append("|  ___  |") # 5
 Epic_A.append("| (   ) |") # 6
 Epic_A.append("| )   ( |") # 7
-Epic_A.append("|/     \|") # 8
+Epic_A.append("|/     \\|") # 8
 Epic_A.append("         ") # Bottom, 9
 
 # +--------------------------------+
@@ -44,13 +44,13 @@ Epic_A.append("         ") # Bottom, 9
 Epic_B = []
 Epic_B.append("         ") # Top, 0
 Epic_B.append(" ______  ") # 1
-Epic_B.append("(  ___ \ ") # 2
+Epic_B.append("(  ___ \\ ") # 2
 Epic_B.append("| (   ) )") # 3
 Epic_B.append("| (__/ / ") # 4
 Epic_B.append("|  __ (  ") # 5
-Epic_B.append("| (  \ \ ") # 6
+Epic_B.append("| (  \\ \\ ") # 6
 Epic_B.append("| )___) )") # 7
-Epic_B.append("|/ \___/ ") # 8
+Epic_B.append("|/ \\___/ ") # 8
 Epic_B.append("         ") # Bottom, 9
 
 # +--------------------------------+
@@ -60,7 +60,7 @@ Epic_C = []
 Epic_C.append("         ") # Top, 0
 Epic_C.append(" _______ ") # 1
 Epic_C.append("(  ____ \\") # 2
-Epic_C.append("| (    \/") # 3
+Epic_C.append("| (    \\/") # 3
 Epic_C.append("| |      ") # 4
 Epic_C.append("| |      ") # 5
 Epic_C.append("| |      ") # 6
@@ -74,8 +74,8 @@ Epic_C.append("         ") # Bottom, 9
 Epic_D = []
 Epic_D.append("         ") # Top, 0
 Epic_D.append(" ______  ") # 1
-Epic_D.append("(  __  \ ") # 2
-Epic_D.append("| (  \  )") # 3
+Epic_D.append("(  __  \\ ") # 2
+Epic_D.append("| (  \\  )") # 3
 Epic_D.append("| |   ) |") # 4
 Epic_D.append("| |   | |") # 5
 Epic_D.append("| |   ) |") # 6
@@ -90,7 +90,7 @@ Epic_E = []
 Epic_E.append("         ") # Top, 0
 Epic_E.append(" _______ ") # 1
 Epic_E.append("(  ____ \\") # 2
-Epic_E.append("| (    \/") # 3
+Epic_E.append("| (    \\/") # 3
 Epic_E.append("| (__    ") # 4
 Epic_E.append("|  __)   ") # 5
 Epic_E.append("| (      ") # 6
@@ -105,7 +105,7 @@ Epic_F = []
 Epic_F.append("         ") # Top, 0
 Epic_F.append(" _______ ") # 1
 Epic_F.append("(  ____ \\") # 2
-Epic_F.append("| (    \/") # 3
+Epic_F.append("| (    \\/") # 3
 Epic_F.append("| (__    ") # 4
 Epic_F.append("|  __)   ") # 5
 Epic_F.append("| (      ") # 6
@@ -120,10 +120,10 @@ Epic_G = []
 Epic_G.append("         ") # Top, 0
 Epic_G.append(" _______ ") # 1
 Epic_G.append("(  ____ \\") # 2
-Epic_G.append("| (    \/") # 3
+Epic_G.append("| (    \\/") # 3
 Epic_G.append("| |      ") # 4
 Epic_G.append("| | ____ ") # 5
-Epic_G.append("| | \_  )") # 6
+Epic_G.append("| | \\_  )") # 6
 Epic_G.append("| (___) |") # 7
 Epic_G.append("(_______)") # 8
 Epic_G.append("         ") # Bottom, 9
@@ -134,13 +134,13 @@ Epic_G.append("         ") # Bottom, 9
 Epic_H = []
 Epic_H.append("         ") # Top, 0
 Epic_H.append("         ") # 1
-Epic_H.append("|\     /|") # 2
+Epic_H.append("|\\     /|") # 2
 Epic_H.append("| )   ( |") # 3
 Epic_H.append("| (___) |") # 4
 Epic_H.append("|  ___  |") # 5
 Epic_H.append("| (   ) |") # 6
 Epic_H.append("| )   ( |") # 7
-Epic_H.append("|/     \|") # 8
+Epic_H.append("|/     \\|") # 8
 Epic_H.append("         ") # Bottom, 9
 
 # +--------------------------------+
@@ -149,13 +149,13 @@ Epic_H.append("         ") # Bottom, 9
 Epic_I = []
 Epic_I.append("         ") # Top, 0
 Epic_I.append("_________") # 1
-Epic_I.append("\__   __/") # 2
+Epic_I.append("\\__   __/") # 2
 Epic_I.append("   ) (   ") # 3
 Epic_I.append("   | |   ") # 4
 Epic_I.append("   | |   ") # 5
 Epic_I.append("   | |   ") # 6
 Epic_I.append("___) (___") # 7
-Epic_I.append("\_______/") # 8
+Epic_I.append("\\_______/") # 8
 Epic_I.append("         ") # Bottom, 9
 
 # +--------------------------------+
@@ -164,12 +164,12 @@ Epic_I.append("         ") # Bottom, 9
 Epic_J = []
 Epic_J.append("         ") # Top, 0
 Epic_J.append("_________") # 1
-Epic_J.append("\__    _/") # 2
+Epic_J.append("\\__    _/") # 2
 Epic_J.append("   )  (  ") # 3
 Epic_J.append("   |  |  ") # 4
 Epic_J.append("   |  |  ") # 5
 Epic_J.append("   |  |  ") # 6
-Epic_J.append("|\_)  )  ") # 7
+Epic_J.append("|\\_)  )  ") # 7
 Epic_J.append("(____/   ") # 8
 Epic_J.append("         ") # Bottom, 9
 
@@ -179,13 +179,13 @@ Epic_J.append("         ") # Bottom, 9
 Epic_K = []
 Epic_K.append("         ") # Top, 0
 Epic_K.append(" _       ") # 1
-Epic_K.append("| \    /\\") # 2
-Epic_K.append("|  \  / /") # 3
+Epic_K.append("| \\    /\\") # 2
+Epic_K.append("|  \\  / /") # 3
 Epic_K.append("|  (_/ / ") # 4
 Epic_K.append("|   _ (  ") # 5
-Epic_K.append("|  ( \ \ ") # 6
-Epic_K.append("|  /  \ \\") # 7
-Epic_K.append("|_/    \/") # 8
+Epic_K.append("|  ( \\ \\ ") # 6
+Epic_K.append("|  /  \\ \\") # 7
+Epic_K.append("|_/    \\/") # 8
 Epic_K.append("         ") # Bottom, 9
 
 # +--------------------------------+
@@ -194,7 +194,7 @@ Epic_K.append("         ") # Bottom, 9
 Epic_L = []
 Epic_L.append("         ") # Top, 0
 Epic_L.append(" _       ") # 1
-Epic_L.append("( \      ") # 2
+Epic_L.append("( \\      ") # 2
 Epic_L.append("| (      ") # 3
 Epic_L.append("| |      ") # 4
 Epic_L.append("| |      ") # 5
@@ -225,11 +225,11 @@ Epic_N = []
 Epic_N.append("         ") # Top, 0
 Epic_N.append(" _       ") # 1
 Epic_N.append("( (    /|") # 2
-Epic_N.append("|  \  ( |") # 3
-Epic_N.append("|   \ | |") # 4
-Epic_N.append("| (\ \) |") # 5
-Epic_N.append("| | \   |") # 6
-Epic_N.append("| )  \  |") # 7
+Epic_N.append("|  \\  ( |") # 3
+Epic_N.append("|   \\ | |") # 4
+Epic_N.append("| (\\ \\) |") # 5
+Epic_N.append("| | \\   |") # 6
+Epic_N.append("| )  \\  |") # 7
 Epic_N.append("|/    )_)") # 8
 Epic_N.append("         ") # Bottom, 9
 
@@ -240,11 +240,11 @@ Epic_Ñ = []
 Epic_Ñ.append("         ") # Top, 0
 Epic_Ñ.append(" _~~~~~_ ") # 1
 Epic_Ñ.append("( (    /|") # 2
-Epic_Ñ.append("|  \  ( |") # 3
-Epic_Ñ.append("|   \ | |") # 4
-Epic_Ñ.append("| (\ \) |") # 5
-Epic_Ñ.append("| | \   |") # 6
-Epic_Ñ.append("| )  \  |") # 7
+Epic_Ñ.append("|  \\  ( |") # 3
+Epic_Ñ.append("|   \\ | |") # 4
+Epic_Ñ.append("| (\\ \\) |") # 5
+Epic_Ñ.append("| | \\   |") # 6
+Epic_Ñ.append("| )  \\  |") # 7
 Epic_Ñ.append("|/    )_)") # 8
 Epic_Ñ.append("         ") # Bottom, 9
 
@@ -288,9 +288,9 @@ Epic_Q.append("(  ___  )") # 2
 Epic_Q.append("| (   ) |") # 3
 Epic_Q.append("| |   | |") # 4
 Epic_Q.append("| |   | |") # 5
-Epic_Q.append("| | /\| |") # 6
-Epic_Q.append("| (_\ \ |") # 7
-Epic_Q.append("(____\/_)") # 8
+Epic_Q.append("| | /\\| |") # 6
+Epic_Q.append("| (_\\ \\ |") # 7
+Epic_Q.append("(____\\/_)") # 8
 Epic_Q.append("         ") # Bottom, 9
 
 # +--------------------------------+
@@ -303,9 +303,9 @@ Epic_R.append("(  ____ )") # 2
 Epic_R.append("| (    )|") # 3
 Epic_R.append("| (____)|") # 4
 Epic_R.append("|     __)") # 5
-Epic_R.append("| (\ (   ") # 6
-Epic_R.append("| ) \ \__") # 7
-Epic_R.append("|/   \__/") # 8
+Epic_R.append("| (\\ (   ") # 6
+Epic_R.append("| ) \\ \\__") # 7
+Epic_R.append("|/   \\__/") # 8
 Epic_R.append("         ") # Bottom, 9
 
 # +--------------------------------+
@@ -315,12 +315,12 @@ Epic_S = []
 Epic_S.append("         ") # Top, 0
 Epic_S.append(" _______ ") # 1
 Epic_S.append("(  ____ \\") # 2
-Epic_S.append("| (    \/") # 3
+Epic_S.append("| (    \\/") # 3
 Epic_S.append("| (_____ ") # 4
 Epic_S.append("(_____  )") # 5
 Epic_S.append("      ) |") # 6
-Epic_S.append("/\____) |") # 7
-Epic_S.append("\_______)") # 8
+Epic_S.append("/\\____) |") # 7
+Epic_S.append("\\_______)") # 8
 Epic_S.append("         ") # Bottom, 9
 
 # +--------------------------------+
@@ -329,7 +329,7 @@ Epic_S.append("         ") # Bottom, 9
 Epic_T = []
 Epic_T.append("         ") # Top, 0
 Epic_T.append("_________") # 1
-Epic_T.append("\__   __/") # 2
+Epic_T.append("\\__   __/") # 2
 Epic_T.append("   ) (   ") # 3
 Epic_T.append("   | |   ") # 4
 Epic_T.append("   | |   ") # 5
@@ -344,7 +344,7 @@ Epic_T.append("         ") # Bottom, 9
 Epic_U = []
 Epic_U.append("         ") # Top, 0
 Epic_U.append("         ") # 1
-Epic_U.append("|\     /|") # 2
+Epic_U.append("|\\     /|") # 2
 Epic_U.append("| )   ( |") # 3
 Epic_U.append("| |   | |") # 4
 Epic_U.append("| |   | |") # 5
@@ -359,13 +359,13 @@ Epic_U.append("         ") # Bottom, 9
 Epic_V = []
 Epic_V.append("         ") # Top, 0
 Epic_V.append("         ") # 1
-Epic_V.append("|\     /|") # 2
+Epic_V.append("|\\     /|") # 2
 Epic_V.append("| )   ( |") # 3
 Epic_V.append("| |   | |") # 4
 Epic_V.append("( (   ) )") # 5
-Epic_V.append(" \ \_/ / ") # 6
-Epic_V.append("  \   /  ") # 7
-Epic_V.append("   \_/   ") # 8
+Epic_V.append(" \\ \\_/ / ") # 6
+Epic_V.append("  \\   /  ") # 7
+Epic_V.append("   \\_/   ") # 8
 Epic_V.append("         ") # Bottom, 9
 
 # +--------------------------------+
@@ -374,7 +374,7 @@ Epic_V.append("         ") # Bottom, 9
 Epic_W = []
 Epic_W.append("         ") # Top, 0
 Epic_W.append("         ") # 1
-Epic_W.append("|\     /|") # 2
+Epic_W.append("|\\     /|") # 2
 Epic_W.append("| )   ( |") # 3
 Epic_W.append("| | _ | |") # 4
 Epic_W.append("| |( )| |") # 5
@@ -389,13 +389,13 @@ Epic_W.append("         ") # Bottom, 9
 Epic_X = []
 Epic_X.append("         ") # Top, 0
 Epic_X.append("         ") # 1
-Epic_X.append("|\     /|") # 2
-Epic_X.append("( \   / )") # 3
-Epic_X.append(" \ (_) / ") # 4
+Epic_X.append("|\\     /|") # 2
+Epic_X.append("( \\   / )") # 3
+Epic_X.append(" \\ (_) / ") # 4
 Epic_X.append("  ) _ (  ") # 5
-Epic_X.append(" / ( ) \ ") # 6
-Epic_X.append("( /   \ )") # 7
-Epic_X.append("|/     \|") # 8
+Epic_X.append(" / ( ) \\ ") # 6
+Epic_X.append("( /   \\ )") # 7
+Epic_X.append("|/     \\|") # 8
 Epic_X.append("         ") # Bottom, 9
 
 # +--------------------------------+
@@ -404,13 +404,13 @@ Epic_X.append("         ") # Bottom, 9
 Epic_Y = []
 Epic_Y.append("         ") # Top, 0
 Epic_Y.append("         ") # 1
-Epic_Y.append("|\     /|") # 2
-Epic_Y.append("( \   / )") # 3
-Epic_Y.append(" \ (_) / ") # 4
-Epic_Y.append("  \   /  ") # 5
+Epic_Y.append("|\\     /|") # 2
+Epic_Y.append("( \\   / )") # 3
+Epic_Y.append(" \\ (_) / ") # 4
+Epic_Y.append("  \\   /  ") # 5
 Epic_Y.append("   ) (   ") # 6
 Epic_Y.append("   | |   ") # 7
-Epic_Y.append("   \_/   ") # 8
+Epic_Y.append("   \\_/   ") # 8
 Epic_Y.append("         ") # Bottom, 9
 
 # +--------------------------------+
@@ -420,7 +420,7 @@ Epic_Z = []
 Epic_Z.append("         ") # Top, 0
 Epic_Z.append(" _______ ") # 1
 Epic_Z.append("/ ___   )") # 2
-Epic_Z.append("\/   )  |") # 3
+Epic_Z.append("\\/   )  |") # 3
 Epic_Z.append("    /   )") # 4
 Epic_Z.append("   /   / ") # 5
 Epic_Z.append("  /   /  ") # 6
@@ -436,7 +436,7 @@ Epic_backtick = []
 Epic_backtick.append("   ") # Top, 0
 Epic_backtick.append(" _ ") # 1
 Epic_backtick.append("( )") # 2
-Epic_backtick.append(" \|") # 3
+Epic_backtick.append(" \\|") # 3
 Epic_backtick.append("   ") # 4
 Epic_backtick.append("   ") # 5
 Epic_backtick.append("   ") # 6
@@ -450,13 +450,13 @@ Epic_backtick.append("   ") # Bottom, 9
 Epic_one = []
 Epic_one.append("      ") # Top, 0
 Epic_one.append(" __   ") # 1
-Epic_one.append("/  \  ") # 2
-Epic_one.append("\/) ) ") # 3
+Epic_one.append("/  \\  ") # 2
+Epic_one.append("\\/) ) ") # 3
 Epic_one.append("  | | ") # 4
 Epic_one.append("  | | ") # 5
 Epic_one.append("  | | ") # 6
 Epic_one.append("__) (_") # 7
-Epic_one.append("\____/") # 8
+Epic_one.append("\\____/") # 8
 Epic_one.append("      ") # Bottom, 9
 
 # +--------------------------------+
@@ -466,12 +466,12 @@ Epic_two = []
 Epic_two.append("         ") # Top, 0
 Epic_two.append(" _______ ") # 1
 Epic_two.append("/ ___   )") # 2
-Epic_two.append("\/   )  |") # 3
+Epic_two.append("\\/   )  |") # 3
 Epic_two.append("    /   )") # 4
 Epic_two.append("  _/   / ") # 5
 Epic_two.append(" /   _/  ") # 6
 Epic_two.append("(   (__/\\") # 7
-Epic_two.append("\_______/") # 8
+Epic_two.append("\\_______/") # 8
 Epic_two.append("         ") # Bottom, 9
 
 # +--------------------------------+
@@ -480,13 +480,13 @@ Epic_two.append("         ") # Bottom, 9
 Epic_three = []
 Epic_three.append("         ") # Top, 0
 Epic_three.append(" ______  ") # 1
-Epic_three.append("/ ___  \ ") # 2
-Epic_three.append("\/   \  \\") # 3
+Epic_three.append("/ ___  \\ ") # 2
+Epic_three.append("\\/   \\  \\") # 3
 Epic_three.append("   ___) /") # 4
 Epic_three.append("  (___ ( ") # 5
 Epic_three.append("      ) \\") # 6
-Epic_three.append("/\___/  /") # 7
-Epic_three.append("\______/ ") # 8
+Epic_three.append("/\\___/  /") # 7
+Epic_three.append("\\______/ ") # 8
 Epic_three.append("         ") # Bottom, 9
 
 # +--------------------------------+
@@ -511,12 +511,12 @@ Epic_five = []
 Epic_five.append("         ") # Top, 0
 Epic_five.append(" _______ ") # 1
 Epic_five.append("(  ____ \\") # 2
-Epic_five.append("| (    \/") # 3
+Epic_five.append("| (    \\/") # 3
 Epic_five.append("| (____  ") # 4
-Epic_five.append("(_____ \ ") # 5
+Epic_five.append("(_____ \\ ") # 5
 Epic_five.append("      ) )") # 6
-Epic_five.append("/\____) )") # 7
-Epic_five.append("\______/ ") # 8
+Epic_five.append("/\\____) )") # 7
+Epic_five.append("\\______/ ") # 8
 Epic_five.append("         ") # Bottom, 9
 
 # +--------------------------------+
@@ -526,12 +526,12 @@ Epic_six = []
 Epic_six.append("         ") # Top, 0
 Epic_six.append("  ______ ") # 1
 Epic_six.append(" / ____ \\") # 2
-Epic_six.append("( (    \/") # 3
+Epic_six.append("( (    \\/") # 3
 Epic_six.append("| (____  ") # 4
-Epic_six.append("|  ___ \ ") # 5
+Epic_six.append("|  ___ \\ ") # 5
 Epic_six.append("| (   ) )") # 6
 Epic_six.append("( (___) )") # 7
-Epic_six.append(" \_____/ ") # 8
+Epic_six.append(" \\_____/ ") # 8
 Epic_six.append("         ") # Bottom, 9
 
 # +--------------------------------+
@@ -540,13 +540,13 @@ Epic_six.append("         ") # Bottom, 9
 Epic_seven = []
 Epic_seven.append("         ") # Top, 0
 Epic_seven.append(" ______  ") # 1
-Epic_seven.append("/ ___  \ ") # 2
-Epic_seven.append("\/   )  )") # 3
+Epic_seven.append("/ ___  \\ ") # 2
+Epic_seven.append("\\/   )  )") # 3
 Epic_seven.append("    /  / ") # 4
 Epic_seven.append("   /  /  ") # 5
 Epic_seven.append("  /  /   ") # 6
 Epic_seven.append(" /  /    ") # 7
-Epic_seven.append(" \_/     ") # 8
+Epic_seven.append(" \\_/     ") # 8
 Epic_seven.append("         ") # Bottom, 9
 
 # +--------------------------------+
@@ -555,13 +555,13 @@ Epic_seven.append("         ") # Bottom, 9
 Epic_eight = []
 Epic_eight.append("         ") # Top, 0
 Epic_eight.append("  _____  ") # 1
-Epic_eight.append(" / ___ \ ") # 2
+Epic_eight.append(" / ___ \\ ") # 2
 Epic_eight.append("( (___) )") # 3
-Epic_eight.append(" \     / ") # 4
-Epic_eight.append(" / ___ \ ") # 5
+Epic_eight.append(" \\     / ") # 4
+Epic_eight.append(" / ___ \\ ") # 5
 Epic_eight.append("( (   ) )") # 6
 Epic_eight.append("( (___) )") # 7
-Epic_eight.append(" \_____/ ") # 8
+Epic_eight.append(" \\_____/ ") # 8
 Epic_eight.append("         ") # Bottom, 9
 
 # +--------------------------------+
@@ -570,13 +570,13 @@ Epic_eight.append("         ") # Bottom, 9
 Epic_nine = []
 Epic_nine.append("         ") # Top, 0
 Epic_nine.append("  _____  ") # 1
-Epic_nine.append(" / ___ \ ") # 2
+Epic_nine.append(" / ___ \\ ") # 2
 Epic_nine.append("( (   ) )") # 3
 Epic_nine.append("( (___) |") # 4
-Epic_nine.append(" \____  |") # 5
+Epic_nine.append(" \\____  |") # 5
 Epic_nine.append("      ) |") # 6
-Epic_nine.append("/\____) )") # 7
-Epic_nine.append("\______/ ") # 8
+Epic_nine.append("/\\____) )") # 7
+Epic_nine.append("\\______/ ") # 8
 Epic_nine.append("         ") # Bottom, 9
 
 # +--------------------------------+
@@ -630,13 +630,13 @@ Epic_equal.append("     ") # Bottom, 9
 Epic_backward_slash = []
 Epic_backward_slash.append("       ") # Top, 0
 Epic_backward_slash.append("       ") # 1
-Epic_backward_slash.append("/\     ") # 2
-Epic_backward_slash.append("\ \    ") # 3
-Epic_backward_slash.append(" \ \   ") # 4
-Epic_backward_slash.append("  \ \  ") # 5
-Epic_backward_slash.append("   \ \ ") # 6
-Epic_backward_slash.append("    \ \\") # 7
-Epic_backward_slash.append("     \/") # 8
+Epic_backward_slash.append("/\\     ") # 2
+Epic_backward_slash.append("\\ \\    ") # 3
+Epic_backward_slash.append(" \\ \\   ") # 4
+Epic_backward_slash.append("  \\ \\  ") # 5
+Epic_backward_slash.append("   \\ \\ ") # 6
+Epic_backward_slash.append("    \\ \\") # 7
+Epic_backward_slash.append("     \\/") # 8
 Epic_backward_slash.append("       ") # Bottom, 9
 
 # +--------------------------------+
@@ -741,7 +741,7 @@ Epic_forward_slash.append("   / / ") # 4
 Epic_forward_slash.append("  / /  ") # 5
 Epic_forward_slash.append(" / /   ") # 6
 Epic_forward_slash.append("/ /    ") # 7
-Epic_forward_slash.append("\/     ") # 8
+Epic_forward_slash.append("\\/     ") # 8
 Epic_forward_slash.append("       ") # Bottom, 9
 
 # +--------------------------------+
@@ -750,8 +750,8 @@ Epic_forward_slash.append("       ") # Bottom, 9
 Epic_tilde = []
 Epic_tilde.append("       ") # Top, 0
 Epic_tilde.append("  _    ") # 1
-Epic_tilde.append(" /_\_/)") # 2
-Epic_tilde.append("(/ \_/ ") # 3
+Epic_tilde.append(" /_\\_/)") # 2
+Epic_tilde.append("(/ \\_/ ") # 3
 Epic_tilde.append("       ") # 4
 Epic_tilde.append("       ") # 5
 Epic_tilde.append("       ") # 6
@@ -780,13 +780,13 @@ Epic_exclamation.append("   ") # Bottom, 9
 Epic_arroba = []
 Epic_arroba.append("           ") # Top, 0
 Epic_arroba.append("   _____   ") # 1
-Epic_arroba.append("  / ___ \  ") # 2
-Epic_arroba.append(" / / _ \ \ ") # 3
-Epic_arroba.append("( ( / \ ) )") # 4
+Epic_arroba.append("  / ___ \\  ") # 2
+Epic_arroba.append(" / / _ \\ \\ ") # 3
+Epic_arroba.append("( ( / \\ ) )") # 4
 Epic_arroba.append("| |(()// / ") # 5
-Epic_arroba.append("( ( \___/  ") # 6
-Epic_arroba.append(" \ \____/\ ") # 7
-Epic_arroba.append("  \______/ ") # 8
+Epic_arroba.append("( ( \\___/  ") # 6
+Epic_arroba.append(" \\ \\____/\\ ") # 7
+Epic_arroba.append("  \\______/ ") # 8
 Epic_arroba.append("           ") # Bottom, 9
 
 # +--------------------------------+
@@ -814,8 +814,8 @@ Epic_dollar.append(" __|_|___") # 2
 Epic_dollar.append("(  _____/") # 3
 Epic_dollar.append("| (|_|__ ") # 4
 Epic_dollar.append("(_____  )") # 5
-Epic_dollar.append("/\_|_|) |") # 6
-Epic_dollar.append("\_______)") # 7
+Epic_dollar.append("/\\_|_|) |") # 6
+Epic_dollar.append("\\_______)") # 7
 Epic_dollar.append("   |_|   ") # 8
 Epic_dollar.append("         ") # Bottom, 9
 
@@ -831,7 +831,7 @@ Epic_percent.append("   / / ") # 4
 Epic_percent.append("  / /  ") # 5
 Epic_percent.append(" / /   ") # 6
 Epic_percent.append("/ /  ()") # 7
-Epic_percent.append("\/     ") # 8
+Epic_percent.append("\\/     ") # 8
 Epic_percent.append("       ") # Bottom, 9
 
 # +--------------------------------+
@@ -839,8 +839,8 @@ Epic_percent.append("       ") # Bottom, 9
 # +--------------------------------+
 Epic_caret = []
 Epic_caret.append("    ") # Top, 0
-Epic_caret.append(" /\ ") # 1
-Epic_caret.append("(/\)") # 2
+Epic_caret.append(" /\\ ") # 1
+Epic_caret.append("(/\\)") # 2
 Epic_caret.append("    ") # 3
 Epic_caret.append("    ") # 4
 Epic_caret.append("    ") # 5
@@ -855,13 +855,13 @@ Epic_caret.append("    ") # Bottom, 9
 Epic_ampersand = []
 Epic_ampersand.append("        ") # Top, 0
 Epic_ampersand.append("   __   ") # 1
-Epic_ampersand.append("  /__\  ") # 2
-Epic_ampersand.append(" ( \/ ) ") # 3
-Epic_ampersand.append("  \  /  ") # 4
-Epic_ampersand.append("  /  \/\\") # 5
-Epic_ampersand.append(" / /\  /") # 6
-Epic_ampersand.append("(  \/  \\") # 7
-Epic_ampersand.append(" \___/\/") # 8
+Epic_ampersand.append("  /__\\  ") # 2
+Epic_ampersand.append(" ( \\/ ) ") # 3
+Epic_ampersand.append("  \\  /  ") # 4
+Epic_ampersand.append("  /  \\/\\") # 5
+Epic_ampersand.append(" / /\\  /") # 6
+Epic_ampersand.append("(  \\/  \\") # 7
+Epic_ampersand.append(" \\___/\\/") # 8
 Epic_ampersand.append("        ") # Bottom, 9
 
 # +--------------------------------+
@@ -870,13 +870,13 @@ Epic_ampersand.append("        ") # Bottom, 9
 Epic_asterisk = []
 Epic_asterisk.append("          ") # Top, 0
 Epic_asterisk.append("          ") # 1
-Epic_asterisk.append(" /\    /\ ") # 2
-Epic_asterisk.append(" \ \  / / ") # 3
+Epic_asterisk.append(" /\\    /\\ ") # 2
+Epic_asterisk.append(" \\ \\  / / ") # 3
 Epic_asterisk.append(" _) () (_ ") # 4
 Epic_asterisk.append("(_      _)") # 5
 Epic_asterisk.append("  ) () (  ") # 6
-Epic_asterisk.append(" / /  \ \ ") # 7
-Epic_asterisk.append(" \/    \/ ") # 8
+Epic_asterisk.append(" / /  \\ \\ ") # 7
+Epic_asterisk.append(" \\/    \\/ ") # 8
 Epic_asterisk.append("          ") # Bottom, 9
 
 # +--------------------------------+
@@ -890,8 +890,8 @@ Epic_open_parenthesis.append(" / / ") # 3
 Epic_open_parenthesis.append("( (  ") # 4
 Epic_open_parenthesis.append("| |  ") # 5
 Epic_open_parenthesis.append("( (  ") # 6
-Epic_open_parenthesis.append(" \ \ ") # 7
-Epic_open_parenthesis.append("  \_)") # 8
+Epic_open_parenthesis.append(" \\ \\ ") # 7
+Epic_open_parenthesis.append("  \\_)") # 8
 Epic_open_parenthesis.append("     ") # Bottom, 9
 
 # +--------------------------------+
@@ -900,8 +900,8 @@ Epic_open_parenthesis.append("     ") # Bottom, 9
 Epic_closed_parenthesis = []
 Epic_closed_parenthesis.append("     ") # Top, 0
 Epic_closed_parenthesis.append(" _   ") # 1
-Epic_closed_parenthesis.append("( \  ") # 2
-Epic_closed_parenthesis.append(" \ \ ") # 3
+Epic_closed_parenthesis.append("( \\  ") # 2
+Epic_closed_parenthesis.append(" \\ \\ ") # 3
 Epic_closed_parenthesis.append("  ) )") # 4
 Epic_closed_parenthesis.append("  | |") # 5
 Epic_closed_parenthesis.append("  ) )") # 6
@@ -963,7 +963,7 @@ Epic_open_curly.append("  __ ") # 1
 Epic_open_curly.append(" ( _)") # 2
 Epic_open_curly.append(" )(  ") # 3
 Epic_open_curly.append("/ |  ") # 4
-Epic_open_curly.append("\ |  ") # 5
+Epic_open_curly.append("\\ |  ") # 5
 Epic_open_curly.append(" )(_ ") # 6
 Epic_open_curly.append(" (__)") # 7
 Epic_open_curly.append("     ") # 8
@@ -1006,7 +1006,7 @@ Epic_quotation = []
 Epic_quotation.append("      ") # Top, 0
 Epic_quotation.append(" _  _ ") # 1
 Epic_quotation.append("( )( )") # 2
-Epic_quotation.append(" \||/ ") # 3
+Epic_quotation.append(" \\||/ ") # 3
 Epic_quotation.append("      ") # 4
 Epic_quotation.append("      ") # 5
 Epic_quotation.append("      ") # 6
@@ -1024,9 +1024,9 @@ Epic_less_than.append("   / )") # 2
 Epic_less_than.append("  / / ") # 3
 Epic_less_than.append(" / /  ") # 4
 Epic_less_than.append("( (   ") # 5
-Epic_less_than.append(" \ \  ") # 6
-Epic_less_than.append("  \ \ ") # 7
-Epic_less_than.append("   \_)") # 8
+Epic_less_than.append(" \\ \\  ") # 6
+Epic_less_than.append("  \\ \\ ") # 7
+Epic_less_than.append("   \\_)") # 8
 Epic_less_than.append("      ") # Bottom, 9
 
 # +--------------------------------+
@@ -1035,9 +1035,9 @@ Epic_less_than.append("      ") # Bottom, 9
 Epic_greater_than = []
 Epic_greater_than.append("      ") # Top, 0
 Epic_greater_than.append(" _    ") # 1
-Epic_greater_than.append("( \   ") # 2
-Epic_greater_than.append(" \ \  ") # 3
-Epic_greater_than.append("  \ \ ") # 4
+Epic_greater_than.append("( \\   ") # 2
+Epic_greater_than.append(" \\ \\  ") # 3
+Epic_greater_than.append("  \\ \\ ") # 4
 Epic_greater_than.append("   ) )") # 5
 Epic_greater_than.append("  / / ") # 6
 Epic_greater_than.append(" / /  ") # 7
@@ -1050,9 +1050,9 @@ Epic_greater_than.append("      ") # Bottom, 9
 Epic_question = []
 Epic_question.append("         ") # Top, 0
 Epic_question.append("  _____  ") # 1
-Epic_question.append(" / ___ \ ") # 2
+Epic_question.append(" / ___ \\ ") # 2
 Epic_question.append("( (   ) )") # 3
-Epic_question.append(" \/  / / ") # 4
+Epic_question.append(" \\/  / / ") # 4
 Epic_question.append("    ( (  ") # 5
 Epic_question.append("    (_)  ") # 6
 Epic_question.append("     _   ") # 7
