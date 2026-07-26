@@ -92,6 +92,7 @@ class Ascii_Letter(enum.StrEnum):
     Sweet        = "Sweet"
 
 
+
 #class Move(str, enum.Enum): # python3.9.18
 class Move(enum.StrEnum):    # python3.12.1
 # class Move():

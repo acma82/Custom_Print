@@ -39,7 +39,7 @@ def art(dato):
     # msg.ascii_type = cp.Ascii_Letter.Moon         # checked (spaces and invalid characters,\)
     # msg.ascii_type = cp.Ascii_Letter.Moon2        # Does not respect bg and fg colors. # checked (spaces and invalid characters,\)
     # msg.ascii_type = cp.Ascii_Letter.Roman        # checked (spaces and invalid characters,\)
-    # msg.ascii_type = cp.Ascii_Letter.Standard     # checked (spaces and invalid characters,\)
+    msg.ascii_type = cp.Ascii_Letter.Standard     # checked (spaces and invalid characters,\)
     # msg.ascii_type = cp.Ascii_Letter.Sweet        # checked (spaces and invalid characters,\)
     
     
@@ -60,19 +60,19 @@ def art(dato):
 
 
 # ABC in group of 5 and 4
-lista = [["ABCDE"],["FGHIJ"],[f"KLMN{cp.Unicode.UPPERCASE_N_TILDE}"],["OPQRS"],["TUVWX"],["YZ"],  # 27  Upper Case
-         ["abcde"],["fghij"],[f"klmn{cp.Unicode.LOWERCASE_N_TILDE}"],["opqrs"],["tuvwx"],["yz"],  # 27  Lower Case
-         ["`123"] ,["4567"] ,["890-"], ["=[]\\"],[";',./"],                                       # 21  Symbols (Shift_Off)
-         ["~!@#"], ["$%^&"], ["*()_"], [f"+{cp.Unicode.LEFT_CURLY_BRACKET}{cp.Unicode.RIGHT_CURLY_BRACKET}|"],[":\"<>? "]] # 22 Symbols Shift_On
+# lista = [["ABCDE"],["FGHIJ"],[f"KLMN{cp.Unicode.UPPERCASE_N_TILDE}"],["OPQRS"],["TUVWX"],["YZ"],  # 27  Upper Case
+#          ["abcde"],["fghij"],[f"klmn{cp.Unicode.LOWERCASE_N_TILDE}"],["opqrs"],["tuvwx"],["yz"],  # 27  Lower Case
+#          ["`123"] ,["4567"] ,["890-"], ["=[]\\"],[";',./"],                                       # 21  Symbols (Shift_Off)
+#          ["~!@#"], ["$%^&"], ["*()_"], [f"+{cp.Unicode.LEFT_CURLY_BRACKET}{cp.Unicode.RIGHT_CURLY_BRACKET}|"],[":\"<>? "]] # 22 Symbols Shift_On
 
-ctrl = 0
-for row in range(len(lista)):
-    for col in range(len(lista[row])):
-        if ctrl == 0:    print(f"  {cp.set_font(1,231,21)} Letters: {lista[row][col]} {cp.reset_font()}")
-        elif ctrl == 25: input(f"  {cp.set_font(1,231,21)} Enter to Continue with: {lista[row][col]}and space {cp.reset_font()}")
-        else:            input(f"  {cp.set_font(1,231,21)} Enter to Continue with: {lista[row][col]} {cp.reset_font()}")
-        art(dato=lista[row][col])
-    ctrl += 1
+# ctrl = 0
+# for row in range(len(lista)):
+#     for col in range(len(lista[row])):
+#         if ctrl == 0:    print(f"  {cp.set_font(1,231,21)} Letters: {lista[row][col]} {cp.reset_font()}")
+#         elif ctrl == 25: input(f"  {cp.set_font(1,231,21)} Enter to Continue with: {lista[row][col]}and space {cp.reset_font()}")
+#         else:            input(f"  {cp.set_font(1,231,21)} Enter to Continue with: {lista[row][col]} {cp.reset_font()}")
+#         art(dato=lista[row][col])
+#     ctrl += 1
     
 
 
@@ -84,28 +84,9 @@ for row in range(len(lista)):
 #     art(dato=l)
 
 
-# art("AHXYELL")
-
+art("AHXYELL")
 # for l in cp.Moon2_Letters.Moon2_A:
-#     print(len(l))
-
-# print(len(cp.Moon2_Letters.Moon2_A[0]))
-
-# crs = cp.Cursor()
-# right_sp = cp.ins_chr(n = 4, unicode = " ")
-# left_sp  = cp.ins_chr(n = 14, unicode = " ")
-# Moon2_bg = "\033[0;48;5;0m"
-# indent = cp.ins_chr(n=4, unicode=" ")
-
-# for l in cp.Moon2_Letters.Moon2_A:
-#     print(f"{indent}{Moon2_bg}{left_sp}{l}{Moon2_bg}{right_sp}\033[0m")
-
-# print(crs.moveTo(qty=5,direction=cp.Move.UP))
-
-# new_indent =  cp.ins_chr(n=14+len(cp.Moon2_A[0]),unicode=" ")
-
-# for l in cp.Moon2_Letters.Moon2_B:
-#     print(f"{new_indent}{Moon2_bg}{left_sp}{l}{Moon2_bg}{right_sp}\033[0m")
+#     print(f"{l}{cp.reset_font()}")
 
 
 

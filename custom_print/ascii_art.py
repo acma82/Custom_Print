@@ -98,6 +98,46 @@ class Art:
 
         tbl.print_fancy_format(data=ascii_letter_description, style=Line_Style.WHITE_BLACK_PURPLE)
 
+    def description_ascii_logos(self):
+        tbl = FancyFormat()
+        ascii_logo_description = [["No.", "Name"],
+                                    [1,     "Logo_Unix"],
+                                    [2,     "Logo_Windows"],
+                                    [3,     "Logo_Linux"],
+                                    [4,     "Logo_AlmaLinux"],
+                                    [5,     "Logo_RedHat"],
+                                    [6,     "Logo_Ubunto"],
+                                    [7,     "Logo_l"],
+                                    [8,     "Logo_l"],
+                                    [9,     "Logo_l"],
+                                    [10,    "Logo_l"],
+                                    [11,    "Logo_l"],
+                                    [12,    "Logo_l"],
+                                    [13,    "Logo_l"],
+                                    [14,    "Logo_l"],
+                                    [15,    "Logo_l"],
+                                    [16,    "Logo_l"],
+                                    [17,    "Logo_l"],
+                                    [18,    "Logo_l"],
+                                    [19,    "Logo_l"],
+                                    [20,    "Logo_l"],
+                                    [21,    "Logo_l"],
+                                    [22,    "Logo_l"],
+                                    [23,    "Logo_l"]
+                                   ]
+        
+        
+        tbl.title_align = "center"; tbl.title_msg   = "  Description of Ascii Logos  "
+        tbl.title_bg    = 231;       tbl.title_fg = 21;   tbl.title_bold = True
+        
+        tbl.footnote_align = "right"; tbl.footnote_msg = " Logos Available "
+        tbl.footnote_bold  = True;    tbl.footnote_bg  = 90;  tbl.footnote_fg = 231
+
+        tbl.adj_bottom_margin = 2; tbl.adj_top_margin = 2
+        tbl.adj_bottom_space  = 0; tbl.adj_top_space  = 2
+
+        tbl.print_fancy_format(data=ascii_logo_description, style=Line_Style.WHITE_BLACK_PURPLE)
+
     # +--------------------------------------------------------------------------------------------------------------------------------+
     # |    Only One Setting for Bold, Bg, Fg, italic, underline, strike, blinking, dim, and inverse                                    |
     # +--------------------------------------------------------------------------------------------------------------------------------+
@@ -304,21 +344,20 @@ class Art:
                         "close_parenthesis", "underscore", "plus", "pipe", "open_curly", "close_curly", "colon", "quotation","less_than",
                         "greater_than", "question", "space"]
 
-            # ------------------------------------------------------------ Finding the Type of Ascii Letters       
-        pylo = PyLO()
-
-        if self.ascii_type == Ascii_Letter.Alpha:
-            #  Alpha only have uppercase available
-            result = pylo.update_case(data=lista, header_case=pylo.Case.UPPER, data_case=pylo.Case.UPPER, update=False)
+        # ------------------------------------------------------------ Finding the Type of Ascii Letters       
+        # pylo = PyLO()
+        # if self.ascii_type == Ascii_Letter.Alpha:
+        #     #  Alpha only have uppercase available
+        #     result = pylo.update_case(data=lista, header_case=pylo.Case.UPPER, data_case=pylo.Case.UPPER, update=False)
             
 
-        elif self.ascii_type == Ascii_Letter.Crazy:
-            # Crazy Only have lowercase available
-            result = pylo.update_case(data=lista, header_case=pylo.Case.LOWER, data_case=pylo.Case.LOWER, update=False)
+        # elif self.ascii_type == Ascii_Letter.Crazy:
+        #     # Crazy Only have lowercase available
+        #     result = pylo.update_case(data=lista, header_case=pylo.Case.LOWER, data_case=pylo.Case.LOWER, update=False)
             
-        else:
-            # Other letters that have uppercase and lower case
-            result = pylo.update_case(data=lista, header_case=pylo.Case.UPPER, data_case=pylo.Case.UPPER, update=False)
+        # else:
+        #     # Other letters that have uppercase and lower case
+        #     result = pylo.update_case(data=lista, header_case=pylo.Case.UPPER, data_case=pylo.Case.UPPER, update=False)
         # -------------------------------------------------------- Ending Finding the Type of Ascii Letters
 
         for row in range(len(lista)):
@@ -334,9 +373,9 @@ class Art:
             self.hidden    = sets_hidden[row]
             self.inverse   = sets_inverse[row]
 
-            for col in range(len(result[row])):
-                self.print_ascii_art(result[row][col])
-                text = result[row][col]
+            for col in range(len(lista[row])):
+                self.print_ascii_art(lista[row][col])
+                text = lista[row][col]
                 for n in text:
                     try:
                         list_name =  eval(key_word + n)
@@ -364,7 +403,7 @@ class Art:
                             ctrl_dist = ctrl_dist + letter_width  # contains all the width of the letters inside the row, if the letter does not exist, here
 
 
-            if (len(result[row])) >= 2: self.adj_indent = self.adj_indent+self.adj_left_space+ ctrl_dist+self.adj_middle_space+self.adj_right_space
+            if (len(lista[row])) >= 2: self.adj_indent = self.adj_indent+self.adj_left_space+ ctrl_dist+self.adj_middle_space+self.adj_right_space
             else:                      self.adj_indent = self.adj_indent+self.adj_left_space+ ctrl_dist+self.adj_right_space
             ctrl_dist = 0
 
@@ -389,16 +428,17 @@ class Art:
     # |    Only One Setting for Bold, Bg, Fg, italic, underline, strike, blinking, dim, and inverse for the customized logos.          |
     # |    For the specific logos like Linux, Debian, Alma, and so on. No settings will be applied for them.                           |
     # +--------------------------------------------------------------------------------------------------------------------------------+
-    def print_image_ascii_art(self):
+    def print_ascii_logo_art(self):
         retardo = self.delay_ms/1000;           key_letter = "";
 
         color = set_font(self.bold, self.bg, self.fg, self.italic, self.underline, self.strike,
                         self.blinking, self.dim, self.hidden, self.inverse)
         
-        defined_logos = ["Windows","Apple","Unix_Logo","Linux", "Red_Hat", "Centos", "Alma","Fedora", "Archict", "Kalib", "Python"]
+        # defined_logos = ["Windows","Apple","Unix_Logo","Linux", "Red_Hat", "Centos", "Alma","Fedora", "Archict", "Kalib", "Python"]
 
-        if self.ascii_type in defined_logos: key_letter = eval("custom_print." + "Logos." + self.ascii_type)
-        else:                                key_letter = self.ascii_type
+        # if self.ascii_type in defined_logos: key_letter = eval("custom_print." + "Logos." + self.ascii_type)
+        # else:                                key_letter = self.ascii_type
+        key_letter = self.ascii_type
 
         if self.set_layout == Layout.VERTICAL:
             for n in range(len(key_letter)):
@@ -454,7 +494,7 @@ class Art:
     # |    Only One Setting for Bold, Bg, Fg, italic, underline, strike, blinking, dim, and inverse for the customized logos.          |
     # |    For the specific logos like Linux, Debian, Alma, and so on. No settings will be applied for them.                           |
     # +--------------------------------------------------------------------------------------------------------------------------------+
-    def print_reversed_image_ascii_art(self):
+    def print_reversed_ascii_logo_art(self):
         retardo = self.delay_ms/1000;           key_letter = "";      crs = Cursor()
 
         color = set_font(self.bold, self.bg, self.fg, self.italic, self.underline, self.strike,
