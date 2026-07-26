@@ -31,12 +31,12 @@ if __name__ == "__main__":
 
     back_up = len(cp.Alpha_M)
     width = len(cp.Alpha_M[0])
-    art_logo.print_reversed_image_ascii_art()
+    art_logo.print_reversed_ascii_logo_art()
 
     crs.jumpTo(qty=back_up, direction=cp.Move.UP)
     art_logo.ascii_type = cp.Alpha_E # mye
     art_logo.adj_indent = 10 + width ; art_logo.adj_right_space = 2
-    art_logo.print_reversed_image_ascii_art()
+    art_logo.print_reversed_ascii_logo_art()
 
 
     cp.ins_newline(4)
@@ -48,16 +48,19 @@ if __name__ == "__main__":
 
     back_up = len(cp.Alpha_E)
     width = len(cp.Alpha_M[0])
-    art_logo.print_reversed_image_ascii_art()
+    art_logo.print_reversed_ascii_logo_art()
 
 
     crs.jumpTo(qty=back_up, direction=cp.Move.UP)
     art_logo.bg = 208; art_logo.fg = 16
     art_logo.ascii_type = cp.Alpha_M # mye               # one of the green and the other of the orange
     art_logo.adj_indent = art_logo.adj_indent - width - (2*art_logo.adj_left_space); art_logo.adj_right_space = 2
-    art_logo.print_reversed_image_ascii_art()
+    art_logo.print_reversed_ascii_logo_art()
 
 
     cp.ins_newline(2)
-    art_logo.ascii_type = frog
-    art_logo.print_reversed_image_ascii_art()
+    art_logo.bg = 16
+    art_logo.fg = 231
+    art_logo.set_layout = cp.Layout.VERTICAL
+    art_logo.ascii_type = cp.Logo_Unix# frog
+    art_logo.print_reversed_ascii_logo_art()
