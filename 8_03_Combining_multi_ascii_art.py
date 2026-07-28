@@ -4,8 +4,8 @@ def art_logo_2(data, option, ctrl=0):
     # create the class and set the settings
     multi_msg = cp.Art()
     
-    multi_msg.set_layout = cp.Layout.HORIZONTAL
-    # multi_msg.set_layout = cp.Layout.VERTICAL
+    # multi_msg.set_layout = cp.Layout.HORIZONTAL
+    multi_msg.set_layout = cp.Layout.VERTICAL
 
     multi_msg.set_bottom_line  = True;                 multi_msg.set_top_line   = True
     multi_msg.adj_middle_space = 0;                    multi_msg.adj_indent     = 4

@@ -5,43 +5,16 @@ from custom_print.fancy_functions import set_font
 from custom_print.fancy_functions import ins_newline
 from custom_print.fancy_functions import move_cursor_right
 
-from custom_print           import Move
-from custom_print           import FancyFormat
-from custom_print           import Line_Style
-from custom_print.pylo      import PyLO
-from custom_print           import Cursor
-from custom_print.ref_names import Layout, Ascii_Letter
+from custom_print                 import Move
+from custom_print                 import FancyFormat
+from custom_print                 import Line_Style
+from custom_print                 import Cursor
+from custom_print.ref_names       import Layout, Ascii_Letter
 
+from custom_print.Ascii_Letters   import*
+# from custom_print.Logos           import*
 
-# importing the files with the ascii_art
-import custom_print.Alpha_Letters
-import custom_print.ANSI_Shadow_Letters
-import custom_print.Big_Letters
-import custom_print.Blocks_Letters
-import custom_print.Bulbhead_Letters
-import custom_print.Classy_Letters
-import custom_print.Colossal_Letters
-import custom_print.Crazy_Letters
-import custom_print.Doh_Letters
-import custom_print.Doom_Letters
-import custom_print.Epic_Letters
-import custom_print.Graceful_Letters
-import custom_print.Larry_Letters
-import custom_print.Money_NE_Letters
-import custom_print.Money_NW_Letters
-import custom_print.Money_SE_Letters
-import custom_print.Money_SW_Letters
-import custom_print.Mono_Letters
-import custom_print.Moon_Letters
-import custom_print.Moon2_Letters
-import custom_print.Roman_Letters
-import custom_print.Standard_Letters
-import custom_print.Sweet_Letters
-
-
-# import custom_print.Mono
-
-# import custom_print.Logos
+# from custom_print.pylo            import PyLO
 
 # +------------------------------------------------------------------------------------------------------------------------------------+
 # |  Creating the Ascii Word                                                                                                           |
@@ -143,11 +116,10 @@ class Art:
     # +--------------------------------------------------------------------------------------------------------------------------------+
     def print_ascii_art(self, msg="ABC"):
         # Defining variables
-        rows = 0;                        result = []
-        tempo_row = "";                  retardo = self.delay_ms/1000            
-        key_letter = "";                 skip_top_row = self.set_top_line
-        left_sp = self.adj_left_space;   middle_sp = self.adj_middle_space
-        right_sp = self.adj_right_space
+        rows = 0;                            result = []
+        tempo_row = "";                      retardo = self.delay_ms/1000            
+        skip_top_row = self.set_top_line;    left_sp = self.adj_left_space
+        middle_sp = self.adj_middle_space;   right_sp = self.adj_right_space
         
         symbol_chrs = ["`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=",
                        "[", "]", "\\", ";", "'",  ",", ".", "/",
@@ -160,18 +132,11 @@ class Art:
                        "greater_than", "question", "space"]
       
         data = msg
-        key_letter = "custom_print."+self.ascii_type + "_Letters."
 
-        # Make sure always exist NA list or a space list in the Type of Letters Using
-        try:
-            list_name = eval("custom_print."+self.ascii_type+"_Letters."+self.ascii_type+"_NA")
-            # from custom_print.Alpha_Letters import*
-            # list_name = eval(self.ascii_type+"_NA")
-            rows = len(list_name)
-        except:
-            list_name = eval("custom_print."+self.ascii_type+"_Letters."+self.ascii_type+"_space")
-            rows = len(list_name) 
+        # Make sure always exist space list in the Type of Letters Using
+        rows = len(eval(self.ascii_type+"_space"))
 
+   
         if self.ascii_type == Ascii_Letter.Moon2:
             color = set_font(self.bold, 0, self.fg, self.italic, self.underline, self.strike,
                         self.blinking, self.dim, self.hidden, self.inverse)
@@ -192,8 +157,8 @@ class Art:
                 if skip_top_row == False: pass
                 else:
                     for l in range(len(data)):
-                        try:
-                            row_info = key_letter + self.ascii_type + "_" + data[l] + "[" + str(r) + "]"
+                        try:                            
+                            row_info = self.ascii_type + "_" + data[l] + "[" + str(r) + "]"
 
                             if l == (len(data)-1):
                                 tempo_row = tempo_row + ins_chr(middle_sp) + eval(row_info) + ins_chr(right_sp)   # last item
@@ -210,11 +175,11 @@ class Art:
                             
                             
                                 try:
-                                    row_info = eval(key_letter + self.ascii_type + "_" + symbol_chr + "[" + str(r) + "]")
+                                    row_info = eval(self.ascii_type + "_" + symbol_chr + "[" + str(r) + "]")
                                 except:
-                                    row_info = eval(key_letter + self.ascii_type + "_NA" + "[" + str(r) + "]")
+                                    row_info = eval(self.ascii_type + "_NA" + "[" + str(r) + "]")
                             else:
-                                row_info = eval(key_letter + self.ascii_type + "_NA" + "[" + str(r) + "]")
+                                row_info = eval(self.ascii_type + "_NA" + "[" + str(r) + "]")
 
                             if l == (len(data)-1):
                                 tempo_row = tempo_row + ins_chr(middle_sp) + row_info + ins_chr(right_sp)   # last item
@@ -258,13 +223,11 @@ class Art:
                         position = symbol_chrs.index(data[w])
                         symbol_chr = symbol_name[position]
                         
-                        list_letter = eval(key_letter + self.ascii_type + "_" + symbol_chr)
-                        # from custom_print.Alpha_Letters import*
-                        # list_letter = eval(self.ascii_type + "_" + symbol_chr)
+                        list_letter = eval(self.ascii_type + "_" + symbol_chr)                        
                     else:
-                        list_letter = eval(key_letter + self.ascii_type + "_" + data[w])    
+                        list_letter = eval(self.ascii_type + "_" + data[w])
                 except: 
-                        list_letter = eval(key_letter + self.ascii_type + "_" + "NA")
+                        list_letter = eval(self.ascii_type + "_" + "NA")
 
                 for r in range(rows):
                     if skip_top_row == False: skip_top_row = True
@@ -330,10 +293,9 @@ class Art:
     # +--------------------------------------------------------------------------------------------------------------------------------+
     # |    Multiple Settings for Bold, Bg, Fg, italic, underline, strike, blinking, dim, and inverse                                   |
     # +--------------------------------------------------------------------------------------------------------------------------------+
-    def print_multi_ascii_art(self,lista, sets_bold, sets_bg, sets_fg, sets_italic, sets_underline, sets_strike, sets_blinking, sets_dim, sets_hidden, sets_inverse ):
+    def print_multi_ascii_art(self,data, sets_bold, sets_bg, sets_fg, sets_italic, sets_underline, sets_strike, sets_blinking, sets_dim, sets_hidden, sets_inverse ):
         # adj_indent cannot be changed or it will be messy
         crs = Cursor()
-        key_word = "custom_print." + self.ascii_type + "_Letters." + self.ascii_type + "_"
         ctrl_dist = 0
         symbol_chrs = ["`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=", "[", "]", "\\", ";", "'",  ",", ".", "/",
                         "~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+", "{", "}", "|",  ":", "\"", "<", ">", "?", " "]
@@ -344,23 +306,7 @@ class Art:
                         "close_parenthesis", "underscore", "plus", "pipe", "open_curly", "close_curly", "colon", "quotation","less_than",
                         "greater_than", "question", "space"]
 
-        # ------------------------------------------------------------ Finding the Type of Ascii Letters       
-        # pylo = PyLO()
-        # if self.ascii_type == Ascii_Letter.Alpha:
-        #     #  Alpha only have uppercase available
-        #     result = pylo.update_case(data=lista, header_case=pylo.Case.UPPER, data_case=pylo.Case.UPPER, update=False)
-            
-
-        # elif self.ascii_type == Ascii_Letter.Crazy:
-        #     # Crazy Only have lowercase available
-        #     result = pylo.update_case(data=lista, header_case=pylo.Case.LOWER, data_case=pylo.Case.LOWER, update=False)
-            
-        # else:
-        #     # Other letters that have uppercase and lower case
-        #     result = pylo.update_case(data=lista, header_case=pylo.Case.UPPER, data_case=pylo.Case.UPPER, update=False)
-        # -------------------------------------------------------- Ending Finding the Type of Ascii Letters
-
-        for row in range(len(lista)):
+        for row in range(len(data)):
             self.bold = sets_bold[row]
             self.bg   = sets_bg[row]
             self.fg   = sets_fg[row]
@@ -373,12 +319,12 @@ class Art:
             self.hidden    = sets_hidden[row]
             self.inverse   = sets_inverse[row]
 
-            for col in range(len(lista[row])):
-                self.print_ascii_art(lista[row][col])
-                text = lista[row][col]
+            for col in range(len(data[row])):
+                self.print_ascii_art(data[row][col])
+                text = data[row][col]
                 for n in text:
                     try:
-                        list_name =  eval(key_word + n)
+                        list_name =  eval(self.ascii_type + "_" + n)
                         letter_width = len(list_name[0])
                         ctrl_dist = ctrl_dist + letter_width  # contains all the width of the letters inside the row. (Letters or Numbers)
 
@@ -388,36 +334,29 @@ class Art:
                             position = symbol_chrs.index(n)
                             symbol_chr = symbol_name[position]
                             try:
-                                list_name  = eval(key_word + symbol_chr)
+                                list_name  = eval(self.ascii_type + "_" + symbol_chr)
                                 letter_width = len(list_name[0])
                                 ctrl_dist = ctrl_dist + letter_width # contains all the width of the letters inside the row. (Symbols)
                             except:
-                                list_name = eval(key_word + "NA")
+                                list_name = eval(self.ascii_type + "_" + "NA")
                                 letter_width = len(list_name[0])
                                 ctrl_dist = ctrl_dist + letter_width  # contains all the width of the letters inside the row, if the letter does not exist, here
 
 
                         else:
-                            list_name = eval(key_word + "NA") # key_word. => Alpha_Letters.Alpha_NA
+                            list_name = eval(self.ascii_type + "_" + "NA") # key_word. => Alpha_Letters.Alpha_NA
                             letter_width = len(list_name[0])
                             ctrl_dist = ctrl_dist + letter_width  # contains all the width of the letters inside the row, if the letter does not exist, here
 
 
-            if (len(lista[row])) >= 2: self.adj_indent = self.adj_indent+self.adj_left_space+ ctrl_dist+self.adj_middle_space+self.adj_right_space
+            if (len(data[row])) >= 2: self.adj_indent = self.adj_indent+self.adj_left_space+ ctrl_dist+self.adj_middle_space+self.adj_right_space
             else:                      self.adj_indent = self.adj_indent+self.adj_left_space+ ctrl_dist+self.adj_right_space
             ctrl_dist = 0
 
-            # Make sure always exist a letter: A or a in all the Letters Type
-            letter_height = 0
+            # Make sure always exist space list into the type of letter using
+            letter_height = len(eval(self.ascii_type + "_" + "space"))
 
-            try:
-                list_name = eval(key_word + "A") # eval(key_word+self.ascii_type+"_A")
-                letter_height = len(list_name)
-            except:
-                list_name = eval(key_word + "a") # eval(key_word+self.ascii_type+"_a")
-                letter_height = len(list_name) 
-
-            crs.jumpTo(qty=letter_height, direction = Move.UP)  # Letter_height
+            crs.jumpTo(qty=letter_height, direction = Move.UP)
 
         crs.jumpTo(qty=letter_height, direction = Move.DOWN)
 
@@ -429,41 +368,41 @@ class Art:
     # |    For the specific logos like Linux, Debian, Alma, and so on. No settings will be applied for them.                           |
     # +--------------------------------------------------------------------------------------------------------------------------------+
     def print_ascii_logo_art(self):
-        retardo = self.delay_ms/1000;           key_letter = "";
+        # self.ascii_type -> Here it is a list we are passing rather than just the name of the letters to be used.
+        # That is why we don't use the lovely function "eval" like in the print_ascii_art function or
+        # the print_multi_ascii_art funtion. In those previous functions, we pass a string, the type of leeters to be used.
+        # Then with that name and the string pass as a parameter we create the letter to be used, using the eval function.        
+        # Note that in the print_multi_ascii_art is a list that we pass as a parameter while the print_ascii_art we pass a
+        # string as a parameter.
 
+        retardo = self.delay_ms/1000;
+        
         color = set_font(self.bold, self.bg, self.fg, self.italic, self.underline, self.strike,
                         self.blinking, self.dim, self.hidden, self.inverse)
-        
-        # defined_logos = ["Windows","Apple","Unix_Logo","Linux", "Red_Hat", "Centos", "Alma","Fedora", "Archict", "Kalib", "Python"]
-
-        # if self.ascii_type in defined_logos: key_letter = eval("custom_print." + "Logos." + self.ascii_type)
-        # else:                                key_letter = self.ascii_type
-        key_letter = self.ascii_type
 
         if self.set_layout == Layout.VERTICAL:
-            for n in range(len(key_letter)):
-                print(move_cursor_right(self.adj_indent)+color+ins_chr(self.adj_left_space)+key_letter[n]+ins_chr(self.adj_right_space)+"\033[0m")
+            for n in range(len(self.ascii_type)):
+                print(move_cursor_right(self.adj_indent)+color+ins_chr(self.adj_left_space)+self.ascii_type[n]+ins_chr(self.adj_right_space)+"\033[0m")
                 time.sleep(retardo)
         
         elif self.set_layout == Layout.HORIZONTAL:
             crs = Cursor()
             ctrl_cols = 0
-            n_rows = len(key_letter)
-            n_cols = len(key_letter[0])
+            n_rows = len(self.ascii_type)
+            n_cols = len(self.ascii_type[0])
             for col in range(n_cols):
                 for row in range(n_rows):
                     if col == 0:  # first col
-                        print(move_cursor_right(self.adj_indent)+color+ins_chr(self.adj_left_space)+key_letter[row][col]+"\033[0m")
+                        print(move_cursor_right(self.adj_indent)+color+ins_chr(self.adj_left_space)+self.ascii_type[row][col]+"\033[0m")
                     elif col == (n_cols - 1 ): # last col
-                        print(move_cursor_right(self.adj_indent+self.adj_left_space+ctrl_cols)+color+key_letter[row][col]+ins_chr(self.adj_right_space)+"\033[0m")
+                        print(move_cursor_right(self.adj_indent+self.adj_left_space+ctrl_cols)+color+self.ascii_type[row][col]+ins_chr(self.adj_right_space)+"\033[0m")
                         # input("enter")
                     else: # middle cols
-                        print(move_cursor_right(self.adj_indent+self.adj_left_space+ctrl_cols)+color+key_letter[row][col]+"\033[0m")
+                        print(move_cursor_right(self.adj_indent+self.adj_left_space+ctrl_cols)+color+self.ascii_type[row][col]+"\033[0m")
                 ctrl_cols += 1                
                 time.sleep(retardo)
                 if col == (n_cols -1): pass
                 else:                  crs.jumpTo(qty = n_rows, direction= Move.UP)
-            # crs.jumpTo(qty = n_rows, direction= Move.DOWN)
 
         else:
             # +-------------------------------------------------------------------------------------+
@@ -499,20 +438,14 @@ class Art:
 
         color = set_font(self.bold, self.bg, self.fg, self.italic, self.underline, self.strike,
                         self.blinking, self.dim, self.hidden, self.inverse)
-        
-        defined_logos = ["Windows","Apple","Unix_Logo","Linux", "Red_Hat", "Centos", "Alma","Fedora", "Archict", "Kalib", "Python"]
-
-        if self.ascii_type in defined_logos: key_letter = eval("custom_print." + "Logos." + self.ascii_type)
-        else:                                key_letter = self.ascii_type
-
 
         if self.set_layout == Layout.VERTICAL:
             pos_crs = len(self.ascii_type) - 1
             ins_newline(len(self.ascii_type))
             
 
-            for n in  range(len(key_letter)):
-                print(move_cursor_right(self.adj_indent)+color+ins_chr(self.adj_left_space)+key_letter[pos_crs]+ins_chr(self.adj_right_space)+"\033[0m")
+            for n in  range(len(self.ascii_type)):
+                print(move_cursor_right(self.adj_indent)+color+ins_chr(self.adj_left_space)+self.ascii_type[pos_crs]+ins_chr(self.adj_right_space)+"\033[0m")
                 crs.jumpTo(qty = 2, direction= Move.UP)
                 time.sleep(retardo)
                 pos_crs -= 1
@@ -521,19 +454,19 @@ class Art:
         
         elif self.set_layout == Layout.HORIZONTAL:
             ctrl_cols = 1
-            n_rows = len(key_letter);           n_cols = len(key_letter[0])           
+            n_rows = len(self.ascii_type);           n_cols = len(self.ascii_type[0])           
             x = n_cols
 
             for col in range(n_cols):
                 x -= 1
                 for row in range(n_rows):
                     if col == 0:  # first col
-                        print(move_cursor_right(self.adj_indent)+color+ins_chr(self.adj_left_space+n_cols-1)+key_letter[row][x]+ins_chr(self.adj_right_space)+"\033[0m")
+                        print(move_cursor_right(self.adj_indent)+color+ins_chr(self.adj_left_space+n_cols-1)+self.ascii_type[row][x]+ins_chr(self.adj_right_space)+"\033[0m")
                     elif col == (n_cols - 1 ): # last col
-                        print(move_cursor_right(self.adj_indent+self.adj_left_space)+color+key_letter[row][x]+"\033[0m")
+                        print(move_cursor_right(self.adj_indent+self.adj_left_space)+color+self.ascii_type[row][x]+"\033[0m")
                         
                     else: # middle cols
-                        print(move_cursor_right(self.adj_indent+self.adj_left_space+n_cols-ctrl_cols)+color+key_letter[row][x]+"\033[0m")
+                        print(move_cursor_right(self.adj_indent+self.adj_left_space+n_cols-ctrl_cols)+color+self.ascii_type[row][x]+"\033[0m")
                 
                 
                 ctrl_cols += 1

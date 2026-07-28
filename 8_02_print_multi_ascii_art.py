@@ -2,8 +2,8 @@ import custom_print as cp
 
 # create the class and set the settings
 msg = cp.Art()
-# msg.set_layout = cp.Layout.HORIZONTAL
-msg.set_layout = cp.Layout.VERTICAL
+msg.set_layout = cp.Layout.HORIZONTAL
+# msg.set_layout = cp.Layout.VERTICAL
 msg.set_bottom_line = True
 msg.set_top_line    = True
 msg.adj_indent = 2
@@ -11,7 +11,7 @@ msg.adj_left_space = 4
 msg.adj_right_space = 6
 msg.adj_middle_space = 2
 msg.delay_ms = 100
-msg.ascii_type = cp.Ascii_Letter.Sweet
+msg.ascii_type = cp.Ascii_Letter.Standard
 
 # we have 3 data, we need 3 settings for every single data
 # Note: If we add more data into the list, we will need more settings. In this case we have 3 items in the list data.

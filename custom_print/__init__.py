@@ -54,26 +54,28 @@ from .fancy_divider    import Divider
 from .ascii_art        import Art
 
 # import all the letters
-from .Alpha_Letters        import*
-from .Big_Letters          import*
-from .Blocks_Letters       import*
-from .Bulbhead_Letters     import*
-from .Classy_Letters       import*
-from .Colossal_Letters     import*
-from .Crazy_Letters        import*
-from .Doh_Letters          import*
-from .Doom_Letters         import*
-from .Epic_Letters         import*
-from .Graceful_Letters     import*
-from .Larry_Letters        import*
-from .Money_NE_Letters     import*
-from .Money_NW_Letters     import*
-from .Money_SE_Letters     import*
-from .Money_SW_Letters     import*
-from .Mono_Letters         import*
-from .Moon_Letters         import*
-from .Moon2_Letters        import*
-from .Roman_Letters        import*
-from .Standard_Letters     import*
-from .Sweet_Letters        import*
-from .Logos                import*
+# from .Alpha_Letters        import*
+# from .Big_Letters          import*
+# from .Blocks_Letters       import*
+# from .Bulbhead_Letters     import*
+# from .Classy_Letters       import*
+# from .Colossal_Letters     import*
+# from .Crazy_Letters        import*
+# from .Doh_Letters          import*
+# from .Doom_Letters         import*
+# from .Epic_Letters         import*
+# from .Graceful_Letters     import*
+# from .Larry_Letters        import*
+# from .Money_NE_Letters     import*
+# from .Money_NW_Letters     import*
+# from .Money_SE_Letters     import*
+# from .Money_SW_Letters     import*
+# from .Mono_Letters         import*
+# from .Moon_Letters         import*
+# from .Moon2_Letters        import*
+# from .Roman_Letters        import*
+# from .Standard_Letters     import*
+# from .Sweet_Letters        import*
+
+from .Ascii_Letters          import*
+from .Logos                  import*

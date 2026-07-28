@@ -26,7 +26,8 @@ if __name__ == "__main__":
 
     art_logo.bg = 90; art_logo.fg = 231; art_logo.delay_ms = 20; art_logo.bold = True
     art_logo.adj_indent = 10;  #art_logo.adj_left_space = 2; art_logo.adj_right_space = 4
-    # art_logo.set_layout = cp.Layout.HORIZONTAL
+    art_logo.set_layout = cp.Layout.HORIZONTAL
+    # art_logo.set_layout = cp.Layout.VERTICAL
     art_logo.ascii_type = cp.Alpha_M # mym
 
     back_up = len(cp.Alpha_M)
@@ -61,6 +62,5 @@ if __name__ == "__main__":
     cp.ins_newline(2)
     art_logo.bg = 16
     art_logo.fg = 231
-    art_logo.set_layout = cp.Layout.VERTICAL
     art_logo.ascii_type = cp.Logo_Unix# frog
     art_logo.print_reversed_ascii_logo_art()

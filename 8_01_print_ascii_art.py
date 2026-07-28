@@ -37,9 +37,9 @@ def art(dato):
     # msg.ascii_type = cp.Ascii_Letter.Money_SW     # checked (spaces and invalid characters,\)
     # msg.ascii_type = cp.Ascii_Letter.Mono         # checked (spaces and invalid characters,\)
     # msg.ascii_type = cp.Ascii_Letter.Moon         # checked (spaces and invalid characters,\)
-    # msg.ascii_type = cp.Ascii_Letter.Moon2        # Does not respect bg and fg colors. # checked (spaces and invalid characters,\)
+    msg.ascii_type = cp.Ascii_Letter.Moon2        # Does not respect bg and fg colors. # checked (spaces and invalid characters,\)
     # msg.ascii_type = cp.Ascii_Letter.Roman        # checked (spaces and invalid characters,\)
-    msg.ascii_type = cp.Ascii_Letter.Standard     # checked (spaces and invalid characters,\)
+    # msg.ascii_type = cp.Ascii_Letter.Standard     # checked (spaces and invalid characters,\)
     # msg.ascii_type = cp.Ascii_Letter.Sweet        # checked (spaces and invalid characters,\)
     
     
@@ -84,7 +84,10 @@ def art(dato):
 #     art(dato=l)
 
 
-art("AHXYELL")
+art(f"AHXYENLL{cp.Unicode.UPPERCASE_N_TILDE}")
+# print("\n\n")
+# print("hello")
+# print("pp _ _ \u0305")
 # for l in cp.Moon2_Letters.Moon2_A:
 #     print(f"{l}{cp.reset_font()}")
 
