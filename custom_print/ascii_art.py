@@ -11,7 +11,7 @@ from custom_print                 import Line_Style
 from custom_print                 import Cursor
 from custom_print.ref_names       import Layout, Ascii_Letter
 
-from custom_print.Ascii_Letters   import*
+from custom_print.ascii_letters   import*
 # from custom_print.Logos           import*
 
 # from custom_print.pylo            import PyLO
@@ -473,7 +473,6 @@ class Art:
                 time.sleep(retardo)
                 if col == (n_cols -1): pass
                 else:                  crs.jumpTo(qty = n_rows, direction= Move.UP)
-            # crs.jumpTo(qty = n_rows, direction= Move.DOWN)
 
         else:
             # +-------------------------------------------------------------------------------------+
