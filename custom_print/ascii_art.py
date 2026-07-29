@@ -63,7 +63,7 @@ class Art:
         tbl.title_align = "center"; tbl.title_msg   = "  Description of Ascii Letters Keyboard  "
         tbl.title_bg    = 231;       tbl.title_fg = 21;   tbl.title_bold = True
         
-        tbl.footnote_align = "right"; tbl.footnote_msg = " Table Ascii Letters "
+        tbl.footnote_align = "right"; tbl.footnote_msg = " Table Ascii Letters Available "
         tbl.footnote_bold  = True;    tbl.footnote_bg  = 90;  tbl.footnote_fg = 231
 
         tbl.adj_bottom_margin = 2; tbl.adj_top_margin = 2
@@ -75,29 +75,11 @@ class Art:
         tbl = FancyFormat()
         ascii_logo_description = [["No.", "Name"],
                                     [1,     "Logo_Unix"],
-                                    [2,     "Logo_Windows"],
-                                    [3,     "Logo_Linux"],
-                                    [4,     "Logo_AlmaLinux"],
-                                    [5,     "Logo_RedHat"],
-                                    [6,     "Logo_Ubunto"],
-                                    [7,     "Logo_l"],
-                                    [8,     "Logo_l"],
-                                    [9,     "Logo_l"],
-                                    [10,    "Logo_l"],
-                                    [11,    "Logo_l"],
-                                    [12,    "Logo_l"],
-                                    [13,    "Logo_l"],
-                                    [14,    "Logo_l"],
-                                    [15,    "Logo_l"],
-                                    [16,    "Logo_l"],
-                                    [17,    "Logo_l"],
-                                    [18,    "Logo_l"],
-                                    [19,    "Logo_l"],
-                                    [20,    "Logo_l"],
-                                    [21,    "Logo_l"],
-                                    [22,    "Logo_l"],
-                                    [23,    "Logo_l"]
-                                   ]
+                                    [2,     "Logo_Debian"],
+                                    [3,     "Logo_Centos"],
+                                    [4,     "Logo_RedHat"],
+                                    [5,     "Logo_Linux"],
+                                    [6,     "Logo_AlmaLinux"]]
         
         
         tbl.title_align = "center"; tbl.title_msg   = "  Description of Ascii Logos  "
@@ -132,6 +114,48 @@ class Art:
                        "greater_than", "question", "space"]
       
         data = msg
+
+        ascii_letter_options = [Ascii_Letter.Alpha,    Ascii_Letter.ANSI_Shadow,  Ascii_Letter.Big,
+                                Ascii_Letter.Blocks,   Ascii_Letter.Bulbhead,     Ascii_Letter.Classy,
+                                Ascii_Letter.Colossal, Ascii_Letter.Crazy,        Ascii_Letter.Doh,
+                                Ascii_Letter.Doom,     Ascii_Letter.Epic,         Ascii_Letter.Graceful,
+                                Ascii_Letter.Larry,    Ascii_Letter.Font_Font,    Ascii_Letter.Money_NE,
+                                Ascii_Letter.Money_NW, Ascii_Letter.Money_SE,     Ascii_Letter.Money_SW,
+                                Ascii_Letter.Mono,     Ascii_Letter.Moon,         Ascii_Letter.Moon2,
+                                Ascii_Letter.Roman,    Ascii_Letter.Standard,     Ascii_Letter.Sweet,
+                               ]
+        if self.ascii_type in ascii_letter_options: pass
+        else:
+            # +-------------------------------------------------------------------------------------+
+            # | ascii_type NOT Supported                                                            |
+            # +-------------------------------------------------------------------------------------+
+            print("\n")
+            color = set_font(True, 196, 231)
+            error_ascii_type = []
+            error_ascii_type.append("   _____                                                            ")
+            error_ascii_type.append("  | ____|  _ __   _ __    ___    _ __   _                           ")
+            error_ascii_type.append("  |  _|   | '__| | '__|  / _ \\  | '__| (_)                          ")
+            error_ascii_type.append("  | |___  | |    | |    | (_) | | |     _                           ")
+            error_ascii_type.append("  |_____| |_|    |_|     \\___/  |_|    (_)                          ")
+            error_ascii_type.append("                                                                    ")
+            error_ascii_type.append("                       _   _           _                            ")
+            error_ascii_type.append("   __ _   ___    ___  (_) (_)         | |_   _   _   _ __     ___   ")
+            error_ascii_type.append("  / _` | / __|  / __| | | | |         | __| | | | | | '_ \\   / _ \\  ")
+            error_ascii_type.append(" | (_| | \\__ \\ | (__  | | | |         | |_  | |_| | | |_) | |  __/  ")
+            error_ascii_type.append("  \\__,_| |___/  \\___| |_| |_|  _____   \\__|  \\__, | | .__/   \\___|  ")
+            error_ascii_type.append("                              |_____|        |___/  |_|             ")
+            error_ascii_type.append("                                                                    ")
+            for row in error_ascii_type:
+                print(f"    {color}{row}\033[0m")
+
+            self.description_ascii_letters()
+
+            print("")
+            print(f"    {self.ascii_type} ascii_type is NOT supported by custom_print Module")
+            print("    Form more help visit: ")
+            print("    https://github.com/acma82/Custom_Print/tree/main/readme ")
+            print("    Thank you for using custom_print")
+            exit()
 
         # Make sure always exist space list in the Type of Letters Using
         rows = len(eval(self.ascii_type+"_space"))
