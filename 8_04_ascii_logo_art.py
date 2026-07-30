@@ -20,9 +20,11 @@ art_logo.adj_middle_space = 6
 
 
 ascii_logos = [cp.Logo_Unix, cp.Logo_Debian, cp.Logo_Centos, cp.Logo_RedHat, cp.Logo_Linux]#, cp.Logo_AlmaLinux]
-
-
+bg_colors   = [16, 231, 22, 16, 4] 
+ctrl = 0
 for logo in ascii_logos:
     art_logo.ascii_type = logo
+    art_logo.bg = bg_colors[ctrl]
     art_logo.print_ascii_logo_art()
+    ctrl += 1
 

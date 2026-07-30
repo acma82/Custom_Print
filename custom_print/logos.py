@@ -24,6 +24,7 @@ Logo_Unix.append("                                                         ")   
 
 
 Logo_Debian = []
+Logo_Debian.append("                                                                                 ")
 Logo_Debian.append("                                 @@@@@@@   @@                                    ")
 Logo_Debian.append("                             @@@@@@@@@@@@@@@@@@@@@@@@@                           ")
 Logo_Debian.append("                          @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                        ")
@@ -79,6 +80,7 @@ Logo_Debian.append("                        @@@@@@@@@@                          
 Logo_Debian.append("                           @@@@@@@@                                              ")
 Logo_Debian.append("                              @@@@@@@@                                           ")
 Logo_Debian.append("                                  @@@@@@@@@@@@                                   ")
+Logo_Debian.append("                                                                                 ")
 
 
 Logo_Centos = []
@@ -160,12 +162,13 @@ Logo_RedHat.append("                                                         ")
 
 
 Logo_Linux = []
-                                                                                
-Logo_Linux.append("    .---. ")
-Logo_Linux.append("   /     \\")
-Logo_Linux.append("   \\.@-@./")
-Logo_Linux.append("   /`\\_/`\\")
-Logo_Linux.append("  //  _  \\")
-Logo_Linux.append(" | \\     )|_")
+Logo_Linux.append("             ")
+Logo_Linux.append("    .---.    ")
+Logo_Linux.append("   /     \\   ")
+Logo_Linux.append("   \\.@-@./   ")
+Logo_Linux.append("   /`\\_/`\\   ")
+Logo_Linux.append("  //  _  \\\\  ")
+Logo_Linux.append(" | \\     )|_ ")
 Logo_Linux.append("/`\\_`>  <_/ \\")
 Logo_Linux.append("\\__/'---'\\__/")
+Logo_Linux.append("             ")

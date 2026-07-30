@@ -47,11 +47,11 @@ custom_print module can handle any type of variable.
 # Required Modules                                                                                                                                   -
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 import enum
-import platform        # fancy_functions
-import csv             # PyLO class
-import json            # PyLO class
+# import platform        # fancy_functions
+# import csv             # PyLO class
+# import json            # PyLO class
 import readline        # to use input and not cause problem with pylint
-import os
+# import os
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 # Layout is used for the Range, Set, Frozenset.                                                                                                      -
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
