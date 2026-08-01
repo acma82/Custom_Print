@@ -51,6 +51,6 @@ from .fancy_font_style import FontStyle
 from .fancy_format     import FancyFormat
 from .fancy_message    import FancyMessage
 from .fancy_divider    import Divider
-from .ascii_art        import Art
+from .ascii_art        import AsciiArt
 from .ascii_letters    import*
 from .logos            import*

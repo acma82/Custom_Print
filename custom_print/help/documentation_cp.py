@@ -7,6 +7,8 @@ python3.12 cp_documentation.py
 import sys
 import custom_print as cp
 
+# from custom_print.help import*
+
 lst = cp.FancyFormat()
 
 # Difining all the clases

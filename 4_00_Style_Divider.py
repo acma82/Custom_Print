@@ -66,7 +66,7 @@ div.adj_indent = 2;                 div.align = cp.Align.CENTER
 # Note: adj_indent only works when the align is set to JUSTIFY
 
 # Fill blank
-div.left_fill_bg = 54;              div.right_fill_bg = 90;                  div.all_fill_bg = -1
+div.left_fill_bg = 54;              div.right_fill_bg = 90;                  div.all_fill_bg = 11
 
 # Note: all_fill_bg takes priority over the left_fill_bg and right_fill_bg
 

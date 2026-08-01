@@ -237,6 +237,8 @@ class Unicode(enum.StrEnum):
     LEFT_CURLY_BRACKET  = "\N{LEFT CURLY BRACKET}"
     RIGHT_CURLY_BRACKET = "\N{RIGHT CURLY BRACKET}"
 
+    BULLET = "\N{BULLET}"
+
     FACE = "(" + chr(0x25D5) + chr(0x25E1) + chr(0x25D5) + ")"
 
 COLOR_NAMES = [\

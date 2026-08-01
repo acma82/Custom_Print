@@ -60,3 +60,10 @@ print(merge_cols)
 #-------------------------------------------------------------------------------
 print(cp.ins_chr(70,"-"))
 #-------------------------------------------------------------------------------
+
+lista1 = ["hello", "adios"]
+lista2 = ["heaven", "hell"]
+merge_rows = pylo.merge(list_1=lista1, list_2=lista2, posi=0, merge_by=pylo.Appending.ROWS)
+print(merge_rows)
+tbl.print_fancy_format(merge_rows)
+

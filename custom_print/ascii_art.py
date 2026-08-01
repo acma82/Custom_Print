@@ -20,7 +20,7 @@ from custom_print.ascii_letters   import*
 # |  Creating the Ascii Word                                                                                                           |
 # |  --------------------------------------------------------------------------------------------------------------------------------  |
 # +------------------------------------------------------------------------------------------------------------------------------------+
-class Art:
+class AsciiArt:
     def __init__(self):        
         self.bold     = False;                self.bg = -1;                           self.fg = -1
         self.italic   = False;                self.underline = False;                 self.strike = False

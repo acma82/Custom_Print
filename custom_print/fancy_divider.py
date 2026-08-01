@@ -191,7 +191,7 @@ class Divider:
 
 
 
-    def print_fancy_divider(self, message=" Custom_Print_Divider ", style=Divider_Style.CUSTOMIZED):
+    def print_fancy_divider(self, message:str=" Custom_Print_Divider ", style:str=Divider_Style.CUSTOMIZED):
         '''
             it prints the divider with all the attributes
         '''
@@ -202,7 +202,8 @@ class Divider:
         else:
             sp = int((cols - len(msg)))
 
-        data = set_font(self.msg_bold, self.msg_bg, self.msg_fg) + msg
+        data = set_font(self.msg_bold, self.msg_bg, self.msg_fg,True, True) + msg
+        print(data)
 
         if sp % 2 == 0:
             # print("even ", sp)
