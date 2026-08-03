@@ -115,12 +115,12 @@ def get_fill_colors(self):
     #-----------------------------------------------------------------------------------------------------+
     #  Creating all the variables for the Fill color                                                      |
     #-----------------------------------------------------------------------------------------------------+
-    if self.all_fill_bg <= -1 or self.all_fill_bg >= 256:
+    if self.left_right_fill_bg <= -1 or self.left_right_fill_bg >= 256:
         bg_lf = self.left_fill_bg
         bg_rf = self.right_fill_bg
     else:
-        bg_lf = self.all_fill_bg
-        bg_rf = self.all_fill_bg
+        bg_lf = self.left_right_fill_bg
+        bg_rf = self.left_right_fill_bg
 
     f_bg_lf = set_font(False, bg_lf)
     f_bg_rf = set_font(False, bg_rf)
@@ -184,10 +184,15 @@ class Divider:
 
         # Data
         self.msg_bold = False;                   self.msg_bg = -1;                        self.msg_fg = -1
+        self.msg_italic = False;                 self.msg_underline = False;              self.msg_strike = False
+        self.msg_blinking = False;               self.msg_dim = False;                    self.msg_hidden = False
+        self.msg_inverse  = False
+
+        # add all the other option for the font
         self.adj_indent = 2;                     self.msg_align = Align.CENTER
 
         # Fill blank
-        self.left_fill_bg = -1;                  self.right_fill_bg = -1;                  self.all_fill_bg = -1
+        self.left_fill_bg = -1;                  self.right_fill_bg = -1;                  self.left_right_fill_bg = -1
 
 
 
@@ -202,8 +207,9 @@ class Divider:
         else:
             sp = int((cols - len(msg)))
 
-        data = set_font(self.msg_bold, self.msg_bg, self.msg_fg,True, True) + msg
-        print(data)
+        # data = set_font(self.msg_bold, self.msg_bg, self.msg_fg,True, False) + msg
+        data= set_font(self.msg_bold, self.msg_bg, self.msg_fg, self.msg_italic, self.msg_underline, self.msg_strike,
+                       self.msg_blinking, self.msg_dim, self.msg_hidden, self.msg_inverse) + msg
 
         if sp % 2 == 0:
             # print("even ", sp)

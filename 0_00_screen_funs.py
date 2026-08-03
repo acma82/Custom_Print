@@ -41,3 +41,9 @@ print("Clear the terminal and restore to home the cursor")
 time.sleep(3)
 clean()
 # This is the end of Screen_Functions
+
+
+print("Hello custom_print",end=".", flush=True)
+time.sleep(3)
+erase()
+print("Continuing from before")

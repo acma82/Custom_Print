@@ -61,17 +61,20 @@ div.vertical_line_bold      = False
 # +--------------------------------------------------------------------------------------------+
 # Message
 div.msg_bg = 231;                   div.msg_fg = 234;                        div.msg_bold = True
-div.adj_indent = 2;                 div.align = cp.Align.CENTER
+div.adj_indent = 2;                 div.align = cp.Align.CENTER;             div.msg_italic = True
+# div.msg_strike = True
+
 
 # Note: adj_indent only works when the align is set to JUSTIFY
 
 # Fill blank
-div.left_fill_bg = 54;              div.right_fill_bg = 90;                  div.all_fill_bg = 11
+div.left_fill_bg = 54;              div.right_fill_bg = 90;                  # div.left_right_fill_bg = 11
 
 # Note: all_fill_bg takes priority over the left_fill_bg and right_fill_bg
 
 # +--------------------------------------------------------------------------------------------+
 # | Printing the Divider                                                                       |
 # +--------------------------------------------------------------------------------------------+
-div.print_fancy_divider(message=" Custom Print Divider", style=cp.Divider_Style.CUSTOMIZED)
+msg = "  My Divider Title Here...!  "
+div.print_fancy_divider(message=msg, style=cp.Divider_Style.CUSTOMIZED)
 cp.ins_newline(2)

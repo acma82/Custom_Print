@@ -1,6 +1,6 @@
 #!/usr/bin/python3.12
 '''
-Documentation for fancyprint module...!
+Documentation for custom_print module...!
 python3.12 cp_documentation.py
 '''
 
@@ -10,34 +10,72 @@ import custom_print as cp
 # standar size on the terminal is -> 24 by 80
 # resize -s 50 80
 
+#-- -------------------------------------------------------------------------------------------------
+#   Variables in common for all the functions and classes                                           -
+#-- -------------------------------------------------------------------------------------------------
+green_div = cp.Divider()  # Message for function titles 
+green_div.msg_bg = 10;                  green_div.msg_fg = 0;                          green_div.msg_bold = True
+green_div.adj_indent = 2;               green_div.msg_align = cp.Align.CENTER;         green_div.left_right_fill_bg = 10
+green_div.all_corner_bg = 10;           green_div.top_horizontal_line_bg = 10;         green_div.bottom_horizontal_line_bg = 10
+green_div.left_vertical_line_bg = 10;   green_div.right_vertical_line_bg = 10
 
+blue_div = cp.Divider()
+blue_div.msg_bg = 10;                  blue_div.msg_fg = 0;                          blue_div.msg_bold = True
+blue_div.adj_indent = 2;               blue_div.msg_align = cp.Align.CENTER;         blue_div.left_right_fill_bg = 10
+blue_div.all_corner_bg = 10;           blue_div.top_horizontal_line_bg = 4;          blue_div.bottom_horizontal_line_bg = 4
+blue_div.left_vertical_line_bg = 10;   blue_div.right_vertical_line_bg = 10
+
+
+all_topics = [ 
+    "Screen_Functions",  "clean", "clear","dimensions", "erase", "resize",                                                                                               # 0, 1, 2, 3, 4, 5,
+              
+    "Internal_Functions", "ansi_colors", "ins_chr", "ins_newline", "set_font & reset_font", "terminal_bell",                                                             # 6, 7, 8, 9, 10, 11
+
+    "Help_Classes",  "align", "length_bg", "ascii_letter", "line_style", "bg", "logo", "color_names", "move", "divider_style", "no", "fg", "style", "layout", "unicode", # 12 - 26,
+
+    "Cursor",  "jumpto", "jumpxy", "moveto", "movexy",                                                                                                                   # 27, 28, 29, 30, 31,
+
+    "Fontstyle",  "start_style", "stop_style", "print_style", "reset_style",                                                                                             # 32, 33, 34, 35, 36,
+
+    "FancyMessage",  "print_fancy_message", "print_fancy_note",                                                                                                          # 37, 38, 39,
+
+    "Pen",  "draw_line", "draw_rectangle",                                                                                                                               # 40, 41, 42,
+
+    "Divider",  "print_fancy_divider",                                                                                                                                   # 43, 44,
+
+    "FancyFormat",  "fancyformat", "print_fancy_format", "reset_fancy_format",                                                                                           # 45, 46, 47, 48,
+
+     "AsciiArt", "print_ascii_art", "print_multi_ascii_art", "print_ascii_logo_art", "print_reversed_ascii_logo_art"]                                                    # 49, 50, 51, 52, 53.
 
 def  documentation_help():
     # pylo = cp.PyLO()
     # result = pylo.sort_rows_by_col(data=help_classes, ref_col=0, reversed_order=False, update=False)
 
-
-
+    blue_msg  = cp.FancyMessage()   # for titles in the help menu and for class names
+    blue_msg.body_bold   = True
+    blue_msg.title_bold  = True
+    blue_msg.body_italic = True
 
     cols, rows = cp.dimensions()
 
     crs = cp.Cursor()               # Cursor Object
     fst = cp.FontStyle()            # FontStyle Object
     tbl = cp.FancyFormat()          # for lists
-    blue_msg  = cp.FancyMessage()   # for titles
 
     fst.bold = True
     fst.fg   = 0
     fst.bg   = 231
     fst.indent = 3
 
+
+
+    # classes and methods for custom_print module
     screen_funs        = [[" Screen_Functions "], ["clean"], ["clear"], ["dimensions"], ["erase"], ["resize"]]
 
     internal_functions = [[" Internal_Functions "], ["ansi_colors"], ["ins_chr"], ["ins_newline"], ["set_font & reset_font"], ["terminal_bell"]]
 
     help_classes       = [["Align", "Length_bg"], ["Ascii_Letter", "Line_Style"],["Bg", "Logo"], ["Color_Names", "Move"],["Divider_Style", "No"],["Fg", "Style"],["Layout", "Unicode"]]
 
-    # classes and methods for custom_print module
     cmcpp1 = [["Cursor",  "FontStyle"   ,  "FancyMessage"       ,  "Pen"           ],
               ["jumpTo",  "start_style" ,  "print_fancy_message",  "draw_line"     ],
               ["jumpxy",  "stop_style"  ,  "print_fancy_note"   ,  "draw_rectangle"],
@@ -60,9 +98,6 @@ def  documentation_help():
 
     mensaje = "Documentation For custom_print Module....!"
     blue_msg.left_indent = int(((cols)-(len(mensaje)))/2)
-    blue_msg.body_bold   = True
-    blue_msg.title_bold  = True
-    blue_msg.body_italic = True
     blue_msg.print_fancy_message(mensaje)
     cp.ins_newline()
 
@@ -128,7 +163,7 @@ def  documentation_help():
     cp.ins_newline(n=1)
 
 
-    print("   To display help for a specific function or method, just pass the name of the\n parameter as shown above.")
+    print("   To display help for a specific function or method just pass the name of the\n parameter as shown above.")
     cp.ins_newline(1)
     print(f"{fst.style_on()} Example 1: {fst.style_off()}  custom_print clean")
 
@@ -160,7 +195,11 @@ def  documentation_help():
        documentation for all functions that belong to that group.
 
        {fst.style_on()} screen_functions: clean, clear, dimentsions, erase, resize. {fst.style_off()}
-       
+       screen_funs
+screen_funs
+screen_funs
+screen_funs
+screen_funs
        I will display the documentation for all the methods that belong to that
        class. The above tables show all the classes with their methods.
 
@@ -192,7 +231,7 @@ def  documentation_help():
 
 
     blue_msg.body_bg   = 90
-    blue_msg.body_fg   = 231
+    blue_msg.body_fg   = 231                                                                  # 15, 16, 17, 18, 19
     blue_msg.body_bold = False
     blue_msg.left_indent = 4
     blue_msg.print_fancy_message(message)
@@ -202,93 +241,154 @@ def  documentation_help():
     tbl.print_fancy_format("Bugs \u2192 acma.mex@hotmail.com", cp.Line_Style.DOUBLE_LINE)
 
 
-#-- -------------------------------------------------------------------------------------------------
-#   Variables in common for all the functions and classes                                           -
-#-- -------------------------------------------------------------------------------------------------
-div = cp.Divider()
-# Message
-div.msg_bg = 10;                  div.msg_fg = 0;                          div.msg_bold = True
-div.adj_indent = 2;               div.align = cp.Align.CENTER;             div.all_fill_bg = 10
-div.all_corner_bg = 10;           div.top_horizontal_line_bg = 10;         div.bottom_horizontal_line_bg = 10
-div.left_vertical_line_bg = 10;   div.right_vertical_line_bg = 10
+
 
 
 def all_documentation():
-    print("all help is needed")
+    purple_div = cp.Divider()
+    purple_div.msg_bg = 231;                 purple_div.msg_fg = 16;                         purple_div.msg_bold = True
+    purple_div.adj_indent = 2;               purple_div.msg_align = cp.Align.CENTER;         purple_div.left_right_fill_bg = 90
+    purple_div.all_corner_bg = 90;           purple_div.top_horizontal_line_bg = 90;          purple_div.bottom_horizontal_line_bg = 90
+    purple_div.left_vertical_line_bg = 90;   purple_div.right_vertical_line_bg = 90
+    purple_div.print_fancy_divider("  Custom_Print Documentation  ")
+    print(f"\n Release Version: 1.1.5\n")
+    screen_functions_info()
+    internal_functions_info()
+# +-------------------------------------------------------------------------------------------------+
+# |                                                                                                 |
+# |        GROUP: SCREEN_FUNCTIONS                                                                  |
+# |                                                                                                 |
+# +-------------------------------------------------------------------------------------------------+
+# |  Screen_Functions in custom_print Module                                                        |
+# +-------------------------------------------------------------------------------------------------+
+def screen_functions_info():   
+    blue_div.print_fancy_divider(all_topics[0])#"Screen Functions")    
+    print(f"\n{cp.ins_chr(6)}It is used \"ansi code\" to manipulate the screen on the terminal.\n")
+    clean_info()
+    clear_info()
+    dimensions_info()
+    erase_info()
+    resize_info()
 
-#-- -------------------------------------------------------------------------------------------------
-#   Screen_Functions in fancyprint Module                                                           -
-#-- -------------------------------------------------------------------------------------------------
-def screen_functions():   
-    print("help for screen functions")
-    #   Clean_Function()
-#     Clear_Function()
-#     Erase_Function()
-#     Dimensions_Function()
-#     Resize_Function()
 
-
-def clean():
+def clean_info():
    #------------------------------------------------------------------------------------------------
    # clean, It uses ansi code                                                                      -
    #------------------------------------------------------------------------------------------------   
-    msg = f''' It cleans the terminal and returns the cursor to home. '''
+    message = f'''
+      It cleans the terminal and returns the cursor to home.
+      
+      Note: This function uses the ansi code.
+    '''
     
-    div.print_fancy_divider(message=msg, style=cp.Divider_Style.CUSTOMIZED)
-
+    green_div.print_fancy_divider(all_topics[1])    
+    print(message)
     
     print(f"{cp.ins_chr(6)}{cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp")
     print(f"{cp.ins_chr(18)}cp.clean()\n")
 
 
-def clear():
+def clear_info():
    #------------------------------------------------------------------------------------------------
    # clear,       It uses the system command                                                       -
    #------------------------------------------------------------------------------------------------
     message = '''
       It clears the terminal and returns the cursor to home.
+      
+      Note: This functions uses the OS command.
     '''
+    
+    green_div.print_fancy_divider(all_topics[2])
     print(message)
-    print(f"{cp.ins_chr(6)}{cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp")
+    print(f"{cp.ins_chr(6)}{cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp")
     print(f"{cp.ins_chr(18)}cp.clear()\n")
+    
+
+def dimensions_info():
+   #------------------------------------------------------------------------------------------------
+   # dimensions                                                                                    -
+   #------------------------------------------------------------------------------------------------
+    menssage ='''
+      It returns the dimensions of the terminal, cols and rows.
+     '''
+    green_div.print_fancy_divider(all_topics[3])
+    print(menssage)
+    print(f"{cp.ins_chr(6)}{cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp")
+    print(f"{cp.ins_chr(18)}ncols, nrows = cp.dimensions()")
+    print("                  print(f\"(Number of Cols: {ncols})")
+    print("                  print(f\"(Number of Rows: {nrows})\n")
 
 
-# def Erase_Function():
-#    #------------------------------------------------------------------------------------------------
-#    # erase,       It uses ansi code                                                                -
-#    #------------------------------------------------------------------------------------------------
-#     menssage = '''
-#       It erases the terminal and leaves the cursor in the current position.
-#     '''
-#     green_msg.print_fancy_message(screen_funs[3][0]+"()")
-#     print(menssage)
-#     print(f"{cp.ins_chr(6)}{cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp")
-#     print(f"{cp.ins_chr(18)}cp.erase()\n")
+#------------------------------------------------------------------------------------------------
+# erase,       It uses ansi code                                                                -
+#------------------------------------------------------------------------------------------------
+def erase_info():
+    menssage = '''
+      It erases the terminal and leaves the cursor in the current position.
+    '''
+    green_div.print_fancy_divider(all_topics[4])
+    print(menssage)
+    print(f"{cp.ins_chr(6)}{cp.set_font(1,231,0)} Example 1: {cp.reset_font()}  import custom_print as cp")
+    print(f"{cp.ins_chr(20)}cp.erase()\n")
 
-# def Dimensions_Function():
-#    #------------------------------------------------------------------------------------------------
-#    # dimensions                                                                                    -
-#    #------------------------------------------------------------------------------------------------
-#     menssage ='''
-#       It returns the dimensions of the terminal, cols and rows.
-#      '''
-#     green_msg.print_fancy_message(screen_funs[4][0]+"()")
-#     print(menssage)
-#     print(f"{cp.ins_chr(6)}{cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp")
-#     print(f"{cp.ins_chr(18)}ncols, nrows = cp.dimensions()\n")
 
-# def Resize_Function():
-#    #------------------------------------------------------------------------------------------------
-#    # resize                                                                                        -
-#    #------------------------------------------------------------------------------------------------
-#     message = '''
-#       It resizes the terminal size.
-#          '''
-#     green_msg.print_fancy_message(screen_funs[5][0]+"(rows=25, cols=80)")
-#     print(message)
-#     print(f"{cp.ins_chr(6)}{cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp")
-#     print(f"{cp.ins_chr(18)}cp.resize(rows=20, cols=120)")
-#     cp.ins_newline(2)
+    print(f"{cp.ins_chr(6)}{cp.set_font(1,231,0)} Example 2: {cp.reset_font()}  import time")
+    msg = f'''{cp.ins_chr(20)}from custom_print import erase
+                    print("Hello custom_print",end=".", flush=True)
+                    time.sleep(3)
+                    erase()
+                    print("Continuing from before")
+    
+    '''
+    print(msg)
+
+#------------------------------------------------------------------------------------------------
+# resize                                                                                        -
+#------------------------------------------------------------------------------------------------
+def resize_info():
+    message = '''
+      It resizes the terminal size.
+         '''
+    green_div.print_fancy_divider(all_topics[5]+"(rows=25, cols=80)")
+    print(message)
+    print(f"{cp.ins_chr(6)}{cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp")
+    print(f"{cp.ins_chr(18)}cp.resize(rows=20, cols=120)")
+    cp.ins_newline(2)
+
+
+
+
+
+# +-------------------------------------------------------------------------------------------------+
+# |                                                                                                 |
+# |        GROUP: INTERNAL_FUNCTIONS                                                                |
+# |                                                                                                 |
+# +-------------------------------------------------------------------------------------------------+
+# |  Internal_Functions in custom_print Module                                                      |
+# +-------------------------------------------------------------------------------------------------+
+def internal_functions_info():
+    ansi_colors_info()
+    ins_chr_info()
+    ins_newline_info()
+    set_reset_font_info()
+    terminal_bell_info()
+
+
+def ansi_colors_info():
+    print("ansi_colors_info here")
+
+def ins_chr_info():
+    print("ins_chr_info here")
+
+def ins_newline_info():
+    print("ins_newline_info here")
+
+def set_reset_font_info():
+    print("set_reset_font_info")
+
+def terminal_bell_info():
+    print("terminal_bell here")
+
 
 
 
