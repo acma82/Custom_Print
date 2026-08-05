@@ -159,7 +159,7 @@ def erase():
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 # Linux Background Color Option List                                                                                                                 -
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
-def bg_ansi_colors(bold=False, fg=-1, n_line=0):
+def bg_ansi_colors(bold:bool=False, fg:int=-1, n_line:int=0):
 
     '''  This function displays all background colors available with ansi code  '''
 
@@ -207,7 +207,7 @@ def bg_ansi_colors(bold=False, fg=-1, n_line=0):
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 # Linux Foreground Color Option List                                                                                                                 -
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
-def fg_ansi_colors(bold=False, bg=-1, n_line=0):
+def fg_ansi_colors(bold:bool=False, bg:int=-1, n_line:int=0):
 
     '''  This function displays all foreground colors available with ansi code  '''
 

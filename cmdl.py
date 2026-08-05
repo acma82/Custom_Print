@@ -1,47 +1,6 @@
 import custom_print as cp
 import sys
 
-
-def about_custom_print():
-    
-    '''  Description of custom_print project  '''
-
-    lst = [["Module Name",         "custom_print"                                   ],
-           ["Version",             "1.1.4"                                          ],
-           ["Author",              "Miguel Angel Aguilar Cuesta"                    ],
-           ["Author Email",        "acma.mex@gmail.com"                             ],
-           ["Description",         "Customized Print"                               ],
-           ["Requirement",         "Python 3.12 or greater"                         ],
-           ["Long Description",    "README.md"                                      ],
-           ["Content Type",        "MarkDown"                                       ],
-           ["Find README.md at",   "https://github.com/acma82/Custom_Print"         ],
-           ["Help on Terminal",    "custom_print help"                              ],
-           ["Dependencies",        "None"                                           ],
-           ["License",             "Everyone Can Use It At Their Own Risk"          ]]
-
-
-    tbl = cp.FancyFormat()
-    FACE = " (" + "0" + chr(0x25E1) + "0" + ") "
-    tbl.title_msg = FACE + "  Project Description "
-    tbl.title_align = "center"
-    tbl.title_bg = 231
-    tbl.title_fg = 234
-    tbl.title_bold = True
-
-    
-    tbl.footnote_msg = "Released on Friday, December 27, 2024"
-    tbl.adj_top_space = 1
-    tbl.adj_bottom_space = 1
-
-
-    tbl.header_bg = 54;             tbl.data_bg = 231
-    tbl.header_fg = 231;            tbl.data_fg = 234
-    tbl.header_bold = True;         tbl.bold_data = True
-    tbl.adj_top_margin = 2;         tbl.adj_indent = 4
-
-    tbl.print_fancy_format(lst, "design_10")
-    cp.ins_newline(1)
-
 if __name__ == "__main__":        
         # variabvles needed for the documentation
         main_topics        = ["screen_functions",  "internal_functions",  "help_classes",  "cursor",  "fontstyle",  "fancymessage",  "pen",  "divider",  "fancyformat",  "asciiart"]
@@ -86,13 +45,13 @@ if __name__ == "__main__":
 
         # when only the first argument ,custom_print,  is being passed
         if (len(original_list)) <=1:
-            about_custom_print()
+            cp.help.about_custom_print()
             exit()
 
         # checking if the second argument exist when only 2 arguments are being passed
         elif (len(original_list)) == 2:            
             if original_list[1] == "help":
-                cp.help.documentation_help()
+                cp.help.help_documentation()
                 exit()
 
             elif original_list[1] == "all" or original_list[1] == "documentation":
