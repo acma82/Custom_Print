@@ -115,7 +115,7 @@ def  help_documentation():
     # classes and methods for custom_print module
     screen_funs        = [[" Screen_Functions "], ["clean"], ["clear"], ["dimensions"], ["erase"], ["resize"]]
 
-    internal_functions = [[" Internal_Functions "], ["ansi_colors"], ["ins_chr"], ["ins_newline"], ["set_font & reset_font"], ["terminal_bell"]]
+    internal_functions = [[" Internal_Functions "], ["ansi_colors"], ["ins_chr"], ["ins_newline"], ["set_font_reset_font"], ["terminal_bell"]]
 
     help_classes       = [["Align", "Length_bg"], ["Ascii_Letter", "Line_Style"],["Bg", "Logo"], ["Color_Names", "Move"],["Divider_Style", "No"],["Fg", "Style"],["Layout", "Unicode"]]
 
@@ -448,8 +448,7 @@ def ansi_colors_info():
             sys.stdout.write(u"\u001b[48;5;" + code + "m " + code.ljust(4))
         print (u"\u001b[0m")
  
-    message = f''' 
-
+    message = f'''
       This function displays all background colors available with ansi code. 
       The following options are for a better visualization.
 	    
@@ -459,7 +458,7 @@ def ansi_colors_info():
       3.- The n_line option to insert lines between the colors.
  
        
-      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp
                   cp.bg_ansi_colors(bold=True, fg=22, n_line=1)
     '''
     print(message)
@@ -491,14 +490,16 @@ def ansi_colors_info():
       3.- The n_line option to insert lines between the colors.
  
        
-      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp
                   cp.fg_ansi_colors(bold=True, bg=22, n_line=1)
     '''
     print(message)
 
     message = f'''
       {cp.set_font(1,196,231)} Note: {cp.reset_font()} These 2 functions will display the name and number of the colors.
-              It will be handy when the user can use the Help_Classes.
+              It will be handy when the user start using the Help_Classes.
+              To set the default color for bg or fg, the user can use
+              the value of -1 or 256.
 
     '''
     print(message)
@@ -509,16 +510,93 @@ def ansi_colors_info():
 
 
 def ins_chr_info():
-    print("ins_chr_info here")
+#------------------------------------------------------------------------------------------------
+# ins_chr                                                                                       -
+#------------------------------------------------------------------------------------------------
+    cp.ins_newline(1)
+    green_div.print_fancy_divider(all_topics[8]) # Ansi Colors
+    message = f'''
+      {cp.set_font(1,209,16,1)}                                               {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  ins_chr(n=1)                                 {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}                                               {cp.reset_font()}
+
+      This function inserts n times the unicode provided,
+      by default it is set to space.
+
+      {cp.set_font(1,231,0)} Example 1: {cp.reset_font()}  import custom_print as cp      
+                    print("Hello"+cp.ins_chr(20)+"There")
+
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}    Hello                    There
+
+      '''
+    print(message)
+
+    message = f'''
+      {cp.set_font(1,231,0)} Example 2: {cp.reset_font()}  import custom_print as cp      
+                    print("Hello"+cp.ins_chr(20,"@")+"There")
+
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}    Hello@@@@@@@@@@@@@@@@@@@@There
+
+
+      '''
+    print(message)
+
+
 
 def ins_newline_info():
-    print("ins_newline_info here")
+#------------------------------------------------------------------------------------------------
+# ins_newline                                                                                   -
+#------------------------------------------------------------------------------------------------
+    cp.ins_newline(1)
+    green_div.print_fancy_divider(all_topics[9])
+    message = f'''
+      {cp.set_font(1,209,16,1)}                                               {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  ins_newline(n=1)                             {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}                                               {cp.reset_font()}
+        
+      This function inserts n new lines.
+
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp
+                  print("Python")
+                  cp.ins_newline(2)
+                  print("is amazing...!")
+              
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}  Python
+
+               
+                  is amazing...!
+
+      '''
+    print(message)
+
+
 
 def set_reset_font_info():
-    print("set_reset_font_info")
+    cp.ins_newline(1)
+    green_div.print_fancy_divider(all_topics[10])
+
+
+
 
 def terminal_bell_info():
-    print("terminal_bell here")
+#------------------------------------------------------------------------------------------------
+# terminal_bell                                                                                 -
+#------------------------------------------------------------------------------------------------
+    cp.ins_newline(1)
+    green_div.print_fancy_divider(all_topics[11])
+    message = f'''
+      {cp.set_font(1,209,16,1)}                                               {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  terminal_bell()                              {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}                                               {cp.reset_font()}
+
+      This function makes the bell sound in the terminal.               
+
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp
+                  cp.terminal_bell()
+      
+      '''
+    print(message)
+    cp.terminal_bell()
 
 
 
@@ -531,8 +609,25 @@ def terminal_bell_info():
 # +-------------------------------------------------------------------------------------------------+
 # |  Help_Classes in custom_print Module                                                            |
 # +-------------------------------------------------------------------------------------------------+
+def help_classes():
+    cp.ins_newline(1)
+    blue_div.print_fancy_divider(all_topics[12]) # Help Classes
+    mensaje ='''
+    neeed works here here here here here  All these functions are being used internally in the custom_print modules.
+    It is available to the user if they find them usefull, otherwise, feel free
+    to ignore them.
+    ''' 
+    print(mensaje)    
+    align_info()
+    ascii_letter_info()
 
 
+
+    
+def align_info():
+    print("class align_info")
+def ascii_letter_info():
+    print("class ascii_letter")
 
 
 

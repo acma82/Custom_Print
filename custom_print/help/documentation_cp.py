@@ -487,7 +487,7 @@ Note: These functions are being used by the FancyFormat Class. Feel free to igno
 
 def Terminal_Bell_Function():
     #------------------------------------------------------------------------------------------------
-   # terminal_bell                                                                                 -
+   # terminal_bell                                                                                  -
    #------------------------------------------------------------------------------------------------
     message = f'''
       This function makes the sound of the terminal bell.               

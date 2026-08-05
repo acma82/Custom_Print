@@ -40,6 +40,21 @@
 # resize_info()
 
 
-from custom_print import ansi_colors_info
-ansi_colors_info()
+# from custom_print import ansi_colors_info
+# ansi_colors_info()
 
+
+# from custom_print import ins_chr_info
+# ins_chr_info()
+
+
+# from custom_print import ins_newline_info
+# ins_newline_info()
+
+
+from custom_print import set_reset_font_info
+set_reset_font_info()
+
+
+# from custom_print import terminal_bell_info
+# terminal_bell_info()
