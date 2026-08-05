@@ -7,7 +7,7 @@ if __name__ == "__main__":
 
         screen_functions   = ["clean", "clear","dimensions", "erase", "resize"]
 
-        internal_functions = ["ansi_colors", "ins_chr", "ins_newline", "set_font & reset_font", "terminal_bell"]
+        internal_functions = ["ansi_colors", "ins_chr", "ins_newline", "set_reset_font", "terminal_bell"]
 
         help_classes       = ["align", "length_bg", "ascii_letter", "line_style", "bg", "logo", "color_names", "move", "divider_style", "no", "fg", "style", "layout", "unicode"]
 
@@ -27,7 +27,7 @@ if __name__ == "__main__":
 
         all_topics = ["screen_functions",  "internal_functions",  "help_classes",  "cursor",  "fontstyle",  "fancymessage",  "pen",  "divider",  "fancyformat",  "asciiart",
                       "clean", "clear","dimensions", "erase", "resize", 
-                      "ansi_colors", "ins_chr", "ins_newline", "set_font_reset_font", "terminal_bell",
+                      "ansi_colors", "ins_chr", "ins_newline", "set_reset_font", "terminal_bell",
                       "align", "length_bg", "ascii_letter", "line_style", "bg", "logo", "color_names", "move", "divider_style", "no", "fg", "style", "layout", "unicode",
                       "jumpto", "jumpxy", "moveto", "movexy",
                       "start_style", "stop_style", "print_style", "reset_style",

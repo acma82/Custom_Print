@@ -72,7 +72,7 @@ blue_div.left_vertical_line_bg = 10;   blue_div.right_vertical_line_bg = 10
 all_topics = [ 
     "Screen_Functions",  "clean", "clear","dimensions", "erase", "resize",                                                                                               # 0, 1, 2, 3, 4, 5,
               
-    "Internal_Functions", "ansi_colors", "ins_chr", "ins_newline", "set_font & reset_font", "terminal_bell",                                                             # 6, 7, 8, 9, 10, 11
+    "Internal_Functions", "ansi_colors", "ins_chr", "ins_newline", "set_reset_font", "terminal_bell",                                                             # 6, 7, 8, 9, 10, 11
 
     "Help_Classes",  "align", "length_bg", "ascii_letter", "line_style", "bg", "logo", "color_names", "move", "divider_style", "no", "fg", "style", "layout", "unicode", # 12 - 26,
 
@@ -115,7 +115,7 @@ def  help_documentation():
     # classes and methods for custom_print module
     screen_funs        = [[" Screen_Functions "], ["clean"], ["clear"], ["dimensions"], ["erase"], ["resize"]]
 
-    internal_functions = [[" Internal_Functions "], ["ansi_colors"], ["ins_chr"], ["ins_newline"], ["set_font_reset_font"], ["terminal_bell"]]
+    internal_functions = [[" Internal_Functions "], ["ansi_colors"], ["ins_chr"], ["ins_newline"], ["set_reset_font"], ["terminal_bell"]]
 
     help_classes       = [["Align", "Length_bg"], ["Ascii_Letter", "Line_Style"],["Bg", "Logo"], ["Color_Names", "Move"],["Divider_Style", "No"],["Fg", "Style"],["Layout", "Unicode"]]
 
@@ -293,6 +293,7 @@ def all_documentation():
     help_documentation()    
     screen_functions_info()
     internal_functions_info()
+    help_classes()
 # +-------------------------------------------------------------------------------------------------+
 # |                                                                                                 |
 # |        GROUP: SCREEN_FUNCTIONS                                                                  |
@@ -399,7 +400,6 @@ def resize_info():
     print(message)
     print(f"{cp.ins_chr(6)}{cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp")
     print(f"{cp.ins_chr(18)}cp.resize(rows=20, cols=120)\n")
-    
 
 
 
@@ -428,10 +428,10 @@ def internal_functions_info():
     terminal_bell_info()
 
 
-def ansi_colors_info():
 #------------------------------------------------------------------------------------------------
 # ansi_colors                                                                                   -
 #------------------------------------------------------------------------------------------------
+def ansi_colors_info():
     cp.ins_newline(1)
     green_div.print_fancy_divider(all_topics[7]) # Ansi Colors
     message = f'''
@@ -504,15 +504,10 @@ def ansi_colors_info():
     '''
     print(message)
 
-
-
-
-
-
-def ins_chr_info():
 #------------------------------------------------------------------------------------------------
 # ins_chr                                                                                       -
 #------------------------------------------------------------------------------------------------
+def ins_chr_info():
     cp.ins_newline(1)
     green_div.print_fancy_divider(all_topics[8]) # Ansi Colors
     message = f'''
@@ -541,12 +536,10 @@ def ins_chr_info():
       '''
     print(message)
 
-
-
-def ins_newline_info():
 #------------------------------------------------------------------------------------------------
 # ins_newline                                                                                   -
 #------------------------------------------------------------------------------------------------
+def ins_newline_info():
     cp.ins_newline(1)
     green_div.print_fancy_divider(all_topics[9])
     message = f'''
@@ -569,19 +562,65 @@ def ins_newline_info():
       '''
     print(message)
 
-
-
+#------------------------------------------------------------------------------------------------
+# set_font and reset_font                                                                       -
+#------------------------------------------------------------------------------------------------
 def set_reset_font_info():
     cp.ins_newline(1)
     green_div.print_fancy_divider(all_topics[10])
+    message = f'''
+      {cp.set_font(1,209,16,1)}                                               {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  set_font(parameters)                         {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}                                               {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  reset_font()                                 {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}                                               {cp.reset_font()}
 
+      Colors range goes from -1 to 256.
+      To set the default color from the system use -1 or 256,
+      for both bg and fg.
+ 
+      blinking might not work in all the OS. We use Red Hat Family.
+ 
+    
+       reset_font() → This function resets the font attributes to the default
+                      values when we use the set_font() function.
+ 
+       set_font()   → This function changes the font attributes, bg, fg,
+                      bold, italic, and so on.
+       
+       
+       Parameters with their default values:
+       
+       1)  bold    = False    4) italic    = False    7) blinking = False
+       2)  bg      = -1       5) underline = False    8) dim      = False
+       3)  fg      = -1       6) strike    = False    9) hidden   = False
+       10) inverse = False
+       
+      This function passes many attributes for the font. If passing all these
+      arguments is a little annoying to the user, the user can use the
+      FontStyle Class for simplicity.
+ 
+      The best way to use this function is to pass only the first 3 parameters
+      like the example.
+ 
+       {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp
+                   print(cp.set_font(1,11,21) + " Python is " + 
+                   cp.set_font(0,1) + " Wonderful." + cp.reset_font()) +
+                   " Default."
 
+        {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}  {cp.set_font(1,11,21)} Python is {cp.set_font(0,1)} Wonderful. {cp.reset_font()} Default.
 
+      
+      Note: These functions are being used by some classes.
+            Feel free to ignore them if not useful to you.
+    ''' 
+    print(message)
 
-def terminal_bell_info():
+    
 #------------------------------------------------------------------------------------------------
 # terminal_bell                                                                                 -
 #------------------------------------------------------------------------------------------------
+def terminal_bell_info():
     cp.ins_newline(1)
     green_div.print_fancy_divider(all_topics[11])
     message = f'''
@@ -591,7 +630,7 @@ def terminal_bell_info():
 
       This function makes the bell sound in the terminal.               
 
-      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp
                   cp.terminal_bell()
       
       '''
@@ -652,39 +691,8 @@ if __name__ == '__main__':
 
 
 
-#     green_div.print_fancy_divider("set_font() and reset_font()")
- 
-#     message =f'''
-#        reset_font() → This function resets the font attributes when we use the set_font() function.
- 
-#        set_font()   → function changes the attributes of the font.
-       
-       
-#        Parameters with their default values:
-       
-#        1) bold=False      4) italic=False         7) blinking=False      10) inverse=False
-#        2) bg=-1           5) underline=False      8) dim=False
-#        3) fg=-1           6) strike=False         9) hidden=False
-       
-#       This function passes many attributes for the font. If passing all these arguments is a little
-#       annoying to you, you can use the FontStyle Class for simplicity.
- 
-#       The best way to use this function is to pass only the first 3 parameters like the example.
- 
-#        {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp
-#                    print(cp.set_font(1,11,21) + " Python is " + cp.set_font(0,1) +
-#                          " Wonderful." + cp.reset_font())
- 
-# ''' 
-#     print(message)
-#     print(f"       {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}  {cp.set_font(1,11,21)} Python is {cp.set_font(0,1)} Wonderful. {cp.reset_font()}")
-#     print()
-#     message = '''Colors range goes from -1 to 256.
-# To  set the default color from the system use -1 or 256, for both bg and fg.
- 
-# bli nking might not work in all the OS. We use Red Hat Family.
- 
-# Note: These functions are being used by the FancyFormat Class. Feel free to ignore them      if not useful to you.
+
+#     message = '''
 # '''   
 #     white_msg.print_fancy_note(message)
 

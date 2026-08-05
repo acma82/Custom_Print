@@ -52,8 +52,8 @@
 # ins_newline_info()
 
 
-from custom_print import set_reset_font_info
-set_reset_font_info()
+# from custom_print import set_reset_font_info
+# set_reset_font_info()
 
 
 # from custom_print import terminal_bell_info
