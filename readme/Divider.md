@@ -31,10 +31,12 @@ self.vertical_line_bold      = False
 #-----------------------------------------------------------------------------------------------------+
 #  Message Variables                                                                                  |
 #-----------------------------------------------------------------------------------------------------+
-self.msg_bg = -1;                        self.msg_fg = -1;                        self.msg_bold = False
-self.adj_indent = 2;                     self.align = Align.CENTER
+self.msg_bold     = False;               self.msg_bg        = -1;                 self.msg_fg     = -1
+self.msg_italic   = False;               self.msg_underline = False;              self.msg_strike = False
+self.msg_blinking = False;               self.msg_dim       = False;              self.msg_hidden = False
+self.msg_inverse  = False
 # Fill blank
-self.left_fill_bg = -1;                  self.right_fill_bg = -1;                  self.all_fill_bg = -1
+self.left_fill_bg = -1;                  self.right_fill_bg = -1;                 self.left_right_fill_bg = -1
 ```
 
 ## Example

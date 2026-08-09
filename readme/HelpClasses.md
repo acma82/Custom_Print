@@ -1,19 +1,26 @@
 #### [Back](README.md)
 
-# Aid Classes
+# Help Classes
 * [**Align**](#align)
+* [**Ascii_Letter**](#ascii_letter)
+* [**Bg**](#bg)
+* [**Color_Names**](#color_names)
 * [**Divider_Style**](#divider)
+* [**Fg**](#fg)
 * [**Layout**](#layout)
 * [**Length_bg**](#length_bg)
 * [**Line_Style**](#line_style)
+* [**Logo**](#logo)
 * [**Move**](#move)
+* [**No**](#no)
+* [**Style**](#style)
 * [**Unicode**](#unicode)
 
 
 
 ## Align
 <!--- ## <span style="color:green"> <strong> Align </strong> </span> --->
-> <span style="color:blue" ><strong>  This class is used where alignment is needed. It contains 4 options. </strong>
+> <span style="color:cyan" ><strong>  This class is used where alignment is needed. It contains 4 options. </strong>
 - Align.RIGHT
 - Align.LEFT
 - Align.CENTER
@@ -26,7 +33,7 @@
 | "right"     | "left"     |"center"      | "justify"     |
 | "r"         | "l"        |"c"           | "j"           |
 
-[**Top**](#aid-classes) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#aid-classes) <span style="color:gray"> <strong> Example: </strong> </span>
 
 
 ```python
@@ -36,9 +43,14 @@ msg.title_align = cp.Align.CENTER
 msg.footnote_align = "right"   # msg.footnote_align = "r"
 ```
 
-## Divider
+## Ascii_Letter
+## Bg
+## Color_Names
 
-> <span style="color:blue" ><strong>  This class is used where a divider is needed. It contains 10 options.</strong>
+## Divider_Style
+
+
+> <span style="color:cyan" ><strong>  This class is used where a divider is needed. It contains 10 options.</strong>
 
 |                  |                |
 |------------------|----------------|
@@ -53,7 +65,7 @@ msg.footnote_align = "right"   # msg.footnote_align = "r"
 | **BLUE_WHITE_1** | "blue_white_1" |
 | **BLUE_WHITE_2** | "blue_white_2" |
 
-[**Top**](#aid-classes) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#aid-classes) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
 import custom_print as cp
@@ -63,6 +75,8 @@ div.print_fancy_divider(message=" Custom Print Divider", style=cp.Divider_Style.
 div.print_fancy_divider(message=" Custom Print Divider", style="customized")
 div.print_fancy_divider(message=" Custom Print Divider", style="dash_1")
 ```
+
+## Fg
 
 ## Layout
 <!--- ## <span style="color:green"> <strong> Layout </strong> </span> --->
@@ -78,7 +92,7 @@ div.print_fancy_divider(message=" Custom Print Divider", style="dash_1")
 | "horizontal"      | "vertical"      |
 | "h"               | "v"             |
 
-[**Top**](#aid-classes) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#aid-classes) <span style="color:gray"> <strong> Example: </strong> </span>
 ```python
 import custom_print as cp
 tbl  = cp.FancyFormat()
@@ -94,7 +108,7 @@ tbl.print_fancy_format(r)
 + ALL_ROW
 + ONLY_WORD
 
-[**Top**](#aid-classes) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#aid-classes) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
 import custom_print as cp
@@ -191,7 +205,7 @@ These are the variables to visualize when using **SINGLE_SPACE** or **DOUBLE_SPA
 **Note:** Play with the colors and see your creation. Use the No.Name_Color if you prefer rather than the number.
 
 
-[**Top**](#aid-classes) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#aid-classes) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
 import custom_print as cp
@@ -260,7 +274,7 @@ tbl.print_fancy_format(data=lst, style=cp.Line_Style.DOUBLE_SPACE)
 
 
 
-
+## Logo
 
 
 
@@ -293,7 +307,7 @@ tbl.print_fancy_format(data=lst, style=cp.Line_Style.DOUBLE_SPACE)
 | "r"        | "l"       |"u"        | "d"        |
 
 
-[**Top**](#aid-classes) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#aid-classes) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
 import custom_print as cp
@@ -304,6 +318,11 @@ crs.jumpTo(qty=2, direction = Move.DOWN) # direction = "d"
 print("I am down")
 
 ```
+
+## No
+
+## Style
+
 ## Unicode
 <!--- ## <span style="color:green"> <strong> Unicode </strong> </span> --->
     This class is to insert some unicode characters.
@@ -323,7 +342,7 @@ print("I am down")
 | WHITE_CIRCLE                               | WHITE_DIAMOND                |
 | FACE                                       | Reference → https://www.unicode.org/charts/nameslist/ |
 
-[**Top**](#aid-classes) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#aid-classes) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
 import custom_print as cp

@@ -119,7 +119,7 @@
 
 ## No, Bg, Fg, and Style Examples
 
-[**Top**](#colors) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#colors) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
 import custom_print as cp

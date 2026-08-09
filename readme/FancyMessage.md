@@ -86,7 +86,7 @@ This class contains 3 methods and the attributes and their default values are di
 ```
 
 ## Fancy Message Examples
-[**Top**](#fancymessage) <span style="color:red"> <strong> Example 1: </strong> </span>
+[**Top**](#fancymessage) <span style="color:gray"> <strong> Example 1: </strong> </span>
 
 ```python
     import custom_print as cp
@@ -112,7 +112,7 @@ This class contains 3 methods and the attributes and their default values are di
 	msg.print_fancy_note(paragraph)			#  Method 2
 ```
 
-[**Top**](#fancymessage) <span style="color:red"> <strong> Example 2: </strong> </span>
+[**Top**](#fancymessage) <span style="color:gray"> <strong> Example 2: </strong> </span>
 
 ```python
     import custom_print as cp

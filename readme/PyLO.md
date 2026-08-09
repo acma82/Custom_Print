@@ -118,7 +118,7 @@ This class is used with ***str_to_list*** method. There are two options.
 # Conversions
 
 ## Bool Type to List Type
-<!--- ## <span style="color:purple"> <strong> Bool Type to List Type </strong> </span> --->
+<!--- ## <span style="color:cyan"> <strong> Bool Type to List Type </strong> </span> --->
 
 ```python
 bool_to_list(data, convert_to_str=False)
@@ -128,7 +128,7 @@ This method sets a bool variable into a list where ***data*** is the bool type. 
 1. False: It sets the bool inside the list as a bool type.
 2. True: It sets the bool inside the list as a str type.
 
-[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#pylo-class) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
     import custom_print as cp
@@ -142,7 +142,7 @@ This method sets a bool variable into a list where ***data*** is the bool type. 
 ```
 
 ## Integer Type to List Type
-<!--- ## <span style="color:purple"> <strong> Integer Type to List Type </strong> </span> --->
+<!--- ## <span style="color:cyan"> <strong> Integer Type to List Type </strong> </span> --->
 
 ```python
 int_to_list(data, convert_to_str=False)
@@ -152,7 +152,7 @@ This method sets an int variable into a list where ***data*** is the int type. I
 1. False: It sets the int inside the list as a int type.
 2. True: It sets the  int inside the list as a str type.
 
-[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#pylo-class) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
     import custom_print as cp
@@ -166,7 +166,7 @@ This method sets an int variable into a list where ***data*** is the int type. I
 ```
 
 ## Float Type to List Type
-<!--- ## <span style="color:purple"> <strong> Float Type to List Type </strong> </span> --->
+<!--- ## <span style="color:cyan"> <strong> Float Type to List Type </strong> </span> --->
 
 ```python
 float_to_list(data, convert_to_str=False)
@@ -176,7 +176,7 @@ This method sets an int variable into a list where ***data*** is the float type.
 1. False: It sets the float inside the list as a float type.
 2. True:  It sets the float inside the list as a str type.
 
-[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span> 
+[**Top**](#pylo-class) <span style="color:gray"> <strong> Example: </strong> </span> 
 
 
 ```python
@@ -191,8 +191,8 @@ This method sets an int variable into a list where ***data*** is the float type.
 ```
 
 ## Complex Type to List Type
- <!--- ## <span style="color:purple"> <strong> Complex Type to List Type </strong> </span> --->
-[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
+ <!--- ## <span style="color:cyan"> <strong> Complex Type to List Type </strong> </span> --->
+[**Top**](#pylo-class) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
     import custom_print as cp
@@ -206,9 +206,9 @@ This method sets an int variable into a list where ***data*** is the float type.
 ```
 
 ## String Type to List Type
-<!--- ## <span style="color:purple"> <strong> String Type to List Type </strong> </span> --->
+<!--- ## <span style="color:cyan"> <strong> String Type to List Type </strong> </span> --->
 
-[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#pylo-class) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
     import custom_print as cp
@@ -235,9 +235,9 @@ This method sets an int variable into a list where ***data*** is the float type.
 ```
 
 ## Dictionary Type to List Type
-<!--- ## <span style="color:purple"> <strong> Dictionary Type to List Type </strong> </span> --->
+<!--- ## <span style="color:cyan"> <strong> Dictionary Type to List Type </strong> </span> --->
 
-[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#pylo-class) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
     import custom_print as cp
@@ -269,10 +269,10 @@ This method sets an int variable into a list where ***data*** is the float type.
         print(dato)
 ```
 
-> <span style="color:red">**Note:**</span> with one of then that is __"none"__ or __None__, it won't set the <span style="color:blue"> ***key_title*** </span> neither the <span style="color:blue"> ***value_title*** </span>.
+> <span style="color:red">**Note:**</span> with one of then that is __"none"__ or __None__, it won't set the <span style="color:cyan"> ***key_title*** </span> neither the <span style="color:cyan"> ***value_title*** </span>.
 
 ## Range Type to List Type
-<!--- ## <span style="color:purple"> <strong> Range Type to List Type </strong> </span> --->
+<!--- ## <span style="color:cyan"> <strong> Range Type to List Type </strong> </span> --->
 
 >   | Note: values for range            |                                               |
 >   |-----------------------------------|-----------------------------------------------|
@@ -281,7 +281,7 @@ This method sets an int variable into a list where ***data*** is the float type.
 >   | header_title = None or "none"     | This won't set any header_title               |
 >   | header_title = "Any Title Header" | This will set the header_title                | 
 
-[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#pylo-class) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
     import custom_print as cp
@@ -315,7 +315,7 @@ This method sets an int variable into a list where ***data*** is the float type.
 ```
 
 ## Set or Frozenset Type to List Type
-<!--- ## <span style="color:purple"> <strong> Set or Frozenset Type to List Type </strong> </span> --->
+<!--- ## <span style="color:cyan"> <strong> Set or Frozenset Type to List Type </strong> </span> --->
 
 >   | Note: values for set              |                                               |
 >   |-----------------------------------|-----------------------------------------------|
@@ -324,7 +324,7 @@ This method sets an int variable into a list where ***data*** is the float type.
 >   | header_title = None/"none"        | It won't set any header_title                 |
 >   | header_title = "Any Title Header" | This will set the header_title                |
 
-[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#pylo-class) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
     import custom_print as cp
@@ -356,7 +356,7 @@ This method sets an int variable into a list where ***data*** is the float type.
 >   | header_title = None/"none"        | It won't set any header_title                     |
 >   | header_title = "Any Title Header" | This will set the header_title                    |
 
-[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#pylo-class) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
     import custom_print as cp
@@ -380,9 +380,9 @@ This method sets an int variable into a list where ***data*** is the float type.
     cp.ins_newline(2)
 ```
 ## Tuple Type to List Type
-<!--- ## <span style="color:purple"> <strong> Tuple Type to List Type </strong> </span> --->
+<!--- ## <span style="color:cyan"> <strong> Tuple Type to List Type </strong> </span> --->
 
-[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#pylo-class) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
     import custom_print as cp
@@ -434,7 +434,7 @@ This method sets an int variable into a list where ***data*** is the float type.
 
 - This method converts all the elements of a list to string type
 
-[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#pylo-class) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
     import custom_print as cp
@@ -469,7 +469,7 @@ the value where it was not possible to convert. If the **fill_value** provided i
 a number or it is not possible to convert it to a number then it will be
 sustitute by zero, 0.
 
-[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#pylo-class) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
     import custom_print as cp
@@ -513,7 +513,7 @@ the file as well.
 
 
 
-[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#pylo-class) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
 import custom_print as cp
@@ -546,7 +546,7 @@ read_csv_file(file_path:str="CSV_List")
 
 It reads a **csv** file and save it into a list. The extension can be omitted.
 
-[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#pylo-class) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
 import custom_print as cp
@@ -575,7 +575,7 @@ omitted or not. If the file_path is not provided then it will create the file in
 path under the name **JSON_List.json**. The file_path is assumed that it will contain the name of
 the file as well.
 
-[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#pylo-class) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
 import custom_print as cp
@@ -606,7 +606,7 @@ read_json_file(self, file_path:str="JSON_List")
 
 It reads a **json** file and save it into a list. The extension can be omitted.
 
-[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#pylo-class) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
 import custom_print as cp
@@ -632,7 +632,7 @@ tbl.print_fancy_format(file_info)
 lower_case(data)
 ```
 
-[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#pylo-class) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
 import custom_print as cp
@@ -663,7 +663,7 @@ This method upper case all the items in a list.
 ```python
 upper_case(data)
 ```
-[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#pylo-class) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
 import custom_print as cp
@@ -696,7 +696,7 @@ This method capitalize all the items in a list.
 upper_capitalize(data)
 ```
 
-[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#pylo-class) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
 import custom_print as cp
@@ -729,7 +729,7 @@ This method updates the case to the headers and the data.
 update_case(data, header_case=Case.CAPITALIZE, data_case=Case.LOWER, update=False)
 ```
 
-[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#pylo-class) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
 import custom_print as cp
@@ -775,7 +775,7 @@ Notice that the list has to be a mxn list, otherwise it will consider only the d
 update_case_col(data, header_case=Case.CAPITALIZE, data_case=Case.LOWER, col_ref=0, update=False)
 ```
 
-[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#pylo-class) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
 import custom_print as cp
@@ -825,7 +825,7 @@ int, float, or bool. By default it's a str type (----).
 
 **Notice** that the list has to be a mxn list, otherwise it will return the same list.
 
-[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#pylo-class) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
 import custom_print as cp
@@ -885,7 +885,7 @@ This function return the number of rows and cols in a list.
 lst_dimension = dimensions(data)
 ```
 
-[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#pylo-class) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
 import custom_print as cp
@@ -972,7 +972,7 @@ Up to 4 brackets. <br>
 result = find_value(data, ref, case_sensitive=False)       
 ```
 
-[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#pylo-class) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
 import copy
@@ -1017,7 +1017,7 @@ or a combination of them [[1,2],[3,3,3],3,[5,6,7,8]] <br>
 new_lst = replace_value(data, old, new, case_sensitive=True, update=False)
 ```
 
-[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#pylo-class) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
 import custom_print as cp
@@ -1056,7 +1056,7 @@ This method delete an item from the list. <br>
 new_lst = delete_item(data, ref="", case_sensitive=True, update=False)
 ```
 
-[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#pylo-class) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
 import custom_print as cp
@@ -1109,7 +1109,7 @@ Ex.
 new_list = add_col(data, col_data, posi=0)
 ```
 
-[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#pylo-class) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
 import custom_print as cp
@@ -1180,7 +1180,7 @@ It deletes a specific column from the list
 new_list = delete_col(data, index=0, update=False)
 ```
 
-[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#pylo-class) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
 import custom_print as cp
@@ -1215,7 +1215,7 @@ up to 4 brackets.
 new_list = make_to_vector(data)
 ```
 
-[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#pylo-class) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
 import custom_print as cp
@@ -1254,7 +1254,7 @@ It joins two list as a vector, join_list = [1,2,3,4,5,etc.]
 new_list = join_as_vector(data, list_to_join, col_posi=0)
 ```
 
-[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#pylo-class) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
 import custom_print as cp
@@ -1289,7 +1289,7 @@ the new list into another variable.
 shift(data, direction=Move.RIGHT, qty=0, update=False)
 ```
 
-[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#pylo-class) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
 import custom_print as cp
@@ -1353,7 +1353,7 @@ posi_2 -> position 2 to be swap with position 1 <br>
 new_list = swap(data, posi_1=0, posi_2=0, update=False)
 ```
 
-[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#pylo-class) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
 import custom_print as cp
@@ -1385,7 +1385,7 @@ This method set the number of rows by adding a column to the left side.
 new_list = number(data, start_number=0, id_txt="Id", renumber=False, update=False)
 ```
 
-[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#pylo-class) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
 import custom_print as cp
@@ -1455,7 +1455,7 @@ transpose_list = transpose(data, autofill=True, fill_value="----", update=False)
 | B.-[5, 6, [4,5], 45]                  | [[5], [6], [[4,5]], [45]]                     |
 |                                       |                                               |
 
-[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#pylo-class) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
 import custom_print as cp
@@ -1584,7 +1584,7 @@ where to start the merge on ***list_1***.
 merge_list = merge(list_1, list_2, posi=0, merge_by=Appending.ROWS)
 ```
 
-[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#pylo-class) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
 import custom_print as cp
@@ -1635,7 +1635,7 @@ This method reverse the order of the list keeping the headers in the same posito
 new_list = reversed_row_order(data, update=False)
 ```
 
-[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#pylo-class) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
 import custom_print as cp
@@ -1683,7 +1683,7 @@ If you want to fill those spots with a specific type, then use the ***autofill_d
 sort_rows_by_col(data, ref_col=0, reversed_order=False, update=False)       
 ```
 
-[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#pylo-class) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
 import custom_print as cp
@@ -1738,7 +1738,7 @@ If the option provided is different than ***ascending*** or ***descending*** or 
  new_list = sort_cols(data, sort_type=Order.ASCENDING, update=False)
 ```
 
-[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#pylo-class) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
 import custom_print as cp
@@ -1798,7 +1798,7 @@ This method find all duplicate values into a list and returns all duplicate valu
 find_duplicate(data, case_sensitive=True)
 ```
 
-[**Top**](#pylo-class) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#pylo-class) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
 import custom_print as cp

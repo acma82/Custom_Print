@@ -15,7 +15,7 @@ This method moves rows or columns for the cursor in the terminal.
 + ***movexy(x=0, y=0)*** <br>
 This method moves the cursor to specific coordinates in the terminal.
 
-<span style="color:red"> <strong> Example: </strong> </span>
+<span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
     from custom_print import Cursor

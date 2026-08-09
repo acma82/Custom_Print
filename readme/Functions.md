@@ -1,13 +1,13 @@
 #### [Back](README.md)
 # Functions
-* <span style="color:blue"> <strong>Screen Fucntions </strong> </span>
+* <span style="color:cyan"> <strong>Screen Fucntions </strong> </span>
   * [**clean**](#clean)
   * [**clear**](#clear)
   * [**erase**](#erase)
   * [**dimensions**](#dimensions)
   * [**resize**](#resize)
 
-* <span style="color:blue"> <strong>  Internal Functions </strong> </span>
+* <span style="color:cyan"> <strong>  Internal Functions </strong> </span>
   * [**bg_ansi_colors**](#bg_ansi_colors)
   * [**fg_ansi_colors**](#fg_ansi_colors)
   * [**terminal_bell**](#terminal_bell)
@@ -17,12 +17,12 @@
   * [**set_font**](#set_font)
 
 
-## <span style="color:blue"><strong>  Screen Functions </span></strong>
+## <span style="color:cyan"><strong>  Screen Functions </span></strong>
 
 ## clean
 It cleans the terminal and returns the cursor to home.
 
-[**Top**](#functions) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#functions) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
 import time
@@ -35,7 +35,7 @@ cp.clean() # ansi code
 ## clear
 It clears the terminal and returns the cursor to home.
 
-[**Top**](#functions) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#functions) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
 import time
@@ -48,7 +48,7 @@ cp.clear() # operating system
 ## erase
 It erases the terminal and leaves the cursor in the current position.
 
-[**Top**](#functions) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#functions) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
 import time
@@ -63,7 +63,7 @@ print("Good Bye...!")
 ## dimensions
 It returns the dimensions of the terminal, cols and rows.
 
-[**Top**](#functions) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#functions) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
 import custom_print as cp
@@ -77,7 +77,7 @@ print("cols: ", cols, "  rows: ", rows)
 ***resize(row = 25, cols = 80)*** <br>
 It resizes the terminal size.
 
-[**Top**](#functions) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#functions) <span style="color:gray"> <strong> Example: </strong> </span>
 ```python   
     import custom_print as cp
     cp.clean()
@@ -87,7 +87,7 @@ It resizes the terminal size.
     print("Good Bye...!")    
 ```
 
-## <span style="color:blue"><strong>  Internal Functions </span></strong>
+## <span style="color:cyan"><strong>  Internal Functions </span></strong>
 
 ## bg_ansi_colors
 ***bg_ansi_colors(bold = False, fg = -1, n_line = 0)*** <br>
@@ -97,7 +97,7 @@ This function displays all background colors available with ansi code. The follo
 - The fg option to visualize the background colors with a specific foreground color.
 - The n_line option to inset lines between the colors. 
 
-[**Top**](#functions) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#functions) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
     import custom_print as cp
@@ -111,7 +111,7 @@ This function displays all the foreground colors available with ansi code. The f
 * The bg option to visualize the background colors with a specific foreground color.
 * The n_line option to insert lines between the colors.
 
-[**Top**](#functions) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#functions) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
     import custom_print as cp
@@ -122,7 +122,7 @@ This function displays all the foreground colors available with ansi code. The f
 ***ins_chr(n = 1, unicode = " ")*** <br>
 This function inserts **n** times the **unicode** provided, by default it is set to space.
 
-[**Top**](#functions) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#functions) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
     import custom_print as cp
@@ -134,7 +134,7 @@ This function inserts **n** times the **unicode** provided, by default it is set
 ***ins_newline(n=1)*** <br>
 This function inserts **n** new lines.
 
-[**Top**](#functions) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#functions) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
     import custon_print as cp
@@ -146,7 +146,7 @@ This function inserts **n** new lines.
 ## terminal_bell
 This function makes the sound of the terminal bell.
 
-[**Top**](#functions) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#functions) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
     import custon_print as cp
@@ -174,7 +174,7 @@ These functions returns the argument as subscript or superscript respectively.
 ***set_font(bold=False, bg=-1, fg=-1, italic=False, underline=False, strike=False, blinking=False, dim=False, hidden=False, inverse=False)*** <br>
 This function passes many attributes for the font. If passing all these arguments is a little annoying to you, you can use the **Bg, Fg, Style** Classes explained in the ***Font Color section*** or use **Font_Style** Class. The best way to use this function is to pass only the first 3 parameters like the example below. 
 
-[**Top**](#functions) <span style="color:red"> <strong> Example: </strong> </span>
+[**Top**](#functions) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
     import custom_print as cp

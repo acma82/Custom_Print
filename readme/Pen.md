@@ -25,7 +25,7 @@ draw_line_bg    = -1			|                                   |
 draw_line_fg    = -1            |                                   |
 
 
-<span style="color:red"> <strong> Example: </strong> </span>
+<span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
     import custom_print as cp

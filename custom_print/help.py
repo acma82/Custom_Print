@@ -10,6 +10,23 @@ import custom_print as cp
 # standar size on the terminal is -> 24 by 80
 # resize -s 50 80
 
+#-- -------------------------------------------------------------------------------------------------
+#   Variables in common for all the functions and classes                                           -
+#-- -------------------------------------------------------------------------------------------------
+green_div = cp.Divider()  # Message for function titles 
+green_div.msg_bg = 10;                  green_div.msg_fg = 0;                          green_div.msg_bold = True
+green_div.adj_indent = 2;               green_div.msg_align = cp.Align.CENTER;         green_div.left_right_fill_bg = 10
+green_div.all_corner_bg = 10;           green_div.top_horizontal_line_bg = 10;         green_div.bottom_horizontal_line_bg = 10
+green_div.left_vertical_line_bg = 10;   green_div.right_vertical_line_bg = 10
+
+blue_div = cp.Divider()
+blue_div.msg_bg = 10;                  blue_div.msg_fg = 0;                          blue_div.msg_bold = True
+blue_div.adj_indent = 2;               blue_div.msg_align = cp.Align.CENTER;         blue_div.left_right_fill_bg = 10
+blue_div.all_corner_bg = 10;           blue_div.top_horizontal_line_bg = 4;          blue_div.bottom_horizontal_line_bg = 4
+blue_div.left_vertical_line_bg = 10;   blue_div.right_vertical_line_bg = 10
+
+tbl = cp.FancyFormat()
+
 def about_custom_print():
     
     '''  Description of custom_print project  '''
@@ -28,7 +45,7 @@ def about_custom_print():
            ["License",             "Everyone Can Use It At Their Own Risk"          ]]
 
 
-    tbl = cp.FancyFormat()
+    
     FACE = " (" + "0" + chr(0x25E1) + "0" + ") "
     tbl.title_msg = FACE + "  Project Description "
     tbl.title_align = "center"
@@ -49,22 +66,9 @@ def about_custom_print():
 
     tbl.print_fancy_format(lst, "design_10")
     cp.ins_newline(1)
+    tbl.reset_fancy_format()
 
 
-#-- -------------------------------------------------------------------------------------------------
-#   Variables in common for all the functions and classes                                           -
-#-- -------------------------------------------------------------------------------------------------
-green_div = cp.Divider()  # Message for function titles 
-green_div.msg_bg = 10;                  green_div.msg_fg = 0;                          green_div.msg_bold = True
-green_div.adj_indent = 2;               green_div.msg_align = cp.Align.CENTER;         green_div.left_right_fill_bg = 10
-green_div.all_corner_bg = 10;           green_div.top_horizontal_line_bg = 10;         green_div.bottom_horizontal_line_bg = 10
-green_div.left_vertical_line_bg = 10;   green_div.right_vertical_line_bg = 10
-
-blue_div = cp.Divider()
-blue_div.msg_bg = 10;                  blue_div.msg_fg = 0;                          blue_div.msg_bold = True
-blue_div.adj_indent = 2;               blue_div.msg_align = cp.Align.CENTER;         blue_div.left_right_fill_bg = 10
-blue_div.all_corner_bg = 10;           blue_div.top_horizontal_line_bg = 4;          blue_div.bottom_horizontal_line_bg = 4
-blue_div.left_vertical_line_bg = 10;   blue_div.right_vertical_line_bg = 10
 
 
 
@@ -293,7 +297,7 @@ def all_documentation():
     help_documentation()    
     screen_functions_info()
     internal_functions_info()
-    help_classes()
+    help_classes_info()
 # +-------------------------------------------------------------------------------------------------+
 # |                                                                                                 |
 # |        GROUP: SCREEN_FUNCTIONS                                                                  |
@@ -648,25 +652,79 @@ def terminal_bell_info():
 # +-------------------------------------------------------------------------------------------------+
 # |  Help_Classes in custom_print Module                                                            |
 # +-------------------------------------------------------------------------------------------------+
-def help_classes():
+def help_classes_info():
     cp.ins_newline(1)
     blue_div.print_fancy_divider(all_topics[12]) # Help Classes
     mensaje ='''
-    neeed works here here here here here  All these functions are being used internally in the custom_print modules.
-    It is available to the user if they find them usefull, otherwise, feel free
-    to ignore them.
+    All these classes are to help the user to do not mispell any instructions
+    in all the other classes, methods, or functions. The user can still use 
+    the default value directly, however it is recomended to use these classes.
     ''' 
     print(mensaje)    
     align_info()
     ascii_letter_info()
+    bg_info() 
+    color_names_info()
+    fg_info()
+    layout_info()
+    length_bg_info()
+    line_style_info()
+    logo_info()
+    move_info()
+    no_info()
+    style_info()
+    unicode_info()
+
+    
 
 
 
     
 def align_info():
-    print("class align_info")
-def ascii_letter_info():
-    print("class ascii_letter")
+    cp.ins_newline(1)
+    green_div.print_fancy_divider(all_topics[13])
+    message = f'''
+      This class is used where alignment is needed. It contains 4 options.
+
+      {cp.set_font(1,209,16,1)}                                               {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} Align.RIGHT      {cp.Unicode.BULLET} Align.CENTER            {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} Align.LEFT       {cp.Unicode.BULLET} Align.JUSTIFY           {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}                                               {cp.reset_font()}
+
+      This function makes the alignment for data.
+
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp
+                  cp.terminal_bell()                  
+                  msg = cp.FancyMessage()
+                  msg.title_align = cp.Align.CENTER
+                  msg.footnote_align = "right"
+                  # msg.footnote_align = "r" # Same as above
+      
+      '''
+    print(message)
+    lista = [["Align.RIGHT","Align.LEFT", "Align.CENTER","Align.JUSTIFY"],
+             ['\"right\"','\"left\"','\"center\"','\"justify\"'],
+             ['\"r\"', '\"l\"', '\"c\"', '\"j\"']]
+    tbl.header_align = cp.Align.CENTER
+    tbl.data_align   = cp.Align.CENTER
+    tbl.header_bold  = True
+    tbl.print_fancy_format(data=lista, style=cp.Line_Style.TURQUOISE_BLACK)
+    print("\n      Note: See the FancyMessage Class to visualize a complete example.\n\n")
+
+
+
+def ascii_letter_info():    print("class ascii_letter")
+def bg_info():              print("bg class")
+def color_names_info():     print("color names")
+def fg_info():              print("fg class")
+def layout_info():          print("layout class")
+def length_bg_info():       print("length_bg class")
+def line_style_info():      print("line style class") 
+def logo_info():            print("logo_class")
+def move_info():            print("move class")
+def no_info():              print("no class")
+def style_info():           print("style class")
+def unicode_info():         print("unicode class")
 
 
 
@@ -677,13 +735,177 @@ def ascii_letter_info():
 # +-------------------------------------------------------------------------------------------------+
 # |  Cursor in custom_print Module                                                                  |
 # +-------------------------------------------------------------------------------------------------+
+def cursor_info():
+    cp.ins_newline(1)
+    blue_div.print_fancy_divider(all_topics[12]) # Help Classes
+    mensaje ='''
+    neeed works here here here here here  All these functions are being used internally in the custom_print modules.
+    It is available to the user if they find them usefull, otherwise, feel free
+    to ignore them.
+    ''' 
+    print(mensaje)
+    jumpto_info()
+    jumpxy_info()
+    moveto_info()
+    movexy_info()
+
+def jumpto_info(): print("jumpto method")
+def jumpxy_info(): print("jumpxy method")
+def moveto_info(): print("moveto method")
+def movexy_info(): print("mvoexy method")
+
+# +-------------------------------------------------------------------------------------------------+
+# |                                                                                                 |
+# |        GROUP: FONTSTYLE_CLASS                                                                   |
+# |                                                                                                 |
+# +-------------------------------------------------------------------------------------------------+
+# |  FontStyle in custom_print Module                                                               |
+# +-------------------------------------------------------------------------------------------------+
+def fontstyle_info():
+    cp.ins_newline(1)
+    blue_div.print_fancy_divider(all_topics[12]) # Help Classes
+    mensaje ='''
+    neeed works here here here here here  All these functions are being used internally in the custom_print modules.
+    It is available to the user if they find them usefull, otherwise, feel free
+    to ignore them.
+    ''' 
+    print(mensaje)
+    start_style_info()
+    stop_style_info()
+    print_style_info()
+    reset_style_info()
+
+
+def start_style_info(): print("start_style method")
+def stop_style_info():  print("stop_style method")
+def print_style_info(): print("print_style method")
+def reset_style_info(): print("reset_style method")
+
+# +-------------------------------------------------------------------------------------------------+
+# |                                                                                                 |
+# |        GROUP: FANCYMESSAGE_CLASS                                                                |
+# |                                                                                                 |
+# +-------------------------------------------------------------------------------------------------+
+# |  FancyMessage in custom_print Module                                                            |
+# +-------------------------------------------------------------------------------------------------+
+def fancymessage_info():
+    cp.ins_newline(1)
+    blue_div.print_fancy_divider(all_topics[12]) # Help Classes
+    mensaje ='''
+    neeed works here here here here here  All these functions are being used internally in the custom_print modules.
+    It is available to the user if they find them usefull, otherwise, feel free
+    to ignore them.
+    ''' 
+    print(mensaje)
+    print_fancy_message_info()
+    print_fancy_note_info()
+
+
+def print_fancy_message_info(): print("print_fancy_message method")
+def print_fancy_note_info():    print("print_fancy_note method")
+
+# +-------------------------------------------------------------------------------------------------+
+# |                                                                                                 |
+# |        GROUP: PEN_CLASS                                                                         |
+# |                                                                                                 |
+# +-------------------------------------------------------------------------------------------------+
+# |  Pen in custom_print Module                                                                     |
+# +-------------------------------------------------------------------------------------------------+
+def pen_info():
+    cp.ins_newline(1)
+    blue_div.print_fancy_divider(all_topics[12]) # Help Classes
+    mensaje ='''
+    neeed works here here here here here  All these functions are being used internally in the custom_print modules.
+    It is available to the user if they find them usefull, otherwise, feel free
+    to ignore them.
+    ''' 
+    print(mensaje)
+    draw_line_info()
+    draw_rectangle_info()
+
+def draw_line_info():      print("draw_line method")
+def draw_rectangle_info(): print("draw rectangle method")
+# +-------------------------------------------------------------------------------------------------+
+# |                                                                                                 |
+# |        GROUP: DIVIDER_CLASS                                                                     |
+# |                                                                                                 |
+# +-------------------------------------------------------------------------------------------------+
+# |  Divider in custom_print Module                                                                 |
+# +-------------------------------------------------------------------------------------------------+
+def divider_info():
+    cp.ins_newline(1)
+    blue_div.print_fancy_divider(all_topics[12]) # Help Classes
+    mensaje ='''
+    neeed works here here here here here  All these functions are being used internally in the custom_print modules.
+    It is available to the user if they find them usefull, otherwise, feel free
+    to ignore them.
+    ''' 
+    print(mensaje)
+    print_fancy_divider_info()
+
+def print_fancy_divider_info(): print("print_fancy_divider method")
+
+
+
+
+
+# +-------------------------------------------------------------------------------------------------+
+# |                                                                                                 |
+# |        GROUP: FANCYFORMAT_CLASS                                                                 |
+# |                                                                                                 |
+# +-------------------------------------------------------------------------------------------------+
+# |  FancyFormat in custom_print Module                                                             |
+# +-------------------------------------------------------------------------------------------------+
+def fancyformat_info():
+    cp.ins_newline(1)
+    blue_div.print_fancy_divider(all_topics[12]) # Help Classes
+    mensaje ='''
+    neeed works here here here here here  All these functions are being used internally in the custom_print modules.
+    It is available to the user if they find them usefull, otherwise, feel free
+    to ignore them.
+    ''' 
+    print(mensaje)
+    print_fancy_format_info()
+    reset_fancy_format_info()
+
+
+def print_fancy_format_info(): print("print_fancy_format method")
+def reset_fancy_format_info(): print("reset_fancy_format method")
+
+
+# +-------------------------------------------------------------------------------------------------+
+# |                                                                                                 |
+# |        GROUP: ASCIIART_CLASS                                                                    |
+# |                                                                                                 |
+# +-------------------------------------------------------------------------------------------------+
+# |  AsciiArt in custom_print Module                                                                |
+# +-------------------------------------------------------------------------------------------------+
+def asciiart_info():
+    cp.ins_newline(1)
+    blue_div.print_fancy_divider(all_topics[12]) # Help Classes
+    mensaje ='''
+    neeed works here here here here here  All these functions are being used internally in the custom_print modules.
+    It is available to the user if they find them usefull, otherwise, feel free
+    to ignore them.
+    ''' 
+    print(mensaje)
+    print_ascii_art_info()
+    print_multi_ascii_art_info()
+    print_ascii_logo_art_info()
+    print_reversed_ascii_logo_art_info()
+
+
+def print_ascii_art_info():                print("ascii_art method")
+def print_multi_ascii_art_info():          print("multi_ascii_art method")
+def print_ascii_logo_art_info():           print("ascii_logo_art method")
+def print_reversed_ascii_logo_art_info():  print("reversed_ascii_logo_art method")
 
 
 if __name__ == '__main__':
     print(sys.argv)
     help_documentation()
 
-# in the top insert a new line(group name) cp.ins_newline(1), befor the divider
+# in the top insert a new line(group name) cp.ins_newline(1), before the divider
 # in the top insert a newline for message and the tail a newline for the message
 # at the end of the function or method add double newline.
 # this will be the parttern for title and tail of the function class

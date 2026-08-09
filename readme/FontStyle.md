@@ -42,7 +42,7 @@ This class contains 4 methods and the attributes and their default values are di
 
 ## Font Style Examples
 
-[**Top**](#fontstyle) <span style="color:red"> <strong> Example 1: <span style="color:purple"> style_on() and style_off() </span> </strong> </span>
+[**Top**](#fontstyle) <span style="color:gray"> <strong> Example 1: <span style="color:cyan"> style_on() and style_off() </span> </strong> </span>
 
 ```python
 	import custom_print as cp
@@ -56,7 +56,7 @@ This class contains 4 methods and the attributes and their default values are di
 	print(f”{fs.style_on()} Default Style {fs.style_off()}”)	
 ```
 
-[**Top**](#fontstyle) <span style="color:red"> <strong> Example 2: <span style="color:purple"> print_style(msg) </span> </strong> </span>
+[**Top**](#fontstyle) <span style="color:gray"> <strong> Example 2: <span style="color:cyan"> print_style(msg) </span> </strong> </span>
 
 ```python
 import custom_print as cp
@@ -113,7 +113,7 @@ fs.print_style(msg)
 cp.ins_newline(1)
 ```
 
-[**Top**](#fontstyle) <span style="color:red"> <strong> Example 3: <span style="color:purple"> print_style(msg) </span> </strong> </span>
+[**Top**](#fontstyle) <span style="color:gray"> <strong> Example 3: <span style="color:cyan"> print_style(msg) </span> </strong> </span>
 
 ```python
     import custom_print as cp

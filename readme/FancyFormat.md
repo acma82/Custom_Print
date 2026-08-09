@@ -193,7 +193,7 @@ For reference check **Figure 3 and 4**.
 
 **data_all_cell_bg** The bg color will affect the entire cell or just the header.
 
-#### <span style="color:blue"> Attributes for the Header Lines</span> 
+#### <span style="color:cyan"> Attributes for the Header Lines</span> 
 
 ```python
     header_vertical_line_bold_chr = False       header_right_vertical_line_chr  = "|"
@@ -210,7 +210,7 @@ For reference check **Figure 3 and 4**.
 <!-- Header Under Line Section          -->
 <!-- ---------------------------------- -->
 ## Header Line Section
-#### <span style="color:blue"> Attributes for the line below the header text</span>
+#### <span style="color:cyan"> Attributes for the line below the header text</span>
 
 ```python
 
@@ -221,7 +221,7 @@ For reference check **Figure 3 and 4**.
     header_horizontal_line_on	            Horizontal lines between headers and the first data row.
 
 
-#### <span style="color:blue"> Attributes for the header corners (left, middles and right)</span>
+#### <span style="color:cyan"> Attributes for the header corners (left, middles and right)</span>
 
 ```python
 

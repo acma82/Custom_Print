@@ -1775,7 +1775,7 @@ class FancyFormat:
             self.header_right_vertical_line_chr  = "\u2503"
             self.header_middle_vertical_line_chr = "\u2503"
 
-            # Under Line Header Section  Only for Matrix List* <span style="color:blue"> <strong>print_separator </strong> </span>
+            # Under Line Header Section  Only for Matrix List* <span style="color:cyan"> <strong>print_separator </strong> </span>
             self.header_horizontal_line_chr = "\u2501"; self.header_left_corner_chr   = "\u2523"
             self.header_right_corner_chr    = "\u252B"; self.header_middle_corner_chr = "\u254B"
 
