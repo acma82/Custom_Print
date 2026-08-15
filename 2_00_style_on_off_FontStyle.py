@@ -37,3 +37,5 @@ print(fs.style_on() + "Font Style " + fs.style_off())
 
 cp.ins_newline(2)
 
+print(f"{cp.Bg.SEA_BLUE} Hello There {cp.Bg.OFF} Bye ")
+print(f"{cp.Fg.SEA_BLUE} Hello There {cp.Fg.OFF} Bye ")

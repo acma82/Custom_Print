@@ -50,7 +50,7 @@ import os
 from custom_print.fancy_cursor import*            # cursor already import Move Class
 
 from custom_print.ref_names import Align
-from custom_print.ref_names import Length_bg
+from custom_print.ref_names import Length_Bg
 from custom_print.ref_names import Line_Style
 
 from custom_print.fancy_format import FancyFormat
@@ -82,8 +82,8 @@ class FancyMessage(Cursor):
         self.left_indent = 2;             self.right_indent = 2
         self.top_lines = 1;               self.bottom_lines = 1
 
-        self.length = Length_bg.ALL_ROW
-        # These two options don't do anything when length = Length_bg.All_ROW
+        self.length = Length_Bg.ALL_ROW
+        # These two options don't do anything when length = Length_Bg.All_ROW
         self.adj_bg_lines_to_right_indent = False     # True or False
         self.adj_bg_msg_to_space_available = False    # True or False
 
@@ -245,12 +245,12 @@ class FancyMessage(Cursor):
         # self.adj_bg_lines_to_right_indent by default  = False
         # self.adj_bg_msg_to_space_available by default = False
 
-        if self.length == Length_bg.ALL_ROW:
+        if self.length == Length_Bg.ALL_ROW:
             bg_format_line_color = f"{color2}{ins_chr(tncols)}{reset_font()}"
             # change color for color2 to delete at the beginning the strike, and/or underline option(s)
             start_line = f"{color2}{ins_chr(self.left_indent)}"
 
-        elif self.length == Length_bg.ONLY_WORD:
+        elif self.length == Length_Bg.ONLY_WORD:
             if self.adj_bg_lines_to_right_indent == True:
                 bg_format_line_color = f"{color2}{move_cursor_right(self.left_indent)}{ins_chr(space_available)}{reset_font()}"  # change color for color2
 
@@ -273,11 +273,11 @@ class FancyMessage(Cursor):
 
             carry += number_letter_line_list[nl]
 
-            if self.length == Length_bg.ALL_ROW:
+            if self.length == Length_Bg.ALL_ROW:
                 for n in range(adj_diff_space[nl]+self.right_indent):
                     print(color2+" ",end="")                        # to delete at the end the strike, and/or underline option(s)
 
-            elif self.length == Length_bg.ONLY_WORD:
+            elif self.length == Length_Bg.ONLY_WORD:
                 if self.adj_bg_msg_to_space_available == True:
                     for n in range(space_available -  number_letter_line_list[nl]):
                         print(color2+" ",end="")                    # to delete the strike we add color2

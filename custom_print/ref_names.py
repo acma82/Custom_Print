@@ -113,7 +113,7 @@ class Layout(enum.StrEnum):
     VERTICAL =   "vertical"
 
 
-class Length_bg(enum.Enum):
+class Length_Bg(enum.Enum):
 # class Length_bg():
     '''
     Length reference class

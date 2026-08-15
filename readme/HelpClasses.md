@@ -44,26 +44,66 @@ msg.footnote_align = "right"   # msg.footnote_align = "r"
 ```
 
 ## Ascii_Letter
+|                         |                  |
+|-------------------------|------------------|
+|Name                     | Value            |
+|Alpha_Letter             | "Alpha"          |
+|Ascii_Letter.ANSI_Shadow | "ANSI_Shadow"    |
+|Ascii_Letter.Big         | "Big"            |
+|Ascii_Letter.Blocks      | "Blocks"         |
+|Ascii_Letter.Bulbhead    | "Bulbhead"       |
+|Ascii_Letter.Classy      | "Classy"         |
+|Ascii_Letter.Colossal    | "Colossal"       |
+|Ascii_Letter.Crazy       | "Crazy"          |
+|Ascii_Letter.Doh         | "Doh"            |
+|Ascii_Letter.Doom        | "Doom"           |
+|Ascii_Letter.Epic        | "Epic"           |
+|Ascii_Letter.Graceful    | "Graceful"       |
+|Ascii_Letter.Larry       | "Larry"          |
+|Ascii_Letter.Money_NE    | "Money_NE"       |
+|Ascii_Letter.Money_NW    | "Money_NW"       |
+|Ascii_Letter.Money_SE    | "Money_SE"       |
+|Ascii_Letter.Money_SW    | "Money_SW"       |
+|Ascii_Letter.Mono        | "Mono"           |
+|Ascii_Letter.Moon        | "Moon"           |
+|Ascii_Letter.Moon2       | "Moon2"          |
+|Ascii_Letter.Roman       | "Roman"          |
+|Ascii_Letter.Standard    | "Standard"       |
+|Ascii_Letter.Sweet       | "Sweet"          |
+
+
+```python
+import custom_print as cp                 
+msg = cp.Art()
+msg.ascii_type = cp.Ascii_Letter.Moon
+```
+> <span style="color:cyan" ><strong>  This class is used along AsciiArt. It contains 23 options.</strong>
+
 ## Bg
-## Color_Names
+```python
+import custom_print as cp
+print(f"{cp.Bg.SEA_BLUE} Hello There {cp.Bg.OFF} Bye ")
+# See all the name availables by using the "ansi_colors" function
+```
+> <span style="color:cyan" ><strong>  This class is used where bg color is needed by its name. It contains 256 options.</strong>
+
 
 ## Divider_Style
-
+|             |                 |
+|-------------|-----------------|
+|Name         | Value           |
+|CUSTOMIZED   | "customized"    |
+|SINGLE_LINE  | "single_line"   |
+|SINGLE_BOLD  | "single_bold"   |
+|SINGLE_HEAVY | "single_heavy"  |
+|DOUBLE_LINE  | "double_line"   |
+|DASH_1       | "dash_1"        |
+|DASH_2       | "dash_2"        |
+|SQ_BRACKETS  | "sq_brackets"   |
+|BLUE_WHITE_1 | "blue_white_1"  |
+|BLUE_WHITE_2 | "blue_white_2"  |
 
 > <span style="color:cyan" ><strong>  This class is used where a divider is needed. It contains 10 options.</strong>
-
-|                  |                |
-|------------------|----------------|
-| **CUSTOMIZED**   | "customized"   |
-| **SINGLE_LINE**  | "single_line"  |
-| **SINGLE_BOLD**  | "single_bold"  |
-| **SINGLE_HEAVY** | "single_heavy" |
-| **DOUBLE_LINE**  | "double_line"  |
-| **DASH_1**       | "dash_1"       |
-| **DASH_2**       | "dash_2"       |
-| **SQ_BRACKETS**  | "sq_brackets"  |
-| **BLUE_WHITE_1** | "blue_white_1" |
-| **BLUE_WHITE_2** | "blue_white_2" |
 
 [**Top**](#aid-classes) <span style="color:gray"> <strong> Example: </strong> </span>
 
@@ -77,6 +117,15 @@ div.print_fancy_divider(message=" Custom Print Divider", style="dash_1")
 ```
 
 ## Fg
+```python
+import custom_print as cp
+print(f"{cp.Fg.SEA_BLUE} Hello There {cp.Fg.OFF} Bye ")
+# See all the name availables by using the "ansi_colors" function
+
+```
+> <span style="color:cyan" ><strong>  This class is used where Fg color is needed by its name.  It contains 256 options.</strong>
+
+
 
 ## Layout
 <!--- ## <span style="color:green"> <strong> Layout </strong> </span> --->
@@ -275,8 +324,6 @@ tbl.print_fancy_format(data=lst, style=cp.Line_Style.DOUBLE_SPACE)
 
 
 ## Logo
-
-
 
 
 

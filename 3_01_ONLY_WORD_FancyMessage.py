@@ -82,7 +82,7 @@ msg.footnote_align = cp.Align.JUSTIFY
 
 
 # msg.help_lines = True
-msg.length = cp.Length_bg.ONLY_WORD
+msg.length = cp.Length_Bg.ONLY_WORD
 msg.adj_bg_lines_to_right_indent =  False   # True make all the way to the space available
 msg.adj_bg_msg_to_space_available = False   # True make all the way to the space available
 # These two options are only available when using the msg.length = cp.Length_bg.ONLY_WORD

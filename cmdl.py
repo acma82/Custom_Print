@@ -9,7 +9,7 @@ if __name__ == "__main__":
 
         internal_functions = ["ansi_colors", "ins_chr", "ins_newline", "set_reset_font", "terminal_bell"]
 
-        help_classes       = ["align", "length_bg", "ascii_letter", "line_style", "bg", "logo", "color_names", "move", "divider_style", "no", "fg", "style", "layout", "unicode"]
+        help_classes       = ["align", "length_bg", "ascii_letter", "line_style", "bg", "logo", "move", "divider_style", "no", "fg", "style", "layout", "unicode"]
 
         cursor             = ["jumpto", "jumpxy", "moveto", "movexy"]
 
@@ -26,15 +26,24 @@ if __name__ == "__main__":
         asciiart           = ["print_ascii_art", "print_multi_ascii_art", "print_ascii_logo_art", "print_reversed_ascii_logo_art"]
 
         all_topics = ["screen_functions",  "internal_functions",  "help_classes",  "cursor",  "fontstyle",  "fancymessage",  "pen",  "divider",  "fancyformat",  "asciiart",
+
                       "clean", "clear","dimensions", "erase", "resize", 
+
                       "ansi_colors", "ins_chr", "ins_newline", "set_reset_font", "terminal_bell",
-                      "align", "length_bg", "ascii_letter", "line_style", "bg", "logo", "color_names", "move", "divider_style", "no", "fg", "style", "layout", "unicode",
+                      "align", "length_bg", "ascii_letter", "line_style", "bg", "logo", "move", "divider_style", "no", "fg", "style", "layout", "unicode",
+
                       "jumpto", "jumpxy", "moveto", "movexy",
+
                       "start_style", "stop_style", "print_style", "reset_style",
+
                       "print_fancy_message", "print_fancy_note",
+
                       "draw_line", "draw_rectangle",
+
                       "print_fancy_divider",
+
                       "fancyformat", "print_fancy_format", "reset_fancy_format",
+
                       "print_ascii_art", "print_multi_ascii_art", "print_ascii_logo_art", "print_reversed_ascii_logo_art"]
         
 

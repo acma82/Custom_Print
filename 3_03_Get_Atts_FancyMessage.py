@@ -10,7 +10,7 @@ the 1970s BBC comedy sketch series Monty Python's Flying Circus.
 '''
 
 att = cp.FancyMessage()
-att.length = cp.Length_bg.ONLY_WORD
+att.length = cp.Length_Bg.ONLY_WORD
 
 cp.ins_newline(2)
 att.print_fancy_message(message)
