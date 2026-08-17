@@ -17,7 +17,7 @@ cp.ins_newline(2)
 
 # Style DASH -> DASh is the default one. It can be changed as you wish but dash is its own style.
 tbl.title_msg = f"Option {cp.Unicode.BLAKC_RIGHT_POINTING_TRIANGLE} Line Style DASH"
-tbl.print_fancy_format(data=lst, style=cp.Line_Style.DASH) # default one
+tbl.print_fancy_format(data=lst, style=cp.Line_Style.DASH_LINE) # default one
 
 
 cp.ins_newline(2)
@@ -35,5 +35,5 @@ cp.ins_newline(2)
 
 # Note: even the customize was modified the DASH style keep the same type of lines
 tbl.title_msg = f"Option {cp.Unicode.BLAKC_RIGHT_POINTING_TRIANGLE} Line Style DASH"
-tbl.print_fancy_format(lst,cp.Line_Style.DASH)
+tbl.print_fancy_format(lst,cp.Line_Style.DASH_LINE)
 

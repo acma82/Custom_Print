@@ -648,7 +648,7 @@ def Line_Style_Class():
       {cp.ins_chr(10)}  cp.Line_Style.SINGLE_BOLD
       {cp.ins_chr(10)}  cp.Line_Style.SINGLE_HEAVY
       {cp.ins_chr(10)}  cp.Line_Style.DOUBLE
-      {cp.ins_chr(10)}  cp.Line_Style.DASH
+      {cp.ins_chr(10)}  cp.Line_Style.DASH_LINE
       {cp.ins_chr(10)}  cp.Line_Style.SQR_BRACKETS
       {cp.ins_chr(10)}  cp.Line_Style.DOUBLE_SPACE
       {cp.ins_chr(10)}  cp.Line_Style.NONE_SPACE
@@ -1248,7 +1248,7 @@ def Diagram1():
     data = "   Data Inside The Box   "
     d1_lst.msg_title    = "Title"
     d1_lst.msg_footnote = "Footnote"   
-    d1_lst.print_fancy_format(data,cp.Line_Style.DASH)
+    d1_lst.print_fancy_format(data,cp.Line_Style.DASH_LINE)
    
     crs.jumpTo(qty=5, direction=cp.Move.UP)
     print(",,,")
@@ -1303,7 +1303,7 @@ def Diagram2():
    
     crs.jumpTo(qty=3, direction=cp.Move.UP)
     d2_lst.adj_indent = 50
-    d2_lst.print_fancy_format(values,cp.Line_Style.DASH)
+    d2_lst.print_fancy_format(values,cp.Line_Style.DASH_LINE)
 
     simple_msg.msg_title = " Description "
     values = [["! \u2192 middle_top_corner_chr"],
@@ -1349,7 +1349,7 @@ def Diagram2():
 
     crs.jumpTo(qty=9, direction=cp.Move.UP)
     d2_lst.adj_indent = 50
-    d2_lst.print_fancy_format(values,cp.Line_Style.DASH)
+    d2_lst.print_fancy_format(values,cp.Line_Style.DASH_LINE)
 
     simple_msg.msg_title = " Description "
     values = [["\u2022 \u2192 horizontal_line_under_header_chr"],
@@ -1400,7 +1400,7 @@ def Diagram2():
 
     crs.jumpTo(qty=9, direction=cp.Move.UP)
     d3_lst.adj_indent = 50
-    d3_lst.print_fancy_format(values,cp.Line_Style.DASH)
+    d3_lst.print_fancy_format(values,cp.Line_Style.DASH_LINE)
 
 
     simple_msg.msg_title = " Description "
@@ -1908,7 +1908,7 @@ def Pen_Class():
 
 	   draw_line(size=0, layout=Layout.HORIZONTAL, tail="\N{BLACK DIAMOND}", body="-", head="\N{BLACK DIAMOND}")
 
-	   draw_rectangle(length=3, width=3, style=Line_Style.DASH)
+	   draw_rectangle(length=3, width=3, style=Line_Style.DASH_LINE)
 '''
     print(message)
 

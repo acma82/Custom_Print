@@ -26,24 +26,28 @@ print("cols: ", cols, "  rows: ", rows)
 time.sleep(3)
 
 
-for n in range(5):
-    print("keep going... with erase() function... 5 times")
+# for n in range(5):
+#     print("keep going... with erase() function... 5 times")
 
-print("erase() function cleans the terminal and the cursor remain in the same position")
-print("erase uses the ansi system")
-erase()
-time.sleep(3)
-
-
-print("keep going... with clean")
-print("clean uses the ansi system")
-print("Clear the terminal and restore to home the cursor")
-time.sleep(3)
-clean()
-# This is the end of Screen_Functions
+# print("erase() function cleans the terminal and the cursor remain in the same position")
+# print("erase uses the ansi system")
+# erase()
+# time.sleep(3)
 
 
-print("Hello custom_print",end=".", flush=True)
-time.sleep(3)
-erase()
-print("Continuing from before")
+# print("keep going... with clean")
+# print("clean uses the ansi system")
+# print("Clear the terminal and restore to home the cursor")
+# time.sleep(3)
+# clean()
+# # This is the end of Screen_Functions
+
+
+# print("Hello custom_print",end=".", flush=True)
+# time.sleep(3)
+# erase()
+# print("Continuing from before")
+
+from custom_print import resize
+
+resize(100, 100)

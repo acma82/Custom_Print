@@ -38,7 +38,7 @@ tbl.header_bold = True
 tbl.bg_line_colors = cp.No.INDIAN_RED # to colors all bg lines at once
 tbl.fg_line_colors = cp.No.WHITE      # to colors all fg lines at once
 
-tbl.print_fancy_format(data=lst, style=cp.Line_Style.DASH)
+tbl.print_fancy_format(data=lst, style=cp.Line_Style.DASH_LINE)
 
 
 cp.ins_newline(2)

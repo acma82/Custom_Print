@@ -13,7 +13,7 @@ import custom_print as cp
 #-- -------------------------------------------------------------------------------------------------
 #   Variables in common for all the functions and classes                                           -
 #-- -------------------------------------------------------------------------------------------------
-green_div = cp.Divider()  # Message for function titles 
+green_div = cp.Divider()  # Message for function titles
 green_div.msg_bg = 10;                  green_div.msg_fg = 0;                          green_div.msg_bold = True
 green_div.adj_indent = 2;               green_div.msg_align = cp.Align.CENTER;         green_div.left_right_fill_bg = 10
 green_div.all_corner_bg = 10;           green_div.top_horizontal_line_bg = 10;         green_div.bottom_horizontal_line_bg = 10
@@ -32,7 +32,7 @@ tbl.header_bold  = True
 
 
 def about_custom_print():
-    
+
     '''  Description of custom_print project  '''
 
     lst = [["Module Name",         "custom_print"                                   ],
@@ -49,7 +49,7 @@ def about_custom_print():
            ["License",             "Everyone Can Use It At Their Own Risk"          ]]
 
 
-    
+
     FACE = " (" + "0" + chr(0x25E1) + "0" + ") "
     tbl.title_msg = FACE + "  Project Description "
     tbl.title_align = "center"
@@ -57,7 +57,7 @@ def about_custom_print():
     tbl.title_fg = 234
     tbl.title_bold = True
 
-    
+
     tbl.footnote_msg = "Released on Friday, December 27, 2024"
     tbl.adj_top_space = 1
     tbl.adj_bottom_space = 1
@@ -77,9 +77,9 @@ def about_custom_print():
 
 
 
-all_topics = [ 
+all_topics = [
     "Screen_Functions",  "clean", "clear","dimensions", "erase", "resize",                                                                                               # 0, 1, 2, 3, 4, 5,
-              
+
     "Internal_Functions", "ansi_colors", "ins_chr", "ins_newline", "set_reset_font", "terminal_bell",                                                                    # 6, 7, 8, 9, 10, 11
 
     "Help_Classes",  "align", "length_bg", "ascii_letter", "line_style", "bg", "logo", "move", "divider_style", "no", "fg", "style", "layout", "unicode",                # 12 - 25,
@@ -145,7 +145,7 @@ def  help_documentation():
               ["print_multi_ascii_art"],
               ["print_ascii_logo_art"],
               ["print_reversed_ascii_logo_art"]]
-    
+
     cp.ins_newline(1)
     mensaje = "Documentation For custom_print Module....!"
     blue_msg.left_indent = int(((cols)-(len(mensaje)))/2)
@@ -153,7 +153,7 @@ def  help_documentation():
     print(f"\n  Release Version: 1.1.5\n")
 
     mensaje = "Functions in custom_print Module"
-    blue_msg.print_fancy_message(mensaje)    
+    blue_msg.print_fancy_message(mensaje)
     tbl.header_all_cell_bg = False
     tbl.header_bold = True
     tbl.header_bg   = 90; tbl.header_fg = 231
@@ -252,11 +252,11 @@ def  help_documentation():
        Documentation for the method \033[1;48;5;22;1m movexy \033[0m will be called as well.
 
        It's possible to display the complete documentation help by passing
-       \"all\" or \"documentation\" as a parameter. 
+       \"all\" or \"documentation\" as a parameter.
 
     '''
 
-    
+
     cp.ins_newline(1)
 
     print(message)
@@ -298,7 +298,7 @@ def all_documentation():
     purple_div.left_vertical_line_bg = 90;   purple_div.right_vertical_line_bg = 90
     purple_div.print_fancy_divider("  Custom_Print Documentation  ")
     about_custom_print()
-    help_documentation()    
+    help_documentation()
     screen_functions_info()
     internal_functions_info()
     help_classes_info()
@@ -309,7 +309,7 @@ def all_documentation():
 # +-------------------------------------------------------------------------------------------------+
 # |  Screen_Functions in custom_print Module                                                        |
 # +-------------------------------------------------------------------------------------------------+
-def screen_functions_info():   
+def screen_functions_info():
     cp.ins_newline(1)
     blue_div.print_fancy_divider(all_topics[0])    # Screen Functions
     mensaje = '''
@@ -326,16 +326,16 @@ def screen_functions_info():
 def clean_info():
    #------------------------------------------------------------------------------------------------
    # clean, It uses ansi code                                                                      -
-   #------------------------------------------------------------------------------------------------   
+   #------------------------------------------------------------------------------------------------
     message = f'''
       It cleans the terminal and returns the cursor to home.
-      
+
       Note: This function uses the ansi code.
     '''
     cp.ins_newline(1)
-    green_div.print_fancy_divider(all_topics[1])    
+    green_div.print_fancy_divider(all_topics[1])
     print(message)
-    
+
     print(f"{cp.ins_chr(6)}{cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp")
     print(f"{cp.ins_chr(18)}cp.clean()\n")
 
@@ -346,7 +346,7 @@ def clear_info():
    #------------------------------------------------------------------------------------------------
     message = '''
       It clears the terminal and returns the cursor to home.
-      
+
       Note: This functions uses the OS command.
     '''
     cp.ins_newline(1)
@@ -354,7 +354,7 @@ def clear_info():
     print(message)
     print(f"{cp.ins_chr(6)}{cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp")
     print(f"{cp.ins_chr(18)}cp.clear()\n")
-    
+
 
 def dimensions_info():
    #------------------------------------------------------------------------------------------------
@@ -392,7 +392,7 @@ def erase_info():
                     time.sleep(3)
                     erase()
                     print("Continuing from before")
-    
+
     '''
     print(msg)
 
@@ -408,6 +408,9 @@ def resize_info():
     print(message)
     print(f"{cp.ins_chr(6)}{cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp")
     print(f"{cp.ins_chr(18)}cp.resize(rows=20, cols=120)\n")
+    print(f"\n{cp.ins_chr(6)}Note: This only works when we are using the bash terminal.")
+    print(f"{cp.ins_chr(6)}      Using konsole or another type of termial it may not work.")
+
 
 
 
@@ -427,7 +430,7 @@ def internal_functions_info():
     All these functions are being used internally in the custom_print modules.
     It is available to the user if they find them usefull, otherwise, feel free
     to ignore them.
-    ''' 
+    '''
     print(mensaje)
     ansi_colors_info()
     ins_chr_info()
@@ -455,22 +458,22 @@ def ansi_colors_info():
             code = str(i * 16 + j)
             sys.stdout.write(u"\u001b[48;5;" + code + "m " + code.ljust(4))
         print (u"\u001b[0m")
- 
+
     message = f'''
-      This function displays all background colors available with ansi code. 
+      This function displays all background colors available with ansi code.
       The following options are for a better visualization.
-	    
+
       1.- The bold option for the font (True / False)
       2.- The fg option to visualize the background colors with a specific
            foreground color.
       3.- The n_line option to insert lines between the colors.
- 
-       
+
+
       {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp
                   cp.bg_ansi_colors(bold=True, fg=22, n_line=1)
     '''
     print(message)
- 
+
     cp.ins_newline(2)
 
     message = f'''
@@ -486,18 +489,18 @@ def ansi_colors_info():
             code = str(i * 16 + j)
             sys.stdout.write(u"\u001b[38;5;" + code + "m " + code.ljust(4))
         print (u"\u001b[0m")
-    
+
 
     message = f'''
-      This function displays all foreground colors available with ansi code. 
+      This function displays all foreground colors available with ansi code.
       The following options are for a better visualization.
- 
+
       1.- The bold option for the font (True / False)
       2.- The bg option to visualize the background colors with a specific
          foreground color.
       3.- The n_line option to insert lines between the colors.
- 
-       
+
+
       {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp
                   cp.fg_ansi_colors(bold=True, bg=22, n_line=1)
     '''
@@ -526,7 +529,7 @@ def ins_chr_info():
       This function inserts n times the unicode provided,
       by default it is set to space.
 
-      {cp.set_font(1,231,0)} Example 1: {cp.reset_font()}  import custom_print as cp      
+      {cp.set_font(1,231,0)} Example 1: {cp.reset_font()}  import custom_print as cp
                     print("Hello"+cp.ins_chr(20)+"There")
 
       {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}    Hello                    There
@@ -535,7 +538,7 @@ def ins_chr_info():
     print(message)
 
     message = f'''
-      {cp.set_font(1,231,0)} Example 2: {cp.reset_font()}  import custom_print as cp      
+      {cp.set_font(1,231,0)} Example 2: {cp.reset_font()}  import custom_print as cp
                     print("Hello"+cp.ins_chr(20,"@")+"There")
 
       {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}    Hello@@@@@@@@@@@@@@@@@@@@There
@@ -554,17 +557,17 @@ def ins_newline_info():
       {cp.set_font(1,209,16,1)}                                               {cp.reset_font()}
       {cp.set_font(1,209,16,1)}  ins_newline(n=1)                             {cp.reset_font()}
       {cp.set_font(1,209,16,1)}                                               {cp.reset_font()}
-        
+
       This function inserts n new lines.
 
       {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp
                   print("Python")
                   cp.ins_newline(2)
                   print("is amazing...!")
-              
+
       {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}  Python
 
-               
+
                   is amazing...!
 
       '''
@@ -586,45 +589,45 @@ def set_reset_font_info():
       Colors range goes from -1 to 256.
       To set the default color from the system use -1 or 256,
       for both bg and fg.
- 
+
       blinking might not work in all the OS. We use Red Hat Family.
- 
-    
+
+
        reset_font() → This function resets the font attributes to the default
                       values when we use the set_font() function.
- 
+
        set_font()   → This function changes the font attributes, bg, fg,
                       bold, italic, and so on.
-       
-       
+
+
        Parameters with their default values:
-       
+
        1)  bold    = False    4) italic    = False    7) blinking = False
        2)  bg      = -1       5) underline = False    8) dim      = False
        3)  fg      = -1       6) strike    = False    9) hidden   = False
        10) inverse = False
-       
+
       This function passes many attributes for the font. If passing all these
       arguments is a little annoying to the user, the user can use the
       FontStyle Class for simplicity.
- 
+
       The best way to use this function is to pass only the first 3 parameters
       like the example.
- 
+
        {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp
-                   print(cp.set_font(1,11,21) + " Python is " + 
+                   print(cp.set_font(1,11,21) + " Python is " +
                    cp.set_font(0,1) + " Wonderful." + cp.reset_font()) +
                    " Default."
 
         {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}  {cp.set_font(1,11,21)} Python is {cp.set_font(0,1)} Wonderful. {cp.reset_font()} Default.
 
-      
+
       Note: These functions are being used by some classes.
             Feel free to ignore them if not useful to you.
-    ''' 
+    '''
     print(message)
 
-    
+
 #------------------------------------------------------------------------------------------------
 # terminal_bell                                                                                 -
 #------------------------------------------------------------------------------------------------
@@ -636,11 +639,11 @@ def terminal_bell_info():
       {cp.set_font(1,209,16,1)}  terminal_bell()                              {cp.reset_font()}
       {cp.set_font(1,209,16,1)}                                               {cp.reset_font()}
 
-      This function makes the bell sound in the terminal.               
+      This function makes the bell sound in the terminal.
 
       {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp
                   cp.terminal_bell()
-      
+
       '''
     print(message)
     cp.terminal_bell()
@@ -661,10 +664,10 @@ def help_classes_info():
     blue_div.print_fancy_divider(all_topics[12]) # Help Classes
     mensaje ='''
     All these classes are to help the user to do not mispell any instructions
-    in all the other classes, methods, or functions. The user can still use 
+    in all the other classes, methods, or functions. The user can still use
     the default value directly, however it is recomended to use these classes.
-    ''' 
-    print(mensaje)    
+    '''
+    print(mensaje)
     align_info()
     ascii_letter_info()
     bg_info()
@@ -679,11 +682,11 @@ def help_classes_info():
     style_info()
     unicode_info()
 
-    
 
 
 
-    
+
+
 def align_info():
     cp.ins_newline(1)
     green_div.print_fancy_divider(all_topics[13])
@@ -697,12 +700,12 @@ def align_info():
 
       This class makes the alignment for data.
 
-      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp             
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp
                   msg = cp.FancyMessage()
                   msg.title_align = cp.Align.CENTER
                   msg.footnote_align = "right"
                 # msg.footnote_align = "r"  -> Same as above
-      
+
       '''
     print(message)
     lista = [["Align.RIGHT","Align.LEFT", "Align.CENTER","Align.JUSTIFY"],
@@ -736,10 +739,10 @@ def ascii_letter_info():
 
       This class select the type of letter to print.
 
-      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp                 
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp
                   msg = cp.Art()
                   msg.ascii_type = cp.Ascii_Letter.Moon
-      
+
       '''
     print(message)
     lista = [
@@ -771,7 +774,7 @@ def ascii_letter_info():
     tbl.print_fancy_format(data=lista, style=cp.Line_Style.TURQUOISE_BLACK)
     print("\n      Note: See the AsciiArt Class to visualize a complete example.\n\n")
 
-        
+
 def bg_info():
     cp.ins_newline(1)
     green_div.print_fancy_divider(all_topics[17])
@@ -780,7 +783,7 @@ def bg_info():
 
       {cp.set_font(1,209,16,1)}                                                            {cp.reset_font()}
       {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} See \"ansi_colors\" function to see all the bg color names {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                            {cp.reset_font()}      
+      {cp.set_font(1,209,16,1)}                                                            {cp.reset_font()}
 
       {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp  '''
     print(message)
@@ -801,7 +804,7 @@ def fg_info():
 
       {cp.set_font(1,209,16,1)}                                                            {cp.reset_font()}
       {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} See ansi_colors function to see all the fg color names   {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                            {cp.reset_font()}      
+      {cp.set_font(1,209,16,1)}                                                            {cp.reset_font()}
 
       {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp  '''
     print(message)
@@ -809,7 +812,7 @@ def fg_info():
 
     message = f'''
       {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}  {cp.Fg.SEA_BLUE} Hello There {cp.Fg.OFF} Bye
-      
+
     '''
     print(message)
 
@@ -835,11 +838,11 @@ def divider_style_info():
 
       This class select the type of style for the divider to be used.
 
-      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp                 
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp
                   div = cp.Divider()
                   div.print_fancy_divider(message = " Custom Print Divider",
                                           style   = cp.Divider_Style.DASH_2)
-      
+
       '''
     print(message)
     print("\n      Note: See the Divider Class to visualize a complete example.\n\n")
@@ -849,17 +852,17 @@ def layout_info():
     cp.ins_newline(1)
     green_div.print_fancy_divider(all_topics[24])
 
-    message = f'''     
+    message = f'''
       This class is used with FancyFormat class and Pen class.
 
       {cp.set_font(1,209,16,1)}                                {cp.reset_font()}
       {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} Layout.HORIZONTAL           {cp.reset_font()}
       {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} Layout.VERTICAL             {cp.reset_font()}
       {cp.set_font(1,209,16,1)}                                {cp.reset_font()}
-                  
+
       {cp.set_font(1,231,0)} Example: Range type, vertical layout {cp.reset_font()}
-                  
-                  import fancyprint as cp 
+
+                  import fancyprint as cp
                   tbl  = cp.FancyFormat()
                   x    = range(0,16,2)
 
@@ -884,17 +887,17 @@ def length_bg_info():
     cp.ins_newline(1)
     green_div.print_fancy_divider(all_topics[14])
 
-    message = f'''     
+    message = f'''
       This class is used with FancyMessage class.
 
       {cp.set_font(1,209,16,1)}                            {cp.reset_font()}
       {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} ALL_ROW   = 1           {cp.reset_font()}
       {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} ONLY_WORD = 2           {cp.reset_font()}
       {cp.set_font(1,209,16,1)}                            {cp.reset_font()}
-                  
+
       {cp.set_font(1,231,0)} Example: Range type, vertical layout {cp.reset_font()}
-                  
-                  import fancyprint as cp 
+
+                  import fancyprint as cp
                   msg = cp.FancyMessage()
                   paragraph1 = \" First paragraph,  Last  paragraph \"
                   msg.length = cp.Length_Bg.ONLY_WORD
@@ -904,16 +907,140 @@ def length_bg_info():
 
       {cp.ins_chr(10)}  ALL_ROW   \u2192 1
       {cp.ins_chr(10)}  ONLY_WORD \u2192 2
-      
+
 
       Note: See FancyFormat class to visualize a complete example.
 
       '''
-    print(message)    
+    print(message)
 
 def line_style_info():
     cp.ins_newline(1)
     green_div.print_fancy_divider(all_topics[16])
+    message = f'''
+      Style_Line Class is used with FancyFormat Class. There are many options.
+
+      {cp.set_font(1,209,16,1)}                                                      {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} CUSTOMIZED    {cp.Unicode.BULLET} DESIGN_1   {cp.Unicode.BULLET} WHITE_PURPLE         {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} DASH_LINE     {cp.Unicode.BULLET} DESIGN_2   {cp.Unicode.BULLET} WHITE_BLACK_PURPLE   {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} SINGLE_LINE   {cp.Unicode.BULLET} DESIGN_3   {cp.Unicode.BULLET} WHITE_BLACK_1        {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} DOUBLE_LINE   {cp.Unicode.BULLET} DESIGN_4   {cp.Unicode.BULLET} WHITE_BLACK_2        {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} SINGLE_BOLD   {cp.Unicode.BULLET} DESIGN_5   {cp.Unicode.BULLET} PURPLE_WHITE         {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} SINGLE_HEAVY  {cp.Unicode.BULLET} DESIGN_6   {cp.Unicode.BULLET} TURQUOISE_WHITE      {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} SQ_BRACKETS   {cp.Unicode.BULLET} DESIGN_7   {cp.Unicode.BULLET} TEAL_WHITE           {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} NONE          {cp.Unicode.BULLET} DESIGN_8   {cp.Unicode.BULLET} GRAY_TEAL_WHITE      {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} NONE_SPACE_1  {cp.Unicode.BULLET} DESIGN_9   {cp.Unicode.BULLET} BLUE_PURPLE_WHITE_1  {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} NONE_SPACE_2  {cp.Unicode.BULLET} DESIGN_10  {cp.Unicode.BULLET} BLUE_PURPLE_WHITE_2  {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} SINGLE_SPACE  {cp.Unicode.BULLET} RED_WHITE  {cp.Unicode.BULLET} TURQUOISE_BLACK      {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} DOUBLE_SPACE  {cp.Unicode.BULLET} BLUE_WHITE {cp.Unicode.BULLET} GREEN_GREEN_BLACK    {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}                                                      {cp.reset_font()}
+
+      Note: These options can be replaced for the original values.
+
+      {cp.Unicode.BULLET} CUSTOMIZED   \u2192 \"customized\"        {cp.Unicode.BULLET} DESIGN_1   \u2192 \"design_1\"
+      {cp.Unicode.BULLET} DASH_LINE    \u2192 \"dash_line\"         {cp.Unicode.BULLET} DESIGN_2   \u2192 \"design_2\"
+      {cp.Unicode.BULLET} SINGLE_LINE  \u2192 \"double_line\"       {cp.Unicode.BULLET} DESIGN_3   \u2192 \"design_3\"
+      {cp.Unicode.BULLET} DOUBLE_LINE  \u2192 \"single_line\"       {cp.Unicode.BULLET} DESIGN_4   \u2192 \"design_4\"
+      {cp.Unicode.BULLET} SINGLE_BOLD  \u2192 \"single_bold\"       {cp.Unicode.BULLET} DESIGN_5   \u2192 \"design_5\"
+      {cp.Unicode.BULLET} SINGLE_HEAVY \u2192 \"single_heavy\"      {cp.Unicode.BULLET} DESIGN_6   \u2192 \"design_6\"
+      {cp.Unicode.BULLET} SQ_BRACKETS  \u2192 \"sq_brackets\"       {cp.Unicode.BULLET} DESIGN_7   \u2192 \"design_7\"
+      {cp.Unicode.BULLET} NONE         \u2192 \"none\"              {cp.Unicode.BULLET} DESIGN_8   \u2192 \"design_8\"
+      {cp.Unicode.BULLET} NONE_SPACE_1 \u2192 \"none_space_1\"      {cp.Unicode.BULLET} DESIGN_9   \u2192 \"design_9\"
+      {cp.Unicode.BULLET} NONE_SPACE_2 \u2192 \"none_space_2\"      {cp.Unicode.BULLET} DESIGN_10  \u2192 \"design_10\"
+      {cp.Unicode.BULLET} SINGLE_SPACE \u2192 \"single_space\"      {cp.Unicode.BULLET} RED_WHITE  \u2192 \"red_white\"
+      {cp.Unicode.BULLET} DOUBLE_SPACE \u2192 \"double_space\"      {cp.Unicode.BULLET} BLUE_WHITE \u2192 \"blue_white\"
+
+      {cp.Unicode.BULLET} WHITE_PURPLE        \u2192 \"white_purple\"
+      {cp.Unicode.BULLET} WHITE_BLACK_PURPLE  \u2192 \"white_black_purple\"
+      {cp.Unicode.BULLET} PURPLE_WHITE        \u2192 \"purple_white\"
+      {cp.Unicode.BULLET} TURQUOISE_WHITE     \u2192 \"turquoise_white\"
+      {cp.Unicode.BULLET} TEAL_WHITE          \u2192 \"teal_white\"
+      {cp.Unicode.BULLET} GRAY_TEAL_WHITE     \u2192 \"gray_teal_white\"
+      {cp.Unicode.BULLET} BLUE_PURPLE_WHITE_1 \u2192 \"blue_purple_white_1\"
+      {cp.Unicode.BULLET} BLUE_PURPLE_WHITE_2 \u2192 \"blue_purple_white_2\"
+      {cp.Unicode.BULLET} GREEN_GREEN_BLACK   \u2192 \"green_green_black\"
+      {cp.Unicode.BULLET} WHITE_BLACK_1       \u2192 \"white_black\"
+      {cp.Unicode.BULLET} WHITE_BLACK_2       \u2192 \"white_black_2\"
+      {cp.Unicode.BULLET} TURQUOISE_BLACK     \u2192 \"turquoise_black\"
+
+
+
+      {cp.set_font(True,231,0)}   Note:  {cp.reset_font()}  Options{cp.set_font(True,-1,14)} NONE_SPACE_1, NONE_SPACE_2, SINGLE_SPACE {cp.reset_font()}and{cp.set_font(True,-1,14)}
+                  DOUBLE_SPACE,{cp.reset_font()} use colors to visualize the effect on the table.
+                  See the example below.
+
+      {cp.set_font(True,231,0)} Example: {cp.reset_font()}  import fancyprint as cp
+      {cp.ins_chr(10)}  tbli = cp.FancyFormat()
+      {cp.ins_chr(10)}  tbli.header_bg   = 23;         tbli.data_bg        = 231
+      {cp.ins_chr(10)}  tbli.header_fg   = 231;        tbli.data_fg        = 21
+      {cp.ins_chr(10)}  tbli.header_bold = True;       tbli.data_bold      = True
+      {cp.ins_chr(10)}  tbli.horizontal_line_bg = 1;   tbli.adj_top_margin = 1
+      {cp.ins_chr(10)}  tbli.vertical_line_bg   = 1;   tbli.adj_top_space  = 1
+
+      {cp.ins_chr(10)}  tbli.inner_corner_bg  = 1;
+      {cp.ins_chr(10)}  tbli.outer_corner_bg  = 1;
+      {cp.ins_chr(10)}  tbli.header_corner_bg = 1
+      {cp.ins_chr(10)}  tbli.header_horizontal_line_on = True    # False
+      {cp.ins_chr(10)}  tbli.bottom_horizontal_line_on = True    # False
+      {cp.ins_chr(10)}  tbli.top_horizontal_line_on    = True    # False
+      {cp.ins_chr(10)}  tbli.header_horizontal_line_bg = 1
+      {cp.ins_chr(10)}  tbli.header_vertical_line_bg   = 1
+
+      {cp.ins_chr(10)}  tbli.title_align = cp.Align.CENTER
+      {cp.ins_chr(10)}  tbli.title_bg    = 231
+      {cp.ins_chr(10)}  tbli.title_fg    = 16
+      {cp.ins_chr(10)}  tbli.title_bold  = True
+
+
+      {cp.ins_chr(10)}  lst = [["Header 1", "Header 2", "Header 3", "Header 4"],
+      {cp.ins_chr(10)}         ["Data 1",   "Data 2",   "Data 3",   "Data 4"  ],
+      {cp.ins_chr(10)}         ["Data 5",   "Data 6",   "Data 7",   "Data 8"  ]]
+
+      {cp.ins_chr(10)}  # tbli.print_fancy_format(data, style)
+
+      {cp.ins_chr(10)}  tbli.title_msg   = " NONE "
+      {cp.ins_chr(10)}  tbli.print_fancy_format(lst, cp.Line_Style.NONE)
+
+      {cp.ins_chr(10)}  tbli.title_msg = " SINGLE_SPACE "
+      {cp.ins_chr(10)}  tbli.print_fancy_format(lst, cp.Line_Style.SINGLE_SPACE)
+
+      {cp.ins_chr(10)}  tbli.title_msg = " DOUBLE_SPACE "
+      {cp.ins_chr(10)}  tbli.print_fancy_format(lst, cp.Line_Style.DOUBLE_SPACE)
+
+      {cp.set_font(1,231,90)} \u25CF Output: {cp.reset_font()}
+   '''
+    print(message)
+    lst = [["Header 1", "Header 2", "Header 3", "Header 4"],
+           ["Data 1",   "Data 2",   "Data 3",   "Data 4"  ],
+           ["Data 5",   "Data 6",   "Data 7",   "Data 8"  ]]
+    tbli = cp.FancyFormat()
+    tbli.header_bg   = 23;         tbli.data_bg   = 231
+    tbli.header_fg   = 231;        tbli.data_fg   = 21
+    tbli.header_bold = True;       tbli.data_bold = True
+    tbli.horizontal_line_bg  = 1;  tbli.adj_top_margin = 1
+    tbli.vertical_line_bg    = 1;  tbli.adj_top_space  = 1
+
+    tbli.inner_corner_bg  = 1
+    tbli.outer_corner_bg  = 1
+    tbli.header_corner_bg = 1
+    tbli.header_horizontal_line_on = True
+    tbli.bottom_horizontal_line_on = True
+    tbli.top_horizontal_line_on    = True
+    tbli.header_horizontal_line_bg = 1
+    tbli.header_vertical_line_bg   = 1
+
+    tbli.title_bg    = 231;                tbli.title_fg  = 16;      tbli.title_bold = True
+    tbli.title_align = cp.Align.CENTER;    tbli.title_msg = " NONE "
+
+    tbli.print_fancy_format(data=lst, style=cp.Line_Style.NONE)
+    tbli.title_msg = " NONE_SPACE_1"
+    tbli.print_fancy_format(lst, cp.Line_Style.NONE_SPACE_1)
+    tbli.title_msg = " NONE_SPACE_2"
+    tbli.print_fancy_format(lst, cp.Line_Style.NONE_SPACE_2)
+    tbli.title_msg = " SINGLE_SPACE "
+    tbli.print_fancy_format(data=lst, style=cp.Line_Style.SINGLE_SPACE)
+    tbli.title_msg = " DOUBLE_SPACE "
+    tbli.print_fancy_format(data=lst, style=cp.Line_Style.DOUBLE_SPACE)
 
 
 def logo_info():
@@ -939,9 +1066,9 @@ def unicode_info():
     green_div.print_fancy_divider(all_topics[25])
 
 
-# all_topics = [ 
+# all_topics = [
 #     "Screen_Functions",  "clean", "clear","dimensions", "erase", "resize",                                                                                               # 0, 1, 2, 3, 4, 5,
-              
+
 #     "Internal_Functions", "ansi_colors", "ins_chr", "ins_newline", "set_reset_font", "terminal_bell",                                                                    # 6, 7, 8, 9, 10, 11
 
 #     "Help_Classes",  "align", "length_bg", "ascii_letter", "line_style", "bg", "logo", "move", "divider_style", "no", "fg", "style", "layout", "unicode",                # 12 - 25,
@@ -975,7 +1102,7 @@ def cursor_info():
     neeed works here here here here here  All these functions are being used internally in the custom_print modules.
     It is available to the user if they find them usefull, otherwise, feel free
     to ignore them.
-    ''' 
+    '''
     print(mensaje)
     jumpto_info()
     jumpxy_info()
@@ -1001,7 +1128,7 @@ def fontstyle_info():
     neeed works here here here here here  All these functions are being used internally in the custom_print modules.
     It is available to the user if they find them usefull, otherwise, feel free
     to ignore them.
-    ''' 
+    '''
     print(mensaje)
     start_style_info()
     stop_style_info()
@@ -1028,7 +1155,7 @@ def fancymessage_info():
     neeed works here here here here here  All these functions are being used internally in the custom_print modules.
     It is available to the user if they find them usefull, otherwise, feel free
     to ignore them.
-    ''' 
+    '''
     print(mensaje)
     print_fancy_message_info()
     print_fancy_note_info()
@@ -1051,7 +1178,7 @@ def pen_info():
     neeed works here here here here here  All these functions are being used internally in the custom_print modules.
     It is available to the user if they find them usefull, otherwise, feel free
     to ignore them.
-    ''' 
+    '''
     print(mensaje)
     draw_line_info()
     draw_rectangle_info()
@@ -1072,7 +1199,7 @@ def divider_info():
     neeed works here here here here here  All these functions are being used internally in the custom_print modules.
     It is available to the user if they find them usefull, otherwise, feel free
     to ignore them.
-    ''' 
+    '''
     print(mensaje)
     print_fancy_divider_info()
 
@@ -1096,7 +1223,7 @@ def fancyformat_info():
     neeed works here here here here here  All these functions are being used internally in the custom_print modules.
     It is available to the user if they find them usefull, otherwise, feel free
     to ignore them.
-    ''' 
+    '''
     print(mensaje)
     print_fancy_format_info()
     reset_fancy_format_info()
@@ -1120,7 +1247,7 @@ def asciiart_info():
     neeed works here here here here here  All these functions are being used internally in the custom_print modules.
     It is available to the user if they find them usefull, otherwise, feel free
     to ignore them.
-    ''' 
+    '''
     print(mensaje)
     print_ascii_art_info()
     print_multi_ascii_art_info()
@@ -1148,14 +1275,14 @@ if __name__ == '__main__':
 
 
 #     message = '''
-# '''   
+# '''
 #     white_msg.print_fancy_note(message)
 
 #     cp.ins_newline(2)
 
 #     purple_msg.print_fancy_message("No Class")
 #     message = f'''
-#     If using the number is hard to remember the color, the No Class can be used to sustitute the 
+#     If using the number is hard to remember the color, the No Class can be used to sustitute the
 #     number for the name as the example below. Use the bg_ansi_colors or fg_ansi_colors methods
 #     to learn the names of the colors available in custom_print.
 
@@ -1172,12 +1299,12 @@ if __name__ == '__main__':
 #     print()
 #     print(f"{cp.Fg.AQUA}No Class {cp.Fg.OFF}can be used where a number color is required for example with FontStyle class,\
 #  FancyMessage class, FancyFormat class, etc.\n")
-        
+
 #     purple_msg.print_fancy_message("Bg, Fg, and Style Classes")
 #     print()
 #     message =f'''
 #        Style values:
-       
+
 #        1) bold=False      4) italic=False         7) blinking=False
 #        2) inverse         5) underline=False      8) dim=False
 #        3) hidden          6) strike=False
@@ -1186,7 +1313,7 @@ if __name__ == '__main__':
 #        to learn more the name of the colors available in custom_print.
 
 #        {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp'''
-             
+
 #     print(message)
 #     print("                   print(f\"{cp.Bg.WHITE+cp.Fg.BLUEBERRY_PURPLE} Background and Foreground")
 #     print("                   {cp.Bg.OFF} Only Foreground {cp.Fg.OFF} Normal....! \"\n")
@@ -1196,7 +1323,7 @@ if __name__ == '__main__':
 #     message = f'''       {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp'''
 #     print(message)
 #     print("                   print(f\"{cp.Style.UNDERLINE_ON} Underline Style {cp.Style.UNDERLINE_OFF} Normal\"")
-    
+
 #     print(f"\n       {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}",end="")
 #     print(f" {cp.Style.UNDERLINE_ON} UnderOnly Style {cp.Style.UNDERLINE_OFF} Normal....! \"\n")
 #     print("ansi_colors_info here")

@@ -143,37 +143,37 @@ class Line_Style(enum.StrEnum):
     '''
     Line_Style reference class
     '''
-    CUSTOMIZED   = "customized"
-    DASH         = "dash"
-    DOUBLE_LINE  = "double_line"
-    SINGLE_LINE  = "single_line"
-    SINGLE_BOLD  = "single_bold"
-    SINGLE_HEAVY = "single_heavy"
-    SQ_BRACKETS  = "sq_brackets"
-
+    # Design 1
+    CUSTOMIZED    = "customized"
+    DASH_LINE     = "dash_line"
+    DOUBLE_LINE   = "double_line"
+    SINGLE_LINE   = "single_line"
+    SINGLE_BOLD   = "single_bold"
+    SINGLE_HEAVY  = "single_heavy"
+    SQ_BRACKETS   = "sq_brackets"
+    NONE          = "none"
     # This two option are for making their own custom color for the user
+    NONE_SPACE_1  = "none_space_1"
+    NONE_SPACE_2  = "none_space_2"
     SINGLE_SPACE  = "single_space"
     DOUBLE_SPACE  = "double_space"
-    NONE          = "none"
-    # Color Designs ( DEF -> Default )
-    # set_color_for_spaces_on_tbl(self, bg_color_line, bg_color_header, fg_color_header, bg_color_data, fg_color_data)
-    # Design 1
+    
+    # Design 2
     WHITE_PURPLE        = "white_purple"
     WHITE_BLACK_PURPLE  = "white_black_purple"
     RED_WHITE           = "red_white"
     PURPLE_WHITE        = "purple_white"
     BLUE_WHITE          = "blue_white"
     TURQUOISE_WHITE     = "turquoise_white"
-    TEAL_WHITE      = "teal_white"
-    GRAY_TEAL_WHITE = "gray_teal_white"
+    TEAL_WHITE          = "teal_white"
+    GRAY_TEAL_WHITE     = "gray_teal_white"
     BLUE_PURPLE_WHITE_1 = "blue_purple_white_1"
     BLUE_PURPLE_WHITE_2 = "blue_purple_white_2"
     GREEN_GREEN_BLACK   = "green_green_black"
 
-    # set_color_2_for_tbl(self,bg_h, fg_h, bg_l, bg_d, fg_d)
-    # Design 2
+    # Design 3
     WHITE_BLACK_1   = "white_black"
-    WHITE_BLACK_2   = "white_black_v2"
+    WHITE_BLACK_2   = "white_black_2"
     TURQUOISE_BLACK = "turquoise_black"
 
     DESIGN_1  = "design_1"

@@ -109,10 +109,10 @@ class Pen(Cursor):                         # Inheritance the Cursor Class here.
         else:  pass
 
 
-    def draw_rectangle(self,length=3, width=3, style=Line_Style.DASH):
+    def draw_rectangle(self,length=3, width=3, style=Line_Style.DASH_LINE):
 
         '''  It draws a rectangle with the parameters specified
-             draw_rectangle(self,length=3, width=3, style=Line_Style.DASH)  '''
+             draw_rectangle(self,length=3, width=3, style=Line_Style.DASH_LINE)  '''
 
         if length <= 2: length = 3   # length = largo, width = alto
         if width  <= 2: width  = 3
@@ -273,7 +273,7 @@ class Pen(Cursor):                         # Inheritance the Cursor Class here.
                     self.bottom_right_corner_chr="\u2518";        self.bottom_left_corner_chr="\u2514"
 
 
-                elif style.lower() == Line_Style.DASH:
+                elif style.lower() == Line_Style.DASH_LINE:
                     # Horizontal Line Section
                     self.top_horizontal_line_chr = "\u002D";      self.bottom_horizontal_line_chr="\u002D"
 
@@ -298,7 +298,7 @@ class Pen(Cursor):                         # Inheritance the Cursor Class here.
 
                 else: pass
             #-------------------------------------------------------------------------------------------------------------------
-            # def draw_rectangle(self,length=3, width=3, style=Line_Style.DASH):
+            # def draw_rectangle(self,length=3, width=3, style=Line_Style.DASH_LINE):
             # def set_font(bold=False,bg=-1,fg=-1,italic=False,underline=False,strike=False,blinking=False,dim=False,hidden=False,inverse=False):
             settings = set_font(self.draw_line_bold, self.draw_line_bg, self.draw_line_fg)
 

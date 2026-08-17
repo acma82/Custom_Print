@@ -8,7 +8,7 @@
 
     draw_line(size=0, layout=Layout.HORIZONTAL, tail="\N{BLACK DIAMOND}", body="-", head="\N{BLACK DIAMOND}")
 
-    draw_rectangle(length=3, width=3, style=Line_Style.DASH)
+    draw_rectangle(length=3, width=3, style=Line_Style.DASH_LINE)
 
 
 | Rectangle Default Values      |                                   |                                 |

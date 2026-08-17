@@ -4,8 +4,7 @@
 * [**Align**](#align)
 * [**Ascii_Letter**](#ascii_letter)
 * [**Bg**](#bg)
-* [**Color_Names**](#color_names)
-* [**Divider_Style**](#divider)
+* [**Divider_Style**](#divider_style)
 * [**Fg**](#fg)
 * [**Layout**](#layout)
 * [**Length_bg**](#length_bg)
@@ -33,7 +32,7 @@
 | "right"     | "left"     |"center"      | "justify"     |
 | "r"         | "l"        |"c"           | "j"           |
 
-[**Top**](#aid-classes) <span style="color:gray"> <strong> Example: </strong> </span>
+[**Top**](#help-classes) <span style="color:gray"> <strong> Example: </strong> </span>
 
 
 ```python
@@ -72,6 +71,8 @@ msg.footnote_align = "right"   # msg.footnote_align = "r"
 |Ascii_Letter.Sweet       | "Sweet"          |
 
 
+[**Top**](#help-classes) <span style="color:gray"> <strong> Example: </strong> </span>
+
 ```python
 import custom_print as cp                 
 msg = cp.Art()
@@ -80,10 +81,13 @@ msg.ascii_type = cp.Ascii_Letter.Moon
 > <span style="color:cyan" ><strong>  This class is used along AsciiArt. It contains 23 options.</strong>
 
 ## Bg
+
+See all the name availables by using the "ansi_colors" function.
+
+[**Top**](#help-classes) <span style="color:gray"> <strong> Example: </strong> </span>
 ```python
 import custom_print as cp
 print(f"{cp.Bg.SEA_BLUE} Hello There {cp.Bg.OFF} Bye ")
-# See all the name availables by using the "ansi_colors" function
 ```
 > <span style="color:cyan" ><strong>  This class is used where bg color is needed by its name. It contains 256 options.</strong>
 
@@ -105,7 +109,7 @@ print(f"{cp.Bg.SEA_BLUE} Hello There {cp.Bg.OFF} Bye ")
 
 > <span style="color:cyan" ><strong>  This class is used where a divider is needed. It contains 10 options.</strong>
 
-[**Top**](#aid-classes) <span style="color:gray"> <strong> Example: </strong> </span>
+[**Top**](#help-classes) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
 import custom_print as cp
@@ -117,10 +121,12 @@ div.print_fancy_divider(message=" Custom Print Divider", style="dash_1")
 ```
 
 ## Fg
+See all the name availables by using the "ansi_colors" function
+
+[**Top**](#help-classes) <span style="color:gray"> <strong> Example: </strong> </span>
 ```python
 import custom_print as cp
 print(f"{cp.Fg.SEA_BLUE} Hello There {cp.Fg.OFF} Bye ")
-# See all the name availables by using the "ansi_colors" function
 
 ```
 > <span style="color:cyan" ><strong>  This class is used where Fg color is needed by its name.  It contains 256 options.</strong>
@@ -141,7 +147,7 @@ print(f"{cp.Fg.SEA_BLUE} Hello There {cp.Fg.OFF} Bye ")
 | "horizontal"      | "vertical"      |
 | "h"               | "v"             |
 
-[**Top**](#aid-classes) <span style="color:gray"> <strong> Example: </strong> </span>
+[**Top**](#help-classes) <span style="color:gray"> <strong> Example: </strong> </span>
 ```python
 import custom_print as cp
 tbl  = cp.FancyFormat()
@@ -151,13 +157,13 @@ tbl.print_fancy_format(r)
 tbl.set_layout = cp.Layout.VERTICAL     # tbl.set_layout = "v" 
 tbl.print_fancy_format(r)
 ```
-## Length_bg
+## Length_Bg
 <!--- ## <span style="color:green"> <strong> Length_bg </strong> </span> --->
     his class is used with FancyMessage class and contains 2 options.
 + ALL_ROW
 + ONLY_WORD
 
-[**Top**](#aid-classes) <span style="color:gray"> <strong> Example: </strong> </span>
+[**Top**](#help-classes) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
 import custom_print as cp
@@ -167,16 +173,16 @@ path = " The new path: /mnt/home/user_name/Documents/ " # usually use with a par
 msg.body_bg = 10
 msg.body_fg = 0
 msg.body_bold = True
-msg.length = cp.Length_bg.ONLY_WORD
+msg.length = cp.Length_Bg.ONLY_WORD
 
 msg.adj_bg_lines_to_right_indent =  False   # True make all the way to the space available
 msg.adj_bg_msg_to_space_available = False   # True make all the way to the space available
-# These two options are only available when using the msg.length = cp.Length_bg.ONLY_WORD
+# These two options are only available when using the msg.length = cp.Length_Bg.ONLY_WORD
 # otherwise they will make it to the longest line
 
 msg.print_fancy_message(path)
 cp.ins_newline(3)
-msg.length = cp.Length_bg.ALL_ROW # all the width of the terminal
+msg.length = cp.Length_Bg.ALL_ROW # all the width of the terminal
 msg.print_fancy_message(path)
 ```
 
@@ -188,134 +194,95 @@ msg.print_fancy_message(path)
 <!--- ## <span style="color:green"> <strong> Line_Style </strong> </span> --->
 	This class is used with FancyFormat class. There are some options available.
 
-            CUSTOMIZED         DESIGN_1       WHITE_PURPLE             GREEN_GREEN_BLACK 
-            DASH               DESIGN_2       WHITE_BLACK_PURPLE       WHITE_BLACK_1  
-            SINGLE_LINE        DESIGN_3       RED_WHITE                WHITE_BLACK_2
-            DOUBLE_LINE        DESIGN_4       PURPLE_WHITE             TURQUOISE_BLACK
-            SINGLE_BOLD        DESIGN_5       BLUE_WHITE          
-            SINGLE_HEAVY       DESIGN_6       TURQUOISE_WHITE     
-            SQR_BRACKETS       DESIGN_7       TEAL_WHITE      
-            NONE               DESIGN_8       GRAY_TEAL_WHITE 
-                               DESIGN_9       BLUE_PURPLE_WHITE_1
-                               DESIGN_10      BLUE_PURPLE_WHITE_2
+                    
+      CUSTOMIZED     DESIGN_1    WHITE_PURPLE       
+      DASH_LINE      DESIGN_2    WHITE_BLACK_PURPLE 
+      SINGLE_LINE    DESIGN_3    WHITE_BLACK_1      
+      DOUBLE_LINE    DESIGN_4    WHITE_BLACK_2      
+      SINGLE_BOLD    DESIGN_5    PURPLE_WHITE       
+      SINGLE_HEAVY   DESIGN_6    TURQUOISE_WHITE    
+      SQ_BRACKETS    DESIGN_7    TEAL_WHITE         
+      NONE           DESIGN_8    GRAY_TEAL_WHITE    
+      NONE_SPACE_1   DESIGN_9    BLUE_PURPLE_WHITE_1
+      NONE_SPACE_2   DESIGN_10   BLUE_PURPLE_WHITE_2
+      SINGLE_SPACE   RED_WHITE   TURQUOISE_BLACK    
+      DOUBLE_SPACE   BLUE_WHITE  GREEN_GREEN_BLACK  
+                    
 
+      Note: These options can be replaced for the original values.
+
+      CUSTOMIZED   = "customized"        DESIGN_1   = "design_1"
+      DASH_LINE    = "dash_line"         DESIGN_2   = "design_2"
+      SINGLE_LINE  = "double_line"       DESIGN_3   = "design_3"
+      DOUBLE_LINE  = "single_line"       DESIGN_4   = "design_4"
+      SINGLE_BOLD  = "single_bold"       DESIGN_5   = "design_5"
+      SINGLE_HEAVY = "single_heavy"      DESIGN_6   = "design_6"
+      SQ_BRACKETS  = "sq_brackets"       DESIGN_7   = "design_7"
+      NONE         = "none"              DESIGN_8   = "design_8"
+      NONE_SPACE_1 = "none_space_1"      DESIGN_9   = "design_9"
+      NONE_SPACE_2 = "none_space_2"      DESIGN_10  = "design_10"
+      SINGLE_SPACE = "single_space"      RED_WHITE  = "red_white"
+      DOUBLE_SPACE = "double_space"      BLUE_WHITE = "blue_white"
+
+      WHITE_PURPLE        = "white_purple"
+      WHITE_BLACK_PURPLE  = "white_black_purple"
+      PURPLE_WHITE        = "purple_white"
+      TURQUOISE_WHITE     = "turquoise_white"
+      TEAL_WHITE          = "teal_white"
+      GRAY_TEAL_WHITE     = "gray_teal_white"
+      BLUE_PURPLE_WHITE_1 = "blue_purple_white_1"
+      BLUE_PURPLE_WHITE_2 = "blue_purple_white_2"
+      GREEN_GREEN_BLACK   = "green_green_black"
+      WHITE_BLACK_1       = "white_black"
+      WHITE_BLACK_2       = "white_black_2"
+      TURQUOISE_BLACK     = "turquoise_black"
 
 
 <br>
 
-**Note:** These options can be replaced for the original values as displays below:
 
-|                    |                |                 |               |                  |                |
-|--------------------|----------------|-----------------|---------------|------------------|----------------|
-|	**CUSTOMIZED**   | "customized"   | **SINGLE_LINE** | "single_line" | **SINGLE_SPACE** | "single_space" |
-|	**SINGLE_BOLD**  | "single_bold"  | **DASH**        | "dash"        | **DOUBLE_SPACE** | "double_space" |
-|	**SINGLE_HEAVY** | "single_heavy" | **DOUBLE_LINE** | "double_line" |                  |                |
-|	**SQ_BRACKETS**  | "sq_brackets"  | **NONE**        | "none"        |                  |                |
-
-<br>
-<br>
-
-|              |            |               |             |
-|--------------|------------|---------------|------------ |
-| **DESIGN_1** | "design_1" | **DESIGN_2**  | "design_2"  |
-| **DESIGN_3** | "design_3" | **DESIGN_4**  | "design_4"  |
-| **DESIGN_5** | "design_5" | **DESIGN_6**  | "design_6"  |
-| **DESIGN_7** | "design_7" | **DESIGN_8**  | "design_8"  |
-| **DESIGN_9** | "design_9" | **DESIGN_10** | "design_10" |
-
-
-**Note:** These DESIGN options work with the ***design_color*** along with **header**_bg_fg and **data**_bg_fg variables.
-
-<br>
-<br>
-
-|                         |                       |                    |                      |
-|-------------------------|-----------------------|--------------------|----------------------|
-| **WHITE_PURPLE**        | "white_purple"        | WHITE_BLACK_PURPLE | "white_black_purple" |
-| **RED_WHITE**           | "red_white"           | PURPLE_WHITE       | "purple_white"       |
-| **BLUE_WHITE**          | "blue_white"          | TURQUOISE_WHITE    | "turquoise_white"    |
-| **TEAL_WHITE**          | "teal_white"          | GRAY_TEAL_WHITE    | "gray_teal_white"    |
-| **BLUE_PURPLE_WHITE_1** | "blue_purple_white_1" | WHITE_BLACK_1      | "white_black"        |
-| **BLUE_PURPLE_WHITE_2** | "blue_purple_white_2" | WHITE_BLACK_2      | "white_black_v2"     |
-| **GREEN_GREEN_BLACK**   | "green_green_black"   | TURQUOISE_BLACK    | "turquoise_black"    |
-
-<br>    
-<br>    
-
-These are the variables to visualize when using **SINGLE_SPACE** or **DOUBLE_SPACE**.
-|                               |                                    |                                       |
-|-------------------------------|------------------------------------|---------------------------------------| 
-|horizontal_line_bg        = 21 | header_bg                   = 90   | data_bg                   = 231       |
-|vertical_line_bg          = 21 | header_fg                   = 231  | data_fg                   = 0         |
-|outer_corner_bg           = 21 | header_bold                 = True | data_bold                 = True      |
-|inner_corner_bg           = 21 | header_corner_bg            = 21   | middle_horizontal_line_on = True      |
-|header_horizontal_line_bg = 21 | header_vertical_line_bg     = 21	 | header_horizontal_line_on = True      |
-
-**Note:** Play with the colors and see your creation. Use the No.Name_Color if you prefer rather than the number.
-
-
-[**Top**](#aid-classes) <span style="color:gray"> <strong> Example: </strong> </span>
+[**Top**](#help-classes) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
-import custom_print as cp
-div = cp.Divider()
-my_color = cp.No.EARLY_NIGHT_BLUE
-div.all_corner_bg             = my_color
-div.top_horizontal_line_bg    = my_color
-div.bottom_horizontal_line_bg = my_color
-div.left_vertical_line_bg     = cp.No.WHITE
-div.right_vertical_line_bg    = cp.No.WHITE
+    lst = [["Header 1", "Header 2", "Header 3", "Header 4"],
+           ["Data 1",   "Data 2",   "Data 3",   "Data 4"  ],
+           ["Data 5",   "Data 6",   "Data 7",   "Data 8"  ]]
 
-div.all_fill_bg  = cp.No.WHITE
-div.msg_align = cp.Align.JUSTIFY
-div.adj_indent = 20
-div.msg_bold = True
+    tbli = cp.FancyFormat()
+    tbli.header_bg   = 23;         tbli.data_bg   = 231
+    tbli.header_fg   = 231;        tbli.data_fg   = 21
+    tbli.header_bold = True;       tbli.data_bold = True
+    
+    tbli.horizontal_line_bg  = 1;  tbli.adj_top_margin = 1
+    tbli.vertical_line_bg    = 1;  tbli.adj_top_space  = 1
 
+    tbli.inner_corner_bg  = 1
+    tbli.outer_corner_bg  = 1
+    tbli.header_corner_bg = 1
+    tbli.header_horizontal_line_on = True
+    tbli.bottom_horizontal_line_on = True
+    tbli.top_horizontal_line_on    = True
+    tbli.header_horizontal_line_bg = 1
+    tbli.header_vertical_line_bg   = 1
 
-# +--------------------------------------------------------------------------------------------+
-# | Printing the Divider                                                                       |
-# +--------------------------------------------------------------------------------------------+
-div.print_fancy_divider(message=" SQ BRACKET OPTION ", style=cp.Divider_Style.SQ_BRACKETS)
+    tbli.title_bg    = 231
+    tbli.title_fg    = 16
+    tbli.title_bold  = True
+    tbli.title_align = cp.Align.CENTER
+    tbli.title_msg   = " NONE "
+    tbli.print_fancy_format(data=lst, style=cp.Line_Style.NONE)
 
+    tbli.title_msg = " NONE_SPACE_1"
+    tbli.print_fancy_format(lst, cp.Line_Style.NONE_SPACE_1)
 
+    tbli.title_msg = " NONE_SPACE_2"
+    tbli.print_fancy_format(lst, cp.Line_Style.NONE_SPACE_2)
 
+    tbli.title_msg = " SINGLE_SPACE "
+    tbli.print_fancy_format(lst, cp.Line_Style.SINGLE_SPACE)
 
-lst = [["Header 0","Header 1","Header 2","Header 3"],
-       ["Col 0 Row 1", "Col 1 Row 1", "Col 2 Row 1", "Col 3 Row 1"],
-       ["Col 0 Row 2", "Col 1 Row 2", "Col 2 Row 2", "Col 3 Row 2"],
-       ["Col 0 Row 3", "Col 1 Row 3", "Col 2 Row 3", "Col 3 Row 3"]]
-
-
-tbl = cp.FancyFormat()
-tbl.title_msg = cp.Unicode.FACE + "  Main Table "
-tbl.title_align = "center"
-tbl.title_bg = cp.No.WHITE
-tbl.title_fg = cp.No.BLACK
-tbl.title_bold = True
-
-tbl.adj_top_space  = 1;    tbl.adj_bottom_space  = 1
-tbl.adj_top_margin = 4;    tbl.adj_bottom_margin = 2
-
-
-tbl.footnote_msg = "Released on Friday, December 27, 2024"
-
-tbl.header_bg = cp.No.INDIGO;   tbl.data_bg = cp.No.WHITE
-tbl.header_fg = cp.No.WHITE;    tbl.data_fg = cp.No.BLACK
-tbl.header_bold = True;         tbl.data_bold  = True
-tbl.adj_top_margin = 4;         tbl.adj_indent = 4
-
-
-
-tbl.horizontal_line_bg = cp.No.BLUE;           tbl.header_corner_bg          = cp.No.BLUE
-tbl.vertical_line_bg   = cp.No.BLUE;           tbl.header_vertical_line_bg   = cp.No.BLUE
-tbl.outer_corner_bg    = cp.No.BLUE;           tbl.middle_horizontal_line_on = True
-tbl.inner_corner_bg    = cp.No.BLUE;           tbl.header_horizontal_line_on = True
-tbl.header_horizontal_line_bg = cp.No.BLUE	
-
-# +--------------------------------------------------------------------------------------------+
-# | Printing Fancy Format                                                                      |
-# +--------------------------------------------------------------------------------------------+
-tbl.print_fancy_format(data=lst, style=cp.Line_Style.DOUBLE_SPACE)
+    tbli.title_msg = " DOUBLE_SPACE "
+    tbli.print_fancy_format(lst, cp.Line_Style.DOUBLE_SPACE)
 
 ```
 
@@ -324,7 +291,7 @@ tbl.print_fancy_format(data=lst, style=cp.Line_Style.DOUBLE_SPACE)
 
 
 ## Logo
-
+[**Top**](#help-classes) <span style="color:gray"> <strong> Example: </strong> </span>
 
 
 
@@ -354,7 +321,7 @@ tbl.print_fancy_format(data=lst, style=cp.Line_Style.DOUBLE_SPACE)
 | "r"        | "l"       |"u"        | "d"        |
 
 
-[**Top**](#aid-classes) <span style="color:gray"> <strong> Example: </strong> </span>
+[**Top**](#help-classes) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
 import custom_print as cp
@@ -367,8 +334,10 @@ print("I am down")
 ```
 
 ## No
+[**Top**](#help-classes) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ## Style
+[**Top**](#help-classes) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ## Unicode
 <!--- ## <span style="color:green"> <strong> Unicode </strong> </span> --->
@@ -389,7 +358,7 @@ print("I am down")
 | WHITE_CIRCLE                               | WHITE_DIAMOND                |
 | FACE                                       | Reference → https://www.unicode.org/charts/nameslist/ |
 
-[**Top**](#aid-classes) <span style="color:gray"> <strong> Example: </strong> </span>
+[**Top**](#help-classes) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
 import custom_print as cp

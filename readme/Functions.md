@@ -86,6 +86,8 @@ It resizes the terminal size.
     cp.resize(25, 120)
     print("Good Bye...!")    
 ```
+    Note: This only works when we are using the bash terminal.
+          Using konsole or another type of termial it may not work.
 
 ## <span style="color:cyan"><strong>  Internal Functions </span></strong>
 

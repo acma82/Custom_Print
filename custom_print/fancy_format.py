@@ -1273,6 +1273,70 @@ def make_single_empty_space_on_tbl(self):
     self.header_horizontal_line_chr = " ";      self.header_left_corner_chr   = " "
     self.header_right_corner_chr    = " ";      self.header_middle_corner_chr = " "
 
+
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+# Making NO spaces in the table free of chars. This is for spaces between the columns in the header and data                                    -
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+def make_no_space_1_on_tbl(self):
+    '''
+        makes no space rather than print the character for the line
+    '''
+    # Horizontal Line Section
+    self.top_horizontal_line_chr = " ";         self.bottom_horizontal_line_chr = " ";      self.middle_horizontal_line_chr = ""
+
+    # Vertical Line Section
+    self.left_vertical_line_chr  = "";         self.middle_vertical_line_chr = "";        self.right_vertical_line_chr = ""
+
+    # Outside Corner Section
+    self.top_left_corner_chr     = "";         self.top_right_corner_chr   = ""
+    self.bottom_right_corner_chr = "";         self.bottom_left_corner_chr = ""
+
+    # Middle Corner Section
+    self.middle_top_corner_chr   = "";         self.middle_bottom_corner_chr = "";         self.middle_inner_corner_chr = ""
+    self.left_lateral_corner_chr = "";         self.right_lateral_corner_chr = ""
+
+    # Header Section  Only for Matrix List
+    self.header_left_vertical_line_chr   = ""
+    self.header_right_vertical_line_chr  = ""
+    self.header_middle_vertical_line_chr = ""
+
+    # Under Line Header Section  Only for Matrix List
+    self.header_horizontal_line_chr = " ";      self.header_left_corner_chr   = ""
+    self.header_right_corner_chr    = "";      self.header_middle_corner_chr = ""
+
+
+
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+# Making NO spaces in the table free of chars. This is for spaces between the columns in the header and data                                    -
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+def make_no_space_2_on_tbl(self):
+    '''
+        makes no space rather than print the character for the line
+    '''
+    # Horizontal Line Section
+    self.top_horizontal_line_chr = " ";         self.bottom_horizontal_line_chr = " ";      self.middle_horizontal_line_chr = ""
+
+    # Vertical Line Section
+    self.left_vertical_line_chr  = " ";         self.middle_vertical_line_chr = "";        self.right_vertical_line_chr = " "
+
+    # Outside Corner Section
+    self.top_left_corner_chr     = " ";         self.top_right_corner_chr   = " "
+    self.bottom_right_corner_chr = " ";         self.bottom_left_corner_chr = " "
+
+    # Middle Corner Section
+    self.middle_top_corner_chr   = "";         self.middle_bottom_corner_chr = "";         self.middle_inner_corner_chr = ""
+    self.left_lateral_corner_chr = " ";         self.right_lateral_corner_chr = " "
+
+    # Header Section  Only for Matrix List
+    self.header_left_vertical_line_chr   = " "
+    self.header_right_vertical_line_chr  = " "
+    self.header_middle_vertical_line_chr = ""
+
+    # Under Line Header Section  Only for Matrix List
+    self.header_horizontal_line_chr = " ";      self.header_left_corner_chr   = " "
+    self.header_right_corner_chr    = " ";      self.header_middle_corner_chr = ""
+
+
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 # Fancy Format Class, Defing the Class Without Initial Parameters                                                                                   --
@@ -1627,7 +1691,7 @@ class FancyFormat:
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Defing a the main function to control the print of the list                                                                                    -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def print_fancy_format(self,data="none",style=Line_Style.DASH):
+    def print_fancy_format(self,data="none",style=Line_Style.DASH_LINE):
 
         '''  It prints any type of data in a fancy format
 
@@ -1855,7 +1919,7 @@ class FancyFormat:
             self.header_right_corner_chr    = "\u2502";   self.header_middle_corner_chr = " "
 
 
-        elif style.lower() == Line_Style.DASH:
+        elif style.lower() == Line_Style.DASH_LINE:
             # Horizontal Line Section
             self.top_horizontal_line_chr = "\u002D";    self.bottom_horizontal_line_chr = "\u002D";  self.middle_horizontal_line_chr = "\u002D"
 
@@ -1980,7 +2044,10 @@ class FancyFormat:
         #    +-------------------------------------------------------------------------+
         elif style.lower() == Line_Style.SINGLE_SPACE:
             make_single_empty_space_on_tbl(self)
-
+        elif style.lower() == Line_Style.NONE_SPACE_1:
+            make_no_space_1_on_tbl(self)
+        elif style.lower() == Line_Style.NONE_SPACE_2:
+            make_no_space_2_on_tbl(self)
         elif style.lower() == Line_Style.DOUBLE_SPACE:
             make_double_empty_space_on_tbl(self)
 

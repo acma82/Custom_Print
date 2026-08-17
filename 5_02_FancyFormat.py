@@ -12,7 +12,7 @@ cp.ins_newline(2)
 tbl.print_fancy_format(data=lst, style=cp.Line_Style.CUSTOMIZED) # This is the default one
 cp.ins_newline(2)
 
-tbl.print_fancy_format(data=lst, style=cp.Line_Style.DASH)
+tbl.print_fancy_format(data=lst, style=cp.Line_Style.DASH_LINE)
 
 cp.ins_newline(2)
 tbl.print_fancy_format(data=lst, style=cp.Line_Style.SINGLE_LINE)
