@@ -146,35 +146,21 @@ class Line_Style(enum.StrEnum):
     # Design 1
     CUSTOMIZED    = "customized"
     DASH_LINE     = "dash_line"
-    DOUBLE_LINE   = "double_line"
     SINGLE_LINE   = "single_line"
     SINGLE_BOLD   = "single_bold"
     SINGLE_HEAVY  = "single_heavy"
+    DOUBLE_LINE   = "double_line"
     SQ_BRACKETS   = "sq_brackets"
     NONE          = "none"
     # This two option are for making their own custom color for the user
-    NONE_SPACE_1  = "none_space_1"
-    NONE_SPACE_2  = "none_space_2"
-    SINGLE_SPACE  = "single_space"
-    DOUBLE_SPACE  = "double_space"
     
     # Design 2
-    WHITE_PURPLE        = "white_purple"
-    WHITE_BLACK_PURPLE  = "white_black_purple"
-    RED_WHITE           = "red_white"
-    PURPLE_WHITE        = "purple_white"
-    BLUE_WHITE          = "blue_white"
-    TURQUOISE_WHITE     = "turquoise_white"
-    TEAL_WHITE          = "teal_white"
-    GRAY_TEAL_WHITE     = "gray_teal_white"
-    BLUE_PURPLE_WHITE_1 = "blue_purple_white_1"
-    BLUE_PURPLE_WHITE_2 = "blue_purple_white_2"
-    GREEN_GREEN_BLACK   = "green_green_black"
-
-    # Design 3
-    WHITE_BLACK_1   = "white_black"
-    WHITE_BLACK_2   = "white_black_2"
-    TURQUOISE_BLACK = "turquoise_black"
+    SPACE_0  = "space_0"
+    SPACE_1  = "space_1"
+    SPACE_2  = "space_2"
+    SPACE_3  = "space_3"
+    SPACE_4  = "space_4"
+    SPACE_5  = "space_5"
 
     DESIGN_1  = "design_1"
     DESIGN_2  = "design_2"
@@ -186,6 +172,28 @@ class Line_Style(enum.StrEnum):
     DESIGN_8  = "design_8"
     DESIGN_9  = "design_9"
     DESIGN_10 = "design_10"
+
+    # Design 3
+    RED_WHITE           = "red_white"
+    BLUE_WHITE          = "blue_white"
+    WHITE_PURPLE        = "white_purple"
+    WHITE_BLACK_1   = "white_black"
+    WHITE_BLACK_2   = "white_black_2"
+    TURQUOISE_BLACK = "turquoise_black"
+    TURQUOISE_WHITE     = "turquoise_white"
+    PURPLE_WHITE        = "purple_white"
+    TEAL_WHITE          = "teal_white"
+
+    # Design 4
+    WHITE_BLACK_PURPLE  = "white_black_purple"
+    GRAY_TEAL_WHITE     = "gray_teal_white"
+    BLUE_PURPLE_WHITE_1 = "blue_purple_white_1"
+    BLUE_PURPLE_WHITE_2 = "blue_purple_white_2"
+    GREEN_GREEN_BLACK   = "green_green_black"
+
+    
+    
+
 
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 class Unicode(enum.StrEnum):

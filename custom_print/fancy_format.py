@@ -1160,35 +1160,6 @@ def print_matrix_list(self,my_list):
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-#-----------------------------------------------------------------------------------------------------------------------------------------------------
-# Making all the spaces in the table free of chars. This is for not spaces between the columns in the header and data                                          -
-#-----------------------------------------------------------------------------------------------------------------------------------------------------
-def make_double_empty_space_on_tbl(self):
-    '''
-        makes double space rather than print the character for the line
-    '''
-    # Horizontal Line Section
-    self.top_horizontal_line_chr = " ";         self.bottom_horizontal_line_chr = " ";      self.middle_horizontal_line_chr = " "
-
-    # Vertical Line Section
-    self.left_vertical_line_chr  = "  ";         self.middle_vertical_line_chr = "  ";      self.right_vertical_line_chr = "  "
-
-    # Outside Corner Section
-    self.top_left_corner_chr     = "  ";         self.top_right_corner_chr   = "  "
-    self.bottom_right_corner_chr = "  ";         self.bottom_left_corner_chr = "  "
-
-    # Middle Corner Section
-    self.middle_top_corner_chr   = "  ";         self.middle_bottom_corner_chr = "  ";      self.middle_inner_corner_chr = "  "
-    self.left_lateral_corner_chr = "  ";         self.right_lateral_corner_chr = "  "
-
-    # Header Section  Only for Matrix List
-    self.header_left_vertical_line_chr   = "  "
-    self.header_right_vertical_line_chr  = "  "
-    self.header_middle_vertical_line_chr = "  "
-
-    # Under Line Header Section  Only for Matrix List
-    self.header_horizontal_line_chr   = " ";      self.header_left_corner_chr   = "  "
-    self.header_right_corner_chr = "  ";     self.header_middle_corner_chr = "  "
 
 
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1243,35 +1214,38 @@ def set_color_2_for_tbl(self,bg_h, fg_h, bg_l, bg_d, fg_d):
     self.bottom_horizontal_line_on = False
     self.header_horizontal_line_on = False
 
+
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
-# Making all the spaces in the table free of chars. This is for spaces between the columns in the header and data                                    -
+# Making NO spaces in the table free of chars. This is for spaces between the columns in the header and data                                    -
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
-def make_single_empty_space_on_tbl(self):
+def make_no_space_0_on_tbl(self):
     '''
-        makes single space rather than print the character for the line
+        makes no space rather than print the character for the line
     '''
     # Horizontal Line Section
-    self.top_horizontal_line_chr = " ";         self.bottom_horizontal_line_chr = " ";      self.middle_horizontal_line_chr = " "
+    self.top_horizontal_line_chr = "";         self.bottom_horizontal_line_chr = "";      self.middle_horizontal_line_chr = ""
 
     # Vertical Line Section
-    self.left_vertical_line_chr  = " ";         self.middle_vertical_line_chr = " ";        self.right_vertical_line_chr = " "
+    self.left_vertical_line_chr  = "";         self.middle_vertical_line_chr = "";        self.right_vertical_line_chr = ""
 
     # Outside Corner Section
-    self.top_left_corner_chr     = " ";         self.top_right_corner_chr   = " "
-    self.bottom_right_corner_chr = " ";         self.bottom_left_corner_chr = " "
+    self.top_left_corner_chr     = "";         self.top_right_corner_chr   = ""
+    self.bottom_right_corner_chr = "";         self.bottom_left_corner_chr = ""
 
     # Middle Corner Section
-    self.middle_top_corner_chr   = " ";         self.middle_bottom_corner_chr = " ";         self.middle_inner_corner_chr = " "
-    self.left_lateral_corner_chr = " ";         self.right_lateral_corner_chr = " "
+    self.middle_top_corner_chr   = "";         self.middle_bottom_corner_chr = "";         self.middle_inner_corner_chr = ""
+    self.left_lateral_corner_chr = "";         self.right_lateral_corner_chr = ""
 
     # Header Section  Only for Matrix List
-    self.header_left_vertical_line_chr   = " "
-    self.header_right_vertical_line_chr  = " "
-    self.header_middle_vertical_line_chr = " "
+    self.header_left_vertical_line_chr   = ""
+    self.header_right_vertical_line_chr  = ""
+    self.header_middle_vertical_line_chr = ""
 
     # Under Line Header Section  Only for Matrix List
-    self.header_horizontal_line_chr = " ";      self.header_left_corner_chr   = " "
-    self.header_right_corner_chr    = " ";      self.header_middle_corner_chr = " "
+    self.header_horizontal_line_chr = " ";      self.header_left_corner_chr   = ""
+    self.header_right_corner_chr    = "";       self.header_middle_corner_chr = ""
+
+
 
 
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1302,7 +1276,7 @@ def make_no_space_1_on_tbl(self):
 
     # Under Line Header Section  Only for Matrix List
     self.header_horizontal_line_chr = " ";      self.header_left_corner_chr   = ""
-    self.header_right_corner_chr    = "";      self.header_middle_corner_chr = ""
+    self.header_right_corner_chr    = "";       self.header_middle_corner_chr = ""
 
 
 
@@ -1335,6 +1309,100 @@ def make_no_space_2_on_tbl(self):
     # Under Line Header Section  Only for Matrix List
     self.header_horizontal_line_chr = " ";      self.header_left_corner_chr   = " "
     self.header_right_corner_chr    = " ";      self.header_middle_corner_chr = ""
+
+
+
+def make_single_double_space_on_tbl(self):
+    '''
+        makes double space and not space in column header rather than print the character for the line
+    '''
+    # Horizontal Line Section
+    self.top_horizontal_line_chr = " ";        self.bottom_horizontal_line_chr = " ";      self.middle_horizontal_line_chr = ""
+
+    # Vertical Line Section
+    self.left_vertical_line_chr  = "  ";       self.middle_vertical_line_chr = "";         self.right_vertical_line_chr = "  "
+
+    # Outside Corner Section
+    self.top_left_corner_chr     = "  ";       self.top_right_corner_chr   = "  "
+    self.bottom_right_corner_chr = "  ";       self.bottom_left_corner_chr = "  "
+
+    # Middle Corner Section
+    self.middle_top_corner_chr   = "";         self.middle_bottom_corner_chr = "";         self.middle_inner_corner_chr = ""
+    self.left_lateral_corner_chr = "  ";       self.right_lateral_corner_chr = "  "
+
+    # Header Section  Only for Matrix List
+    self.header_left_vertical_line_chr   = "  "
+    self.header_right_vertical_line_chr  = "  "
+    self.header_middle_vertical_line_chr = ""
+
+    # Under Line Header Section  Only for Matrix List
+    self.header_horizontal_line_chr = " ";      self.header_left_corner_chr   = "  "
+    self.header_right_corner_chr    = "  ";       self.header_middle_corner_chr = ""
+
+
+
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+# Making all the spaces in the table free of chars. This is for spaces between the columns in the header and data                                    -
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+def make_single_empty_space_on_tbl(self):
+    '''
+        makes single space rather than print the character for the line
+    '''
+    # Horizontal Line Section
+    self.top_horizontal_line_chr = " ";         self.bottom_horizontal_line_chr = " ";      self.middle_horizontal_line_chr = " "
+
+    # Vertical Line Section
+    self.left_vertical_line_chr  = " ";         self.middle_vertical_line_chr = " ";        self.right_vertical_line_chr = " "
+
+    # Outside Corner Section
+    self.top_left_corner_chr     = " ";         self.top_right_corner_chr   = " "
+    self.bottom_right_corner_chr = " ";         self.bottom_left_corner_chr = " "
+
+    # Middle Corner Section
+    self.middle_top_corner_chr   = " ";         self.middle_bottom_corner_chr = " ";         self.middle_inner_corner_chr = " "
+    self.left_lateral_corner_chr = " ";         self.right_lateral_corner_chr = " "
+
+    # Header Section  Only for Matrix List
+    self.header_left_vertical_line_chr   = " "
+    self.header_right_vertical_line_chr  = " "
+    self.header_middle_vertical_line_chr = " "
+
+    # Under Line Header Section  Only for Matrix List
+    self.header_horizontal_line_chr = " ";      self.header_left_corner_chr   = " "
+    self.header_right_corner_chr    = " ";      self.header_middle_corner_chr = " "
+
+
+
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+# Making all the spaces in the table free of chars. This is for not spaces between the columns in the header and data                                          -
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+def make_double_empty_space_on_tbl(self):
+    '''
+        makes double space rather than print the character for the line
+    '''
+    # Horizontal Line Section
+    self.top_horizontal_line_chr = " ";         self.bottom_horizontal_line_chr = " ";      self.middle_horizontal_line_chr = " "
+
+    # Vertical Line Section
+    self.left_vertical_line_chr  = "  ";         self.middle_vertical_line_chr = "  ";      self.right_vertical_line_chr = "  "
+
+    # Outside Corner Section
+    self.top_left_corner_chr     = "  ";         self.top_right_corner_chr   = "  "
+    self.bottom_right_corner_chr = "  ";         self.bottom_left_corner_chr = "  "
+
+    # Middle Corner Section
+    self.middle_top_corner_chr   = "  ";         self.middle_bottom_corner_chr = "  ";      self.middle_inner_corner_chr = "  "
+    self.left_lateral_corner_chr = "  ";         self.right_lateral_corner_chr = "  "
+
+    # Header Section  Only for Matrix List
+    self.header_left_vertical_line_chr   = "  "
+    self.header_right_vertical_line_chr  = "  "
+    self.header_middle_vertical_line_chr = "  "
+
+    # Under Line Header Section  Only for Matrix List
+    self.header_horizontal_line_chr   = " ";      self.header_left_corner_chr   = "  "
+    self.header_right_corner_chr      = "  ";     self.header_middle_corner_chr = "  "
+
 
 
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
@@ -2042,14 +2110,20 @@ class FancyFormat:
         #    |    The user needs to set the colors manually                            |
         #    |    Remember: set_bg_list_on = False                                     |
         #    +-------------------------------------------------------------------------+
-        elif style.lower() == Line_Style.SINGLE_SPACE:
-            make_single_empty_space_on_tbl(self)
-        elif style.lower() == Line_Style.NONE_SPACE_1:
+        elif style.lower() == Line_Style.SPACE_0:               # NO SPACE AT ALL 
+            make_no_space_0_on_tbl(self)
+        elif style.lower() == Line_Style.SPACE_1:               # NO SPACE ON VERTICAL 
             make_no_space_1_on_tbl(self)
-        elif style.lower() == Line_Style.NONE_SPACE_2:
+        elif style.lower() == Line_Style.SPACE_2:               # NO SPACE ON COLUMN
             make_no_space_2_on_tbl(self)
-        elif style.lower() == Line_Style.DOUBLE_SPACE:
+        elif style.lower() == Line_Style.SPACE_3:               # SINGLE_SPACE
+            make_single_double_space_on_tbl(self)
+        elif style.lower() == Line_Style.SPACE_4:               # DOUBLE_SPACE
+            make_single_empty_space_on_tbl(self)
+        elif style.lower() == Line_Style.SPACE_5:               # SINGLE & DOUBLE_SPACE
             make_double_empty_space_on_tbl(self)
+
+
 
         elif style.lower() == Line_Style.CUSTOMIZED: pass
 

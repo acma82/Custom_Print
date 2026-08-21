@@ -197,7 +197,6 @@ def  help_documentation():
 
 
     tbl.adj_indent = 2
-    # tbl.print_fancy_format(data=cmcpp1, style=cp.Line_Style.PURPLE_WHITE)
     tbl.print_fancy_format(data=cmcpp1)
     cp.ins_newline(n=2)
     tbl.adj_indent = 13
@@ -408,7 +407,7 @@ def resize_info():
     print(message)
     print(f"{cp.ins_chr(6)}{cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp")
     print(f"{cp.ins_chr(18)}cp.resize(rows=20, cols=120)\n")
-    print(f"\n{cp.ins_chr(6)}Note: This only works when we are using the bash terminal.")
+    print(f"\n{cp.ins_chr(6)}Note: This only works when we are using the gnome or Xfce terminal.")
     print(f"{cp.ins_chr(6)}      Using konsole or another type of termial it may not work.")
 
 
@@ -920,54 +919,56 @@ def line_style_info():
     message = f'''
       Style_Line Class is used with FancyFormat Class. There are many options.
 
-      {cp.set_font(1,209,16,1)}                                                      {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} CUSTOMIZED    {cp.Unicode.BULLET} DESIGN_1   {cp.Unicode.BULLET} WHITE_PURPLE         {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} DASH_LINE     {cp.Unicode.BULLET} DESIGN_2   {cp.Unicode.BULLET} WHITE_BLACK_PURPLE   {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} SINGLE_LINE   {cp.Unicode.BULLET} DESIGN_3   {cp.Unicode.BULLET} WHITE_BLACK_1        {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} DOUBLE_LINE   {cp.Unicode.BULLET} DESIGN_4   {cp.Unicode.BULLET} WHITE_BLACK_2        {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} SINGLE_BOLD   {cp.Unicode.BULLET} DESIGN_5   {cp.Unicode.BULLET} PURPLE_WHITE         {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} SINGLE_HEAVY  {cp.Unicode.BULLET} DESIGN_6   {cp.Unicode.BULLET} TURQUOISE_WHITE      {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} SQ_BRACKETS   {cp.Unicode.BULLET} DESIGN_7   {cp.Unicode.BULLET} TEAL_WHITE           {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} NONE          {cp.Unicode.BULLET} DESIGN_8   {cp.Unicode.BULLET} GRAY_TEAL_WHITE      {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} NONE_SPACE_1  {cp.Unicode.BULLET} DESIGN_9   {cp.Unicode.BULLET} BLUE_PURPLE_WHITE_1  {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} NONE_SPACE_2  {cp.Unicode.BULLET} DESIGN_10  {cp.Unicode.BULLET} BLUE_PURPLE_WHITE_2  {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} SINGLE_SPACE  {cp.Unicode.BULLET} RED_WHITE  {cp.Unicode.BULLET} TURQUOISE_BLACK      {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} DOUBLE_SPACE  {cp.Unicode.BULLET} BLUE_WHITE {cp.Unicode.BULLET} GREEN_GREEN_BLACK    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                      {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}                                                          {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} CUSTOMIZED    {cp.Unicode.BULLET} DESIGN_1                              {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} DASH_LINE     {cp.Unicode.BULLET} DESIGN_2                              {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} SINGLE_LINE   {cp.Unicode.BULLET} DESIGN_3      {cp.Unicode.BULLET} WHITE_BLACK_1         {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} SINGLE_BOLD   {cp.Unicode.BULLET} DESIGN_4      {cp.Unicode.BULLET} WHITE_BLACK_2         {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} SINGLE_HEAVY  {cp.Unicode.BULLET} DESIGN_5      {cp.Unicode.BULLET} WHITE_PURPLE          {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} DOUBLE_LINE   {cp.Unicode.BULLET} DESIGN_6      {cp.Unicode.BULLET} TURQUOISE_BLACK       {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} SQ_BRACKETS   {cp.Unicode.BULLET} DESIGN_7      {cp.Unicode.BULLET} TURQUOISE_WHITE       {cp.reset_font()} 
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} NONE          {cp.Unicode.BULLET} DESIGN_8      {cp.Unicode.BULLET} WHITE_BLACK_PURPLE    {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} SPACE_0       {cp.Unicode.BULLET} DESIGN_9      {cp.Unicode.BULLET} GRAY_TEAL_WHITE       {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} SPACE_1       {cp.Unicode.BULLET} DESIGN_10     {cp.Unicode.BULLET} BLUE_PURPLE_WHITE_1   {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} SPACE_2       {cp.Unicode.BULLET} RED_WHITE     {cp.Unicode.BULLET} BLUE_PURPLE_WHITE_2   {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} SPACE_3       {cp.Unicode.BULLET} BLUE_WHITE    {cp.Unicode.BULLET} GREEN_GREEN_BLACK     {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} SPACE_4       {cp.Unicode.BULLET} TEAL_WHITE                            {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} SPACE_5       {cp.Unicode.BULLET} PURPLE_WHITE                          {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}                                                          {cp.reset_font()}
 
       Note: These options can be replaced for the original values.
 
-      {cp.Unicode.BULLET} CUSTOMIZED   \u2192 \"customized\"        {cp.Unicode.BULLET} DESIGN_1   \u2192 \"design_1\"
-      {cp.Unicode.BULLET} DASH_LINE    \u2192 \"dash_line\"         {cp.Unicode.BULLET} DESIGN_2   \u2192 \"design_2\"
-      {cp.Unicode.BULLET} SINGLE_LINE  \u2192 \"double_line\"       {cp.Unicode.BULLET} DESIGN_3   \u2192 \"design_3\"
-      {cp.Unicode.BULLET} DOUBLE_LINE  \u2192 \"single_line\"       {cp.Unicode.BULLET} DESIGN_4   \u2192 \"design_4\"
-      {cp.Unicode.BULLET} SINGLE_BOLD  \u2192 \"single_bold\"       {cp.Unicode.BULLET} DESIGN_5   \u2192 \"design_5\"
-      {cp.Unicode.BULLET} SINGLE_HEAVY \u2192 \"single_heavy\"      {cp.Unicode.BULLET} DESIGN_6   \u2192 \"design_6\"
-      {cp.Unicode.BULLET} SQ_BRACKETS  \u2192 \"sq_brackets\"       {cp.Unicode.BULLET} DESIGN_7   \u2192 \"design_7\"
-      {cp.Unicode.BULLET} NONE         \u2192 \"none\"              {cp.Unicode.BULLET} DESIGN_8   \u2192 \"design_8\"
-      {cp.Unicode.BULLET} NONE_SPACE_1 \u2192 \"none_space_1\"      {cp.Unicode.BULLET} DESIGN_9   \u2192 \"design_9\"
-      {cp.Unicode.BULLET} NONE_SPACE_2 \u2192 \"none_space_2\"      {cp.Unicode.BULLET} DESIGN_10  \u2192 \"design_10\"
-      {cp.Unicode.BULLET} SINGLE_SPACE \u2192 \"single_space\"      {cp.Unicode.BULLET} RED_WHITE  \u2192 \"red_white\"
-      {cp.Unicode.BULLET} DOUBLE_SPACE \u2192 \"double_space\"      {cp.Unicode.BULLET} BLUE_WHITE \u2192 \"blue_white\"
-
+      {cp.Unicode.BULLET} CUSTOMIZED   \u2192 \"customized\"        {cp.Unicode.BULLET} DESIGN_1     \u2192 \"design_1\"
+      {cp.Unicode.BULLET} DASH_LINE    \u2192 \"dash_line\"         {cp.Unicode.BULLET} DESIGN_2     \u2192 \"design_2\"
+      {cp.Unicode.BULLET} SINGLE_LINE  \u2192 \"single_line\"       {cp.Unicode.BULLET} DESIGN_3     \u2192 \"design_3\"
+      {cp.Unicode.BULLET} SINGLE_BOLD  \u2192 \"single_bold\"       {cp.Unicode.BULLET} DESIGN_4     \u2192 \"design_4\"
+      {cp.Unicode.BULLET} SINGLE_HEAVY \u2192 \"single_heavy\"      {cp.Unicode.BULLET} DESIGN_5     \u2192 \"design_5\"
+      {cp.Unicode.BULLET} DOUBLE_LINE  \u2192 \"double_line\"       {cp.Unicode.BULLET} DESIGN_6     \u2192 \"design_6\"
+      {cp.Unicode.BULLET} SQ_BRACKETS  \u2192 \"sq_brackets\"       {cp.Unicode.BULLET} DESIGN_7     \u2192 \"design_7\"
+      {cp.Unicode.BULLET} NONE         \u2192 \"none\"              {cp.Unicode.BULLET} DESIGN_8     \u2192 \"design_8\"
+      {cp.Unicode.BULLET} SPACE_0      \u2192 \"space_0\"           {cp.Unicode.BULLET} DESIGN_9     \u2192 \"design_9\"
+      {cp.Unicode.BULLET} SPACE_1      \u2192 \"space_1\"           {cp.Unicode.BULLET} DESIGN_10    \u2192 \"design_10\"
+      {cp.Unicode.BULLET} SPACE_2      \u2192 \"space_2\"           {cp.Unicode.BULLET} RED_WHITE    \u2192 \"red_white\"
+      {cp.Unicode.BULLET} SPACE_3      \u2192 \"space_3\"           {cp.Unicode.BULLET} BLUE_WHITE   \u2192 \"blue_white\"
+      {cp.Unicode.BULLET} SPACE_4      \u2192 \"space_4\"           {cp.Unicode.BULLET} TEAL_WHITE   \u2192 \"teal_white\"
+      {cp.Unicode.BULLET} SPACE_5      \u2192 \"space_5\"           {cp.Unicode.BULLET} PURPLE_WHITE \u2192 \"purple_white\"
+      
+      {cp.Unicode.BULLET} WHITE_BLACK_1       \u2192 \"white_black_1\"
+      {cp.Unicode.BULLET} WHITE_BLACK_2       \u2192 \"white_black_2\"
       {cp.Unicode.BULLET} WHITE_PURPLE        \u2192 \"white_purple\"
-      {cp.Unicode.BULLET} WHITE_BLACK_PURPLE  \u2192 \"white_black_purple\"
-      {cp.Unicode.BULLET} PURPLE_WHITE        \u2192 \"purple_white\"
+      {cp.Unicode.BULLET} TURQUOISE_BLACK     \u2192 \"turquoise_black\"
       {cp.Unicode.BULLET} TURQUOISE_WHITE     \u2192 \"turquoise_white\"
-      {cp.Unicode.BULLET} TEAL_WHITE          \u2192 \"teal_white\"
+      {cp.Unicode.BULLET} WHITE_BLACK_PURPLE  \u2192 \"white_black_purple\"
       {cp.Unicode.BULLET} GRAY_TEAL_WHITE     \u2192 \"gray_teal_white\"
       {cp.Unicode.BULLET} BLUE_PURPLE_WHITE_1 \u2192 \"blue_purple_white_1\"
       {cp.Unicode.BULLET} BLUE_PURPLE_WHITE_2 \u2192 \"blue_purple_white_2\"
       {cp.Unicode.BULLET} GREEN_GREEN_BLACK   \u2192 \"green_green_black\"
-      {cp.Unicode.BULLET} WHITE_BLACK_1       \u2192 \"white_black\"
-      {cp.Unicode.BULLET} WHITE_BLACK_2       \u2192 \"white_black_2\"
-      {cp.Unicode.BULLET} TURQUOISE_BLACK     \u2192 \"turquoise_black\"
 
 
 
-      {cp.set_font(True,231,0)}   Note:  {cp.reset_font()}  Options{cp.set_font(True,-1,14)} NONE_SPACE_1, NONE_SPACE_2, SINGLE_SPACE {cp.reset_font()}and{cp.set_font(True,-1,14)}
-                  DOUBLE_SPACE,{cp.reset_font()} use colors to visualize the effect on the table.
-                  See the example below.
+      {cp.set_font(True,231,0)}   Note:  {cp.reset_font()}  Options {cp.set_font(True,-1,14)}SPACE_X,{cp.reset_font()} use colors to visualize the effect
+                  on the tables while {cp.set_font(True,-1,14)}NONE{cp.reset_font()} will ignore all the colors
+                  assigned to the table, See the example below.
 
       {cp.set_font(True,231,0)} Example: {cp.reset_font()}  import fancyprint as cp
       {cp.ins_chr(10)}  tbli = cp.FancyFormat()
@@ -998,14 +999,21 @@ def line_style_info():
 
       {cp.ins_chr(10)}  # tbli.print_fancy_format(data, style)
 
-      {cp.ins_chr(10)}  tbli.title_msg   = " NONE "
-      {cp.ins_chr(10)}  tbli.print_fancy_format(lst, cp.Line_Style.NONE)
-
-      {cp.ins_chr(10)}  tbli.title_msg = " SINGLE_SPACE "
-      {cp.ins_chr(10)}  tbli.print_fancy_format(lst, cp.Line_Style.SINGLE_SPACE)
-
-      {cp.ins_chr(10)}  tbli.title_msg = " DOUBLE_SPACE "
-      {cp.ins_chr(10)}  tbli.print_fancy_format(lst, cp.Line_Style.DOUBLE_SPACE)
+      {cp.ins_chr(10)}  tbli.header_horizontal_line_on = False
+      {cp.ins_chr(10)}  tbli.print_fancy_format(data=lst, style=cp.Line_Style.NONE)
+      {cp.ins_chr(10)}  tbli.title_msg = " SPACE_0"
+      {cp.ins_chr(10)}  tbli.print_fancy_format(lst, cp.Line_Style.SPACE_0)
+      {cp.ins_chr(10)}  tbli.print_fancy_format(data=lst, style=cp.Line_Style.NONE)
+      {cp.ins_chr(10)}  tbli.title_msg = " SPACE_1"
+      {cp.ins_chr(10)}  tbli.print_fancy_format(lst, cp.Line_Style.SPACE_1)
+      {cp.ins_chr(10)}  tbli.title_msg = " SPACE_2"
+      {cp.ins_chr(10)}  tbli.print_fancy_format(lst, cp.Line_Style.SPACE_2)
+      {cp.ins_chr(10)}  tbli.title_msg = " SPACE_3 "
+      {cp.ins_chr(10)}  tbli.print_fancy_format(data=lst, style=cp.Line_Style.SPACE_3)
+      {cp.ins_chr(10)}  tbli.title_msg = " SPACE_4 "
+      {cp.ins_chr(10)}  tbli.print_fancy_format(data=lst, style=cp.Line_Style.SPACE_4)
+      {cp.ins_chr(10)}  tbli.title_msg = " SPACE_5 "
+      {cp.ins_chr(10)}  tbli.print_fancy_format(data=lst, style=cp.Line_Style.SPACE_5)
 
       {cp.set_font(1,231,90)} \u25CF Output: {cp.reset_font()}
    '''
@@ -1032,16 +1040,24 @@ def line_style_info():
     tbli.title_bg    = 231;                tbli.title_fg  = 16;      tbli.title_bold = True
     tbli.title_align = cp.Align.CENTER;    tbli.title_msg = " NONE "
 
+    tbli.header_horizontal_line_on = False
     tbli.print_fancy_format(data=lst, style=cp.Line_Style.NONE)
-    tbli.title_msg = " NONE_SPACE_1"
-    tbli.print_fancy_format(lst, cp.Line_Style.NONE_SPACE_1)
-    tbli.title_msg = " NONE_SPACE_2"
-    tbli.print_fancy_format(lst, cp.Line_Style.NONE_SPACE_2)
-    tbli.title_msg = " SINGLE_SPACE "
-    tbli.print_fancy_format(data=lst, style=cp.Line_Style.SINGLE_SPACE)
-    tbli.title_msg = " DOUBLE_SPACE "
-    tbli.print_fancy_format(data=lst, style=cp.Line_Style.DOUBLE_SPACE)
+    tbli.title_msg = " SPACE_0"
+    tbli.print_fancy_format(lst, cp.Line_Style.SPACE_0)
+    tbli.title_msg = " SPACE_1"
+    tbli.print_fancy_format(lst, cp.Line_Style.SPACE_1)
+    tbli.title_msg = " SPACE_2"
+    tbli.print_fancy_format(lst, cp.Line_Style.SPACE_2)
+    tbli.title_msg = " SPACE_3 "
+    tbli.print_fancy_format(data=lst, style=cp.Line_Style.SPACE_3)
+    tbli.title_msg = " SPACE_4 "
+    tbli.print_fancy_format(data=lst, style=cp.Line_Style.SPACE_4)
+    tbli.title_msg = " SPACE_5 "
+    tbli.print_fancy_format(data=lst, style=cp.Line_Style.SPACE_5)
 
+    print(f"\n{cp.ins_chr(10)}{cp.set_font(1,231,90)} \u25CF To see more examples regarding FancyFormat, check FancyFormat  {cp.reset_font()}\n"
+           f"{cp.ins_chr(10)}{cp.set_font(1,231,90)}   class documentation.{cp.ins_chr(43)}{cp.reset_font()}") 
+    
 
 def logo_info():
     cp.ins_newline(1)
@@ -1327,3 +1343,4 @@ if __name__ == '__main__':
 #     print(f"\n       {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}",end="")
 #     print(f" {cp.Style.UNDERLINE_ON} UnderOnly Style {cp.Style.UNDERLINE_OFF} Normal....! \"\n")
 #     print("ansi_colors_info here")
+    
