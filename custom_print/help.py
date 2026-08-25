@@ -82,7 +82,7 @@ all_topics = [
 
     "Internal_Functions", "ansi_colors", "ins_chr", "ins_newline", "set_reset_font", "terminal_bell",                                                                    # 6, 7, 8, 9, 10, 11
 
-    "Help_Classes",  "align", "length_bg", "ascii_letter", "line_style", "bg", "logo", "move", "divider_style", "no", "fg", "style", "layout", "unicode",                # 12 - 25,
+    "Help_Classes",  "Align", "Length_Bg", "Ascii_Letter", "Line_Style", "Bg", "Logo", "Move", "Divider_Style", "No", "Fg", "Style", "Layout", "Unicode",                # 12 - 25,
 
     "Cursor",  "jumpto", "jumpxy", "moveto", "movexy",                                                                                                                   # 26, 27, 28, 23, 30,
 
@@ -1386,7 +1386,7 @@ if __name__ == '__main__':
 #     print()
 #     message = '''Remember that we are still using the number, but using the name of the color.'''
 #     white_msg.print_fancy_note(message)
-#     print()
+#     print(){cp.set_font(1,209,16,1)}
 #     print(f"{cp.Fg.AQUA}No Class {cp.Fg.OFF}can be used where a number color is required for example with FontStyle class,\
 #  FancyMessage class, FancyFormat class, etc.\n")
 
