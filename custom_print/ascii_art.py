@@ -74,12 +74,11 @@ class AsciiArt:
     def description_ascii_logos(self):
         tbl = FancyFormat()
         ascii_logo_description = [["No.", "Name"],
-                                    [1,     "Logo_Unix"],
-                                    [2,     "Logo_Debian"],
                                     [3,     "Logo_Centos"],
-                                    [4,     "Logo_RedHat"],
+                                    [2,     "Logo_Debian"],
                                     [5,     "Logo_Linux"],
-                                    [6,     "Logo_AlmaLinux"]]
+                                    [4,     "Logo_RedHat"],
+                                    [1,     "Logo_Unix"]]
         
         
         tbl.title_align = "center"; tbl.title_msg   = "  Description of Ascii Logos  "

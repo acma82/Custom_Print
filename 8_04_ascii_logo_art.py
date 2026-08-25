@@ -1,6 +1,6 @@
 import custom_print as cp
 
-art_logo = cp.Art()
+art_logo = cp.AsciiArt()
 
 # Print the Logos Available
 art_logo.description_ascii_logos()

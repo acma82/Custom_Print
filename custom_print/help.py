@@ -1062,16 +1062,90 @@ def line_style_info():
 def logo_info():
     cp.ins_newline(1)
     green_div.print_fancy_divider(all_topics[18])
+    message = f'''
+      Logo Class has a few options.
+
+      {cp.set_font(1,209,16,1)}                  {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} Logo_Centos   {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} Logo_Debian   {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} Logo_Linux    {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} Logo_RedHat   {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} Logo_Unix     {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}                  {cp.reset_font()}
 
 
+
+      {cp.set_font(True,231,0)} Example: {cp.reset_font()}  import fancyprint as cp
+      {cp.ins_chr(10)}  art_logo = cp.AsciiArt()
+      {cp.ins_chr(10)}  art_logo.ascii_type = cp.Logo_Centos
+
+      Note: See AsciiArt Class for more options.
+    '''
+    print(message)
 
 def move_info():
     cp.ins_newline(1)
     green_div.print_fancy_divider(all_topics[19])
+    message = f'''
+      Move Class has a few options.
+
+      {cp.set_font(1,209,16,1)}             {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} DOWN     {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} LEFT     {cp.reset_font()}      
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} RIGHT    {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} UP       {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}             {cp.reset_font()}
+
+      Note: These options can be replaced for the original values.
+
+      {cp.Unicode.BULLET} DOWN   \u2192  \"down\"  
+      {cp.Unicode.BULLET} LEFT   \u2192  \"left\"  
+      {cp.Unicode.BULLET} RIGHT  \u2192  \"right\" 
+      {cp.Unicode.BULLET} UP     \u2192  \"up\"    
+
+
+      {cp.set_font(True,231,0)} Example: {cp.reset_font()}  import fancyprint as cp
+      {cp.ins_chr(10)}  crs = cp.Cursor()
+      {cp.ins_chr(10)}  crs.jumpTo(8, \"down\")
+      {cp.ins_chr(10)}  crs.jumpTo(2, cp.Move.DOWN)
+
+      Note: See Cursor Class for more examples.
+    '''
+    print(message)
+
 
 def no_info():
     cp.ins_newline(1)
     green_div.print_fancy_divider(all_topics[21])
+    message = f'''
+      {cp.set_font(1,209,16,1)}                                                                   {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} No Class has 256 options. To see them run the following code:  {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}                                                                   {cp.reset_font()}
+
+      import custom_print as cp
+      cp.bg_ansi_colors(bold=True, fg=0,  n_line=1)
+      cp.fg_ansi_colors(bold=True, bg=-1, n_line=1)
+
+      
+      {cp.set_font(True,231,0)} Example: {cp.reset_font()}  import fancyprint as cp
+      {cp.ins_chr(10)}  blue_msg = cp.FancyMessage()
+      {cp.ins_chr(10)}  blue_msg.body_bg   = cp.No.VERY_LIGHT_BLUE
+      {cp.ins_chr(10)}  blue_msg.body_fg   = cp.No.GO_GREEN
+
+      
+      Note: These options can be replaced for the original values.
+
+      {cp.set_font(True,231,0)} Example: {cp.reset_font()}  import fancyprint as cp
+      {cp.ins_chr(10)}  blue_msg = cp.FancyMessage()
+      {cp.ins_chr(10)}  blue_msg.body_bg   = 14
+      {cp.ins_chr(10)}  blue_msg.body_fg   = 35
+      
+      {cp.set_font(1,209,16,1)}                                                        {cp.reset_font()}
+      {cp.set_font(1,209,16,1)} This class is used where a color needs to be assigned. {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}                                                        {cp.reset_font()}
+'''
+    print(message)
+
 
 def style_info():
     cp.ins_newline(1)

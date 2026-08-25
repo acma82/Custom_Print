@@ -52,7 +52,8 @@ print(f"{crs.movexy(15,40)}hello again")
 #+-----------------------------------------------------------------------------------+
 #|    combination                                                                    |
 #+-----------------------------------------------------------------------------------+
-crs.jumpTo(8,"down")
+crs.jumpTo(6,"down")
+crs.jumpTo(2,Move.DOWN)
 crs.jumpxy(-1,-1)
 print("adios",end="")
 print(f"{crs.moveTo(qty=20,direction=Move.RIGHT)}BYE")
