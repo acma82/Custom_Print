@@ -39,3 +39,11 @@ cp.ins_newline(2)
 
 print(f"{cp.Bg.SEA_BLUE} Hello There {cp.Bg.OFF} Bye ")
 print(f"{cp.Fg.SEA_BLUE} Hello There {cp.Fg.OFF} Bye ")
+
+
+print(f"Normal {cp.Style.BOLD_ON}{cp.Style.ITALIC_ON}{cp.Style.UNDERLINE_ON} I am Bold,Italic and Underline. {cp.Style.OFF} Normal")  
+print(f"{cp.Bg.SEA_BLUE}{cp.Style.BOLD_ON}{cp.Style.ITALIC_ON} Hello There {cp.Style.OFF} Bye {cp.Bg.OFF}")
+print(f"{cp.Bg.SEA_BLUE}{cp.Fg.GREEN_YELLOW}{cp.Style.BOLD_ON}{cp.Style.UNDERLINE_ON} Hello There {cp.Style.RESET_ALL} Bye ")
+print(f"{cp.Bg.SEA_BLUE}{cp.Fg.GREEN_YELLOW}{cp.Style.BOLD_ON}{cp.Style.UNDERLINE_ON} Hello There {cp.reset_font()} Bye ")
+
+

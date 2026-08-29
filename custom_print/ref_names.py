@@ -229,10 +229,26 @@ class Unicode(enum.StrEnum):
     BLACK_LEFT_POINTING_TRIANGLE = "\N{BLACK LEFT-POINTING TRIANGLE}"    # \u25C0  left fill arrow
     WHITE_LEFT_POINTING_TRIANGLE = "\N{WHITE LEFT-POINTING TRIANGLE}"    # \u25C1  left empty arrow
 
-    EM_DASH = "\N{EM DASH}"
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    # Arrows                                                                                                                                         -
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    BLACK_RIGHTWARDS_ARROWHEAD = "\N{BLACK RIGHTWARDS ARROWHEAD}" 
+
+    RIGHT_ARROW   = "\N{RIGHTWARDS ARROW}" # \u2192 →
+    LEFT_ARROW    = "\N{LEFTWARDS ARROW}"  # \u2190 ←
+    UP_ARROW      = "\N{UPWARDS ARROW}"    # \u2191 ↑
+    DOWN_ARROW    = "\N{DOWNWARDS ARROW}"  # \u2193 ↓
+
+    UPWARDS_PAIRED_ARROWS    = "\N{UPWARDS PAIRED ARROWS}"
+    DOWNWARDS_PAIRED_ARROWS  = "\N{DOWNWARDS PAIRED ARROWS}"
+    LEFTWARDS_PAIRED_ARROWS  = "\N{LEFTWARDS PAIRED ARROWS}"
+    RIGHTWARDS_PAIRED_ARROWS = "\N{RIGHTWARDS PAIRED ARROWS}"
+
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Miscellaneous                                                                                                                                  -
-    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    #-------------------------------------------------------------------------------------------------------------------------------------------------  
+    EM_DASH = "\N{EM DASH}"
+    
     BLACK_DIAMOND = "\N{BLACK DIAMOND}"
     WHITE_DIAMOND = "\N{WHITE DIAMOND}"
 
@@ -245,9 +261,21 @@ class Unicode(enum.StrEnum):
     LEFT_CURLY_BRACKET  = "\N{LEFT CURLY BRACKET}"
     RIGHT_CURLY_BRACKET = "\N{RIGHT CURLY BRACKET}"
 
-    BULLET = "\N{BULLET}"
+
+    FIRE    = "\N{FIRE}"
+    EYES    = "\N{EYES}"
+    POOP  = "\U0001F4A9"
 
     FACE = "(" + chr(0x25D5) + chr(0x25E1) + chr(0x25D5) + ")"
+    GHOST = "\U0001F47B"
+    CLOWN = "\U0001F921"
+
+    BALLON = "\U0001F388"
+    BULLET  = "\N{BULLET}"
+    COFFEE  = "\N{HOT BEVERAGE}"
+
+
+
 
 COLOR_NAMES = [\
 "LIGHT BLACK           ",    "RED                   ",    "LIGHT OFFICE GREEN ",

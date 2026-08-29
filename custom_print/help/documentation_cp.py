@@ -805,7 +805,7 @@ def FontStyle_Class():
     lst.bg_header = -1; lst.fg_header = -1
     lst.print_fancy_format(default_values,cp.Line_Style.NONE)
     message = '''
-      indent    → this defines how far we want to start to print the message from the left.
+      indent    → this defines how far we want to start to print the message from the left of the terminal.
       next_line → this defines where we want to jump the line or not when printing the message.
 
 '''

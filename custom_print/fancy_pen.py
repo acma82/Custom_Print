@@ -157,10 +157,17 @@ class Pen(Cursor):                         # Inheritance the Cursor Class here.
             sq_in.top_right_corner_chr    = self.top_right_corner_chr
             sq_in.bottom_right_corner_chr = self.bottom_right_corner_chr
             sq_in.bottom_left_corner_chr  = self.bottom_left_corner_chr
-            sq_in.all_corner_bold_chr = self.draw_line_bold       # two values False and True (0 and 1)
-            sq_in.bg_corner_chr   = self.draw_line_bg         # values -1 to 255
-            sq_in.fg_corner_chr   = self.draw_line_fg         # values -1 to 255
 
+            sq_in.outer_corner_bold = self.draw_line_bold       # two values False and True (0 and 1)
+            sq_in.outer_corner_bg   = self.draw_line_bg         # values -1 to 255
+            sq_in.outer_corner_fg   = self.draw_line_fg         # values -1 to 255
+
+            sq_in.inner_corner_bold = self.draw_line_bold
+            sq_in.inner_corner_bg   = self.draw_line_bg  
+            sq_in.inner_corner_fg   = self.draw_line_fg  
+
+
+            sq_in.corner
             # Line Under Header and Header Section
             sq_in.header_bg = self.draw_line_bg
             sq_in.header_fg = self.draw_line_fg
@@ -169,8 +176,9 @@ class Pen(Cursor):                         # Inheritance the Cursor Class here.
 
             sq_in.header_all_cell_bg = True
 
-            sq_in.header_vertical_line_bg_chr = self.draw_line_bg
-            sq_in.header_vertical_line_fg_chr = self.draw_line_fg
+             
+            sq_in.header_vertical_line_bg = self.draw_line_bg
+            sq_in.header_vertical_line_fg = self.draw_line_fg
 
             for n in range(width-2):
                 square.append([ins_chr(length-2)])

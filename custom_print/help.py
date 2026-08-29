@@ -301,6 +301,13 @@ def all_documentation():
     screen_functions_info()
     internal_functions_info()
     help_classes_info()
+    cursor_info()
+    fontstyle_info()
+    fancymessage_info()
+    divider_info()
+    fancyformat_info()
+    pen_info()
+    asciiart_info()
 # +-------------------------------------------------------------------------------------------------+
 # |                                                                                                 |
 # |        GROUP: SCREEN_FUNCTIONS                                                                  |
@@ -852,7 +859,7 @@ def layout_info():
     green_div.print_fancy_divider(all_topics[24])
 
     message = f'''
-      This class is used with FancyFormat class and Pen class.
+      This class is used with FancyFormat class.
 
       {cp.set_font(1,209,16,1)}                                {cp.reset_font()}
       {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} Layout.HORIZONTAL           {cp.reset_font()}
@@ -861,7 +868,7 @@ def layout_info():
 
       {cp.set_font(1,231,0)} Example: Range type, vertical layout {cp.reset_font()}
 
-                  import fancyprint as cp
+                  import custom_print as cp
                   tbl  = cp.FancyFormat()
                   x    = range(0,16,2)
 
@@ -896,7 +903,7 @@ def length_bg_info():
 
       {cp.set_font(1,231,0)} Example: Range type, vertical layout {cp.reset_font()}
 
-                  import fancyprint as cp
+                  import custom_print as cp
                   msg = cp.FancyMessage()
                   paragraph1 = \" First paragraph,  Last  paragraph \"
                   msg.length = cp.Length_Bg.ONLY_WORD
@@ -926,7 +933,7 @@ def line_style_info():
       {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} SINGLE_BOLD   {cp.Unicode.BULLET} DESIGN_4      {cp.Unicode.BULLET} WHITE_BLACK_2         {cp.reset_font()}
       {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} SINGLE_HEAVY  {cp.Unicode.BULLET} DESIGN_5      {cp.Unicode.BULLET} WHITE_PURPLE          {cp.reset_font()}
       {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} DOUBLE_LINE   {cp.Unicode.BULLET} DESIGN_6      {cp.Unicode.BULLET} TURQUOISE_BLACK       {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} SQ_BRACKETS   {cp.Unicode.BULLET} DESIGN_7      {cp.Unicode.BULLET} TURQUOISE_WHITE       {cp.reset_font()} 
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} SQ_BRACKETS   {cp.Unicode.BULLET} DESIGN_7      {cp.Unicode.BULLET} TURQUOISE_WHITE       {cp.reset_font()}
       {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} NONE          {cp.Unicode.BULLET} DESIGN_8      {cp.Unicode.BULLET} WHITE_BLACK_PURPLE    {cp.reset_font()}
       {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} SPACE_0       {cp.Unicode.BULLET} DESIGN_9      {cp.Unicode.BULLET} GRAY_TEAL_WHITE       {cp.reset_font()}
       {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} SPACE_1       {cp.Unicode.BULLET} DESIGN_10     {cp.Unicode.BULLET} BLUE_PURPLE_WHITE_1   {cp.reset_font()}
@@ -952,7 +959,7 @@ def line_style_info():
       {cp.Unicode.BULLET} SPACE_3      \u2192 \"space_3\"           {cp.Unicode.BULLET} BLUE_WHITE   \u2192 \"blue_white\"
       {cp.Unicode.BULLET} SPACE_4      \u2192 \"space_4\"           {cp.Unicode.BULLET} TEAL_WHITE   \u2192 \"teal_white\"
       {cp.Unicode.BULLET} SPACE_5      \u2192 \"space_5\"           {cp.Unicode.BULLET} PURPLE_WHITE \u2192 \"purple_white\"
-      
+
       {cp.Unicode.BULLET} WHITE_BLACK_1       \u2192 \"white_black_1\"
       {cp.Unicode.BULLET} WHITE_BLACK_2       \u2192 \"white_black_2\"
       {cp.Unicode.BULLET} WHITE_PURPLE        \u2192 \"white_purple\"
@@ -970,7 +977,7 @@ def line_style_info():
                   on the tables while {cp.set_font(True,-1,14)}NONE{cp.reset_font()} will ignore all the colors
                   assigned to the table, See the example below.
 
-      {cp.set_font(True,231,0)} Example: {cp.reset_font()}  import fancyprint as cp
+      {cp.set_font(True,231,0)} Example: {cp.reset_font()}  import custom_print as cp
       {cp.ins_chr(10)}  tbli = cp.FancyFormat()
       {cp.ins_chr(10)}  tbli.header_bg   = 23;         tbli.data_bg        = 231
       {cp.ins_chr(10)}  tbli.header_fg   = 231;        tbli.data_fg        = 21
@@ -1056,8 +1063,8 @@ def line_style_info():
     tbli.print_fancy_format(data=lst, style=cp.Line_Style.SPACE_5)
 
     print(f"\n{cp.ins_chr(10)}{cp.set_font(1,231,90)} \u25CF To see more examples regarding FancyFormat, check FancyFormat  {cp.reset_font()}\n"
-           f"{cp.ins_chr(10)}{cp.set_font(1,231,90)}   class documentation.{cp.ins_chr(43)}{cp.reset_font()}") 
-    
+           f"{cp.ins_chr(10)}{cp.set_font(1,231,90)}   class documentation.{cp.ins_chr(43)}{cp.reset_font()}")
+
 
 def logo_info():
     cp.ins_newline(1)
@@ -1075,7 +1082,7 @@ def logo_info():
 
 
 
-      {cp.set_font(True,231,0)} Example: {cp.reset_font()}  import fancyprint as cp
+      {cp.set_font(True,231,0)} Example: {cp.reset_font()}  import custom_print as cp
       {cp.ins_chr(10)}  art_logo = cp.AsciiArt()
       {cp.ins_chr(10)}  art_logo.ascii_type = cp.Logo_Centos
 
@@ -1091,20 +1098,20 @@ def move_info():
 
       {cp.set_font(1,209,16,1)}             {cp.reset_font()}
       {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} DOWN     {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} LEFT     {cp.reset_font()}      
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} LEFT     {cp.reset_font()}
       {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} RIGHT    {cp.reset_font()}
       {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} UP       {cp.reset_font()}
       {cp.set_font(1,209,16,1)}             {cp.reset_font()}
 
       Note: These options can be replaced for the original values.
 
-      {cp.Unicode.BULLET} DOWN   \u2192  \"down\"  
-      {cp.Unicode.BULLET} LEFT   \u2192  \"left\"  
-      {cp.Unicode.BULLET} RIGHT  \u2192  \"right\" 
-      {cp.Unicode.BULLET} UP     \u2192  \"up\"    
+      {cp.Unicode.BULLET} DOWN   \u2192  \"down\"
+      {cp.Unicode.BULLET} LEFT   \u2192  \"left\"
+      {cp.Unicode.BULLET} RIGHT  \u2192  \"right\"
+      {cp.Unicode.BULLET} UP     \u2192  \"up\"
 
 
-      {cp.set_font(True,231,0)} Example: {cp.reset_font()}  import fancyprint as cp
+      {cp.set_font(True,231,0)} Example: {cp.reset_font()}  import custom_print as cp
       {cp.ins_chr(10)}  crs = cp.Cursor()
       {cp.ins_chr(10)}  crs.jumpTo(8, \"down\")
       {cp.ins_chr(10)}  crs.jumpTo(2, cp.Move.DOWN)
@@ -1126,20 +1133,21 @@ def no_info():
       cp.bg_ansi_colors(bold=True, fg=0,  n_line=1)
       cp.fg_ansi_colors(bold=True, bg=-1, n_line=1)
 
-      
-      {cp.set_font(True,231,0)} Example: {cp.reset_font()}  import fancyprint as cp
+
+      {cp.set_font(True,231,0)} Example: {cp.reset_font()}  import custom_print as cp
       {cp.ins_chr(10)}  blue_msg = cp.FancyMessage()
       {cp.ins_chr(10)}  blue_msg.body_bg   = cp.No.VERY_LIGHT_BLUE
       {cp.ins_chr(10)}  blue_msg.body_fg   = cp.No.GO_GREEN
+      {cp.ins_chr(10)}  blue_msg.print_fancy_message(" This is a DEMO...! ")
 
-      
       Note: These options can be replaced for the original values.
 
-      {cp.set_font(True,231,0)} Example: {cp.reset_font()}  import fancyprint as cp
+      {cp.set_font(True,231,0)} Example: {cp.reset_font()}  import custom_print as cp
       {cp.ins_chr(10)}  blue_msg = cp.FancyMessage()
       {cp.ins_chr(10)}  blue_msg.body_bg   = 14
       {cp.ins_chr(10)}  blue_msg.body_fg   = 35
-      
+      {cp.ins_chr(10)}  blue_msg.print_fancy_message(" This is a DEMO...! ")
+
       {cp.set_font(1,209,16,1)}                                                        {cp.reset_font()}
       {cp.set_font(1,209,16,1)} This class is used where a color needs to be assigned. {cp.reset_font()}
       {cp.set_font(1,209,16,1)}                                                        {cp.reset_font()}
@@ -1150,10 +1158,336 @@ def no_info():
 def style_info():
     cp.ins_newline(1)
     green_div.print_fancy_divider(all_topics[23])
+    message = f'''
+      Style Class helps to customize the font style directly.
+      The following are the options for the font to be used.
+
+      {cp.set_font(1,209,16,1)}                                        {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} BOLD_ON           {cp.Unicode.BULLET}  BOLD_OFF       {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} DIM_ON            {cp.Unicode.BULLET}  DIM_OFF        {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} ITALIC_ON         {cp.Unicode.BULLET}  ITALIC_OFF     {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} UNDERLINE_ON      {cp.Unicode.BULLET}  UNDERLINE_OFF  {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} BLINKING_ON       {cp.Unicode.BULLET}  BLINKING_OFF   {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} INVERSE_ON        {cp.Unicode.BULLET}  INVERSE_OFF    {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} HIDDEN_ON         {cp.Unicode.BULLET}  HIDDEN_OFF     {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} STRIKE_ON         {cp.Unicode.BULLET}  STRIKE_OFF     {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} RESET_ALL         {cp.Unicode.BULLET}  OFF            {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}                                        {cp.reset_font()}
+
+      {cp.set_font(True,231,0)} Example: {cp.reset_font()}  import custom_print as cp      
+      '''
+    
+    print(message)
+    print(cp.ins_chr(17),"print(f\"Normal {cp.Style.BOLD_ON}{cp.Style.ITALIC_ON}")
+    print(cp.ins_chr(17),"{cp.Style.UNDERLINE_ON} I am Bold,Italic and Underline.")
+    print(cp.ins_chr(17),"{cp.Style.OFF} Normal\")")  
+    print()
+    print(cp.ins_chr(17),"print(f\"{cp.Bg.SEA_BLUE}{cp.Style.BOLD_ON}{cp.Style.ITALIC_ON}")
+    print(cp.ins_chr(17),"Hello There {cp.Style.OFF} Bye {cp.Bg.OFF}\")")
+    print()
+    print(cp.ins_chr(17),"print(f\"Normal {cp.Style.BOLD_ON}{cp.Style.ITALIC_ON}")
+    print(cp.ins_chr(17),"{cp.Style.UNDERLINE_ON} Hello There {cp.Style.RESET_ALL} Bye")
+    print()
+    print(cp.ins_chr(17),"print(f\"{cp.Bg.SEA_BLUE}{cp.Fg.GREEN_YELLOW}{cp.Style.BOLD_ON}")
+    print(cp.ins_chr(17),"{cp.Style.UNDERLINE_ON} Hello There {cp.reset_font()} Bye")
+
+    message = f'''
+      {cp.set_font(1,231,90)} \u25CF Output: {cp.reset_font()}
+      {cp.ins_chr(11)} Normal {cp.Style.BOLD_ON}{cp.Style.ITALIC_ON}{cp.Style.UNDERLINE_ON} I am Bold,Italic and Underline. {cp.Style.OFF} Normal 
+
+      {cp.ins_chr(11)} {cp.Bg.SEA_BLUE}{cp.Style.BOLD_ON}{cp.Style.ITALIC_ON} Hello There {cp.Style.OFF} Bye {cp.Bg.OFF}
+
+      {cp.ins_chr(11)} {cp.Bg.SEA_BLUE}{cp.Fg.GREEN_YELLOW}{cp.Style.BOLD_ON}{cp.Style.UNDERLINE_ON} Hello There {cp.Style.RESET_ALL} Bye
+
+      {cp.ins_chr(11)} {cp.Bg.SEA_BLUE}{cp.Fg.GREEN_YELLOW}{cp.Style.BOLD_ON}{cp.Style.UNDERLINE_ON} Hello There {cp.reset_font()} Bye
+    
+  {cp.set_font(1,196,231)} Note: {cp.reset_font()} Style.OFF only resets the styles options and not the Bg or Fg colors
+          for the font. To reset the Bg and Fg colors, use the reset_font
+          function or the Style.RESET_ALL class as shown in the examples above. 
+          Be aware that Bg.OFF only turn off the Bg color and not the Fg color
+          and vise versa. 
+    '''
+    print(message)
+
+
 
 def unicode_info():
     cp.ins_newline(1)
     green_div.print_fancy_divider(all_topics[25])
+    
+    message = f'''
+    Unicode Class has a few options. More options can be found on website.
+
+      {cp.set_font(1,209,16,1)}                                                {cp.reset_font()}
+      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} BOX_DRAWINGS_LIGHT_HORIZONTAL  {cp.Unicode.BOX_DRAWINGS_LIGHT_HORIZONTAL}             {cp.reset_font()}
+      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} BOX_DRAWINGS_LIGHT_VERTICAL_AND_RIGHT  {cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_RIGHT}     {cp.reset_font()}
+      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} BOX_DRAWINGS_LIGHT_VERTICAL_AND_LEFT  {cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_LEFT}      {cp.reset_font()}
+      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} BOX_DRAWINGS_LIGHT_VERTICAL            {cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL}     {cp.reset_font()}
+      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} BOX_DRAWINGS_LIGHT_DOWN_AND_HORIZONTAL  {cp.Unicode.BOX_DRAWINGS_LIGHT_DOWN_AND_HORIZONTAL}    {cp.reset_font()}
+      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} BOX_DRAWINGS_LIGHT_UP_AND_HORIZONTAL   {cp.Unicode.BOX_DRAWINGS_LIGHT_UP_AND_HORIZONTAL}     {cp.reset_font()}
+      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL {cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL} {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}                                                {cp.reset_font()}
+      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} BLACK_UP_POINTING_TRIANGLE    {cp.Unicode.BLACK_UP_POINTING_TRIANGLE   }              {cp.reset_font()}
+      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} WHITE_UP_POINTING_TRIANGLE    {cp.Unicode.WHITE_UP_POINTING_TRIANGLE   }              {cp.reset_font()}
+      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} BLAKC_RIGHT_POINTING_TRIANGLE {cp.Unicode.BLAKC_RIGHT_POINTING_TRIANGLE}              {cp.reset_font()}
+      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} WHITE_RIGHT_POINTING_TRIANGLE {cp.Unicode.WHITE_RIGHT_POINTING_TRIANGLE}              {cp.reset_font()}
+      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} BLACK_DOWN_POINTING_TRIANGLE  {cp.Unicode.BLACK_DOWN_POINTING_TRIANGLE }              {cp.reset_font()}
+      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} WHITE_DOWN_POINTING_TRIANGLE  {cp.Unicode.WHITE_DOWN_POINTING_TRIANGLE }              {cp.reset_font()}
+      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} BLACK_LEFT_POINTING_TRIANGLE  {cp.Unicode.BLACK_LEFT_POINTING_TRIANGLE }              {cp.reset_font()}
+      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} WHITE_LEFT_POINTING_TRIANGLE  {cp.Unicode.WHITE_LEFT_POINTING_TRIANGLE }              {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}                                                {cp.reset_font()}
+      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} RIGHT_ARROW                {cp.Unicode.RIGHT_ARROW}                 {cp.reset_font()}
+      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} LEFT_ARROW                 {cp.Unicode.LEFT_ARROW }                 {cp.reset_font()}
+      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} UP_ARROW                   {cp.Unicode.UP_ARROW   }                 {cp.reset_font()}
+      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} DOWN_ARROW                 {cp.Unicode.DOWN_ARROW }                 {cp.reset_font()}
+      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} UPWARDS_PAIRED_ARROWS      {cp.Unicode.UPWARDS_PAIRED_ARROWS   }                 {cp.reset_font()}
+      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} DOWNWARDS_PAIRED_ARROWS    {cp.Unicode.DOWNWARDS_PAIRED_ARROWS }                 {cp.reset_font()}
+      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} LEFTWARDS_PAIRED_ARROWS    {cp.Unicode.LEFTWARDS_PAIRED_ARROWS }                 {cp.reset_font()}
+      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} RIGHTWARDS_PAIRED_ARROWS   {cp.Unicode.RIGHTWARDS_PAIRED_ARROWS}                 {cp.reset_font()}
+      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} BLACK_RIGHTWARDS_ARROWHEAD {cp.Unicode.BLACK_RIGHTWARDS_ARROWHEAD}                 {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}                                                {cp.reset_font()}
+      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} FIRE {cp.Unicode.FIRE}                                      {cp.reset_font()}
+      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} EYES  {cp.Unicode.EYES}                                     {cp.reset_font()}
+      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} POOP  {cp.Unicode.POOP}                                     {cp.reset_font()}
+      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} FACE {cp.Unicode.FACE}                                   {cp.reset_font()}
+      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} GHOST  {cp.Unicode.GHOST}                                    {cp.reset_font()}
+      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} CLOWN  {cp.Unicode.CLOWN}                                    {cp.reset_font()}
+      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} BALLON  {cp.Unicode.BALLON}                                   {cp.reset_font()}
+      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} BULLET {cp.Unicode.BULLET}                                     {cp.reset_font()}
+      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} COFFEE  {cp.Unicode.COFFEE}                                   {cp.reset_font()}       
+      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} EM_DASH {cp.Unicode.EM_DASH}                                    {cp.reset_font()}
+      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} BLACK_CIRCLE {cp.Unicode.BLACK_CIRCLE}                               {cp.reset_font()}
+      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} WHITE_CIRCLE {cp.Unicode.WHITE_CIRCLE}                               {cp.reset_font()}
+      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} BLACK_DIAMOND   {cp.Unicode.BLACK_DIAMOND}                            {cp.reset_font()}
+      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} WHITE_DIAMOND   {cp.Unicode.WHITE_DIAMOND}                            {cp.reset_font()}
+      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} LOWERCASE_N_TILDE   {cp.Unicode.LOWERCASE_N_TILDE}                        {cp.reset_font()}
+      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} UPPERCASE_N_TILDE   {cp.Unicode.UPPERCASE_N_TILDE}                        {cp.reset_font()}
+      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} LEFT_CURLY_BRACKET  {cp.Unicode.LEFT_CURLY_BRACKET}                        {cp.reset_font()}
+      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} RIGHT_CURLY_BRACKET {cp.Unicode.RIGHT_CURLY_BRACKET}                        {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}                                                {cp.reset_font()}
+
+      {cp.set_font(True,231,0)} Example: {cp.reset_font()}  import custom_print as cp  
+                  print(cp.Unicode.FIRE) 
+
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()} {cp.Unicode.FIRE} 
+      
+    How Unicode Characters Work...!
+
+    print Unicode with 2 digit value Use (\\x)
+        1. print(\"\\x65\")  {cp.Unicode.RIGHT_ARROW}  \x65
+        {cp.Unicode.EYES} \N{Eyes}
+    
+    print Unicode with 3 to 4 digit value Use (\\u)
+        2. print(\"\\u0065\")  {cp.Unicode.RIGHT_ARROW}  \u0065
+        3. print(\"\\u2757\")  {cp.Unicode.RIGHT_ARROW} \u2757
+
+        
+    print Unicode with 5 to 8 digit value Use (\\U)
+        4. print(\"\\U00000065\")  {cp.Unicode.RIGHT_ARROW}  \U00000065
+        5. print(\"\\U00002757\")  {cp.Unicode.RIGHT_ARROW}  \U00002757
+        6. print(\"\\U0001F525 Fuego Code\")  {cp.Unicode.RIGHT_ARROW}  \U0001F525
+        7. print(\"\\N{{FIRE}}   Fuego Name\")  {cp.Unicode.RIGHT_ARROW}  \N{FIRE}
+
+        
+    Print Unicode by Name: import unicodedata   -> may be necessary
+        8. print("\\N{{LATIN SMALL LETTER A}}")         {cp.Unicode.RIGHT_ARROW}  \N{LATIN SMALL LETTER A}
+        9. print("\\N{{NEGATIVE SQUARED CROSS MARK}}")  {cp.Unicode.RIGHT_ARROW}  \N{NEGATIVE SQUARED CROSS MARK}
+
+
+    {cp.set_font(1,196,231)} Note: {cp.reset_font()} The U+2724 Unicode value is in Hexadecimal
+        A. print(\"\\u2737\")         {cp.Unicode.RIGHT_ARROW}  \u2724
+        B. print(\"\\U00002724\")     {cp.Unicode.RIGHT_ARROW}  \U00002724
+        C. print(chr(0x2724))      {cp.Unicode.RIGHT_ARROW}  {chr(0x2724)}
+        D. print(\"\\N{{HEAVY FOUR BALLOON-SPOKED ASTERISK}}\")  {cp.Unicode.RIGHT_ARROW}  \N{HEAVY FOUR BALLOON-SPOKED ASTERISK}
+
+    {cp.set_font(1,190,16)} Reference: {cp.reset_font()} https://www.compart.com/en/unicode/category/So
+                 https://www.vertex42.com/ExcelTips/unicode-symbols.html
+                 https://unicodelookup.com
+                 https://symbl.cc/en/unicode-table
+
+    '''
+    print(message)
+    
+
+
+# +-------------------------------------------------------------------------------------------------+
+# |                                                                                                 |
+# |        GROUP: CURSOR_CLASS                                                                      |
+# |                                                                                                 |
+# +-------------------------------------------------------------------------------------------------+
+# |  Cursor in custom_print Module                                                                  |
+# +-------------------------------------------------------------------------------------------------+
+def cursor_info():
+    cp.ins_newline(1)
+    blue_div.print_fancy_divider(all_topics[26]) # Cursor
+    mensaje =f'''
+    All these functions are being used internally in the custom_print modules.
+    It is available to the user if they find them usefull, otherwise, feel free
+    to ignore them.
+
+      Cursor can use the Move Class that has a few options.
+
+      {cp.set_font(1,209,16,1)}             {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} DOWN     {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} LEFT     {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} RIGHT    {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} UP       {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}             {cp.reset_font()}
+
+      Note: These options can be replaced for the original values.
+
+      {cp.Unicode.BULLET} DOWN   \u2192  \"down\"
+      {cp.Unicode.BULLET} LEFT   \u2192  \"left\"
+      {cp.Unicode.BULLET} RIGHT  \u2192  \"right\"
+      {cp.Unicode.BULLET} UP     \u2192  \"up\"
+
+
+    '''
+    print(mensaje)
+    jumpto_info()
+    jumpxy_info()
+    moveto_info()
+    movexy_info()
+
+def jumpto_info():
+    cp.ins_newline(1)
+    green_div.print_fancy_divider(all_topics[27])
+    message = f'''
+   
+      This method jumps rows or columns for the cursor in the terminal.
+
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp
+      {cp.ins_chr(10)}  crs = cp.Cursor()
+      {cp.ins_chr(10)}  crs.jumpTo(qty=2,  direction = cp.Move.DOWN)
+      {cp.ins_chr(10)}  print("I am down")
+      {cp.ins_chr(10)}  crs.jumpTo(qty=20, direction = "right") 
+      {cp.ins_chr(10)}  print("I am right")
+      {cp.ins_chr(10)}  crs.jumpTo(1, cp.Move.UP)      
+      {cp.ins_chr(10)}  print("I am up")
+      {cp.ins_chr(10)}  crs.jumpTo(5, "down")                    
+      {cp.ins_chr(10)}  print("GoodBye...!")
+
+   '''
+    print(message)
+
+def jumpxy_info():
+    cp.ins_newline(1)
+    green_div.print_fancy_divider(all_topics[28])
+    message = f'''
+   
+      This method jumps the cursor to specific coordinates in the terminal.
+
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp
+      {cp.ins_chr(10)}  crs = cp.Cursor()
+      {cp.ins_chr(10)}  crs.jumpToxy(0,0);     print("*** Start Here ***")
+      {cp.ins_chr(10)}  crs.jumpToxy(20, 5);   print("GoodBye...!")      
+
+   '''
+    print(message)
+
+
+def moveto_info():
+    cp.ins_newline(1)
+    green_div.print_fancy_divider(all_topics[29])
+    message = f'''
+   
+      This method moves rows or columns for the cursor in the terminal.
+
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp
+      {cp.ins_chr(10)}  crs = cp.Cursor()
+      '''
+   
+    message2 = '''                  print(f"{crs.moveTo(15,"right")} First One",  end="")
+
+                  print(f"{crs.moveTo(15,"right")} Second One", end="")
+            
+                  print(f"{crs.moveTo(qty=20,direction="left")} Hello")
+   
+   '''
+    print(message)
+    print(message2)
+    
+
+def movexy_info():
+    cp.ins_newline(1)
+    green_div.print_fancy_divider(all_topics[30])
+    message = f'''
+   
+      This method moves the cursor to specific coordinates in the terminal.
+
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp
+      {cp.ins_chr(10)}  crs = cp.Cursor()
+   '''
+    message2 = '''                  print(f"{crs.movexy(15,40)}hello again")
+
+      '''
+    print(message)
+    print(message2)
+
+
+
+# +-------------------------------------------------------------------------------------------------+
+# |                                                                                                 |
+# |        GROUP: FONTSTYLE_CLASS                                                                   |
+# |                                                                                                 |
+# +-------------------------------------------------------------------------------------------------+
+# |  FontStyle in custom_print Module                                                               |
+# +-------------------------------------------------------------------------------------------------+
+def fontstyle_info():
+    cp.ins_newline(1)
+    blue_div.print_fancy_divider(all_topics[31]) # Help Classes
+    message = f'''
+     This class contains 4 methods and the attributes and their default values
+       are displays below.
+
+    {cp.set_font(1,209,16,1)}                                                 {cp.reset_font()}
+    {cp.set_font(1,209,16,1)}                General Use                      {cp.reset_font()}
+    {cp.set_font(1,209,16,1)}                                                 {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} bg     = -1             {cp.Unicode.BULLET} bold      = False   {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} fg     = -1             {cp.Unicode.BULLET} underline = False   {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} dim    = False          {cp.Unicode.BULLET} blinking  = False   {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} hidden = False          {cp.Unicode.BULLET} italic    = False   {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} strike = False          {cp.Unicode.BULLET} inverse   = False   {cp.reset_font()}
+    {cp.set_font(1,209,16,1)}                                                 {cp.reset_font()}
+    {cp.set_font(1,209,16,1)}                Print_Style                      {cp.reset_font()}
+    {cp.set_font(1,209,16,1)}                                                 {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} align = Align.JUSTIFY   {cp.Unicode.BULLET} bg_top_lines    = 0 {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} forced_align = False    {cp.Unicode.BULLET} bg_bottom_lines = 0 {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} indent = 0                                    {cp.reset_font()}    
+    {cp.set_font(1,209,16,1)}                                                 {cp.reset_font()}
+    
+
+    {cp.set_font(1,196,231)} Note: {cp.reset_font()} indent is used for style_on and for print_style when using justify.
+            indent → This defines how far we want to start to print the message
+                     from the left of the terminal.
+
+'''
+
+    print(message)
+
+    
+    start_style_info()
+    stop_style_info()
+    print_style_info()
+    reset_style_info()
+
+
+def start_style_info(): 
+    cp.ins_newline(1)
+    green_div.print_fancy_divider(all_topics[32])
+    print("start_style method")
+def stop_style_info():  
+    cp.ins_newline(1)
+    green_div.print_fancy_divider(all_topics[33])
+    print("stop_style method")
+def print_style_info(): 
+    cp.ins_newline(1)
+    green_div.print_fancy_divider(all_topics[34])
+    print("print_style method")
+def reset_style_info(): 
+    cp.ins_newline(1)
+    green_div.print_fancy_divider(all_topics[35])
+    print("reset_style method")
 
 
 # all_topics = [
@@ -1176,61 +1510,6 @@ def unicode_info():
 #     "FancyFormat",  "fancyformat", "print_fancy_format", "reset_fancy_format",                                                                                           # 44, 45, 46, 47,
 
 #      "AsciiArt", "print_ascii_art", "print_multi_ascii_art", "print_ascii_logo_art", "print_reversed_ascii_logo_art"]                                                    # 48, 49, 50, 51, 52.
-
-
-# +-------------------------------------------------------------------------------------------------+
-# |                                                                                                 |
-# |        GROUP: CURSOR_CLASS                                                                      |
-# |                                                                                                 |
-# +-------------------------------------------------------------------------------------------------+
-# |  Cursor in custom_print Module                                                                  |
-# +-------------------------------------------------------------------------------------------------+
-def cursor_info():
-    cp.ins_newline(1)
-    blue_div.print_fancy_divider(all_topics[12]) # Help Classes
-    mensaje ='''
-    neeed works here here here here here  All these functions are being used internally in the custom_print modules.
-    It is available to the user if they find them usefull, otherwise, feel free
-    to ignore them.
-    '''
-    print(mensaje)
-    jumpto_info()
-    jumpxy_info()
-    moveto_info()
-    movexy_info()
-
-def jumpto_info(): print("jumpto method")
-def jumpxy_info(): print("jumpxy method")
-def moveto_info(): print("moveto method")
-def movexy_info(): print("mvoexy method")
-
-# +-------------------------------------------------------------------------------------------------+
-# |                                                                                                 |
-# |        GROUP: FONTSTYLE_CLASS                                                                   |
-# |                                                                                                 |
-# +-------------------------------------------------------------------------------------------------+
-# |  FontStyle in custom_print Module                                                               |
-# +-------------------------------------------------------------------------------------------------+
-def fontstyle_info():
-    cp.ins_newline(1)
-    blue_div.print_fancy_divider(all_topics[12]) # Help Classes
-    mensaje ='''
-    neeed works here here here here here  All these functions are being used internally in the custom_print modules.
-    It is available to the user if they find them usefull, otherwise, feel free
-    to ignore them.
-    '''
-    print(mensaje)
-    start_style_info()
-    stop_style_info()
-    print_style_info()
-    reset_style_info()
-
-
-def start_style_info(): print("start_style method")
-def stop_style_info():  print("stop_style method")
-def print_style_info(): print("print_style method")
-def reset_style_info(): print("reset_style method")
-
 # +-------------------------------------------------------------------------------------------------+
 # |                                                                                                 |
 # |        GROUP: FANCYMESSAGE_CLASS                                                                |
@@ -1376,7 +1655,7 @@ if __name__ == '__main__':
 #     number for the name as the example below. Use the bg_ansi_colors or fg_ansi_colors methods
 #     to learn the names of the colors available in custom_print.
 
-#        {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp
+#        {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp
 #                    print(cp.set_font(True,cp.No.DARKISH_YELLOW,cp.No.BLUE) + " Python is " +
 #                     cp.set_font(False,cp.No.RED) + " Wonderful." + cp.reset_font())
 #     '''
@@ -1402,7 +1681,7 @@ if __name__ == '__main__':
 #        Bg and Fg colors name use the bg_ansi_colors function or fg_ansi_colors function
 #        to learn more the name of the colors available in custom_print.
 
-#        {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp'''
+#        {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp'''
 
 #     print(message)
 #     print("                   print(f\"{cp.Bg.WHITE+cp.Fg.BLUEBERRY_PURPLE} Background and Foreground")
@@ -1410,11 +1689,10 @@ if __name__ == '__main__':
 
 #     print(f"       {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}  {cp.Bg.WHITE+cp.Fg.BLUEBERRY_PURPLE} Background and Foreground {cp.Bg.OFF} Only Foreground {cp.Fg.OFF} Normal....!\n")
 
-#     message = f'''       {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import fancyprint as cp'''
+#     message = f'''       {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp'''
 #     print(message)
 #     print("                   print(f\"{cp.Style.UNDERLINE_ON} Underline Style {cp.Style.UNDERLINE_OFF} Normal\"")
 
 #     print(f"\n       {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}",end="")
 #     print(f" {cp.Style.UNDERLINE_ON} UnderOnly Style {cp.Style.UNDERLINE_OFF} Normal....! \"\n")
 #     print("ansi_colors_info here")
-    
