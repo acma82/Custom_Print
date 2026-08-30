@@ -74,7 +74,7 @@ class FontStyle:
         self.dim = False;    self.blinking  = False
 
         # Print_Style
-        self.align = Align.JUSTIFY;    self.bg_top_lines    = 0
+        self.align = Align.JUSTIFY;     self.bg_top_lines    = 0
         self.forced_align = False;      self.bg_bottom_lines = 0
 
         # self.indent is used for style_on and for print_style when using justify

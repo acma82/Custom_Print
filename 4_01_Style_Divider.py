@@ -54,12 +54,12 @@ div.vertical_line_bold      = False
 # +--------------------------------------------------------------------------------------------+
 # Message
 div.msg_bg = 231;                   div.msg_fg = 234;                        div.msg_bold = True
-div.adj_indent = 2;                 div.align = cp.Align.CENTER
+div.adj_indent = 2;                 div.msg_align = cp.Align.CENTER
 
 # Note: adj_indent only works when the align is set to JUSTIFY
 
 # Fill blank
-div.left_fill_bg = 54;              div.right_fill_bg = 90;                  div.all_fill_bg = 231
+div.left_fill_bg = 54;              div.right_fill_bg = 90;                  div.left_right_fill_bg = 231
 
 # Note: all_fill_bg takes priority over the left_fill_bg and right_fill_bg
 

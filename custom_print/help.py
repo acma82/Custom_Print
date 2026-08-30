@@ -86,7 +86,7 @@ all_topics = [
 
     "Cursor",  "jumpto", "jumpxy", "moveto", "movexy",                                                                                                                   # 26, 27, 28, 23, 30,
 
-    "Fontstyle",  "start_style", "stop_style", "print_style", "reset_style",                                                                                             # 31, 32, 33, 34, 35,
+    "Fontstyle",  "style_on_off", "reset_style", "print_style",                                                                                             # 31, 32, 33, 34, 35,
 
     "FancyMessage",  "print_fancy_message", "print_fancy_note",                                                                                                          # 36, 37, 38,
 
@@ -127,11 +127,11 @@ def  help_documentation():
 
     help_classes       = [["Align", "Line_Style"], ["Ascii_Letter", "Logo"],["Bg", "Move"], ["Divider_Style", "No"],["Fg", "Style"],["Layout", "Unicode"],["Length_Bg", "----"]]
 
-    cmcpp1 = [["Cursor",  "FontStyle"   ,  "FancyMessage"       ,  "Pen"           ],
-              ["jumpTo",  "start_style" ,  "print_fancy_message",  "draw_line"     ],
-              ["jumpxy",  "stop_style"  ,  "print_fancy_note"   ,  "draw_rectangle"],
-              ["moveTo",  "print_style" ,  "----"               ,  "----"          ],
-              ["movexy",  "reset_style" ,  "----"               ,  "----"          ]]
+    cmcpp1 = [["Cursor",    "FontStyle",       "FancyMessage"       ,    "Pen"           ],
+              ["jumpTo",    "style_on_off",    "print_fancy_message",    "draw_line"     ],
+              ["jumpxy",    "reset_style",     "print_fancy_note"   ,    "draw_rectangle"],
+              ["moveTo",    "print_style",     "----",                   "----"          ],
+              ["movexy",    "----",            "----",                   "----"          ]]
 
     cmcpp2 = [["Divider",              "FancyFormat"       ],
               ["print_fancy_divider",  "print_fancy_format"],
@@ -712,13 +712,18 @@ def align_info():
                   msg.footnote_align = "right"
                 # msg.footnote_align = "r"  -> Same as above
 
+                
+      {cp.set_font(1,196,231)} Note: {cp.reset_font()} Althoug {cp.set_font(1,231,22,1)} Align.NONE {cp.reset_font()} exist, it is only used with the FontStyle
+              Class using the method {cp.set_font(1,231,22,1)} print_style. {cp.reset_font()} For examples check their
+              documentation.
+                
       '''
     print(message)
     lista = [["Align.RIGHT","Align.LEFT", "Align.CENTER","Align.JUSTIFY"],
              ['\"right\"','\"left\"','\"center\"','\"justify\"'],
              ['\"r\"', '\"l\"', '\"c\"', '\"j\"']]
     tbl.print_fancy_format(data=lista, style=cp.Line_Style.TURQUOISE_BLACK)
-    print("\n      Note: See the FancyMessage Class to visualize a complete example.\n\n")
+    print("\n      Note: See FancyFormat Class or FancyMessage Class to visualize \n            a complete example.\n\n")
 
 
 
@@ -1456,39 +1461,168 @@ def fontstyle_info():
     {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} indent = 0                                    {cp.reset_font()}    
     {cp.set_font(1,209,16,1)}                                                 {cp.reset_font()}
     
+    indent → This defines how far we want to start to print the message
+             from the left of the terminal.
 
-    {cp.set_font(1,196,231)} Note: {cp.reset_font()} indent is used for style_on and for print_style when using justify.
-            indent → This defines how far we want to start to print the message
-                     from the left of the terminal.
+    {cp.set_font(1,196,231)} Note: {cp.reset_font()} indent is used for style_on and for print_style when using
+            justify as an option for the align.
 
-'''
+
+ 
+    '''
 
     print(message)
-
-    
-    start_style_info()
-    stop_style_info()
-    print_style_info()
+    style_on_off_info()
     reset_style_info()
+    print_style_info()
+   
 
 
-def start_style_info(): 
+def style_on_off_info(): 
+    ''' These methods are useful if we are using the style in many rows. '''
     cp.ins_newline(1)
     green_div.print_fancy_divider(all_topics[32])
-    print("start_style method")
-def stop_style_info():  
+    message = f'''
+      These methods are useful if we are using the style in many rows.
+
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp
+                  fs = cp.FontStyle()
+                  fs.fg        = 231
+                  fs.bg        = 22
+                  fs.indent    = 23
+                  fs.bold      = True
+                  fs.underline = True
+                  fs.strike    = True
+                  fs.italic    = True
+
+                  print(fs.style_on() + " Font Style " + fs.style_off())
+                  print(fs.style_on() + "            " + fs.style_off())
+                  print(f\"{{fs.style_on()}} Font Style {{fs.style_off()}}\")
+
+'''
+    
+    print(message, end="")
+    fs = cp.FontStyle()
+    fs.fg        = 231
+    fs.bg        = 22
+    fs.indent    = 23
+    fs.bold      = True
+    fs.underline = True
+    fs.strike    = True
+    fs.italic    = True
+    
+    print(f"       {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()} \n")
+    print(fs.style_on() + " Font Style " + fs.style_off())
+    print(fs.style_on() + "            " + fs.style_off())
+    print(f"{fs.style_on()} Font Style {fs.style_off()}")
+
+
+def reset_style_info():
+    ''' This method reset all the values to the default ones for object. '''
     cp.ins_newline(1)
     green_div.print_fancy_divider(all_topics[33])
-    print("stop_style method")
-def print_style_info(): 
+    message = f''' 
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp
+                  fs = cp.FontStyle()
+                  fs.bg = 21
+                  fs.fg = 231
+                  
+                  cp.ins_newline(2)
+                  
+                  print(f\"{{fs.style_on()}} Font Style Line 1 \")
+                  print(f\" Font Style Line 2 \")
+                  print(f\" Font Style Line 3 {{fs.style_off()}}\\n\")
+                  fs.reset_style()
+                  print(f\"{{fs.style_on()}} Default Style {{fs.style_off()}}\")
+                    
+'''
+    print(message)
+    print(f"       {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()} \n")
+    fs = cp.FontStyle()
+    fs.bg = 21
+    fs.fg = 231
+    
+    cp.ins_newline(2)
+    
+    print(f"{fs.style_on()} Font Style Line 1")
+    print(f" Font Style Line 2 ")
+    print(f" Font Style Line 3 {fs.style_off()}\n" )
+    fs.reset_style()
+    print(f"{fs.style_on()} Default Style {fs.style_off()}")
+
+
+
+def print_style_info():
+    ''' this align the customized text on the screen with the position specified.  '''
     cp.ins_newline(1)
     green_div.print_fancy_divider(all_topics[34])
-    print("print_style method")
-def reset_style_info(): 
-    cp.ins_newline(1)
-    green_div.print_fancy_divider(all_topics[35])
-    print("reset_style method")
+    message = f''' 
+       This method aligns the customized text on the screen with the position
+       specified.
 
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp
+                  fs = cp.FontStyle()
+                  fs.fg        = 231;        fs.bg_bottom_lines = True
+                  fs.bg        = 23;         fs.bg_top_lines    = True
+                  fs.bold      = True;       fs.forced_align    = False '''
+    print(message)
+    message = '''
+                  def get_msg(option, align)->str:
+                  msg = f\'\'\'
+                  Custom_Print...! 
+                  Align.{option} 
+                  force_align = {align} 
+                  Python3.12\'\'\'
+                  return msg
+          
+                  option = "LEFT"; align = "False"
+                  msg = get_msg(option,align)
+                  fs.align = cp.Align.LEFT
+                  fs.print_style(msg)
+
+                  cp.ins_newline(3)
+
+                  fs.forced_align = True
+                  option = "LEFT"; align = "True"
+                  msg = get_msg(option,align)
+                  fs.align = cp.Align.LEFT
+                  fs.print_style(msg)
+    '''
+    print(message)
+
+    print(f"       {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()} \n")
+    fs = cp.FontStyle()
+    fs.fg        = 231
+    fs.bg        = 23
+    fs.bold      = True
+    fs.bg_bottom_lines = True
+    fs.bg_top_lines    = True
+    fs.forced_align    = False
+
+
+    def get_msg(option, align)->str:
+        msg = f'''
+    Custom_Print...! 
+    Align.{option} 
+    force_align = {align} 
+    Python3.12 '''
+        return msg
+
+
+    option = "LEFT"; align = "False"
+    msg = get_msg(option,align)
+    fs.align = cp.Align.LEFT
+    fs.print_style(msg)
+
+    cp.ins_newline(3)
+
+    fs.forced_align = True
+    option = "LEFT"; align = "True"
+    msg = get_msg(option,align)
+    fs.align = cp.Align.LEFT
+    fs.print_style(msg)
+
+    cp.ins_newline(1)
 
 # all_topics = [
 #     "Screen_Functions",  "clean", "clear","dimensions", "erase", "resize",                                                                                               # 0, 1, 2, 3, 4, 5,
@@ -1499,17 +1633,17 @@ def reset_style_info():
 
 #     "Cursor",  "jumpto", "jumpxy", "moveto", "movexy",                                                                                                                   # 26, 27, 28, 23, 30,
 
-#     "Fontstyle",  "start_style", "stop_style", "print_style", "reset_style",                                                                                             # 31, 32, 33, 34, 35,
+#     "Fontstyle",  "style_on_off", "reset_style", "print_style",                                                                                                          # 31, 32, 33, 34,
 
-#     "FancyMessage",  "print_fancy_message", "print_fancy_note",                                                                                                          # 36, 37, 38,
+#     "FancyMessage",  "print_fancy_message", "print_fancy_note",                                                                                                          # 35, 36, 37,
 
-#     "Pen",  "draw_line", "draw_rectangle",                                                                                                                               # 39, 40, 41,
+#     "Pen",  "draw_line", "draw_rectangle",                                                                                                                               # 38, 39, 40,
 
-#     "Divider",  "print_fancy_divider",                                                                                                                                   # 42, 43,
+#     "Divider",  "print_fancy_divider",                                                                                                                                   # 41, 42,
 
-#     "FancyFormat",  "fancyformat", "print_fancy_format", "reset_fancy_format",                                                                                           # 44, 45, 46, 47,
+#     "FancyFormat",  "fancyformat", "print_fancy_format", "reset_fancy_format",                                                                                           # 43, 44, 45, 46,
 
-#      "AsciiArt", "print_ascii_art", "print_multi_ascii_art", "print_ascii_logo_art", "print_reversed_ascii_logo_art"]                                                    # 48, 49, 50, 51, 52.
+#      "AsciiArt", "print_ascii_art", "print_multi_ascii_art", "print_ascii_logo_art", "print_reversed_ascii_logo_art"]                                                    # 47, 48, 49, 50, 51.
 # +-------------------------------------------------------------------------------------------------+
 # |                                                                                                 |
 # |        GROUP: FANCYMESSAGE_CLASS                                                                |

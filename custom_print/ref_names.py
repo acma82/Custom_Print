@@ -64,7 +64,8 @@ class Align(enum.StrEnum):
     CENTER   = "center"
     RIGHT    = "right"
     JUSTIFY  = "justify"
-
+    NONE     = "none"
+    
 class Ascii_Letter(enum.StrEnum):
     Alpha        = "Alpha"
     ANSI_Shadow  = "ANSI_Shadow"

@@ -13,7 +13,7 @@ if __name__ == "__main__":
 
         cursor             = ["jumpto", "jumpxy", "moveto", "movexy"]
 
-        fontstyle          = ["start_style", "stop_style", "print_style", "reset_style"]
+        fontstyle          = ["style_on_off", "reset_style", "print_style"]
 
         fancymessage       = ["print_fancy_message", "print_fancy_note"]
 
@@ -34,7 +34,7 @@ if __name__ == "__main__":
 
                       "jumpto", "jumpxy", "moveto", "movexy",
 
-                      "start_style", "stop_style", "print_style", "reset_style",
+                      "style_on_off", "reset_style", "print_style", 
 
                       "print_fancy_message", "print_fancy_note",
 

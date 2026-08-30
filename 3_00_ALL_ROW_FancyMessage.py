@@ -77,7 +77,7 @@ msg.bottom_lines  = 0
 msg.top_lines     = 0
 msg.footnote_lines_body = 0
 msg.footnote_lines_body = 1
-msg.footnote_align = cp.Align.RIGHT
+msg.footnote_align = cp.Align.JUSTIFY
 
 
 # msg.help_lines = True
