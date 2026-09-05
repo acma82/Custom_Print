@@ -18,10 +18,10 @@ cp.ins_newline(2)
 # | Corner Settings                                                                            |
 # +--------------------------------------------------------------------------------------------+
 # Setting bg colors for corners              setting fg colors for corners
-div.top_left_corner_bg     = 1;              div.top_left_corner_fg     = 4;
-div.top_right_corner_bg    = 2;              div.top_right_corner_fg    = 3;
-div.bottom_left_corner_bg  = 3;              div.bottom_left_corner_fg  = 2;
-div.bottom_right_corner_bg = 4;              div.bottom_right_corner_fg = 1;
+div.top_left_corner_bg     = 231;              div.top_left_corner_fg     = 16;
+div.top_right_corner_bg    = 231;              div.top_right_corner_fg    = 16;
+div.bottom_left_corner_bg  = 231;              div.bottom_left_corner_fg  = 16;
+div.bottom_right_corner_bg = 231;              div.bottom_right_corner_fg = 16;
 
 # Setting chr for corners                    Setting bold for corners
 div.top_left_corner_chr     = "1";           div.all_corner_bold = True
@@ -41,8 +41,8 @@ div.bottom_right_corner_chr = "4"
 # | Horizontal line Settings                                                                   |
 # +--------------------------------------------------------------------------------------------+
 # Setting chr for horizontal lines      Setting bg colors for horizontal lines     Setting fg colors for horizontal lines
-div.top_horizontal_line_chr    = "|";   div.top_horizontal_line_bg    = 5;    div.top_horizontal_line_fg    = 7
-div.bottom_horizontal_line_chr = "-";   div.bottom_horizontal_line_bg = 6;    div.bottom_horizontal_line_fg = 8
+div.top_horizontal_line_chr    = "*";   div.top_horizontal_line_bg    = 231;    div.top_horizontal_line_fg    = 16
+div.bottom_horizontal_line_chr = "-";   div.bottom_horizontal_line_bg = 231;    div.bottom_horizontal_line_fg = 16
 
 # div.top_horizontal_line_on     = True;  div.bottom_horizontal_line_on = True;  div.horizontal_line_bold      = True
 
@@ -51,9 +51,9 @@ div.bottom_horizontal_line_chr = "-";   div.bottom_horizontal_line_bg = 6;    di
 # | Vertical line Settings                                                                     |
 # +--------------------------------------------------------------------------------------------+
 # Setting chr for horizontal lines   Setting bg colors for Vertical lines  Setting fg colors for Vertical lines
-div.left_vertical_line_chr  = "!";   div.left_vertical_line_bg  = 22;      div.left_vertical_line_fg  = 9
-div.right_vertical_line_chr = "@";   div.right_vertical_line_bg = 22;      div.right_vertical_line_fg = 9
-div.vertical_line_bold      = False
+div.left_vertical_line_chr  = "5";   div.left_vertical_line_bg  = 231;      div.left_vertical_line_fg  = 16
+div.right_vertical_line_chr = "6";   div.right_vertical_line_bg = 231;      div.right_vertical_line_fg = 16
+div.vertical_line_bold      = True
 
 
 # +--------------------------------------------------------------------------------------------+
@@ -62,13 +62,11 @@ div.vertical_line_bold      = False
 # Message
 div.msg_bg = 231;                   div.msg_fg = 234;                        div.msg_bold = True
 div.adj_indent = 2;                 div.align = cp.Align.CENTER;             div.msg_italic = True
-# div.msg_strike = True
-
 
 # Note: adj_indent only works when the align is set to JUSTIFY
 
 # Fill blank
-div.left_fill_bg = 54;              div.right_fill_bg = 90;                  # div.left_right_fill_bg = 11
+div.left_fill_bg = cp.No.GLADE_GREEN;              div.right_fill_bg = cp.No.BLAZE_ORANGE;                  # div.left_right_fill_bg = 11
 
 # Note: all_fill_bg takes priority over the left_fill_bg and right_fill_bg
 

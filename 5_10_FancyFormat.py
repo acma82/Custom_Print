@@ -37,6 +37,7 @@ tbl.header_horizontal_line_on = True
 # tbl.data_align   = cp.Align.RIGHT
 # tbl.header_all_cell_bg = False
 # tbl.data_all_cell_bg   = False
+# tbl.header_horizontal_line_on = False
 tbl.header_align = cp.Align.CENTER
 # Using with Single empty space
 cp.ins_newline(2); tbl.print_fancy_format(data=lst, style=cp.Line_Style.TEAL_WHITE)
@@ -50,6 +51,7 @@ cp.ins_newline(2); tbl.print_fancy_format(data=lst, style=cp.Line_Style.BLUE_PUR
 cp.ins_newline(2); tbl.print_fancy_format(data=lst, style=cp.Line_Style.BLUE_PURPLE_WHITE_2)
 cp.ins_newline(2); tbl.print_fancy_format(data=lst, style=cp.Line_Style.TURQUOISE_BLACK)
 
+cp.ins_newline(2); tbl.print_fancy_format(data=lst, style=cp.Line_Style.OLIVE_GREEN)
 
 
 # Note we can create our designs or use those template. There are others template in the

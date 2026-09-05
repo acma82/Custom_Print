@@ -162,6 +162,7 @@ class Line_Style(enum.StrEnum):
     SPACE_3  = "space_3"
     SPACE_4  = "space_4"
     SPACE_5  = "space_5"
+    SPACE_6  = "space_6"
 
     DESIGN_1  = "design_1"
     DESIGN_2  = "design_2"
@@ -175,15 +176,16 @@ class Line_Style(enum.StrEnum):
     DESIGN_10 = "design_10"
 
     # Design 3
-    RED_WHITE           = "red_white"
-    BLUE_WHITE          = "blue_white"
-    WHITE_PURPLE        = "white_purple"
+    RED_WHITE       = "red_white"
+    BLUE_WHITE      = "blue_white"
+    WHITE_PURPLE    = "white_purple"
     WHITE_BLACK_1   = "white_black"
     WHITE_BLACK_2   = "white_black_2"
     TURQUOISE_BLACK = "turquoise_black"
-    TURQUOISE_WHITE     = "turquoise_white"
-    PURPLE_WHITE        = "purple_white"
-    TEAL_WHITE          = "teal_white"
+    TURQUOISE_WHITE = "turquoise_white"
+    PURPLE_WHITE    = "purple_white"
+    TEAL_WHITE      = "teal_white"
+    OLIVE_GREEN     = "olive_green"
 
     # Design 4
     WHITE_BLACK_PURPLE  = "white_black_purple"
