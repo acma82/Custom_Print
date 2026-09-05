@@ -32,7 +32,7 @@ draw_line_fg    = -1            |                                   |
     pen = cp.Pen()
     pen.adj_indent = 8
     pen.draw_line(size=20, layout=cp.Layout.HORIZONTAL, tail=cp.Unicode.BLACK_LEFT_POINTING_TRIANGLE,
-                  body=cp.Unicode.EM_DASH, head=cp.Unicode.BLAKC_RIGHT_POINT_TRIANGLE)
+                  body=cp.Unicode.EM_DASH, head=cp.Unicode.BLAKC_RIGHT_POINTING_TRIANGLE)
     cp.ins_newline(2)
     pen.adj_indent = 14
     pen.draw_rectangle(length=8, width=4, style=cp.Line_Style.DOUBLE)

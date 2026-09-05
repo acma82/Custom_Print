@@ -93,6 +93,7 @@ class FancyMessage(Cursor):
         # Note Settings Here, print_fancy_note
         self.note_msg = " Note: "
         self.note_align = Align.JUSTIFY;    self.note_position = 1
+
         self.note_bg = 231;                 self.note_fg = 0;                 self.note_bold      = False
         self.note_dim = False;              self.note_italic  = False;        self.note_underline = False
         self.note_blinking = False;         self.note_inverse = False;        self.note_hidden    = False
@@ -100,14 +101,14 @@ class FancyMessage(Cursor):
 
         # Title Settings Here, print_fancy_message
         self.title_align = Align.LEFT;      self.title_indent = 2;            self.title_msg = "" # title_indent works with Align.JUSTIFY
-        self.lines_title_body = 1;          self.title_strike = False
+        self.title_body_lines = 1;          self.title_strike = False
         self.title_bg = 4;                  self.title_fg = 231;              self.title_bold  = False
         self.title_dim = False;             self.title_italic = False;        self.title_underline = False
         self.title_blinking = False;        self.title_inverse = False;       self.title_hidden = False
 
         # Footnote Settings Here, print_fancy_message
         self.footnote_align = Align.RIGHT;  self.footnote_indent = 2;         self.footnote_msg = "" # footnote_indent works with Align.JUSTIFY
-        self.footnote_lines_body = 1;       self.footnote_strike = False
+        self.footnote_body_lines = 1;       self.footnote_strike = False
         self.footnote_bg = 4;               self.footnote_fg = 231;           self.footnote_bold  = False
         self.footnote_dim = False;          self.footnote_italic = False;     self.footnote_underline = False
         self.footnote_blinking = False;     self.footnote_inverse = False;    self.footnote_hidden = False
@@ -350,7 +351,7 @@ class FancyMessage(Cursor):
         self.left_indent = li_obj
         # n_lines, space_available, tncols are variables for reference to calculate the message
         if self.help_lines == True:
-            print(f"{ins_chr(self.left_indent)}Body_Lines:{n_lines}  Space_Available:{space_available}  N.Cols: {tncols}N.Lines:{total_back_lines}")
+            print(f"{ins_chr(self.left_indent)}Body_Lines:{n_lines}  Space_Available:{space_available}  N.Cols: {tncols}  N.Lines:{total_back_lines}")
 
 
     #-------------------------------------------------------------------------------------------------------------------------------------------------
@@ -395,7 +396,7 @@ class FancyMessage(Cursor):
             else:                                          # Align.JUSTIFY
                 self.title_msg = ins_chr(self.title_indent) + self.title_msg
 
-            self.bottom_lines = self.lines_title_body
+            self.bottom_lines = self.title_body_lines
             self.send_msg_terminal(self.title_msg)
 
             # This is necessary because when is right alignment, it jumps automatically to the next row
@@ -422,7 +423,7 @@ class FancyMessage(Cursor):
             self.send_msg_terminal(body_msg)
 
         else:
-            if not self.footnote_msg == "":   self.bottom_lines = self.footnote_lines_body
+            if not self.footnote_msg == "":   self.bottom_lines = self.footnote_body_lines
             else:                             self.bottom_lines = bl_obj
 
             self.send_msg_terminal(body_msg)
@@ -443,7 +444,7 @@ class FancyMessage(Cursor):
             else:
                 self.footnote_msg = ins_chr(self.footnote_indent) + self.footnote_msg # JUSTIFY
 
-            self.top_lines    = self.footnote_lines_body;    self.bottom_lines   = bl_obj
+            self.top_lines    = self.footnote_body_lines;    self.bottom_lines   = bl_obj
             self.body_bg      = self.footnote_bg;            self.body_underline = self.footnote_underline
             self.body_fg      = self.footnote_fg;            self.body_blinking  = self.footnote_blinking
             self.body_bold    = self.footnote_bold;          self.body_inverse   = self.footnote_inverse
@@ -473,9 +474,9 @@ class FancyMessage(Cursor):
         if self.help_lines == True:
             total_lines = n_lines + self.top_lines + self.bottom_lines
 
-            if self.title_msg != "":     total_lines += 1 + self.lines_title_body
+            if self.title_msg != "":     total_lines += 1 + self.title_body_lines
 
-            if self.footnote_msg != "":  total_lines += 1 + self.footnote_lines_body
+            if self.footnote_msg != "":  total_lines += 1 + self.footnote_body_lines
 
             print(f"{ins_chr(self.left_indent)}Body_Lines:{n_lines}  Space_Available:{space_available}  N.Cols: {tncols}  N.Lines:{total_lines}")
 
@@ -554,9 +555,9 @@ class FancyMessage(Cursor):
             # tbl.horizontal_line_on = False
             tbl.middle_horizontal_line_on = False
             tbl.adj_bottom_margin = 1
-            tbl.print_fancy_format(data=result_lst, style=Line_Style.SINGLE_SPACE)
+            tbl.print_fancy_format(data=result_lst, style=Line_Style.SINGLE_LINE)
             tbl.adj_top_margin = 1
             tbl.title_msg = "  Words of The Message Into a List  "
-            tbl.print_fancy_format(new_msg_list)
+            tbl.print_fancy_format(new_msg_list, Line_Style.SINGLE_LINE)
 
         return result_lst, new_msg_list

@@ -55,7 +55,7 @@ msg.title_bg    = 14
 msg.title_fg    = 0
 msg.title_bold  = True
 msg.title_align = cp.Align.RIGHT
-msg.lines_title_body = 0
+msg.title_body_lines = 2
 
 # body
 msg.body_italic = True
@@ -75,8 +75,8 @@ msg.footnote_fg   = 0
 msg.footnote_bold = True
 msg.bottom_lines  = 0
 msg.top_lines     = 0
-msg.footnote_lines_body = 0
-msg.footnote_lines_body = 1
+msg.footnote_body_lines = 0
+msg.footnote_body_lines = 1
 msg.footnote_align = cp.Align.JUSTIFY
 
 
@@ -99,3 +99,20 @@ msg.print_fancy_message(paragraph3)
 cp.ins_newline(2)
 msg.print_fancy_message(paragraph4)
 cp.ins_newline(2)
+
+
+import custom_print as cp
+# msg = cp.FancyFormat()
+
+paragraph = '''
+Guido van Rossum, a Dutch programmer, created Python in the late 1980s
+as a hobby project. He started working on it in December 1989 at Cent-
+rum Wiskunde & Informatica (CWI) in the Netherlands.
+
+Python was first released on February 20, 1991. Python was named after
+the 1970s BBC comedy sketch series Monty Python's Flying Circus.'''
+
+msg.title_msg = "TITLE"
+msg.footnote_msg = "FOOTNOTE"
+
+msg.print_fancy_message(paragraph)		#  Method 1

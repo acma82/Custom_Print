@@ -31,9 +31,9 @@ crs.jumpTo(5,"down")
 #+-----------------------------------------------------------------------------------+
 #|    moveTo Method                                                                  |
 #+-----------------------------------------------------------------------------------+
-print(f"{crs.moveTo(15,"right")} First One",  end="")
-print(f"{crs.moveTo(15,"right")} Second One", end="")
-print(f"{crs.moveTo(qty=20,direction="left")}Hello")
+print(f"{crs.moveTo(15,'right')} First One",  end="")
+print(f"{crs.moveTo(15,'right')} Second One", end="")
+print(f"{crs.moveTo(qty=20,direction='left')}Hello")
 
 
 #+-----------------------------------------------------------------------------------+

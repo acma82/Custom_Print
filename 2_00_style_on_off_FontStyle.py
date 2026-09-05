@@ -30,6 +30,7 @@ fs.blinking  = True
 fs.underline = True
 fs.strike    = True
 fs.italic    = True
+# align is set to JUSTIFY as default
 
 cp.ins_newline(2)
 print(f"{fs.style_on()}Font Style {fs.style_off()}")

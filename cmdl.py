@@ -15,7 +15,7 @@ if __name__ == "__main__":
 
         fontstyle          = ["style_on_off", "reset_style", "print_style"]
 
-        fancymessage       = ["print_fancy_message", "print_fancy_note"]
+        fancymessage       = ["print_fancy_message", "print_fancy_note", "get_message_attributes"]
 
         pen                = ["draw_line", "draw_rectangle"]
 
@@ -36,7 +36,7 @@ if __name__ == "__main__":
 
                       "style_on_off", "reset_style", "print_style", 
 
-                      "print_fancy_message", "print_fancy_note",
+                      "print_fancy_message", "print_fancy_note", "get_message_attributes",
 
                       "draw_line", "draw_rectangle",
 

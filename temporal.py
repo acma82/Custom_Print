@@ -105,3 +105,20 @@ print(f"\u00A9  \u00AE \U000026AB Check here \U0001F7E1  \U0001F7E9 as check mar
 print(f"\U0001F537 Number One Option")
 
 print(cp.Unicode.FIRE) 
+
+
+import custom_print as cp
+msg = cp.FancyMessage()
+
+paragraph = '''
+Guido van Rossum, a Dutch programmer, created Python in the late 1980s
+as a hobby project. He started working on it in December 1989 at Cent-
+rum Wiskunde & Informatica (CWI) in the Netherlands.
+
+Python was first released on February 20, 1991. Python was named after
+the 1970s BBC comedy sketch series Monty Python's Flying Circus.'''
+
+msg.title_msg = "TITLE"
+msg.footnote_msg = "FOOTNOTE"
+
+msg.print_fancy_message(paragraph)		#  Method 1

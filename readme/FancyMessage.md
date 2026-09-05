@@ -71,7 +71,7 @@ This class contains 3 methods and the attributes and their default values are di
     title_msg  = ""         title_align   = Align.LEFT          title_blinking      = False
     title_bg   = 4          title_strike  = False               title_underline     = False
     title_fg   = 231        title_italic  = False               title_indent        = 2
-    title_bold = False      title_inverse = False               lines_title_body    = 1
+    title_bold = False      title_inverse = False               title_body_lines    = 1
     title_dim  = False      title_hidden  = False
 ```
 
@@ -81,7 +81,7 @@ This class contains 3 methods and the attributes and their default values are di
     footnote_msg  = ""      footnote_align   = Align.RIGHT      footnote_blinking   = False
     footnote_bg   = 4       footnote_strike  = False            footnote_underline  = False
     footnote_fg	  = 231     footnote_italic  = False            footnote_indent     = 2
-    footnote_bold = False   footnote_inverse = False            footnote_lines_body = 1
+    footnote_bold = False   footnote_inverse = False            footnote_body_lines = 1
     footnote_dim  = False   footnote_hidden  = False
 ```
 
@@ -90,7 +90,7 @@ This class contains 3 methods and the attributes and their default values are di
 
 ```python
     import custom_print as cp
-	msg = cp.FancyFormat()
+	msg = cp.FancyMessage()
 
 	paragraph = '''
     Guido van Rossum, a Dutch programmer, created Python in the late 1980s

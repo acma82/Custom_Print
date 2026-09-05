@@ -895,7 +895,7 @@ def FancyMessage_Class():
     ex_msg.bold_body   = True;        ex_msg.bold_footnote = 1;         ex_msg.bold_title = True
     ex_msg.left_indent = 15;          ex_msg.right_indent = 15;         ex_msg.align_title = cp.Align.CENTER
     ex_msg.top_lines   = 3;           ex_msg.bottom_lines = 3;          ex_msg.align_footnote = cp.Align.CENTER
-    ex_msg.lines_title_body = 3;      ex_msg.lines_body_footnote=3      
+    ex_msg.title_body_lines = 3;      ex_msg.lines_body_footnote=3      
     ex_msg.msg_title ="TITLE";        ex_msg.msg_footnote = "FOOTNOTE"; ex_msg.help_lines = True
 
 
@@ -938,7 +938,7 @@ the 1970s BBC comedy sketch series Monty Python's Flying Circus.
     print()
     crs.jumpTo(qty=6, direction=cp.Move.UP)
     pen.adj_indent = 29
-    pen.draw_line(size=3, layout=cp.Layout.VERTICAL, tail="       top lines", body= " ", head="lines_title_body")
+    pen.draw_line(size=3, layout=cp.Layout.VERTICAL, tail="       top lines", body= " ", head="title_body_lines")
 
 
     crs.jumpTo(qty=8, direction=cp.Move.DOWN)
@@ -1101,7 +1101,7 @@ def Print_Fancy_Message_Method():
                      ["bold_title  = False",     "                     ",      "                       "],
                      ["                   ",     "                     ",      "                       "],
                      ["msg_title   = \"\"",      "title_indent  = 2",          "align_title      = Align.LEFT"],
-                     ["                 ",        "                ",          "lines_title_body = 1"]]
+                     ["                 ",        "                ",          "title_body_lines = 1"]]
 
     simple_msg.print_fancy_format(default_values,cp.Line_Style.NONE)
    

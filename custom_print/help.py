@@ -86,17 +86,17 @@ all_topics = [
 
     "Cursor",  "jumpto", "jumpxy", "moveto", "movexy",                                                                                                                   # 26, 27, 28, 23, 30,
 
-    "Fontstyle",  "style_on_off", "reset_style", "print_style",                                                                                             # 31, 32, 33, 34, 35,
+    "Fontstyle",  "style_on_off", "reset_style", "print_style",                                                                                                          # 31, 32, 33, 34, 35,
 
-    "FancyMessage",  "print_fancy_message", "print_fancy_note",                                                                                                          # 36, 37, 38,
+    "FancyMessage",  "print_fancy_message", "print_fancy_note", "get_message_attributes",                                                                                # 36, 37, 38, 39,
 
-    "Pen",  "draw_line", "draw_rectangle",                                                                                                                               # 39, 40, 41,
+    "Pen",  "draw_line", "draw_rectangle",                                                                                                                               # 40, 41, 42,
 
-    "Divider",  "print_fancy_divider",                                                                                                                                   # 42, 43,
+    "Divider",  "print_fancy_divider",                                                                                                                                   # 43, 44,
 
-    "FancyFormat",  "fancyformat", "print_fancy_format", "reset_fancy_format",                                                                                           # 44, 45, 46, 47,
+    "FancyFormat",  "fancyformat", "print_fancy_format", "reset_fancy_format",                                                                                           # 45, 46, 47, 48,
 
-     "AsciiArt", "print_ascii_art", "print_multi_ascii_art", "print_ascii_logo_art", "print_reversed_ascii_logo_art"]                                                    # 48, 49, 50, 51, 52.
+     "AsciiArt", "print_ascii_art", "print_multi_ascii_art", "print_ascii_logo_art", "print_reversed_ascii_logo_art"]                                                    # 49, 50, 51, 52, 53.
 
 def  help_documentation():
     # pylo = cp.PyLO()
@@ -127,11 +127,11 @@ def  help_documentation():
 
     help_classes       = [["Align", "Line_Style"], ["Ascii_Letter", "Logo"],["Bg", "Move"], ["Divider_Style", "No"],["Fg", "Style"],["Layout", "Unicode"],["Length_Bg", "----"]]
 
-    cmcpp1 = [["Cursor",    "FontStyle",       "FancyMessage"       ,    "Pen"           ],
-              ["jumpTo",    "style_on_off",    "print_fancy_message",    "draw_line"     ],
-              ["jumpxy",    "reset_style",     "print_fancy_note"   ,    "draw_rectangle"],
-              ["moveTo",    "print_style",     "----",                   "----"          ],
-              ["movexy",    "----",            "----",                   "----"          ]]
+    cmcpp1 = [["Cursor",    "FontStyle",       "FancyMessage",             "Pen"           ],
+              ["jumpTo",    "style_on_off",    "print_fancy_message",      "draw_line"     ],
+              ["jumpxy",    "reset_style",     "print_fancy_note"   ,      "draw_rectangle"],
+              ["moveTo",    "print_style",     "get_message_attributes",   "----"          ],
+              ["movexy",    "----",            "----",                     "----"          ]]
 
     cmcpp2 = [["Divider",              "FancyFormat"       ],
               ["print_fancy_divider",  "print_fancy_format"],
@@ -1442,8 +1442,7 @@ def fontstyle_info():
     cp.ins_newline(1)
     blue_div.print_fancy_divider(all_topics[31]) # Help Classes
     message = f'''
-     This class contains 4 methods and the attributes and their default values
-       are displays below.
+     This class contains 4 methods and their default values are displays below.
 
     {cp.set_font(1,209,16,1)}                                                 {cp.reset_font()}
     {cp.set_font(1,209,16,1)}                General Use                      {cp.reset_font()}
@@ -1465,9 +1464,8 @@ def fontstyle_info():
              from the left of the terminal.
 
     {cp.set_font(1,196,231)} Note: {cp.reset_font()} indent is used for style_on and for print_style when using
-            justify as an option for the align.
-
-
+            justify as an option for the align. For the other \"align\" options
+            (left, right, center), only \"print_style\" make use of them.
  
     '''
 
@@ -1476,7 +1474,6 @@ def fontstyle_info():
     reset_style_info()
     print_style_info()
    
-
 
 def style_on_off_info(): 
     ''' These methods are useful if we are using the style in many rows. '''
@@ -1549,11 +1546,11 @@ def reset_style_info():
     print(f" Font Style Line 3 {fs.style_off()}\n" )
     fs.reset_style()
     print(f"{fs.style_on()} Default Style {fs.style_off()}")
-
+    print()
 
 
 def print_style_info():
-    ''' this align the customized text on the screen with the position specified.  '''
+    ''' This method align the customized text on the screen with the position specified.  '''
     cp.ins_newline(1)
     green_div.print_fancy_divider(all_topics[34])
     message = f''' 
@@ -1562,8 +1559,8 @@ def print_style_info():
 
       {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp
                   fs = cp.FontStyle()
-                  fs.fg        = 231;        fs.bg_bottom_lines = True
-                  fs.bg        = 23;         fs.bg_top_lines    = True
+                  fs.fg        = 231;        fs.bg_bottom_lines = 1
+                  fs.bg        = 23;         fs.bg_top_lines    = 1
                   fs.bold      = True;       fs.forced_align    = False '''
     print(message)
     message = '''
@@ -1595,8 +1592,8 @@ def print_style_info():
     fs.fg        = 231
     fs.bg        = 23
     fs.bold      = True
-    fs.bg_bottom_lines = True
-    fs.bg_top_lines    = True
+    fs.bg_bottom_lines = 1
+    fs.bg_top_lines    = 1
     fs.forced_align    = False
 
 
@@ -1624,26 +1621,7 @@ def print_style_info():
 
     cp.ins_newline(1)
 
-# all_topics = [
-#     "Screen_Functions",  "clean", "clear","dimensions", "erase", "resize",                                                                                               # 0, 1, 2, 3, 4, 5,
 
-#     "Internal_Functions", "ansi_colors", "ins_chr", "ins_newline", "set_reset_font", "terminal_bell",                                                                    # 6, 7, 8, 9, 10, 11
-
-#     "Help_Classes",  "align", "length_bg", "ascii_letter", "line_style", "bg", "logo", "move", "divider_style", "no", "fg", "style", "layout", "unicode",                # 12 - 25,
-
-#     "Cursor",  "jumpto", "jumpxy", "moveto", "movexy",                                                                                                                   # 26, 27, 28, 23, 30,
-
-#     "Fontstyle",  "style_on_off", "reset_style", "print_style",                                                                                                          # 31, 32, 33, 34,
-
-#     "FancyMessage",  "print_fancy_message", "print_fancy_note",                                                                                                          # 35, 36, 37,
-
-#     "Pen",  "draw_line", "draw_rectangle",                                                                                                                               # 38, 39, 40,
-
-#     "Divider",  "print_fancy_divider",                                                                                                                                   # 41, 42,
-
-#     "FancyFormat",  "fancyformat", "print_fancy_format", "reset_fancy_format",                                                                                           # 43, 44, 45, 46,
-
-#      "AsciiArt", "print_ascii_art", "print_multi_ascii_art", "print_ascii_logo_art", "print_reversed_ascii_logo_art"]                                                    # 47, 48, 49, 50, 51.
 # +-------------------------------------------------------------------------------------------------+
 # |                                                                                                 |
 # |        GROUP: FANCYMESSAGE_CLASS                                                                |
@@ -1653,19 +1631,293 @@ def print_style_info():
 # +-------------------------------------------------------------------------------------------------+
 def fancymessage_info():
     cp.ins_newline(1)
-    blue_div.print_fancy_divider(all_topics[12]) # Help Classes
-    mensaje ='''
-    neeed works here here here here here  All these functions are being used internally in the custom_print modules.
-    It is available to the user if they find them usefull, otherwise, feel free
-    to ignore them.
+    blue_div.print_fancy_divider(all_topics[35]) # Help Classes
+    message = f'''
+     This class contains 3 methods and their default values are displays below.
+
+    {cp.set_font(1,209,16,1)}                                                                 {cp.reset_font()}
+    {cp.set_font(1,209,24,1)}  Body Section                                                   {cp.reset_font()}
+    {cp.set_font(1,209,16,1)}                                                                 {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} body_bg = 4                 {cp.Unicode.BULLET} body_dim = False                {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} body_fg = 231               {cp.Unicode.BULLET} body_italic = False             {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} body_msg = "Body Msg"       {cp.Unicode.BULLET} body_hidden = False             {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} body_bold = False           {cp.Unicode.BULLET} body_strike = False             {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} help_lines = False          {cp.Unicode.BULLET} body_inverse = False            {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} left_indent = 2             {cp.Unicode.BULLET} body_blinking = False           {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} right_indent = 2            {cp.Unicode.BULLET} body_underline = False          {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} top_lines = 1               {cp.Unicode.BULLET} bottom_lines = 1                {cp.reset_font()}
+    {cp.set_font(1,209,16,1)}                                                                 {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} length = Length_Bg.ALL_ROW                                    {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} adj_bg_lines_to_right_indent = False                          {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} adj_bg_msg_to_space_available = False                         {cp.reset_font()}
+    {cp.set_font(1,209,16,1)}                                                                 {cp.reset_font()}
+
+    {cp.set_font(1,209,16,1)}                                                                 {cp.reset_font()}
+    {cp.set_font(1,209,24,1)}  Note Section                                                   {cp.reset_font()}
+    {cp.set_font(1,209,16,1)}                                                                 {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} note_bg = 231               {cp.Unicode.BULLET} note_dim = False                {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} note_fg = 0                 {cp.Unicode.BULLET} note_italic = False             {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} note_msg = "Note:"          {cp.Unicode.BULLET} note_hidden = False             {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} note_bold = False           {cp.Unicode.BULLET} note_strike = False             {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} note_position = 1           {cp.Unicode.BULLET} note_inverse = False            {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} note_left_space = 2         {cp.Unicode.BULLET} note_blinking = False           {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} note_right_space = 2        {cp.Unicode.BULLET} note_underline = False          {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} note_align = Align.JUSTIFY                                    {cp.reset_font()}
+    {cp.set_font(1,209,16,1)}                                                                 {cp.reset_font()}
+
+    {cp.set_font(1,209,16,1)}                                                                 {cp.reset_font()}
+    {cp.set_font(1,209,24,1)}  Title Section                                                  {cp.reset_font()}
+    {cp.set_font(1,209,16,1)}                                                                 {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} title_bg = 4                 {cp.Unicode.BULLET} title_dim = False              {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} title_fg = 231               {cp.Unicode.BULLET} title_italic = False           {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} title_msg = ""               {cp.Unicode.BULLET} title_hidden = False           {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} title_bold = False           {cp.Unicode.BULLET} title_strike = False           {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} title_indent = 2             {cp.Unicode.BULLET} title_inverse = False          {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} title_body_lines = 1         {cp.Unicode.BULLET} title_blinking = False         {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} title_align = Align.LEFT     {cp.Unicode.BULLET} title_underline = False        {cp.reset_font()}
+    {cp.set_font(1,209,16,1)}                                                                 {cp.reset_font()}
+
+    {cp.set_font(1,209,16,1)}                                                                 {cp.reset_font()}
+    {cp.set_font(1,209,24,1)}  Footnote Section                                               {cp.reset_font()}
+    {cp.set_font(1,209,16,1)}                                                                 {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} footnote_bg = 4              {cp.Unicode.BULLET} footnote_dim = False           {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} footnote_fg = 231            {cp.Unicode.BULLET} footnote_italic = False        {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} footnote_msg = ""            {cp.Unicode.BULLET} footnote_hidden = False        {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} footnote_bold = False        {cp.Unicode.BULLET} footnote_strike = False        {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} footnote_indent = 2          {cp.Unicode.BULLET} footnote_inverse = False       {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} footnote_body_lines = 1      {cp.Unicode.BULLET} footnote_blinking = False      {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} footnote_align = Align.RIGHT {cp.Unicode.BULLET} footnote_underline = False     {cp.reset_font()}
+    {cp.set_font(1,209,16,1)}                                                                 {cp.reset_font()}
+    {cp.set_font(1,209,16,1)}                                                                 {cp.reset_font()}
+  
+      
+    {cp.set_font(1,196,231)} Note: {cp.reset_font()} title_indent    → works with Align.JUSTIFY.
+            footnote_indent → works with Align.JUSTIFY.
+
+            These 2 options \"adj_bg_lines_to_right_indent\" and
+            \"adj_bg_msg_to_space_available\" don't do anything when
+            length = Length_Bg.All_ROW
     '''
-    print(mensaje)
+    print(message)
     print_fancy_message_info()
     print_fancy_note_info()
+    get_message_attributes_info()
 
 
-def print_fancy_message_info(): print("print_fancy_message method")
-def print_fancy_note_info():    print("print_fancy_note method")
+def print_fancy_message_info():      
+    ''' This method customized text on the screen for better visualization.  '''
+    cp.ins_newline(1)
+    green_div.print_fancy_divider(all_topics[36])
+    message = f''' 
+       This method customized text on the screen for better visualization.
+
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp
+                  msg = cp.FancyMessage()
+                  paragraph = \'\'\'
+                  Guido van Rossum, a Dutch programmer, created Python in the
+                  late 1980s as a hobby project. 
+                  He started working on it in December 1989 at Centrum Wiskunde
+                  & Informatica (CWI) in the Netherlands.
+                  
+                  Python was first released on February 20, 1991.
+                  Python was named after the 1970s BBC comedy sketch
+                  series Monty Python's Flying Circus.\'\'\'
+
+                  msg.title_msg = "TITLE"
+                  msg.footnote_msg = "FOOTNOTE"
+                  msg.body_bg = 40
+                  msg.body_fg = 16
+                  # msg.length = cp.Length_Bg.ONLY_WORD
+                  msg.print_fancy_message(paragraph)		#  Method 1
+
+  {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
+    '''
+    print(message)
+    msg = cp.FancyMessage()
+    paragraph = '''
+        Guido van Rossum, a Dutch programmer, created Python in the
+        late 1980s as a hobby project. 
+        He started working on it in December 1989 at Centrum Wiskunde
+        & Informatica (CWI) in the Netherlands.
+                  
+        Python was first released on February 20, 1991.
+        Python was named after the 1970s BBC comedy sketch
+        series Monty Python's Flying Circus.'''
+    
+    msg.title_msg = "TITLE"
+    msg.footnote_msg = "FOOTNOTE"
+    msg.body_bg = 40
+    msg.body_fg = 16
+    # msg.length = cp.Length_Bg.ONLY_WORD
+    msg.print_fancy_message(paragraph)		#  Method 1
+    print()
+
+
+def print_fancy_note_info():
+    ''' This method customized notes on the screen for better visualization.  '''
+    cp.ins_newline(1)
+    green_div.print_fancy_divider(all_topics[37])
+    message = f''' 
+       This method customized text on the screen for better visualization.
+
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp
+                  msg = cp.FancyMessage()
+                  paragraph = \'\'\'
+                  1898 - 1936, translated by Sarah Arvio
+
+                  To find a kiss of yours
+                  what would I give
+                  A kiss that strayed from your lips
+                  dead to love
+
+                  My lips taste
+                  the dirt of shadows     
+
+                  To gaze at your dark eyes
+                  what would I give
+                  Dawns of rainbow garnet  
+                  fanning open before God— 
+
+                  The stars blinded them
+                  one morning in May
+
+                  And to kiss your pure thighs
+                  what would I give
+                  Raw rose crystal  
+                  sediment of the sun
+                    \'\'\'
+                  # msg.help_lines = True
+                  msg.top_lines = 1
+                  msg.note_bold = True
+                  msg.note_position = 12  # by default is on row 0
+                  msg.note_align    = cp.Align.CENTER
+                  msg.note_left_space  = 4
+                  msg.note_right_space = 4
+                  msg.left_indent  = 25
+                  msg.right_indent = 8
+                  msg.print_fancy_note(body_msg=poem)
+                  print()
+                  msg.body_bold    = True
+                  msg.left_indent  = len(msg.note_msg) +
+                                     msg.note_left_space +
+                                     msg.note_right_space
+                  msg.body_italic  = True
+                  msg.body_fg      = 190
+                  msg.top_lines    = 0
+                  msg.bottom_lines = 1
+                  msg.left_indent  = 4
+                  msg.right_indent = 0
+                  msg.top_lines    = 2
+                  msg.bottom_lines = 1
+                  msg.print_fancy_message("Author: Federico García Lorca")
+                  print()
+
+
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
+    '''
+    print(message)
+
+    msg = cp.FancyMessage()
+    msg.note_msg = " To Find a Kiss of Yours "
+    poem = f''' 
+1898 - 1936, translated by Sarah Arvio
+
+To find a kiss of yours
+what would I give
+A kiss that strayed from your lips
+dead to love
+
+My lips taste
+the dirt of shadows     
+
+To gaze at your dark eyes
+what would I give
+Dawns of rainbow garnet  
+fanning open before God 
+
+The stars blinded them
+one morning in May
+
+And to kiss your pure thighs
+what would I give
+Raw rose crystal  
+sediment of the sun
+
+'''
+    #msg.help_lines = True
+    msg.top_lines = 1
+    msg.note_bold = True
+    msg.note_position = 12  # by default is on row 0
+    msg.note_align    = cp.Align.CENTER
+    msg.note_left_space  = 4
+    msg.note_right_space = 4
+    msg.left_indent  = 25
+    msg.right_indent = 8
+    msg.print_fancy_note(body_msg=poem)
+    print()
+    msg.body_bold    = True
+    msg.left_indent  = len(msg.note_msg) + msg.note_left_space + msg.note_right_space
+    msg.body_italic  = True
+    msg.body_fg      = 190
+    msg.top_lines    = 0
+    msg.bottom_lines = 1
+    msg.left_indent  = 4
+    msg.right_indent = 0
+    msg.top_lines    = 2
+    msg.bottom_lines = 1
+    msg.print_fancy_message("Author: Federico García Lorca")
+    print()
+
+        
+def get_message_attributes_info():
+    ''' This method customized notes on the screen for better visualization.  '''
+    cp.ins_newline(1)
+    green_div.print_fancy_divider(all_topics[38])
+    message = f''' 
+       This method collect all the attributes of the paragraph.
+
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp
+                  msg = cp.FancyMessage()
+                  paragraph = \'\'\'
+                  Guido van Rossum, a Dutch programmer, created Python in the
+                  late 1980s as a hobby project.
+                  He started working on it in December 1989 at Centrum Wiskunde
+                  & Informatica (CWI) in the Netherlands.
+
+                  Python was first released on February 20, 1991. Python was
+                  named after the 1970s BBC comedy sketch series Monty Python's
+                  Flying Circus. \'\'\'
+
+                  att = cp.FancyMessage()
+                  att.length = cp.Length_Bg.ONLY_WORD
+                  cp.ins_newline(2)
+                  att.print_fancy_message(paragraph)
+                  attributes, words = att.get_message_attributes(body_msg=paragraph, print_attributes=True)
+
+                  # print(attributes)
+                  # print(words)
+
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
+    '''
+    print(message)
+
+    message = '''
+    Guido van Rossum, a Dutch programmer, created Python in the
+    late 1980s as a hobby project.
+    He started working on it in December 1989 at Centrum Wiskunde 
+    & Informatica (CWI) in the Netherlands.
+    Python was first released on February 20, 1991. Python was
+    named after the 1970s BBC comedy sketch series Monty Python's
+    Flying Circus.    '''
+
+    att = cp.FancyMessage()
+    att.length = cp.Length_Bg.ONLY_WORD
+
+    cp.ins_newline(2)
+    att.print_fancy_message(message)
+    attributes, words = att.get_message_attributes(message,True)
+    print()
+
 
 # +-------------------------------------------------------------------------------------------------+
 # |                                                                                                 |
@@ -1676,18 +1928,117 @@ def print_fancy_note_info():    print("print_fancy_note method")
 # +-------------------------------------------------------------------------------------------------+
 def pen_info():
     cp.ins_newline(1)
-    blue_div.print_fancy_divider(all_topics[12]) # Help Classes
-    mensaje ='''
-    neeed works here here here here here  All these functions are being used internally in the custom_print modules.
-    It is available to the user if they find them usefull, otherwise, feel free
-    to ignore them.
-    '''
-    print(mensaje)
+    blue_div.print_fancy_divider(all_topics[39])
+    message = f'''
+     Pen class will draw lines nad squares. This class contains 2 methods
+     and their default values are displays below.
+
+    {cp.set_font(1,209,16,1)}                                                                      {cp.reset_font()}
+    {cp.set_font(1,209,24,1)}  General Use Section                                                 {cp.reset_font()}
+    {cp.set_font(1,209,16,1)}                                                                      {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} adj_indent = 0                                                     {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} draw_line_bold = False                                             {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} draw_line_bg = -1                                                  {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} draw_line_fg = -1                                                  {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} fill_color = False                                                 {cp.reset_font()}
+    {cp.set_font(1,209,16,1)}                                                                      {cp.reset_font()}
+    
+    {cp.set_font(1,209,16,1)}                                                                      {cp.reset_font()}
+    {cp.set_font(1,209,24,1)} Rectangle Section                                                    {cp.reset_font()}
+    {cp.set_font(1,209,16,1)}                                                                      {cp.reset_font()}
+    {cp.set_font(1,209,155,1)} Horizontal Line                                                      {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} top_horizontal_line_chr = "-"  {cp.Unicode.BULLET} bottom_horizontal_line_chr = "-"  {cp.reset_font()}
+    {cp.set_font(1,209,16,1)}                                                                      {cp.reset_font()}
+    {cp.set_font(1,209,155,1)} Vertical Line                                                        {cp.reset_font()}    
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} left_vertical_line_chr  = "|"  {cp.Unicode.BULLET} right_vertical_line_chr = "|"     {cp.reset_font()}
+    {cp.set_font(1,209,16,1)}                                                                      {cp.reset_font()}
+    {cp.set_font(1,209,155,1)} Corner Line                                                          {cp.reset_font()}    
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} top_left_corner_chr     = "+"  {cp.Unicode.BULLET} self.top_right_corner_chr   = "+" {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} bottom_right_corner_chr = "+"  {cp.Unicode.BULLET} self.bottom_left_corner_chr = "+" {cp.reset_font()}
+    {cp.set_font(1,209,16,1)}                                                                      {cp.reset_font()}
+
+    {cp.set_font(1,196,231)} Note: {cp.reset_font()} adj_indent → space from the terminal to the box.
+            
+
+'''
+    print(message)
     draw_line_info()
     draw_rectangle_info()
 
-def draw_line_info():      print("draw_line method")
-def draw_rectangle_info(): print("draw rectangle method")
+
+def draw_line_info():
+    cp.ins_newline(1)
+    blue_div.print_fancy_divider(all_topics[40])
+    mensaje =f'''
+      It draws a line with the parameters specified.
+
+    {cp.set_font(1,209,16,1)}                                                             {cp.reset_font()}
+    {cp.set_font(1,209,24,1)}  Parameters                                                 {cp.reset_font()}
+    {cp.set_font(1,209,16,1)}                                                             {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} size   → It refers to the size of the body.               {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} layout → It refers how to set the line.                   {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} tail   → It define the char for the end of the line.      {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} body   → It define the char for the body of the line.     {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} head   → It define the char for the starting of the line. {cp.reset_font()}
+    {cp.set_font(1,209,16,1)}                                                             {cp.reset_font()}
+        
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp
+                  msg = cp.Pen()
+                  pen.adj_indent = 8
+                  pen.draw_line(size=20, layout=cp.Layout.HORIZONTAL,
+                                tail=cp.Unicode.BLACK_LEFT_POINTING_TRIANGLE,
+                                body=cp.Unicode.EM_DASH,
+                                head=cp.Unicode.BLAKC_RIGHT_POINTING_TRIANGLE)
+                  cp.ins_newline(2)
+                  pen.draw_line(size=6, layout=cp.Layout.VERTICAL,
+                  tail=cp.Unicode.COFFEE, body=cp.Unicode.GHOST,
+                  head=cp.Unicode.BALLON)
+
+
+      {cp.set_font(1,196,231)} Note: {cp.reset_font()} layout → only accepts HORIZONTAL or VERTICAL options.
+            
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
+    '''
+    print(mensaje)
+    pen = cp.Pen()
+    pen.adj_indent = 8
+    pen.draw_line(size=20, layout=cp.Layout.HORIZONTAL, tail=cp.Unicode.BLACK_LEFT_POINTING_TRIANGLE,
+                  body=cp.Unicode.EM_DASH, head=cp.Unicode.BLAKC_RIGHT_POINTING_TRIANGLE)
+    cp.ins_newline(2)
+    pen.draw_line(size=6, layout=cp.Layout.VERTICAL, tail=cp.Unicode.COFFEE,
+                  body=cp.Unicode.GHOST, head=cp.Unicode.BALLON)
+    print()
+
+
+
+def draw_rectangle_info():
+    cp.ins_newline(1)
+    blue_div.print_fancy_divider(all_topics[41])
+    mensaje =f'''
+        It draws a rectangle with the parameters specified.
+
+    {cp.set_font(1,209,16,1)}                                                             {cp.reset_font()}
+    {cp.set_font(1,209,24,1)}  Parameters                                                 {cp.reset_font()}
+    {cp.set_font(1,209,16,1)}                                                             {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} length → It define to the length of the rectangle.        {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} width  → It define to the width of the rectangle.         {cp.reset_font()}
+    {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} style  → It define the style of the line to be used.      {cp.reset_font()}
+    {cp.set_font(1,209,16,1)}                                                             {cp.reset_font()}        
+
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp
+                  msg = cp.Pen()
+                  pen.adj_indent = 16
+                  pen.draw_rectangle(length=8, width=4,
+                                     style=cp.Line_Style.DOUBLE_LINE)
+
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
+    '''
+    print(mensaje)
+    pen = cp.Pen()
+    pen.adj_indent = 16
+    pen.draw_rectangle(length=8, width=4, style=cp.Line_Style.DOUBLE_LINE)
+
+
 # +-------------------------------------------------------------------------------------------------+
 # |                                                                                                 |
 # |        GROUP: DIVIDER_CLASS                                                                     |
@@ -1710,6 +2061,26 @@ def print_fancy_divider_info(): print("print_fancy_divider method")
 
 
 
+# all_topics = [
+#     "Screen_Functions",  "clean", "clear","dimensions", "erase", "resize",                                                                                               # 0, 1, 2, 3, 4, 5,
+
+#     "Internal_Functions", "ansi_colors", "ins_chr", "ins_newline", "set_reset_font", "terminal_bell",                                                                    # 6, 7, 8, 9, 10, 11
+
+#     "Help_Classes",  "align", "length_bg", "ascii_letter", "line_style", "bg", "logo", "move", "divider_style", "no", "fg", "style", "layout", "unicode",                # 12 - 25,
+
+#     "Cursor",  "jumpto", "jumpxy", "moveto", "movexy",                                                                                                                   # 26, 27, 28, 23, 30,
+
+#     "Fontstyle",  "style_on_off", "reset_style", "print_style",                                                                                                          # 31, 32, 33, 34,
+
+#     "FancyMessage",  "print_fancy_message", "print_fancy_note", "get_message_attributes",                                                                                # 35, 36, 37, 38
+
+#     "Pen",  "draw_line", "draw_rectangle",                                                                                                                               # 39, 40, 41
+
+#     "Divider",  "print_fancy_divider",                                                                                                                                   # 42, 43,
+
+#     "FancyFormat",  "fancyformat", "print_fancy_format", "reset_fancy_format",                                                                                           # 44, 45, 46, 47
+
+#      "AsciiArt", "print_ascii_art", "print_multi_ascii_art", "print_ascii_logo_art", "print_reversed_ascii_logo_art"]                                                    # 48, 49, 50, 51, 52.
 
 
 # +-------------------------------------------------------------------------------------------------+

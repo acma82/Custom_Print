@@ -53,7 +53,7 @@ msg.right_indent = 15
 
 msg.top_lines = 1        # how many lines above and below the string
 
-msg.lines_title_body = 1
+msg.title_body_lines = 1
 msg.title_bg = 14
 msg.title_fg = 0
 msg.title_bold  = True
@@ -72,7 +72,7 @@ msg.body_fg = 0
 # msg.body_blinking = True
 
 # footnote
-msg.footnote_lines_body = 1
+msg.footnote_body_lines = 1
 # msg.footnote_msg = "FootNote"
 msg.footnote_bg = 14
 msg.footnote_fg = 0
