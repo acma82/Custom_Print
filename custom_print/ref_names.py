@@ -278,6 +278,31 @@ class Unicode(enum.StrEnum):
     COFFEE  = "\N{HOT BEVERAGE}"
 
 
+    SUBSCRIPT_ALPHA     = '?'
+    SUBSCRIPT_BETA      = '\u1d66'
+    SUBSCRIPT_GAMMA     = '\u1d67'
+    SUBSCRIPT_DELTA     = '?'     
+    SUBSCRIPT_EPSILON   = '?'     
+    SUBSCRIPT_THETA     = '?'    
+    SUBSCRIPT_IOTA      = '?'    
+    SUBSCRIPT_PHO       = '\u1d68'
+    SUBSCRIPT_PHI       = '?'    
+    SUBSCRIPT_PSI       = '\u1d69'
+    SUBSCRIPT_CHI       = '\u1d6a'
+
+    SUPERSCRIPT_ALPHA   = '\u1d45'
+    SUPERSCRIPT_BETA    = '\u1d5d' 
+    SUPERSCRIPT_GAMMA   = '\u1d5e' 
+    SUPERSCRIPT_DELTA   = '\u1d5f' 
+    SUPERSCRIPT_EPSILON = '\u1d4b' 
+    SUPERSCRIPT_THETA   = '\u1dbf'
+    SUPERSCRIPT_IOTA    = '\u1da5'
+    SUPERSCRIPT_PHO     = '?'     
+    SUPERSCRIPT_PHI     = '\u1db2'
+    SUPERSCRIPT_PSI     = '\u1d60'
+    SUPERSCRIPT_CHI     = '\u1d61'
+
+
 
 
 COLOR_NAMES = [\

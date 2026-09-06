@@ -151,3 +151,18 @@ ordered_letters = sorted(lst)
 print(ordered_letters)
 
 
+
+message = f'''
+A{cp.Unicode.SUPERSCRIPT_ALPHA  }  B{cp.Unicode.SUBSCRIPT_ALPHA  }
+A{cp.Unicode.SUPERSCRIPT_BETA   }  B{cp.Unicode.SUBSCRIPT_BETA   }
+A{cp.Unicode.SUPERSCRIPT_GAMMA  }  B{cp.Unicode.SUBSCRIPT_GAMMA  }
+A{cp.Unicode.SUPERSCRIPT_DELTA  }  B{cp.Unicode.SUBSCRIPT_DELTA  }
+A{cp.Unicode.SUPERSCRIPT_EPSILON}  B{cp.Unicode.SUBSCRIPT_EPSILON}
+A{cp.Unicode.SUPERSCRIPT_THETA  }  B{cp.Unicode.SUBSCRIPT_THETA  }
+A{cp.Unicode.SUPERSCRIPT_IOTA   }  B{cp.Unicode.SUBSCRIPT_IOTA   }
+A{cp.Unicode.SUPERSCRIPT_PHO    }  B{cp.Unicode.SUBSCRIPT_PHO    }
+A{cp.Unicode.SUPERSCRIPT_PHI    }  B{cp.Unicode.SUBSCRIPT_PHI    }
+A{cp.Unicode.SUPERSCRIPT_PSI    }  B{cp.Unicode.SUBSCRIPT_PSI    }
+A{cp.Unicode.SUPERSCRIPT_CHI    }  B{cp.Unicode.SUBSCRIPT_CHI    }
+'''
+print(message)

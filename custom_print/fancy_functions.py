@@ -459,17 +459,7 @@ def subscript(number):
 
         '+' : '\u208A',    '-' : '\u208B',    '=' : '\u208C',    '(' : '\u208D',    ')' : '\u208E',
 
-        ':alpha'  : '?',
-        ':beta'   : '\u1d66',
-        ':gamma'  : '\u1d67', 
-        'delta'   : '?'     , 
-        'epsilon' : '?'     , 
-        'theta'   : '?'     ,
-        'iota'    : '?'     ,
-        'pho'     : '\u1d68',
-        'phi'     : '?'     ,
-        'psi'     : '\u1d69',
-        'chi'     : '\u1d6a',
+
     }
 
 
@@ -509,19 +499,6 @@ def superscript(number):
         '5' : '\u2075',    '6' : '\u2076',    '7' : '\u2077',    '8' : '\u2078',    '9' : '\u2079',
 
         '+' : '\u207A',    '-' : '\u207B',    '=' : '\u207C',    '(' : '\u207D',    ')' : '\u207E',
-
-        'alpha'   : '\u1d45',
-        'beta'    : '\u1d5d', 
-        'gamma'   : '\u1d5e', 
-        'delta'   : '\u1d5f', 
-        'epsilon' : '\u1d4b', 
-        'theta'   : '\u1dbf',
-        'iota'    : '\u1da5',
-        'pho'     : '?',     
-        'phi'     : '\u1db2',
-        'psi'     : '\u1d60',
-        'chi'     : '\u1d61',
-        'coffee'  : '\u2615',
     }
 
     superscript_string = ""

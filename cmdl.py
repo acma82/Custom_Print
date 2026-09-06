@@ -3,29 +3,31 @@ import sys
 
 if __name__ == "__main__":        
         # variabvles needed for the documentation
-        main_topics        = ["screen_functions",  "internal_functions",  "help_classes",  "cursor",  "fontstyle",  "fancymessage",  "pen",  "divider",  "fancyformat",  "asciiart"]
+        main_topics        = ["screen_functions", "internal_functions",  "help_classes",  "cursor",  "fontstyle",  "fancymessage",  "pen",  "divider",  "fancyformat",  "asciiart"]
 
-        screen_functions   = ["clean", "clear","dimensions", "erase", "resize"]
+        screen_functions   = ["screen_functions_only", "clean", "clear","dimensions", "erase", "resize"]
 
-        internal_functions = ["ansi_colors", "ins_chr", "ins_newline", "set_reset_font", "terminal_bell"]
+        internal_functions = ["internal_functions_only", "ansi_colors", "ins_chr", "ins_newline", "set_reset_font", "terminal_bell"]
 
-        help_classes       = ["align", "length_bg", "ascii_letter", "line_style", "bg", "logo", "move", "divider_style", "no", "fg", "style", "layout", "unicode"]
+        help_classes       = ["help_classes_only", "align", "length_bg", "ascii_letter", "line_style", "bg", "logo", "move", "divider_style", "no", "fg", "style", "layout", "unicode"]
 
-        cursor             = ["jumpto", "jumpxy", "moveto", "movexy"]
+        cursor             = ["cursor_only", "jumpto", "jumpxy", "moveto", "movexy"]
 
-        fontstyle          = ["style_on_off", "reset_style", "print_style"]
+        fontstyle          = ["fontstyle_only", "style_on_off", "reset_style", "print_style"]
 
-        fancymessage       = ["print_fancy_message", "print_fancy_note", "get_message_attributes"]
+        fancymessage       = ["fancymessage_only", "print_fancy_message", "print_fancy_note", "get_message_attributes"]
 
-        pen                = ["draw_line", "draw_rectangle"]
+        pen                = ["pen_only", "draw_line", "draw_rectangle"]
 
-        divider            = ["print_fancy_divider"]
+        divider            = ["divider_only", "print_fancy_divider"]
 
-        fancyformat        = ["print_fancy_format", "reset_fancy_format"]
+        fancyformat        = ["fancyformat_only", "print_fancy_format", "reset_fancy_format"]
 
-        asciiart           = ["print_ascii_art", "print_multi_ascii_art", "print_ascii_logo_art", "print_reversed_ascii_logo_art"]
+        asciiart           = ["asciiart_only", "print_ascii_art", "print_multi_ascii_art", "print_ascii_logo_art", "print_reversed_ascii_logo_art"]
 
         all_topics = ["screen_functions",  "internal_functions",  "help_classes",  "cursor",  "fontstyle",  "fancymessage",  "pen",  "divider",  "fancyformat",  "asciiart",
+
+                      "screen_functions_only", "internal_functions_only",  "help_classes_only",  "cursor_only",  "fontstyle_only",  "fancymessage_only",  "pen_only",  "divider_only",  "fancyformat_only",  "asciiart_only",
 
                       "clean", "clear","dimensions", "erase", "resize", 
 
