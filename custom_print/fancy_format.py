@@ -1600,7 +1600,7 @@ class FancyFormat:
         self.header_horizontal_line_bg   = -1                 # values -1 to 255
         self.header_horizontal_line_fg   = -1                 # values -1 to 255
 
-        # attributes for the header corners (left, middles and right)
+        # Attributes for the header corners (left, middles and right)
         self.header_left_corner_chr   = " "   # only for header line
         self.header_right_corner_chr  = " "   # only for header line
         self.header_middle_corner_chr = " "   # only for header line

@@ -106,3 +106,48 @@ print(f"\U0001F537 Number One Option")
 
 print(cp.Unicode.FIRE) 
 
+
+pylo = cp.PyLO()
+tbl = cp.FancyFormat()
+all_topics = [
+    "Screen_Functions",  "clean", "clear","dimensions", "erase", "resize",
+
+    "Internal_Functions", "ansi_colors", "get_list_type", "ins_chr", "ins_newline", "move_cursor_right", "set_reset_font", "subscript", "superscript", "terminal_bell",
+
+    "Help_Classes",  "Align", "Ascii_Letter", "Bg", "Divider_Style", "Fg", "Layout", "Length_Bg", "Line_Style", "Logo", "Move",  "No",  "Style",  "Unicode",
+
+    "Cursor",  "jumpTo", "jumpxy", "moveTo", "movexy",
+
+    "Fontstyle",  "style_on_off", "reset_style", "print_style",
+
+    "FancyMessage",  "print_fancy_message", "print_fancy_note", "get_message_attributes",
+
+    "Pen",  "draw_line", "draw_rectangle",
+
+    "Divider",  "print_fancy_divider",
+
+    "FancyFormat",  "print_fancy_format", "reset_fancy_format",
+
+     "AsciiArt", "print_ascii_art", "print_multi_ascii_art", "print_ascii_logo_art", "print_reversed_ascii_logo_art"]
+
+transpose_topics = pylo.transpose(all_topics)
+result = pylo.number(data=transpose_topics, start_number=1, id_txt="No.")
+
+tbl.print_fancy_format(result) 
+
+
+lista_type = cp.get_list_type([1,2,3])#(result)
+print(lista_type)
+
+
+print(f"{cp.move_cursor_right(n=12, option_space=True)} Hello")
+print(f"{cp.move_cursor_right(n=12, option_space=False)} Hello") 
+
+lst = [["H1","H2"],[5,4],[3]]
+tbl.print_fancy_format(None)
+
+lst = ["bool","str","list","set","range", "complex","int","float", "dict", "tuple","frozenset","None"]
+ordered_letters = sorted(lst)
+print(ordered_letters)
+
+

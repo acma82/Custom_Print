@@ -33,5 +33,6 @@ cp.ins_newline(2)
 #|    Subscript and SuperScript Function                                             |
 #+-----------------------------------------------------------------------------------+
 print(f"Water -> H{cp.subscript(2)}O    Power: X{cp.superscript("5+v")} + 5")
+print(f"Water -> H{cp.subscript(2)}O    Power: X{cp.superscript(5)} + 5")
 
 

@@ -21,7 +21,7 @@ if __name__ == "__main__":
 
         divider            = ["print_fancy_divider"]
 
-        fancyformat        = ["fancyformat", "print_fancy_format", "reset_fancy_format"]
+        fancyformat        = ["print_fancy_format", "reset_fancy_format"]
 
         asciiart           = ["print_ascii_art", "print_multi_ascii_art", "print_ascii_logo_art", "print_reversed_ascii_logo_art"]
 
@@ -29,7 +29,7 @@ if __name__ == "__main__":
 
                       "clean", "clear","dimensions", "erase", "resize", 
 
-                      "ansi_colors", "ins_chr", "ins_newline", "set_reset_font", "terminal_bell",
+                      "ansi_colors", "get_list_type", "ins_chr", "ins_newline", "move_cursor_right", "set_reset_font", "subscript", "superscript", "terminal_bell",
                       "align", "length_bg", "ascii_letter", "line_style", "bg", "logo", "move", "divider_style", "no", "fg", "style", "layout", "unicode",
 
                       "jumpto", "jumpxy", "moveto", "movexy",
@@ -42,12 +42,12 @@ if __name__ == "__main__":
 
                       "print_fancy_divider",
 
-                      "fancyformat", "print_fancy_format", "reset_fancy_format",
+                      "print_fancy_format", "reset_fancy_format",
 
                       "print_ascii_art", "print_multi_ascii_art", "print_ascii_logo_art", "print_reversed_ascii_logo_art"]
         
 
-        # converting all the items of the list in lowercase
+        # converting all the arguments passed for help to be displayed into a list in lowercase
         original_list = []
         for i in sys.argv:
             original_list.append(i.lower())
@@ -71,7 +71,7 @@ if __name__ == "__main__":
                 if original_list[1] in all_topics:
                     original_list.pop(0) # remove the parameter 0 (custom_print)
                 else:
-                    print(f"\n  The topic {cp.set_font(1,196,231)} \"{original_list[1]}\" {cp.reset_font()} is not recognize by custom_print Module  \n")
+                    print(f"\n  The topic {cp.set_font(1,196,231)} \"{original_list[1]}\" {cp.reset_font()} is not recognized by custom_print Module  \n")
                     exit()
 
         # more than one parameter
@@ -102,6 +102,7 @@ if __name__ == "__main__":
 
         # deleting duplicate items in the list
         unique_topic_list = list(dict.fromkeys(original_list))
+        print(unique_topic_list)
         
 
 
@@ -111,6 +112,7 @@ if __name__ == "__main__":
             if topic in unique_topic_list:
                 for fun in (eval(topic)):
                     if fun in unique_topic_list:
+                        print("deleted")
                         unique_topic_list.remove(fun)
                     else:
                         pass
@@ -123,3 +125,4 @@ if __name__ == "__main__":
         for display in unique_topic_list:
             topic = eval("cp.help."+display+"_info")
             topic()
+
