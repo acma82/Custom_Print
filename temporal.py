@@ -166,11 +166,7 @@ all_topics = [
 # A{cp.Unicode.SUPERSCRIPT_CHI    }  B{cp.Unicode.SUBSCRIPT_CHI    }
 # '''
 # print(message)
-pen = cp.Pen()
-crs = cp.Cursor()
-ex_fst = cp.FontStyle()
 
-pen.adj_indent = 35
 
-pen.draw_line(size=5, layout=cp.Layout.VERTICAL, tail=ex_fst.style_on()+cp.Unicode.BOX_DRAWINGS_LIGHT_DOWN_AND_HORIZONTAL,\
-                body=cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL, head=ex_fst.style_on()+cp.Unicode.BOX_DRAWINGS_LIGHT_UP_AND_HORIZONTAL)
+# cp.clear()
+cp.resize(20, 140)

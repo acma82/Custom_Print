@@ -328,21 +328,31 @@ def all_documentation():
 # |  Screen_Functions in custom_print Module                                                        |
 # +-------------------------------------------------------------------------------------------------+
 def screen_functions_only_info():
+    ''' It uses ansi code or OS command to manipulate the screen on the terminal. '''
     cp.ins_newline(1)
     blue_div.print_fancy_divider(all_topics[0])
-    mensaje = '''
-      It is used \"ansi code\" to manipulate the screen on the terminal.
+    mensaje = f'''
+      There are five functions to manipulate the screen on the terminal.
+      It is used \"ansi code\" or \"OS command\" to manipulate the screen on the terminal.
+      Be aware that on some OS some of these functions may NOT work properly.
+
+      {cp.set_font(1,196,231)} Note: {cp.reset_font()}
+
+      {cp.set_font(1,231,196)} clean      : {cp.reset_font()}  This function uses the ansi code.
+      {cp.set_font(1,231,196)} clear      : {cp.reset_font()}  This functions uses the OS command.
+      {cp.set_font(1,231,196)} dimensions : {cp.reset_font()}  This functions uses the OS command.
+      {cp.set_font(1,231,196)} erase      : {cp.reset_font()}  This function uses the ansi code. 
+      {cp.set_font(1,231,196)} resize     : {cp.reset_font()}  This functions uses the OS command.
+
+                      {cp.set_font(1,231,22)} resize {cp.reset_font()} only works when we are using the gnome or Xfce terminal.
+                      Using konsole or another type of termial it may not work.
     '''
     print(mensaje)
 
 
 def screen_functions_info():
-    cp.ins_newline(1)
-    blue_div.print_fancy_divider(all_topics[0])
-    mensaje = '''
-      It is used \"ansi code\" to manipulate the screen on the terminal.
-    '''
-    print(mensaje)
+    ''' It uses ansi code to manipulate the screen on the terminal. '''
+    screen_functions_only_info()
     clean_info()
     clear_info()
     dimensions_info()
@@ -356,8 +366,6 @@ def clean_info():
    #------------------------------------------------------------------------------------------------
     message = f'''
       It cleans the terminal and returns the cursor to home.
-
-      {cp.set_font(1,196,231)} Note: {cp.reset_font()} This function uses the ansi code.
     '''
     cp.ins_newline(1)
     green_div.print_fancy_divider(all_topics[1])
@@ -368,13 +376,11 @@ def clean_info():
 
 
 def clear_info():
-   #------------------------------------------------------------------------------------------------
+       #------------------------------------------------------------------------------------------------
    # clear,       It uses the system command                                                       -
    #------------------------------------------------------------------------------------------------
-    message = '''
+    message = f'''
       It clears the terminal and returns the cursor to home.
-
-      {cp.set_font(1,196,231)} Note: {cp.reset_font()} This functions uses the OS command.
     '''
     cp.ins_newline(1)
     green_div.print_fancy_divider(all_topics[2])
@@ -387,9 +393,10 @@ def dimensions_info():
    #------------------------------------------------------------------------------------------------
    # dimensions                                                                                    -
    #------------------------------------------------------------------------------------------------
-    menssage ='''
+    menssage =f'''
       It returns the dimensions of the terminal, cols and rows.
     '''
+
     cp.ins_newline(1)
     green_div.print_fancy_divider(all_topics[3])
     print(menssage)
@@ -403,8 +410,8 @@ def dimensions_info():
 # erase,       It uses ansi code                                                                -
 #------------------------------------------------------------------------------------------------
 def erase_info():
-    menssage = '''
-      It erases the terminal and leaves the cursor in the current position.
+    menssage = f'''
+      It erases the terminal and leaves the cursor in the current position.  
     '''
     cp.ins_newline(1)
     green_div.print_fancy_divider(all_topics[4])
@@ -427,7 +434,7 @@ def erase_info():
 # resize                                                                                        -
 #------------------------------------------------------------------------------------------------
 def resize_info():
-    message = '''
+    message = f'''
       It resizes the terminal size.
     '''
     cp.ins_newline(1)
@@ -435,9 +442,8 @@ def resize_info():
     print(message)
     print(f"{cp.ins_chr(6)}{cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp")
     print(f"{cp.ins_chr(18)}cp.resize(rows=20, cols=120)\n")
-    print(f"\n{cp.ins_chr(6)}{cp.set_font(1,196,231)} Note: {cp.reset_font()} This only works when we are using the gnome or Xfce terminal.")
-    print(f"{cp.ins_chr(8)}      Using konsole or another type of termial it may not work.")
 
+    
 
 
 
@@ -449,6 +455,7 @@ def resize_info():
 # |  Internal_Functions in custom_print Module                                                      |
 # +-------------------------------------------------------------------------------------------------+
 def internal_functions_only_info():
+    ''' These functions are used for the classes. '''
     cp.ins_newline(1)
     blue_div.print_fancy_divider(all_topics[6])
     message =f'''
@@ -460,14 +467,8 @@ def internal_functions_only_info():
 
 
 def internal_functions_info():
-    cp.ins_newline(1)
-    blue_div.print_fancy_divider(all_topics[6])
-    message =f'''
-    All these functions are being used internally in the custom_print modules.
-    It is available to the user if they find them usefull, otherwise, feel free
-    to ignore them.
-    '''
-    print(message)
+    ''' These functions are used for the classes. '''
+    internal_functions_only_info()
     ansi_colors_info()
     get_list_type_info()
     ins_chr_info()
@@ -821,10 +822,10 @@ def superscript_info():
     green_div.print_fancy_divider(all_topics[14])
     message = f'''
       {cp.set_font(1,209,16,1)}                                                {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  superscript(x)                                  {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  superscript(x)                                {cp.reset_font()}
       {cp.set_font(1,209,16,1)}                                                {cp.reset_font()}
       {cp.set_font(1,209,16,1)}  x can be any type as long as it exists in the {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  superscript dictionary.                         {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}  superscript dictionary.                       {cp.reset_font()}
       {cp.set_font(1,209,16,1)}                                                {cp.reset_font()}
 
       {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp
@@ -883,6 +884,7 @@ def terminal_bell_info():
 # |  Help_Classes in custom_print Module                                                            |
 # +-------------------------------------------------------------------------------------------------+
 def help_classes_only_info():
+    ''' It helps to the other class. '''
     cp.ins_newline(1)
     blue_div.print_fancy_divider(all_topics[16])
     mensaje ='''
@@ -894,14 +896,8 @@ def help_classes_only_info():
 
 
 def help_classes_info():
-    cp.ins_newline(1)
-    blue_div.print_fancy_divider(all_topics[16])
-    mensaje ='''
-    All these classes are to help the user to do not mispell any instructions
-    in all the other classes, methods, or functions. The user can still use
-    the default value directly, however it is recomended to use these classes.
-    '''
-    print(mensaje)
+    ''' It helps to the other class. '''
+    help_classes_only_info()
     align_info()
     ascii_letter_info()
     bg_info()
@@ -1604,6 +1600,7 @@ def unicode_info():
 # |  Cursor in custom_print Module                                                                  |
 # +-------------------------------------------------------------------------------------------------+
 def cursor_only_info():
+    ''' It moves the cursor to a specific location on the terminal. '''
     cp.ins_newline(1)
     blue_div.print_fancy_divider(all_topics[30]) # Cursor
     mensaje =f'''
@@ -1633,32 +1630,8 @@ def cursor_only_info():
 
 
 def cursor_info():
-    cp.ins_newline(1)
-    blue_div.print_fancy_divider(all_topics[30]) # Cursor
-    mensaje =f'''
-    All these functions are being used internally in the custom_print modules.
-    It is available to the user if they find them usefull, otherwise, feel free
-    to ignore them.
-
-      Cursor can use the Move Class that has a few options.
-
-      {cp.set_font(1,209,16,1)}             {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} DOWN     {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} LEFT     {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} RIGHT    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} UP       {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}             {cp.reset_font()}
-
-      {cp.set_font(1,196,231)} Note: {cp.reset_font()} These options can be replaced for the original values.
-
-      {cp.Unicode.BULLET} DOWN   \u2192  \"down\"
-      {cp.Unicode.BULLET} LEFT   \u2192  \"left\"
-      {cp.Unicode.BULLET} RIGHT  \u2192  \"right\"
-      {cp.Unicode.BULLET} UP     \u2192  \"up\"
-
-
-    '''
-    print(mensaje)
+    ''' It moves the cursor to a specific location on the terminal. '''
+    cursor_only_info()
     jumpto_info()
     jumpxy_info()
     moveto_info()
@@ -1763,6 +1736,7 @@ def movexy_info():
 # |  FontStyle in custom_print Module                                                               |
 # +-------------------------------------------------------------------------------------------------+
 def fontstyle_only_info():
+    ''' It prints font in a style way. '''
     cp.ins_newline(1)
     blue_div.print_fancy_divider(all_topics[35])
     message = f'''
@@ -1795,36 +1769,8 @@ def fontstyle_only_info():
 
 
 def fontstyle_info():
-    cp.ins_newline(1)
-    blue_div.print_fancy_divider(all_topics[35])
-    message = f'''
-     This class contains 4 methods and their default values are displays below.
-
-      {cp.set_font(1,209,16,1)}                                                 {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                General Use                      {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                 {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} bg     = -1             {cp.Unicode.BULLET} bold      = False   {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} fg     = -1             {cp.Unicode.BULLET} underline = False   {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} dim    = False          {cp.Unicode.BULLET} blinking  = False   {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} hidden = False          {cp.Unicode.BULLET} italic    = False   {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} strike = False          {cp.Unicode.BULLET} inverse   = False   {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                 {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                Print_Style                      {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                 {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} align = Align.JUSTIFY   {cp.Unicode.BULLET} bg_top_lines    = 0 {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} forced_align = False    {cp.Unicode.BULLET} bg_bottom_lines = 0 {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} indent = 0                                    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                 {cp.reset_font()}
-
-      indent → This defines how far we want to start to print the message
-               from the left of the terminal.
-
-      {cp.set_font(1,196,231)} Note: {cp.reset_font()} indent is used for style_on and for print_style when using
-              justify as an option for the align. For the other \"align\" options
-              (left, right, center), only \"print_style\" make use of them.
-    '''
-    print(message)
-
+    ''' It prints font in a style way. '''
+    fontstyle_only_info()
     style_on_off_info()
     reset_style_info()
     print_style_info()
@@ -2072,79 +2018,8 @@ def fancymessage_only_info():
 
 def fancymessage_info():
     ''' This class contains 3 methods and their default values are displays below. '''
-    cp.ins_newline(1)
-    blue_div.print_fancy_divider(all_topics[39])
-    message = f'''
-      This class contains 3 methods and their default values are displays below.
 
-      {cp.set_font(1,209,16,1)}                                                                 {cp.reset_font()}
-      {cp.set_font(1,209,24,1)}  Body Section                                                   {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                 {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} body_bg = 4                 {cp.Unicode.BULLET} body_dim = False                {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} body_fg = 231               {cp.Unicode.BULLET} body_italic = False             {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} body_msg = "Body Msg"       {cp.Unicode.BULLET} body_hidden = False             {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} body_bold = False           {cp.Unicode.BULLET} body_strike = False             {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} help_lines = False          {cp.Unicode.BULLET} body_inverse = False            {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} left_indent = 2             {cp.Unicode.BULLET} body_blinking = False           {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} right_indent = 2            {cp.Unicode.BULLET} body_underline = False          {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} top_lines = 1               {cp.Unicode.BULLET} bottom_lines = 1                {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                 {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} length = Length_Bg.ALL_ROW                                    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} adj_bg_lines_to_right_indent = False                          {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} adj_bg_msg_to_space_available = False                         {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                 {cp.reset_font()}
-
-      {cp.set_font(1,209,16,1)}                                                                 {cp.reset_font()}
-      {cp.set_font(1,209,24,1)}  Note Section                                                   {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                 {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} note_bg = 231               {cp.Unicode.BULLET} note_dim = False                {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} note_fg = 0                 {cp.Unicode.BULLET} note_italic = False             {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} note_msg = "Note:"          {cp.Unicode.BULLET} note_hidden = False             {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} note_bold = False           {cp.Unicode.BULLET} note_strike = False             {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} note_position = 1           {cp.Unicode.BULLET} note_inverse = False            {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} note_left_space = 2         {cp.Unicode.BULLET} note_blinking = False           {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} note_right_space = 2        {cp.Unicode.BULLET} note_underline = False          {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} note_align = Align.JUSTIFY                                    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                 {cp.reset_font()}
-
-      {cp.set_font(1,209,16,1)}                                                                 {cp.reset_font()}
-      {cp.set_font(1,209,24,1)}  Title Section                                                  {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                 {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} title_bg = 4                 {cp.Unicode.BULLET} title_dim = False              {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} title_fg = 231               {cp.Unicode.BULLET} title_italic = False           {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} title_msg = ""               {cp.Unicode.BULLET} title_hidden = False           {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} title_bold = False           {cp.Unicode.BULLET} title_strike = False           {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} title_indent = 2             {cp.Unicode.BULLET} title_inverse = False          {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} title_body_lines = 1         {cp.Unicode.BULLET} title_blinking = False         {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} title_align = Align.LEFT     {cp.Unicode.BULLET} title_underline = False        {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                 {cp.reset_font()}
-
-      {cp.set_font(1,209,16,1)}                                                                 {cp.reset_font()}
-      {cp.set_font(1,209,24,1)}  Footnote Section                                               {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                 {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} footnote_bg = 4              {cp.Unicode.BULLET} footnote_dim = False           {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} footnote_fg = 231            {cp.Unicode.BULLET} footnote_italic = False        {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} footnote_msg = ""            {cp.Unicode.BULLET} footnote_hidden = False        {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} footnote_bold = False        {cp.Unicode.BULLET} footnote_strike = False        {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} footnote_indent = 2          {cp.Unicode.BULLET} footnote_inverse = False       {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} footnote_body_lines = 1      {cp.Unicode.BULLET} footnote_blinking = False      {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} footnote_align = Align.RIGHT {cp.Unicode.BULLET} footnote_underline = False     {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                 {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                 {cp.reset_font()}
-
-
-      {cp.set_font(1,196,231)} Note: {cp.reset_font()} title_indent    → works with Align.JUSTIFY.
-              footnote_indent → works with Align.JUSTIFY.
-
-              These 2 options \"adj_bg_lines_to_right_indent\" and
-              \"adj_bg_msg_to_space_available\" don't do anything when
-              length = Length_Bg.All_ROW
-
-              {cp.set_font(1,231,22,True)} Body Section {cp.reset_font()} is being used by both methods print_fancy_message
-              and print_fancy_note.
-    '''
-
-    print(message)
+    fancymessage_only_info()
     print_fancy_message_info()
     print_fancy_note_info()
     get_message_attributes_info()
@@ -2410,6 +2285,7 @@ def get_message_attributes_info():
 # |  Pen in custom_print Module                                                                     |
 # +-------------------------------------------------------------------------------------------------+
 def pen_only_info():
+    ''' pen only is able to draw a line and a rectangle'''
     cp.ins_newline(1)
     blue_div.print_fancy_divider(all_topics[43])
     message = f'''
@@ -2446,39 +2322,8 @@ def pen_only_info():
 
 
 def pen_info():
-    cp.ins_newline(1)
-    blue_div.print_fancy_divider(all_topics[43])
-    message = f'''
-      Pen class will draw lines nad squares. This class contains 2 methods
-      and their default values are displays below.
-
-      {cp.set_font(1,209,16,1)}                                                                      {cp.reset_font()}
-      {cp.set_font(1,209,24,1)}  General Use Section                                                 {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                      {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} adj_indent = 0                                                     {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} draw_line_bold = False                                             {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} draw_line_bg = -1                                                  {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} draw_line_fg = -1                                                  {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} fill_color = False                                                 {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                      {cp.reset_font()}
-
-      {cp.set_font(1,209,16,1)}                                                                      {cp.reset_font()}
-      {cp.set_font(1,209,24,1)} Rectangle Section                                                    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                      {cp.reset_font()}
-      {cp.set_font(1,209,155,1)} Horizontal Line                                                      {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} top_horizontal_line_chr = "-"  {cp.Unicode.BULLET} bottom_horizontal_line_chr = "-"  {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                      {cp.reset_font()}
-      {cp.set_font(1,209,155,1)} Vertical Line                                                        {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} left_vertical_line_chr  = "|"  {cp.Unicode.BULLET} right_vertical_line_chr = "|"     {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                      {cp.reset_font()}
-      {cp.set_font(1,209,155,1)} Corner Line                                                          {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} top_left_corner_chr     = "+"  {cp.Unicode.BULLET} self.top_right_corner_chr   = "+" {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} bottom_right_corner_chr = "+"  {cp.Unicode.BULLET} self.bottom_left_corner_chr = "+" {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                      {cp.reset_font()}
-
-      {cp.set_font(1,196,231)} Note: {cp.reset_font()} adj_indent → space from the terminal to the box.
-'''
-    print(message)
+    ''' pen only is able to draw a line and a rectangle'''
+    pen_only_info()
     draw_line_info()
     draw_rectangle_info()
 
@@ -2661,92 +2506,7 @@ def divider_only_info():
 
 def divider_info():
     ''' It creates a divider through the terminal screen. '''
-    cp.ins_newline(1)
-    blue_div.print_fancy_divider(all_topics[46])
-    message =f'''
-      It creates a divider through the terminal screen.
-      The default values are displays below.
-
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-      {cp.set_font(1,209,24,1)}  Corner Section                                                       {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} top_left_corner_chr     = " "   {cp.Unicode.BULLET} top_left_corner_fg      = -1      {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} top_right_corner_chr    = " "   {cp.Unicode.BULLET} top_right_corner_fg     = -1      {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} bottom_left_corner_chr  = " "   {cp.Unicode.BULLET} bottom_left_corner_fg   = -1      {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} bottom_right_corner_chr = " "   {cp.Unicode.BULLET} bottom_right_corner_fg  = -1      {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} top_left_corner_bg      = -1    {cp.Unicode.BULLET} all_corner_bg           = -1      {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} top_right_corner_bg     = -1    {cp.Unicode.BULLET} all_corner_fg           = -1      {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} bottom_left_corner_bg   = -1    {cp.Unicode.BULLET} all_corner_chr          = ""      {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} bottom_right_corner_bg  = -1    {cp.Unicode.BULLET} all_corner_bold         = False   {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-      {cp.set_font(1,209,24,1)}  Horizontal Line Section                                              {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} top_horizontal_line_chr = " "   {cp.Unicode.BULLET} bottom_horizontal_line_chr = " "  {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} top_horizontal_line_bg  = -1    {cp.Unicode.BULLET} bottom_horizontal_line_bg = -1    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} top_horizontal_line_fg  = -1    {cp.Unicode.BULLET} bottom_horizontal_line_fg = -1    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} top_horizontal_line_on  = True  {cp.Unicode.BULLET} bottom_horizontal_line_on = True  {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} horizontal_line_bold    = False                                     {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-      {cp.set_font(1,209,24,1)}  Vertical Line Section                                                {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} left_vertical_line_chr = " "    {cp.Unicode.BULLET} right_vertical_line_chr = " "     {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} left_vertical_line_bg  = -1     {cp.Unicode.BULLET} right_vertical_line_bg = -1       {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} left_vertical_line_fg  = -1     {cp.Unicode.BULLET} right_vertical_line_fg = -1       {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} vertical_line_bold     = False                                      {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-      {cp.set_font(1,209,24,1)}  Data Section                                                         {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} msg_bg   = -1    {cp.Unicode.BULLET} msg_italic    = False    {cp.Unicode.BULLET} msg_inverse = False   {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} msg_fg   = -1    {cp.Unicode.BULLET} msg_underline = False    {cp.Unicode.BULLET} msg_strike  = False   {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} msg_bold = False {cp.Unicode.BULLET} msg_blinking  = False    {cp.Unicode.BULLET} msg_hidden  = False   {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} msg_dim  = False {cp.Unicode.BULLET} msg_align = Align.CENTER {cp.Unicode.BULLET} adj_indent  = 2       {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-      {cp.set_font(1,209,24,1)}  Fill Section                                                         {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} left_fill_bg  = -1           {cp.Unicode.BULLET} right_fill_bg = -1                   {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} left_right_fill_bg = -1                                             {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-
-      {cp.set_font(1,196,231)} Note: {cp.reset_font()}
-
-      {cp.set_font(1,231,21,True)} Corner Section {cp.reset_font()}
-      all_corner_xxx variables  When this variable takes a value,
-      it takes priority over the others 4 variables.
-      all_corner_chr, means that all the values for the variables
-
-      top_left_corner_chr
-      top_right_corner_chr
-      bottom_left_corner_chr
-      bottom_right_corner_chr
-
-      will have the value of all_corner_chr variable.
-
-      Same apply for all_corner_fg, all_corner_bg, and all_corner_bold.
-
-      {cp.set_font(1,231,21,True)} Horizontal Line Section {cp.reset_font()}
-      top_horizontal_line_on and bottom_horizontal_line_on can be off by setting
-      them to False.
-      horizontal_line_bold: Applies for both, top and bottom lines.
-
-      {cp.set_font(1,231,21,True)} Vertical Line Section {cp.reset_font()}
-      vertical_line_bold: Applies for both, left and right lines.
-
-      {cp.set_font(1,231,21,True)} Fill Section {cp.reset_font()}
-      For left_fill_bg and right_fill_bg apply the same as all_corner variable.
-      left_right_fill_bg controls both variables.
-
-      {cp.set_font(1,231,21,True)} adj_indent only works when the align is set to JUSTIFY {cp.reset_font()}
-    '''
-    print(message)
-
+    divider_only_info()
     print_fancy_divider_info()
 
 
@@ -2932,15 +2692,13 @@ def print_fancy_divider_info():
 # |  FancyFormat in custom_print Module                                                             |
 # +-------------------------------------------------------------------------------------------------+
 def fancyformat_only_info():
-    print("needs work")
-
-def fancyformat_info():
+    ''' It prints data in a table format. '''
     cp.ins_newline(1)
     blue_div.print_fancy_divider(all_topics[48])
     lst = [["H1","H2","H3"],[5,4,9],[3]]
     message =f'''
-      It creates a divider through the terminal screen.
-      The default values are displays below.
+      It prints a variable in a table format.
+      Some customizations can be added to the table.
 
 
       {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
@@ -2954,6 +2712,7 @@ def fancyformat_info():
       {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
       {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
       {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
 
       {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
       {cp.set_font(1,209,24,1)}  Title Section                                                        {cp.reset_font()}
@@ -2966,6 +2725,7 @@ def fancyformat_info():
       {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
       {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
       {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
 
       {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
       {cp.set_font(1,209,24,1)}  Data Section                                                         {cp.reset_font()}
@@ -2978,8 +2738,9 @@ def fancyformat_info():
       {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
       {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
       {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
 
-    {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
       {cp.set_font(1,209,24,1)}  Horizontal Line Section                                              {cp.reset_font()}
       {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
       {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
@@ -2999,7 +2760,7 @@ def fancyformat_info():
       {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}  {cp.Unicode.BULLET}   {cp.reset_font()}
       {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}  {cp.Unicode.BULLET}   {cp.reset_font()}
       {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}  {cp.Unicode.BULLET}   {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}                                      {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
 
       {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
       {cp.set_font(1,209,24,1)}  External Corner Section                                              {cp.reset_font()}
@@ -3012,6 +2773,7 @@ def fancyformat_info():
       {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
       {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
       {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
 
       {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
       {cp.set_font(1,209,24,1)}  Middle Corner Section                                                {cp.reset_font()}
@@ -3024,6 +2786,7 @@ def fancyformat_info():
       {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
       {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
       {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
 
       {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
       {cp.set_font(1,209,24,1)}  Header Section                                                       {cp.reset_font()}
@@ -3036,6 +2799,7 @@ def fancyformat_info():
       {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
       {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
       {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
 
       {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
       {cp.set_font(1,209,24,1)}  Attributes for the header lines Section                              {cp.reset_font()}
@@ -3048,6 +2812,7 @@ def fancyformat_info():
       {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
       {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
       {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
 
       {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
       {cp.set_font(1,209,24,1)}  Header horizontal line Section                                       {cp.reset_font()}
@@ -3060,6 +2825,7 @@ def fancyformat_info():
       {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
       {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
       {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
 
       {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
       {cp.set_font(1,209,24,1)}  Attributes for the header corners (left, middles and right) Section  {cp.reset_font()}
@@ -3072,6 +2838,7 @@ def fancyformat_info():
       {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
       {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
       {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
 
       {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
       {cp.set_font(1,209,24,1)}  Footnote Section                                                     {cp.reset_font()}
@@ -3084,6 +2851,7 @@ def fancyformat_info():
       {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
       {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
       {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
 
       {cp.set_font(1,196,231)} Note: {cp.reset_font()} When passing a list or any other type of variable, fancyformat
               converts all the elements of list in string type. When using the
@@ -3118,21 +2886,44 @@ def fancyformat_info():
     print()
 
     message = f'''
-    {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-    {cp.set_font(1,209,16,1)} → {cp.set_font(1,231,21,True)} Template Options: {cp.set_font(1,209,16,1)} Remember that fancy format contains some        {cp.reset_font()}
-    {cp.set_font(1,209,16,1)}                       templates available. For more information,      {cp.reset_font()}
-    {cp.set_font(1,209,16,1)}                       check the Line_Style class.                     {cp.reset_font()}
-    {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
+      {cp.set_font(1,209,16,1)} → {cp.set_font(1,231,21,True)} Template Options: {cp.set_font(1,209,16,1)} Remember that fancy format contains some        {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}                       templates available. For more information,      {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}                       check the Line_Style class.                     {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
+
+
 
     '''
     print(message)
     tbl.header_align = cp.Align.CENTER
     tbl.data_align = cp.Align.CENTER
     tbl.print_fancy_format(data=lst, style=cp.Line_Style.PURPLE_WHITE)
+
+    message = f'''
+      
+
+      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
+      {cp.set_font(1,209,16,1)} → {cp.set_font(1,231,21,True)} Variables that fancy_print_format can handle {cp.set_font(1,209,16,1)}                      {cp.reset_font()}
+      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
+      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} bool        {cp.Unicode.BULLET} float          {cp.Unicode.BULLET} list       {cp.Unicode.BULLET} str  {cp.ins_chr(19)}{cp.reset_font()}
+      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} complex     {cp.Unicode.BULLET} flozenset      {cp.Unicode.BULLET} range      {cp.Unicode.BULLET} tuple{cp.ins_chr(19)}{cp.reset_font()}
+      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} dict        {cp.Unicode.BULLET} int            {cp.Unicode.BULLET} set               {cp.ins_chr(19)}{cp.reset_font()}
+      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
+    '''
+    print(message)
+
+
+def fancyformat_info():
+    ''' It prints data in a table format. '''
+    fancyformat_only_info()
     print_fancy_format_info()
     reset_fancy_format_info()
 
 
+# +--------------------------------------------------------------------------------------------+
+# | print_fancy_format                                                                         |
+# +--------------------------------------------------------------------------------------------+    
 def print_fancy_format_info():
     ''' This print a variable in customized way. '''
     cp.ins_newline(1)
@@ -3206,6 +2997,9 @@ def print_fancy_format_info():
     print(message)
 
 
+# +--------------------------------------------------------------------------------------------+
+# | reset_fancy_format                                                                         |
+# +--------------------------------------------------------------------------------------------+ 
 def reset_fancy_format_info():
     ''' It resets all the variable from the FancyFormat Class to their default values '''
     cp.ins_newline(1)
