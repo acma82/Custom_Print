@@ -2173,9 +2173,9 @@ def print_fancy_message_info():
                   msg.body_fg = 16
                   
                   msg.length = cp.Length_Bg.All_ROW
-                  msg.print_fancy_message(paragraph)	    #  Method 1
+                  msg.print_fancy_message(paragraph)	    #  Option 1
                   
-                  msg.length = cp.Length_Bg.ONLY_WORD       #  Method 2
+                  msg.length = cp.Length_Bg.ONLY_WORD       #  Option 2
                   msg.print_fancy_message(paragraph)	
 
       {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
