@@ -242,10 +242,10 @@ def  help_documentation():
     print(f"{fst.style_on()} Example 2: {fst.style_off()}  custom_print screen_functions ins_chr movexy" )
 
 
-    message = f'''       Notice that on\033[1m example 2\033[0m, is being called a group (screen_functions), 
+    message = f'''       Notice that on\033[1m example 2\033[0m, is being called a group (screen_functions),
        a function (ins_chr) and a method (movexy). For the group, it will be
        displayed all the documentation that belong to
-       that group. 
+       that group.
 
        {fst.style_on()} screen_functions: clean, clear, dimensions, erase, resize. {fst.style_off()}
 
@@ -266,13 +266,13 @@ def  help_documentation():
            then we have to add the word \033[1;48;5;22;1m _only \033[0m as show below.
 
 {fst.style_on()} example 3: {fst.style_off()}  custom_print cursor_only
-              
+
        It's possible to display the complete documentation help by passing
        \"all\" or \"documentation\" as a parameter.
 
 {fst.style_on()} example 4: {fst.style_off()}  custom_print all
                  custom_print documentation
-    
+
     '''
     print(message)
     message = f'''
@@ -2064,7 +2064,8 @@ def fancymessage_only_info():
               \"adj_bg_msg_to_space_available\" don't do anything when
               length = Length_Bg.All_ROW
 
-
+              {cp.set_font(1,231,22,True)} Body Section {cp.reset_font()} is being used by both methods print_fancy_message
+              and print_fancy_note.
     '''
     print(message)
 
@@ -2138,7 +2139,11 @@ def fancymessage_info():
               These 2 options \"adj_bg_lines_to_right_indent\" and
               \"adj_bg_msg_to_space_available\" don't do anything when
               length = Length_Bg.All_ROW
+
+              {cp.set_font(1,231,22,True)} Body Section {cp.reset_font()} is being used by both methods print_fancy_message
+              and print_fancy_note.
     '''
+
     print(message)
     print_fancy_message_info()
     print_fancy_note_info()
@@ -2171,12 +2176,12 @@ def print_fancy_message_info():
                   msg.footnote_msg = "FOOTNOTE"
                   msg.body_bg = 40
                   msg.body_fg = 16
-                  
+
                   msg.length = cp.Length_Bg.All_ROW
                   msg.print_fancy_message(paragraph)	    #  Option 1
-                  
+
                   msg.length = cp.Length_Bg.ONLY_WORD       #  Option 2
-                  msg.print_fancy_message(paragraph)	
+                  msg.print_fancy_message(paragraph)
 
       {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
     '''
@@ -2202,6 +2207,8 @@ def print_fancy_message_info():
     msg.length = cp.Length_Bg.ONLY_WORD
     msg.print_fancy_message(paragraph)		#  Method 2
     print()
+
+    diagram_description_fancy_message()
 
 
 #------------------------------------------------------------------------------------------------
@@ -2322,6 +2329,8 @@ sediment of the sun
     msg.print_fancy_message("Author: Federico García Lorca")
     print()
 
+    diagram_description_fancy_note()
+
 
 #------------------------------------------------------------------------------------------------
 # get_message_attributes                                                                        -
@@ -2349,10 +2358,17 @@ def get_message_attributes_info():
                   att.length = cp.Length_Bg.ONLY_WORD
                   cp.ins_newline(2)
                   att.print_fancy_message(paragraph)
-                  attributes, words = att.get_message_attributes(body_msg=paragraph, print_attributes=True)
+                  
+                  attributes, words = att.get_message_attributes(
+                          body_msg=message, print_attributes=True)
 
-                  # print(attributes)
-                  # print(words)
+                  print(f\" {{cp.set_font(True, 231, 22, True)}} Atributes:\"
+                        f\" {{cp.reset_font()}}\")
+                  print(attributes)
+
+                  print(f\" {{cp.set_font(True, 231, 22, True)}} Words:\"
+                        f\" {{cp.reset_font()}}\")
+                      print(words)
 
       {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
     '''
@@ -2372,8 +2388,16 @@ def get_message_attributes_info():
 
     cp.ins_newline(2)
     att.print_fancy_message(message)
-    attributes, words = att.get_message_attributes(message,True)
-    print()
+    attributes, words = att.get_message_attributes(
+        body_msg=message, print_attributes=True)
+
+    print(f" {cp.set_font(True, 231, 22, True)} Atributes:"
+          f" {cp.reset_font()}")
+    print(f"{attributes}\n")
+
+    print(f" {cp.set_font(True, 231, 22, True)} Words:"
+          f" {cp.reset_font()}")
+    print(f"{words}\n")
 
 
 
@@ -3079,8 +3103,8 @@ def fancyformat_info():
                   print(lst)   # All the elements are string type now.
                                # The empty spaces are refill with the
                                # default value of set_fill_chr variable
-  
-  
+
+
       {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
     '''
     print(message)
@@ -3261,6 +3285,219 @@ def print_reversed_ascii_logo_art_info():
     print("reversed_ascii_logo_art method")
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def diagram_description_fancy_message():
+
+    pen = cp.Pen()
+    crs = cp.Cursor()
+
+    print(f"\n     {cp.set_font(True,231,0)} Diagram Description {cp.reset_font()}\n")
+    ex_msg = cp.FancyMessage()
+    ex_msg.body_bg = 229;             ex_msg.title_bg = 229;            ex_msg.footnote_bg = 229
+    ex_msg.body_fg = 0;               ex_msg.title_fg = 21;             ex_msg.footnote_fg = 21
+    ex_msg.body_italic = True;        ex_msg.footnote_italic = True;    ex_msg.title_italic = True
+    ex_msg.body_bold   = True;        ex_msg.footnote_bold = 1;         ex_msg.title_bold = True
+    ex_msg.left_indent = 15;          ex_msg.right_indent = 15;         ex_msg.title_align = cp.Align.CENTER
+    ex_msg.top_lines   = 4;           ex_msg.bottom_lines = 3;          ex_msg.footnote_align = cp.Align.CENTER
+    ex_msg.title_body_lines = 3
+    ex_msg.footnote_body_lines = 3
+    ex_msg.title_msg ="TITLE";        ex_msg.footnote_msg = "FOOTNOTE"; ex_msg.help_lines = True
+
+
+    ex_fst = cp.FontStyle()
+    ex_fst.fg = 128;       ex_fst.bg = 229;      ex_fst.bold = True
+    ex_fst.indent = 0
+
+
+    message = '''
+Guido van Rossum, a Dutch programmer, create
+  Python in the late 1980s as a hobby project.
+  He started working on it in December 1989 at
+  Centrum Wiskunde & Informatica (CWI) in the
+  Netherlands.
+
+Python was first released on February 20, 1991.
+  Python was named after the 1970s BBC comedy
+  sketch series Monty Python's Flying Circus.
+'''
+# Paragraph Description
+    ex_msg.print_fancy_message(message)
+
+    crs.jumpTo(qty=18, direction=cp.Move.UP)
+    pen.draw_line(size=3, tail=ex_fst.style_on()+cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_RIGHT, body=" left indent ",\
+                 head=cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL)
+
+    pen.draw_line(size=3, tail=f"{ex_fst.style_on()}\u2500", body=f"{cp.ins_chr(19,'\u2500')} body_msg {cp.ins_chr(19,'\u2500')}",\
+                   head=cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL)
+
+
+    pen.draw_line(size=3, tail=f"{ex_fst.style_on()} ", body=f"{ex_fst.style_on()}right indent ",\
+                 head=cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_LEFT)
+
+    print(f"{ex_fst.style_on()}")
+
+    pen.adj_indent = 45
+    crs.jumpTo(qty=8, direction=cp.Move.UP)
+    crs.jumpTo(qty=45, direction=cp.Move.LEFT)
+
+    pen.draw_line(size=5, layout=cp.Layout.VERTICAL, tail=ex_fst.style_on()+cp.Unicode.BOX_DRAWINGS_LIGHT_DOWN_AND_HORIZONTAL,\
+                 body=cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL, head=cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL)
+
+    pen.draw_line(size=3, layout=cp.Layout.VERTICAL, tail=ex_fst.style_on()+cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL,\
+                 body=cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL, head=cp.Unicode.BOX_DRAWINGS_LIGHT_UP_AND_HORIZONTAL)
+
+    print()
+    crs.jumpTo(qty=6, direction=cp.Move.UP)
+    pen.adj_indent = 29
+    pen.draw_line(size=3, layout=cp.Layout.VERTICAL, tail=ex_fst.style_on()+"       top lines", body= " ", head="title_body_lines")
+
+
+    crs.jumpTo(qty=11, direction=cp.Move.DOWN)
+    pen.adj_indent = 55
+    pen.draw_line(size=4, layout=cp.Layout.VERTICAL, tail=ex_fst.style_on()+cp.Unicode.BOX_DRAWINGS_LIGHT_DOWN_AND_HORIZONTAL,\
+                 body=cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL, head=cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL)
+
+    pen.draw_line(size=3, layout=cp.Layout.VERTICAL, tail=ex_fst.style_on()+cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL,\
+                 body=cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL, head=cp.Unicode.BOX_DRAWINGS_LIGHT_UP_AND_HORIZONTAL)
+
+    pen.adj_indent = 56
+    crs.jumpTo(qty=6, direction=cp.Move.UP)
+    pen.draw_line(size=3, layout=cp.Layout.VERTICAL, tail=ex_fst.style_on()+"footnote_body_lines", body= "\n\n", head="bottom lines")
+
+    crs.jumpTo(qty=1, direction=cp.Move.DOWN)
+    pen.adj_indent = 0
+    ex_fst.bg = 196
+    ex_fst.fg = 231
+    print(f"{ex_fst.style_on()}help_lines {cp.Unicode.RIGHT_ARROW} {ex_fst.style_off()}\n")
+
+
+def diagram_description_fancy_note():
+    pen = cp.Pen()
+    crs = cp.Cursor()
+
+
+    # Note Description
+    message = '''
+Guido van Rossum, a Dutch programmer, create Python
+  in the late 1980s as a hobby project. He started
+  working on it in December 1989 at Centrum Wiskunde
+  & Informatica (CWI) in the Netherlands.
+
+Python was first released on February 20, 1991.
+  Python was named after the 1970s BBC comedy
+  sketch series Monty Python's Flying Circus.
+
+'''
+    print(f"\n     {cp.set_font(True,231,0)} Diagram Description {cp.reset_font()}\n")
+    ex_msg = cp.FancyMessage()
+    ex_msg.title_bg = 229
+    ex_msg.title_fg = 21
+    ex_msg.title_bold = True
+    ex_msg.title_italic = True
+    ex_msg.title_align = cp.Align.CENTER
+    ex_msg.title_msg ="TITLE"
+
+    ex_msg.footnote_bg = 229
+    ex_msg.footnote_fg = 21
+    ex_msg.footnote_italic = True
+    ex_msg.footnote_bold = 1;
+    ex_msg.footnote_body_lines = 3
+    ex_msg.footnote_align = cp.Align.CENTER
+    ex_msg.footnote_msg = "FOOTNOTE"
+
+
+    ex_msg.note_align = cp.Align.CENTER;                   ex_msg.body_bg = 229
+    ex_msg.note_msg = " Python ";                          ex_msg.body_fg = 0
+    ex_msg.note_position = 8;                              ex_msg.body_italic = True
+    ex_msg.note_bold = True;                               ex_msg.body_bold   = True
+    ex_msg.note_left_space = 4
+    ex_msg.note_right_space = 4
+    ex_msg.note_align = cp.Align.CENTER
+    ex_msg.note_bg = 231
+    ex_msg.note_fg = 196
+
+    ex_msg.left_indent = 15
+    # ex_msg.title_body_lines = 3 # this does not exist on print_fancy_note
+    # ex_msg.left_indent = 25;    # it exist but it is calculated (self.left_indent = self.note_left_space + len_note_msg + self.note_right_space)
+                                  # and it is only used to print the help_lines variable
+    ex_msg.right_indent = 6;
+    ex_msg.top_lines   = 4;           ex_msg.bottom_lines = 3
+    ex_msg.help_lines = True
+
+
+    ex_fst = cp.FontStyle()
+    ex_fst.fg = 128;       ex_fst.bg = 229;      ex_fst.bold = True
+    ex_fst.indent = 0
+
+    ex_msg.print_fancy_note(message)
+
+    print()
+    crs.jumpTo(qty=14, direction=cp.Move.UP)
+
+
+    pen.draw_line(size=3, tail=ex_fst.style_on()+cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_RIGHT, body=" A ",\
+                 head=cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL)
+
+    pen.draw_line(size=3, tail=f"{ex_fst.style_on()}", body=" Note ",\
+                 head=cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL)
+
+    pen.draw_line(size=3, tail=f"{ex_fst.style_on()} ", body="B ",\
+                 head=cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL)
+
+
+    pen.draw_line(size=3, tail=f"{ex_fst.style_on()}\u2500{cp.ins_chr(19,'\u2500')} body_msg {cp.ins_chr(19,'\u2500')}",\
+                 head=cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL)
+
+    pen.draw_line(size=3, tail="", body=ex_fst.style_on()+"right indent",\
+                 head=cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_LEFT)
+
+    print()
+    crs.jumpTo(qty=5, direction=cp.Move.UP)
+    pen.adj_indent = 35
+
+    pen.draw_line(size=5, layout=cp.Layout.VERTICAL, tail=ex_fst.style_on()+cp.Unicode.BOX_DRAWINGS_LIGHT_DOWN_AND_HORIZONTAL,\
+                 body=cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL, head=ex_fst.style_on()+cp.Unicode.BOX_DRAWINGS_LIGHT_UP_AND_HORIZONTAL)
+
+    crs.jumpTo(qty=3, direction=cp.Move.UP)
+
+    print(f"{ex_fst.style_on()}{crs.moveTo(22,cp.Move.RIGHT)}top_lines --{cp.Unicode.BLAKC_RIGHT_POINTING_TRIANGLE}")
+    crs.jumpTo(10,cp.Move.DOWN)
+
+    pen.adj_indent = 71
+    pen.draw_line(size=3, layout=cp.Layout.VERTICAL, tail=ex_fst.style_on()+cp.Unicode.BOX_DRAWINGS_LIGHT_DOWN_AND_HORIZONTAL,\
+                 body=cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL, head=cp.Unicode.BOX_DRAWINGS_LIGHT_UP_AND_HORIZONTAL+ex_fst.style_off())
+
+    crs.jumpTo(qty=2, direction=cp.Move.UP)
+    print(f"{crs.moveTo(55,cp.Move.RIGHT)}{ex_fst.style_on()}bottom_lines --{cp.Unicode.BLAKC_RIGHT_POINTING_TRIANGLE}{ex_fst.style_off()}")
+
+
+
+    crs.jumpTo(qty=1, direction=cp.Move.UP)
+    print(f"{ex_fst.style_on()}  A --{cp.Unicode.BLAKC_RIGHT_POINTING_TRIANGLE} note_left_space {ex_fst.style_off()}",end="")
+    print(f"{ex_fst.style_on()},  B --{cp.Unicode.BLAKC_RIGHT_POINTING_TRIANGLE} note_right_space{ex_fst.style_off()}")
+    crs.jumpTo(qty=4, direction=cp.Move.DOWN)
+    ex_fst.bg = 196
+    ex_fst.fg = 231
+    crs.jumpTo(qty=2, direction=cp.Move.UP)
+    print(f"{ex_fst.style_on()}help_lines {cp.Unicode.RIGHT_ARROW} {ex_fst.style_off()}\n")
+    # print(f"{ex_fst.style_on()}help_lines {cp.Unicode.RIGHT_ARROW} {ex_fst.style_off()}"\
+    #       "  Body_Lines:9  Space_Available:58  N.Cols:80  N.Lines:16")
+
+
+
 if __name__ == '__main__':
     print(sys.argv)
     help_documentation()
@@ -3269,7 +3506,6 @@ if __name__ == '__main__':
 # in the top insert a newline for message and the tail a newline for the message
 # at the end of the function or method add double newline.
 # this will be the parttern for title and tail of the function class
-
 
 
 

@@ -351,7 +351,8 @@ class FancyMessage(Cursor):
         self.left_indent = li_obj
         # n_lines, space_available, tncols are variables for reference to calculate the message
         if self.help_lines == True:
-            print(f"{ins_chr(self.left_indent)}Body_Lines:{n_lines}  Space_Available:{space_available}  N.Cols: {tncols}  N.Lines:{total_back_lines}")
+            print()
+            print(f"{ins_chr(self.left_indent)}Body_Lines:{n_lines}  Space_Available:{space_available}  N.Cols:{tncols}  N.Lines:{total_back_lines}")
 
 
     #-------------------------------------------------------------------------------------------------------------------------------------------------

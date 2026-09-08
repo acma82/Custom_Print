@@ -130,39 +130,47 @@ all_topics = [
 
      "AsciiArt", "print_ascii_art", "print_multi_ascii_art", "print_ascii_logo_art", "print_reversed_ascii_logo_art"]
 
-transpose_topics = pylo.transpose(all_topics)
-result = pylo.number(data=transpose_topics, start_number=1, id_txt="No.")
+# transpose_topics = pylo.transpose(all_topics)
+# result = pylo.number(data=transpose_topics, start_number=1, id_txt="No.")
 
-tbl.print_fancy_format(result) 
-
-
-lista_type = cp.get_list_type([1,2,3])#(result)
-print(lista_type)
+# tbl.print_fancy_format(result) 
 
 
-print(f"{cp.move_cursor_right(n=12, option_space=True)} Hello")
-print(f"{cp.move_cursor_right(n=12, option_space=False)} Hello") 
-
-lst = [["H1","H2"],[5,4],[3]]
-tbl.print_fancy_format(None)
-
-lst = ["bool","str","list","set","range", "complex","int","float", "dict", "tuple","frozenset","None"]
-ordered_letters = sorted(lst)
-print(ordered_letters)
+# lista_type = cp.get_list_type([1,2,3])#(result)
+# print(lista_type)
 
 
+# print(f"{cp.move_cursor_right(n=12, option_space=True)} Hello")
+# print(f"{cp.move_cursor_right(n=12, option_space=False)} Hello") 
 
-message = f'''
-A{cp.Unicode.SUPERSCRIPT_ALPHA  }  B{cp.Unicode.SUBSCRIPT_ALPHA  }
-A{cp.Unicode.SUPERSCRIPT_BETA   }  B{cp.Unicode.SUBSCRIPT_BETA   }
-A{cp.Unicode.SUPERSCRIPT_GAMMA  }  B{cp.Unicode.SUBSCRIPT_GAMMA  }
-A{cp.Unicode.SUPERSCRIPT_DELTA  }  B{cp.Unicode.SUBSCRIPT_DELTA  }
-A{cp.Unicode.SUPERSCRIPT_EPSILON}  B{cp.Unicode.SUBSCRIPT_EPSILON}
-A{cp.Unicode.SUPERSCRIPT_THETA  }  B{cp.Unicode.SUBSCRIPT_THETA  }
-A{cp.Unicode.SUPERSCRIPT_IOTA   }  B{cp.Unicode.SUBSCRIPT_IOTA   }
-A{cp.Unicode.SUPERSCRIPT_PHO    }  B{cp.Unicode.SUBSCRIPT_PHO    }
-A{cp.Unicode.SUPERSCRIPT_PHI    }  B{cp.Unicode.SUBSCRIPT_PHI    }
-A{cp.Unicode.SUPERSCRIPT_PSI    }  B{cp.Unicode.SUBSCRIPT_PSI    }
-A{cp.Unicode.SUPERSCRIPT_CHI    }  B{cp.Unicode.SUBSCRIPT_CHI    }
-'''
-print(message)
+# lst = [["H1","H2"],[5,4],[3]]
+# tbl.print_fancy_format(None)
+
+# lst = ["bool","str","list","set","range", "complex","int","float", "dict", "tuple","frozenset","None"]
+# ordered_letters = sorted(lst)
+# print(ordered_letters)
+
+
+
+# message = f'''
+# A{cp.Unicode.SUPERSCRIPT_ALPHA  }  B{cp.Unicode.SUBSCRIPT_ALPHA  }
+# A{cp.Unicode.SUPERSCRIPT_BETA   }  B{cp.Unicode.SUBSCRIPT_BETA   }
+# A{cp.Unicode.SUPERSCRIPT_GAMMA  }  B{cp.Unicode.SUBSCRIPT_GAMMA  }
+# A{cp.Unicode.SUPERSCRIPT_DELTA  }  B{cp.Unicode.SUBSCRIPT_DELTA  }
+# A{cp.Unicode.SUPERSCRIPT_EPSILON}  B{cp.Unicode.SUBSCRIPT_EPSILON}
+# A{cp.Unicode.SUPERSCRIPT_THETA  }  B{cp.Unicode.SUBSCRIPT_THETA  }
+# A{cp.Unicode.SUPERSCRIPT_IOTA   }  B{cp.Unicode.SUBSCRIPT_IOTA   }
+# A{cp.Unicode.SUPERSCRIPT_PHO    }  B{cp.Unicode.SUBSCRIPT_PHO    }
+# A{cp.Unicode.SUPERSCRIPT_PHI    }  B{cp.Unicode.SUBSCRIPT_PHI    }
+# A{cp.Unicode.SUPERSCRIPT_PSI    }  B{cp.Unicode.SUBSCRIPT_PSI    }
+# A{cp.Unicode.SUPERSCRIPT_CHI    }  B{cp.Unicode.SUBSCRIPT_CHI    }
+# '''
+# print(message)
+pen = cp.Pen()
+crs = cp.Cursor()
+ex_fst = cp.FontStyle()
+
+pen.adj_indent = 35
+
+pen.draw_line(size=5, layout=cp.Layout.VERTICAL, tail=ex_fst.style_on()+cp.Unicode.BOX_DRAWINGS_LIGHT_DOWN_AND_HORIZONTAL,\
+                body=cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL, head=ex_fst.style_on()+cp.Unicode.BOX_DRAWINGS_LIGHT_UP_AND_HORIZONTAL)
