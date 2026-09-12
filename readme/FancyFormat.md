@@ -170,8 +170,8 @@ For more reference check **Figure 1**.
 ## Middle Corner Section
 
 ```python
-    inner_corner_bold_chr = False   middle_top_corner_chr    = "+"      right_lateral_corner_chr = "+"
-    inner_corner_bg_chr	  = -1      middle_inner_corner_chr  = "+"      left_lateral_corner_chr  = "+"
+    inner_corner_bold_chr = False   middle_top_corner_chr    = "+"      middle_right_corner_chr = "+"
+    inner_corner_bg_chr	  = -1      middle_inner_corner_chr  = "+"      middle_left_corner_chr  = "+"
     inner_corner_fg_chr   = -1      middle_bottom_corner_chr = "+"
 ```
 
@@ -279,8 +279,8 @@ Note: Although the main idea is to use list type, print_fancy_format(tbl) accept
 | 16.- bottom_left_corner_chr             | 17.- middle_top_corner_chr           | 18.- middle_vertical_line_chr    |
 | 19.- middle_bottom_corner_chr           | 20.- header                          | 21.- header_horizontal_line_chr  |
 | 22.- header_left_vertical_line_chr      | 23.- header_right_vertical_line_chr  | 24.- header_left_corner_chr      |
-| 25.- header_right_corner_chr            | 26.- middle_horizontal_line_chr      | 27.- left_lateral_corner_chr     |
-| 28.- right_lateral_corner_chr           | 29.- header_middle_vertical_line_chr | 30.- header_middle_corner_chr    |
+| 25.- header_right_corner_chr            | 26.- middle_horizontal_line_chr      | 27.- middle_left_corner_chr     |
+| 28.- middle_right_corner_chr           | 29.- header_middle_vertical_line_chr | 30.- header_middle_corner_chr    |
 | 31.- middle_inner_corner_chr            | 32.- set_fill_chr                    | 33.- adj_bottom_margin           |
 |                                         |                                      |                                  |
 

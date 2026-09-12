@@ -4,7 +4,7 @@
 ## <strong> custom_print : <span style="color:cyan"> Release Version 1.1.5 </strong> </span>
 
 
-
+<strong> FancyFormat class has been updated in the new verison 1.5. A few variables are being changed from 1.4 to 1.5 version. This documentation may not work at 100% for version 1.4 on the FancyFormat Class. </strong>
 
 ## Fucntions
 |    [Screen Fucntions](Functions.md)      | [Internal Fucntions](Functions.md) |

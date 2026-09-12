@@ -948,10 +948,10 @@ def print_matrix_list(self,my_list):
                         if ctrl_header == len(my_list):  pass
 
                         else:
-                            indent = 1; print_horizontal_segment(self, self.left_lateral_corner_chr, self.middle_horizontal_line_chr,\
+                            indent = 1; print_horizontal_segment(self, self.middle_left_corner_chr, self.middle_horizontal_line_chr,\
                                                                   length + (2*self.adj_space), indent, "inner_corner")
 
-                            indent = 0; print_horizontal_segment(self, self.right_lateral_corner_chr, self.middle_horizontal_line_chr,\
+                            indent = 0; print_horizontal_segment(self, self.middle_right_corner_chr, self.middle_horizontal_line_chr,\
                                                                   0, indent, "inner_corner")
                             print()
         #---------------------------------------------------------------------------------------------------------------------------------------------
@@ -1118,7 +1118,7 @@ def print_matrix_list(self,my_list):
                     for item in longest_cols:
                         if indent == 1:
                             # def print_horizontal_segment(self,start_chr,end_chr,times,indent,option):
-                            print_horizontal_segment(self, self.left_lateral_corner_chr, self.middle_horizontal_line_chr,\
+                            print_horizontal_segment(self, self.middle_left_corner_chr, self.middle_horizontal_line_chr,\
                                                      (item+(2*self.adj_space)), indent,"inner_corner")
                             indent = 0
 
@@ -1126,7 +1126,7 @@ def print_matrix_list(self,my_list):
                             print_horizontal_segment(self, self.middle_inner_corner_chr, self.middle_horizontal_line_chr,\
                                                      (item+(2*self.adj_space)), indent, "inner_corner")
 
-                    print_horizontal_segment(self, self.right_lateral_corner_chr, self.middle_horizontal_line_chr,\
+                    print_horizontal_segment(self, self.middle_right_corner_chr, self.middle_horizontal_line_chr,\
                                               0, indent, "inner_corner")
                 print()
             ctrl_sep += 1
@@ -1234,7 +1234,7 @@ def make_no_space_0_on_tbl(self):
 
     # Middle Corner Section
     self.middle_top_corner_chr   = "";         self.middle_bottom_corner_chr = "";         self.middle_inner_corner_chr = ""
-    self.left_lateral_corner_chr = "";         self.right_lateral_corner_chr = ""
+    self.middle_left_corner_chr = "";         self.middle_right_corner_chr = ""
 
     # Header Section  Only for Matrix List
     self.header_left_vertical_line_chr   = ""
@@ -1262,7 +1262,7 @@ def make_space_vertical_only_on_tbl(self):
 
     # Middle Corner Section
     self.middle_top_corner_chr   = "";         self.middle_bottom_corner_chr = "";         self.middle_inner_corner_chr = ""
-    self.left_lateral_corner_chr = "";         self.right_lateral_corner_chr = ""
+    self.middle_left_corner_chr = "";         self.middle_right_corner_chr = ""
 
     # Header Section  Only for Matrix List
     self.header_left_vertical_line_chr   = " "
@@ -1293,7 +1293,7 @@ def make_no_space_1_on_tbl(self):
 
     # Middle Corner Section
     self.middle_top_corner_chr   = "";         self.middle_bottom_corner_chr = "";         self.middle_inner_corner_chr = ""
-    self.left_lateral_corner_chr = "";         self.right_lateral_corner_chr = ""
+    self.middle_left_corner_chr = "";         self.middle_right_corner_chr = ""
 
     # Header Section  Only for Matrix List
     self.header_left_vertical_line_chr   = ""
@@ -1325,7 +1325,7 @@ def make_no_space_2_on_tbl(self):
 
     # Middle Corner Section
     self.middle_top_corner_chr   = "";         self.middle_bottom_corner_chr = "";         self.middle_inner_corner_chr = ""
-    self.left_lateral_corner_chr = " ";         self.right_lateral_corner_chr = " "
+    self.middle_left_corner_chr = " ";         self.middle_right_corner_chr = " "
 
     # Header Section  Only for Matrix List
     self.header_left_vertical_line_chr   = " "
@@ -1354,7 +1354,7 @@ def make_single_double_space_on_tbl(self):
 
     # Middle Corner Section
     self.middle_top_corner_chr   = "";         self.middle_bottom_corner_chr = "";         self.middle_inner_corner_chr = ""
-    self.left_lateral_corner_chr = "  ";       self.right_lateral_corner_chr = "  "
+    self.middle_left_corner_chr = "  ";       self.middle_right_corner_chr = "  "
 
     # Header Section  Only for Matrix List
     self.header_left_vertical_line_chr   = "  "
@@ -1386,7 +1386,7 @@ def make_single_empty_space_on_tbl(self):
 
     # Middle Corner Section
     self.middle_top_corner_chr   = " ";         self.middle_bottom_corner_chr = " ";         self.middle_inner_corner_chr = " "
-    self.left_lateral_corner_chr = " ";         self.right_lateral_corner_chr = " "
+    self.middle_left_corner_chr = " ";         self.middle_right_corner_chr = " "
 
     # Header Section  Only for Matrix List
     self.header_left_vertical_line_chr   = " "
@@ -1418,7 +1418,7 @@ def make_double_empty_space_on_tbl(self):
 
     # Middle Corner Section
     self.middle_top_corner_chr   = "  ";         self.middle_bottom_corner_chr = "  ";      self.middle_inner_corner_chr = "  "
-    self.left_lateral_corner_chr = "  ";         self.right_lateral_corner_chr = "  "
+    self.middle_left_corner_chr = "  ";         self.middle_right_corner_chr = "  "
 
     # Header Section  Only for Matrix List
     self.header_left_vertical_line_chr   = "  "
@@ -1444,24 +1444,27 @@ class FancyFormat:
         #---------------------------------------------------------------------------------------------------------------------------------------------
         # defining variable names                  # values to take                                                                                  -
         #---------------------------------------------------------------------------------------------------------------------------------------------
-        # General Use
+        # space Section
         self.adj_top_margin    = 0                 # lines to be add between the terminal and the title
         self.adj_bottom_margin = 0                 # lines to be add between the end of list or footnote and terminal
         self.adj_top_space     = 0                 # lines to be added between title and top list
         self.adj_bottom_space  = 0                 # lines to be added between bottom list and footnote
         self.adj_indent        = 2                 # space from the terminal to the box
         self.adj_space         = 2                 # space from left to right inside inside the box
+
+        # General Use
         self.set_fill_chr      = "----"            # to fill the empty spots when the list is not complete
         self.set_layout        = Layout.HORIZONTAL # This is only for Range, Set, Frozenset and dictionary type
         self.update_list       = False             # if we want to save the data as it's presented, but string each element in list
 
-    #    +------------------------------------------------------------------------------+
-    #    |    Color Design Template, Demos                                              |
-    #    |    The following are some predesign (Design 1,2)                             |
-    #    |                                                                              |
-    #    |    design_color(self, 0_Desgin,  1_bg_lines,     2_fg_lines)                 |
-    #    |                                                                              |
-    #    +------------------------------------------------------------------------------+
+        #    +------------------------------------------------------------------------------+
+        #    |    Color Design Template, Demos                                              |
+        #    |    The following are some predesign (Design 1,2)                             |
+        #    |                                                                              |
+        #    |    design_color(self, 0_Desgin,  1_bg_lines,     2_fg_lines)                 |
+        #    |                                                                              |
+        #    +------------------------------------------------------------------------------+
+        # Shortcuts
         self.design_color   = 4   # This color is used for the designs (1 through 10)
         self.bg_line_colors = -1  # set all the bg_line colors, if it's set to default (-1, 256) then It'll be used the default variables
         self.fg_line_colors = -1  # set all the fg_line colors, if it's set to default (-1, 256) then It'll be used the default variables
@@ -1561,8 +1564,8 @@ class FancyFormat:
         self.middle_top_corner_chr    = " "        # all the middle corners between top_left_corner_chr and top_right_corner_chr. Only matrix list
         self.middle_bottom_corner_chr = " "        # all the middle corners between top_left_corner_chr and top_right_corner_chr. Only matrix list
         self.middle_inner_corner_chr  = " "        # corner inside the matrix and sides but not top(left,right), or bottom(left, right). Only matrix list
-        self.left_lateral_corner_chr  = " "        # chr only for matrix list
-        self.right_lateral_corner_chr = " "        # chr only for matrix list
+        self.middle_left_corner_chr  = " "        # chr only for matrix list (before: left_lateral_corner_chr  1.4V)
+        self.middle_right_corner_chr = " "        # chr only for matrix list (before: right_lateral_corner_chr 1.4V)
 
         self.inner_corner_bold = False             # two values False and True (0 and 1)
         self.inner_corner_bg   = -1                # values -1 to 255
@@ -1732,8 +1735,8 @@ class FancyFormat:
         self.middle_top_corner_chr    = " "        # all the middle corners between top_left_corner_chr and top_right_corner_chr. Only matrix list
         self.middle_bottom_corner_chr = " "        # all the middle corners between top_left_corner_chr and top_right_corner_chr. Only matrix list
         self.middle_inner_corner_chr  = " "        # corner inside the matrix and sides but not top(left,right), or bottom(left, right). Only matrix list
-        self.left_lateral_corner_chr  = " "        # chr only for matrix list
-        self.right_lateral_corner_chr = " "        # chr only for matrix list
+        self.middle_left_corner_chr  = " "        # chr only for matrix list
+        self.middle_right_corner_chr = " "        # chr only for matrix list
 
         self.inner_corner_bold = False             # two values False and True (0 and 1)
         self.inner_corner_bg   = -1                # values -1 to 255
@@ -1811,7 +1814,7 @@ class FancyFormat:
         brcc = self.bottom_right_corner_chr;                blcc = self.bottom_left_corner_chr
 
         mtcc = self.middle_top_corner_chr;                  mbcc = self.middle_bottom_corner_chr;       micc = self.middle_inner_corner_chr
-        llcc = self.left_lateral_corner_chr;                rlcc = self.right_lateral_corner_chr
+        llcc = self.middle_left_corner_chr;                rlcc = self.middle_right_corner_chr
 
         # Header Section  Only for Matrix List              # attributes for the header corners (left, middles and right)
         lvhlc = self.header_left_vertical_line_chr;         lculhc = self.header_left_corner_chr
@@ -1900,7 +1903,7 @@ class FancyFormat:
 
             # Middle Corner Section
             self.middle_top_corner_chr   = "\u252C";    self.middle_bottom_corner_chr = "\u2534";    self.middle_inner_corner_chr = "\u253C"
-            self.left_lateral_corner_chr = "\u251C";    self.right_lateral_corner_chr = "\u2524"
+            self.middle_left_corner_chr = "\u251C";    self.middle_right_corner_chr = "\u2524"
 
             # Header Section  Only for Matrix List
             self.header_left_vertical_line_chr   = "\u2502"
@@ -1926,7 +1929,7 @@ class FancyFormat:
 
             # Middle Corner Section
             self.middle_top_corner_chr   = "\u2533";   self.middle_bottom_corner_chr = "\u253B";   self.middle_inner_corner_chr = "\u254B"
-            self.left_lateral_corner_chr = "\u2523";   self.right_lateral_corner_chr = "\u252B"
+            self.middle_left_corner_chr = "\u2523";   self.middle_right_corner_chr = "\u252B"
 
             # Header Section  Only for Matrix List
             self.header_left_vertical_line_chr   = "\u2503"
@@ -1951,7 +1954,7 @@ class FancyFormat:
 
             # Middle Corner Section
             self.middle_top_corner_chr   = "\u2586";    self.middle_bottom_corner_chr = "\u2588";   self.middle_inner_corner_chr = "\u2588"
-            self.left_lateral_corner_chr = "\u2588";    self.right_lateral_corner_chr = "\u2588"
+            self.middle_left_corner_chr = "\u2588";    self.middle_right_corner_chr = "\u2588"
 
             # Header Section  Only for Matrix List
             self.header_left_vertical_line_chr   = "\u2588"
@@ -1976,7 +1979,7 @@ class FancyFormat:
 
             # Middle Corner Section
             self.middle_top_corner_chr   = "\u2566";   self.middle_bottom_corner_chr = "\u2569";     self.middle_inner_corner_chr = "\u256C"
-            self.left_lateral_corner_chr = "\u2560";   self.right_lateral_corner_chr = "\u2563"
+            self.middle_left_corner_chr = "\u2560";   self.middle_right_corner_chr = "\u2563"
 
             # Header Section  Only for Matrix List
             self.header_left_vertical_line_chr   = "\u2551"
@@ -2001,7 +2004,7 @@ class FancyFormat:
 
             # Middle Corner Section
             self.middle_top_corner_chr   =  " ";          self.middle_bottom_corner_chr = " ";          self.middle_inner_corner_chr = " "
-            self.left_lateral_corner_chr =  "\u2502";     self.right_lateral_corner_chr = "\u2502"
+            self.middle_left_corner_chr =  "\u2502";     self.middle_right_corner_chr = "\u2502"
 
             # Header Section  Only for Matrix List
             self.header_left_vertical_line_chr   = "\u2502"
@@ -2026,7 +2029,7 @@ class FancyFormat:
 
             # Middle Corner Section
             self.middle_top_corner_chr   =  "\u002B";   self.middle_bottom_corner_chr = "\u002B";    self.middle_inner_corner_chr = "\u002B"
-            self.left_lateral_corner_chr =  "\u002B";   self.right_lateral_corner_chr = "\u002B"
+            self.middle_left_corner_chr =  "\u002B";   self.middle_right_corner_chr = "\u002B"
 
             # Header Section  Only for Matrix List
             self.header_left_vertical_line_chr   = "\u254E"
@@ -2401,7 +2404,7 @@ class FancyFormat:
             self.header_right_vertical_line_chr = ""       # 23
             self.header_right_corner_chr  = ""             # 25
             self.right_vertical_line_chr  = ""             # 12
-            self.right_lateral_corner_chr = ""             # 28
+            self.middle_right_corner_chr = ""             # 28
             self.bottom_right_corner_chr  = ""             # 15
 
         if  self.left_vertical_line_on == False:
@@ -2409,7 +2412,7 @@ class FancyFormat:
             self.header_left_vertical_line_chr = ""        # 22
             self.header_left_corner_chr  = ""              # 24
             self.left_vertical_line_chr  = ""              # 11
-            self.left_lateral_corner_chr = ""              # 27
+            self.middle_left_corner_chr = ""              # 27
             self.bottom_left_corner_chr  = ""              # 16
 
         if self.middle_vertical_line_on == False:
@@ -2541,8 +2544,8 @@ class FancyFormat:
         self.top_left_corner_chr  = tlcc;               self.bottom_right_corner_chr = brcc
         self.top_right_corner_chr = trcc;               self.bottom_left_corner_chr  = blcc
 
-        self.middle_top_corner_chr    = mtcc;           self.right_lateral_corner_chr = rlcc
-        self.middle_bottom_corner_chr = mbcc;           self.left_lateral_corner_chr  = llcc
+        self.middle_top_corner_chr    = mtcc;           self.middle_right_corner_chr = rlcc
+        self.middle_bottom_corner_chr = mbcc;           self.middle_left_corner_chr  = llcc
         self.middle_inner_corner_chr  = micc
 
         # Header Section  Only for Matrix List          attributes for the header corners (left, middles and right)

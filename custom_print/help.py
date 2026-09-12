@@ -341,7 +341,7 @@ def screen_functions_only_info():
       {cp.set_font(1,231,196)} clean      : {cp.reset_font()}  This function uses the ansi code.
       {cp.set_font(1,231,196)} clear      : {cp.reset_font()}  This functions uses the OS command.
       {cp.set_font(1,231,196)} dimensions : {cp.reset_font()}  This functions uses the OS command.
-      {cp.set_font(1,231,196)} erase      : {cp.reset_font()}  This function uses the ansi code. 
+      {cp.set_font(1,231,196)} erase      : {cp.reset_font()}  This function uses the ansi code.
       {cp.set_font(1,231,196)} resize     : {cp.reset_font()}  This functions uses the OS command.
 
                       {cp.set_font(1,231,22)} resize {cp.reset_font()} only works when we are using the gnome or Xfce terminal.
@@ -411,7 +411,7 @@ def dimensions_info():
 #------------------------------------------------------------------------------------------------
 def erase_info():
     menssage = f'''
-      It erases the terminal and leaves the cursor in the current position.  
+      It erases the terminal and leaves the cursor in the current position.
     '''
     cp.ins_newline(1)
     green_div.print_fancy_divider(all_topics[4])
@@ -443,7 +443,7 @@ def resize_info():
     print(f"{cp.ins_chr(6)}{cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp")
     print(f"{cp.ins_chr(18)}cp.resize(rows=20, cols=120)\n")
 
-    
+
 
 
 
@@ -486,11 +486,11 @@ def ansi_colors_info():
     cp.ins_newline(1)
     green_div.print_fancy_divider(all_topics[7])
     message = f'''
-      {cp.set_font(1,209,16,1)}                                               {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  bg_ansi_colors(bold=False, fg=-1, n_line=0)  {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                               {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  bg colors available in the ansi code         {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                               {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                               {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  bg_ansi_colors(bold=False, fg=-1, n_line=0)  {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                               {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  bg colors available in the ansi code         {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                               {cp.reset_font()}
     '''
     print(message)
     for i in range(0, 16):
@@ -517,11 +517,11 @@ def ansi_colors_info():
     cp.ins_newline(2)
 
     message = f'''
-      {cp.set_font(1,209,16,1)}                                               {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  fg_ansi_colors(bold=False, bg=-1, n_line=0)  {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                               {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  fg colors available in the ansi code         {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                               {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                               {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  fg_ansi_colors(bold=False, bg=-1, n_line=0)  {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                               {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  fg colors available in the ansi code         {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                               {cp.reset_font()}
     '''
     print(message)
     for i in range(0, 16):
@@ -565,67 +565,67 @@ def get_list_type_info():
     cp.ins_newline(1)
     green_div.print_fancy_divider(all_topics[8])
     message = f'''
-      {cp.set_font(1,209,16,1)}                                   {cp.ins_chr(38," ")}{cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  get_list_type(my_list:list)->str {cp.ins_chr(38," ")}{cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                   {cp.ins_chr(38," ")}{cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                   {cp.ins_chr(38," ")}{cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  get_list_type(my_list:list)->str {cp.ins_chr(38," ")}{cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                   {cp.ins_chr(38," ")}{cp.reset_font()}
 
       This function return the type of list according to FancyFormat class.
 
-      {cp.set_font(1,209,16,1)}                                                                         {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  List = l              Return                       Example             {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                         {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} → {cp.set_font(1,231,21,True)} Case 0: {cp.set_font(1,209,16,1)} {cp.ins_chr(60," ")}{cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                         {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  not a list type    \"incorrect_variable_type\"     get_list_type(25)     {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                         {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                         {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  List = l              Return                       Example             {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                         {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}   {cp.set_font(1,231,21,True)} Case 0: {cp.set_font(0,54,231,1)} {cp.ins_chr(60," ")}{cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                         {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  not a list type    \"incorrect_variable_type\"     get_list_type(25)     {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                         {cp.reset_font()}
 
-      {cp.set_font(1,209,16,1)}                                                                         {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} → {cp.set_font(1,231,21,True)} Case 1: {cp.set_font(1,209,16,1)} {cp.ins_chr(60," ")}{cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                         {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  []                 \"empty_list\"                  get_list_type([])     {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                         {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                         {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}   {cp.set_font(1,231,21,True)} Case 1: {cp.set_font(0,54,231,1)} {cp.ins_chr(60," ")}{cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                         {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  []                 \"empty_list\"                  get_list_type([])     {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                         {cp.reset_font()}
 
-      {cp.set_font(1,209,16,1)}                                                                         {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} → {cp.set_font(1,231,21,True)} Case 2: {cp.set_font(1,209,16,1)} {cp.ins_chr(60," ")}{cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                         {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  [1]                \"one_item_no_row\"             get_list_type([1])    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                         {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                         {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}   {cp.set_font(1,231,21,True)} Case 2: {cp.set_font(0,54,231,1)} {cp.ins_chr(60," ")}{cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                         {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  [1]                \"one_item_no_row\"             get_list_type([1])    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                         {cp.reset_font()}
 
-      {cp.set_font(1,209,16,1)}                                                                         {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} → {cp.set_font(1,231,21,True)} Case 3: {cp.set_font(1,209,16,1)} {cp.ins_chr(60," ")}{cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                         {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  [1,2,3]             \"multiple_items_no_row\"      get_list_type(l)      {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                         {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                         {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}   {cp.set_font(1,231,21,True)} Case 3: {cp.set_font(0,54,231,1)} {cp.ins_chr(60," ")}{cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                         {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  [1,2,3]             \"multiple_items_no_row\"      get_list_type(l)      {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                         {cp.reset_font()}
 
-      {cp.set_font(1,209,16,1)}                                                                         {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} → {cp.set_font(1,231,21,True)} Case 4: {cp.set_font(1,209,16,1)} {cp.ins_chr(60," ")}{cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                         {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  [[1]]               \"one_item_one_row\"           get_list_type([l])    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                         {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                         {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}   {cp.set_font(1,231,21,True)} Case 4: {cp.set_font(0,54,231,1)} {cp.ins_chr(60," ")}{cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                         {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  [[1]]               \"one_item_one_row\"           get_list_type([l])    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                         {cp.reset_font()}
 
-      {cp.set_font(1,209,16,1)}                                                                         {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} → {cp.set_font(1,231,21,True)} Case 5: {cp.set_font(1,209,16,1)} {cp.ins_chr(60," ")}{cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                         {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  [[1,2,3]]           \"multiple_items_one_row\"     get_list_type([l])    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                         {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                         {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}   {cp.set_font(1,231,21,True)} Case 5: {cp.set_font(0,54,231,1)} {cp.ins_chr(60," ")}{cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                         {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  [[1,2,3]]           \"multiple_items_one_row\"     get_list_type([l])    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                         {cp.reset_font()}
 
-      {cp.set_font(1,209,16,1)}                                                                         {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} → {cp.set_font(1,231,21,True)} Case 6: {cp.set_font(1,209,16,1)} {cp.ins_chr(60," ")}{cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                         {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  [[1],[4],[7]]       \""multiple_items_multiple_rows\"  get_list_type([l]){cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  [[1,2,3],[4,5,6],[7,8,9]]                                              {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  [[1],[1,2,3],[5,4,7,8]]                                                {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  [[1,2,3],[[2],3,4],[5,[6,7]]]                                          {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  any combination of this is case 6                                      {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                         {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                         {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}   {cp.set_font(1,231,21,True)} Case 6: {cp.set_font(0,54,231,1)} {cp.ins_chr(60," ")}{cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                         {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  [[1],[4],[7]]       \""multiple_items_multiple_rows\"  get_list_type([l]){cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  [[1,2,3],[4,5,6],[7,8,9]]                                              {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  [[1],[1,2,3],[5,4,7,8]]                                                {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  [[1,2,3],[[2],3,4],[5,[6,7]]]                                          {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  any combination of this is case 6                                      {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                         {cp.reset_font()}
 
-      {cp.set_font(1,209,16,1)}                                                                         {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} → {cp.set_font(1,231,21,True)} Case 7: {cp.set_font(1,209,16,1)} {cp.ins_chr(60," ")}{cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                         {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  [5,6,[1,2,3],[1,0,3]]     \"mix_items\"            get_list_type([l])    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  [[1,2],[1,2,[1]],[1,2,3]]                                              {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  any combination of this is case 7                                      {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                         {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                         {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}   {cp.set_font(1,231,21,True)} Case 7: {cp.set_font(0,54,231,1)} {cp.ins_chr(60," ")}{cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                         {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  [5,6,[1,2,3],[1,0,3]]     \"mix_items\"            get_list_type([l])    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  [[1,2],[1,2,[1]],[1,2,3]]                                              {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  any combination of this is case 7                                      {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                         {cp.reset_font()}
 
 
       {cp.set_font(1,231,0)} Example 1: {cp.reset_font()}  import custom_print as cp
@@ -645,9 +645,9 @@ def ins_chr_info():
     cp.ins_newline(1)
     green_div.print_fancy_divider(all_topics[9])
     message = f'''
-      {cp.set_font(1,209,16,1)}                                               {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  ins_chr(n=1)                                 {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                               {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                               {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  ins_chr(n=1)                                 {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                               {cp.reset_font()}
 
       There are 7 Cases.
 
@@ -677,9 +677,9 @@ def ins_newline_info():
     cp.ins_newline(1)
     green_div.print_fancy_divider(all_topics[10])
     message = f'''
-      {cp.set_font(1,209,16,1)}                                               {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  ins_newline(n=1)                             {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                               {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                               {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  ins_newline(n=1)                             {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                               {cp.reset_font()}
 
       This function inserts n new lines.
 
@@ -705,14 +705,14 @@ def move_cursor_right_info():
     cp.ins_newline(1)
     green_div.print_fancy_divider(all_topics[11])
     message = f'''
-      {cp.set_font(1,209,16,1)}                                               {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  move_cursor_right(n=20, option_space=True)   {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                               {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  option True, it will print spaces n times.   {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                               {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  option False, it won't print spaces only     {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  will move the cursor.                        {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                               {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                               {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  move_cursor_right(n=20, option_space=True)   {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                               {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  option True, it will print spaces n times.   {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                               {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  option False, it won't print spaces only     {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  will move the cursor.                        {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                               {cp.reset_font()}
 
       {cp.set_font(1,231,0)} Example: {cp.reset_font()} import custom_print as cp
                  print(f\"{{cp.move_cursor_right(n=12, option_space=True)}}Hello")
@@ -727,11 +727,11 @@ def set_reset_font_info():
     cp.ins_newline(1)
     green_div.print_fancy_divider(all_topics[12])
     message = f'''
-      {cp.set_font(1,209,16,1)}                                               {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  set_font(parameters)                         {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                               {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  reset_font()                                 {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                               {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                               {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  set_font(parameters)                         {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                               {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  reset_font()                                 {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                               {cp.reset_font()}
 
       Colors range goes from -1 to 256.
       To set the default color from the system use -1 or 256,
@@ -740,10 +740,10 @@ def set_reset_font_info():
       blinking might not work in all the OS. We use Red Hat Family.
 
 
-       reset_font() → This function resets the font attributes to the default
+       reset_font()   This function resets the font attributes to the default
                       values when we use the set_font() function.
 
-       set_font()   → This function changes the font attributes, bg, fg,
+       set_font()     This function changes the font attributes, bg, fg,
                       bold, italic, and so on.
 
 
@@ -782,12 +782,12 @@ def subscript_info():
     cp.ins_newline(1)
     green_div.print_fancy_divider(all_topics[13])
     message = f'''
-      {cp.set_font(1,209,16,1)}                                               {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  subscript(x)                                 {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                               {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  x can be any type as long as it exist in the {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  subscript dictionary.                        {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                               {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                               {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  subscript(x)                                 {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                               {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  x can be any type as long as it exist in the {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  subscript dictionary.                        {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                               {cp.reset_font()}
 
       {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp
                   print(f\"Water: H{{cp.subscript("2+x")}}O\" + 5")
@@ -821,12 +821,12 @@ def superscript_info():
     cp.ins_newline(1)
     green_div.print_fancy_divider(all_topics[14])
     message = f'''
-      {cp.set_font(1,209,16,1)}                                                {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  superscript(x)                                {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  x can be any type as long as it exists in the {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  superscript dictionary.                       {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  superscript(x)                                {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  x can be any type as long as it exists in the {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  superscript dictionary.                       {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                {cp.reset_font()}
 
       {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp
                   print(f\"Power: X{{cp.superscript("5+v")}} + 5\")
@@ -861,9 +861,9 @@ def terminal_bell_info():
     cp.ins_newline(1)
     green_div.print_fancy_divider(all_topics[15])
     message = f'''
-      {cp.set_font(1,209,16,1)}                                               {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  terminal_bell()                              {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                               {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                               {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  terminal_bell()                              {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                               {cp.reset_font()}
 
       This function makes the bell sound in the terminal.
 
@@ -921,10 +921,10 @@ def align_info():
     message = f'''
       This class is used where alignment is needed. It contains 4 options.
 
-      {cp.set_font(1,209,16,1)}                                               {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} Align.RIGHT      {cp.Unicode.BULLET} Align.CENTER            {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} Align.LEFT       {cp.Unicode.BULLET} Align.JUSTIFY           {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                               {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                               {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} Align.RIGHT      {cp.Unicode.BULLET} Align.CENTER            {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} Align.LEFT       {cp.Unicode.BULLET} Align.JUSTIFY           {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                               {cp.reset_font()}
 
       This class makes the alignment for data.
 
@@ -957,20 +957,20 @@ def ascii_letter_info():
     message = f'''
       This class is used mainly with AsciiArt class. It contains 23 options.
 
-      {cp.set_font(1,209,16,1)}                                           {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} Alpha            {cp.Unicode.BULLET} Larry               {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} ANSI_Shadow      {cp.Unicode.BULLET} Money_NE            {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} Big              {cp.Unicode.BULLET} Money_NW            {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} Blocks           {cp.Unicode.BULLET} Money_SE            {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} Bulbhead         {cp.Unicode.BULLET} Money_SW            {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} Classy           {cp.Unicode.BULLET} Mono                {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} Colosal          {cp.Unicode.BULLET} Moon                {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} Crazy            {cp.Unicode.BULLET} Moon2               {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} Doh              {cp.Unicode.BULLET} Roman               {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} Doom             {cp.Unicode.BULLET} Standard            {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} Epic             {cp.Unicode.BULLET} Sweet               {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} Graceful                               {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                           {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                           {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} Alpha            {cp.Unicode.BULLET} Larry               {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} ANSI_Shadow      {cp.Unicode.BULLET} Money_NE            {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} Big              {cp.Unicode.BULLET} Money_NW            {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} Blocks           {cp.Unicode.BULLET} Money_SE            {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} Bulbhead         {cp.Unicode.BULLET} Money_SW            {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} Classy           {cp.Unicode.BULLET} Mono                {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} Colosal          {cp.Unicode.BULLET} Moon                {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} Crazy            {cp.Unicode.BULLET} Moon2               {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} Doh              {cp.Unicode.BULLET} Roman               {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} Doom             {cp.Unicode.BULLET} Standard            {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} Epic             {cp.Unicode.BULLET} Sweet               {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} Graceful                               {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                           {cp.reset_font()}
 
       This class select the type of letter to print.
 
@@ -1019,9 +1019,9 @@ def bg_info():
     message = f'''
       This class is mainly used where background color is needed.
 
-      {cp.set_font(1,209,16,1)}                                                            {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} See \"ansi_colors\" function to see all the bg color names {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                            {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                            {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} See \"ansi_colors\" function to see all the bg color names {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                            {cp.reset_font()}
 
       {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp  '''
     print(message)
@@ -1044,18 +1044,18 @@ def divider_style_info():
     message = f'''
       This class is with Divider class. It contains 10 options.
 
-      {cp.set_font(1,209,16,1)}                                           {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} CUSTOMIZED   = \"customized\"            {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} SINGLE_LINE  = \"single_line\"           {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} SINGLE_BOLD  = \"single_bold\"           {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} SINGLE_HEAVY = \"single_heavy\"          {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} DOUBLE_LINE  = \"double_line\"           {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} DASH_1       = \"dash_1\"                {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} DASH_2       = \"dash_2\"                {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} SQ_BRACKETS  = \"sq_brackets\"           {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} BLUE_WHITE_1 = \"blue_white_1\"          {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} BLUE_WHITE_2 = \"blue_white_2\"          {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                           {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                           {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} CUSTOMIZED   = \"customized\"            {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} SINGLE_LINE  = \"single_line\"           {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} SINGLE_BOLD  = \"single_bold\"           {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} SINGLE_HEAVY = \"single_heavy\"          {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} DOUBLE_LINE  = \"double_line\"           {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} DASH_1       = \"dash_1\"                {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} DASH_2       = \"dash_2\"                {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} SQ_BRACKETS  = \"sq_brackets\"           {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} BLUE_WHITE_1 = \"blue_white_1\"          {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} BLUE_WHITE_2 = \"blue_white_2\"          {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                           {cp.reset_font()}
 
       This class select the type of style for the divider to be used.
 
@@ -1077,9 +1077,9 @@ def fg_info():
     message = f'''
       This class is mainly used where foreground color is needed.
 
-      {cp.set_font(1,209,16,1)}                                                            {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} See ansi_colors function to see all the fg color names   {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                            {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                            {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} See ansi_colors function to see all the fg color names   {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                            {cp.reset_font()}
 
       {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp  '''
     print(message)
@@ -1101,10 +1101,10 @@ def layout_info():
     message = f'''
       This class is used with FancyFormat class.
 
-      {cp.set_font(1,209,16,1)}                                {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} Layout.HORIZONTAL           {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} Layout.VERTICAL             {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} Layout.HORIZONTAL           {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} Layout.VERTICAL             {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                {cp.reset_font()}
 
       {cp.set_font(1,231,0)} Example: Range type, vertical layout {cp.reset_font()}
 
@@ -1139,10 +1139,10 @@ def length_bg_info():
     message = f'''
       This class is used with FancyMessage class.
 
-      {cp.set_font(1,209,16,1)}                            {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} ALL_ROW   = 1           {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} ONLY_WORD = 2           {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                            {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                            {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} ALL_ROW   = 1           {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} ONLY_WORD = 2           {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                            {cp.reset_font()}
 
       {cp.set_font(1,231,0)} Example: Range type, vertical layout {cp.reset_font()}
 
@@ -1173,22 +1173,22 @@ def line_style_info():
     message = f'''
       Style_Line Class is used with FancyFormat Class. There are many options.
 
-      {cp.set_font(1,209,16,1)}                                                          {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} CUSTOMIZED    {cp.Unicode.BULLET} DESIGN_1                              {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} DASH_LINE     {cp.Unicode.BULLET} DESIGN_2      {cp.Unicode.BULLET} PURPLE_WHITE          {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} SINGLE_LINE   {cp.Unicode.BULLET} DESIGN_3      {cp.Unicode.BULLET} WHITE_BLACK_1         {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} SINGLE_BOLD   {cp.Unicode.BULLET} DESIGN_4      {cp.Unicode.BULLET} WHITE_BLACK_2         {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} SINGLE_HEAVY  {cp.Unicode.BULLET} DESIGN_5      {cp.Unicode.BULLET} WHITE_PURPLE          {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} DOUBLE_LINE   {cp.Unicode.BULLET} DESIGN_6      {cp.Unicode.BULLET} TURQUOISE_BLACK       {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} SQ_BRACKETS   {cp.Unicode.BULLET} DESIGN_7      {cp.Unicode.BULLET} TURQUOISE_WHITE       {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} NONE          {cp.Unicode.BULLET} DESIGN_8      {cp.Unicode.BULLET} WHITE_BLACK_PURPLE    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} SPACE_0       {cp.Unicode.BULLET} DESIGN_9      {cp.Unicode.BULLET} GRAY_TEAL_WHITE       {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} SPACE_1       {cp.Unicode.BULLET} DESIGN_10     {cp.Unicode.BULLET} BLUE_PURPLE_WHITE_1   {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} SPACE_2       {cp.Unicode.BULLET} RED_WHITE     {cp.Unicode.BULLET} BLUE_PURPLE_WHITE_2   {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} SPACE_3       {cp.Unicode.BULLET} BLUE_WHITE    {cp.Unicode.BULLET} GREEN_GREEN_BLACK     {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} SPACE_4       {cp.Unicode.BULLET} TEAL_WHITE    {cp.Unicode.BULLET} OLIVE_GREEN           {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} SPACE_5       {cp.Unicode.BULLET} SPACE_6                               {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                          {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                          {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} CUSTOMIZED    {cp.Unicode.BULLET} DESIGN_1                              {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} DASH_LINE     {cp.Unicode.BULLET} DESIGN_2      {cp.Unicode.BULLET} PURPLE_WHITE          {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} SINGLE_LINE   {cp.Unicode.BULLET} DESIGN_3      {cp.Unicode.BULLET} WHITE_BLACK_1         {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} SINGLE_BOLD   {cp.Unicode.BULLET} DESIGN_4      {cp.Unicode.BULLET} WHITE_BLACK_2         {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} SINGLE_HEAVY  {cp.Unicode.BULLET} DESIGN_5      {cp.Unicode.BULLET} WHITE_PURPLE          {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} DOUBLE_LINE   {cp.Unicode.BULLET} DESIGN_6      {cp.Unicode.BULLET} TURQUOISE_BLACK       {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} SQ_BRACKETS   {cp.Unicode.BULLET} DESIGN_7      {cp.Unicode.BULLET} TURQUOISE_WHITE       {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} NONE          {cp.Unicode.BULLET} DESIGN_8      {cp.Unicode.BULLET} WHITE_BLACK_PURPLE    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} SPACE_0       {cp.Unicode.BULLET} DESIGN_9      {cp.Unicode.BULLET} GRAY_TEAL_WHITE       {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} SPACE_1       {cp.Unicode.BULLET} DESIGN_10     {cp.Unicode.BULLET} BLUE_PURPLE_WHITE_1   {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} SPACE_2       {cp.Unicode.BULLET} RED_WHITE     {cp.Unicode.BULLET} BLUE_PURPLE_WHITE_2   {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} SPACE_3       {cp.Unicode.BULLET} BLUE_WHITE    {cp.Unicode.BULLET} GREEN_GREEN_BLACK     {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} SPACE_4       {cp.Unicode.BULLET} TEAL_WHITE    {cp.Unicode.BULLET} OLIVE_GREEN           {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} SPACE_5       {cp.Unicode.BULLET} SPACE_6                               {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                          {cp.reset_font()}
 
       {cp.set_font(1,196,231)} Note: {cp.reset_font()} These options can be replaced for the original values.
 
@@ -1329,13 +1329,13 @@ def logo_info():
     message = f'''
       Logo Class has a few options.
 
-      {cp.set_font(1,209,16,1)}                  {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} Logo_Centos   {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} Logo_Debian   {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} Logo_Linux    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} Logo_RedHat   {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} Logo_Unix     {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                  {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                  {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} Logo_Centos   {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} Logo_Debian   {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} Logo_Linux    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} Logo_RedHat   {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} Logo_Unix     {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                  {cp.reset_font()}
 
 
 
@@ -1357,12 +1357,12 @@ def move_info():
     message = f'''
       Move Class has a few options.
 
-      {cp.set_font(1,209,16,1)}             {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} DOWN     {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} LEFT     {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} RIGHT    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} UP       {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}             {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}             {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} DOWN     {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} LEFT     {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} RIGHT    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} UP       {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}             {cp.reset_font()}
 
       {cp.set_font(1,196,231)} Note: {cp.reset_font()} These options can be replaced for the original values.
 
@@ -1389,9 +1389,9 @@ def no_info():
     cp.ins_newline(1)
     green_div.print_fancy_divider(all_topics[27])
     message = f'''
-      {cp.set_font(1,209,16,1)}                                                                   {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} No class has 256 options. To see them run the following code:  {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                   {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                   {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} No class has 256 options. To see them run the following code:  {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                   {cp.reset_font()}
 
       import custom_print as cp
       cp.bg_ansi_colors(bold=True, fg=0,  n_line=1)
@@ -1412,9 +1412,9 @@ def no_info():
       {cp.ins_chr(10)}  blue_msg.body_fg   = 35
       {cp.ins_chr(10)}  blue_msg.print_fancy_message(" This is a DEMO...! ")
 
-      {cp.set_font(1,209,16,1)}                                                        {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} This class is used where a color needs to be assigned. {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                        {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                        {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} This class is used where a color needs to be assigned. {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                        {cp.reset_font()}
 '''
     print(message)
 
@@ -1429,17 +1429,17 @@ def style_info():
       Style class helps to customize the font style directly.
       The following are the options for the font to be used.
 
-      {cp.set_font(1,209,16,1)}                                        {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} BOLD_ON           {cp.Unicode.BULLET}  BOLD_OFF       {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} DIM_ON            {cp.Unicode.BULLET}  DIM_OFF        {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} ITALIC_ON         {cp.Unicode.BULLET}  ITALIC_OFF     {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} UNDERLINE_ON      {cp.Unicode.BULLET}  UNDERLINE_OFF  {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} BLINKING_ON       {cp.Unicode.BULLET}  BLINKING_OFF   {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} INVERSE_ON        {cp.Unicode.BULLET}  INVERSE_OFF    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} HIDDEN_ON         {cp.Unicode.BULLET}  HIDDEN_OFF     {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} STRIKE_ON         {cp.Unicode.BULLET}  STRIKE_OFF     {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} RESET_ALL         {cp.Unicode.BULLET}  OFF            {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                        {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                        {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} BOLD_ON           {cp.Unicode.BULLET}  BOLD_OFF       {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} DIM_ON            {cp.Unicode.BULLET}  DIM_OFF        {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} ITALIC_ON         {cp.Unicode.BULLET}  ITALIC_OFF     {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} UNDERLINE_ON      {cp.Unicode.BULLET}  UNDERLINE_OFF  {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} BLINKING_ON       {cp.Unicode.BULLET}  BLINKING_OFF   {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} INVERSE_ON        {cp.Unicode.BULLET}  INVERSE_OFF    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} HIDDEN_ON         {cp.Unicode.BULLET}  HIDDEN_OFF     {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} STRIKE_ON         {cp.Unicode.BULLET}  STRIKE_OFF     {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} RESET_ALL         {cp.Unicode.BULLET}  OFF            {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                        {cp.reset_font()}
 
       {cp.set_font(True,231,0)} Example: {cp.reset_font()}  import custom_print as cp
       '''
@@ -1487,65 +1487,65 @@ def unicode_info():
     message = f'''
     Unicode class has a few options. More options can be found on website.
 
-      {cp.set_font(1,209,16,1)}                                                {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} BOX_DRAWINGS_LIGHT_HORIZONTAL  {cp.Unicode.BOX_DRAWINGS_LIGHT_HORIZONTAL}             {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} BOX_DRAWINGS_LIGHT_VERTICAL_AND_RIGHT  {cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_RIGHT}     {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} BOX_DRAWINGS_LIGHT_VERTICAL_AND_LEFT  {cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_LEFT}      {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} BOX_DRAWINGS_LIGHT_VERTICAL            {cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL}     {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} BOX_DRAWINGS_LIGHT_DOWN_AND_HORIZONTAL  {cp.Unicode.BOX_DRAWINGS_LIGHT_DOWN_AND_HORIZONTAL}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} BOX_DRAWINGS_LIGHT_UP_AND_HORIZONTAL   {cp.Unicode.BOX_DRAWINGS_LIGHT_UP_AND_HORIZONTAL}     {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL {cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL} {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} BLACK_UP_POINTING_TRIANGLE    {cp.Unicode.BLACK_UP_POINTING_TRIANGLE   }              {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} WHITE_UP_POINTING_TRIANGLE    {cp.Unicode.WHITE_UP_POINTING_TRIANGLE   }              {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} BLAKC_RIGHT_POINTING_TRIANGLE {cp.Unicode.BLAKC_RIGHT_POINTING_TRIANGLE}              {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} WHITE_RIGHT_POINTING_TRIANGLE {cp.Unicode.WHITE_RIGHT_POINTING_TRIANGLE}              {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} BLACK_DOWN_POINTING_TRIANGLE  {cp.Unicode.BLACK_DOWN_POINTING_TRIANGLE }              {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} WHITE_DOWN_POINTING_TRIANGLE  {cp.Unicode.WHITE_DOWN_POINTING_TRIANGLE }              {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} BLACK_LEFT_POINTING_TRIANGLE  {cp.Unicode.BLACK_LEFT_POINTING_TRIANGLE }              {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} WHITE_LEFT_POINTING_TRIANGLE  {cp.Unicode.WHITE_LEFT_POINTING_TRIANGLE }              {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} RIGHT_ARROW                {cp.Unicode.RIGHT_ARROW}                 {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} LEFT_ARROW                 {cp.Unicode.LEFT_ARROW }                 {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} UP_ARROW                   {cp.Unicode.UP_ARROW   }                 {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} DOWN_ARROW                 {cp.Unicode.DOWN_ARROW }                 {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} UPWARDS_PAIRED_ARROWS      {cp.Unicode.UPWARDS_PAIRED_ARROWS   }                 {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} DOWNWARDS_PAIRED_ARROWS    {cp.Unicode.DOWNWARDS_PAIRED_ARROWS }                 {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} LEFTWARDS_PAIRED_ARROWS    {cp.Unicode.LEFTWARDS_PAIRED_ARROWS }                 {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} RIGHTWARDS_PAIRED_ARROWS   {cp.Unicode.RIGHTWARDS_PAIRED_ARROWS}                 {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} BLACK_RIGHTWARDS_ARROWHEAD {cp.Unicode.BLACK_RIGHTWARDS_ARROWHEAD}                 {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} FIRE {cp.Unicode.FIRE}                                      {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} EYES  {cp.Unicode.EYES}                                     {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} POOP  {cp.Unicode.POOP}                                     {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} FACE {cp.Unicode.FACE}                                   {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} GHOST  {cp.Unicode.GHOST}                                    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} CLOWN  {cp.Unicode.CLOWN}                                    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} BALLON  {cp.Unicode.BALLON}                                   {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} BULLET {cp.Unicode.BULLET}                                     {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} COFFEE  {cp.Unicode.COFFEE}                                   {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} EM_DASH {cp.Unicode.EM_DASH}                                    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} BLACK_CIRCLE {cp.Unicode.BLACK_CIRCLE}                               {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} WHITE_CIRCLE {cp.Unicode.WHITE_CIRCLE}                               {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} BLACK_DIAMOND   {cp.Unicode.BLACK_DIAMOND}                            {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} WHITE_DIAMOND   {cp.Unicode.WHITE_DIAMOND}                            {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} LOWERCASE_N_TILDE   {cp.Unicode.LOWERCASE_N_TILDE}                        {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} UPPERCASE_N_TILDE   {cp.Unicode.UPPERCASE_N_TILDE}                        {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} LEFT_CURLY_BRACKET  {cp.Unicode.LEFT_CURLY_BRACKET}                        {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} RIGHT_CURLY_BRACKET {cp.Unicode.RIGHT_CURLY_BRACKET}                        {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} SUBSCRIPT_ALPHA   {cp.Unicode.SUBSCRIPT_ALPHA  } {cp.Unicode.BULLET} SUPERSCRIPT_ALPHA   {cp.Unicode.SUPERSCRIPT_ALPHA  }  {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} SUBSCRIPT_BETA    {cp.Unicode.SUBSCRIPT_BETA   } {cp.Unicode.BULLET} SUPERSCRIPT_BETA    {cp.Unicode.SUPERSCRIPT_BETA   }  {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} SUBSCRIPT_GAMMA   {cp.Unicode.SUBSCRIPT_GAMMA  } {cp.Unicode.BULLET} SUPERSCRIPT_GAMMA   {cp.Unicode.SUPERSCRIPT_GAMMA  }  {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} SUBSCRIPT_DELTA   {cp.Unicode.SUBSCRIPT_DELTA  } {cp.Unicode.BULLET} SUPERSCRIPT_DELTA   {cp.Unicode.SUPERSCRIPT_DELTA  }  {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} SUBSCRIPT_EPSILON {cp.Unicode.SUBSCRIPT_EPSILON} {cp.Unicode.BULLET} SUPERSCRIPT_EPSILON {cp.Unicode.SUPERSCRIPT_EPSILON}  {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} SUBSCRIPT_THETA   {cp.Unicode.SUBSCRIPT_THETA  } {cp.Unicode.BULLET} SUPERSCRIPT_THETA   {cp.Unicode.SUPERSCRIPT_THETA  }  {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} SUBSCRIPT_IOTA    {cp.Unicode.SUBSCRIPT_IOTA   } {cp.Unicode.BULLET} SUPERSCRIPT_IOTA    {cp.Unicode.SUPERSCRIPT_IOTA   }  {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} SUBSCRIPT_PHO     {cp.Unicode.SUBSCRIPT_PHO    } {cp.Unicode.BULLET} SUPERSCRIPT_PHO     {cp.Unicode.SUPERSCRIPT_PHO    }  {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} SUBSCRIPT_PHI     {cp.Unicode.SUBSCRIPT_PHI    } {cp.Unicode.BULLET} SUPERSCRIPT_PHI     {cp.Unicode.SUPERSCRIPT_PHI    }  {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} SUBSCRIPT_PSI     {cp.Unicode.SUBSCRIPT_PSI    } {cp.Unicode.BULLET} SUPERSCRIPT_PSI     {cp.Unicode.SUPERSCRIPT_PSI    }  {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} SUBSCRIPT_CHI     {cp.Unicode.SUBSCRIPT_CHI    } {cp.Unicode.BULLET} SUPERSCRIPT_CHI     {cp.Unicode.SUPERSCRIPT_CHI    }  {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} BOX_DRAWINGS_LIGHT_HORIZONTAL  {cp.Unicode.BOX_DRAWINGS_LIGHT_HORIZONTAL}             {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} BOX_DRAWINGS_LIGHT_VERTICAL_AND_RIGHT  {cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_RIGHT}     {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} BOX_DRAWINGS_LIGHT_VERTICAL_AND_LEFT  {cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_LEFT}      {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} BOX_DRAWINGS_LIGHT_VERTICAL            {cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL}     {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} BOX_DRAWINGS_LIGHT_DOWN_AND_HORIZONTAL  {cp.Unicode.BOX_DRAWINGS_LIGHT_DOWN_AND_HORIZONTAL}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} BOX_DRAWINGS_LIGHT_UP_AND_HORIZONTAL   {cp.Unicode.BOX_DRAWINGS_LIGHT_UP_AND_HORIZONTAL}     {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL {cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL} {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} BLACK_UP_POINTING_TRIANGLE    {cp.Unicode.BLACK_UP_POINTING_TRIANGLE   }              {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} WHITE_UP_POINTING_TRIANGLE    {cp.Unicode.WHITE_UP_POINTING_TRIANGLE   }              {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} BLAKC_RIGHT_POINTING_TRIANGLE {cp.Unicode.BLAKC_RIGHT_POINTING_TRIANGLE}              {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} WHITE_RIGHT_POINTING_TRIANGLE {cp.Unicode.WHITE_RIGHT_POINTING_TRIANGLE}              {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} BLACK_DOWN_POINTING_TRIANGLE  {cp.Unicode.BLACK_DOWN_POINTING_TRIANGLE }              {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} WHITE_DOWN_POINTING_TRIANGLE  {cp.Unicode.WHITE_DOWN_POINTING_TRIANGLE }              {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} BLACK_LEFT_POINTING_TRIANGLE  {cp.Unicode.BLACK_LEFT_POINTING_TRIANGLE }              {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} WHITE_LEFT_POINTING_TRIANGLE  {cp.Unicode.WHITE_LEFT_POINTING_TRIANGLE }              {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} RIGHT_ARROW                {cp.Unicode.RIGHT_ARROW}                 {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} LEFT_ARROW                 {cp.Unicode.LEFT_ARROW }                 {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} UP_ARROW                   {cp.Unicode.UP_ARROW   }                 {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} DOWN_ARROW                 {cp.Unicode.DOWN_ARROW }                 {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} UPWARDS_PAIRED_ARROWS      {cp.Unicode.UPWARDS_PAIRED_ARROWS   }                 {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} DOWNWARDS_PAIRED_ARROWS    {cp.Unicode.DOWNWARDS_PAIRED_ARROWS }                 {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} LEFTWARDS_PAIRED_ARROWS    {cp.Unicode.LEFTWARDS_PAIRED_ARROWS }                 {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} RIGHTWARDS_PAIRED_ARROWS   {cp.Unicode.RIGHTWARDS_PAIRED_ARROWS}                 {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} BLACK_RIGHTWARDS_ARROWHEAD {cp.Unicode.BLACK_RIGHTWARDS_ARROWHEAD}                 {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} FIRE {cp.Unicode.FIRE}                                      {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} EYES  {cp.Unicode.EYES}                                     {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} POOP  {cp.Unicode.POOP}                                     {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} FACE {cp.Unicode.FACE}                                   {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} GHOST  {cp.Unicode.GHOST}                                    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} CLOWN  {cp.Unicode.CLOWN}                                    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} BALLON  {cp.Unicode.BALLON}                                   {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} BULLET {cp.Unicode.BULLET}                                     {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} COFFEE  {cp.Unicode.COFFEE}                                   {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} EM_DASH {cp.Unicode.EM_DASH}                                    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} BLACK_CIRCLE {cp.Unicode.BLACK_CIRCLE}                               {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} WHITE_CIRCLE {cp.Unicode.WHITE_CIRCLE}                               {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} BLACK_DIAMOND   {cp.Unicode.BLACK_DIAMOND}                            {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} WHITE_DIAMOND   {cp.Unicode.WHITE_DIAMOND}                            {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} LOWERCASE_N_TILDE   {cp.Unicode.LOWERCASE_N_TILDE}                        {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} UPPERCASE_N_TILDE   {cp.Unicode.UPPERCASE_N_TILDE}                        {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} LEFT_CURLY_BRACKET  {cp.Unicode.LEFT_CURLY_BRACKET}                        {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} RIGHT_CURLY_BRACKET {cp.Unicode.RIGHT_CURLY_BRACKET}                        {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} SUBSCRIPT_ALPHA   {cp.Unicode.SUBSCRIPT_ALPHA  } {cp.Unicode.BULLET} SUPERSCRIPT_ALPHA   {cp.Unicode.SUPERSCRIPT_ALPHA  }  {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} SUBSCRIPT_BETA    {cp.Unicode.SUBSCRIPT_BETA   } {cp.Unicode.BULLET} SUPERSCRIPT_BETA    {cp.Unicode.SUPERSCRIPT_BETA   }  {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} SUBSCRIPT_GAMMA   {cp.Unicode.SUBSCRIPT_GAMMA  } {cp.Unicode.BULLET} SUPERSCRIPT_GAMMA   {cp.Unicode.SUPERSCRIPT_GAMMA  }  {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} SUBSCRIPT_DELTA   {cp.Unicode.SUBSCRIPT_DELTA  } {cp.Unicode.BULLET} SUPERSCRIPT_DELTA   {cp.Unicode.SUPERSCRIPT_DELTA  }  {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} SUBSCRIPT_EPSILON {cp.Unicode.SUBSCRIPT_EPSILON} {cp.Unicode.BULLET} SUPERSCRIPT_EPSILON {cp.Unicode.SUPERSCRIPT_EPSILON}  {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} SUBSCRIPT_THETA   {cp.Unicode.SUBSCRIPT_THETA  } {cp.Unicode.BULLET} SUPERSCRIPT_THETA   {cp.Unicode.SUPERSCRIPT_THETA  }  {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} SUBSCRIPT_IOTA    {cp.Unicode.SUBSCRIPT_IOTA   } {cp.Unicode.BULLET} SUPERSCRIPT_IOTA    {cp.Unicode.SUPERSCRIPT_IOTA   }  {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} SUBSCRIPT_PHO     {cp.Unicode.SUBSCRIPT_PHO    } {cp.Unicode.BULLET} SUPERSCRIPT_PHO     {cp.Unicode.SUPERSCRIPT_PHO    }  {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} SUBSCRIPT_PHI     {cp.Unicode.SUBSCRIPT_PHI    } {cp.Unicode.BULLET} SUPERSCRIPT_PHI     {cp.Unicode.SUPERSCRIPT_PHI    }  {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} SUBSCRIPT_PSI     {cp.Unicode.SUBSCRIPT_PSI    } {cp.Unicode.BULLET} SUPERSCRIPT_PSI     {cp.Unicode.SUPERSCRIPT_PSI    }  {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} SUBSCRIPT_CHI     {cp.Unicode.SUBSCRIPT_CHI    } {cp.Unicode.BULLET} SUPERSCRIPT_CHI     {cp.Unicode.SUPERSCRIPT_CHI    }  {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                {cp.reset_font()}
 
       {cp.set_font(True,231,0)} Example: {cp.reset_font()}  import custom_print as cp
                   print(cp.Unicode.FIRE)
@@ -1585,7 +1585,9 @@ def unicode_info():
                  https://www.vertex42.com/ExcelTips/unicode-symbols.html
                  https://unicodelookup.com
                  https://symbl.cc/en/unicode-table
-
+                 https://codeshack.io/arrow-symbols
+                 http://xahlee.info/comp/unicode_arrows.html
+                 https://www.w3.org/TR/xml-entity-names/025.html
     '''
     print(message)
 
@@ -1610,19 +1612,19 @@ def cursor_only_info():
 
       Cursor can use the Move Class that has a few options.
 
-      {cp.set_font(1,209,16,1)}             {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} DOWN     {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} LEFT     {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} RIGHT    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}  {cp.Unicode.BULLET} UP       {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}             {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}             {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} DOWN     {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} LEFT     {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} RIGHT    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}  {cp.Unicode.BULLET} UP       {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}             {cp.reset_font()}
 
       {cp.set_font(1,196,231)} Note: {cp.reset_font()} These options can be replaced for the original values.
 
-      {cp.Unicode.BULLET} DOWN   \u2192  \"down\"
-      {cp.Unicode.BULLET} LEFT   \u2192  \"left\"
-      {cp.Unicode.BULLET} RIGHT  \u2192  \"right\"
-      {cp.Unicode.BULLET} UP     \u2192  \"up\"
+      {cp.Unicode.BULLET} DOWN   \u2192  \"down\"   \u2192  \"d\"
+      {cp.Unicode.BULLET} LEFT   \u2192  \"left\"   \u2192  \"l\"
+      {cp.Unicode.BULLET} RIGHT  \u2192  \"right\"  \u2192  \"r\"
+      {cp.Unicode.BULLET} UP     \u2192  \"up\"     \u2192  \"u\"
 
 
     '''
@@ -1742,23 +1744,23 @@ def fontstyle_only_info():
     message = f'''
      This class contains 4 methods and their default values are displays below.
 
-      {cp.set_font(1,209,16,1)}                                                 {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                General Use                      {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                 {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} bg     = -1             {cp.Unicode.BULLET} bold      = False   {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} fg     = -1             {cp.Unicode.BULLET} underline = False   {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} dim    = False          {cp.Unicode.BULLET} blinking  = False   {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} hidden = False          {cp.Unicode.BULLET} italic    = False   {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} strike = False          {cp.Unicode.BULLET} inverse   = False   {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                 {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                Print_Style                      {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                 {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} align = Align.JUSTIFY   {cp.Unicode.BULLET} bg_top_lines    = 0 {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} forced_align = False    {cp.Unicode.BULLET} bg_bottom_lines = 0 {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} indent = 0                                    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                 {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                 {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                General Use                      {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                 {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} bg     = -1             {cp.Unicode.BULLET} bold      = False   {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} fg     = -1             {cp.Unicode.BULLET} underline = False   {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} dim    = False          {cp.Unicode.BULLET} blinking  = False   {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} hidden = False          {cp.Unicode.BULLET} italic    = False   {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} strike = False          {cp.Unicode.BULLET} inverse   = False   {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                 {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                Print_Style                      {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                 {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} align = Align.JUSTIFY   {cp.Unicode.BULLET} bg_top_lines    = 0 {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} forced_align = False    {cp.Unicode.BULLET} bg_bottom_lines = 0 {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} indent = 0                                    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                 {cp.reset_font()}
 
-      indent → This defines how far we want to start to print the message
+      indent   This defines how far we want to start to print the message
                from the left of the terminal.
 
       {cp.set_font(1,196,231)} Note: {cp.reset_font()} indent is used for style_on and for print_style when using
@@ -1947,64 +1949,64 @@ def fancymessage_only_info():
     message = f'''
       This class contains 3 methods and their default values are displays below.
 
-      {cp.set_font(1,209,16,1)}                                                                 {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                 {cp.reset_font()}
       {cp.set_font(1,209,24,1)}  Body Section                                                   {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                 {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} body_bg = 4                 {cp.Unicode.BULLET} body_dim = False                {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} body_fg = 231               {cp.Unicode.BULLET} body_italic = False             {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} body_msg = "Body Msg"       {cp.Unicode.BULLET} body_hidden = False             {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} body_bold = False           {cp.Unicode.BULLET} body_strike = False             {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} help_lines = False          {cp.Unicode.BULLET} body_inverse = False            {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} left_indent = 2             {cp.Unicode.BULLET} body_blinking = False           {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} right_indent = 2            {cp.Unicode.BULLET} body_underline = False          {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} top_lines = 1               {cp.Unicode.BULLET} bottom_lines = 1                {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                 {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} length = Length_Bg.ALL_ROW                                    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} adj_bg_lines_to_right_indent = False                          {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} adj_bg_msg_to_space_available = False                         {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                 {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                 {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} body_bg = 4                 {cp.Unicode.BULLET} body_dim = False                {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} body_fg = 231               {cp.Unicode.BULLET} body_italic = False             {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} body_msg = "Body Msg"       {cp.Unicode.BULLET} body_hidden = False             {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} body_bold = False           {cp.Unicode.BULLET} body_strike = False             {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} help_lines = False          {cp.Unicode.BULLET} body_inverse = False            {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} left_indent = 2             {cp.Unicode.BULLET} body_blinking = False           {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} right_indent = 2            {cp.Unicode.BULLET} body_underline = False          {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} top_lines = 1               {cp.Unicode.BULLET} bottom_lines = 1                {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                 {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} length = Length_Bg.ALL_ROW                                    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} adj_bg_lines_to_right_indent = False                          {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} adj_bg_msg_to_space_available = False                         {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                 {cp.reset_font()}
 
-      {cp.set_font(1,209,16,1)}                                                                 {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                 {cp.reset_font()}
       {cp.set_font(1,209,24,1)}  Note Section                                                   {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                 {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} note_bg = 231               {cp.Unicode.BULLET} note_dim = False                {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} note_fg = 0                 {cp.Unicode.BULLET} note_italic = False             {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} note_msg = "Note:"          {cp.Unicode.BULLET} note_hidden = False             {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} note_bold = False           {cp.Unicode.BULLET} note_strike = False             {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} note_position = 1           {cp.Unicode.BULLET} note_inverse = False            {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} note_left_space = 2         {cp.Unicode.BULLET} note_blinking = False           {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} note_right_space = 2        {cp.Unicode.BULLET} note_underline = False          {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} note_align = Align.JUSTIFY                                    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                 {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                 {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} note_bg = 231               {cp.Unicode.BULLET} note_dim = False                {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} note_fg = 0                 {cp.Unicode.BULLET} note_italic = False             {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} note_msg = "Note:"          {cp.Unicode.BULLET} note_hidden = False             {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} note_bold = False           {cp.Unicode.BULLET} note_strike = False             {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} note_position = 1           {cp.Unicode.BULLET} note_inverse = False            {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} note_left_space = 2         {cp.Unicode.BULLET} note_blinking = False           {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} note_right_space = 2        {cp.Unicode.BULLET} note_underline = False          {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} note_align = Align.JUSTIFY                                    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                 {cp.reset_font()}
 
-      {cp.set_font(1,209,16,1)}                                                                 {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                 {cp.reset_font()}
       {cp.set_font(1,209,24,1)}  Title Section                                                  {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                 {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} title_bg = 4                 {cp.Unicode.BULLET} title_dim = False              {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} title_fg = 231               {cp.Unicode.BULLET} title_italic = False           {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} title_msg = ""               {cp.Unicode.BULLET} title_hidden = False           {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} title_bold = False           {cp.Unicode.BULLET} title_strike = False           {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} title_indent = 2             {cp.Unicode.BULLET} title_inverse = False          {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} title_body_lines = 1         {cp.Unicode.BULLET} title_blinking = False         {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} title_align = Align.LEFT     {cp.Unicode.BULLET} title_underline = False        {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                 {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                 {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} title_bg = 4                 {cp.Unicode.BULLET} title_dim = False              {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} title_fg = 231               {cp.Unicode.BULLET} title_italic = False           {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} title_msg = ""               {cp.Unicode.BULLET} title_hidden = False           {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} title_bold = False           {cp.Unicode.BULLET} title_strike = False           {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} title_indent = 2             {cp.Unicode.BULLET} title_inverse = False          {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} title_body_lines = 1         {cp.Unicode.BULLET} title_blinking = False         {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} title_align = Align.LEFT     {cp.Unicode.BULLET} title_underline = False        {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                 {cp.reset_font()}
 
-      {cp.set_font(1,209,16,1)}                                                                 {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                 {cp.reset_font()}
       {cp.set_font(1,209,24,1)}  Footnote Section                                               {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                 {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} footnote_bg = 4              {cp.Unicode.BULLET} footnote_dim = False           {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} footnote_fg = 231            {cp.Unicode.BULLET} footnote_italic = False        {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} footnote_msg = ""            {cp.Unicode.BULLET} footnote_hidden = False        {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} footnote_bold = False        {cp.Unicode.BULLET} footnote_strike = False        {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} footnote_indent = 2          {cp.Unicode.BULLET} footnote_inverse = False       {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} footnote_body_lines = 1      {cp.Unicode.BULLET} footnote_blinking = False      {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} footnote_align = Align.RIGHT {cp.Unicode.BULLET} footnote_underline = False     {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                 {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                 {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                 {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} footnote_bg = 4              {cp.Unicode.BULLET} footnote_dim = False           {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} footnote_fg = 231            {cp.Unicode.BULLET} footnote_italic = False        {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} footnote_msg = ""            {cp.Unicode.BULLET} footnote_hidden = False        {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} footnote_bold = False        {cp.Unicode.BULLET} footnote_strike = False        {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} footnote_indent = 2          {cp.Unicode.BULLET} footnote_inverse = False       {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} footnote_body_lines = 1      {cp.Unicode.BULLET} footnote_blinking = False      {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} footnote_align = Align.RIGHT {cp.Unicode.BULLET} footnote_underline = False     {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                 {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                 {cp.reset_font()}
 
 
-      {cp.set_font(1,196,231)} Note: {cp.reset_font()} title_indent    → works with Align.JUSTIFY.
-              footnote_indent → works with Align.JUSTIFY.
+      {cp.set_font(1,196,231)} Note: {cp.reset_font()} title_indent      works with Align.JUSTIFY.
+              footnote_indent   works with Align.JUSTIFY.
 
               These 2 options \"adj_bg_lines_to_right_indent\" and
               \"adj_bg_msg_to_space_available\" don't do anything when
@@ -2233,7 +2235,7 @@ def get_message_attributes_info():
                   att.length = cp.Length_Bg.ONLY_WORD
                   cp.ins_newline(2)
                   att.print_fancy_message(paragraph)
-                  
+
                   attributes, words = att.get_message_attributes(
                           body_msg=message, print_attributes=True)
 
@@ -2292,31 +2294,31 @@ def pen_only_info():
       Pen class will draw lines nad squares. This class contains 2 methods
       and their default values are displays below.
 
-      {cp.set_font(1,209,16,1)}                                                                      {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                      {cp.reset_font()}
       {cp.set_font(1,209,24,1)}  General Use Section                                                 {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                      {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} adj_indent = 0                                                     {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} draw_line_bold = False                                             {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} draw_line_bg = -1                                                  {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} draw_line_fg = -1                                                  {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} fill_color = False                                                 {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                      {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                      {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} adj_indent = 0                                                     {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} draw_line_bold = False                                             {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} draw_line_bg = -1                                                  {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} draw_line_fg = -1                                                  {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} fill_color = False                                                 {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                      {cp.reset_font()}
 
-      {cp.set_font(1,209,16,1)}                                                                      {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                      {cp.reset_font()}
       {cp.set_font(1,209,24,1)} Rectangle Section                                                    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                      {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                      {cp.reset_font()}
       {cp.set_font(1,209,155,1)} Horizontal Line                                                      {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} top_horizontal_line_chr = "-"  {cp.Unicode.BULLET} bottom_horizontal_line_chr = "-"  {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                      {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} top_horizontal_line_chr = "-"  {cp.Unicode.BULLET} bottom_horizontal_line_chr = "-"  {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                      {cp.reset_font()}
       {cp.set_font(1,209,155,1)} Vertical Line                                                        {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} left_vertical_line_chr  = "|"  {cp.Unicode.BULLET} right_vertical_line_chr = "|"     {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                      {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} left_vertical_line_chr  = "|"  {cp.Unicode.BULLET} right_vertical_line_chr = "|"     {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                      {cp.reset_font()}
       {cp.set_font(1,209,155,1)} Corner Line                                                          {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} top_left_corner_chr     = "+"  {cp.Unicode.BULLET} self.top_right_corner_chr   = "+" {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} bottom_right_corner_chr = "+"  {cp.Unicode.BULLET} self.bottom_left_corner_chr = "+" {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                      {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} top_left_corner_chr     = "+"  {cp.Unicode.BULLET} self.top_right_corner_chr   = "+" {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} bottom_right_corner_chr = "+"  {cp.Unicode.BULLET} self.bottom_left_corner_chr = "+" {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                      {cp.reset_font()}
 
-      {cp.set_font(1,196,231)} Note: {cp.reset_font()} adj_indent → space from the terminal to the box.
+      {cp.set_font(1,196,231)} Note: {cp.reset_font()} adj_indent   space from the terminal to the box.
 '''
     print(message)
 
@@ -2337,15 +2339,15 @@ def draw_line_info():
     mensaje =f'''
       It draws a line with the parameters specified.
 
-      {cp.set_font(1,209,16,1)}                                                             {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                             {cp.reset_font()}
       {cp.set_font(1,209,24,1)}  Parameters                                                 {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                             {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} size   → It refers to the size of the body.               {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} layout → It refers how to set the line.                   {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} tail   → It define the char for the end of the line.      {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} body   → It define the char for the body of the line.     {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} head   → It define the char for the starting of the line. {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                             {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                             {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} size     It refers to the size of the body.               {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} layout   It refers how to set the line.                   {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} tail     It define the char for the end of the line.      {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} body     It define the char for the body of the line.     {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} head     It define the char for the starting of the line. {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                             {cp.reset_font()}
 
       {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp
                   msg = cp.Pen()
@@ -2360,7 +2362,7 @@ def draw_line_info():
                   head=cp.Unicode.BALLON)
 
 
-      {cp.set_font(1,196,231)} Note: {cp.reset_font()} layout → only accepts HORIZONTAL or VERTICAL options.
+      {cp.set_font(1,196,231)} Note: {cp.reset_font()} layout   only accepts HORIZONTAL or VERTICAL options.
 
       {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
     '''
@@ -2384,13 +2386,13 @@ def draw_rectangle_info():
     mensaje =f'''
       It draws a rectangle with the parameters specified.
 
-      {cp.set_font(1,209,16,1)}                                                             {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                             {cp.reset_font()}
       {cp.set_font(1,209,24,1)}  Parameters                                                 {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                             {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} length → It define to the length of the rectangle.        {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} width  → It define to the width of the rectangle.         {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} style  → It define the style of the line to be used.      {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                             {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                             {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} length   It define to the length of the rectangle.        {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} width    It define to the width of the rectangle.         {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} style    It define the style of the line to be used.      {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                             {cp.reset_font()}
 
       {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp
                   msg = cp.Pen()
@@ -2423,53 +2425,53 @@ def divider_only_info():
       It creates a divider through the terminal screen.
       The default values are displays below.
 
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                       {cp.reset_font()}
       {cp.set_font(1,209,24,1)}  Corner Section                                                       {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} top_left_corner_chr     = " "   {cp.Unicode.BULLET} top_left_corner_fg      = -1      {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} top_right_corner_chr    = " "   {cp.Unicode.BULLET} top_right_corner_fg     = -1      {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} bottom_left_corner_chr  = " "   {cp.Unicode.BULLET} bottom_left_corner_fg   = -1      {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} bottom_right_corner_chr = " "   {cp.Unicode.BULLET} bottom_right_corner_fg  = -1      {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} top_left_corner_bg      = -1    {cp.Unicode.BULLET} all_corner_bg           = -1      {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} top_right_corner_bg     = -1    {cp.Unicode.BULLET} all_corner_fg           = -1      {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} bottom_left_corner_bg   = -1    {cp.Unicode.BULLET} all_corner_chr          = ""      {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} bottom_right_corner_bg  = -1    {cp.Unicode.BULLET} all_corner_bold         = False   {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                       {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} top_left_corner_chr     = " "   {cp.Unicode.BULLET} top_left_corner_fg      = -1      {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} top_right_corner_chr    = " "   {cp.Unicode.BULLET} top_right_corner_fg     = -1      {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} bottom_left_corner_chr  = " "   {cp.Unicode.BULLET} bottom_left_corner_fg   = -1      {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} bottom_right_corner_chr = " "   {cp.Unicode.BULLET} bottom_right_corner_fg  = -1      {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} top_left_corner_bg      = -1    {cp.Unicode.BULLET} all_corner_bg           = -1      {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} top_right_corner_bg     = -1    {cp.Unicode.BULLET} all_corner_fg           = -1      {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} bottom_left_corner_bg   = -1    {cp.Unicode.BULLET} all_corner_chr          = ""      {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} bottom_right_corner_bg  = -1    {cp.Unicode.BULLET} all_corner_bold         = False   {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                       {cp.reset_font()}
 
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                       {cp.reset_font()}
       {cp.set_font(1,209,24,1)}  Horizontal Line Section                                              {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} top_horizontal_line_chr = " "   {cp.Unicode.BULLET} bottom_horizontal_line_chr = " "  {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} top_horizontal_line_bg  = -1    {cp.Unicode.BULLET} bottom_horizontal_line_bg = -1    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} top_horizontal_line_fg  = -1    {cp.Unicode.BULLET} bottom_horizontal_line_fg = -1    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} top_horizontal_line_on  = True  {cp.Unicode.BULLET} bottom_horizontal_line_on = True  {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} horizontal_line_bold    = False                                     {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                       {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} top_horizontal_line_chr = " "   {cp.Unicode.BULLET} bottom_horizontal_line_chr = " "  {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} top_horizontal_line_bg  = -1    {cp.Unicode.BULLET} bottom_horizontal_line_bg = -1    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} top_horizontal_line_fg  = -1    {cp.Unicode.BULLET} bottom_horizontal_line_fg = -1    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} top_horizontal_line_on  = True  {cp.Unicode.BULLET} bottom_horizontal_line_on = True  {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} horizontal_line_bold    = False                                     {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                       {cp.reset_font()}
 
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                       {cp.reset_font()}
       {cp.set_font(1,209,24,1)}  Vertical Line Section                                                {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} left_vertical_line_chr = " "    {cp.Unicode.BULLET} right_vertical_line_chr = " "     {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} left_vertical_line_bg  = -1     {cp.Unicode.BULLET} right_vertical_line_bg = -1       {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} left_vertical_line_fg  = -1     {cp.Unicode.BULLET} right_vertical_line_fg = -1       {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} vertical_line_bold     = False                                      {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                       {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} left_vertical_line_chr = " "    {cp.Unicode.BULLET} right_vertical_line_chr = " "     {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} left_vertical_line_bg  = -1     {cp.Unicode.BULLET} right_vertical_line_bg = -1       {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} left_vertical_line_fg  = -1     {cp.Unicode.BULLET} right_vertical_line_fg = -1       {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} vertical_line_bold     = False                                      {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                       {cp.reset_font()}
 
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                       {cp.reset_font()}
       {cp.set_font(1,209,24,1)}  Data Section                                                         {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} msg_bg   = -1    {cp.Unicode.BULLET} msg_italic    = False    {cp.Unicode.BULLET} msg_inverse = False   {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} msg_fg   = -1    {cp.Unicode.BULLET} msg_underline = False    {cp.Unicode.BULLET} msg_strike  = False   {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} msg_bold = False {cp.Unicode.BULLET} msg_blinking  = False    {cp.Unicode.BULLET} msg_hidden  = False   {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} msg_dim  = False {cp.Unicode.BULLET} msg_align = Align.CENTER {cp.Unicode.BULLET} adj_indent  = 2       {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                       {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} msg_bg   = -1    {cp.Unicode.BULLET} msg_italic    = False    {cp.Unicode.BULLET} msg_inverse = False   {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} msg_fg   = -1    {cp.Unicode.BULLET} msg_underline = False    {cp.Unicode.BULLET} msg_strike  = False   {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} msg_bold = False {cp.Unicode.BULLET} msg_blinking  = False    {cp.Unicode.BULLET} msg_hidden  = False   {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} msg_dim  = False {cp.Unicode.BULLET} msg_align = Align.CENTER {cp.Unicode.BULLET} adj_indent  = 2       {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                       {cp.reset_font()}
 
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                       {cp.reset_font()}
       {cp.set_font(1,209,24,1)}  Fill Section                                                         {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} left_fill_bg  = -1           {cp.Unicode.BULLET} right_fill_bg = -1                   {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} left_right_fill_bg = -1                                             {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                       {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} left_fill_bg  = -1           {cp.Unicode.BULLET} right_fill_bg = -1                   {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} left_right_fill_bg = -1                                             {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                       {cp.reset_font()}
 
       {cp.set_font(1,196,231)} Note: {cp.reset_font()}
 
@@ -2523,13 +2525,13 @@ def print_fancy_divider_info():
       visualization (CUSTOMIZED). There are a few template that can be used right
       away.
 
-      {cp.set_font(1,209,16,1)}                                   {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} CUSTOMIZED    {cp.Unicode.BULLET} DASH_1          {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} SINGLE_LINE   {cp.Unicode.BULLET} DASH_2          {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} SINGLE_BOLD   {cp.Unicode.BULLET} SQ_BRACKETS     {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} SINGLE_HEAVY  {cp.Unicode.BULLET} BLUE_WHITE_1    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} DOUBLE_LINE   {cp.Unicode.BULLET} BLUE_WHITE_2    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                   {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                   {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} CUSTOMIZED    {cp.Unicode.BULLET} DASH_1          {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} SINGLE_LINE   {cp.Unicode.BULLET} DASH_2          {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} SINGLE_BOLD   {cp.Unicode.BULLET} SQ_BRACKETS     {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} SINGLE_HEAVY  {cp.Unicode.BULLET} BLUE_WHITE_1    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} DOUBLE_LINE   {cp.Unicode.BULLET} BLUE_WHITE_2    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                   {cp.reset_font()}
 
       {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp
                   div = cp.Divider()
@@ -2701,164 +2703,78 @@ def fancyformat_only_info():
       Some customizations can be added to the table.
 
 
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-      {cp.set_font(1,209,24,1)}  General Section                                                      {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
 
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-      {cp.set_font(1,209,24,1)}  Title Section                                                        {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
+      {cp.set_font(1,231,0)} Default Values: {cp.reset_font()}
 
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-      {cp.set_font(1,209,24,1)}  Data Section                                                         {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                 {cp.reset_font()}
+      {cp.set_font(1,209,24,1)}  Space Section                  {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                 {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} 1.  adj_top_margin     = 0      {cp.reset_font()}      T {cp.Unicode.RIGHT_ARROW} title_msg
+      {cp.set_font(0,54,231,1)} 2.  top_space          = 0      {cp.reset_font()}      H {cp.Unicode.RIGHT_ARROW} header
+      {cp.set_font(0,54,231,1)} 3.  adj_indent         = 2      {cp.reset_font()}      D {cp.Unicode.RIGHT_ARROW} data
+      {cp.set_font(0,54,231,1)} 4.  adj_space          = 2      {cp.reset_font()}      F {cp.Unicode.RIGHT_ARROW} footnote_msg
+      {cp.set_font(0,54,231,1)} 5.  adj_bottom_margin  = 0      {cp.reset_font()}      S {cp.Unicode.RIGHT_ARROW} set_fill_chr
+      {cp.set_font(0,54,231,1)} 6.  adj_bottom_space   = 0      {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} 7.  header_all_cell_bg = True   {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} 8.  data_all_cell_bg   = True   {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                 {cp.reset_font()}
 
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-      {cp.set_font(1,209,24,1)}  Horizontal Line Section                                              {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
+      1. lines to be add between the terminal and the title.
+      2. lines to be added between title and top table.
+      3. space from the beggining of the terminal to the beggining of the table.
+      4. space from left to the right of the header/data and.
+         from right to left of the header/data inside inside the box.
+      5. lines to be added between bottom of the table and footnote.
+      6. lines to be add between the end of table and terminal.
 
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-      {cp.set_font(1,209,24,1)}  Vertical Line Section                                                {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}  {cp.Unicode.BULLET}   {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}  {cp.Unicode.BULLET}   {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}  {cp.Unicode.BULLET}   {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}  {cp.Unicode.BULLET}   {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                        {cp.reset_font()}
+      {cp.set_font(1,209,24,1)}  Title Section                         Footnote Section                {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                        {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} T.  title_msg       = ""        |  F.  footnote_msg       = ""         {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}     title_bold      = False     |      footnote_bold      = False      {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}     title_bg        = -1        |      footnote_bg        = -1         {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}     title_fg        = -1        |      footnote_fg        = -1         {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}     title_align     = "justify" |      footnote_align     = "justify"  {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}     title_italic    = False     |      footnote_italic    = False      {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}     title_underline = False     |      footnote_underline = False      {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}     title_strike    = False     |      footnote_strike    = False      {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}     title_blinking  = False     |      footnote_blinking  = False      {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}     title_dim       = False     |      footnote_dim       = False      {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}     title_hidden    = False     |      footnote_hidden    = False      {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}     title_inverse   = False     |      footnote_inverse   = False      {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                        {cp.reset_font()}
 
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-      {cp.set_font(1,209,24,1)}  External Corner Section                                              {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                        {cp.reset_font()}
+      {cp.set_font(1,209,24,1)}  Header Section                         Data Section                   {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                        {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} H.  header_msg       = ""        |  D.  data_msg       = ""            {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}     header_bold      = False     |      data_bold      = False         {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}     header_bg        = -1        |      data_bg        = -1            {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}     header_fg        = -1        |      data_fg        = -1            {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}     header_align     = "justify" |      data_align     = "justify"     {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}     header_italic    = False     |      data_italic    = False         {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}     header_underline = False     |      data_underline = False         {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}     header_strike    = False     |      data_strike    = False         {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}     header_blinking  = False     |      data_blinking  = False         {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}     header_dim       = False     |      data_dim       = False         {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}     header_hidden    = False     |      data_hidden    = False         {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}     header_inverse   = False     |      data_inverse   = False         {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                        {cp.reset_font()}
 
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-      {cp.set_font(1,209,24,1)}  Middle Corner Section                                                {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-      {cp.set_font(1,209,24,1)}  Header Section                                                       {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-      {cp.set_font(1,209,24,1)}  Attributes for the header lines Section                              {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-      {cp.set_font(1,209,24,1)}  Header horizontal line Section                                       {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-      {cp.set_font(1,209,24,1)}  Attributes for the header corners (left, middles and right) Section  {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-      {cp.set_font(1,209,24,1)}  Footnote Section                                                     {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                        {cp.reset_font()}
+      {cp.set_font(1,209,24,1)}  General Use                                                           {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                        {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} S.  set_fill_chr = "----"                                              {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}     set_layout   = Layout.HORIZONTAL                                   {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}     update_list  = False                                               {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                        {cp.reset_font()}
 
       {cp.set_font(1,196,231)} Note: {cp.reset_font()} When passing a list or any other type of variable, fancyformat
-              converts all the elements of list in string type. When using the
-              update_list option, be aware that the new list will have string
-              type in all its elements. Also, if the list is not complete,
+              converts all the elements of the list in string type. When using
+              the {cp.set_font(1,22,231,True)} update_list {cp.reset_font()} option, be aware that the new list will have
+              string type in all its elements. Also, if the list isn't complete,
               fancyformat will refill those empty spaces using the assign
-              character in the variable set_fill_chr.
+              character(s) in the {cp.set_font(1,22,231,True)} set_fill_chr {cp.reset_font()} variable.
 
       {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp
                   lst = [[\"H1\",\"H2\",\"H3\"],[5,4,9],[3]]
@@ -2874,7 +2790,8 @@ def fancyformat_only_info():
 
 
       {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
-    '''
+          '''
+
     print(message)
     print(f" Original list: {lst}\n")
     tbl = cp.FancyFormat()
@@ -2886,32 +2803,183 @@ def fancyformat_only_info():
     print()
 
     message = f'''
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} → {cp.set_font(1,231,21,True)} Template Options: {cp.set_font(1,209,16,1)} Remember that fancy format contains some        {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                       templates available. For more information,      {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                       check the Line_Style class.                     {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-
-
-
+      {cp.set_font(0,54,231,1)}                                                                       {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}   {cp.set_font(1,231,21,True)} Template Options: {cp.set_font(0,54,231,1)} Remember that fancy format contains some        {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                       templates available. For more information,      {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                       check the Line_Style class.                     {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                       {cp.reset_font()}
     '''
     print(message)
     tbl.header_align = cp.Align.CENTER
     tbl.data_align = cp.Align.CENTER
     tbl.print_fancy_format(data=lst, style=cp.Line_Style.PURPLE_WHITE)
 
-    message = f'''
-      
 
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} → {cp.set_font(1,231,21,True)} Variables that fancy_print_format can handle {cp.set_font(1,209,16,1)}                      {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} bool        {cp.Unicode.BULLET} float          {cp.Unicode.BULLET} list       {cp.Unicode.BULLET} str  {cp.ins_chr(19)}{cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} complex     {cp.Unicode.BULLET} flozenset      {cp.Unicode.BULLET} range      {cp.Unicode.BULLET} tuple{cp.ins_chr(19)}{cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} dict        {cp.Unicode.BULLET} int            {cp.Unicode.BULLET} set               {cp.ins_chr(19)}{cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
+    message = f'''
+
+
+      {cp.set_font(1,196,231)} Note: {cp.set_font(1,22,231,True)} set_layout {cp.reset_font()} is used with variables of type:
+
+                          {cp.Unicode.BULLET} Dict             {cp.Unicode.BULLET} Range
+                          {cp.Unicode.BULLET} Frozenset        {cp.Unicode.BULLET} set  
+
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp
+                  tbl.title_msg = "Range Variable"
+                  tbl.print_fancy_format(data=range(-5, 12, 5),
+                                         style=cp.Line_Style.DOUBLE_LINE)
+                  
+                  crs = cp.Cursor()
+                  tbl.adj_indent = 50
+                  crs.jumpTo(qty=4, direction="u")
+                  tbl.set_layout = cp.Layout.VERTICAL
+                  tbl.print_fancy_format(data=range(-5,12,5),
+                                         style=cp.Line_Style.DOUBLE_LINE)
+
+                  
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
     '''
     print(message)
+    crs = cp.Cursor()
+    
+    tbl.title_msg = " Range Variable "
+    tbl.print_fancy_format(data=range(-5, 12, 5),
+                            style=cp.Line_Style.DOUBLE_LINE)
+    
+    tbl.set_layout = cp.Layout.VERTICAL
+    tbl.adj_indent = 50
+    crs.jumpTo(qty=4, direction="u")
+    tbl.print_fancy_format(data=range(-5,12,5),
+                           style=cp.Line_Style.DOUBLE_LINE)
+
+    message = f'''
+      {cp.set_font(0,54,231,1)}                                                                       {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}   {cp.set_font(1,231,21,True)} Variables that fancy_print_format can handle {cp.set_font(0,54,231,1)}                      {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                       {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} bool        {cp.Unicode.BULLET} float          {cp.Unicode.BULLET} list       {cp.Unicode.BULLET} str  {cp.ins_chr(19)}{cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} complex     {cp.Unicode.BULLET} flozenset      {cp.Unicode.BULLET} range      {cp.Unicode.BULLET} tuple{cp.ins_chr(19)}{cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} dict        {cp.Unicode.BULLET} int            {cp.Unicode.BULLET} set               {cp.ins_chr(19)}{cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                       {cp.reset_font()}
+    '''
+    print(message)
+
+    message = '''
+      {cp.set_font(0,54,231,1)}                                                                       {cp.reset_font()}
+      {cp.set_font(1,209,24,1)}  Horizontal Line Section                                              {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                       {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                       {cp.reset_font()}
+
+      {cp.set_font(0,54,231,1)}                                                                       {cp.reset_font()}
+      {cp.set_font(1,209,24,1)}  Vertical Line Section                                                {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                       {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}  {cp.Unicode.BULLET}   {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}  {cp.Unicode.BULLET}   {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}  {cp.Unicode.BULLET}   {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}  {cp.Unicode.BULLET}   {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                       {cp.reset_font()}
+
+      {cp.set_font(0,54,231,1)}                                                                       {cp.reset_font()}
+      {cp.set_font(1,209,24,1)}  External Corner Section                                              {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                       {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                       {cp.reset_font()}
+
+      {cp.set_font(0,54,231,1)}                                                                       {cp.reset_font()}
+      {cp.set_font(1,209,24,1)}  Middle Corner Section                                                {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                       {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                       {cp.reset_font()}
+
+
+
+      {cp.set_font(0,54,231,1)}                                                                       {cp.reset_font()}
+      {cp.set_font(1,209,24,1)}  Attributes for the header lines Section                              {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                       {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                       {cp.reset_font()}
+
+      {cp.set_font(0,54,231,1)}                                                                       {cp.reset_font()}
+      {cp.set_font(1,209,24,1)}  Header horizontal line Section                                       {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                       {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                       {cp.reset_font()}
+
+      {cp.set_font(0,54,231,1)}                                                                       {cp.reset_font()}
+      {cp.set_font(1,209,24,1)}  Attributes for the header corners (left, middles and right) Section  {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                       {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                       {cp.reset_font()}
+
+      {cp.set_font(0,54,231,1)}                                                                       {cp.reset_font()}
+      {cp.set_font(1,209,24,1)}  Footnote Section                                                     {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                       {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                       {cp.reset_font()}
+
+      {cp.set_font(0,54,231,1)}                                                                       {cp.reset_font()}
+      {cp.set_font(1,209,24,1)}  General Section                                      Design Section  {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                       {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} set_fill_chr = "----"             {cp.Unicode.BULLET} design_color   = 4     {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} set_layout   = Layout.HORIZONTAL  {cp.Unicode.BULLET} bg_line_colors = -1    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET} update_list  = False              {cp.Unicode.BULLET} fg_line_colors = -1    {cp.reset_font()}
+      {cp.set_font(0,54,231,1)} {cp.Unicode.BULLET}                                   {cp.Unicode.BULLET} bold_lines = False   {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                       {cp.reset_font()}
+      {cp.set_font(0,54,231,1)}                                                                       {cp.reset_font()}
+    '''
+
+
+
+
+
 
 
 def fancyformat_info():
@@ -2923,7 +2991,7 @@ def fancyformat_info():
 
 # +--------------------------------------------------------------------------------------------+
 # | print_fancy_format                                                                         |
-# +--------------------------------------------------------------------------------------------+    
+# +--------------------------------------------------------------------------------------------+
 def print_fancy_format_info():
     ''' This print a variable in customized way. '''
     cp.ins_newline(1)
@@ -2931,13 +2999,7 @@ def print_fancy_format_info():
     message = f'''
       This method prints a variable type in a fancy format.
 
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} → {cp.set_font(1,231,21,True)} Variables that fancy_print_format can handle {cp.set_font(1,209,16,1)}                      {cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} bool        {cp.Unicode.BULLET} float          {cp.Unicode.BULLET} list       {cp.Unicode.BULLET} str  {cp.ins_chr(19)}{cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} complex     {cp.Unicode.BULLET} flozenset      {cp.Unicode.BULLET} range      {cp.Unicode.BULLET} tuple{cp.ins_chr(19)}{cp.reset_font()}
-      {cp.set_font(1,209,16,1)} {cp.Unicode.BULLET} dict        {cp.Unicode.BULLET} int            {cp.Unicode.BULLET} set               {cp.ins_chr(19)}{cp.reset_font()}
-      {cp.set_font(1,209,16,1)}                                                                       {cp.reset_font()}
+
 
       {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp
                   lst = [[\"Header 0\",\"Header 1\",\"Header 2\",\"Header 3\"],
@@ -2967,6 +3029,7 @@ def print_fancy_format_info():
 
       {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
     '''
+
     print(message)
     lst = [["Header 0","Header 1","Header 2","Header 3"],
        ["Col 0 Row 1", "Col 1 Row 1", "Col 2 Row 1", "Col 3 Row 1"],
@@ -2986,9 +3049,7 @@ def print_fancy_format_info():
                            style=cp.Line_Style.TURQUOISE_BLACK)
 
 
-    tbl.title_msg = " Range Variable "
-    tbl.print_fancy_format(data=range(-2, 12, 2),
-                            style=cp.Line_Style.DOUBLE_LINE)
+
 
     message = f'''
     {cp.set_font(1,196,231)} Note: {cp.reset_font()} Range can be printed vertically as well by changing the set_layout
@@ -2999,7 +3060,7 @@ def print_fancy_format_info():
 
 # +--------------------------------------------------------------------------------------------+
 # | reset_fancy_format                                                                         |
-# +--------------------------------------------------------------------------------------------+ 
+# +--------------------------------------------------------------------------------------------+
 def reset_fancy_format_info():
     ''' It resets all the variable from the FancyFormat Class to their default values '''
     cp.ins_newline(1)
