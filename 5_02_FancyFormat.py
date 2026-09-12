@@ -2,11 +2,15 @@ import custom_print as cp
 
 lst = [["Header 1 Miguelito", "Header 2", "Header 3", "Header 4"],
         ["Data 1",   "Data 2",   "Data 3",   "Data 4"  ],
+        ["Data 5",   "Data 6",   "Data 7",   "Data 8"  ],
         ["Data 5",   "Data 6",   "Data 7",   "Data 8"  ]]
 
 tbl = cp.FancyFormat()
 tbl.header_align = cp.Align.CENTER
 tbl.data_align   = cp.Align.CENTER
+
+tbl.set_banded_row_on = True
+tbl.banded_row_bg = 196
 
 cp.ins_newline(2)
 tbl.print_fancy_format(data=lst, style=cp.Line_Style.CUSTOMIZED) # This is the default one

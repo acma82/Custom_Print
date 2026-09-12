@@ -2788,7 +2788,10 @@ def fancyformat_only_info():
                                # The empty spaces are refill with the
                                # default value of set_fill_chr variable
 
-
+      NOTE IMPORTANTE: los template de colores no puedes cambiar los colores de bg y fg para los titulos y los datos
+                       los template de design del 1 al 10 si puedes cambiar los colores de bg and fg para los titulos y los datos
+                       los template de space del 0 al 6 si puedes cambiar los colores de bg and fg para los titulos y los datos
+                       
       {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
           '''
 

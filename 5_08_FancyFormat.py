@@ -33,6 +33,10 @@ tbl.data_fg   = cp.No.WHITE
 # bg_line_colors and fg_line_colors, works with Designs 1,2,3,4
 tbl.design_color = cp.No.WHITE
 
+tbl.set_banded_row_on = True
+tbl.banded_row_bg = 196
+
+
 cp.ins_newline(2); tbl.print_fancy_format(data=lst, style=cp.Line_Style.DESIGN_1)
 cp.ins_newline(2); tbl.print_fancy_format(data=lst, style=cp.Line_Style.DESIGN_2)
 cp.ins_newline(2); tbl.print_fancy_format(data=lst, style=cp.Line_Style.DESIGN_3)

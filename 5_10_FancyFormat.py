@@ -40,19 +40,29 @@ tbl.header_horizontal_line_on = True
 # tbl.header_horizontal_line_on = False
 tbl.header_align = cp.Align.CENTER
 # Using with Single empty space
-cp.ins_newline(2); tbl.print_fancy_format(data=lst, style=cp.Line_Style.TEAL_WHITE)
-cp.ins_newline(2); tbl.print_fancy_format(data=lst, style=cp.Line_Style.GRAY_TEAL_WHITE)
+
+tbl.set_banded_row_on = True
+tbl.banded_row_bg = 196
+
+cp.ins_newline(2); tbl.print_fancy_format(data=lst, style=cp.Line_Style.RED_WHITE)
+cp.ins_newline(2); tbl.print_fancy_format(data=lst, style=cp.Line_Style.BLUE_WHITE)
+cp.ins_newline(2); tbl.print_fancy_format(data=lst, style=cp.Line_Style.WHITE_PURPLE)
 cp.ins_newline(2); tbl.print_fancy_format(data=lst, style=cp.Line_Style.WHITE_BLACK_1)
-
 cp.ins_newline(2); tbl.print_fancy_format(data=lst, style=cp.Line_Style.WHITE_BLACK_2)
-cp.ins_newline(2); tbl.print_fancy_format(data=lst, style=cp.Line_Style.GREEN_GREEN_BLACK)
-cp.ins_newline(2); tbl.print_fancy_format(data=lst, style=cp.Line_Style.BLUE_PURPLE_WHITE_1)
-
-cp.ins_newline(2); tbl.print_fancy_format(data=lst, style=cp.Line_Style.BLUE_PURPLE_WHITE_2)
 cp.ins_newline(2); tbl.print_fancy_format(data=lst, style=cp.Line_Style.TURQUOISE_BLACK)
-
+cp.ins_newline(2); tbl.print_fancy_format(data=lst, style=cp.Line_Style.TURQUOISE_WHITE)
+cp.ins_newline(2); tbl.print_fancy_format(data=lst, style=cp.Line_Style.PURPLE_WHITE)
+cp.ins_newline(2); tbl.print_fancy_format(data=lst, style=cp.Line_Style.TEAL_WHITE)
 cp.ins_newline(2); tbl.print_fancy_format(data=lst, style=cp.Line_Style.OLIVE_GREEN)
 
+
+cp.ins_newline(2); tbl.print_fancy_format(data=lst, style=cp.Line_Style.WHITE_BLACK_PURPLE)
+cp.ins_newline(2); tbl.print_fancy_format(data=lst, style=cp.Line_Style.GRAY_TEAL_WHITE)
+cp.ins_newline(2); tbl.print_fancy_format(data=lst, style=cp.Line_Style.BLUE_PURPLE_WHITE_1)
+cp.ins_newline(2); tbl.print_fancy_format(data=lst, style=cp.Line_Style.BLUE_PURPLE_WHITE_2)
+cp.ins_newline(2); tbl.print_fancy_format(data=lst, style=cp.Line_Style.GREEN_GREEN_BLACK)
+
+cp.ins_newline(2); tbl.print_fancy_format(data=lst)
 
 # Note we can create our designs or use those template. There are others template in the
 # READEME.md File.

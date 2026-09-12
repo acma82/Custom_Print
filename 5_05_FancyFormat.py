@@ -70,9 +70,9 @@ list1.top_left_corner_chr     = "A"           # 13
 list1.top_right_corner_chr    = "B"           # 14
 list1.bottom_right_corner_chr = "C"           # 15
 list1.bottom_left_corner_chr  = "D"           # 16
-list1.bg_corner_chr   = 1
-list1.fg_corner_chr   = 7
-list1.all_corner_bold_chr = 1
+list1.outer_corner_bold    = 1
+list1.outer_corner_bg   = 7
+list1.outer_corner_fg = 1
 
 
 # Middle Corner Section
@@ -81,9 +81,9 @@ list1.middle_bottom_corner_chr = "?"          # 19
 list1.middle_inner_corner_chr  = "@"          # 31
 list1.middle_left_corner_chr  = "*"          # 27
 list1.middle_right_corner_chr = "+"          # 28
-list1.inner_corner_bold_chr = 1
-list1.inner_corner_bg_chr   = 52
-list1.inner_corner_fg_chr   = 79
+list1.inner_corner_bold = 1
+list1.inner_corner_bg   = 52
+list1.inner_corner_fg   = 79
 
 
 # Header Section
@@ -94,9 +94,9 @@ list1.header_align = "j"
 list1.header_left_vertical_line_chr   = "L"    # 22
 list1.header_middle_vertical_line_chr = "M"    # 29
 list1.header_right_vertical_line_chr  = "R"    # 23
-list1.header_vertical_line_bold_chr   = 1
-list1.header_vertical_line_bg_chr     = 21
-list1.header_vertical_line_fg_chr     = 11
+list1.header_vertical_line_bold  = 1
+list1.header_vertical_line_bg = 21
+list1.header_vertical_line_fg = 11
 
 
 # Under Line Header Section

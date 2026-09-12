@@ -829,12 +829,15 @@ def print_matrix_list(self,my_list):
     '''
         printing the table 
     '''
+    # these 3 variables are for the even_line
+    ctrl_even_line = 0  # odd
+    odd_data_bg   = self.data_bg
+    odd_data_fg   = self.data_fg
+
     # d  :data,   v: vertical,   hcl: left_corner_header,   mch:middle_corner_header, rch:right_corner_header,   t:title(header)
     # get all the settings for the list
-
     set_d = set_font(self.data_bold, self.data_bg, self.data_fg,self.data_italic, self.data_underline, self.data_strike,\
                      self.data_blinking, self.data_dim, self.data_hidden, self.data_inverse)
-
     set_v = set_font(self.vertical_line_bold, self.vertical_line_bg, self.vertical_line_fg)
 
     set_hchr_v = set_font(self.header_vertical_line_bold, self.header_vertical_line_bg,self.header_vertical_line_fg)
@@ -911,6 +914,21 @@ def print_matrix_list(self,my_list):
                         print()
 
                 else:                        # printing Data
+                    # checking if the even line is on
+                    if self.set_banded_row_on  == False: pass
+                    else:
+                        if ctrl_even_line == 0:    # line 1 of the data is odd
+                            ctrl_even_line = 2
+
+                        elif ctrl_even_line == 1:  # line odd of data
+                            ctrl_even_line = 2
+                            set_d = set_font(self.data_bold, odd_data_bg, odd_data_fg,self.data_italic, self.data_underline, self.data_strike,\
+                                             self.data_blinking, self.data_dim, self.data_hidden, self.data_inverse)
+                        else:                      # line even of data
+                            ctrl_even_line = 1
+                            set_d = set_font(self.data_bold, self.banded_row_bg, self.banded_row_fg,self.data_italic, self.data_underline, self.data_strike,\
+                                             self.data_blinking, self.data_dim, self.data_hidden, self.data_inverse)
+
                     if (self.data_align.lower() == "left") or (self.data_align.lower() == "l"):
                         print(move_cursor_right(self.adj_indent) + set_v + self.left_vertical_line_chr + set_d + dato+\
                            move_cursor_right((self.adj_space*2)+(length-len(dato)),self.data_all_cell_bg) +\
@@ -1061,8 +1079,23 @@ def print_matrix_list(self,my_list):
         for datos in my_list[1:]:  # This skip the first one
             ctrl_col = 0
             vertical = move_cursor_right(self.adj_indent)+set_v+self.left_vertical_line_chr
-            for dato in datos:
 
+            # checking if the even line is on
+            if self.set_banded_row_on  == False: pass
+            else:
+                if ctrl_even_line == 0:    # line 1 of the data is odd
+                    ctrl_even_line = 2
+
+                elif ctrl_even_line == 1:  # line odd of data
+                    ctrl_even_line = 2
+                    set_d = set_font(self.data_bold, odd_data_bg, odd_data_fg,self.data_italic, self.data_underline, self.data_strike,\
+                                        self.data_blinking, self.data_dim, self.data_hidden, self.data_inverse)
+                else:                      # line even of data
+                    ctrl_even_line = 1
+                    set_d = set_font(self.data_bold, self.banded_row_bg, self.banded_row_fg,self.data_italic, self.data_underline, self.data_strike,\
+                                        self.data_blinking, self.data_dim, self.data_hidden, self.data_inverse)
+            # printing the data here
+            for dato in datos:
                 if (self.data_align.lower() == "left") or (self.data_align.lower() == "l"):
                     print(vertical + set_d + dato + move_cursor_right((self.adj_space*2)+(longest_cols[ctrl_col]-len(dato)),self.data_all_cell_bg) +\
                           reset_font(),end="")
@@ -1456,7 +1489,9 @@ class FancyFormat:
         self.set_fill_chr      = "----"            # to fill the empty spots when the list is not complete
         self.set_layout        = Layout.HORIZONTAL # This is only for Range, Set, Frozenset and dictionary type
         self.update_list       = False             # if we want to save the data as it's presented, but string each element in list
-
+        self.set_banded_row_on  = False 
+        self.banded_row_bg     = -1
+        self.banded_row_fg     = -1
         #    +------------------------------------------------------------------------------+
         #    |    Color Design Template, Demos                                              |
         #    |    The following are some predesign (Design 1,2)                             |
@@ -1618,17 +1653,19 @@ class FancyFormat:
         #---------------------------------------------------------------------------------------------------------------------------------------------
         # defining variable names                  # values to take                                                                                  -
         #---------------------------------------------------------------------------------------------------------------------------------------------
-        # General Use
+        # Space Section
         self.adj_top_margin    = 0                 # lines to be add between the terminal and the title
         self.adj_bottom_margin = 0                 # lines to be add between the end of list or footnote and terminal
         self.adj_top_space     = 0                 # lines to be added between title and top list
         self.adj_bottom_space  = 0                 # lines to be added between bottom list and footnote
         self.adj_indent        = 2                 # space from the terminal to the box
         self.adj_space         = 2                 # space from left to right inside inside the box
+
+        # General Section
         self.set_fill_chr      = "----"            # to fill the empty spots when the list is not complete
         self.set_layout        = Layout.HORIZONTAL # This is only for Range, Set, Frozenset and dictionary type
         self.update_list       = False             # if we want to save the data as it's presented, but string each element in list
-
+        self.set_banded_row_on  = False
     #    +------------------------------------------------------------------------------+
     #    |    Color Design Template, Demos                                              |
     #    |    The following are some predesign (Design 1,2)                             |
@@ -1688,6 +1725,9 @@ class FancyFormat:
         self.data_dim         = False              # two values False and True (0 and 1)
         self.data_hidden      = False              # two values False and True (0 and 1)
         self.data_inverse     = False              # two values False and True (0 and 1)
+
+        self.banded_row_bg     = -1
+        self.banded_row_fg     = -1
 
         #---------------------------------------------------------------------------------------------------------------------------------------------
         # Horizontal Line Section

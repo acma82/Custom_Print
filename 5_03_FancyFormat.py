@@ -7,7 +7,9 @@ import custom_print as cp
 list1 = cp.FancyFormat()
 csr   = cp.Cursor()
 # draw  = cp.Pen()
-
+list1.set_banded_row_on = True
+list1.banded_row_bg = 196
+list1.banded_row_fg = 231
 
 ncols, nrows = cp.dimensions()
 cp.resize(45, 120)

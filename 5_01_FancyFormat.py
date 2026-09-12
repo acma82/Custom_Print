@@ -8,8 +8,9 @@ csr   = cp.Cursor()
 msg   = cp.FancyMessage()
 
 
-ncols, nrows = cp.dimensions()
-cp.resize(44, 95)
+
+# ncols, nrows = cp.dimensions()
+# cp.resize(44, 95)
 
 # setting for the format
 # general use
@@ -67,7 +68,13 @@ list1.title_msg    = " Set Data "
 list1.footnote_msg = " Case 7 "
 set_tags = {1,3,5,7,9}
 list1.adj_indent = 70
+
 pylo = cp.PyLO()
+
+list1.set_banded_row_on = True
+list1.banded_row_bg = 196
+list1.banded_row_fg = 231
+
 new_set = pylo.set_to_list(set_tags, "Header", cp.Layout.VERTICAL)
 list1.print_fancy_format(new_set)
 
@@ -93,6 +100,7 @@ list1.print_fancy_format(set_tags)
 
 
 # Frozenset horizontal
+
 list1.title_inverse = True
 list1.title_msg     = " FrozenSet Data "
 list1.footnote_msg  = " Case 8 "
@@ -109,7 +117,7 @@ cp.ins_newline(4)
 mensaje = f"{cp.ins_chr(44)}THE END"
 msg.print_fancy_message(mensaje)
 
-input("Enter to Continue: ")
-cp.resize(nrows, ncols)
+# input("Enter to Continue: ")
+# cp.resize(nrows, ncols)
 
 
