@@ -143,17 +143,7 @@ all_topics = [
 # print(f"{cp.move_cursor_right(n=12, option_space=False)} Hello") 
 
 
-tbl.design_color = 10
-tbl.bg_line_colors = True
-tbl.fg_line_colors = 40
-tbl.bg_line_colors = 27
-tbl.header_bg = 16
-tbl.header_fg = 15
-tbl.data_bg = cp.No.YELLOW
-tbl.data_fg = cp.No.BLACK
 
-# lst = [[6],[7],[7],[7],[9],[8],[0]]
-lst = [["H1","H2"],[5,4],[3],[8,9],[0,2]]
 # lst = [["Header 1", "Header 2", "Header 3", "Header 4"],
 #         ["Data 1",   "Data 2",   "Data 3",   "Data 4"  ],
 #         ["Data 5",   "Data 6",   "Data 7",   "Data 8"  ],
@@ -166,20 +156,7 @@ lst = [["H1","H2"],[5,4],[3],[8,9],[0,2]]
 #         ["Data 1",   "Data 2",   "Data 3",   "Data 4"  ],
 #         ["Data 1",   "Data 2",   "Data 3",   "Data 4"  ]]
 
-tbl.set_banded_row_on = True
-tbl.banded_row_bg = 196
-tbl.banded_row_fg = 231
-# tbl.print_fancy_format(lst)
 
-
-# print(tbl.set_banded_row_on)
-# lst = ["bool","str","list","set","range", "complex","int","float", "dict", "tuple","frozenset","None"]
-# ordered_letters = sorted(lst)
-# print(ordered_letters)
-tbl.design_color = 29
-tbl.print_fancy_format(lst,cp.Line_Style.BLUE_PURPLE_WHITE_2)
-print()
-tbl.print_fancy_format(lst)
 
 
 # message = f'''
@@ -204,13 +181,25 @@ tbl.print_fancy_format(lst)
 # lista_type = cp.get_list_type(lista)
 # print(lista_type)
 
-tbl.set_layout = cp.Layout.VERTICAL
-print()
-user_profile = {
-    "username": "coder123",
-    "followers": 2500,
-    "is_active": True
-}
-tbl.print_fancy_format(user_profile)
-print()
-tbl.print_fancy_format(range(-5,21,5))
+tbl = cp.FancyFormat()
+crs = cp.Cursor()
+
+lst = [["set_banded_row_on = False"],["Data 1"],
+        ["Data 2"],["Data 3"],["Data 4"]]
+
+tbl.adj_indent = 40
+tbl.title_msg = "Banded Row Inactive"
+tbl.header_bg = 4;          tbl.header_fg = 231
+tbl.data_bg = 231;          tbl.data_fg = 16
+
+tbl.print_fancy_format(lst)
+
+tbl.adj_indent = 6
+tbl.set_banded_row_on = True
+tbl.banded_row_bg = 208;    tbl.banded_row_fg = 16
+crs.jumpTo(qty=9, direction=cp.Move.UP)
+
+tbl.title_msg = "Banded Row Active"
+lst = [["set_banded_row_on = True"],["Data 1"],
+        ["Data 2"],["Data 3"],["Data 4"]]
+tbl.print_fancy_format(lst)

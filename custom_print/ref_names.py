@@ -495,7 +495,7 @@ class No(enum.IntEnum):
     DUSTY_GRAY            = 246;        SPANISH_GRAY          = 247;        LIGHTISH_GRAY       = 248
     PHILIPPINE_SILVER     = 249;        SILVER                = 250;        SILVER_SAND         = 251
     AMERICAN_SILVER       = 252;        ALTO_GRAY             = 253;        MERCURY_GRAY        = 254
-    DARK_WHITE            = 255;        DEFAULT               = 256;        default             = -1
+    DARK_WHITE            = 255;        DEFAULT               = -1;         default             = -1
 
 class Bg(enum.StrEnum):
 

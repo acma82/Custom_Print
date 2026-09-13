@@ -829,7 +829,7 @@ def print_matrix_list(self,my_list):
     '''
         printing the table 
     '''
-    # these 3 variables are for the even_line
+    # these 3 variables are for the banded_row (even_line)
     ctrl_even_line = 0  # odd
     odd_data_bg   = self.data_bg
     odd_data_fg   = self.data_fg
@@ -1631,9 +1631,8 @@ class FancyFormat:
 
         #---------------------------------------------------------------------------------------------------------------------------------------------
         # Header horizontal line                           Section  Only for Matrix List
-        self.header_horizontal_line_on  = False    # horizontal line between headers and the firs data row. 1 shows it and 0 hides it
+        self.header_horizontal_line_on  = True    # horizontal line between headers and the firs data row. 1 shows it and 0 hides it
         self.header_horizontal_line_chr = "-"      # chr to be printed for theheader line
-
         self.header_horizontal_line_bold = False              # values -1 to 255
         self.header_horizontal_line_bg   = -1                 # values -1 to 255
         self.header_horizontal_line_fg   = -1                 # values -1 to 255
@@ -1653,7 +1652,7 @@ class FancyFormat:
         #---------------------------------------------------------------------------------------------------------------------------------------------
         # defining variable names                  # values to take                                                                                  -
         #---------------------------------------------------------------------------------------------------------------------------------------------
-        # Space Section
+        # space Section
         self.adj_top_margin    = 0                 # lines to be add between the terminal and the title
         self.adj_bottom_margin = 0                 # lines to be add between the end of list or footnote and terminal
         self.adj_top_space     = 0                 # lines to be added between title and top list
@@ -1661,18 +1660,21 @@ class FancyFormat:
         self.adj_indent        = 2                 # space from the terminal to the box
         self.adj_space         = 2                 # space from left to right inside inside the box
 
-        # General Section
+        # General Use
         self.set_fill_chr      = "----"            # to fill the empty spots when the list is not complete
         self.set_layout        = Layout.HORIZONTAL # This is only for Range, Set, Frozenset and dictionary type
         self.update_list       = False             # if we want to save the data as it's presented, but string each element in list
-        self.set_banded_row_on  = False
-    #    +------------------------------------------------------------------------------+
-    #    |    Color Design Template, Demos                                              |
-    #    |    The following are some predesign (Design 1,2)                             |
-    #    |                                                                              |
-    #    |    design_color(self, 0_Desgin,  1_bg_lines,     2_fg_lines)                 |
-    #    |                                                                              |
-    #    +------------------------------------------------------------------------------+
+        self.set_banded_row_on  = False 
+        self.banded_row_bg     = -1
+        self.banded_row_fg     = -1
+        #    +------------------------------------------------------------------------------+
+        #    |    Color Design Template, Demos                                              |
+        #    |    The following are some predesign (Design 1,2)                             |
+        #    |                                                                              |
+        #    |    design_color(self, 0_Desgin,  1_bg_lines,     2_fg_lines)                 |
+        #    |                                                                              |
+        #    +------------------------------------------------------------------------------+
+        # Shortcuts
         self.design_color   = 4   # This color is used for the designs (1 through 10)
         self.bg_line_colors = -1  # set all the bg_line colors, if it's set to default (-1, 256) then It'll be used the default variables
         self.fg_line_colors = -1  # set all the fg_line colors, if it's set to default (-1, 256) then It'll be used the default variables
@@ -1726,9 +1728,6 @@ class FancyFormat:
         self.data_hidden      = False              # two values False and True (0 and 1)
         self.data_inverse     = False              # two values False and True (0 and 1)
 
-        self.banded_row_bg     = -1
-        self.banded_row_fg     = -1
-
         #---------------------------------------------------------------------------------------------------------------------------------------------
         # Horizontal Line Section
         self.top_horizontal_line_chr    = " "      # chr used to print the horizontal segment for the top line
@@ -1775,8 +1774,8 @@ class FancyFormat:
         self.middle_top_corner_chr    = " "        # all the middle corners between top_left_corner_chr and top_right_corner_chr. Only matrix list
         self.middle_bottom_corner_chr = " "        # all the middle corners between top_left_corner_chr and top_right_corner_chr. Only matrix list
         self.middle_inner_corner_chr  = " "        # corner inside the matrix and sides but not top(left,right), or bottom(left, right). Only matrix list
-        self.middle_left_corner_chr  = " "        # chr only for matrix list
-        self.middle_right_corner_chr = " "        # chr only for matrix list
+        self.middle_left_corner_chr  = " "        # chr only for matrix list (before: left_lateral_corner_chr  1.4V)
+        self.middle_right_corner_chr = " "        # chr only for matrix list (before: right_lateral_corner_chr 1.4V)
 
         self.inner_corner_bold = False             # two values False and True (0 and 1)
         self.inner_corner_bg   = -1                # values -1 to 255
@@ -1814,7 +1813,7 @@ class FancyFormat:
         self.header_horizontal_line_bg   = -1                 # values -1 to 255
         self.header_horizontal_line_fg   = -1                 # values -1 to 255
 
-        # attributes for the header corners (left, middles and right)
+        # Attributes for the header corners (left, middles and right)
         self.header_left_corner_chr   = " "   # only for header line
         self.header_right_corner_chr  = " "   # only for header line
         self.header_middle_corner_chr = " "   # only for header line
