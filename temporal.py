@@ -175,31 +175,7 @@ all_topics = [
 # print(message)
 
 
-# cp.clear()
-# cp.resize(20, 140)
-# lista = [[6],[7],[7],[7]]
-# lista_type = cp.get_list_type(lista)
-# print(lista_type)
 
 tbl = cp.FancyFormat()
 crs = cp.Cursor()
 
-lst = [["set_banded_row_on = False"],["Data 1"],
-        ["Data 2"],["Data 3"],["Data 4"]]
-
-tbl.adj_indent = 40
-tbl.title_msg = "Banded Row Inactive"
-tbl.header_bg = 4;          tbl.header_fg = 231
-tbl.data_bg = 231;          tbl.data_fg = 16
-
-tbl.print_fancy_format(lst)
-
-tbl.adj_indent = 6
-tbl.set_banded_row_on = True
-tbl.banded_row_bg = 208;    tbl.banded_row_fg = 16
-crs.jumpTo(qty=9, direction=cp.Move.UP)
-
-tbl.title_msg = "Banded Row Active"
-lst = [["set_banded_row_on = True"],["Data 1"],
-        ["Data 2"],["Data 3"],["Data 4"]]
-tbl.print_fancy_format(lst)

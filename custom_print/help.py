@@ -1487,90 +1487,105 @@ def unicode_info():
     message = f'''
     Unicode class has a few options. More options can be found on website.
 
-      {cp.set_font(0,53,231,0)}                                                {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} BOX_DRAWINGS_LIGHT_HORIZONTAL  {cp.Unicode.BOX_DRAWINGS_LIGHT_HORIZONTAL}             {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} BOX_DRAWINGS_LIGHT_VERTICAL_AND_RIGHT  {cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_RIGHT}     {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} BOX_DRAWINGS_LIGHT_VERTICAL_AND_LEFT  {cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_LEFT}      {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} BOX_DRAWINGS_LIGHT_VERTICAL            {cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL}     {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} BOX_DRAWINGS_LIGHT_DOWN_AND_HORIZONTAL  {cp.Unicode.BOX_DRAWINGS_LIGHT_DOWN_AND_HORIZONTAL}    {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} BOX_DRAWINGS_LIGHT_UP_AND_HORIZONTAL   {cp.Unicode.BOX_DRAWINGS_LIGHT_UP_AND_HORIZONTAL}     {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL {cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL} {cp.reset_font()}
-      {cp.set_font(0,53,231,0)}                                                {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} BLACK_UP_POINTING_TRIANGLE    {cp.Unicode.BLACK_UP_POINTING_TRIANGLE   }              {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} WHITE_UP_POINTING_TRIANGLE    {cp.Unicode.WHITE_UP_POINTING_TRIANGLE   }              {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} BLAKC_RIGHT_POINTING_TRIANGLE {cp.Unicode.BLAKC_RIGHT_POINTING_TRIANGLE}              {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} WHITE_RIGHT_POINTING_TRIANGLE {cp.Unicode.WHITE_RIGHT_POINTING_TRIANGLE}              {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} BLACK_DOWN_POINTING_TRIANGLE  {cp.Unicode.BLACK_DOWN_POINTING_TRIANGLE }              {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} WHITE_DOWN_POINTING_TRIANGLE  {cp.Unicode.WHITE_DOWN_POINTING_TRIANGLE }              {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} BLACK_LEFT_POINTING_TRIANGLE  {cp.Unicode.BLACK_LEFT_POINTING_TRIANGLE }              {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} WHITE_LEFT_POINTING_TRIANGLE  {cp.Unicode.WHITE_LEFT_POINTING_TRIANGLE }              {cp.reset_font()}
-      {cp.set_font(0,53,231,0)}                                                {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} RIGHT_ARROW                {cp.Unicode.RIGHT_ARROW}                 {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} LEFT_ARROW                 {cp.Unicode.LEFT_ARROW }                 {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} UP_ARROW                   {cp.Unicode.UP_ARROW   }                 {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} DOWN_ARROW                 {cp.Unicode.DOWN_ARROW }                 {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} UPWARDS_PAIRED_ARROWS      {cp.Unicode.UPWARDS_PAIRED_ARROWS   }                 {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} DOWNWARDS_PAIRED_ARROWS    {cp.Unicode.DOWNWARDS_PAIRED_ARROWS }                 {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} LEFTWARDS_PAIRED_ARROWS    {cp.Unicode.LEFTWARDS_PAIRED_ARROWS }                 {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} RIGHTWARDS_PAIRED_ARROWS   {cp.Unicode.RIGHTWARDS_PAIRED_ARROWS}                 {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} BLACK_RIGHTWARDS_ARROWHEAD {cp.Unicode.BLACK_RIGHTWARDS_ARROWHEAD}                 {cp.reset_font()}
-      {cp.set_font(0,53,231,0)}                                                {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} FIRE {cp.Unicode.FIRE}                                      {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} EYES  {cp.Unicode.EYES}                                     {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} POOP  {cp.Unicode.POOP}                                     {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} FACE {cp.Unicode.FACE}                                   {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} GHOST  {cp.Unicode.GHOST}                                    {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} CLOWN  {cp.Unicode.CLOWN}                                    {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} BALLON  {cp.Unicode.BALLON}                                   {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} BULLET {cp.Unicode.BULLET}                                     {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} COFFEE  {cp.Unicode.COFFEE}                                   {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} EM_DASH {cp.Unicode.EM_DASH}                                    {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} BLACK_CIRCLE {cp.Unicode.BLACK_CIRCLE}                               {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} WHITE_CIRCLE {cp.Unicode.WHITE_CIRCLE}                               {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} BLACK_DIAMOND   {cp.Unicode.BLACK_DIAMOND}                            {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} WHITE_DIAMOND   {cp.Unicode.WHITE_DIAMOND}                            {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} LOWERCASE_N_TILDE   {cp.Unicode.LOWERCASE_N_TILDE}                        {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} UPPERCASE_N_TILDE   {cp.Unicode.UPPERCASE_N_TILDE}                        {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} LEFT_CURLY_BRACKET  {cp.Unicode.LEFT_CURLY_BRACKET}                        {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} RIGHT_CURLY_BRACKET {cp.Unicode.RIGHT_CURLY_BRACKET}                        {cp.reset_font()}
-      {cp.set_font(0,53,231,0)}                                                {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} SUBSCRIPT_ALPHA   {cp.Unicode.SUBSCRIPT_ALPHA  } {cp.Unicode.BULLET} SUPERSCRIPT_ALPHA   {cp.Unicode.SUPERSCRIPT_ALPHA  }  {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} SUBSCRIPT_BETA    {cp.Unicode.SUBSCRIPT_BETA   } {cp.Unicode.BULLET} SUPERSCRIPT_BETA    {cp.Unicode.SUPERSCRIPT_BETA   }  {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} SUBSCRIPT_GAMMA   {cp.Unicode.SUBSCRIPT_GAMMA  } {cp.Unicode.BULLET} SUPERSCRIPT_GAMMA   {cp.Unicode.SUPERSCRIPT_GAMMA  }  {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} SUBSCRIPT_DELTA   {cp.Unicode.SUBSCRIPT_DELTA  } {cp.Unicode.BULLET} SUPERSCRIPT_DELTA   {cp.Unicode.SUPERSCRIPT_DELTA  }  {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} SUBSCRIPT_EPSILON {cp.Unicode.SUBSCRIPT_EPSILON} {cp.Unicode.BULLET} SUPERSCRIPT_EPSILON {cp.Unicode.SUPERSCRIPT_EPSILON}  {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} SUBSCRIPT_THETA   {cp.Unicode.SUBSCRIPT_THETA  } {cp.Unicode.BULLET} SUPERSCRIPT_THETA   {cp.Unicode.SUPERSCRIPT_THETA  }  {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} SUBSCRIPT_IOTA    {cp.Unicode.SUBSCRIPT_IOTA   } {cp.Unicode.BULLET} SUPERSCRIPT_IOTA    {cp.Unicode.SUPERSCRIPT_IOTA   }  {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} SUBSCRIPT_PHO     {cp.Unicode.SUBSCRIPT_PHO    } {cp.Unicode.BULLET} SUPERSCRIPT_PHO     {cp.Unicode.SUPERSCRIPT_PHO    }  {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} SUBSCRIPT_PHI     {cp.Unicode.SUBSCRIPT_PHI    } {cp.Unicode.BULLET} SUPERSCRIPT_PHI     {cp.Unicode.SUPERSCRIPT_PHI    }  {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} SUBSCRIPT_PSI     {cp.Unicode.SUBSCRIPT_PSI    } {cp.Unicode.BULLET} SUPERSCRIPT_PSI     {cp.Unicode.SUPERSCRIPT_PSI    }  {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} SUBSCRIPT_CHI     {cp.Unicode.SUBSCRIPT_CHI    } {cp.Unicode.BULLET} SUPERSCRIPT_CHI     {cp.Unicode.SUPERSCRIPT_CHI    }  {cp.reset_font()}
-      {cp.set_font(0,53,231,0)}                                                {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}                                                              {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} BOX_DRAWINGS_LIGHT_HORIZONTAL  {cp.Unicode.BOX_DRAWINGS_LIGHT_HORIZONTAL}                           {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} BOX_DRAWINGS_LIGHT_VERTICAL_AND_RIGHT  {cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_RIGHT}                   {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} BOX_DRAWINGS_LIGHT_VERTICAL_AND_LEFT  {cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_LEFT}                    {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} BOX_DRAWINGS_LIGHT_VERTICAL            {cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL}                   {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} BOX_DRAWINGS_LIGHT_DOWN_AND_HORIZONTAL  {cp.Unicode.BOX_DRAWINGS_LIGHT_DOWN_AND_HORIZONTAL}                  {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} BOX_DRAWINGS_LIGHT_UP_AND_HORIZONTAL   {cp.Unicode.BOX_DRAWINGS_LIGHT_UP_AND_HORIZONTAL}                   {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL {cp.Unicode.BOX_DRAWINGS_LIGHT_VERTICAL_AND_HORIZONTAL}               {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}                                                              {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} BLACK_UP_POINTING_TRIANGLE    {cp.Unicode.BLACK_UP_POINTING_TRIANGLE   }                            {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} WHITE_UP_POINTING_TRIANGLE    {cp.Unicode.WHITE_UP_POINTING_TRIANGLE   }                            {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} BLAKC_RIGHT_POINTING_TRIANGLE {cp.Unicode.BLAKC_RIGHT_POINTING_TRIANGLE}                            {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} WHITE_RIGHT_POINTING_TRIANGLE {cp.Unicode.WHITE_RIGHT_POINTING_TRIANGLE}                            {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} BLACK_DOWN_POINTING_TRIANGLE  {cp.Unicode.BLACK_DOWN_POINTING_TRIANGLE }                            {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} WHITE_DOWN_POINTING_TRIANGLE  {cp.Unicode.WHITE_DOWN_POINTING_TRIANGLE }                            {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} BLACK_LEFT_POINTING_TRIANGLE  {cp.Unicode.BLACK_LEFT_POINTING_TRIANGLE }                            {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} WHITE_LEFT_POINTING_TRIANGLE  {cp.Unicode.WHITE_LEFT_POINTING_TRIANGLE }                            {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}                                                              {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} RIGHT_ARROW                {cp.Unicode.RIGHT_ARROW}                               {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} LEFT_ARROW                 {cp.Unicode.LEFT_ARROW }                               {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} UP_ARROW                   {cp.Unicode.UP_ARROW   }                               {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} DOWN_ARROW                 {cp.Unicode.DOWN_ARROW }                               {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} UP_DOWN_ARROW              {cp.Unicode.UP_DOWN_ARROW }                               {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} UPWARDS_PAIRED_ARROWS      {cp.Unicode.UPWARDS_PAIRED_ARROWS   }                               {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} DOWNWARDS_PAIRED_ARROWS    {cp.Unicode.DOWNWARDS_PAIRED_ARROWS }                               {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} LEFTWARDS_PAIRED_ARROWS    {cp.Unicode.LEFTWARDS_PAIRED_ARROWS }                               {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} RIGHTWARDS_PAIRED_ARROWS   {cp.Unicode.RIGHTWARDS_PAIRED_ARROWS}                               {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} BLACK_RIGHTWARDS_ARROWHEAD {cp.Unicode.BLACK_RIGHTWARDS_ARROWHEAD}                               {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}                                                              {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} FIRE {cp.Unicode.FIRE}                                                    {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} EYES  {cp.Unicode.EYES}                                                   {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} POOP  {cp.Unicode.POOP}                                                   {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} FACE {cp.Unicode.FACE}                                                 {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} GHOST  {cp.Unicode.GHOST}                                                  {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} CLOWN  {cp.Unicode.CLOWN}                                                  {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} BALLON  {cp.Unicode.BALLON}                                                 {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} BULLET {cp.Unicode.BULLET}                                                   {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} COFFEE  {cp.Unicode.COFFEE}                                                 {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} EM_DASH {cp.Unicode.EM_DASH}                                                  {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} LOWERCASE_N_TILDE   {cp.Unicode.LOWERCASE_N_TILDE}                                      {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} UPPERCASE_N_TILDE   {cp.Unicode.UPPERCASE_N_TILDE}                                      {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} LEFT_CURLY_BRACKET  {cp.Unicode.LEFT_CURLY_BRACKET}                                      {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} RIGHT_CURLY_BRACKET {cp.Unicode.RIGHT_CURLY_BRACKET}                                      {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}                                                              {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} SUBSCRIPT_ALPHA   {cp.Unicode.SUBSCRIPT_ALPHA  }          {cp.Unicode.BULLET} SUPERSCRIPT_ALPHA   {cp.Unicode.SUPERSCRIPT_ALPHA  }       {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} SUBSCRIPT_BETA    {cp.Unicode.SUBSCRIPT_BETA   }          {cp.Unicode.BULLET} SUPERSCRIPT_BETA    {cp.Unicode.SUPERSCRIPT_BETA   }       {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} SUBSCRIPT_GAMMA   {cp.Unicode.SUBSCRIPT_GAMMA  }          {cp.Unicode.BULLET} SUPERSCRIPT_GAMMA   {cp.Unicode.SUPERSCRIPT_GAMMA  }       {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} SUBSCRIPT_DELTA   {cp.Unicode.SUBSCRIPT_DELTA  }          {cp.Unicode.BULLET} SUPERSCRIPT_DELTA   {cp.Unicode.SUPERSCRIPT_DELTA  }       {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} SUBSCRIPT_EPSILON {cp.Unicode.SUBSCRIPT_EPSILON}          {cp.Unicode.BULLET} SUPERSCRIPT_EPSILON {cp.Unicode.SUPERSCRIPT_EPSILON}       {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} SUBSCRIPT_THETA   {cp.Unicode.SUBSCRIPT_THETA  }          {cp.Unicode.BULLET} SUPERSCRIPT_THETA   {cp.Unicode.SUPERSCRIPT_THETA  }       {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} SUBSCRIPT_IOTA    {cp.Unicode.SUBSCRIPT_IOTA   }          {cp.Unicode.BULLET} SUPERSCRIPT_IOTA    {cp.Unicode.SUPERSCRIPT_IOTA   }       {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} SUBSCRIPT_PHO     {cp.Unicode.SUBSCRIPT_PHO    }          {cp.Unicode.BULLET} SUPERSCRIPT_PHO     {cp.Unicode.SUPERSCRIPT_PHO    }       {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} SUBSCRIPT_PHI     {cp.Unicode.SUBSCRIPT_PHI    }          {cp.Unicode.BULLET} SUPERSCRIPT_PHI     {cp.Unicode.SUPERSCRIPT_PHI    }       {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} SUBSCRIPT_PSI     {cp.Unicode.SUBSCRIPT_PSI    }          {cp.Unicode.BULLET} SUPERSCRIPT_PSI     {cp.Unicode.SUPERSCRIPT_PSI    }       {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} SUBSCRIPT_CHI     {cp.Unicode.SUBSCRIPT_CHI    }          {cp.Unicode.BULLET} SUPERSCRIPT_CHI     {cp.Unicode.SUPERSCRIPT_CHI    }       {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}                                                              {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} BLACK_DIAMOND {cp.Unicode.BLACK_DIAMOND}              {cp.Unicode.BULLET} WHITE_DIAMOND   {cp.Unicode.WHITE_DIAMOND}           {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} BLACK_DIAMOND_MINUS {cp.Unicode.BLACK_DIAMOND_MINUS}        {cp.Unicode.BULLET} WHITE_DIAMOND   {cp.Unicode.BLACK_SMALL_DIAMOND}           {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} LARGE_BLUE_DIAMON {cp.Unicode.LARGE_BLUE_DIAMOND}         {cp.Unicode.BULLET} LARGE_ORANGE_DIAMON {cp.Unicode.LARGE_ORANGE_DIAMOND}      {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}                                                              {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} RED_SQUARE          {cp.Unicode.RED_SQUARE}       {cp.Unicode.BULLET} RED_CIRCLE    {cp.Unicode.RED_CIRCLE}            {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} BLUE_SQUARE         {cp.Unicode.BLUE_SQUARE}       {cp.Unicode.BULLET} BLUE_CIRCLE   {cp.Unicode.BLUE_CIRCLE}            {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} ORANGE_SQUARE       {cp.Unicode.ORANGE_SQUARE}       {cp.Unicode.BULLET} ORANGE_CIRCLE {cp.Unicode.ORANGE_CIRCLE}            {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} YELLOW_SQUARE       {cp.Unicode.YELLOW_SQUARE}       {cp.Unicode.BULLET} YELLOW_CIRCLE {cp.Unicode.YELLOW_CIRCLE}            {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} GREEN_SQUARE        {cp.Unicode.GREEN_SQUARE}       {cp.Unicode.BULLET} GREEN_CIRCLE  {cp.Unicode.GREEN_CIRCLE}           {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} PURPLE_SQUARE       {cp.Unicode.PURPLE_SQUARE}       {cp.Unicode.BULLET} PURPLE_CIRCLE {cp.Unicode.PURPLE_CIRCLE}            {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} BROWN_SQUARE        {cp.Unicode.BROWN_SQUARE}      {cp.Unicode.BULLET} BROWN_CIRCLE  {cp.Unicode.BROWN_CIRCLE}            {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} BLACK_SQUARE        {cp.Unicode.BLACK_SQUARE}      {cp.Unicode.BULLET} BLACK_CIRCLE  {cp.Unicode.BLACK_CIRCLE}            {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} WHITE_SQUARE        {cp.Unicode.WHITE_SQUARE}      {cp.Unicode.BULLET} WHITE_CIRCLE  {cp.Unicode.WHITE_CIRCLE}            {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} BLACK_SQUARE_BUTTON {cp.Unicode.BLACK_SQUARE_BUTTON}       {cp.Unicode.BULLET} WHITE_START_CIRCLE {cp.Unicode.WHITE_START_CIRCLE}        {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} WHITE_SQUARE_BUTTON {cp.Unicode.WHITE_SQUARE_BUTTON}       {cp.Unicode.BULLET} HEAVY_CIRCLE {cp.Unicode.HEAVY_CIRCLE}             {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}                                                              {cp.reset_font()}
 
       {cp.set_font(True,231,0)} Example: {cp.reset_font()}  import custom_print as cp
                   print(cp.Unicode.FIRE)
+                  print(cp.Unicode.POOP)
 
       {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()} {cp.Unicode.FIRE}
+                 {cp.Unicode.POOP}
 
     How Unicode Characters Work...!
 
-    print Unicode with 2 digit value Use (\\x)
+    {cp.Unicode.LARGE_BLUE_DIAMOND} print Unicode value with 2 digits,  Use (\\x)
         1. print(\"\\x65\")  {cp.Unicode.RIGHT_ARROW}  \x65
         {cp.Unicode.EYES} \N{Eyes}
 
-    print Unicode with 3 to 4 digit value Use (\\u)
+    {cp.Unicode.LARGE_BLUE_DIAMOND} print Unicode value from 2 to 4 digits, Use (\\u)
         2. print(\"\\u0065\")  {cp.Unicode.RIGHT_ARROW}  \u0065
         3. print(\"\\u2757\")  {cp.Unicode.RIGHT_ARROW} \u2757
 
 
-    print Unicode with 5 to 8 digit value Use (\\U)
+    {cp.Unicode.LARGE_BLUE_DIAMOND} print Unicode value with 5 to 8 digits, Use (\\U)
         4. print(\"\\U00000065\")  {cp.Unicode.RIGHT_ARROW}  \U00000065
         5. print(\"\\U00002757\")  {cp.Unicode.RIGHT_ARROW}  \U00002757
         6. print(\"\\U0001F525 Fuego Code\")  {cp.Unicode.RIGHT_ARROW}  \U0001F525
         7. print(\"\\N{{FIRE}}   Fuego Name\")  {cp.Unicode.RIGHT_ARROW}  \N{FIRE}
 
 
-    Print Unicode by Name: import unicodedata   -> may be necessary
+    {cp.Unicode.LARGE_BLUE_DIAMOND} Print Unicode by Name: {cp.set_font(1,231,16)} import unicodedata {cp.reset_font()} It may be necessary.
         8. print("\\N{{LATIN SMALL LETTER A}}")         {cp.Unicode.RIGHT_ARROW}  \N{LATIN SMALL LETTER A}
         9. print("\\N{{NEGATIVE SQUARED CROSS MARK}}")  {cp.Unicode.RIGHT_ARROW}  \N{NEGATIVE SQUARED CROSS MARK}
 
@@ -1588,6 +1603,7 @@ def unicode_info():
                  https://codeshack.io/arrow-symbols
                  http://xahlee.info/comp/unicode_arrows.html
                  https://www.w3.org/TR/xml-entity-names/025.html
+                 https://www.alt-codes.net/diamond-symbols
     '''
     print(message)
 
@@ -2911,8 +2927,8 @@ def fancyformat_only_info():
       {cp.set_font(0,53,231,0)} 1.  adj_top_margin     = 0      {cp.reset_font()}      T {cp.Unicode.RIGHT_ARROW} title_msg
       {cp.set_font(0,53,231,0)} 2.  top_space          = 0      {cp.reset_font()}      H {cp.Unicode.RIGHT_ARROW} header
       {cp.set_font(0,53,231,0)} 3.  adj_indent         = 2      {cp.reset_font()}      D {cp.Unicode.RIGHT_ARROW} data
-      {cp.set_font(0,53,231,0)} 4.  adj_space          = 2      {cp.reset_font()}      F {cp.Unicode.RIGHT_ARROW} footnote_msg
-      {cp.set_font(0,53,231,0)} 5.  adj_bottom_margin  = 0      {cp.reset_font()}      S {cp.Unicode.RIGHT_ARROW} set_fill_chr
+      {cp.set_font(0,53,231,0)} 4.  adj_space          = 2      {cp.reset_font()}      S {cp.Unicode.RIGHT_ARROW} set_fill_chr
+      {cp.set_font(0,53,231,0)} 5.  adj_bottom_margin  = 0      {cp.reset_font()}      F {cp.Unicode.RIGHT_ARROW} footnote_msg
       {cp.set_font(0,53,231,0)} 6.  adj_bottom_space   = 0      {cp.reset_font()}
       {cp.set_font(0,53,231,0)} 7.  header_all_cell_bg = True   {cp.reset_font()}
       {cp.set_font(0,53,231,0)} 8.  data_all_cell_bg   = True   {cp.reset_font()}
@@ -2959,6 +2975,9 @@ def fancyformat_only_info():
 
 
     message = f'''
+      {cp.set_font(1,196,231)} Note: {cp.reset_font()} For more reference see Diagram 1.
+
+      
       {cp.set_font(0,53,231,0)}                                                                        {cp.reset_font()}
       {cp.set_font(1,53,231,0)}  Title Section                         Footnote Section                {cp.reset_font()}
       {cp.set_font(0,53,231,0)}                                                                        {cp.reset_font()}
@@ -3037,11 +3056,11 @@ def fancyformat_only_info():
     print()
 
     message = f'''
-      {cp.set_font(0,39,16)}                                                                       {cp.reset_font()}
-      {cp.set_font(0,39,16)}   {cp.set_font(1,231,21,True)} Template Options: {cp.set_font(0,39,16)} Remember that fancy format contains some        {cp.reset_font()}
-      {cp.set_font(0,39,16)}                       templates available. For more information,      {cp.reset_font()}
-      {cp.set_font(0,39,16)}                       check print_fancy_format method for examples.   {cp.reset_font()}
-      {cp.set_font(0,39,16)}                                                                       {cp.reset_font()}
+      {cp.set_font(0,115,16)}                                                                       {cp.reset_font()}
+      {cp.set_font(0,115,16)}   {cp.set_font(1,231,21,True)} Template Options: {cp.set_font(1,115,16)} Remember that fancy format contains some        {cp.reset_font()}
+      {cp.set_font(1,115,16)}                       templates available. For more information,      {cp.reset_font()}
+      {cp.set_font(1,115,16)}                       check print_fancy_format method for examples.   {cp.reset_font()}
+      {cp.set_font(0,115,16)}                                                                       {cp.reset_font()}
     '''
     print(message)
     tbl.header_align = cp.Align.CENTER
@@ -3085,13 +3104,13 @@ def fancyformat_only_info():
 
 
     message = f'''
-      {cp.set_font(0,39,16)}                                                                       {cp.reset_font()}
-      {cp.set_font(0,39,16)}   {cp.set_font(1,231,21,True)} Variables that fancy_print_format can handle {cp.set_font(0,39,231,0)}                      {cp.reset_font()}
-      {cp.set_font(0,39,16)}                                                                       {cp.reset_font()}
-      {cp.set_font(0,39,16)} {cp.Unicode.BULLET} bool        {cp.Unicode.BULLET} float          {cp.Unicode.BULLET} list       {cp.Unicode.BULLET} str  {cp.ins_chr(19)}{cp.reset_font()}
-      {cp.set_font(0,39,16)} {cp.Unicode.BULLET} complex     {cp.Unicode.BULLET} flozenset      {cp.Unicode.BULLET} range      {cp.Unicode.BULLET} tuple{cp.ins_chr(19)}{cp.reset_font()}
-      {cp.set_font(0,39,16)} {cp.Unicode.BULLET} dict        {cp.Unicode.BULLET} int            {cp.Unicode.BULLET} set               {cp.ins_chr(19)}{cp.reset_font()}
-      {cp.set_font(0,39,16)}                                                                       {cp.reset_font()}
+      {cp.set_font(0,115,16)}                                                                       {cp.reset_font()}
+      {cp.set_font(0,115,16)}   {cp.set_font(1,231,21,True)} Variables that fancy_print_format can handle {cp.set_font(0,115,231,0)}                      {cp.reset_font()}
+      {cp.set_font(0,115,16)}                                                                       {cp.reset_font()}
+      {cp.set_font(1,115,16)} {cp.Unicode.BULLET} bool        {cp.Unicode.BULLET} float          {cp.Unicode.BULLET} list       {cp.Unicode.BULLET} str  {cp.ins_chr(19)}{cp.reset_font()}
+      {cp.set_font(1,115,16)} {cp.Unicode.BULLET} complex     {cp.Unicode.BULLET} flozenset      {cp.Unicode.BULLET} range      {cp.Unicode.BULLET} tuple{cp.ins_chr(19)}{cp.reset_font()}
+      {cp.set_font(1,115,16)} {cp.Unicode.BULLET} dict        {cp.Unicode.BULLET} int            {cp.Unicode.BULLET} set               {cp.ins_chr(19)}{cp.reset_font()}
+      {cp.set_font(0,115,16)}                                                                       {cp.reset_font()}
     '''
     print(message)
 
@@ -3172,162 +3191,134 @@ def fancyformat_only_info():
       {cp.set_font(0,53,231,0)}                                                                          {cp.reset_font()}
       {cp.set_font(1,53,231,0)}    Horizontal Line Section                Vertical Line Section          {cp.reset_font()}
       {cp.set_font(0,53,231,0)}                                                                          {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} 1. top_horizontal_line_chr    = " "  | 2. left_vertical_line_chr  = " "  {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} 1. bottom_horizontal_line_chr = " "  | 2. middle_vertical_line_chr= " "  {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} 1. middle_horizontal_line_chr = " "  | 2. right_vertical_line_on  = True {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} 1. top_horizontal_line_on     = True | 2. left_vertical_line_on   = True {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} 1. middle_horizontal_line_on  = False| 2. middle_vertical_line_on = True {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} 1. bottom_horizontal_line_on  = True | 2. vertical_line_fg   = -1        {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} 1. horizontal_line_bold = False      | 2. vertical_line_bold = False     {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} 1. horizontal_line_bg   = -1         | 2. vertical_line_bg   = -1        {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} 1. horizontal_line_fg   = -1         | 2. vertical_line_fg   = -1        {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} b. top_horizontal_line_chr    = " "  | l. left_vertical_line_chr  = " "  {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} m. middle_horizontal_line_chr = " "  | n. middle_vertical_line_chr= " "  {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} t. bottom_horizontal_line_chr = " "  | o. right_vertical_line_chr = " "  {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}    top_horizontal_line_on     = True |    right_vertical_line_on  = True {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}    middle_horizontal_line_on  = False|    left_vertical_line_on   = True {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}    bottom_horizontal_line_on  = True |    middle_vertical_line_on = True {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}    horizontal_line_bold = False      |    vertical_line_fg   = -1        {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}    horizontal_line_bg   = -1         |    vertical_line_bold = False     {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}    horizontal_line_fg   = -1         |    vertical_line_bg   = -1        {cp.reset_font()}
       {cp.set_font(0,53,231,0)}                                                                          {cp.reset_font()}
 
       {cp.set_font(0,53,231,0)}                                                                          {cp.reset_font()}
       {cp.set_font(1,53,231,0)}    External Corner Section                Middle Corner Section          {cp.reset_font()}
       {cp.set_font(0,53,231,0)}                                                                          {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} 1. top_left_corner_chr     = " "     | 2. middle_top_corner_chr    = " " {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} 1. top_right_corner_chr    = " "     | 2. middle_bottom_corner_chr = " " {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} 1. bottom_right_corner_chr = " "     | 2. middle_inner_corner_chr  = " " {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} 1. bottom_left_corner_chr  = " "     | 2. middle_left_corner_chr  = " "  {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} 1. outer_corner_bold = False         | 2. middle_right_corner_chr = " "  {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} 1. outer_corner_bg   = -1            | 2. inner_corner_bold = False      {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} 1. outer_corner_fg   = -1            | 2. inner_corner_bg   = -1         {cp.reset_font()}
-      {cp.set_font(0,53,231,0)}                                      | 2. inner_corner_fg   = -1         {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} a. top_left_corner_chr     = " "     | c. middle_top_corner_chr    = " " {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} d. top_right_corner_chr    = " "     | u. middle_bottom_corner_chr = " " {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} s. bottom_left_corner_chr  = " "     | p. middle_left_corner_chr  = " "  {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} v. bottom_right_corner_chr = " "     | q. middle_inner_corner_chr  = " " {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}    outer_corner_bold = False         | r. middle_right_corner_chr = " "  {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}    outer_corner_bg   = -1            |    inner_corner_bold = False      {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}    outer_corner_fg   = -1            |    inner_corner_bg   = -1         {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}                                      |    inner_corner_fg   = -1         {cp.reset_font()}
       {cp.set_font(0,53,231,0)}                                                                          {cp.reset_font()}
 
       {cp.set_font(0,53,231,0)}                                                                          {cp.reset_font()}
       {cp.set_font(1,53,231,0)}    Header Horizontal Line Section          Header Corner Section         {cp.reset_font()}
       {cp.set_font(0,53,231,0)}                                                                          {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} 1. header_horizontal_line_on  = True | 2. header_left_corner_chr   = " " {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} 1. header_horizontal_line_chr = "-"  | 2. header_right_corner_chr  = " " {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} 1. header_horizontal_line_bold= False| 2. header_middle_corner_chr = " " {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} 1. header_horizontal_line_bg = -1    | 2. header_corner_bold = False     {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} 1. header_horizontal_line_fg = -1    | 2. header_corner_bg   = -1        {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} 1. header_vertical_line_fg   = -1    | 2. header_corner_fg   = -1        {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} i. header_horizontal_line_chr = "-"  | h. header_left_corner_chr   = " " {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}    header_horizontal_line_on  = True | j. header_middle_corner_chr = " " {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}    header_horizontal_line_bold= False| k. header_right_corner_chr  = " " {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}    header_horizontal_line_bg = -1    |    header_corner_bold = False     {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}    header_horizontal_line_fg = -1    |    header_corner_bg   = -1        {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}    header_vertical_line_fg   = -1    |    header_corner_fg   = -1        {cp.reset_font()}
       {cp.set_font(0,53,231,0)}                                                                          {cp.reset_font()}
       {cp.set_font(0,53,231,0)}                                                                          {cp.reset_font()}
       {cp.set_font(1,53,231,0)}    Header Vertical Line Section                                          {cp.reset_font()}
       {cp.set_font(0,53,231,0)}                                                                          {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} 1. header_left_vertical_line_chr   = " "                                 {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} 1. header_right_vertical_line_chr  = " "                                 {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} 1. header_middle_vertical_line_chr = " "                                 {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} 1. header_vertical_line_bold   = False                                   {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} 1. header_vertical_line_bg     = -1                                      {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} 1.                                                                       {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} e. header_left_vertical_line_chr   = " " |  T {cp.Unicode.RIGHT_ARROW} title_msg                {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} f. header_middle_vertical_line_chr = " " |  H {cp.Unicode.RIGHT_ARROW} header                   {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} g. header_right_vertical_line_chr  = " " |  D {cp.Unicode.RIGHT_ARROW} data                     {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}    header_vertical_line_bold   = False   |  S {cp.Unicode.RIGHT_ARROW} set_fill_chr             {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}    header_vertical_line_bg     = -1      |  F {cp.Unicode.RIGHT_ARROW} footnote_msg             {cp.reset_font()}
       {cp.set_font(0,53,231,0)}                                                                          {cp.reset_font()}
+      {cp.set_font(1,53,231,0)}  Space Section                                                           {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}                                                                          {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} 1.  adj_top_margin = 0                   | 5.  adj_bottom_margin  = 0    {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} 2.  top_space      = 0                   | 6.  adj_bottom_space   = 0    {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} 3.  adj_indent     = 2                   | 7.  header_all_cell_bg = True {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} 4.  adj_space      = 2                   | 8.  data_all_cell_bg   = True {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}                                                                          {cp.reset_font()}
+    '''
+    print(message)  
+    message = f'''\033[1;48;5;232m
 
-\033[1;48;5;232m
-
-
-   \033[1;48;5;231;38;5;16m Diagram 1 \033[1;48;5;232;38;5;24m
+    
+   \033[1;48;5;231;38;5;16m Diagram 1 \033[1;48;5;232;38;5;110m
 
 
   $█
-               \U000168EB 1
-               T           b     c        b         c         b
-               \U000168EB 2         \U0001F807     \U0001F807        \U0001F807         \U0001F807         \U0001F807
-           a\U0001F806 ╔═══════════════════╦═══════════════════╦══════════════════╗\U0001F804 d
-           e\U0001F806 ║        H       f\U0001F806 ║         H         ║\U0001F804 f     H         ║\U0001F804 g
-           h\U0001F806 ╠═══════════════════╬═══════════════════╬══════════════════╣\U0001F804 k
-           l\U0001F806 ║ i\U0001F805     D   m\U0001F807  j\u2197 ║\U0001F804 n      D      j\u2197 ║\U0001F804 n    D          ║\U0001F804 o
-           p\U0001F806 ╠═══════════════════╬═══════════════════╬══════════════════╣\U0001F804 r
-           l\U0001F806 ║  m\U0001F805    D    m\U0001F807 q\u2197 ║\U0001F804 n      D      q\u2197 ║\U0001F804 n    D          ║\U0001F804 o
-           p\U0001F806 ╠═══════════════════╬═══════════════════╬══════════════════╣\U0001F804 r
-           l\U0001F806 ║  m\U0001F805    D   t\U0001F807  q\u2197 ║\U0001F804 n     --S     q\u2197 ║\U0001F804 n   --S         ║\U0001F804 o
-           s\U0001F806 ╚═══════════════════╩═══════════════════╩══════════════════╝\U0001F804 v
-  |<--------->|<----->|t\U0001F805|<----->|\U0001F805u       t\U0001F805        u\U0001F805              \U000168EB 5
+               {cp.Unicode.UP_DOWN_ARROW} 1
+               T           b      c         b         c         b
+               {cp.Unicode.UP_DOWN_ARROW} 2         {cp.Unicode.DOWN_ARROW}      {cp.Unicode.DOWN_ARROW}         {cp.Unicode.DOWN_ARROW}         {cp.Unicode.DOWN_ARROW}         {cp.Unicode.DOWN_ARROW}
+           a{cp.Unicode.RIGHT_ARROW} ╔═══════════════════╦═══════════════════╦══════════════════╗{cp.Unicode.LEFT_ARROW} d
+           e{cp.Unicode.RIGHT_ARROW} ║        H       f{cp.Unicode.RIGHT_ARROW} ║         H         ║{cp.Unicode.LEFT_ARROW} f     H         ║{cp.Unicode.LEFT_ARROW} g
+           h{cp.Unicode.RIGHT_ARROW} ╠═══════════════════╬═══════════════════╬══════════════════╣{cp.Unicode.LEFT_ARROW} k
+           l{cp.Unicode.RIGHT_ARROW} ║ i{cp.Unicode.UP_ARROW}     D   m{cp.Unicode.DOWN_ARROW}  j\u2197 ║{cp.Unicode.LEFT_ARROW} n      D      j\u2197 ║{cp.Unicode.LEFT_ARROW} n    D          ║{cp.Unicode.LEFT_ARROW} o
+           p{cp.Unicode.RIGHT_ARROW} ╠═══════════════════╬═══════════════════╬══════════════════╣{cp.Unicode.LEFT_ARROW} r
+           l{cp.Unicode.RIGHT_ARROW} ║  m{cp.Unicode.UP_ARROW}    D    m{cp.Unicode.DOWN_ARROW} q\u2197 ║{cp.Unicode.LEFT_ARROW} n      D      q\u2197 ║{cp.Unicode.LEFT_ARROW} n    D          ║{cp.Unicode.LEFT_ARROW} o
+           p{cp.Unicode.RIGHT_ARROW} ╠═══════════════════╬═══════════════════╬══════════════════╣{cp.Unicode.LEFT_ARROW} r
+           l{cp.Unicode.RIGHT_ARROW} ║  m{cp.Unicode.UP_ARROW}    D   t{cp.Unicode.DOWN_ARROW}  q\u2197 ║{cp.Unicode.LEFT_ARROW} n     --S     q\u2197 ║{cp.Unicode.LEFT_ARROW} n   --S         ║{cp.Unicode.LEFT_ARROW} o
+           s{cp.Unicode.RIGHT_ARROW} ╚═══════════════════╩═══════════════════╩══════════════════╝{cp.Unicode.LEFT_ARROW} v
+  |<--------->|<----->|t{cp.Unicode.UP_ARROW}|<----->|{cp.Unicode.UP_ARROW}u       t{cp.Unicode.UP_ARROW}        u{cp.Unicode.UP_ARROW}              {cp.Unicode.UP_DOWN_ARROW} 5
         3         4          4             4                         F
-              |<---------------->|                                   \U000168EB 6
+              |<---------------->|                                   {cp.Unicode.UP_DOWN_ARROW} 6
                        7,8
 
-                                               {cp.reset_font()}
-    '''
-    print(message)  
-    print("\U000168EB")
+
+
+
+   \033[1;48;5;231;38;5;16m Diagram 2 \033[1;48;5;232m                              \033[1;48;5;231;38;5;16m Diagram 4 \033[1;48;5;232;38;5;161m
+
+
+  $█                                    |  $█
+               {cp.Unicode.UP_DOWN_ARROW} 1                      |               {cp.Unicode.UP_DOWN_ARROW} 1
+               T       b                |               T              b
+               {cp.Unicode.UP_DOWN_ARROW} 2     {cp.Unicode.DOWN_ARROW}                |               {cp.Unicode.UP_DOWN_ARROW} 2            {cp.Unicode.DOWN_ARROW}
+           a{cp.Unicode.RIGHT_ARROW} ╔══════════════════╗{cp.Unicode.LEFT_ARROW} d   |           a{cp.Unicode.RIGHT_ARROW} ╔══════════════════╗{cp.Unicode.LEFT_ARROW} d
+           e{cp.Unicode.RIGHT_ARROW} ║  i{cp.Unicode.DOWN_ARROW}    H         ║{cp.Unicode.LEFT_ARROW} g   |           e{cp.Unicode.RIGHT_ARROW} ║         D        ║{cp.Unicode.LEFT_ARROW} o
+           h{cp.Unicode.RIGHT_ARROW} ╠══════════════════╣{cp.Unicode.LEFT_ARROW} k   |           s{cp.Unicode.RIGHT_ARROW} ╚══════════════════╝{cp.Unicode.LEFT_ARROW} v
+           l{cp.Unicode.RIGHT_ARROW} ║        D         ║{cp.Unicode.LEFT_ARROW} o   |  |<--------->|<----->|t{cp.Unicode.UP_ARROW}|<----->|{cp.Unicode.UP_DOWN_ARROW} 5
+           p{cp.Unicode.RIGHT_ARROW} ╠══════════════════╣{cp.Unicode.LEFT_ARROW} r   |        3         4          4    F
+           l{cp.Unicode.RIGHT_ARROW} ║ m{cp.Unicode.DOWN_ARROW}     D    m{cp.Unicode.UP_ARROW}   ║{cp.Unicode.LEFT_ARROW} o   |              |<---------------->|{cp.Unicode.UP_DOWN_ARROW} 6
+           p{cp.Unicode.RIGHT_ARROW} ╠══════════════════╣{cp.Unicode.LEFT_ARROW} r   |                        8
+           l{cp.Unicode.RIGHT_ARROW} ║ t{cp.Unicode.DOWN_ARROW}     D         ║{cp.Unicode.LEFT_ARROW} o   |
+           s{cp.Unicode.RIGHT_ARROW} ╚══════════════════╝{cp.Unicode.LEFT_ARROW} v   |
+  |<--------->|<----->|t{cp.Unicode.UP_ARROW}|<----->|{cp.Unicode.UP_DOWN_ARROW} 5   |
+        3         4          4    F     |
+              |<---------------->|{cp.Unicode.UP_DOWN_ARROW} 6   |
+                      7,8               |
+
+
+
+
+   \033[1;48;5;231;38;5;16m Diagram 3 \033[1;48;5;232;38;5;29m
+
+
+  $█
+              {cp.Unicode.UP_DOWN_ARROW} 1
+              T      b         c         b        c         b
+              {cp.Unicode.UP_DOWN_ARROW} 2    {cp.Unicode.DOWN_ARROW}         {cp.Unicode.DOWN_ARROW}         {cp.Unicode.DOWN_ARROW}        {cp.Unicode.DOWN_ARROW}         {cp.Unicode.DOWN_ARROW}
+          a{cp.Unicode.RIGHT_ARROW} ╔═════════════════╦══════════════════╦══════════════════╗{cp.Unicode.LEFT_ARROW} d
+          l{cp.Unicode.RIGHT_ARROW} ║   t{cp.Unicode.DOWN_ARROW}   D    n {cp.Unicode.RIGHT_ARROW} ║        D     n {cp.Unicode.RIGHT_ARROW} ║        D         ║{cp.Unicode.LEFT_ARROW} o
+          s{cp.Unicode.RIGHT_ARROW} ╚═════════════════╩══════════════════╩══════════════════╝{cp.Unicode.LEFT_ARROW} v
+  |<-------->|<----->| |<----->|         t{cp.Unicode.UP_ARROW}       u{cp.Unicode.UP_ARROW}              {cp.Unicode.UP_DOWN_ARROW} 5
+       3         4         4                                      F
+             |<--------------->|                                  {cp.Unicode.UP_DOWN_ARROW} 6
+                     8
+
+
+\033[0m
+
+'''
+    print(message)
 
 
 
 
 
-
-    message = f'''
-
-          NOTE IMPORTANTE: los template de colores no puedes cambiar los colores de bg y fg para los titulos y los datos
-                       los template de design del 1 al 10 si puedes cambiar los colores de bg and fg para los titulos y los datos
-                       los template de space del 0 al 6 si puedes cambiar los colores de bg and fg para los titulos y los datos
-      {cp.set_font(0,53,231,0)}                                                                       {cp.reset_font()}
-      {cp.set_font(1,53,231,0)}                                                  {cp.reset_font()}
-      {cp.set_font(0,53,231,0)}                                                                       {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET}  {cp.Unicode.BULLET}   {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET}  {cp.Unicode.BULLET}   {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET}  {cp.Unicode.BULLET}   {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET}  {cp.Unicode.BULLET}   {cp.reset_font()}
-      {cp.set_font(0,53,231,0)}                                                                       {cp.reset_font()}
-
-      
-
-
-      {cp.set_font(0,53,231,0)}                                                                       {cp.reset_font()}
-      {cp.set_font(0,53,231,0)}     Header Corner Section               {cp.reset_font()}
-      {cp.set_font(0,53,231,0)}                                         {cp.reset_font()}
-      {cp.set_font(0,53,231,0)}  2. header_left_corner_chr   = " "      {cp.reset_font()}
-      {cp.set_font(0,53,231,0)}  2. header_right_corner_chr  = " "      {cp.reset_font()}
-      {cp.set_font(0,53,231,0)}  2. header_middle_corner_chr = " "      {cp.reset_font()}
-      {cp.set_font(0,53,231,0)}  2. header_corner_bold       = False    {cp.reset_font()}
-      {cp.set_font(0,53,231,0)}  2. header_corner_bg         = -1       {cp.reset_font()}
-      {cp.set_font(0,53,231,0)}  2. header_corner_fg         = -1       {cp.reset_font()}
-      {cp.set_font(0,53,231,0)}                                                                       {cp.reset_font()}
-
-      {cp.set_font(0,53,231,0)}                                                                       {cp.reset_font()}
-      {cp.set_font(1,53,231,0)}                                         {cp.reset_font()}
-      {cp.set_font(0,53,231,0)}                                                                       {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(0,53,231,0)}                                                                       {cp.reset_font()}
-
-      {cp.set_font(0,53,231,0)}                                                                       {cp.reset_font()}
-      {cp.set_font(1,53,231,0)}  Attributes for the header corners (left, middles and right) Section  {cp.reset_font()}
-      {cp.set_font(0,53,231,0)}                                                                       {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(0,53,231,0)}                                                                       {cp.reset_font()}
-
-      {cp.set_font(0,53,231,0)}                                                                       {cp.reset_font()}
-      {cp.set_font(1,53,231,0)}  Footnote Section                                                     {cp.reset_font()}
-      {cp.set_font(0,53,231,0)}                                                                       {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET}    {cp.Unicode.BULLET}    {cp.reset_font()}
-      {cp.set_font(0,53,231,0)}                                                                       {cp.reset_font()}
-
-      {cp.set_font(0,53,231,0)}                                                                       {cp.reset_font()}
-      {cp.set_font(1,53,231,0)}  General Section                                      Design Section  {cp.reset_font()}
-      {cp.set_font(0,53,231,0)}                                                                       {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} set_fill_chr = "----"             {cp.Unicode.BULLET} design_color   = 4     {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} set_layout   = Layout.HORIZONTAL  {cp.Unicode.BULLET} bg_line_colors = -1    {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} update_list  = False              {cp.Unicode.BULLET} fg_line_colors = -1    {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET}                                   {cp.Unicode.BULLET} bold_lines = False   {cp.reset_font()}
-      {cp.set_font(0,53,231,0)}                                                                       {cp.reset_font()}
-      {cp.set_font(0,53,231,0)}                                                                       {cp.reset_font()}
-    '''
 
 
 
@@ -3411,6 +3402,14 @@ def print_fancy_format_info():
     print(message)
 
 
+    message = f'''
+
+          NOTE IMPORTANTE: los template de colores no puedes cambiar los colores de bg y fg para los titulos y los datos
+                       los template de design del 1 al 10 si puedes cambiar los colores de bg and fg para los titulos y los datos
+                       los template de space del 0 al 6 si puedes cambiar los colores de bg and fg para los titulos y los datos
+    '''
+
+
 # +--------------------------------------------------------------------------------------------+
 # | reset_fancy_format                                                                         |
 # +--------------------------------------------------------------------------------------------+
@@ -3441,6 +3440,147 @@ def reset_fancy_format_info():
     print(message)
     print(f"                  Reset : {tbl.adj_top_margin}\n")
 
+
+def fancy_format_diagrams():
+    message = f'''\033[1;48;5;232m
+
+
+   \033[1;48;5;231;38;5;16m Diagram 1 \033[1;48;5;232;38;5;110m
+
+
+  $█
+               {cp.Unicode.UP_DOWN_ARROW} 1
+               T           b     c        b         c         b
+               {cp.Unicode.UP_DOWN_ARROW} 2         {cp.Unicode.DOWN_ARROW}     {cp.Unicode.DOWN_ARROW}        {cp.Unicode.DOWN_ARROW}         {cp.Unicode.DOWN_ARROW}         {cp.Unicode.DOWN_ARROW}
+           a{cp.Unicode.RIGHT_ARROW} ╔═══════════════════╦═══════════════════╦══════════════════╗{cp.Unicode.LEFT_ARROW} d
+           e{cp.Unicode.RIGHT_ARROW} ║        H       f{cp.Unicode.RIGHT_ARROW} ║         H         ║{cp.Unicode.LEFT_ARROW} f     H         ║{cp.Unicode.LEFT_ARROW} g
+           h{cp.Unicode.RIGHT_ARROW} ╠═══════════════════╬═══════════════════╬══════════════════╣{cp.Unicode.LEFT_ARROW} k
+           l{cp.Unicode.RIGHT_ARROW} ║ i{cp.Unicode.UP_ARROW}     D   m{cp.Unicode.DOWN_ARROW}  j\u2197 ║{cp.Unicode.LEFT_ARROW} n      D      j\u2197 ║{cp.Unicode.LEFT_ARROW} n    D          ║{cp.Unicode.LEFT_ARROW} o
+           p{cp.Unicode.RIGHT_ARROW} ╠═══════════════════╬═══════════════════╬══════════════════╣{cp.Unicode.LEFT_ARROW} r
+           l{cp.Unicode.RIGHT_ARROW} ║  m{cp.Unicode.UP_ARROW}    D    m{cp.Unicode.DOWN_ARROW} q\u2197 ║{cp.Unicode.LEFT_ARROW} n      D      q\u2197 ║{cp.Unicode.LEFT_ARROW} n    D          ║{cp.Unicode.LEFT_ARROW} o
+           p{cp.Unicode.RIGHT_ARROW} ╠═══════════════════╬═══════════════════╬══════════════════╣{cp.Unicode.LEFT_ARROW} r
+           l{cp.Unicode.RIGHT_ARROW} ║  m{cp.Unicode.UP_ARROW}    D   t{cp.Unicode.DOWN_ARROW}  q\u2197 ║{cp.Unicode.LEFT_ARROW} n     --S     q\u2197 ║{cp.Unicode.LEFT_ARROW} n   --S         ║{cp.Unicode.LEFT_ARROW} o
+           s{cp.Unicode.RIGHT_ARROW} ╚═══════════════════╩═══════════════════╩══════════════════╝{cp.Unicode.LEFT_ARROW} v
+  |<--------->|<----->|t{cp.Unicode.UP_ARROW}|<----->|{cp.Unicode.UP_ARROW}u       t{cp.Unicode.UP_ARROW}        u{cp.Unicode.UP_ARROW}              {cp.Unicode.UP_DOWN_ARROW} 5
+        3         4          4             4                         F
+              |<---------------->|                                   {cp.Unicode.UP_DOWN_ARROW} 6
+                       7,8
+
+
+
+
+   \033[1;48;5;231;38;5;16m Diagram 2 \033[1;48;5;232m                              \033[1;48;5;231;38;5;16m Diagram 4 \033[1;48;5;232;38;5;161m
+
+
+  $█                                    |  $█
+               {cp.Unicode.UP_DOWN_ARROW} 1                      |               {cp.Unicode.UP_DOWN_ARROW} 1
+               T       b                |               T              b
+               {cp.Unicode.UP_DOWN_ARROW} 2     {cp.Unicode.DOWN_ARROW}                |               {cp.Unicode.UP_DOWN_ARROW} 2            {cp.Unicode.DOWN_ARROW}
+           a{cp.Unicode.RIGHT_ARROW} ╔══════════════════╗{cp.Unicode.LEFT_ARROW} d   |           a{cp.Unicode.RIGHT_ARROW} ╔══════════════════╗{cp.Unicode.LEFT_ARROW} d
+           e{cp.Unicode.RIGHT_ARROW} ║  i{cp.Unicode.DOWN_ARROW}    H         ║{cp.Unicode.LEFT_ARROW} g   |           e{cp.Unicode.RIGHT_ARROW} ║         D        ║{cp.Unicode.LEFT_ARROW} o
+           h{cp.Unicode.RIGHT_ARROW} ╠══════════════════╣{cp.Unicode.LEFT_ARROW} k   |           s{cp.Unicode.RIGHT_ARROW} ╚══════════════════╝{cp.Unicode.LEFT_ARROW} v
+           l{cp.Unicode.RIGHT_ARROW} ║        D         ║{cp.Unicode.LEFT_ARROW} o   |  |<--------->|<----->|t{cp.Unicode.UP_ARROW}|<----->|{cp.Unicode.UP_DOWN_ARROW} 5
+           p{cp.Unicode.RIGHT_ARROW} ╠══════════════════╣{cp.Unicode.LEFT_ARROW} r   |        3         4          4    F
+           l{cp.Unicode.RIGHT_ARROW} ║ m{cp.Unicode.DOWN_ARROW}     D    m{cp.Unicode.UP_ARROW}   ║{cp.Unicode.LEFT_ARROW} o   |              |<---------------->|{cp.Unicode.UP_DOWN_ARROW} 6
+           p{cp.Unicode.RIGHT_ARROW} ╠══════════════════╣{cp.Unicode.LEFT_ARROW} r   |                        8
+           l{cp.Unicode.RIGHT_ARROW} ║ t{cp.Unicode.DOWN_ARROW}     D         ║{cp.Unicode.LEFT_ARROW} o   |
+           s{cp.Unicode.RIGHT_ARROW} ╚══════════════════╝{cp.Unicode.LEFT_ARROW} v   |
+  |<--------->|<----->|t{cp.Unicode.UP_ARROW}|<----->|{cp.Unicode.UP_DOWN_ARROW} 5   |
+        3         4          4    F     |
+              |<---------------->|{cp.Unicode.UP_DOWN_ARROW} 6   |
+                      7,8               |
+
+
+
+
+   \033[1;48;5;231;38;5;16m Diagram 3 \033[1;48;5;232;38;5;29m
+
+
+  $█
+              {cp.Unicode.UP_DOWN_ARROW} 1
+              T      b         c         b        c         b
+              {cp.Unicode.UP_DOWN_ARROW} 2    {cp.Unicode.DOWN_ARROW}         {cp.Unicode.DOWN_ARROW}         {cp.Unicode.DOWN_ARROW}        {cp.Unicode.DOWN_ARROW}         {cp.Unicode.DOWN_ARROW}
+          a{cp.Unicode.RIGHT_ARROW} ╔═════════════════╦══════════════════╦══════════════════╗{cp.Unicode.LEFT_ARROW} d
+          l{cp.Unicode.RIGHT_ARROW} ║   t{cp.Unicode.DOWN_ARROW}   D    n {cp.Unicode.RIGHT_ARROW} ║        D     n {cp.Unicode.RIGHT_ARROW} ║        D         ║{cp.Unicode.LEFT_ARROW} o
+          s{cp.Unicode.RIGHT_ARROW} ╚═════════════════╩══════════════════╩══════════════════╝{cp.Unicode.LEFT_ARROW} v
+  |<-------->|<----->| |<----->|         t{cp.Unicode.UP_ARROW}       u{cp.Unicode.UP_ARROW}              {cp.Unicode.UP_DOWN_ARROW} 5
+       3         4         4                                      F
+             |<--------------->|                                  {cp.Unicode.UP_DOWN_ARROW} 6
+                     8
+
+
+
+
+   \033[1;48;5;231;38;5;16m Diagram 4 \033[1;48;5;232;38;5;110m
+
+
+  $█
+               {cp.Unicode.UP_DOWN_ARROW} 1
+               T              b
+               {cp.Unicode.UP_DOWN_ARROW} 2            {cp.Unicode.DOWN_ARROW}
+           a{cp.Unicode.RIGHT_ARROW} ╔══════════════════════════════════╗{cp.Unicode.LEFT_ARROW} d
+           e{cp.Unicode.RIGHT_ARROW} ║           I am Data (D)          ║{cp.Unicode.LEFT_ARROW} o
+           s{cp.Unicode.RIGHT_ARROW} ╚══════════════════════════════════╝{cp.Unicode.LEFT_ARROW} v
+  |<--------->|<-------->|     t{cp.Unicode.UP_ARROW}     |<-------->|{cp.Unicode.UP_DOWN_ARROW} 5
+        3          4                       4      F
+               |<------------------------------->|{cp.Unicode.UP_DOWN_ARROW} 6
+                             8
+
+\033[0m
+
+'''
+    print(message)
+
+    message = f'''\033[1;48;5;4;38;5;231m
+
+    T {cp.Unicode.RIGHT_ARROW} title_msg
+    H {cp.Unicode.RIGHT_ARROW} header
+    D {cp.Unicode.RIGHT_ARROW} data
+    F {cp.Unicode.RIGHT_ARROW} footnote_msg
+    S {cp.Unicode.RIGHT_ARROW} set_fill_chr
+
+    1. adj_top_margin
+    2. top_space
+    3. adj_indent
+    4. adj_space
+    5. bottom_space
+    6. adj_bottom_margin
+    7. header_all_cell_bg
+    8. data_all_cell_bg
+
+    a. top_left_corner_chr
+    b. top_horizontal_line_chr
+    c. top_middle_corner_chr
+    d. top_right_corner_chr
+
+    e. header_left_vertical_line_chr
+    f. header_middle_vertical_line_chr
+    g. header_right_vertical_line_chr
+    h. header_left_corner_chr
+    i. header_horizontal_line_chr
+    j. header_middle_corner_chr
+    k. header_right_corner_chr
+
+    l. left_vertical_line_chr
+    m. middle_horizontal_line_chr
+    n. middle_vertical_line_chr
+    o. right_vertical_line_chr
+
+    p. left_lateral_corner_chr            middle_left_corner_chr
+    q. middle_inner_corner_chr
+    r. right_lateral_corner_chr           middle_right_corner_chr
+
+    s. bottom_left_corner_chr
+    t. bottom_horizontal_line_chr
+    u. middle_bottom_corner_chr            bottom_middle_corner_chr
+    v. bottom_right_corner_chr
+\033[0m
+    '''
+    print(message)    
+
+
+        # self.middle_left_corner_chr  = " "        # chr only for matrix list (before: left_lateral_corner_chr  1.4V)
+        # self.middle_right_corner_chr = " "        # chr only for matrix list (before: right_lateral_corner_chr 1.4V)
 
 # +-------------------------------------------------------------------------------------------------+
 # |                                                                                                 |
@@ -3510,33 +3650,6 @@ def print_reversed_ascii_logo_art_info():
 
 
 
-def fancy_format_diagrams():
-    message =f'''\033[1;48;5;232m
-
-
-   \033[1;48;5;231;38;5;16m Diagram 1 \033[1;48;5;232;38;5;24m
-
-
-  $█
-               \U000168EB 1
-               T           b     c        b         c         b
-               \U000168EB 2         \U0001F807     \U0001F807        \U0001F807         \U0001F807         \U0001F807
-           a\U0001F806 ╔═══════════════════╦═══════════════════╦══════════════════╗\U0001F804 d
-           e\U0001F806 ║        H       f\U0001F806 ║         H         ║\U0001F804 f     H         ║\U0001F804 g
-           h\U0001F806 ╠═══════════════════╬═══════════════════╬══════════════════╣\U0001F804 k
-           l\U0001F806 ║ i\U0001F805     D   m\U0001F807  j\u2197 ║\U0001F804 n      D      j\u2197 ║\U0001F804 n    D          ║\U0001F804 o
-           p\U0001F806 ╠═══════════════════╬═══════════════════╬══════════════════╣\U0001F804 r
-           l\U0001F806 ║  m\U0001F805    D    m\U0001F807 q\u2197 ║\U0001F804 n      D      q\u2197 ║\U0001F804 n    D          ║\U0001F804 o
-           p\U0001F806 ╠═══════════════════╬═══════════════════╬══════════════════╣\U0001F804 r
-           l\U0001F806 ║  m\U0001F805    D   t\U0001F807  q\u2197 ║\U0001F804 n     --S     q\u2197 ║\U0001F804 n   --S         ║\U0001F804 o
-           s\U0001F806 ╚═══════════════════╩═══════════════════╩══════════════════╝\U0001F804 v
-  |<--------->|<----->|t\U0001F805|<----->|\U0001F805u       t\U0001F805        u\U0001F805              \U000168EB 5
-        3         4          4             4                         F
-              |<---------------->|                                   \U000168EB 6
-                       7,8
-
-    '''
-    print(message)
 
 
 if __name__ == '__main__':

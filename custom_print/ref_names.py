@@ -242,6 +242,8 @@ class Unicode(enum.StrEnum):
     UP_ARROW      = "\N{UPWARDS ARROW}"    # \u2191 ↑
     DOWN_ARROW    = "\N{DOWNWARDS ARROW}"  # \u2193 ↓
 
+    UP_DOWN_ARROW = "\N{UP DOWN ARROW}"
+
     UPWARDS_PAIRED_ARROWS    = "\N{UPWARDS PAIRED ARROWS}"
     DOWNWARDS_PAIRED_ARROWS  = "\N{DOWNWARDS PAIRED ARROWS}"
     LEFTWARDS_PAIRED_ARROWS  = "\N{LEFTWARDS PAIRED ARROWS}"
@@ -252,12 +254,6 @@ class Unicode(enum.StrEnum):
     #-------------------------------------------------------------------------------------------------------------------------------------------------  
     EM_DASH = "\N{EM DASH}"
     
-    BLACK_DIAMOND = "\N{BLACK DIAMOND}"
-    WHITE_DIAMOND = "\N{WHITE DIAMOND}"
-
-    BLACK_CIRCLE  = "\N{BLACK CIRCLE}"
-    WHITE_CIRCLE  = "\N{WHITE CIRCLE}"
-
     LOWERCASE_N_TILDE = "\N{LATIN SMALL LETTER N WITH TILDE}"   # ñ
     UPPERCASE_N_TILDE = "\N{LATIN CAPITAL LETTER N WITH TILDE}" # Ñ
 
@@ -276,7 +272,6 @@ class Unicode(enum.StrEnum):
     BALLON = "\U0001F388"
     BULLET  = "\N{BULLET}"
     COFFEE  = "\N{HOT BEVERAGE}"
-
 
     SUBSCRIPT_ALPHA     = '?'
     SUBSCRIPT_BETA      = '\u1d66'
@@ -302,6 +297,36 @@ class Unicode(enum.StrEnum):
     SUPERSCRIPT_PSI     = '\u1d60'
     SUPERSCRIPT_CHI     = '\u1d61'
 
+    BLACK_DIAMOND       = "\N{BLACK DIAMOND}"
+    WHITE_DIAMOND       = "\N{WHITE DIAMOND}"
+    LARGE_BLUE_DIAMOND  = "\N{LARGE BLUE DIAMOND}"
+    LARGE_ORANGE_DIAMOND= "\N{LARGE ORANGE DIAMOND}"
+    BLACK_DIAMOND_MINUS = "\N{BLACK DIAMOND MINUS WHITE X}"
+    BLACK_SMALL_DIAMOND = "\N{White Diamond Containing Black Small Diamond}"
+
+    RED_SQUARE          = "\N{LARGE RED SQUARE}"           # \U0001F7E5
+    BLUE_SQUARE         = "\N{LARGE BLUE SQUARE}"          # \U0001F7E6
+    ORANGE_SQUARE       = "\N{LARGE ORANGE SQUARE}"        # \U0001F7E7
+    YELLOW_SQUARE       = "\N{LARGE YELLOW SQUARE}"        # \U0001F7E8
+    GREEN_SQUARE        = "\N{LARGE GREEN SQUARE}"         # \U0001F7E9
+    PURPLE_SQUARE       = "\N{LARGE PURPLE SQUARE}"        # \U0001F7EA
+    BROWN_SQUARE        = "\N{LARGE BROWN SQUARE} "        # \U0001F7EB
+    BLACK_SQUARE        = "\N{BLACK LARGE SQUARE} "        # \U00002B1B
+    WHITE_SQUARE        = "\N{WHITE LARGE SQUARE} "        # \U00002B1C
+    BLACK_SQUARE_BUTTON = "\N{BLACK SQUARE BUTTON}"        # \U0001F532
+    WHITE_SQUARE_BUTTON = "\N{WHITE SQUARE BUTTON}"        # \U0001F533
+
+    WHITE_START_CIRCLE = "\N{CIRCLED WHITE STAR}"          # \u272A
+    RED_CIRCLE         = "\N{LARGE RED CIRCLE}"            # \U0001F534
+    BLUE_CIRCLE        = "\N{LARGE BLUE CIRCLE}"           # \U0001F535
+    ORANGE_CIRCLE      = "\N{LARGE ORANGE CIRCLE}"         # \U0001F7E0
+    YELLOW_CIRCLE      = "\N{LARGE YELLOW CIRCLE}"         # \U0001F7E1
+    GREEN_CIRCLE       = "\N{LARGE GREEN CIRCLE} "         # \U0001F7E2
+    PURPLE_CIRCLE      = "\N{LARGE PURPLE CIRCLE}"         # \U0001F7E3
+    BROWN_CIRCLE       = "\N{LARGE BROWN CIRCLE}"          # \U0001F7E4
+    BLACK_CIRCLE       = "\N{MEDIUM BLACK CIRCLE}"         # \U000026AB
+    WHITE_CIRCLE       = "\N{MEDIUM WHITE CIRCLE}"         # \U000026AA
+    HEAVY_CIRCLE       = "\N{HEAVY LARGE CIRCLE}"
 
 
 
