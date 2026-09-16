@@ -2295,7 +2295,7 @@ def get_message_attributes_info():
 
 
 def diagram_description_fancy_message():
-    
+
     pen = cp.Pen()
     crs = cp.Cursor()
 
@@ -2920,19 +2920,19 @@ def fancyformat_only_info():
 
 
       {cp.set_font(1,231,0)} Default Values: {cp.reset_font()}
-
-      {cp.set_font(0,53,231,0)}                                 {cp.reset_font()}
-      {cp.set_font(1,53,231,0)}  Space Section                  {cp.reset_font()}
-      {cp.set_font(0,53,231,0)}                                 {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} 1.  adj_top_margin     = 0      {cp.reset_font()}      T {cp.Unicode.RIGHT_ARROW} title_msg
-      {cp.set_font(0,53,231,0)} 2.  top_space          = 0      {cp.reset_font()}      H {cp.Unicode.RIGHT_ARROW} header
-      {cp.set_font(0,53,231,0)} 3.  adj_indent         = 2      {cp.reset_font()}      D {cp.Unicode.RIGHT_ARROW} data
-      {cp.set_font(0,53,231,0)} 4.  adj_space          = 2      {cp.reset_font()}      S {cp.Unicode.RIGHT_ARROW} set_fill_chr
-      {cp.set_font(0,53,231,0)} 5.  adj_bottom_margin  = 0      {cp.reset_font()}      F {cp.Unicode.RIGHT_ARROW} footnote_msg
-      {cp.set_font(0,53,231,0)} 6.  adj_bottom_space   = 0      {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} 7.  header_all_cell_bg = True   {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} 8.  data_all_cell_bg   = True   {cp.reset_font()}
-      {cp.set_font(0,53,231,0)}                                 {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}                                                                        {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}                                                                        {cp.reset_font()}
+      {cp.set_font(1,53,231,0)}     Space Section                      Shortcut Section                {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}                                                                        {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} 1.  adj_top_margin     = 0        |    design_color   =  4             {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} 2.  top_space          = 0        |    bg_line_colors = -1             {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} 3.  adj_indent         = 2        |    fg_line_colors = -1             {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} 4.  adj_space          = 2        |    bold_lines     = False          {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} 5.  adj_bottom_margin  = 0        |                                    {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} 6.  adj_bottom_space   = 0        |                                    {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} 7.  header_all_cell_bg = True     |                                    {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} 8.  data_all_cell_bg   = True     |                                    {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}                                                                        {cp.reset_font()}
 
       1. lines to be add between the terminal and the title.
       2. lines to be added between title and top table.
@@ -2976,10 +2976,27 @@ def fancyformat_only_info():
 
     message = f'''
       {cp.set_font(1,196,231)} Note: {cp.reset_font()} For more reference see Diagram 1.
-
       
+
+                                                                             
+      {cp.set_font(1,22,231,True)} design_color   {cp.reset_font()} It sets the colors to be used for the designs 1 through
+                       10 as bg for the table.
+                                                                             
+      {cp.set_font(1,22,231,True)} bg_line_colors {cp.reset_font()} It sets all the bg_line colors, if it is set to default
+                       value, -1 or 256, then the style will use the bg assigned
+                       color for every line.
+                                                                                                   
+      {cp.set_font(1,22,231,True)} fg_line_colors {cp.reset_font()} It sets all the fg_line colors. If it is set to default
+                       value, -1 or 256, then the style will use the fg assigned
+                       color for every line.
+
+      {cp.set_font(1,22,231,True)} bold_lines     {cp.reset_font()} When it is set to True, it will bold all the lines in the
+                       table. If it is set to False, then the style will use 
+                       their bold assigned value for every line.
+
+{cp.reset_font()}
       {cp.set_font(0,53,231,0)}                                                                        {cp.reset_font()}
-      {cp.set_font(1,53,231,0)}  Title Section                         Footnote Section                {cp.reset_font()}
+      {cp.set_font(1,53,231,0)}     Title Section                      Footnote Section                {cp.reset_font()}
       {cp.set_font(0,53,231,0)}                                                                        {cp.reset_font()}
       {cp.set_font(0,53,231,0)} T.  title_msg       = ""        |  F.  footnote_msg       = ""         {cp.reset_font()}
       {cp.set_font(0,53,231,0)}     title_bold      = False     |      footnote_bold      = False      {cp.reset_font()}
@@ -2996,7 +3013,7 @@ def fancyformat_only_info():
       {cp.set_font(0,53,231,0)}                                                                        {cp.reset_font()}
 
       {cp.set_font(0,53,231,0)}                                                                        {cp.reset_font()}
-      {cp.set_font(1,53,231,0)}  Header Section                         Data Section                   {cp.reset_font()}
+      {cp.set_font(1,53,231,0)}     Header Section                      Data Section                   {cp.reset_font()}
       {cp.set_font(0,53,231,0)}                                                                        {cp.reset_font()}
       {cp.set_font(0,53,231,0)} H.  header_msg       = ""        |  D.  data_msg       = ""            {cp.reset_font()}
       {cp.set_font(0,53,231,0)}     header_bold      = False     |      data_bold      = False         {cp.reset_font()}
@@ -3013,7 +3030,7 @@ def fancyformat_only_info():
       {cp.set_font(0,53,231,0)}                                                                        {cp.reset_font()}
 
       {cp.set_font(0,53,231,0)}                                                                        {cp.reset_font()}
-      {cp.set_font(1,53,231,0)}  General Use                                                           {cp.reset_font()}
+      {cp.set_font(1,53,231,0)}     General Use                                                        {cp.reset_font()}
       {cp.set_font(0,53,231,0)}                                                                        {cp.reset_font()}
       {cp.set_font(0,53,231,0)}     set_fill_chr = "----"            | banded_row_bg      = -1         {cp.reset_font()}
       {cp.set_font(0,53,231,0)}     set_layout   = Layout.HORIZONTAL | banded_row_fg      = -1         {cp.reset_font()}
@@ -3023,13 +3040,12 @@ def fancyformat_only_info():
 
 
 
-      When passing a list or any other type of variable, fancyformat
-      converts all the elements of the list in string type. When using
-      the {cp.set_font(1,22,231,True)} update_list {cp.reset_font()} option, be aware that the new list will have
-      string type in all its elements. Also, if the list isn't complete,
-      fancyformat will refill those empty spaces using the assign
-      character(s) in the {cp.set_font(1,22,231,True)} set_fill_chr {cp.reset_font()} variable, see example 1 on
-      print_fancy_format method.
+      When passing a list, fancyformat converts all the elements of the list in
+      string type. When using the {cp.set_font(1,22,231,True)} update_list {cp.reset_font()} option, be aware that the new
+      list will have string type in all its elements. Notice that {cp.set_font(1,22,231,True)} update_list {cp.reset_font()}
+      only works with list type variables. Also, if the list is not complete,
+      matrix, fancyformat will refill those empty spaces using the assign
+      character(s) in the {cp.set_font(1,22,231,True)} set_fill_chr {cp.reset_font()} variable, see example below.
 
       {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp
                   lst = [[\"H1\",\"H2\",\"H3\"],[5,4,9],[3]]
@@ -3146,7 +3162,7 @@ def fancyformat_only_info():
 
                   tbl.print_fancy_format(lst)
 
-                  
+
       {cp.set_font(1,196,231)} Note: {cp.reset_font()} To see what other attributes are availble for the header, data,
               title and footnote, check their section above.
 
@@ -3242,11 +3258,11 @@ def fancyformat_only_info():
       {cp.set_font(0,53,231,0)} 4.  adj_space      = 2                   | 8.  data_all_cell_bg   = True {cp.reset_font()}
       {cp.set_font(0,53,231,0)}                                                                          {cp.reset_font()}
     '''
-    print(message)  
+    print(message)
     message = f'''\033[1;48;5;232m
 
-    
-   \033[1;48;5;231;38;5;16m Diagram 1 \033[1;48;5;232;38;5;110m
+
+   \033[1;48;5;231;38;5;16m Diagram 1 \033[1;48;5;232;38;5;117m
 
 
   $█
@@ -3311,19 +3327,10 @@ def fancyformat_only_info():
 
 
 \033[0m
-
 '''
     print(message)
-
-
-
-
-
-
-
-
-
-
+    # self.middle_left_corner_chr  = " "        # chr only for matrix list (before: left_lateral_corner_chr  1.4V)
+    # self.middle_right_corner_chr = " "        # chr only for matrix list (before: right_lateral_corner_chr 1.4V)
 
 
 def fancyformat_info():
@@ -3340,11 +3347,90 @@ def print_fancy_format_info():
     ''' This print a variable in customized way. '''
     cp.ins_newline(1)
     blue_div.print_fancy_divider(all_topics[49])
+    tbl = cp.FancyFormat()
     message = f'''
-      This method prints a variable type in a fancy format.
+      This method prints a variable type in a fancy format. Notice that it can
+      be customized as you wish.
+
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp
+                  tbl.top_left_corner_chr = \"a\"
+                  tbl.top_horizontal_line_chr = \"-\"
+                  tbl.top_right_corner_chr = \"d\"
+                  tbl.left_vertical_line_chr = f\"{{cp.Unicode.UP_DOWN_ARROW}}\"
+                  tbl.bottom_left_corner_chr = \"s\"
+                  tbl.bottom_right_corner_chr = \"v\"
+                  tbl.bottom_horizontal_line_chr = \"-\"
+                  tbl.right_vertical_line_chr = f\"{{cp.Unicode.UP_DOWN_ARROW}}\"
+                  data = \" I am a Data (D) \"
+
+                  tbl.print_fancy_format(data=data,
+                                        style=cp.Line_Style.CUSTOMIZED)
+
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
+    '''
+    print(message)
+    tbl.adj_indent = 18
+    tbl.top_left_corner_chr = "a"
+    tbl.top_horizontal_line_chr = "-"
+    tbl.top_right_corner_chr = "d"
+    tbl.left_vertical_line_chr = f"{cp.Unicode.UP_DOWN_ARROW}"
+    tbl.bottom_left_corner_chr = "s"
+    tbl.bottom_right_corner_chr = "v"
+    tbl.bottom_horizontal_line_chr = "-"
+    tbl.right_vertical_line_chr = f"{cp.Unicode.UP_DOWN_ARROW}"
+    data = " I am a Data (D) "
+    tbl.print_fancy_format(data=data,style=cp.Line_Style.CUSTOMIZED)
 
 
+    message = f'''
+    {cp.set_font(1,196,231)} Note: {cp.reset_font()} Remember they are shortcuts for the customization style.
 
+            {cp.set_font(1,22,231,True)}                 {cp.reset_font()}
+            {cp.set_font(1,22,231,True)} design_color    {cp.reset_font()}
+            {cp.set_font(1,22,231,True)} bg_line_colors  {cp.reset_font()}
+            {cp.set_font(1,22,231,True)} fg_line_colors  {cp.reset_font()}
+            {cp.set_font(1,22,231,True)} bold_lines      {cp.reset_font()}
+            {cp.set_font(1,22,231,True)}                 {cp.reset_font()}
+'''
+    print(message)
+
+    message = f'''
+      Customized option is used to generate your own design. However, there are
+      templates available for colors and lines style. See the examples below.
+
+      Check the diagrams 1 through 4 to visualize how the FancyFormat variables
+      are organized. See {cp.set_font(1,22,231,True)} Line_Style {cp.reset_font()} method for more options available.
+
+
+      {cp.set_font(0,115,16)} DASH_LINE style {cp.reset_font()}
+
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp
+                  data = ["Data 1","Data 2","Data 3","Data 4"]
+                  tbl.print_fancy_format(data=data,
+                                         style=cp.Line_Style.DASH_LINE)
+                  tbl.data_bg = 231
+                  tbl.data_fg = 21
+
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
+'''
+    print(message)
+    data = ["Data 1","Data 2","Data 3","Data 4"]
+    tbl.data_bg = 231
+    tbl.data_fg = 21
+    tbl.print_fancy_format(data=data, style=cp.Line_Style.DASH_LINE)
+
+    tbl.adj_indent = 2
+    tbl.header_bg = 115; tbl.header_fg = 16
+
+    message =f'''
+      {cp.set_font(1,196,231)} Note: {cp.reset_font()} When using line styles, the bg and fg colors will work. However,
+              when using color template such as {cp.set_font(0,115,16)} WHITE_BLACK_PURPLE {cp.reset_font()} the bg and
+              fg will not longer work unless they are for the {cp.set_font(1,22,231,True)} banded row {cp.reset_font()}.
+      '''
+    print(message)
+
+
+    message = f'''
       {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp
                   lst = [[\"Header 0\",\"Header 1\",\"Header 2\",\"Header 3\"],
                   [\"Col 0 Row 1\", \"Col 1 Row 1\", \"Col 2 Row 1\", \"Col 3 Row 1\"],
@@ -3366,20 +3452,19 @@ def print_fancy_format_info():
                   tbl.print_fancy_format(data=lst,
                                        style=cp.Line_Style.TURQUOISE_BLACK)
 
-                  tbl.title_msg = " Range Variable "
-                  tbl.print_fancy_format(data=range(-2, 12, 2),
-                                         style=cp.Line_Style.DOUBLE_LINE)
 
 
       {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
     '''
+
+
 
     print(message)
     lst = [["Header 0","Header 1","Header 2","Header 3"],
        ["Col 0 Row 1", "Col 1 Row 1", "Col 2 Row 1", "Col 3 Row 1"],
        ["Col 0 Row 2", "Col 1 Row 2", "Col 2 Row 2", "Col 3 Row 2"],
        ["Col 0 Row 3", "Col 1 Row 3", "Col 2 Row 3", "Col 3 Row 3"]]
-    tbl = cp.FancyFormat()
+
     tbl.print_fancy_format(lst)
     tbl.adj_top_margin = 2
     tbl.header_align = cp.Align.CENTER
@@ -3396,25 +3481,43 @@ def print_fancy_format_info():
 
 
     message = f'''
-    {cp.set_font(1,196,231)} Note: {cp.reset_font()} Range can be printed vertically as well by changing the set_layout
-            variable. tbl.set_layout = cp.Layout.VERTICAL
+    {cp.set_font(1,196,231)} Note: {cp.reset_font()} For the space template you can change the bg and fg colors for
+            the headers and the data.
+
+            Check {cp.set_font(1,22,231,True)} Line_Style {cp.reset_font()} class to see examples.
+
+            For templates for {cp.set_font(0,115,16)} DESIGN {cp.reset_font()} 1 through 10, yes we can still change
+            the bg and fg colors for the headers and the data.
+
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp
+                  lst = [[\"Header 0\",\"Header 1\",\"Header 2\",\"Header 3\"],
+                  [\"Col 0 Row 1\", \"Col 1 Row 1\", \"Col 2 Row 1\", \"Col 3 Row 1\"],
+                  [\"Col 0 Row 2\", \"Col 1 Row 2\", \"Col 2 Row 2\", \"Col 3 Row 2\"],
+                  [\"Col 0 Row 3\", \"Col 1 Row 3\", \"Col 2 Row 3\", \"Col 3 Row 3\"]]
+
+                  tbl.design_color = 53
+                  tbl.header_bg = 231;        tbl.header_fg = 16
+                  tbl.data_bg   = 196;        tbl.data_fg = 231
+
+                  tbl.print_fancy_format(data=lst,
+                                         style=cp.Line_Style.DESIGN_5)
+
     '''
     print(message)
 
+    tbl.design_color = 53
+    tbl.header_bg = 231; tbl.header_fg = 16
+    tbl.data_bg = 196; tbl.data_fg = 231
+    tbl.print_fancy_format(data=lst, style=cp.Line_Style.DESIGN_5)
 
-    message = f'''
 
-          NOTE IMPORTANTE: los template de colores no puedes cambiar los colores de bg y fg para los titulos y los datos
-                       los template de design del 1 al 10 si puedes cambiar los colores de bg and fg para los titulos y los datos
-                       los template de space del 0 al 6 si puedes cambiar los colores de bg and fg para los titulos y los datos
-    '''
 
 
 # +--------------------------------------------------------------------------------------------+
 # | reset_fancy_format                                                                         |
 # +--------------------------------------------------------------------------------------------+
 def reset_fancy_format_info():
-    ''' It resets all the variable from the FancyFormat Class to their default values '''
+    ''' It resets all the variables from the FancyFormat Class to their default values '''
     cp.ins_newline(1)
     blue_div.print_fancy_divider(all_topics[50])
 
@@ -3422,7 +3525,7 @@ def reset_fancy_format_info():
     tbl.adj_top_margin = 5
 
     message = f'''
-      This method resets all the variable from the FancyFormat Class to their
+      This method resets all the variables from the FancyFormat Class to their
       default values.
 
       {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp
@@ -3441,146 +3544,8 @@ def reset_fancy_format_info():
     print(f"                  Reset : {tbl.adj_top_margin}\n")
 
 
-def fancy_format_diagrams():
-    message = f'''\033[1;48;5;232m
 
 
-   \033[1;48;5;231;38;5;16m Diagram 1 \033[1;48;5;232;38;5;110m
-
-
-  $█
-               {cp.Unicode.UP_DOWN_ARROW} 1
-               T           b     c        b         c         b
-               {cp.Unicode.UP_DOWN_ARROW} 2         {cp.Unicode.DOWN_ARROW}     {cp.Unicode.DOWN_ARROW}        {cp.Unicode.DOWN_ARROW}         {cp.Unicode.DOWN_ARROW}         {cp.Unicode.DOWN_ARROW}
-           a{cp.Unicode.RIGHT_ARROW} ╔═══════════════════╦═══════════════════╦══════════════════╗{cp.Unicode.LEFT_ARROW} d
-           e{cp.Unicode.RIGHT_ARROW} ║        H       f{cp.Unicode.RIGHT_ARROW} ║         H         ║{cp.Unicode.LEFT_ARROW} f     H         ║{cp.Unicode.LEFT_ARROW} g
-           h{cp.Unicode.RIGHT_ARROW} ╠═══════════════════╬═══════════════════╬══════════════════╣{cp.Unicode.LEFT_ARROW} k
-           l{cp.Unicode.RIGHT_ARROW} ║ i{cp.Unicode.UP_ARROW}     D   m{cp.Unicode.DOWN_ARROW}  j\u2197 ║{cp.Unicode.LEFT_ARROW} n      D      j\u2197 ║{cp.Unicode.LEFT_ARROW} n    D          ║{cp.Unicode.LEFT_ARROW} o
-           p{cp.Unicode.RIGHT_ARROW} ╠═══════════════════╬═══════════════════╬══════════════════╣{cp.Unicode.LEFT_ARROW} r
-           l{cp.Unicode.RIGHT_ARROW} ║  m{cp.Unicode.UP_ARROW}    D    m{cp.Unicode.DOWN_ARROW} q\u2197 ║{cp.Unicode.LEFT_ARROW} n      D      q\u2197 ║{cp.Unicode.LEFT_ARROW} n    D          ║{cp.Unicode.LEFT_ARROW} o
-           p{cp.Unicode.RIGHT_ARROW} ╠═══════════════════╬═══════════════════╬══════════════════╣{cp.Unicode.LEFT_ARROW} r
-           l{cp.Unicode.RIGHT_ARROW} ║  m{cp.Unicode.UP_ARROW}    D   t{cp.Unicode.DOWN_ARROW}  q\u2197 ║{cp.Unicode.LEFT_ARROW} n     --S     q\u2197 ║{cp.Unicode.LEFT_ARROW} n   --S         ║{cp.Unicode.LEFT_ARROW} o
-           s{cp.Unicode.RIGHT_ARROW} ╚═══════════════════╩═══════════════════╩══════════════════╝{cp.Unicode.LEFT_ARROW} v
-  |<--------->|<----->|t{cp.Unicode.UP_ARROW}|<----->|{cp.Unicode.UP_ARROW}u       t{cp.Unicode.UP_ARROW}        u{cp.Unicode.UP_ARROW}              {cp.Unicode.UP_DOWN_ARROW} 5
-        3         4          4             4                         F
-              |<---------------->|                                   {cp.Unicode.UP_DOWN_ARROW} 6
-                       7,8
-
-
-
-
-   \033[1;48;5;231;38;5;16m Diagram 2 \033[1;48;5;232m                              \033[1;48;5;231;38;5;16m Diagram 4 \033[1;48;5;232;38;5;161m
-
-
-  $█                                    |  $█
-               {cp.Unicode.UP_DOWN_ARROW} 1                      |               {cp.Unicode.UP_DOWN_ARROW} 1
-               T       b                |               T              b
-               {cp.Unicode.UP_DOWN_ARROW} 2     {cp.Unicode.DOWN_ARROW}                |               {cp.Unicode.UP_DOWN_ARROW} 2            {cp.Unicode.DOWN_ARROW}
-           a{cp.Unicode.RIGHT_ARROW} ╔══════════════════╗{cp.Unicode.LEFT_ARROW} d   |           a{cp.Unicode.RIGHT_ARROW} ╔══════════════════╗{cp.Unicode.LEFT_ARROW} d
-           e{cp.Unicode.RIGHT_ARROW} ║  i{cp.Unicode.DOWN_ARROW}    H         ║{cp.Unicode.LEFT_ARROW} g   |           e{cp.Unicode.RIGHT_ARROW} ║         D        ║{cp.Unicode.LEFT_ARROW} o
-           h{cp.Unicode.RIGHT_ARROW} ╠══════════════════╣{cp.Unicode.LEFT_ARROW} k   |           s{cp.Unicode.RIGHT_ARROW} ╚══════════════════╝{cp.Unicode.LEFT_ARROW} v
-           l{cp.Unicode.RIGHT_ARROW} ║        D         ║{cp.Unicode.LEFT_ARROW} o   |  |<--------->|<----->|t{cp.Unicode.UP_ARROW}|<----->|{cp.Unicode.UP_DOWN_ARROW} 5
-           p{cp.Unicode.RIGHT_ARROW} ╠══════════════════╣{cp.Unicode.LEFT_ARROW} r   |        3         4          4    F
-           l{cp.Unicode.RIGHT_ARROW} ║ m{cp.Unicode.DOWN_ARROW}     D    m{cp.Unicode.UP_ARROW}   ║{cp.Unicode.LEFT_ARROW} o   |              |<---------------->|{cp.Unicode.UP_DOWN_ARROW} 6
-           p{cp.Unicode.RIGHT_ARROW} ╠══════════════════╣{cp.Unicode.LEFT_ARROW} r   |                        8
-           l{cp.Unicode.RIGHT_ARROW} ║ t{cp.Unicode.DOWN_ARROW}     D         ║{cp.Unicode.LEFT_ARROW} o   |
-           s{cp.Unicode.RIGHT_ARROW} ╚══════════════════╝{cp.Unicode.LEFT_ARROW} v   |
-  |<--------->|<----->|t{cp.Unicode.UP_ARROW}|<----->|{cp.Unicode.UP_DOWN_ARROW} 5   |
-        3         4          4    F     |
-              |<---------------->|{cp.Unicode.UP_DOWN_ARROW} 6   |
-                      7,8               |
-
-
-
-
-   \033[1;48;5;231;38;5;16m Diagram 3 \033[1;48;5;232;38;5;29m
-
-
-  $█
-              {cp.Unicode.UP_DOWN_ARROW} 1
-              T      b         c         b        c         b
-              {cp.Unicode.UP_DOWN_ARROW} 2    {cp.Unicode.DOWN_ARROW}         {cp.Unicode.DOWN_ARROW}         {cp.Unicode.DOWN_ARROW}        {cp.Unicode.DOWN_ARROW}         {cp.Unicode.DOWN_ARROW}
-          a{cp.Unicode.RIGHT_ARROW} ╔═════════════════╦══════════════════╦══════════════════╗{cp.Unicode.LEFT_ARROW} d
-          l{cp.Unicode.RIGHT_ARROW} ║   t{cp.Unicode.DOWN_ARROW}   D    n {cp.Unicode.RIGHT_ARROW} ║        D     n {cp.Unicode.RIGHT_ARROW} ║        D         ║{cp.Unicode.LEFT_ARROW} o
-          s{cp.Unicode.RIGHT_ARROW} ╚═════════════════╩══════════════════╩══════════════════╝{cp.Unicode.LEFT_ARROW} v
-  |<-------->|<----->| |<----->|         t{cp.Unicode.UP_ARROW}       u{cp.Unicode.UP_ARROW}              {cp.Unicode.UP_DOWN_ARROW} 5
-       3         4         4                                      F
-             |<--------------->|                                  {cp.Unicode.UP_DOWN_ARROW} 6
-                     8
-
-
-
-
-   \033[1;48;5;231;38;5;16m Diagram 4 \033[1;48;5;232;38;5;110m
-
-
-  $█
-               {cp.Unicode.UP_DOWN_ARROW} 1
-               T              b
-               {cp.Unicode.UP_DOWN_ARROW} 2            {cp.Unicode.DOWN_ARROW}
-           a{cp.Unicode.RIGHT_ARROW} ╔══════════════════════════════════╗{cp.Unicode.LEFT_ARROW} d
-           e{cp.Unicode.RIGHT_ARROW} ║           I am Data (D)          ║{cp.Unicode.LEFT_ARROW} o
-           s{cp.Unicode.RIGHT_ARROW} ╚══════════════════════════════════╝{cp.Unicode.LEFT_ARROW} v
-  |<--------->|<-------->|     t{cp.Unicode.UP_ARROW}     |<-------->|{cp.Unicode.UP_DOWN_ARROW} 5
-        3          4                       4      F
-               |<------------------------------->|{cp.Unicode.UP_DOWN_ARROW} 6
-                             8
-
-\033[0m
-
-'''
-    print(message)
-
-    message = f'''\033[1;48;5;4;38;5;231m
-
-    T {cp.Unicode.RIGHT_ARROW} title_msg
-    H {cp.Unicode.RIGHT_ARROW} header
-    D {cp.Unicode.RIGHT_ARROW} data
-    F {cp.Unicode.RIGHT_ARROW} footnote_msg
-    S {cp.Unicode.RIGHT_ARROW} set_fill_chr
-
-    1. adj_top_margin
-    2. top_space
-    3. adj_indent
-    4. adj_space
-    5. bottom_space
-    6. adj_bottom_margin
-    7. header_all_cell_bg
-    8. data_all_cell_bg
-
-    a. top_left_corner_chr
-    b. top_horizontal_line_chr
-    c. top_middle_corner_chr
-    d. top_right_corner_chr
-
-    e. header_left_vertical_line_chr
-    f. header_middle_vertical_line_chr
-    g. header_right_vertical_line_chr
-    h. header_left_corner_chr
-    i. header_horizontal_line_chr
-    j. header_middle_corner_chr
-    k. header_right_corner_chr
-
-    l. left_vertical_line_chr
-    m. middle_horizontal_line_chr
-    n. middle_vertical_line_chr
-    o. right_vertical_line_chr
-
-    p. left_lateral_corner_chr            middle_left_corner_chr
-    q. middle_inner_corner_chr
-    r. right_lateral_corner_chr           middle_right_corner_chr
-
-    s. bottom_left_corner_chr
-    t. bottom_horizontal_line_chr
-    u. middle_bottom_corner_chr            bottom_middle_corner_chr
-    v. bottom_right_corner_chr
-\033[0m
-    '''
-    print(message)    
-
-
-        # self.middle_left_corner_chr  = " "        # chr only for matrix list (before: left_lateral_corner_chr  1.4V)
-        # self.middle_right_corner_chr = " "        # chr only for matrix list (before: right_lateral_corner_chr 1.4V)
 
 # +-------------------------------------------------------------------------------------------------+
 # |                                                                                                 |
@@ -3591,17 +3556,18 @@ def fancy_format_diagrams():
 # +-------------------------------------------------------------------------------------------------+
 def asciiart_only_info():
     print("it needs work")
-
-
-def asciiart_info():
-    ''' This class prints Ascii Art '''
     cp.ins_newline(1)
     blue_div.print_fancy_divider(all_topics[51])
     mensaje ='''
     This class print Ascii Art for letters and number and symbols.
-
     '''
+
     print(mensaje)
+
+
+def asciiart_info():
+    ''' This class prints Ascii Art '''
+    asciiart_only_info()
     print_ascii_art_info()
     print_multi_ascii_art_info()
     print_ascii_logo_art_info()
@@ -3638,7 +3604,8 @@ def print_reversed_ascii_logo_art_info():
 
 
 
-
+def pylo_info():
+    print("some work need here")
 
 
 

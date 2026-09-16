@@ -46,7 +46,9 @@ if __name__ == "__main__":
 
                       "print_fancy_format", "reset_fancy_format",
 
-                      "print_ascii_art", "print_multi_ascii_art", "print_ascii_logo_art", "print_reversed_ascii_logo_art"]
+                      "print_ascii_art", "print_multi_ascii_art", "print_ascii_logo_art", "print_reversed_ascii_logo_art",
+
+                      "pylo"]
         
 
         # converting all the arguments passed for help to be displayed into a list in lowercase
@@ -104,7 +106,7 @@ if __name__ == "__main__":
 
         # deleting duplicate items in the list
         unique_topic_list = list(dict.fromkeys(original_list))
-        print(unique_topic_list)
+        # print(unique_topic_list)
         
 
 
