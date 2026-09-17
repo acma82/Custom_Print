@@ -13,7 +13,6 @@ from custom_print.ref_names       import Layout, Ascii_Letter
 
 from custom_print.ascii_letters   import*
 # from custom_print.Logos           import*
-
 # from custom_print.pylo            import PyLO
 
 # +------------------------------------------------------------------------------------------------------------------------------------+
@@ -67,7 +66,7 @@ class AsciiArt:
         tbl.footnote_bold  = True;    tbl.footnote_bg  = 90;  tbl.footnote_fg = 231
 
         tbl.adj_bottom_margin = 2; tbl.adj_top_margin = 2
-        tbl.adj_bottom_space  = 0; tbl.adj_top_space  = 2
+        tbl.adj_bottom_space  = 0; tbl.adj_top_space  = 2; tbl.adj_indent = 0
 
         tbl.print_fancy_format(data=ascii_letter_description, style=Line_Style.WHITE_BLACK_PURPLE)
 
