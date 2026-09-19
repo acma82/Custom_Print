@@ -827,17 +827,17 @@ def get_odd_even_space_adj(length,len_dato):
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 def print_matrix_list(self,my_list):
     '''
-        printing the table 
+        printing the table
     '''
-    # these 3 variables are for the banded_row (even_line)
-    ctrl_even_line = 0  # odd
-    odd_data_bg   = self.data_bg
-    odd_data_fg   = self.data_fg
-
+    # these 3 variables are for the banded_row_on only on even_lines
+    control_banded_row = 1
+    # These variables are for the multi_color effect (rainbow)    They are the start color
+    multi_bg = self.data_bg
+    multi_fg = self.data_fg
     # d  :data,   v: vertical,   hcl: left_corner_header,   mch:middle_corner_header, rch:right_corner_header,   t:title(header)
+    # set_d -> is Set right away where it is going to be used because it will be changing depending on the settings
+    #          if the set_banded_row_on = True or the set_multi_bg_fg_on = True or any other combination.
     # get all the settings for the list
-    set_d = set_font(self.data_bold, self.data_bg, self.data_fg,self.data_italic, self.data_underline, self.data_strike,\
-                     self.data_blinking, self.data_dim, self.data_hidden, self.data_inverse)
     set_v = set_font(self.vertical_line_bold, self.vertical_line_bg, self.vertical_line_fg)
 
     set_hchr_v = set_font(self.header_vertical_line_bold, self.header_vertical_line_bg,self.header_vertical_line_fg)
@@ -915,19 +915,50 @@ def print_matrix_list(self,my_list):
 
                 else:                        # printing Data
                     # checking if the even line is on
-                    if self.set_banded_row_on  == False: pass
-                    else:
-                        if ctrl_even_line == 0:    # line 1 of the data is odd
-                            ctrl_even_line = 2
+                    if self.set_banded_row_on  == False:           # if both false all normal
+                        if self.set_multi_bg_fg_on == False:
+                            set_d = set_font(self.data_bold, self.data_bg, self.data_fg, self.data_italic, self.data_underline,\
+                                             self.data_strike, self.data_blinking, self.data_dim, self.data_hidden, self.data_inverse)
 
-                        elif ctrl_even_line == 1:  # line odd of data
-                            ctrl_even_line = 2
-                            set_d = set_font(self.data_bold, odd_data_bg, odd_data_fg,self.data_italic, self.data_underline, self.data_strike,\
-                                             self.data_blinking, self.data_dim, self.data_hidden, self.data_inverse)
-                        else:                      # line even of data
-                            ctrl_even_line = 1
-                            set_d = set_font(self.data_bold, self.banded_row_bg, self.banded_row_fg,self.data_italic, self.data_underline, self.data_strike,\
-                                             self.data_blinking, self.data_dim, self.data_hidden, self.data_inverse)
+                        else:  # banded = False and multi = True
+                            set_d = set_font(self.data_bold, multi_bg, multi_fg, self.data_italic, self.data_underline,\
+                                             self.data_strike, self.data_blinking, self.data_dim, self.data_hidden, self.data_inverse)
+                            multi_bg += self.data_multi_bg_step
+                            if multi_bg >= self.data_multi_bg_stop:
+                                multi_bg = self.data_bg # start over again
+
+                            multi_fg += self.data_multi_fg_step
+                            if multi_fg >= self.data_multi_fg_stop:
+                                multi_fg = self.data_fg # start over again
+
+                    else:    # banded = True and multi = False
+                        if self.set_multi_bg_fg_on == False:
+                            if control_banded_row == 1:    # line 1 of the data is odd (data_bg)
+                                control_banded_row = 2
+                                set_d = set_font(self.data_bold, self.data_bg, self.data_fg, self.data_italic, self.data_underline,\
+                                                 self.data_strike, self.data_blinking, self.data_dim, self.data_hidden, self.data_inverse)
+
+                            else:
+                                control_banded_row = 1      # line even of data (data_banded_row)
+                                set_d = set_font(self.data_bold, self.banded_row_bg, self.banded_row_fg, self.data_italic, self.data_underline,\
+                                                 self.data_strike, self.data_blinking, self.data_dim, self.data_hidden, self.data_inverse)
+                        else:    # banded = True and multi = True
+                            if control_banded_row == 1:    # line 1 of the data is odd (data_bg)
+                                control_banded_row = 2
+                                set_d = set_font(self.data_bold, multi_bg, multi_fg, self.data_italic, self.data_underline,\
+                                                 self.data_strike, self.data_blinking, self.data_dim, self.data_hidden, self.data_inverse)
+                                multi_bg += self.data_multi_bg_step
+                                if multi_bg >= self.data_multi_bg_stop:
+                                    multi_bg = self.data_bg # start over again
+
+                                multi_fg += self.data_multi_fg_step
+                                if multi_fg >= self.data_multi_fg_stop:
+                                    multi_fg = self.data_fg # start over again
+                            else:
+                                control_banded_row = 1
+                                set_d = set_font(self.data_bold, self.banded_row_bg, self.banded_row_fg, self.data_italic, self.data_underline,\
+                                                 self.data_strike, self.data_blinking, self.data_dim, self.data_hidden, self.data_inverse)
+                    #----------------------------------------------------------------------------------------------------------------------------------
 
                     if (self.data_align.lower() == "left") or (self.data_align.lower() == "l"):
                         print(move_cursor_right(self.adj_indent) + set_v + self.left_vertical_line_chr + set_d + dato+\
@@ -972,7 +1003,6 @@ def print_matrix_list(self,my_list):
                             indent = 0; print_horizontal_segment(self, self.middle_right_corner_chr, self.middle_horizontal_line_chr,\
                                                                   0, indent, "inner_corner")
                             print()
-        #---------------------------------------------------------------------------------------------------------------------------------------------
 
         # print the bottom horizontal line
         if  self.bottom_horizontal_line_on == 1:
@@ -991,6 +1021,7 @@ def print_matrix_list(self,my_list):
     # Awsome...!                                                                                                                                     -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     else:
+
         max_rows, max_cols = get_number_rows_cols_list(my_list)
         n_cols = []; tempo_cols = []
 
@@ -1075,26 +1106,58 @@ def print_matrix_list(self,my_list):
 
             print() # done top line, jump to next line to print data
 
+        # printing the data here
         ctrl_sep = 1
         for datos in my_list[1:]:  # This skip the first one
             ctrl_col = 0
             vertical = move_cursor_right(self.adj_indent)+set_v+self.left_vertical_line_chr
 
             # checking if the even line is on
-            if self.set_banded_row_on  == False: pass
-            else:
-                if ctrl_even_line == 0:    # line 1 of the data is odd
-                    ctrl_even_line = 2
+            if self.set_banded_row_on  == False:           # if both false all normal
+                if self.set_multi_bg_fg_on == False:
+                    set_d = set_font(self.data_bold, self.data_bg, self.data_fg, self.data_italic, self.data_underline,\
+                                        self.data_strike, self.data_blinking, self.data_dim, self.data_hidden, self.data_inverse)
 
-                elif ctrl_even_line == 1:  # line odd of data
-                    ctrl_even_line = 2
-                    set_d = set_font(self.data_bold, odd_data_bg, odd_data_fg,self.data_italic, self.data_underline, self.data_strike,\
-                                        self.data_blinking, self.data_dim, self.data_hidden, self.data_inverse)
-                else:                      # line even of data
-                    ctrl_even_line = 1
-                    set_d = set_font(self.data_bold, self.banded_row_bg, self.banded_row_fg,self.data_italic, self.data_underline, self.data_strike,\
-                                        self.data_blinking, self.data_dim, self.data_hidden, self.data_inverse)
-            # printing the data here
+                else:  # banded = False and multi = True
+                    set_d = set_font(self.data_bold, multi_bg, multi_fg, self.data_italic, self.data_underline,\
+                                        self.data_strike, self.data_blinking, self.data_dim, self.data_hidden, self.data_inverse)
+                    multi_bg += self.data_multi_bg_step
+                    if multi_bg >= self.data_multi_bg_stop:
+                        multi_bg = self.data_bg # start over again
+
+                    multi_fg += self.data_multi_fg_step
+                    if multi_fg >= self.data_multi_fg_stop:
+                        multi_fg = self.data_fg # start over again
+
+            else:    # banded = True and multi = False
+                if self.set_multi_bg_fg_on == False:
+                    if control_banded_row == 1:    # line 1 of the data is odd (data_bg)
+                        control_banded_row = 2
+                        set_d = set_font(self.data_bold, self.data_bg, self.data_fg, self.data_italic, self.data_underline,\
+                                            self.data_strike, self.data_blinking, self.data_dim, self.data_hidden, self.data_inverse)
+
+                    else:
+                        control_banded_row = 1      # line even of data (data_banded_row)
+                        set_d = set_font(self.data_bold, self.banded_row_bg, self.banded_row_fg, self.data_italic, self.data_underline,\
+                                            self.data_strike, self.data_blinking, self.data_dim, self.data_hidden, self.data_inverse)
+                else:    # banded = True and multi = True
+                    if control_banded_row == 1:    # line 1 of the data is odd (data_bg)
+                        control_banded_row = 2
+                        set_d = set_font(self.data_bold, multi_bg, multi_fg, self.data_italic, self.data_underline,\
+                                            self.data_strike, self.data_blinking, self.data_dim, self.data_hidden, self.data_inverse)
+                        multi_bg += self.data_multi_bg_step
+                        if multi_bg >= self.data_multi_bg_stop:
+                            multi_bg = self.data_bg # start over again
+
+                        multi_fg += self.data_multi_fg_step
+                        if multi_fg >= self.data_multi_fg_stop:
+                            multi_fg = self.data_fg # start over again
+                    else:
+                        control_banded_row = 1
+                        set_d = set_font(self.data_bold, self.banded_row_bg, self.banded_row_fg, self.data_italic, self.data_underline,\
+                                            self.data_strike, self.data_blinking, self.data_dim, self.data_hidden, self.data_inverse)
+            #----------------------------------------------------------------------------------------------------------------------------------
+
             for dato in datos:
                 if (self.data_align.lower() == "left") or (self.data_align.lower() == "l"):
                     print(vertical + set_d + dato + move_cursor_right((self.adj_space*2)+(longest_cols[ctrl_col]-len(dato)),self.data_all_cell_bg) +\
@@ -1489,7 +1552,7 @@ class FancyFormat:
         self.set_fill_chr      = "----"            # to fill the empty spots when the list is not complete
         self.set_layout        = Layout.HORIZONTAL # This is only for Range, Set, Frozenset and dictionary type
         self.update_list       = False             # if we want to save the data as it's presented, but string each element in list
-        self.set_banded_row_on  = False 
+        self.set_banded_row_on = False
         self.banded_row_bg     = -1
         self.banded_row_fg     = -1
         #    +------------------------------------------------------------------------------+
@@ -1508,6 +1571,13 @@ class FancyFormat:
         # False -> will set all the lines to regular and it will respect every single variable assigned to the bold lines
         self.bold_lines = False
 
+        #---------------------------------------------------------------------------------------------------------------------------------------------
+        # Multi colors bg and fg (Rainbow) Section
+        self.set_multi_bg_fg_on = False
+        self.data_multi_bg_step  = 1
+        self.data_multi_bg_stop  = 255
+        self.data_multi_fg_step  = 1
+        self.data_multi_fg_stop  = 255
 
         #---------------------------------------------------------------------------------------------------------------------------------------------
         # Title Section
@@ -1664,7 +1734,7 @@ class FancyFormat:
         self.set_fill_chr      = "----"            # to fill the empty spots when the list is not complete
         self.set_layout        = Layout.HORIZONTAL # This is only for Range, Set, Frozenset and dictionary type
         self.update_list       = False             # if we want to save the data as it's presented, but string each element in list
-        self.set_banded_row_on  = False 
+        self.set_banded_row_on = False
         self.banded_row_bg     = -1
         self.banded_row_fg     = -1
         #    +------------------------------------------------------------------------------+
@@ -1683,7 +1753,13 @@ class FancyFormat:
         # False -> will set all the lines to regular and it will respect every single variable assigned to the bold lines
         self.bold_lines = False
 
-
+        #---------------------------------------------------------------------------------------------------------------------------------------------
+        # Multi colors bg and fg (Rainbow)
+        self.set_multi_bg_fg_on = False
+        self.data_multi_bg_step  = 1
+        self.data_multi_bg_stop  = 255
+        self.data_multi_fg_step  = 1
+        self.data_multi_fg_stop  = 255
         #---------------------------------------------------------------------------------------------------------------------------------------------
         # Title Section
         self.title_msg       = ""                  # string value
@@ -2171,7 +2247,7 @@ class FancyFormat:
             flag_row_col_insert = 1
             make_double_empty_space_on_tbl(self)
             set_color_for_spaces_on_tbl(self, 100, 44, 234, 234, 231)
-            
+
 
         #    +-------------------------------------------------------------------------+
         #    |    This option is when we don't want any type of lines.                 |
@@ -2181,11 +2257,11 @@ class FancyFormat:
         #    |    The user needs to set the colors manually                            |
         #    |    Remember: set_bg_list_on = False                                     |
         #    +-------------------------------------------------------------------------+
-        elif style.lower() == Line_Style.SPACE_0:               # NO SPACE AT ALL 
+        elif style.lower() == Line_Style.SPACE_0:               # NO SPACE AT ALL
             make_no_space_0_on_tbl(self)
         elif style.lower() == Line_Style.SPACE_1:               # SINGLE SPACE VERTICAL
             make_space_vertical_only_on_tbl(self)
-        elif style.lower() == Line_Style.SPACE_2:               # NO SPACE ON VERTICAL 
+        elif style.lower() == Line_Style.SPACE_2:               # NO SPACE ON VERTICAL
             make_no_space_1_on_tbl(self)
         elif style.lower() == Line_Style.SPACE_3:               # NO SPACE ON COLUMN
             make_no_space_2_on_tbl(self)
@@ -2443,7 +2519,7 @@ class FancyFormat:
             self.header_right_vertical_line_chr = ""       # 23
             self.header_right_corner_chr  = ""             # 25
             self.right_vertical_line_chr  = ""             # 12
-            self.middle_right_corner_chr = ""             # 28
+            self.middle_right_corner_chr = ""              # 28
             self.bottom_right_corner_chr  = ""             # 15
 
         if  self.left_vertical_line_on == False:
@@ -2451,7 +2527,7 @@ class FancyFormat:
             self.header_left_vertical_line_chr = ""        # 22
             self.header_left_corner_chr  = ""              # 24
             self.left_vertical_line_chr  = ""              # 11
-            self.middle_left_corner_chr = ""              # 27
+            self.middle_left_corner_chr = ""               # 27
             self.bottom_left_corner_chr  = ""              # 16
 
         if self.middle_vertical_line_on == False:

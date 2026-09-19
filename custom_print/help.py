@@ -3214,6 +3214,117 @@ def fancyformat_only_info():
     '''
     print(message)
 
+
+    message = f'''
+      {cp.set_font(0,53,231,0)}                                                                          {cp.reset_font()}
+      {cp.set_font(1,53,231,0)}    Multi Color Section                                                   {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}                                                                          {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}    self.set_multi_bg_fg_on = False   |                                   {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}                                      |                                   {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}    self.data_multi_bg_step  = 1      |    self.data_multi_fg_step  = 1   {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}    self.data_multi_bg_stop  = 255    |    self.data_multi_fg_stop  = 255 {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}                                      |                                   {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}                                                                          {cp.reset_font()}
+
+       This option was created to make an effect to the table. When setting
+       set_multi_bg_fg_on to True, the variables work as decribed below.
+
+       data_multi_bg works as a range variable (start, stop, step).
+       The start will be the the data_bg variable (describe on Data Section),
+       the stop will be the data_multi_bg_stop and the step will be the
+       variable data_bg_step.
+
+       Let's assume you have a table with 5 data rows, and data_bg is set to 9,
+       this is our start, the first row color will be the number 9, LIGHT_BLUE,
+       check the ansi_colors function for more reference. Assume that our
+       data_multi_bg_stop is set to 21. Now see the table below to see the
+       behavior or the colors in the table.
+
+       Rows        Start             Color
+        1          data_bg = 12      PASTEL_RED            (9)
+        2          data_bg += _step  ELECTRIC_LIGHT_GREEN  (10)
+        3          14                DARKISH_YELLOW        (11)
+        4          15                LIGHT_BLUE            (12)
+        5          16                LIGHT_PURPLE          (13)
+
+
+      {cp.set_font(1,196,231)} Note: {cp.reset_font()} The stop was set to 21,
+      on this case the the data_multi_bg did not reach to the end. Now assume
+      that the data_multi_bg_step is set to 4. See the behavior of the color
+      in the following table.
+
+       Rows        Start             Color
+        1          data_bg = 12      PASTEL_RED            (9)
+        2          data_bg += _step  LIGHT_PURPLE          (13)
+        3          14                DARK_BLUE             (17)
+        4          15                PASTEL_RED            (21) Restar (9)
+        5          16                LIGHT_PURPLE          (13)
+
+      Notice that the row fourth, reach the limit, However the color is
+      restarted to the beginning which is the data_bg color, 9 (PASTEL_RED color).
+
+      The data_multi_fg works exactly the same as the data_multi_bg.
+
+      In the following example we keep the same background (step=0) to visualize
+      the color in a better way. Also, notice that the header colors are NOT
+      modified at all.
+
+
+
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp
+                  tbl = cp.FancyFormat()
+
+                  lst   = [["Header 1", "Header 2", "Header 3", "Header 4"],
+                           ["Data 1",   "Data 2",   "Data 3",   "Data 4"  ],
+                           ["Data 2",   "Data 6",   "Data 7",   "Data 8"  ],
+                           ["Data 3",   "Data 2",   "Data 3",   "Data 4"  ],
+                           ["Data 4",   "Data 2",   "Data 3",   "Data 4"  ],
+                           ["Data 5",   "Data 2",   "Data 3",   "Data 4"  ]]
+
+                  tbl.header_bg = cp.No.VERY_DARK_MAGENTA
+                  tbl.header_fg = cp.No.WHITE
+
+                  tbl.data_bg   = cp.No.WHITE # 15
+                  tbl.data_multi_bg_step = 0
+
+
+                  tbl.set_multi_bg_fg_on = True
+                  tbl.data_fg = 9               # start
+                  tbl.data_multi_fg_step = 4
+                  tbl.data_multi_fg_stop = 21
+                  tbl.data_bold = True
+
+                  tbl.print_fancy_format(data=my_list,
+                                         style=cp.Line_Style.DASH_LINE)
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
+'''
+    print(message)
+
+    lst = [["Header 1", "Header 2", "Header 3", "Header 4"],
+            ["Data 1",   "Data 2",   "Data 3",   "Data 4"  ],
+            ["Data 2",   "Data 6",   "Data 7",   "Data 8"  ],
+            ["Data 3",   "Data 2",   "Data 3",   "Data 4"  ],
+            ["Data 4",   "Data 2",   "Data 3",   "Data 4"  ],
+            ["Data 5",   "Data 2",   "Data 3",   "Data 4"  ]]
+
+    tbl.set_banded_row_on = False
+    tbl.title_msg = "set_multi_bg_fg_on = True"
+    tbl.header_bg = cp.No.VERY_DARK_MAGENTA
+    tbl.header_fg = cp.No.WHITE
+
+    tbl.data_bg   = cp.No.WHITE # 15
+    tbl.data_multi_bg_step = 0
+
+
+    tbl.set_multi_bg_fg_on = True
+    tbl.data_fg = 9               # start
+    tbl.data_multi_fg_step = 4
+    tbl.data_multi_fg_stop = 21
+    tbl.data_bold = True
+
+    tbl.print_fancy_format(data=lst,
+                            style=cp.Line_Style.DASH_LINE)
+
     message = f'''
       {cp.set_font(0,53,231,0)}                                                                          {cp.reset_font()}
       {cp.set_font(1,53,231,0)}    Horizontal Line Section                Vertical Line Section          {cp.reset_font()}
@@ -3452,9 +3563,9 @@ def print_fancy_format_info():
       DESIGN templates (1 through 10), the bg and fg colors for headers and
       data work normally. However, when using color templates (such as
       WHITE_PURPLE and similar), the bg and fg settings for headers and data
-      are ignored, except when they apply to banded rows. For SPACE templates
-      (0 through 6), you must specify the bg and fg colors for every element
-      in the table. See the Line_Style class for examples.
+      are ignored, except when they apply to banded rows or data multi colors.
+      For SPACE templates (0 through 6), you must specify the bg and fg colors
+      for every element in the table. See the Line_Style class for examples.
       '''
     print(message)
 
@@ -3522,6 +3633,8 @@ def print_fancy_format_info():
 
     message = f'''
       {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp
+                  tbl = cp.FancyFormat()
+
                   lst = [[\"Header 0\",\"Header 1\",\"Header 2\",\"Header 3\"],
                   [\"Col 0 Row 1\", \"Col 1 Row 1\", \"Col 2 Row 1\", \"Col 3 Row 1\"],
                   [\"Col 0 Row 2\", \"Col 1 Row 2\", \"Col 2 Row 2\", \"Col 3 Row 2\"],
@@ -3537,7 +3650,7 @@ def print_fancy_format_info():
 
                   tbl.print_fancy_format(data=lst,
                                          style=cp.Line_Style.DESIGN_5)
-
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
     '''
     print(message)
 
@@ -3547,10 +3660,92 @@ def print_fancy_format_info():
     tbl.header_bg = 231; tbl.header_fg = 16
     tbl.data_bg = 196; tbl.data_fg = 231
     tbl.print_fancy_format(data=lst, style=cp.Line_Style.DESIGN_5)
-    print()
 
+    message = f'''
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp
+                  tbl = cp.FancyFormat()
 
+                  lst = [["Header 1", "Header 2", "Header 3", "Header 4"],
+                         ["Data 1",   "Data 2",   "Data 3",   "Data 4"  ],
+                         ["Data 2",   "Data 6",   "Data 7",   "Data 8"  ],
+                         ["Data 3",   "Data 2",   "Data 3",   "Data 4"  ],
+                         ["Data 4",   "Data 2",   "Data 3",   "Data 4"  ],
+                         ["Data 5",   "Data 2",   "Data 3",   "Data 4"  ]]
 
+                  tbl.title_msg = " Line_Style.TEAL_WHITE "
+                  tbl.title_align = cp.Align.CENTER
+                  tbl.title_bg = cp.No.DARK_WHITE
+                  tbl.title_fg = 22
+
+                  tbl.header_bg = cp.No.VERY_DARK_MAGENTA
+                  tbl.header_fg = cp.No.WHITE
+
+                  tbl.data_align = cp.Align.CENTER
+                  tbl.data_bold  = True
+                  tbl.data_bg    = cp.No.WHITE # 15 (start)
+                  tbl.data_fg    = 9           #    (start)
+
+                  tbl.set_multi_bg_fg_on = True
+
+                  tbl.data_multi_bg_step = 2
+                  tbl.data_multi_bg_stop = 255  # This is the default value
+                                                # just to undertand better.
+                                                # Not necessary.
+                  tbl.data_multi_fg_step = 4
+                  tbl.data_multi_fg_stop = 121
+
+                  tbl.print_fancy_format(data=lst,
+                                        style=cp.Line_Style.TEAL_WHITE)
+                  # TEAL_WHITE -> data_bg=231  data_fg=21
+                  # How the design is done with the colors internally.
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
+'''
+    print(message)
+    tbl.title_msg = " Line_Style.TEAL_WHITE "
+
+    lst = [["Header 1", "Header 2", "Header 3", "Header 4"],
+           ["Data 1",   "Data 2",   "Data 3",   "Data 4"  ],
+           ["Data 2",   "Data 6",   "Data 7",   "Data 8"  ],
+           ["Data 3",   "Data 2",   "Data 3",   "Data 4"  ],
+           ["Data 4",   "Data 2",   "Data 3",   "Data 4"  ],
+           ["Data 5",   "Data 2",   "Data 3",   "Data 4"  ]]
+
+    tbl.header_bg = cp.No.VERY_DARK_MAGENTA
+    tbl.header_fg = cp.No.WHITE
+
+    tbl.data_bold = True
+    tbl.data_bg   = cp.No.WHITE # 15 (start)
+    tbl.data_fg   = 9           #    (start)
+
+    tbl.set_multi_bg_fg_on = True
+
+    tbl.data_multi_bg_step = 2
+    tbl.data_multi_bg_stop = 255  # This is the default value
+                                  # just to undertand better (Not necessary)
+
+    tbl.data_multi_fg_step = 4
+    tbl.data_multi_fg_stop = 121
+
+    tbl.print_fancy_format(data=lst, style=cp.Line_Style.TEAL_WHITE)
+    # TEAL_WHITE -> data_bg=231  data_fg=21
+
+    message = f'''
+      {cp.set_font(1,196,231)} Note: {cp.reset_font()} The colors for the TEAL_WHITE are set internally to data_bg = 231
+              and data_fg = 21, that is the start colors. From that point the colors start to modified with the settings
+              created in the code above using the variables:
+
+      {cp.set_font(1,22,231,True)}                             {cp.reset_font()}
+      {cp.set_font(1,22,231,True)}  set_multi_bg_fg_on = True  {cp.reset_font()}
+      {cp.set_font(1,22,231,True)}                             {cp.reset_font()}
+      {cp.set_font(1,22,231,True)}  data_multi_bg_step = 2     {cp.reset_font()}
+      {cp.set_font(1,22,231,True)}  data_multi_bg_stop = 255   {cp.reset_font()}
+      {cp.set_font(1,22,231,True)}                             {cp.reset_font()}
+      {cp.set_font(1,22,231,True)}  data_multi_fg_step = 4     {cp.reset_font()}
+      {cp.set_font(1,22,231,True)}  data_multi_fg_stop = 121   {cp.reset_font()}
+      {cp.set_font(1,22,231,True)}                             {cp.reset_font()}
+
+'''
+    print(message)
 
 # +--------------------------------------------------------------------------------------------+
 # | reset_fancy_format                                                                         |
