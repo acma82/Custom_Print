@@ -830,7 +830,7 @@ def print_matrix_list(self,my_list):
         printing the table
     '''
     # these 3 variables are for the banded_row_on only on even_lines
-    control_banded_row = 1
+    control_banded_row = 0 #self.banded_row_step   # 1
     # These variables are for the multi_color effect (rainbow)    They are the start color
     multi_bg = self.data_bg
     multi_fg = self.data_fg
@@ -933,20 +933,25 @@ def print_matrix_list(self,my_list):
 
                     else:    # banded = True and multi = False
                         if self.set_multi_bg_fg_on == False:
-                            if control_banded_row == 1:    # line 1 of the data is odd (data_bg)
-                                control_banded_row = 2
+                            if control_banded_row == 0:    # line 1 of the data
+                                control_banded_row += 1
                                 set_d = set_font(self.data_bold, self.data_bg, self.data_fg, self.data_italic, self.data_underline,\
-                                                 self.data_strike, self.data_blinking, self.data_dim, self.data_hidden, self.data_inverse)
+                                                    self.data_strike, self.data_blinking, self.data_dim, self.data_hidden, self.data_inverse)
+                                
 
-                            else:
-                                control_banded_row = 1      # line even of data (data_banded_row)
+                            elif control_banded_row == self.banded_row_step:
+                                control_banded_row = 0
                                 set_d = set_font(self.data_bold, self.banded_row_bg, self.banded_row_fg, self.data_italic, self.data_underline,\
-                                                 self.data_strike, self.data_blinking, self.data_dim, self.data_hidden, self.data_inverse)
+                                                    self.data_strike, self.data_blinking, self.data_dim, self.data_hidden, self.data_inverse)
+                            else:
+                                control_banded_row += 1      # line even of data
+                                set_d = set_font(self.data_bold, self.data_bg, self.data_fg, self.data_italic, self.data_underline,\
+                                                    self.data_strike, self.data_blinking, self.data_dim, self.data_hidden, self.data_inverse)
                         else:    # banded = True and multi = True
-                            if control_banded_row == 1:    # line 1 of the data is odd (data_bg)
-                                control_banded_row = 2
+                            if control_banded_row == 0:    # line 1 of the data is odd (data_bg)
+                                control_banded_row += 1
                                 set_d = set_font(self.data_bold, multi_bg, multi_fg, self.data_italic, self.data_underline,\
-                                                 self.data_strike, self.data_blinking, self.data_dim, self.data_hidden, self.data_inverse)
+                                                    self.data_strike, self.data_blinking, self.data_dim, self.data_hidden, self.data_inverse)
                                 multi_bg += self.data_multi_bg_step
                                 if multi_bg >= self.data_multi_bg_stop:
                                     multi_bg = self.data_bg # start over again
@@ -954,10 +959,22 @@ def print_matrix_list(self,my_list):
                                 multi_fg += self.data_multi_fg_step
                                 if multi_fg >= self.data_multi_fg_stop:
                                     multi_fg = self.data_fg # start over again
-                            else:
-                                control_banded_row = 1
+
+                            elif control_banded_row == self.banded_row_step:
+                                control_banded_row = 0
                                 set_d = set_font(self.data_bold, self.banded_row_bg, self.banded_row_fg, self.data_italic, self.data_underline,\
-                                                 self.data_strike, self.data_blinking, self.data_dim, self.data_hidden, self.data_inverse)
+                                                self.data_strike, self.data_blinking, self.data_dim, self.data_hidden, self.data_inverse)
+                            else:
+                                control_banded_row += 1
+                                set_d = set_font(self.data_bold, multi_bg, multi_fg, self.data_italic, self.data_underline,\
+                                                    self.data_strike, self.data_blinking, self.data_dim, self.data_hidden, self.data_inverse)
+                                multi_bg += self.data_multi_bg_step
+                                if multi_bg >= self.data_multi_bg_stop:
+                                    multi_bg = self.data_bg # start over again
+
+                                multi_fg += self.data_multi_fg_step
+                                if multi_fg >= self.data_multi_fg_stop:
+                                    multi_fg = self.data_fg # start over again
                     #----------------------------------------------------------------------------------------------------------------------------------
 
                     if (self.data_align.lower() == "left") or (self.data_align.lower() == "l"):
@@ -1131,18 +1148,23 @@ def print_matrix_list(self,my_list):
 
             else:    # banded = True and multi = False
                 if self.set_multi_bg_fg_on == False:
-                    if control_banded_row == 1:    # line 1 of the data is odd (data_bg)
-                        control_banded_row = 2
+                    if control_banded_row == 0:    # line 1 of the data
+                        control_banded_row += 1
                         set_d = set_font(self.data_bold, self.data_bg, self.data_fg, self.data_italic, self.data_underline,\
                                             self.data_strike, self.data_blinking, self.data_dim, self.data_hidden, self.data_inverse)
+                        
 
-                    else:
-                        control_banded_row = 1      # line even of data (data_banded_row)
+                    elif control_banded_row == self.banded_row_step:
+                        control_banded_row = 0
                         set_d = set_font(self.data_bold, self.banded_row_bg, self.banded_row_fg, self.data_italic, self.data_underline,\
                                             self.data_strike, self.data_blinking, self.data_dim, self.data_hidden, self.data_inverse)
+                    else:
+                        control_banded_row += 1      # line even of data
+                        set_d = set_font(self.data_bold, self.data_bg, self.data_fg, self.data_italic, self.data_underline,\
+                                            self.data_strike, self.data_blinking, self.data_dim, self.data_hidden, self.data_inverse)
                 else:    # banded = True and multi = True
-                    if control_banded_row == 1:    # line 1 of the data is odd (data_bg)
-                        control_banded_row = 2
+                    if control_banded_row == 0:    # line 1 of the data is odd (data_bg)
+                        control_banded_row += 1
                         set_d = set_font(self.data_bold, multi_bg, multi_fg, self.data_italic, self.data_underline,\
                                             self.data_strike, self.data_blinking, self.data_dim, self.data_hidden, self.data_inverse)
                         multi_bg += self.data_multi_bg_step
@@ -1152,10 +1174,24 @@ def print_matrix_list(self,my_list):
                         multi_fg += self.data_multi_fg_step
                         if multi_fg >= self.data_multi_fg_stop:
                             multi_fg = self.data_fg # start over again
-                    else:
-                        control_banded_row = 1
+
+                    elif control_banded_row == self.banded_row_step:
+                        control_banded_row = 0
                         set_d = set_font(self.data_bold, self.banded_row_bg, self.banded_row_fg, self.data_italic, self.data_underline,\
+                                         self.data_strike, self.data_blinking, self.data_dim, self.data_hidden, self.data_inverse)
+                    else:
+                        control_banded_row += 1
+                        set_d = set_font(self.data_bold, multi_bg, multi_fg, self.data_italic, self.data_underline,\
                                             self.data_strike, self.data_blinking, self.data_dim, self.data_hidden, self.data_inverse)
+                        multi_bg += self.data_multi_bg_step
+                        if multi_bg >= self.data_multi_bg_stop:
+                            multi_bg = self.data_bg # start over again
+
+                        multi_fg += self.data_multi_fg_step
+                        if multi_fg >= self.data_multi_fg_stop:
+                            multi_fg = self.data_fg # start over again
+
+                        
             #----------------------------------------------------------------------------------------------------------------------------------
 
             for dato in datos:
@@ -1555,6 +1591,7 @@ class FancyFormat:
         self.set_banded_row_on = False
         self.banded_row_bg     = -1
         self.banded_row_fg     = -1
+        self.banded_row_step   = 1
         #    +------------------------------------------------------------------------------+
         #    |    Color Design Template, Demos                                              |
         #    |    The following are some predesign (Design 1,2)                             |
@@ -1577,7 +1614,7 @@ class FancyFormat:
         self.data_multi_bg_step  = 1
         self.data_multi_bg_stop  = 255
         self.data_multi_fg_step  = 1
-        self.data_multi_fg_stop  = 255
+        self.data_multi_fg_stop  = 255        
 
         #---------------------------------------------------------------------------------------------------------------------------------------------
         # Title Section
@@ -1737,6 +1774,7 @@ class FancyFormat:
         self.set_banded_row_on = False
         self.banded_row_bg     = -1
         self.banded_row_fg     = -1
+        self.banded_row_step   = 1
         #    +------------------------------------------------------------------------------+
         #    |    Color Design Template, Demos                                              |
         #    |    The following are some predesign (Design 1,2)                             |
