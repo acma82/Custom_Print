@@ -24,73 +24,12 @@ class AsciiArt:
         self.bold     = False;                self.bg = -1;                           self.fg = -1
         self.italic   = False;                self.underline = False;                 self.strike = False
         self.blinking = False;                self.dim = False;                       self.hidden = False
-        self.inverse  = False;                self.ascii_type = Ascii_Letter.Standard
+        self.inverse  = False;                self.ascii_type = Ascii_Letter.STANDARD
               
         self.adj_indent = 0;                  self.adj_space  = 0;                    self.delay_ms   = 0
         self.set_layout = Layout.VERTICAL;    self.set_top_line = True;               self.set_bottom_line = True; 
         self.adj_left_space = 0;              self.adj_middle_space = 0;              self.adj_right_space = 0
         
-    def description_ascii_letters(self):
-        tbl = FancyFormat()
-        ascii_letter_description = [["No.", "Type",                      "Uppercase",    "Lowercase",    "Shiff_On",     "Shift_Off"],
-                                    [1,     Ascii_Letter.Alpha,          "Yes",          "No",           "No",           "No"       ],
-                                    [2,     Ascii_Letter.ANSI_Shadow,    "Yes",          "No",           "Yes",          "Yes"      ],
-                                    [3,     Ascii_Letter.Big,            "Yes",          "Yes",          "Yes",          "Yes"      ],
-                                    [4,     Ascii_Letter.Blocks,         "Yes",          "No",           "Yes",          "Yes"      ],
-                                    [5,     Ascii_Letter.Bulbhead,       "Yes",          "No",           "Yes",          "Yes"      ],
-                                    [6,     Ascii_Letter.Classy,         "Yes",          "Yes",          "Yes",          "Yes"      ],
-                                    [7,     Ascii_Letter.Colossal,       "Yes",          "Yes",          "Yes",          "Yes"      ],
-                                    [8,     Ascii_Letter.Crazy,          "Yes",          "Yes",          "Yes",          "Yes"      ],
-                                    [9,     Ascii_Letter.Doh,            "Yes",          "Yes",          "Yes",          "Yes"      ],
-                                    [10,    Ascii_Letter.Doom,           "Yes",          "Yes",          "Yes",          "Yes"      ],
-                                    [11,    Ascii_Letter.Epic,           "Yes",          "No",           "Yes",          "Yes"      ],
-                                    [12,    Ascii_Letter.Graceful,       "Yes",          "No",           "Yes",          "Yes"      ],
-                                    [13,    Ascii_Letter.Larry,          "Yes",          "Yes",          "Yes",          "Yes"      ],
-                                    [14,    Ascii_Letter.Money_NE,       "Yes",          "Yes",          "Yes",          "Yes"      ],
-                                    [15,    Ascii_Letter.Money_NW,       "Yes",          "Yes",          "Yes",          "Yes"      ],
-                                    [16,    Ascii_Letter.Money_SE,       "Yes",          "Yes",          "Yes",          "Yes"      ],
-                                    [17,    Ascii_Letter.Money_SW,       "Yes",          "Yes",          "Yes",          "Yes"      ],
-                                    [18,    Ascii_Letter.Mono,           "Yes",          "Yes",          "Yes",          "Yes"      ],
-                                    [19,    Ascii_Letter.Moon,           "Yes",          "No",           "No",           "No"       ],
-                                    [20,    Ascii_Letter.Moon2,          "Yes",          "No",           "No",           "No"       ],
-                                    [21,    Ascii_Letter.Roman,          "Yes",          "Yes",          "Yes",          "Yes"      ],
-                                    [22,    Ascii_Letter.Standard,       "Yes",          "Yes",          "Yes",          "Yes"      ],
-                                    [23,    Ascii_Letter.Sweet,          "No",           "Yes",          "Yes",          "Yes"      ]
-                                   ]
-        
-        
-        tbl.title_align = "center"; tbl.title_msg   = "  Description of Ascii Letters Keyboard  "
-        tbl.title_bg    = 231;       tbl.title_fg = 21;   tbl.title_bold = True
-        
-        tbl.footnote_align = "right"; tbl.footnote_msg = " Table Ascii Letters Available "
-        tbl.footnote_bold  = True;    tbl.footnote_bg  = 90;  tbl.footnote_fg = 231
-
-        tbl.adj_bottom_margin = 2; tbl.adj_top_margin = 2
-        tbl.adj_bottom_space  = 0; tbl.adj_top_space  = 2; tbl.adj_indent = 0
-
-        tbl.print_fancy_format(data=ascii_letter_description, style=Line_Style.WHITE_BLACK_PURPLE)
-
-    def description_ascii_logos(self):
-        tbl = FancyFormat()
-        ascii_logo_description = [["No.", "Name"],
-                                    [3,     "Logo_Centos"],
-                                    [2,     "Logo_Debian"],
-                                    [5,     "Logo_Linux"],
-                                    [4,     "Logo_RedHat"],
-                                    [1,     "Logo_Unix"]]
-        
-        
-        tbl.title_align = "center"; tbl.title_msg   = "  Description of Ascii Logos  "
-        tbl.title_bg    = 231;       tbl.title_fg = 21;   tbl.title_bold = True
-        
-        tbl.footnote_align = "right"; tbl.footnote_msg = " Logos Available "
-        tbl.footnote_bold  = True;    tbl.footnote_bg  = 90;  tbl.footnote_fg = 231
-
-        tbl.adj_bottom_margin = 2; tbl.adj_top_margin = 2
-        tbl.adj_bottom_space  = 0; tbl.adj_top_space  = 2
-
-        tbl.print_fancy_format(data=ascii_logo_description, style=Line_Style.WHITE_BLACK_PURPLE)
-
     # +--------------------------------------------------------------------------------------------------------------------------------+
     # |    Only One Setting for Bold, Bg, Fg, italic, underline, strike, blinking, dim, and inverse                                    |
     # +--------------------------------------------------------------------------------------------------------------------------------+
@@ -113,14 +52,14 @@ class AsciiArt:
       
         data = msg
 
-        ascii_letter_options = [Ascii_Letter.Alpha,    Ascii_Letter.ANSI_Shadow,  Ascii_Letter.Big,
-                                Ascii_Letter.Blocks,   Ascii_Letter.Bulbhead,     Ascii_Letter.Classy,
-                                Ascii_Letter.Colossal, Ascii_Letter.Crazy,        Ascii_Letter.Doh,
-                                Ascii_Letter.Doom,     Ascii_Letter.Epic,         Ascii_Letter.Graceful,
-                                Ascii_Letter.Larry,    Ascii_Letter.Font_Font,    Ascii_Letter.Money_NE,
-                                Ascii_Letter.Money_NW, Ascii_Letter.Money_SE,     Ascii_Letter.Money_SW,
-                                Ascii_Letter.Mono,     Ascii_Letter.Moon,         Ascii_Letter.Moon2,
-                                Ascii_Letter.Roman,    Ascii_Letter.Standard,     Ascii_Letter.Sweet,
+        ascii_letter_options = [Ascii_Letter.ALPHA,    Ascii_Letter.ANSI_SHADOW,  Ascii_Letter.BIG,
+                                Ascii_Letter.BLOCKS,   Ascii_Letter.BULBHEAD,     Ascii_Letter.CLASSY,
+                                Ascii_Letter.COLOSSAL, Ascii_Letter.CRAZY,        Ascii_Letter.DOH,
+                                Ascii_Letter.DOOM,     Ascii_Letter.EPIC,         Ascii_Letter.GRACEFUL,
+                                Ascii_Letter.LARRY,    Ascii_Letter.FONT_FONT,    Ascii_Letter.MONEY_NE,
+                                Ascii_Letter.MONEY_NW, Ascii_Letter.MONEY_SE,     Ascii_Letter.MONEY_SW,
+                                Ascii_Letter.MONO,     Ascii_Letter.MOON,         Ascii_Letter.MOON2,
+                                Ascii_Letter.ROMAN,    Ascii_Letter.STANDARD,     Ascii_Letter.SWEET,
                                ]
         if self.ascii_type in ascii_letter_options: pass
         else:
@@ -146,12 +85,13 @@ class AsciiArt:
             for row in error_ascii_type:
                 print(f"    {color}{row}\033[0m")
 
-            self.description_ascii_letters()
-
             print("")
             print(f"    {self.ascii_type} ascii_type is NOT supported by custom_print Module")
             print("    Form more help visit: ")
             print("    https://github.com/acma82/Custom_Print/tree/main/readme ")
+            print()
+            print("    For help on the Terminal: custom_print AsciiArt")
+            print()
             print("    Thank you for using custom_print")
             exit()
 
@@ -159,7 +99,7 @@ class AsciiArt:
         rows = len(eval(self.ascii_type+"_space"))
 
    
-        if self.ascii_type == Ascii_Letter.Moon2:
+        if self.ascii_type == Ascii_Letter.MOON2:
             color = set_font(self.bold, 0, self.fg, self.italic, self.underline, self.strike,
                         self.blinking, self.dim, self.hidden, self.inverse)
         else:
@@ -266,13 +206,13 @@ class AsciiArt:
                    
                 if w == 0:
                     # Because Moon2 has predefined color and the length of those color is 12, we have to subtract 12
-                    if self.ascii_type == Ascii_Letter.Moon2:
+                    if self.ascii_type == Ascii_Letter.MOON2:
                         move_right = move_right + left_sp + len(list_letter[0]) + middle_sp - 12  # first item
                     else:
                         move_right = move_right + left_sp + len(list_letter[0]) + middle_sp       # first item   original
                     
                 else:
-                    if self.ascii_type == Ascii_Letter.Moon2:
+                    if self.ascii_type == Ascii_Letter.MOON2:
                         move_right = move_right + len(list_letter[0]) + middle_sp - 12            # middle item
                     else:
                         move_right = move_right + len(list_letter[0]) + middle_sp                 # middle item (original)
@@ -301,8 +241,13 @@ class AsciiArt:
             error_layout.append("                                                                    ")
             for row in error_layout:
                 print(f"    {color}{row}\033[0m")
+            print("")
+            print(f"    {self.ascii_type} ascii_type is NOT supported by custom_print Module")
             print("    Form more help visit: ")
             print("    https://github.com/acma82/Custom_Print/tree/main/readme ")
+            print()
+            print("    For help on the Terminal: custom_print AsciiArt")
+            print()
             print("    Thank you for using custom_print")
             exit()
 
@@ -444,8 +389,13 @@ class AsciiArt:
             error_layout.append("                                                                    ")
             for row in error_layout:
                 print(f"    {color}{row}\033[0m")
+            print("")
+            print(f"    {self.ascii_type} ascii_type is NOT supported by custom_print Module")
             print("    Form more help visit: ")
             print("    https://github.com/acma82/Custom_Print/tree/main/readme ")
+            print()
+            print("    For help on the Terminal: custom_print AsciiArt")
+            print()
             print("    Thank you for using custom_print")
             exit()
 
@@ -513,8 +463,13 @@ class AsciiArt:
             error_layout.append("                                                                    ")
             for row in error_layout:
                 print(f"    {color}{row}\033[0m")
+            print("")
+            print(f"    {self.ascii_type} ascii_type is NOT supported by custom_print Module")
             print("    Form more help visit: ")
             print("    https://github.com/acma82/Custom_Print/tree/main/readme ")
+            print()
+            print("    For help on the Terminal: custom_print AsciiArt")
+            print()
             print("    Thank you for using custom_print")
             exit()
 

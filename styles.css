@@ -1,9 +1,9 @@
 
 #first {
-    background-color: cadetblue;
+    background-color: rgb(14, 235, 243);
     padding: 20px;
     border: 10px solid black;
-    color: rgb(241, 234, 234);
+    color: rgb(0, 0, 0);
     font-weight: bold;
     font-size: xx-large;
 }

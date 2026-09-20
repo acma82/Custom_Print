@@ -27,7 +27,7 @@ blue_div.left_vertical_line_bg = 10;   blue_div.right_vertical_line_bg = 10
 
 tbl = cp.FancyFormat()
 tbl.header_align = cp.Align.CENTER
-tbl.data_align   = cp.Align.CENTER
+tbl.data_align   = cp.Align.JUSTIFY
 tbl.header_bold  = True
 
 
@@ -134,11 +134,9 @@ def  help_documentation():
               ["moveTo",    "print_style",     "get_message_attributes",   "    "          ],
               ["movexy",    "    ",            "    ",                     "    "          ]]
 
-    cmcpp2 = [["Divider",              "FancyFormat"       ],
-              ["print_fancy_divider",  "print_fancy_format"],
-              ["    ",                 "reset_fancy_format"],
-              ["    ",                 "    "              ],
-              ["    ",                 "    "              ]]
+    cmcpp2 = [["Divider",              "FancyFormat",           "PyLO"],
+              ["print_fancy_divider",  "print_fancy_format",    "    "],
+              ["    ",                 "reset_fancy_format",    "    "],]
 
 
     cmcpp3 = [["AsciiArt"],
@@ -204,7 +202,7 @@ def  help_documentation():
     tbl.adj_indent = 2
     tbl.print_fancy_format(data=cmcpp1)
     cp.ins_newline(n=2)
-    tbl.adj_indent = 13
+    tbl.adj_indent = 2
     tbl.print_fancy_format(data=cmcpp2)
 
 
@@ -215,10 +213,10 @@ def  help_documentation():
     cp.ins_newline(n=1)
 
 
-    print("   To display help for a specific function or method just pass the name of the\n   parameter as shown above.")
+    print("      To display help for a specific function or method just pass the name of \n      the parameter (Function, Class, Method) as shown above.")
     cp.ins_newline(1)
-    print(f"{fst.style_on()} Example 1: {fst.style_off()}  custom_print clean")
-
+    print(f"   {fst.style_on()} Example 1: {fst.style_off()}  custom_print clean")
+    print("\n      It will display the documentation for the function clean. ")
     note=" Note: "
     #                   20                   40                   60                   80   85   90
     message_note = '''
@@ -238,36 +236,35 @@ def  help_documentation():
     blue_msg.note_position = 2
     blue_msg.print_fancy_note(message_note)
     cp.ins_newline(1)
-    print(f"{fst.style_on()} Example 2: {fst.style_off()}  custom_print screen_functions ins_chr movexy\n" )
+    print(f"   {fst.style_on()} Example 2: {fst.style_off()}  custom_print screen_functions ins_chr movexy\n" )
 
 
-    message = f'''       Notice that on\033[1m example 2\033[0m, is being called a group (screen_functions),
-       a function (ins_chr) and a method (movexy). For the group, it will be
-       displayed all the documentation that belong to
-       that group.
+    message = f'''      Notice that on\033[1m example 2\033[0m, is being called a group (screen_functions),
+      a function (ins_chr) and a method (movexy). For the group, it will be
+      displayed all the documentation that belong to that group.
 
-       {fst.style_on()} screen_functions: clean, clear, dimensions, erase, resize. {fst.style_off()}
+   {fst.style_on()} screen_functions: clean, clear, dimensions, erase, resize. {fst.style_off()}
 
-       It will display the documentation for the function \033[1;48;5;22m ins_chr \033[0m as well.
+      It will display the documentation for the function \033[1;48;5;22m ins_chr \033[0m as well.
 
-       Documentation for the method \033[1;48;5;22;1m movexy \033[0m will be called as well.
+      Documentation for the method \033[1;48;5;22;1m movexy \033[0m will be called as well.
 
-       The above tables show all the groups for functions and classes with their
-       methods.
+      The above tables show all the groups for functions and classes with their
+      methods.
 
-{fst.style_on()} example 3: {fst.style_off()}  custom_print cursor
+   {fst.style_on()} example 3: {fst.style_off()}  custom_print cursor
 
        It will call  all the documentation for the entire group.
 
-    {fst.style_on()} cursor: jumpTo, jumpxy, moveTo, movexy. {fst.style_off()}
+   {fst.style_on()} cursor: jumpTo, jumpxy, moveTo, movexy. {fst.style_off()}
 
-   {cp.set_font(1,196,231)} Note: {cp.reset_font()} If you only wish to see the documentation of the class (cursor),
-           then we have to add the word \033[1;48;5;22;1m _only \033[0m as show below.
+      {cp.set_font(1,196,231)} Note: {cp.reset_font()} If you only wish to see the documentation of the class (cursor),
+              then we have to add the word \033[1;48;5;22;1m _only \033[0m as show below.
 
-{fst.style_on()} example 3: {fst.style_off()}  custom_print cursor_only
+   {fst.style_on()} example 3: {fst.style_off()}  custom_print cursor_only
 
-       It's possible to display the complete documentation help by passing
-       \"all\" or \"documentation\" as a parameter.
+      It's possible to display the complete documentation help by passing
+      \"all\" or \"documentation\" as a parameter.
 
 {fst.style_on()} example 4: {fst.style_off()}  custom_print all
                  custom_print documentation
@@ -281,6 +278,8 @@ def  help_documentation():
     \N{BULLET} custom_print module requires python3.12 or greater.
 
     \N{BULLET} https://github.com/acma82/Custom_Print/tree/main/readme
+
+    \N{BULLET} https://github.com/acma82/Custom_Print/blob/main/readme/README.md
     '''
 
 
@@ -332,8 +331,9 @@ def screen_functions_only_info():
     blue_div.print_fancy_divider(all_topics[0])
     mensaje = f'''
       There are five functions to manipulate the screen on the terminal.
-      It is used \"ansi code\" or \"OS command\" to manipulate the screen on the terminal.
-      Be aware that on some OS some of these functions may NOT work properly.
+      It uses \"ansi code\" or \"OS command\" to manipulate the screen on the
+      terminal. Be aware that on some OS some of these functions may NOT work
+      properly.
 
       {cp.set_font(1,196,231)} Note: {cp.reset_font()}
 
@@ -366,13 +366,17 @@ def clean_info():
    #------------------------------------------------------------------------------------------------
     message = f'''
       It cleans the terminal and returns the cursor to home.
+
+      {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp
+                  import time
+                  print("Hello")
+                  time.sleep(3)
+                  cp.clean()        # ansi code
+                  print("Good Bye")
     '''
     cp.ins_newline(1)
     green_div.print_fancy_divider(all_topics[1])
     print(message)
-
-    print(f"{cp.ins_chr(6)}{cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp")
-    print(f"{cp.ins_chr(18)}cp.clean()\n")
 
 
 def clear_info():
@@ -381,12 +385,17 @@ def clear_info():
    #------------------------------------------------------------------------------------------------
     message = f'''
       It clears the terminal and returns the cursor to home.
+
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                 import time
+                 print("Hello")
+                 time.sleep(3)
+                 cp.clear()        # operating system
+                 print("Good Bye...!")
     '''
     cp.ins_newline(1)
     green_div.print_fancy_divider(all_topics[2])
     print(message)
-    print(f"{cp.ins_chr(6)}{cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp")
-    print(f"{cp.ins_chr(18)}cp.clear()\n")
 
 
 def dimensions_info():
@@ -395,16 +404,22 @@ def dimensions_info():
    #------------------------------------------------------------------------------------------------
     menssage =f'''
       It returns the dimensions of the terminal, cols and rows.
-    '''
+
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                 cols, rows = cp.dimensions()
+                 print("clos: ", cols)
+                 print("rows: ", rows)
+
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}'''
 
     cp.ins_newline(1)
     green_div.print_fancy_divider(all_topics[3])
     print(menssage)
-    print(f"{cp.ins_chr(6)}{cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp")
-    print(f"{cp.ins_chr(18)}ncols, nrows = cp.dimensions()")
-    print("                  print(f\"(Number of Cols: {ncols})")
-    print("                  print(f\"(Number of Rows: {nrows})\n")
 
+    cols, rows = cp.dimensions()
+    print("                 clos: ", cols)
+    print("                 rows: ", rows)
+    print()
 
 #------------------------------------------------------------------------------------------------
 # erase,       It uses ansi code                                                                -
@@ -412,23 +427,28 @@ def dimensions_info():
 def erase_info():
     menssage = f'''
       It erases the terminal and leaves the cursor in the current position.
+
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                 print("This function cleans the terminal and the cursor"
+                       "remain in the same position, erase uses ansi code")
+                 time.sleep(3)
+                 cp.erase()
+                 print("Good Bye...!")
     '''
     cp.ins_newline(1)
     green_div.print_fancy_divider(all_topics[4])
     print(menssage)
-    print(f"{cp.ins_chr(6)}{cp.set_font(1,231,0)} Example 1: {cp.reset_font()}  import custom_print as cp")
-    print(f"{cp.ins_chr(20)}cp.erase()\n")
 
-
-    print(f"{cp.ins_chr(6)}{cp.set_font(1,231,0)} Example 2: {cp.reset_font()}  import time")
-    msg = f'''{cp.ins_chr(20)}from custom_print import erase
-                    print("Hello custom_print",end=".", flush=True)
-                    time.sleep(3)
-                    erase()
-                    print("Continuing from before")
-
+    msg = f'''
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import time")
+                 from custom_print import erase
+                 print("Hello custom_print",end=".", flush=True)
+                 time.sleep(3)
+                 erase()
+                 print("Continuing from before")
     '''
     print(msg)
+
 
 #------------------------------------------------------------------------------------------------
 # resize                                                                                        -
@@ -436,13 +456,17 @@ def erase_info():
 def resize_info():
     message = f'''
       It resizes the terminal size.
+
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                 cp.clean()
+                 r, c = cp.dimensions()
+                 print(f\"rows: {{r}}, cols: {{c}}\")
+                 cp.resize(25, 120)
+                 print("Good Bye...!")
     '''
     cp.ins_newline(1)
     green_div.print_fancy_divider(all_topics[5]+"(rows=25, cols=80)")
     print(message)
-    print(f"{cp.ins_chr(6)}{cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp")
-    print(f"{cp.ins_chr(18)}cp.resize(rows=20, cols=120)\n")
-
 
 
 
@@ -705,10 +729,10 @@ def move_cursor_right_info():
       {cp.set_font(0,53,231,0)}                                               {cp.reset_font()}
       {cp.set_font(0,53,231,0)}  move_cursor_right(n=20, option_space=True)   {cp.reset_font()}
       {cp.set_font(0,53,231,0)}                                               {cp.reset_font()}
-      {cp.set_font(0,53,231,0)}  option True, it will print spaces n times.   {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}  option True, it will print n spaces.         {cp.reset_font()}
       {cp.set_font(0,53,231,0)}                                               {cp.reset_font()}
-      {cp.set_font(0,53,231,0)}  option False, it won't print spaces only     {cp.reset_font()}
-      {cp.set_font(0,53,231,0)}  will move the cursor.                        {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}  option False, it won't print spaces it will  {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}  only move the cursor.                        {cp.reset_font()}
       {cp.set_font(0,53,231,0)}                                               {cp.reset_font()}
 
       {cp.set_font(1,231,0)} Example: {cp.reset_font()} import custom_print as cp
@@ -866,9 +890,10 @@ def terminal_bell_info():
       This function makes the bell sound in the terminal.
 
       {cp.set_font(1,231,0)} Example: {cp.reset_font()}  import custom_print as cp
+                  input("Press Enter")
                   cp.terminal_bell()
-      '''
-    print(message)
+                  '''
+    print(message)    
     cp.terminal_bell()
 
 
@@ -3788,15 +3813,84 @@ def reset_fancy_format_info():
 # +-------------------------------------------------------------------------------------------------+
 # |  AsciiArt in custom_print Module                                                                |
 # +-------------------------------------------------------------------------------------------------+
+
 def asciiart_only_info():
-    print("it needs work")
     cp.ins_newline(1)
     blue_div.print_fancy_divider(all_topics[51])
     art = cp.AsciiArt()
+    tbl = cp.FancyFormat()
+    def description_ascii_letters():
+        ascii_letter_description = [["No.", "Type"                      "Uppercase",    "Lowercase",    "Shiff_On",     "Shift_Off",  "Rows" ],
+                                    [1,     "Alpha      "    "Yes",          "No",           "No",           "No",                    " ---- " ],
+                                    [2,     "ANSI_Shadow"    "Yes",          "No",           "Yes",          "Yes",                   " ---- " ],
+                                    [3,     "Big        "    "Yes",          "Yes",          "Yes",          "Yes",                   " ---- " ],
+                                    [4,     "Blocks     "    "Yes",          "No",           "Yes",          "Yes",                   " ---- " ],
+                                    [5,     "Bulbhead   "    "Yes",          "No",           "Yes",          "Yes",                   " ---- " ],
+                                    [6,     "Classy     "    "Yes",          "Yes",          "Yes",          "Yes",                   " ---- " ],
+                                    [7,     "Colossal   "    "Yes",          "Yes",          "Yes",          "Yes",                   " ---- " ],
+                                    [8,     "Crazy      "    "Yes",          "Yes",          "Yes",          "Yes",                   " ---- " ],
+                                    [9,     "Doh        "    "Yes",          "Yes",          "Yes",          "Yes",                   " ---- " ],
+                                    [10,    "Doom       "    "Yes",          "Yes",          "Yes",          "Yes",                   " ---- " ],
+                                    [11,    "Epic       "    "Yes",          "No",           "Yes",          "Yes",                   " ---- " ],
+                                    [12,    "Graceful   "    "Yes",          "No",           "Yes",          "Yes",                   " ---- " ],
+                                    [13,    "Larry      "    "Yes",          "Yes",          "Yes",          "Yes",                   " ---- " ],
+                                    [14,    "Money_NE   "    "Yes",          "Yes",          "Yes",          "Yes",                   " ---- " ],
+                                    [15,    "Money_NW   "    "Yes",          "Yes",          "Yes",          "Yes",                   " ---- " ],
+                                    [16,    "Money_SE   "    "Yes",          "Yes",          "Yes",          "Yes",                   " ---- " ],
+                                    [17,    "Money_SW   "    "Yes",          "Yes",          "Yes",          "Yes",                   " ---- " ],
+                                    [18,    "Mono       "    "Yes",          "Yes",          "Yes",          "Yes",                   " ---- " ],
+                                    [19,    "Moon       "    "Yes",          "No",           "No",           "No",                    " ---- " ],
+                                    [20,    "Moon2      "    "Yes",          "No",           "No",           "No",                    " ---- " ],
+                                    [21,    "Roman      "    "Yes",          "Yes",          "Yes",          "Yes",                   " ---- " ],
+                                    [22,    "Standard   "    "Yes",          "Yes",          "Yes",          "Yes",                   " ---- " ],
+                                    [23,    "Sweet      "    "No",           "Yes",          "Yes",          "Yes",                   " ---- " ]
+                                   ]
+
+
+
+        tbl.title_align = "center"; tbl.title_msg   = "  Description of Ascii Letters Keyboard  "
+        tbl.title_bg    = 231;       tbl.title_fg = 21;   tbl.title_bold = True
+
+        tbl.footnote_align = "right"; tbl.footnote_msg = " Table Ascii Letters Available "
+        tbl.footnote_bold  = True;    tbl.footnote_bg  = 90;  tbl.footnote_fg = 231
+
+        tbl.adj_bottom_margin = 2; tbl.adj_top_margin = 2
+        tbl.adj_bottom_space  = 0; tbl.adj_top_space  = 2; tbl.adj_indent = 0
+
+        tbl.print_fancy_format(data=ascii_letter_description, style=cp.Line_Style.WHITE_BLACK_PURPLE)
+
+        message = f'''
+      {cp.set_font(1,196,231)} Rows: {cp.reset_font()}{cp.set_font(1,231,16)} It means the height in rows of the letters for that type.  {cp.reset_font()}
+       '''
+        print(message)
+
+    #------------------------------------------------------------------------------------------------------------------------------------
+
+    def description_ascii_logos():
+        ascii_logo_description = [["No.", "Name"],
+                                    [3,     "Logo_Centos"],
+                                    [2,     "Logo_Debian"],
+                                    [5,     "Logo_Linux"],
+                                    [4,     "Logo_RedHat"],
+                                    [1,     "Logo_Unix"]]
+
+        tbl.adj_indent = 6
+        tbl.title_align = "center"; tbl.title_msg   = "  Description of Ascii Logos  "
+        tbl.title_bg    = 231;       tbl.title_fg = 21;   tbl.title_bold = True
+
+        tbl.footnote_align = "right"; tbl.footnote_msg = " Logos Available "
+        tbl.footnote_bold  = True;    tbl.footnote_bg  = 90;  tbl.footnote_fg = 231
+
+        tbl.adj_bottom_margin = 2; tbl.adj_top_margin = 2
+        tbl.adj_bottom_space  = 0; tbl.adj_top_space  = 2
+
+        tbl.print_fancy_format(data=ascii_logo_description, style=cp.Line_Style.WHITE_BLACK_PURPLE)
+
+    #------------------------------------------------------------------------------------------------------------------------------------
 
     message = f'''
-        This class includes four different methods that allow you to print
-        ASCII art in various styles.
+      This class includes four different methods that allow you to print
+      ASCII art in various styles.
 
             {cp.set_font(1,22,231,True)} Methods {cp.reset_font()}
 
@@ -3804,19 +3898,19 @@ def asciiart_only_info():
             {cp.Unicode.BULLET} print_multi_ascii_art       {cp.Unicode.BULLET} print_reversed_ascii_logo_art
 
 
-        The table below describes all the supported names for letters, numbers,
-        and symbols available in the AsciiArt class.
+      The table below describes all the supported names for letters, numbers,
+      and symbols available in the AsciiArt class.
         '''
     print(message)
 
-    art.description_ascii_letters()
+    description_ascii_letters()
 
     message = f'''
-        The table below describes all the supported logos in the AsciiArt class.
+      The table below describes all the supported logos in the AsciiArt class.
     '''
     print(message)
 
-    art.description_ascii_logos()
+    description_ascii_logos()
 
     message = f'''
       {cp.set_font(1,231,16)} Default Values {cp.reset_font()}
@@ -3842,6 +3936,9 @@ def asciiart_only_info():
       {cp.set_font(0,53,231,0)}                                                                          {cp.reset_font()}
     '''
     print(message)
+
+
+
 
 def asciiart_info():
     ''' The AsciiArt class converts letters, numbers, and symbols into ASCII art. '''
