@@ -823,12 +823,12 @@ def subscript_info():
                   will set to ? which is the default value.
 
 
-        {cp.set_font(1,231,22,1)} subscript_map contains the following characters: {cp.reset_font()}
+        {cp.set_font(1,231,22,1)} subscript_map contents the following characters: {cp.reset_font()}
         a, e, h, i, j, k, l, m, n, o, p, r, s, t, u, v, x,
         0, 1, 2, 3, 4, 5, 6, 7, 8' 9, +, -, =, (, )
 
 
-        {cp.set_font(1,231,22,1)} subscript_map DOES NOT contains the following characters: {cp.reset_font()}
+        {cp.set_font(1,231,22,1)} subscript_map DOES NOT contents the following characters: {cp.reset_font()}
         b, c, d, f, g, q, w, y, z,
         A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T,
         U, V, W, X, Y, Z
@@ -861,14 +861,14 @@ def superscript_info():
                   will set to ? which is the default value.
 
 
-        {cp.set_font(1,231,22,1)} superscript_map contains the following characters: {cp.reset_font()}
+        {cp.set_font(1,231,22,1)} superscript_map contents the following characters: {cp.reset_font()}
         a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, r, s, t, u, v, w, x, y,
         A, B, D, E, G, H, I, J, K, L, M, N, O, P, R, T, U, V, W,
         0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
         +, -, =, (, )
 
 
-        {cp.set_font(1,231,22,1)} superscript_map DOES NOT contains the following characters: {cp.reset_font()}
+        {cp.set_font(1,231,22,1)} superscript_map DOES NOT contents the following characters: {cp.reset_font()}
         q, z,
         C, F, Q, S, X, Y,
         Z
@@ -943,7 +943,7 @@ def align_info():
     cp.ins_newline(1)
     green_div.print_fancy_divider(all_topics[17])
     message = f'''
-      This class is used where alignment is needed. It contains 4 options.
+      This class is used where alignment is needed. It  contents 4 options.
 
       {cp.set_font(0,53,231,0)}                                               {cp.reset_font()}
       {cp.set_font(0,53,231,0)}  {cp.Unicode.BULLET} Align.RIGHT      {cp.Unicode.BULLET} Align.CENTER            {cp.reset_font()}
@@ -979,7 +979,7 @@ def ascii_letter_info():
     cp.ins_newline(1)
     green_div.print_fancy_divider(all_topics[18])
     message = f'''
-      This class is used mainly with AsciiArt class. It contains 23 options.
+      This class is used mainly with AsciiArt class. It contents 23 options.
 
       {cp.set_font(0,53,231,0)}                                           {cp.reset_font()}
       {cp.set_font(0,53,231,0)}  {cp.Unicode.BULLET} ALPHA            {cp.Unicode.BULLET} LARRY               {cp.reset_font()}
@@ -1066,7 +1066,7 @@ def divider_style_info():
     cp.ins_newline(1)
     green_div.print_fancy_divider(all_topics[20])
     message = f'''
-      This class is with Divider class. It contains 10 options.
+      This class is with Divider class. It contents 10 options.
 
       {cp.set_font(0,53,231,0)}                                           {cp.reset_font()}
       {cp.set_font(0,53,231,0)}  {cp.Unicode.BULLET} CUSTOMIZED   = \"customized\"            {cp.reset_font()}
@@ -1378,7 +1378,7 @@ def move_info():
     cp.ins_newline(1)
     green_div.print_fancy_divider(all_topics[26])
     message = f'''
-      This class is used with the Cursor class and it contains 4 options..
+      This class is used with the Cursor class and it contents 4 options..
 
       {cp.set_font(0,53,231,0)}             {cp.reset_font()}
       {cp.set_font(0,53,231,0)}  {cp.Unicode.BULLET} DOWN     {cp.reset_font()}
@@ -1660,7 +1660,7 @@ def cursor_only_info():
       However, they are also exposed to the user. Feel free to use them if
       you find them useful, or simply ignore them if not needed.
 
-      This class contains 4 methods.
+      This class contents 4 methods.
 
       {cp.set_font(1,16,117)} Methods                   {cp.reset_font()}
       {cp.set_font(1,117,16)}                           {cp.reset_font()}
@@ -1805,7 +1805,7 @@ def fontstyle_only_info():
     cp.ins_newline(1)
     blue_div.print_fancy_divider(all_topics[35])
     message = f'''
-     This class contains 4 methods.
+     This class contents 4 methods.
 
       {cp.set_font(1,16,117)} Methods                           {cp.reset_font()}
       {cp.set_font(1,117,16)}                                   {cp.reset_font()}
@@ -2017,11 +2017,11 @@ def print_style_info():
 # |  FancyMessage in custom_print Module                                                            |
 # +-------------------------------------------------------------------------------------------------+
 def fancymessage_only_info():
-    ''' This class contains 3 methods'''
+    ''' This class contents 3 methods'''
     cp.ins_newline(1)
     blue_div.print_fancy_divider(all_topics[39])
     message = f'''
-      This class contains 3 methods
+      This class contents 3 methods
 
       {cp.set_font(1,16,117)} Methods                                                {cp.reset_font()}
       {cp.set_font(1,117,16)}                                                        {cp.reset_font()}
@@ -2106,7 +2106,7 @@ def fancymessage_only_info():
 
 
 def fancymessage_info():
-    ''' This class contains 3 methods'''
+    ''' This class contents 3 methods'''
 
     fancymessage_only_info()
     print_fancy_message_info()
@@ -2582,7 +2582,7 @@ def pen_only_info():
     cp.ins_newline(1)
     blue_div.print_fancy_divider(all_topics[43])
     message = f'''
-      Pen class will draw lines nad squares. This class contains 2 methods.
+      Pen class will draw lines nad squares. This class contents 2 methods.
 
       {cp.set_font(1,16,117)} Methods            {cp.reset_font()}
       {cp.set_font(1,117,16)}                    {cp.reset_font()}
@@ -2721,6 +2721,12 @@ def divider_only_info():
     blue_div.print_fancy_divider(all_topics[46])
     message =f'''
       The Divider class creates a divider line across the terminal screen.
+      It contents 1 method.
+
+      {cp.set_font(1,16,117)} Method                  {cp.reset_font()}
+      {cp.set_font(1,117,16)}                         {cp.reset_font()}
+      {cp.set_font(1,117,16)} 1. print_fancy_divider  {cp.reset_font()}
+      {cp.set_font(1,117,16)}                         {cp.reset_font()}
 
       {cp.set_font(1,231,16)} Default Values {cp.reset_font()}
       {cp.set_font(0,53,231,0)}                                                                       {cp.reset_font()}
