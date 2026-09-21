@@ -139,7 +139,7 @@ def dict2list(my_dict, layout:Layout=Layout.HORIZONTAL):
         complete_list.append(tempo_list)
         tempo_list = []
 
-    if layout == Layout.VERTICAL: pass
+    if layout == Layout.VERTICAL or layout.lower() == "v": pass
 
     else:
         transpose_list = []
@@ -829,8 +829,7 @@ def print_matrix_list(self,my_list):
     '''
         printing the table
     '''
-    # these 3 variables are for the banded_row_on only on even_lines
-    control_banded_row = 0 #self.banded_row_step   # 1
+    control_banded_row = 0
     # These variables are for the multi_color effect (rainbow)    They are the start color
     multi_bg = self.data_bg
     multi_fg = self.data_fg

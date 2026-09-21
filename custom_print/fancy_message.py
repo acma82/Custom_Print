@@ -510,7 +510,7 @@ class FancyMessage(Cursor):
                         ["Smallest Line",                 smallest_line],
                         ["List Line Lengths",             number_letter_line_list],
                         ["List Line Spaces",              adj_diff_space],
-                        ["Words Into a List",             "\'words\'"],
+                        ["Content Of The Message",        "Quantity"],
                         ["Total Number of Lines",         n_lines],
                         ["Total Number of Words",         counter_words],
                         ["Total Number of Characters",    total_characters]]
@@ -556,7 +556,14 @@ class FancyMessage(Cursor):
             # tbl.horizontal_line_on = False
             tbl.middle_horizontal_line_on = False
             tbl.adj_bottom_margin = 1
+
+            tbl.set_banded_row_on = True
+            tbl.banded_row_step = 8
+            tbl.banded_row_bg = 208
+            tbl.banded_row_fg = 16
             tbl.print_fancy_format(data=result_lst, style=Line_Style.SINGLE_LINE)
+
+            tbl.set_banded_row_on = False
             tbl.adj_top_margin = 1
             tbl.title_msg = "  Words of The Message Into a List  "
             tbl.print_fancy_format(new_msg_list, Line_Style.SINGLE_LINE)

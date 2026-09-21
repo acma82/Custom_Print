@@ -84,7 +84,7 @@ This class contains 3 methods and the attributes and their default values are di
     footnote_bold = False   footnote_inverse = False            footnote_body_lines = 1
     footnote_dim  = False   footnote_hidden  = False
 ```
-
+    Body Section is being used by both methods print_fancy_message and print_fancy_note.
 ## Fancy Message Examples
 [**Top**](#fancymessage) <span style="color:gray"> <strong> Example 1: </strong> </span>
 
@@ -137,5 +137,11 @@ This class contains 3 methods and the attributes and their default values are di
 ```
 
 **Note:** *words is a list that contains all the word of the paragraph.*
+
+    Diagram reference: print_fancy_message
+![Alt text](FancyMessage_D1.png)
+
+    Diagram reference: print_fancy_note
+![Alt text](FancyMessage_D2.png)
 
 #### [Back](README.md)

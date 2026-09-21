@@ -3,17 +3,29 @@
 
 This class contains 4 methods. The difference between ***jump*** and ***move*** is that jump executes the code while move returns the code.
 
-+ ***jumpTo(qty=0, direction=cp.Move.DOWN)*** <br> 
++ ***jumpTo(qty=0, direction=cp.Move.DOWN)*** <br>
 This method jumps rows or columns for the cursor in the terminal.
 
 + ***jumpxy(x=0, y=0)*** <br>
 This method jumps the cursor to specific coordinates in the terminal.
 
-+ ***moveTo(qty=0, direction=cp.Move.DOWN)*** <br> 
++ ***moveTo(qty=0, direction=cp.Move.DOWN)*** <br>
 This method moves rows or columns for the cursor in the terminal.
 
 + ***movexy(x=0, y=0)*** <br>
-This method moves the cursor to specific coordinates in the terminal.
+
+      This method moves the cursor to specific coordinates in the terminal.
+
+      Cursor can use the Move Class that has 4 options.
+
+      DOWN          LEFT        RIGHT       UP
+
+      Note: These options can be replaced for the original values.
+
+      DOWN   →  \"down\"   →  \"d\"
+      LEFT   →  \"left\"   →  \"l\"
+      RIGHT  →  \"right\"  →  \"r\"
+      UP     →  \"up\"     →  \"u\"
 
 <span style="color:gray"> <strong> Example: </strong> </span>
 

@@ -26,23 +26,32 @@ This class contains 4 methods and the attributes and their default values are di
 
 ## Default Values
 
-```python
-    bg     = -1           hidden   = False        force_align     = False 
-    fg     = -1           indent   = 0            blinking        = False
-    dim    = False        strike   = False        underline       = False
-    bold   = False        italic   = False        bg_top_lines    = 0
-    align  = "j"          inverse  = False        bg_bottom_lines = 0
+```python	
+	# General Use
+
+    bg     = -1         bold      = False
+    fg     = -1         underline = False
+    dim    = False      blinking  = False
+    hidden = False      italic    = False
+    strike = False      inverse   = False
         	   
+	# Print_Style
 
-	indent → this defines how far we want to start to print the message from the left,
-    it works with style_on and print_style.
-
-	bg_top_lines  and bg_bottom_lines → these are lines above and below the message with the bg specified.
+	align = Align.JUSTIFY      bg_top_lines    = 0
+    forced_align = False       bg_bottom_lines = 0
+    indent = 0           
 ```
+indent → this defines how far we want to start to print the message from the left of the terminal.
+
+**Note** indent is used for style_on and for print_style when using justify as  option for the align. For the other \"align\" options
+              (left, right, center), only \"print_style\" make use of it.
+
+bg_top_lines  and bg_bottom_lines → these are lines above and below the message with the bg specified.
+
 
 ## Font Style Examples
 
-[**Top**](#fontstyle) <span style="color:gray"> <strong> Example 1: <span style="color:cyan"> style_on() and style_off() </span> </strong> </span>
+[**Top**](#fontstyle) <span style="color:gray"> <strong> Example 1: <span style="color:cyan"> style_on(), style_off() and reset_style() </span> </strong> </span>
 
 ```python
 	import custom_print as cp
