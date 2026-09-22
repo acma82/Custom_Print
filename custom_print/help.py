@@ -823,12 +823,12 @@ def subscript_info():
                   will set to ? which is the default value.
 
 
-        {cp.set_font(1,231,22,1)} subscript_map contents the following characters: {cp.reset_font()}
+        {cp.set_font(1,231,22,1)} subscript_map contains the following characters: {cp.reset_font()}
         a, e, h, i, j, k, l, m, n, o, p, r, s, t, u, v, x,
         0, 1, 2, 3, 4, 5, 6, 7, 8' 9, +, -, =, (, )
 
 
-        {cp.set_font(1,231,22,1)} subscript_map DOES NOT contents the following characters: {cp.reset_font()}
+        {cp.set_font(1,231,22,1)} subscript_map DOES NOT contains the following characters: {cp.reset_font()}
         b, c, d, f, g, q, w, y, z,
         A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T,
         U, V, W, X, Y, Z
@@ -861,14 +861,14 @@ def superscript_info():
                   will set to ? which is the default value.
 
 
-        {cp.set_font(1,231,22,1)} superscript_map contents the following characters: {cp.reset_font()}
+        {cp.set_font(1,231,22,1)} superscript_map contains the following characters: {cp.reset_font()}
         a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, r, s, t, u, v, w, x, y,
         A, B, D, E, G, H, I, J, K, L, M, N, O, P, R, T, U, V, W,
         0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
         +, -, =, (, )
 
 
-        {cp.set_font(1,231,22,1)} superscript_map DOES NOT contents the following characters: {cp.reset_font()}
+        {cp.set_font(1,231,22,1)} superscript_map DOES NOT contains the following characters: {cp.reset_font()}
         q, z,
         C, F, Q, S, X, Y,
         Z
@@ -943,7 +943,7 @@ def align_info():
     cp.ins_newline(1)
     green_div.print_fancy_divider(all_topics[17])
     message = f'''
-      This class is used where alignment is needed. It  contents 4 options.
+      This class is used where alignment is needed. It  contains 4 options.
 
       {cp.set_font(0,53,231,0)}                                               {cp.reset_font()}
       {cp.set_font(0,53,231,0)}  {cp.Unicode.BULLET} Align.RIGHT      {cp.Unicode.BULLET} Align.CENTER            {cp.reset_font()}
@@ -979,7 +979,7 @@ def ascii_letter_info():
     cp.ins_newline(1)
     green_div.print_fancy_divider(all_topics[18])
     message = f'''
-      This class is used mainly with AsciiArt class. It contents 23 options.
+      This class is used mainly with AsciiArt class. It contains 23 options.
 
       {cp.set_font(0,53,231,0)}                                           {cp.reset_font()}
       {cp.set_font(0,53,231,0)}  {cp.Unicode.BULLET} ALPHA            {cp.Unicode.BULLET} LARRY               {cp.reset_font()}
@@ -1066,7 +1066,7 @@ def divider_style_info():
     cp.ins_newline(1)
     green_div.print_fancy_divider(all_topics[20])
     message = f'''
-      This class is with Divider class. It contents 10 options.
+      This class is with Divider class. It contains 10 options.
 
       {cp.set_font(0,53,231,0)}                                           {cp.reset_font()}
       {cp.set_font(0,53,231,0)}  {cp.Unicode.BULLET} CUSTOMIZED   = \"customized\"            {cp.reset_font()}
@@ -1378,7 +1378,7 @@ def move_info():
     cp.ins_newline(1)
     green_div.print_fancy_divider(all_topics[26])
     message = f'''
-      This class is used with the Cursor class and it contents 4 options..
+      This class is used with the Cursor class and it contains 4 options..
 
       {cp.set_font(0,53,231,0)}             {cp.reset_font()}
       {cp.set_font(0,53,231,0)}  {cp.Unicode.BULLET} DOWN     {cp.reset_font()}
@@ -1660,7 +1660,7 @@ def cursor_only_info():
       However, they are also exposed to the user. Feel free to use them if
       you find them useful, or simply ignore them if not needed.
 
-      This class contents 4 methods.
+      This class contains 4 methods.
 
       {cp.set_font(1,16,117)} Methods                   {cp.reset_font()}
       {cp.set_font(1,117,16)}                           {cp.reset_font()}
@@ -1805,7 +1805,7 @@ def fontstyle_only_info():
     cp.ins_newline(1)
     blue_div.print_fancy_divider(all_topics[35])
     message = f'''
-     This class contents 4 methods.
+     This class contains 4 methods.
 
       {cp.set_font(1,16,117)} Methods                           {cp.reset_font()}
       {cp.set_font(1,117,16)}                                   {cp.reset_font()}
@@ -2017,11 +2017,11 @@ def print_style_info():
 # |  FancyMessage in custom_print Module                                                            |
 # +-------------------------------------------------------------------------------------------------+
 def fancymessage_only_info():
-    ''' This class contents 3 methods'''
+    ''' This class contains 3 methods'''
     cp.ins_newline(1)
     blue_div.print_fancy_divider(all_topics[39])
     message = f'''
-      This class contents 3 methods
+      This class contains 3 methods
 
       {cp.set_font(1,16,117)} Methods                                                {cp.reset_font()}
       {cp.set_font(1,117,16)}                                                        {cp.reset_font()}
@@ -2106,7 +2106,7 @@ def fancymessage_only_info():
 
 
 def fancymessage_info():
-    ''' This class contents 3 methods'''
+    ''' This class contains 3 methods'''
 
     fancymessage_only_info()
     print_fancy_message_info()
@@ -2582,7 +2582,7 @@ def pen_only_info():
     cp.ins_newline(1)
     blue_div.print_fancy_divider(all_topics[43])
     message = f'''
-      Pen class will draw lines nad squares. This class contents 2 methods.
+      Pen class will draw lines nad squares. This class contains 2 methods.
 
       {cp.set_font(1,16,117)} Methods            {cp.reset_font()}
       {cp.set_font(1,117,16)}                    {cp.reset_font()}
@@ -2721,7 +2721,7 @@ def divider_only_info():
     blue_div.print_fancy_divider(all_topics[46])
     message =f'''
       The Divider class creates a divider line across the terminal screen.
-      It contents 1 method.
+      It contain 1 method.
 
       {cp.set_font(1,16,117)} Method                  {cp.reset_font()}
       {cp.set_font(1,117,16)}                         {cp.reset_font()}
@@ -3019,7 +3019,14 @@ def fancyformat_only_info():
       the variable in a table format. Various customizations can be applied to
       the table.
 
+      This class contains 2 methods.
 
+      {cp.set_font(1,16,117)} Methods                {cp.reset_font()}
+      {cp.set_font(1,117,16)}                        {cp.reset_font()}
+      {cp.set_font(1,117,16)} 1. print_fancy_format  {cp.reset_font()}
+      {cp.set_font(1,117,16)}                        {cp.reset_font()}
+      {cp.set_font(1,117,16)} 2. reset_fancy_format  {cp.reset_font()}
+      {cp.set_font(1,117,16)}                        {cp.reset_font()}
 
       {cp.set_font(1,231,0)} Default Values {cp.reset_font()}
       {cp.set_font(0,53,231,0)}                                                                        {cp.reset_font()}
@@ -3238,9 +3245,11 @@ def fancyformat_only_info():
 
 
     message = f'''
-      When {cp.set_font(1,22,231,True)} set_banded_row_on {cp.reset_font()} is set to True, the table will alternate row
-      colors for the data rows. You can customize the alternating colors using
-      the {cp.set_font(1,22,231,True)} banded_row_bg {cp.reset_font()} and {cp.set_font(1,22,231,True)} banded_row_fg {cp.reset_font()} variables. See the example below.
+      {cp.set_font(1,22,231,True)} set_banded_row_on {cp.reset_font()} was created to apply alternating background
+      colors to the table rows.
+      
+      When {cp.set_font(1,22,231,True)} set_banded_row_on {cp.reset_font()} is set to True, banded_row_bg and banded_row_fg 
+      control the banded row behavior. See the example below.
 
 
       {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
@@ -3409,13 +3418,18 @@ def fancyformat_only_info():
 
 
                   tbl.set_multi_bg_fg_on = True
-                  tbl.data_fg = 9               # start
-                  tbl.data_multi_fg_step = 4
-                  tbl.data_multi_fg_stop = 21
                   tbl.data_bold = True
+                  tbl.data_fg = 9               # start
+                  tbl.data_multi_fg_stop = 21
 
+                  tbl.data_multi_fg_step = 1
                   tbl.print_fancy_format(data=my_list,
                                          style=cp.Line_Style.DASH_LINE)
+
+                  tbl.data_multi_fg_step = 4
+                  tbl.print_fancy_format(data=my_list,
+                                         style=cp.Line_Style.DASH_LINE)
+                                         
       {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
 '''
     print(message)
@@ -3428,7 +3442,8 @@ def fancyformat_only_info():
             ["Data 5",   "Data 2",   "Data 3",   "Data 4"  ]]
 
     tbl.set_banded_row_on = False
-    tbl.title_msg = "set_multi_bg_fg_on = True"
+
+    tbl.title_msg = "set_multi_bg_fg_on = True. Step = 1"
     tbl.header_bg = cp.No.VERY_DARK_MAGENTA
     tbl.header_fg = cp.No.WHITE
 
@@ -3437,13 +3452,18 @@ def fancyformat_only_info():
 
 
     tbl.set_multi_bg_fg_on = True
-    tbl.data_fg = 9               # start
-    tbl.data_multi_fg_step = 4
-    tbl.data_multi_fg_stop = 21
     tbl.data_bold = True
-
+    tbl.data_fg = 9               # start
+    tbl.data_multi_fg_stop = 21
+    tbl.data_multi_fg_step = 1
     tbl.print_fancy_format(data=lst,
                             style=cp.Line_Style.DASH_LINE)
+    print("\n")
+    tbl.title_msg = "set_multi_bg_fg_on = True. Step = 4"
+    tbl.data_multi_fg_step = 4
+    tbl.print_fancy_format(data=lst,
+                           style=cp.Line_Style.DASH_LINE)
+
 
     message = f'''
       {cp.set_font(0,53,231,0)}                                                                          {cp.reset_font()}
@@ -3597,7 +3617,7 @@ def print_fancy_format_info():
 
     * `print_fancy_format(data, style)`
     This function prints data using fancy formatting. By default, it uses a
-    customized style.
+    DASH_LINE style.
 
     {cp.set_font(1,231,16)} **Parameters:** {cp.reset_font()}
 
@@ -3681,11 +3701,18 @@ def print_fancy_format_info():
       {cp.set_font(1,231,16)} Style_Lines {cp.reset_font()} The Style_Lines class provides four types of templates.
       When using line-based templates (such as DASH, SINGLE_LINE, etc.) or
       DESIGN templates (1 through 10), the bg and fg colors for headers and
-      data work normally. However, when using color templates (such as
-      WHITE_PURPLE and similar), the bg and fg settings for headers and data
-      are ignored, except when they apply to banded rows or data multi colors.
+      data work normally.
+      
+      However, when using color templates (such as WHITE_PURPLE and similar), 
+      the bg and fg settings for data are ignored, except when they apply to
+      banded rows or data multi colors.
+
       For SPACE templates (0 through 6), you must specify the bg and fg colors
       for every element in the table. See the Line_Style class for examples.
+
+      When a color template is used together with the data_multi_bg and 
+      data_multi_fg options, the starting color is defined internally by
+      the class and cannot be changed by the user.
       '''
     print(message)
 
@@ -3850,22 +3877,22 @@ def print_fancy_format_info():
     # TEAL_WHITE -> data_bg=231  data_fg=21
 
     message = f'''
-      {cp.set_font(1,196,231)} Note {cp.reset_font()} The colors for the TEAL_WHITE are set internally to data_bg = 231
-              and data_fg = 21, that is the start colors. From that point the colors start to modified with the settings
-              created in the code above using the variables:
+      {cp.set_font(1,196,231)} Note {cp.reset_font()} The TEAL_WHITE color template internally sets data_bg = 231
+             and data_fg = 21. These starting values cannot be changed by the
+             user. However, when data_multi_bg and/or data_multi_fg are used,
+             the colors will change after each step according to the defined
+             range and step size. Once the sequence reaches its limit, it will
+             cycle back to the original internal colors (231 and 21).
 
-      {cp.set_font(1,22,231,True)}                             {cp.reset_font()}
-      {cp.set_font(1,22,231,True)}  set_multi_bg_fg_on = True  {cp.reset_font()}
-      {cp.set_font(1,22,231,True)}                             {cp.reset_font()}
-      {cp.set_font(1,22,231,True)}  data_multi_bg_step = 2     {cp.reset_font()}
-      {cp.set_font(1,22,231,True)}  data_multi_bg_stop = 255   {cp.reset_font()}
-      {cp.set_font(1,22,231,True)}                             {cp.reset_font()}
-      {cp.set_font(1,22,231,True)}  data_multi_fg_step = 4     {cp.reset_font()}
-      {cp.set_font(1,22,231,True)}  data_multi_fg_stop = 121   {cp.reset_font()}
-      {cp.set_font(1,22,231,True)}                             {cp.reset_font()}
-
+             On the TEAL_WHITE color template, the header_bg = 23 and the
+             header_fg = 231. Notice that they were {cp.set_font(1,231,16)} NOT {cp.reset_font()} touch at all. They
+             cannot be changed by the user.
 '''
     print(message)
+
+
+
+
 
 # +--------------------------------------------------------------------------------------------+
 # | reset_fancy_format                                                                         |
@@ -3877,6 +3904,7 @@ def reset_fancy_format_info():
 
     tbl = cp.FancyFormat()
     tbl.adj_top_margin = 5
+    tbl.adj_bottom_margin = 3
 
     message = f'''
       This method resets all FancyFormat variables back to their original
@@ -3885,17 +3913,22 @@ def reset_fancy_format_info():
       {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
                   tbl = cp.FancyFormat()
                   tbl.adj_top_margin = 5
+                  tbl.adj_bottom_margin = 3
+
                   print("Assign: ", tbl.adj_top_margin)
+                  print("Assign: ", tbl.adj_bottomo_margin)
 
                   tbl.reset_fancy_format()
-                  print("\\nReset : ", tbl.adj_top_margin)
-
+                  print("Reset : ", tbl.adj_top_margin)
+                  print("Reset : ", tbl.adj_bottom_margin)
 
     {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}    Assign: {tbl.adj_top_margin}
+                  Assign: {tbl.adj_bottom_margin}
     '''
     tbl.reset_fancy_format()
     print(message)
-    print(f"                  Reset : {tbl.adj_top_margin}\n")
+    print(f"                  Reset : {tbl.adj_top_margin}")
+    print(f"                  Reset : {tbl.adj_bottom_margin}\n")
 
 
 
@@ -3915,30 +3948,30 @@ def asciiart_only_info():
     art = cp.AsciiArt()
     tbl = cp.FancyFormat()
     def description_ascii_letters():
-        ascii_letter_description = [["No.", "Type"                      "Uppercase",    "Lowercase",    "Shiff_On",     "Shift_Off",  "Rows" ],
-                                    [1,     "Alpha      "    "Yes",          "No",           "No",           "No",                    " ---- " ],
-                                    [2,     "ANSI_Shadow"    "Yes",          "No",           "Yes",          "Yes",                   " ---- " ],
-                                    [3,     "Big        "    "Yes",          "Yes",          "Yes",          "Yes",                   " ---- " ],
-                                    [4,     "Blocks     "    "Yes",          "No",           "Yes",          "Yes",                   " ---- " ],
-                                    [5,     "Bulbhead   "    "Yes",          "No",           "Yes",          "Yes",                   " ---- " ],
-                                    [6,     "Classy     "    "Yes",          "Yes",          "Yes",          "Yes",                   " ---- " ],
-                                    [7,     "Colossal   "    "Yes",          "Yes",          "Yes",          "Yes",                   " ---- " ],
-                                    [8,     "Crazy      "    "Yes",          "Yes",          "Yes",          "Yes",                   " ---- " ],
-                                    [9,     "Doh        "    "Yes",          "Yes",          "Yes",          "Yes",                   " ---- " ],
-                                    [10,    "Doom       "    "Yes",          "Yes",          "Yes",          "Yes",                   " ---- " ],
-                                    [11,    "Epic       "    "Yes",          "No",           "Yes",          "Yes",                   " ---- " ],
-                                    [12,    "Graceful   "    "Yes",          "No",           "Yes",          "Yes",                   " ---- " ],
-                                    [13,    "Larry      "    "Yes",          "Yes",          "Yes",          "Yes",                   " ---- " ],
-                                    [14,    "Money_NE   "    "Yes",          "Yes",          "Yes",          "Yes",                   " ---- " ],
-                                    [15,    "Money_NW   "    "Yes",          "Yes",          "Yes",          "Yes",                   " ---- " ],
-                                    [16,    "Money_SE   "    "Yes",          "Yes",          "Yes",          "Yes",                   " ---- " ],
-                                    [17,    "Money_SW   "    "Yes",          "Yes",          "Yes",          "Yes",                   " ---- " ],
-                                    [18,    "Mono       "    "Yes",          "Yes",          "Yes",          "Yes",                   " ---- " ],
-                                    [19,    "Moon       "    "Yes",          "No",           "No",           "No",                    " ---- " ],
-                                    [20,    "Moon2      "    "Yes",          "No",           "No",           "No",                    " ---- " ],
-                                    [21,    "Roman      "    "Yes",          "Yes",          "Yes",          "Yes",                   " ---- " ],
-                                    [22,    "Standard   "    "Yes",          "Yes",          "Yes",          "Yes",                   " ---- " ],
-                                    [23,    "Sweet      "    "No",           "Yes",          "Yes",          "Yes",                   " ---- " ]
+        ascii_letter_description = [["No.", "Type",                      "Uppercase",    "Lowercase",    "Shiff_On",     "Shift_Off",  "Rows"],
+                                    [1,     "Alpha      ",    "Yes",          "No",           "No",           "No",                    "23"  ],
+                                    [2,     "ANSI_Shadow",    "Yes",          "No",           "Yes",          "Yes",                   "8"   ],
+                                    [3,     "Big        ",    "Yes",          "Yes",          "Yes",          "Yes",                   "8"   ],
+                                    [4,     "Blocks     ",    "Yes",          "No",           "Yes",          "Yes",                   "13"  ],
+                                    [5,     "Bulbhead   ",    "Yes",          "No",           "Yes",          "Yes",                   "6"   ],
+                                    [6,     "Classy     ",    "Yes",          "Yes",          "Yes",          "Yes",                   "8"   ],
+                                    [7,     "Colossal   ",    "Yes",          "Yes",          "Yes",          "Yes",                   "10"  ],
+                                    [8,     "Crazy      ",    "Yes",          "Yes",          "Yes",          "Yes",                   "15"  ],
+                                    [9,     "Doh        ",    "Yes",          "Yes",          "Yes",          "Yes",                   "18"  ],
+                                    [10,    "Doom       ",    "Yes",          "Yes",          "Yes",          "Yes",                   "8"   ],
+                                    [11,    "Epic       ",    "Yes",          "No",           "Yes",          "Yes",                   "10"  ],
+                                    [12,    "Graceful   ",    "Yes",          "No",           "Yes",          "Yes",                   "6"   ],
+                                    [13,    "Larry      ",    "Yes",          "Yes",          "Yes",          "Yes",                   "9"   ],
+                                    [14,    "Money_NE   ",    "Yes",          "Yes",          "Yes",          "Yes",                   "10"  ],
+                                    [15,    "Money_NW   ",    "Yes",          "Yes",          "Yes",          "Yes",                   "10"  ],
+                                    [16,    "Money_SE   ",    "Yes",          "Yes",          "Yes",          "Yes",                   "11"  ],
+                                    [17,    "Money_SW   ",    "Yes",          "Yes",          "Yes",          "Yes",                   "11"  ],
+                                    [18,    "Mono       ",    "Yes",          "Yes",          "Yes",          "Yes",                   "9"   ],
+                                    [19,    "Moon       ",    "Yes",          "No",           "No",           "No",                    "5"   ],
+                                    [20,    "Moon2      ",    "Yes",          "No",           "No",           "No",                    "5"   ],
+                                    [21,    "Roman      ",    "Yes",          "Yes",          "Yes",          "Yes",                   "9"   ],
+                                    [22,    "Standard   ",    "Yes",          "Yes",          "Yes",          "Yes",                   "7"   ],
+                                    [23,    "Sweet      ",    "No",           "Yes",          "Yes",          "Yes",                   "12"  ]
                                    ]
 
 
@@ -3949,9 +3982,10 @@ def asciiart_only_info():
         tbl.footnote_align = "right"; tbl.footnote_msg = " Table Ascii Letters Available "
         tbl.footnote_bold  = True;    tbl.footnote_bg  = 90;  tbl.footnote_fg = 231
 
-        tbl.adj_bottom_margin = 2; tbl.adj_top_margin = 2
-        tbl.adj_bottom_space  = 0; tbl.adj_top_space  = 2; tbl.adj_indent = 0
+        tbl.adj_bottom_margin = 2; tbl.adj_top_margin = 2; tbl.adj_space = 1
+        tbl.adj_bottom_space  = 0; tbl.adj_top_space  = 2; tbl.adj_indent = 4
 
+        # tbl.data_align = cp.Align.CENTER
         tbl.print_fancy_format(data=ascii_letter_description, style=cp.Line_Style.WHITE_BLACK_PURPLE)
 
         message = f'''
@@ -3984,13 +4018,15 @@ def asciiart_only_info():
     #------------------------------------------------------------------------------------------------------------------------------------
 
     message = f'''
-      This class includes four different methods that allow you to print
+      This class includes 4 different methods that allow you to print
       ASCII art in various styles.
 
-            {cp.set_font(1,22,231,True)} Methods {cp.reset_font()}
-
-            {cp.Unicode.BULLET} print_ascii_art             {cp.Unicode.BULLET} print_ascii_logo_art
-            {cp.Unicode.BULLET} print_multi_ascii_art       {cp.Unicode.BULLET} print_reversed_ascii_logo_art
+      {cp.set_font(1,16,117)} Methods                                                        {cp.reset_font()}
+      {cp.set_font(1,117,16)}                                                                {cp.reset_font()}
+      {cp.set_font(1,117,16)} 1. print_ascii_art            3.print_ascii_logo_art           {cp.reset_font()}
+      {cp.set_font(1,117,16)}                                                                {cp.reset_font()}
+      {cp.set_font(1,117,16)} 2. print_multi_ascii_art      4. print_reversed_ascii_logo_art {cp.reset_font()}
+      {cp.set_font(1,117,16)}                                                                {cp.reset_font()}
 
 
       The table below describes all the supported names for letters, numbers,
@@ -4029,6 +4065,35 @@ def asciiart_only_info():
       {cp.set_font(0,53,231,0)} adj_middle_space = 0    |                                                {cp.reset_font()}
       {cp.set_font(0,53,231,0)} adj_right_space  = 0    |                                                {cp.reset_font()}
       {cp.set_font(0,53,231,0)}                                                                          {cp.reset_font()}
+
+      The characters that make up each letter can be modified by changing the
+      default values. In addition, every letter includes two extra rows
+      (one at the top and one at the bottom). To remove these extra rows,
+      set set_top_line = False and set_bottom_line = False.
+
+      The AsciiArt class supports two printing orientations: HORIZONTAL and
+      VERTICAL. To visualize the printing animation, set the delay_ms variable
+      to a delay such as 100 ms. If you do not want to see this effect, set
+      delay_ms to 0.
+
+
+      {cp.set_font(1,231,16)} Spacing Parameters {cp.reset_font()}
+
+      {cp.set_font(1,23,231)} adj_indent       {cp.reset_font()} Left margin from the beginning of the terminal to the
+                         start of the background color.
+
+      {cp.set_font(1,23,231)} adj_left_space   {cp.reset_font()} Space between the start of the background color and the
+                         first character of the ASCII letter.
+
+      {cp.set_font(1,23,231)} adj_middle_space {cp.reset_font()} Horizontal spacing between consecutive ASCII art
+                         letters.
+
+      {cp.set_font(1,23,231)} adj_right_space  {cp.reset_font()} Space between the last character of the ASCII letter
+                         and the end of the background color.
+
+      {cp.set_font(1,196,231)} Note {cp.reset_font()} Unsupported characters for a given ASCII letter type are displayed
+             as N/A (Not Applicable). See the Description of Ascii Letters
+             Keyboard table for the full list of available characters.
     '''
     print(message)
 
@@ -4048,33 +4113,99 @@ def print_ascii_art_info():
     ''' The AsciiArt class converts letters, numbers, and symbols into ASCII art. '''
     cp.ins_newline(1)
     blue_div.print_fancy_divider(all_topics[52])
+    message = f'''
+      
+      The print_ascii_art() method converts letters, numbers, and symbols into
+      ASCII art. Refer to the Description of Ascii Letters Keyboard table for
+      details on which characters are supported by each ASCII letter.
+           
+      {cp.set_font(1,231,0)} Example {cp.reset_font()} import custom_print as cp
+                msg = cp.AsciiArt()
+                msg.adj_indent = 4
 
-    print("ascii_art method")
+                msg.bold = True
+                msg.fg = 231
+                msg.bg = 21
+
+                msg.delay_ms = 40
+                msg.set_layout = cp.Layout.HORIZONTAL
+
+                msg.print_ascii_art(msg=\" Python 3 \")
+    '''
+    print(message)
+
+    msg = cp.AsciiArt()
+    msg.set_layout = cp.Layout.HORIZONTAL
+    msg.adj_indent = 16
+    msg.delay_ms = 40
+    msg.bold = True
+    msg.bg = 16
+    msg.fg = 117
+    msg.print_ascii_art(msg="  Python  3  ")
+    print()
+
+
 
 def print_multi_ascii_art_info():
     ''' This method prints multi Ascii Art. '''
     cp.ins_newline(1)
     blue_div.print_fancy_divider(all_topics[53])
-    print("multi_ascii_art method")
+    message = f'''
+      This method prints multi Ascii Art. In other words you can combine colors.
+    '''
+    print(message)
+
+    msg = cp.AsciiArt()
+    msg.set_layout = cp.Layout.HORIZONTAL
+    # msg.set_layout = cp.Layout.VERTICAL
+    msg.set_bottom_line = True
+    msg.set_top_line    = True
+    msg.adj_indent = 2
+    msg.adj_left_space = 2
+    msg.adj_middle_space = 0
+    msg.adj_right_space = 2
+    msg.delay_ms = 100
+    msg.ascii_type = cp.Ascii_Letter.BIG
+
+    # we have 3 data, we need 3 settings for every single data
+    # Note: If we add more data into the list, we will need more settings. In this case we have 3 items in the list data.
+    data = [     ["Py"], ["Th"],["On"]]
+    bolds      = [True,  True,  True]
+    bgs        = [115,   53,    117]
+    fgs        = [16,    11,     16]
+    italics    = [False, False, False]
+    underlines = [False, False, False]
+    strikes    = [False, False, False]
+    blinkings  = [False, False, False]
+    dims       = [False, False, False]
+    hiddens    = [False, False, False]
+    inverses   = [False, False, False]
+
+    # We have to pass all the parameters since we don't know the number of data that we will be passing 
+    # This function is making a combination of the Art class.
+    msg.print_multi_ascii_art(data, bolds, bgs, fgs, italics, underlines, strikes, blinkings, dims, hiddens, inverses)
+
 
 def print_ascii_logo_art_info():
     ''' This method prints a logo in an Ascii Art. '''
     cp.ins_newline(1)
     blue_div.print_fancy_divider(all_topics[54])
-    print("ascii_logo_art method")
+    message = f'''
+
+    '''
+    print(message)
+
 
 def print_reversed_ascii_logo_art_info():
     ''' This method prints a logo in an Ascii Art in reverse mode. '''
     cp.ins_newline(1)
     blue_div.print_fancy_divider(all_topics[55])
-    print("reversed_ascii_logo_art method")
-
     message = f'''
-      {cp.set_font(1,196,231)} Note {cp.reset_font()}
-      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
-      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
+    
     '''
+    print(message)
 
+    
 
 
 

@@ -10,37 +10,37 @@ import custom_print as cp
 
 #-----------------------------------------------------------------------------------------
 def art(dato):
-    msg = cp.Art()
-    # msg.set_layout = cp.Layout.HORIZONTAL
-    msg.set_layout = cp.Layout.VERTICAL
+    msg = cp.AsciiArt()
+    msg.set_layout = cp.Layout.HORIZONTAL
+    # msg.set_layout = cp.Layout.VERTICAL
     msg.adj_indent = 10
     msg.delay_ms = 40
     msg.bold = True
     msg.bg = 90
     msg.fg = 231
-    # msg.ascii_type = cp.Ascii_Letter.Alpha        # checked (spaces and invalid characters,\)
-    # msg.ascii_type = cp.Ascii_Letter.ANSI_Shadow  # checked (spaces and invalid characters,\)
-    # msg.ascii_type = cp.Ascii_Letter.Big          # checked (spaces and invalid characters,\)
-    # msg.ascii_type = cp.Ascii_Letter.Blocks       # checked (spaces and invalid characters,\)
-    # msg.ascii_type = cp.Ascii_Letter.Bulbhead     # checked (spaces and invalid characters,\)
-    # msg.ascii_type = cp.Ascii_Letter.Classy       # checked (spaces and invalid characters,\)
-    # msg.ascii_type = cp.Ascii_Letter.Colossal     # checked (spaces and invalid characters,\)
-    # msg.ascii_type = cp.Ascii_Letter.Crazy        # checked (spaces and invalid characters,\)
-    # msg.ascii_type = cp.Ascii_Letter.Doh          # checked (spaces and invalid characters,\)
-    # msg.ascii_type = cp.Ascii_Letter.Doom         # checked (spaces and invalid characters,\)
-    # msg.ascii_type = cp.Ascii_Letter.Epic         # checked (spaces and invalid characters,\)
-    # msg.ascii_type = cp.Ascii_Letter.Graceful     # checked (spaces and invalid characters,\)
-    # msg.ascii_type = cp.Ascii_Letter.Larry        # checked (spaces and invalid characters,\)
-    # msg.ascii_type = cp.Ascii_Letter.Money_NE     # checked (spaces and invalid characters,\)
-    # msg.ascii_type = cp.Ascii_Letter.Money_NW     # checked (spaces and invalid characters,\)
-    # msg.ascii_type = cp.Ascii_Letter.Money_SE     # checked (spaces and invalid characters,\)
-    # msg.ascii_type = cp.Ascii_Letter.Money_SW     # checked (spaces and invalid characters,\)
-    # msg.ascii_type = cp.Ascii_Letter.Mono         # checked (spaces and invalid characters,\)
-    # msg.ascii_type = cp.Ascii_Letter.Moon         # checked (spaces and invalid characters,\)
-    msg.ascii_type = "cp.Ascii_Letter.Moon2"        # Does not respect bg and fg colors. # checked (spaces and invalid characters,\)
-    # msg.ascii_type = cp.Ascii_Letter.Roman        # checked (spaces and invalid characters,\)
-    # msg.ascii_type = cp.Ascii_Letter.Standard     # checked (spaces and invalid characters,\)
-    # msg.ascii_type = cp.Ascii_Letter.Sweet        # checked (spaces and invalid characters,\)
+    # msg.ascii_type = cp.Ascii_Letter.ALPHA        # checked (spaces and invalid characters,\)
+    # msg.ascii_type = cp.Ascii_Letter.ANSI_SHADOW  # checked (spaces and invalid characters,\)
+    # msg.ascii_type = cp.Ascii_Letter.BIG          # checked (spaces and invalid characters,\)
+    # msg.ascii_type = cp.Ascii_Letter.BLOCKS       # checked (spaces and invalid characters,\)
+    # msg.ascii_type = cp.Ascii_Letter.BULBHEAD     # checked (spaces and invalid characters,\)
+    # msg.ascii_type = cp.Ascii_Letter.CLASSY       # checked (spaces and invalid characters,\)
+    # msg.ascii_type = cp.Ascii_Letter.COLOSSAL     # checked (spaces and invalid characters,\)
+    # msg.ascii_type = cp.Ascii_Letter.CRAZY        # checked (spaces and invalid characters,\)
+    # msg.ascii_type = cp.Ascii_Letter.DOH          # checked (spaces and invalid characters,\)
+    # msg.ascii_type = cp.Ascii_Letter.DOOM         # checked (spaces and invalid characters,\)
+    # msg.ascii_type = cp.Ascii_Letter.EPIC         # checked (spaces and invalid characters,\)
+    # msg.ascii_type = cp.Ascii_Letter.GRACEFUL     # checked (spaces and invalid characters,\)
+    # msg.ascii_type = cp.Ascii_Letter.LARRY        # checked (spaces and invalid characters,\)
+    # msg.ascii_type = cp.Ascii_Letter.MONEY_NE     # checked (spaces and invalid characters,\)
+    # msg.ascii_type = cp.Ascii_Letter.MONEY_NW     # checked (spaces and invalid characters,\)
+    # msg.ascii_type = cp.Ascii_Letter.MONEY_SE     # checked (spaces and invalid characters,\)
+    # msg.ascii_type = cp.Ascii_Letter.MONEY_SW     # checked (spaces and invalid characters,\)
+    # msg.ascii_type = cp.Ascii_Letter.MONO         # checked (spaces and invalid characters,\)
+    # msg.ascii_type = cp.Ascii_Letter.MOON         # checked (spaces and invalid characters,\)
+    # msg.ascii_type = cp.Ascii_Letter.MOON2        # Does not respect bg and fg colors. # checked (spaces and invalid characters,\)
+    # msg.ascii_type = cp.Ascii_Letter.ROMAN        # checked (spaces and invalid characters,\)
+    # msg.ascii_type = cp.Ascii_Letter.STANDARD     # checked (spaces and invalid characters,\)
+    msg.ascii_type = cp.Ascii_Letter.SWEET        # checked (spaces and invalid characters,\)
     
     
 
@@ -77,14 +77,14 @@ def art(dato):
 
 
 # ABC individually
-# lista = f"ABCDEFGHIJKLMNÑOPQRSTUVWXYZabcdefghijklmnñopqrstuvwxyz`1234567890-=[]\\;',./~!@#$%^&*()_+{cp.Unicode.LEFT_CURLY_BRACKET}{cp.Unicode.RIGHT_CURLY_BRACKET}|:\"<>?"
-# for l in lista:    
-#     # print(f"{cp.set_font(1,231,21)} Letter:{l}, Enter to Continue {cp.reset_font()}")
-#     input(f"{cp.set_font(1,231,21)} Letter:{l}, Enter to Continue {cp.reset_font()}")
-#     art(dato=l)
+lista = f"ABCDEFGHIJKLMNÑOPQRSTUVWXYZabcdefghijklmnñopqrstuvwxyz`1234567890-=[]\\;',./~!@#$%^&*()_+{cp.Unicode.LEFT_CURLY_BRACKET}{cp.Unicode.RIGHT_CURLY_BRACKET}|:\"<>?"
+for l in lista:    
+    # print(f"{cp.set_font(1,231,21)} Letter:{l}, Enter to Continue {cp.reset_font()}")
+    input(f"{cp.set_font(1,231,21)} Letter:{l}, Enter to Continue {cp.reset_font()}")
+    art(dato=l)
 
 
-art(f"AHXYENLL{cp.Unicode.UPPERCASE_N_TILDE}")
+# art(f"AXENLL")
 # print("\n\n")
 # print("hello")
 # print("pp _ _ \u0305")

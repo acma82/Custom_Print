@@ -26,7 +26,7 @@ class AsciiArt:
         self.blinking = False;                self.dim = False;                       self.hidden = False
         self.inverse  = False;                self.ascii_type = Ascii_Letter.STANDARD
               
-        self.adj_indent = 0;                  self.adj_space  = 0;                    self.delay_ms   = 0
+        self.adj_indent = 0;                  self.delay_ms   = 0
         self.set_layout = Layout.VERTICAL;    self.set_top_line = True;               self.set_bottom_line = True; 
         self.adj_left_space = 0;              self.adj_middle_space = 0;              self.adj_right_space = 0
         
