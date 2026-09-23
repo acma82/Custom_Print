@@ -11,4 +11,3 @@ msg.fg = 231
 msg.print_ascii_art(msg=" Python 3.12 ")
 
 
-                                                  

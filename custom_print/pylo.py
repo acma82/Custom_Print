@@ -1237,7 +1237,7 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Number a List                                                                                                                                  -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def number(self, data:list, start_number:int=0, id_txt:str="Id", renumber:bool=False, update:bool=False)->list:
+    def add_col_id(self, data:list, start_number:int=0, id_label:str="ID", renumber:bool=False, update:bool=False)->list:
 
         '''  This method set the number of rows by adding a column to the left side.  '''
 
@@ -1250,7 +1250,7 @@ class PyLO():
         if list_type == "multiple_items_multiple_rows":
 
             result = [];                    tempo = []
-            header = original.pop(0);       header.insert(0,id_txt)
+            header = original.pop(0);       header.insert(0,id_label)
 
             for row in original:
                 tempo = row

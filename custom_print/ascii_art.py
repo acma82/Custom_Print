@@ -27,7 +27,7 @@ class AsciiArt:
         self.inverse  = False;                self.ascii_type = Ascii_Letter.STANDARD
               
         self.adj_indent = 0;                  self.delay_ms   = 0
-        self.set_layout = Layout.VERTICAL;    self.set_top_line = True;               self.set_bottom_line = True; 
+        self.set_layout = Layout.VERTICAL;    self.set_top_line_on = True;            self.set_bottom_line_on = True; 
         self.adj_left_space = 0;              self.adj_middle_space = 0;              self.adj_right_space = 0
         
     # +--------------------------------------------------------------------------------------------------------------------------------+
@@ -37,7 +37,7 @@ class AsciiArt:
         # Defining variables
         rows = 0;                            result = []
         tempo_row = "";                      retardo = self.delay_ms/1000            
-        skip_top_row = self.set_top_line;    left_sp = self.adj_left_space
+        skip_top_row = self.set_top_line_on;    left_sp = self.adj_left_space
         middle_sp = self.adj_middle_space;   right_sp = self.adj_right_space
         
         symbol_chrs = ["`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=",
@@ -114,7 +114,7 @@ class AsciiArt:
             if len(data) == 1: middle_sp = left_sp
             else:              pass
 
-            if self.set_bottom_line == False: rows = rows - 1
+            if self.set_bottom_line_on == False: rows = rows - 1
             for r in range(rows):
                 if skip_top_row == False: pass
                 else:
@@ -172,10 +172,10 @@ class AsciiArt:
             move_up = rows
             move_right = self.adj_indent
 
-            if self.set_bottom_line == False:
+            if self.set_bottom_line_on == False:
                 rows    -= 1
                 move_up -= 1 
-            if self.set_top_line == False:
+            if self.set_top_line_on == False:
                 move_up -= 1
 
 
@@ -218,7 +218,7 @@ class AsciiArt:
                         move_right = move_right + len(list_letter[0]) + middle_sp                 # middle item (original)
 
                 print(f"\033[{str(move_up)}A",end="")
-                skip_top_row = self.set_top_line
+                skip_top_row = self.set_top_line_on
                 time.sleep(retardo)
             print(f"\033[{rows}B",end="")
             
@@ -260,10 +260,32 @@ class AsciiArt:
     # +--------------------------------------------------------------------------------------------------------------------------------+
     # |    Multiple Settings for Bold, Bg, Fg, italic, underline, strike, blinking, dim, and inverse                                   |
     # +--------------------------------------------------------------------------------------------------------------------------------+
-    def print_multi_ascii_art(self,data, sets_bold, sets_bg, sets_fg, sets_italic, sets_underline, sets_strike, sets_blinking, sets_dim, sets_hidden, sets_inverse ):
-        # adj_indent cannot be changed or it will be messy
+    def print_multi_ascii_art(self,data):
+
+        # self.adj_indent cannot be changed or it will be messy
+        # self.ascii_type cannot be changed ot it will be messy because many ascii letters has different height
+        # The following variables are not being alter their value: ascii_type, set_layout, set_top_line_on, set_bottom_line_on and set_delay_ms
+        # Backup the variables
+        #------------------------------------------------------------
+        bu_bg   = self.bg
+        bu_fg   = self.fg
+        bu_dim  = self.dim
+        bu_bold = self.bold
+        bu_italic    = self.italic
+        bu_underline = self.underline
+        bu_strike    = self.strike
+        bu_blinking  = self.blinking
+        bu_hiddends  = self.hidden
+        bu_inverse   = self.inverse
+        bu_adj_left_space   = self.adj_left_space
+        bu_adj_middle_space = self.adj_middle_space
+        bu_adj_right_space  = self.adj_right_space
+        bu_adj_indent       = self.adj_indent
+        #------------------------------------------------------------
+        # End of Backup
         crs = Cursor()
         ctrl_dist = 0
+        letter_height = 0
         symbol_chrs = ["`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=", "[", "]", "\\", ";", "'",  ",", ".", "/",
                         "~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+", "{", "}", "|",  ":", "\"", "<", ">", "?", " "]
         
@@ -273,51 +295,54 @@ class AsciiArt:
                         "close_parenthesis", "underscore", "plus", "pipe", "open_curly", "close_curly", "colon", "quotation","less_than",
                         "greater_than", "question", "space"]
 
-        for row in range(len(data)):
-            self.bold = sets_bold[row]
-            self.bg   = sets_bg[row]
-            self.fg   = sets_fg[row]
+        for col in range(len(data[0])):
+            self.bold      = data[1][col]
+            self.bg        = data[2][col]
+            self.fg        = data[3][col]
+            self.italic    = data[4][col]
+            self.underline = data[5][col]
+            self.strike    = data[6][col]
+            self.blinking  = data[7][col]
+            self.dim       = data[8][col]
+            self.hidden    = data[9][col]
+            self.inverse   = data[10][col]
 
-            self.italic    = sets_italic[row]
-            self.underline = sets_underline[row]
-            self.strike    = sets_strike[row]
-            self.blinking  = sets_blinking[row]
-            self.dim       = sets_dim[row]
-            self.hidden    = sets_hidden[row]
-            self.inverse   = sets_inverse[row]
+            self.adj_left_space   = data[11][col]
+            self.adj_middle_space = data[12][col]
+            self.adj_right_space  = data[13][col]
 
-            for col in range(len(data[row])):
-                self.print_ascii_art(data[row][col])
-                text = data[row][col]
-                for n in text:
-                    try:
-                        list_name =  eval(self.ascii_type + "_" + n)
-                        letter_width = len(list_name[0])
-                        ctrl_dist = ctrl_dist + letter_width  # contains all the width of the letters inside the row. (Letters or Numbers)
+            self.print_ascii_art(data[0][col])
+            text = data[0][col]
 
-
-                    except:
-                        if n in symbol_chrs:
-                            position = symbol_chrs.index(n)
-                            symbol_chr = symbol_name[position]
-                            try:
-                                list_name  = eval(self.ascii_type + "_" + symbol_chr)
-                                letter_width = len(list_name[0])
-                                ctrl_dist = ctrl_dist + letter_width # contains all the width of the letters inside the row. (Symbols)
-                            except:
-                                list_name = eval(self.ascii_type + "_" + "NA")
-                                letter_width = len(list_name[0])
-                                ctrl_dist = ctrl_dist + letter_width  # contains all the width of the letters inside the row, if the letter does not exist, here
+            for n in text:
+                try:
+                    list_name =  eval(self.ascii_type + "_" + n)
+                    letter_width = len(list_name[0])
+                    ctrl_dist = ctrl_dist + letter_width  # contains all the width of the letters inside the row. (Letters or Numbers)
 
 
-                        else:
-                            list_name = eval(self.ascii_type + "_" + "NA") # key_word. => Alpha_Letters.Alpha_NA
+                except:
+                    if n in symbol_chrs:
+                        position = symbol_chrs.index(n)
+                        symbol_chr = symbol_name[position]
+                        try:
+                            list_name  = eval(self.ascii_type + "_" + symbol_chr)
+                            letter_width = len(list_name[0])
+                            ctrl_dist = ctrl_dist + letter_width # contains all the width of the letters inside the row. (Symbols)
+                        except:
+                            list_name = eval(self.ascii_type + "_" + "NA")
                             letter_width = len(list_name[0])
                             ctrl_dist = ctrl_dist + letter_width  # contains all the width of the letters inside the row, if the letter does not exist, here
 
 
-            if (len(data[row])) >= 2: self.adj_indent = self.adj_indent+self.adj_left_space+ ctrl_dist+self.adj_middle_space+self.adj_right_space
-            else:                      self.adj_indent = self.adj_indent+self.adj_left_space+ ctrl_dist+self.adj_right_space
+                    else:
+                        list_name = eval(self.ascii_type + "_" + "NA") # key_word. => Alpha_Letters.Alpha_NA
+                        letter_width = len(list_name[0])
+                        ctrl_dist = ctrl_dist + letter_width  # contains all the width of the letters inside the row, if the letter does not exist, here
+
+
+            if (len(data[0][col])) >= 2: self.adj_indent = self.adj_indent + data[11][col] + ctrl_dist + data[12][col] + data[13][col]
+            else:                        self.adj_indent = self.adj_indent + data[11][col] + ctrl_dist + data[13][col]
             ctrl_dist = 0
 
             # Make sure always exist space list into the type of letter using
@@ -326,6 +351,25 @@ class AsciiArt:
             crs.jumpTo(qty=letter_height, direction = Move.UP)
 
         crs.jumpTo(qty=letter_height, direction = Move.DOWN)
+
+        # Putting back the variables
+        #------------------------------------------------------------
+        self.bg    = bu_bg  
+        self.fg    = bu_fg  
+        self.dim   = bu_dim 
+        self.bold  = bu_bold
+        self.italic    = bu_italic   
+        self.underline = bu_underline
+        self.strike    = bu_strike   
+        self.blinking  = bu_blinking 
+        self.hidden    = bu_hiddends 
+        self.inverse   = bu_inverse  
+        self.adj_left_space   = bu_adj_left_space  
+        self.adj_middle_space = bu_adj_middle_space
+        self.adj_right_space  = bu_adj_right_space 
+        self.adj_indent       = bu_adj_indent      
+        #------------------------------------------------------------
+        # End of putting back the variables
 
 
 

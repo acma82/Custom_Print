@@ -893,7 +893,7 @@ def terminal_bell_info():
                   input("Press Enter")
                   cp.terminal_bell()
                   '''
-    print(message)    
+    print(message)
     cp.terminal_bell()
 
 
@@ -1397,7 +1397,7 @@ def move_info():
 
       {cp.set_font(True,231,0)} Example  {cp.reset_font()}  import custom_print as cp
       {cp.ins_chr(10)}  crs = cp.Cursor()
-      {cp.ins_chr(10)}  crs.jumpTo(8, \"down\")  # crs.jumpTo(8, \"d\") 
+      {cp.ins_chr(10)}  crs.jumpTo(8, \"down\")  # crs.jumpTo(8, \"d\")
       {cp.ins_chr(10)}  crs.jumpTo(2, cp.Move.DOWN)
 
       {cp.set_font(1,196,231)} Note {cp.reset_font()} See Cursor class for more examples.
@@ -1667,13 +1667,13 @@ def cursor_only_info():
       {cp.set_font(1,117,16)} 1. jumpTo      3. moveTo  {cp.reset_font()}
       {cp.set_font(1,117,16)}                           {cp.reset_font()}
       {cp.set_font(1,117,16)} 2. jumpxy      4. movexy  {cp.reset_font()}
-      {cp.set_font(1,117,16)}                           {cp.reset_font()}     
-      
-       
+      {cp.set_font(1,117,16)}                           {cp.reset_font()}
+
+
       {cp.set_font(1,22,231)} jump {cp.reset_font()} Executes the action.
       {cp.set_font(1,22,231)} move {cp.reset_font()} Returns the code to excute the action.
-      
-    
+
+
       Cursor can use the Move Class that has 4 options.
 
       {cp.set_font(0,53,231,0)}             {cp.reset_font()}
@@ -1813,7 +1813,7 @@ def fontstyle_only_info():
       {cp.set_font(1,117,16)}                                   {cp.reset_font()}
       {cp.set_font(1,117,16)} 2. style_off      4. print_style  {cp.reset_font()}
       {cp.set_font(1,117,16)}                                   {cp.reset_font()}
-     
+
 
       {cp.set_font(1,231,16)} Default Values {cp.reset_font()}
       {cp.set_font(0,53,231,0)}                                                 {cp.reset_font()}
@@ -1901,7 +1901,7 @@ def reset_style_info():
     green_div.print_fancy_divider(all_topics[37])
     message = f'''
       This method reset all the variables to their default values.
-    
+
       {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
                   fs = cp.FontStyle()
                   fs.bg = 21
@@ -3247,8 +3247,8 @@ def fancyformat_only_info():
     message = f'''
       {cp.set_font(1,22,231,True)} set_banded_row_on {cp.reset_font()} was created to apply alternating background
       colors to the table rows.
-      
-      When {cp.set_font(1,22,231,True)} set_banded_row_on {cp.reset_font()} is set to True, banded_row_bg and banded_row_fg 
+
+      When {cp.set_font(1,22,231,True)} set_banded_row_on {cp.reset_font()} is set to True, banded_row_bg and banded_row_fg
       control the banded row behavior. See the example below.
 
 
@@ -3305,38 +3305,38 @@ def fancyformat_only_info():
 
 
     lst = [["Banded_Row_Step  = 3"],
-           ["Data 1"],   
-           ["Data 2"],   
-           ["Data 3"],   
-           ["Data 4"],   
-           ["Data 5"],   
-           ["Data 6"],   
-           ["Data 7"],   
-           ["Data 8"],   
-           ["Data 9"],   
-           ["Data 10"],  
-           ["Data 11"],  
-           ["Data 12"],  
-           ["Data 13"],  
-           ["Data 14"],  
-           ["Data 15"],  
-           ["Data 16"],  
-           ["Data 17"],  
-           ["Data 18"]]  
+           ["Data 1"],
+           ["Data 2"],
+           ["Data 3"],
+           ["Data 4"],
+           ["Data 5"],
+           ["Data 6"],
+           ["Data 7"],
+           ["Data 8"],
+           ["Data 9"],
+           ["Data 10"],
+           ["Data 11"],
+           ["Data 12"],
+           ["Data 13"],
+           ["Data 14"],
+           ["Data 15"],
+           ["Data 16"],
+           ["Data 17"],
+           ["Data 18"]]
 
 
 
     message = f'''
       {cp.set_font(1,22,231)} bande_row_step {cp.reset_font()} variable is set to 1 by default. It can be changed
       to a different value for more convenience for the visualization.
-'''    
+'''
     print("\n")
     print(message)
     tbl.banded_row_step = 3
     tbl.print_fancy_format(lst)
 
 
-    
+
     message = f'''
       {cp.set_font(1,196,231)} Note {cp.reset_font()} To see all available attributes for the header, data, title, and
               footnote, refer to their respective sections above.
@@ -3355,48 +3355,50 @@ def fancyformat_only_info():
       {cp.set_font(0,53,231,0)}                                      |                                   {cp.reset_font()}
       {cp.set_font(0,53,231,0)}                                                                          {cp.reset_font()}
 
-       This option was created to make an effect to the table. When setting
-       set_multi_bg_fg_on to True, the variables work as decribed below.
+      This option was created to apply alternating background colors to the
+      table rows. When {cp.set_font(1,22,231)} set_multi_bg_fg_on {cp.reset_font()} is set to True, the following
+      variables control the color behavior:
 
-       data_multi_bg works as a range variable (start, stop, step).
-       The start will be the the data_bg variable (describe on Data Section),
-       the stop will be the data_multi_bg_stop and the step will be the
-       variable data_bg_step.
+      data_multi_bg acts as a range variable in the format (start, stop, step).
+      The start value is taken from the data_bg variable (see Data Section for
+      details). The stop value is defined by {cp.set_font(1,22,231)} data_multi_bg_stop. {cp.reset_font()} The step
+      value is defined by {cp.set_font(1,22,231)} data_multi_bg_step. {cp.reset_font()}
 
-       Let's assume you have a table with 5 data rows, and data_bg is set to 9,
-       this is our start, the first row color will be the number 9, LIGHT_BLUE,
-       check the ansi_colors function for more reference. Assume that our
-       data_multi_bg_stop is set to 21. Now see the table below to see the
-       behavior or the colors in the table.
-
-       Rows        Start             Color
-        1          data_bg = 12      PASTEL_RED            (9)
-        2          data_bg += _step  ELECTRIC_LIGHT_GREEN  (10)
-        3          14                DARKISH_YELLOW        (11)
-        4          15                LIGHT_BLUE            (12)
-        5          16                LIGHT_PURPLE          (13)
+      For example, if a table has 5 data rows, data_bg is set to 9 (PASTEL_RED),
+      and {cp.set_font(1,22,231)} data_multi_bg_stop {cp.reset_font()} is set to 21, the background colors will be
+      applied as shown in the table below.
 
 
-      {cp.set_font(1,196,231)} Note {cp.reset_font()} The stop was set to 21,
-      on this case the the data_multi_bg did not reach to the end. Now assume
-      that the data_multi_bg_step is set to 4. See the behavior of the color
-      in the following table.
+      Rows        Start                 Color           check color name
+        1          data_bg = 9          PASTEL_RED            (9)
+        2          data_bg += step(10)  ELECTRIC_LIGHT_GREEN  (10)
+        3          data_bg += step(11)  DARKISH_YELLOW        (11)
+        4          data_bg += step(12)  LIGHT_BLUE            (12)
+        5          data_bg += step(13)  LIGHT_PURPLE          (13)
 
-       Rows        Start             Color
-        1          data_bg = 12      PASTEL_RED            (9)
-        2          data_bg += _step  LIGHT_PURPLE          (13)
-        3          14                DARK_BLUE             (17)
-        4          15                PASTEL_RED            (21) Restar (9)
-        5          16                LIGHT_PURPLE          (13)
+      {cp.set_font(1,196,231)} Note {cp.reset_font()} In this example, {cp.set_font(1,22,231)} data_multi_bg_stop {cp.reset_font()}is set to 21. Since the table
+             only contains 5 rows, the stop value is not reached. Now assume
+             {cp.set_font(1,22,231)} data_multi_bg_step {cp.reset_font()} is set to 4. In this case,
+             the background colors will be applied as shown in the table below.
 
-      Notice that the row fourth, reach the limit, However the color is
-      restarted to the beginning which is the data_bg color, 9 (PASTEL_RED color).
+       Rows        Start                Color
+        1          data_bg = 9          PASTEL_RED            (9)
+        2          data_bg += _step     LIGHT_PURPLE          (13)
+        3          data_bg += step(17)  DARK_BLUE             (17)
+        4          data_bg += step(21)  PASTEL_RED            (21) Restar (9)
+        5          data_bg += step(13)  LIGHT_PURPLE          (13)
 
-      The data_multi_fg works exactly the same as the data_multi_bg.
 
-      In the following example we keep the same background (step=0) to visualize
-      the color in a better way. Also, notice that the header colors are NOT
-      modified at all.
+      {cp.set_font(1,196,231)} Note {cp.reset_font()} The fourth row reaches the defined limit {cp.set_font(1,22,231)} (data_multi_bg_stop). {cp.reset_font()}
+             Once the limit is reached, the color sequence restarts from the
+             beginning — using the {cp.set_font(1,231,22)} data_bg {cp.reset_font()} color, which is 9 (PASTEL_RED).
+             The variable {cp.set_font(1,22,231)} data_multi_fg {cp.reset_font()} works exactly the same way as
+             {cp.set_font(1,22,231)} data_multi_bg. {cp.reset_font()}
+
+      In the following example, the background color step is set to 0
+      (static background) to make the foreground color progression easier to
+      see. Please also note that the header colors are not affected by these
+      settings.
 
 
 
@@ -3429,7 +3431,7 @@ def fancyformat_only_info():
                   tbl.data_multi_fg_step = 4
                   tbl.print_fancy_format(data=my_list,
                                          style=cp.Line_Style.DASH_LINE)
-                                         
+
       {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
 '''
     print(message)
@@ -3628,17 +3630,17 @@ def print_fancy_format_info():
             options. See the demos for examples and reference.
 
       {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
-                  tbl.top_left_corner_chr = \"a\"
-                  tbl.top_horizontal_line_chr = \"-\"
-                  tbl.top_right_corner_chr = \"d\"
-                  tbl.left_vertical_line_chr = f\"{{cp.Unicode.UP_DOWN_ARROW}}\"
-                  tbl.bottom_left_corner_chr = \"s\"
-                  tbl.bottom_right_corner_chr = \"v\"
-                  tbl.bottom_horizontal_line_chr = \"-\"
-                  tbl.right_vertical_line_chr = f\"{{cp.Unicode.UP_DOWN_ARROW}}\"
-                  data = \" I am a Data (D) \"
+                 tbl.top_left_corner_chr = \"a\"
+                 tbl.top_horizontal_line_chr = \"-\"
+                 tbl.top_right_corner_chr = \"d\"
+                 tbl.left_vertical_line_chr = f\"{{cp.Unicode.UP_DOWN_ARROW}}\"
+                 tbl.bottom_left_corner_chr = \"s\"
+                 tbl.bottom_right_corner_chr = \"v\"
+                 tbl.bottom_horizontal_line_chr = \"-\"
+                 tbl.right_vertical_line_chr = f\"{{cp.Unicode.UP_DOWN_ARROW}}\"
+                 data = \" I am a Data (D) \"
 
-                  tbl.print_fancy_format(data=data,
+                 tbl.print_fancy_format(data=data,
                                         style=cp.Line_Style.CUSTOMIZED)
 
       {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
@@ -3702,15 +3704,15 @@ def print_fancy_format_info():
       When using line-based templates (such as DASH, SINGLE_LINE, etc.) or
       DESIGN templates (1 through 10), the bg and fg colors for headers and
       data work normally.
-      
-      However, when using color templates (such as WHITE_PURPLE and similar), 
+
+      However, when using color templates (such as WHITE_PURPLE and similar),
       the bg and fg settings for data are ignored, except when they apply to
       banded rows or data multi colors.
 
       For SPACE templates (0 through 6), you must specify the bg and fg colors
       for every element in the table. See the Line_Style class for examples.
 
-      When a color template is used together with the data_multi_bg and 
+      When a color template is used together with the data_multi_bg and
       data_multi_fg options, the starting color is defined internally by
       the class and cannot be changed by the user.
       '''
@@ -3971,8 +3973,7 @@ def asciiart_only_info():
                                     [20,    "Moon2      ",    "Yes",          "No",           "No",           "No",                    "5"   ],
                                     [21,    "Roman      ",    "Yes",          "Yes",          "Yes",          "Yes",                   "9"   ],
                                     [22,    "Standard   ",    "Yes",          "Yes",          "Yes",          "Yes",                   "7"   ],
-                                    [23,    "Sweet      ",    "No",           "Yes",          "Yes",          "Yes",                   "12"  ]
-                                   ]
+                                    [23,    "Sweet      ",    "No",           "Yes",          "Yes",          "Yes",                   "12"  ]]
 
 
 
@@ -4044,24 +4045,35 @@ def asciiart_only_info():
     description_ascii_logos()
 
     message = f'''
+      All logos were taking from the following websites below:
+
+      {cp.set_font(1,190,16)} Reference: {cp.reset_font()}
+      https://www.asciiart.eu/animations
+      https://convertcase.net/bubble-text-generator/
+      https://patorjk.com/software/taag/#p=display&f=Isometric2&t
+
+      {cp.set_font(1,196,231)} Note {cp.reset_font()} On {cp.set_font(1,22,231)} print_ascii_logo_art {cp.reset_font()} will be discuss how to print your own
+             logo.
+
+
       {cp.set_font(1,231,16)} Default Values {cp.reset_font()}
       {cp.set_font(0,53,231,0)}                                                                          {cp.reset_font()}
       {cp.set_font(1,53,231,0)} Letter Section                                                           {cp.reset_font()}
       {cp.set_font(0,53,231,0)}                                                                          {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} bg   = -1               strike = False                                   {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} fg   = -1               hidden = False                                   {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} dim  = -1               blinking   = False                               {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} bold = False            underline  = False                               {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} italic  = False         delay_ms   = 0                                   {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} inverse = False         ascii_type = Ascii_Letter.Standard               {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} bg   = -1               |    strike = False                              {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} fg   = -1               |    hidden = False                              {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} dim  = -1               |    blinking   = False                          {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} bold = False            |    underline  = False                          {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} italic  = False         |    delay_ms   = 0                              {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} inverse = False         |    ascii_type = Ascii_Letter.Standard          {cp.reset_font()}
       {cp.set_font(0,53,231,0)}                                                                          {cp.reset_font()}
 
       {cp.set_font(0,53,231,0)}                                                                          {cp.reset_font()}
-      {cp.set_font(1,53,231,0)} Space Section                Line Section                                {cp.reset_font()}
-      {cp.set_font(0,53,231,0)}                                                                          {cp.reset_font()}
+      {cp.set_font(1,53,231,0)} Space Section           |    Line Section                                {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}                         |                                                {cp.reset_font()}
       {cp.set_font(0,53,231,0)} adj_indent = 0          |    set_layout = Layout.VERTICAL                {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} adj_space  = 0          |    set_top_line = True                         {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} adj_left_space   = 0    |    set_bottom_line = True                      {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} adj_space  = 0          |    set_top_line_on = True                      {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} adj_left_space   = 0    |    set_bottom_line_on = True                   {cp.reset_font()}
       {cp.set_font(0,53,231,0)} adj_middle_space = 0    |                                                {cp.reset_font()}
       {cp.set_font(0,53,231,0)} adj_right_space  = 0    |                                                {cp.reset_font()}
       {cp.set_font(0,53,231,0)}                                                                          {cp.reset_font()}
@@ -4069,7 +4081,7 @@ def asciiart_only_info():
       The characters that make up each letter can be modified by changing the
       default values. In addition, every letter includes two extra rows
       (one at the top and one at the bottom). To remove these extra rows,
-      set set_top_line = False and set_bottom_line = False.
+      set set_top_line_on = False and set_bottom_line_on = False.
 
       The AsciiArt class supports two printing orientations: HORIZONTAL and
       VERTICAL. To visualize the printing animation, set the delay_ms variable
@@ -4114,11 +4126,11 @@ def print_ascii_art_info():
     cp.ins_newline(1)
     blue_div.print_fancy_divider(all_topics[52])
     message = f'''
-      
+
       The print_ascii_art() method converts letters, numbers, and symbols into
       ASCII art. Refer to the Description of Ascii Letters Keyboard table for
       details on which characters are supported by each ASCII letter.
-           
+
       {cp.set_font(1,231,0)} Example {cp.reset_font()} import custom_print as cp
                 msg = cp.AsciiArt()
                 msg.adj_indent = 4
@@ -4151,39 +4163,180 @@ def print_multi_ascii_art_info():
     cp.ins_newline(1)
     blue_div.print_fancy_divider(all_topics[53])
     message = f'''
-      This method prints multi Ascii Art. In other words you can combine colors.
+      The print_multi_ascii_art method prints ASCII letters by looping and
+      reusing the {cp.set_font(1,22,231)} print_ascii_art method. {cp.reset_font()} Data is passed as a list in table
+      form. The following table describes the required order of parameters
+      for this method.
+
+      {cp.set_font(1,231,16)} Order to pass the parameters on this method. {cp.reset_font()}
+
+      0.  Letters        6.  strikes         10. inverse
+      1.  Bold           7.  blinking        11. left_space
+      2.  bg             8.  dims            12. middle_space
+      3.  Fg             9.  hiddends        13. right_space
+      4.  italic
+      5.  underline
+
+
+      {cp.set_font(1,231,16)} Variables are NOT being altered by this method. {cp.reset_font()}
+
+      ascii_type         set_top_line_on
+      set_layout         set_bottom_line_on
+      set_delay_ms
+
+
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                  msg = cp.AsciiArt()
+                  msg.delay_ms = 60
+                  msg.adj_indent = 6
+                  msg.set_layout = cp.Layout.HORIZONTAL
+                  # msg.set_layout = cp.Layout.VERTICAL
+
+                  data = [["Py",  "th",  "on" ],    # 0.  Letters
+                          [True,  True,  True ],    # 1.  Bold
+                          [152,   115,   202  ],    # 2.  bg
+                          [16,    17,    23   ],    # 3.  Fg
+                          [False, False, False],    # 4.  italic
+                          [False, False, False],    # 5.  underline
+                          [False, False, False],    # 6.  strikes
+                          [False, False, False],    # 7.  blinking
+                          [False, False, False],    # 8.  dims
+                          [False, False, False],    # 9.  hiddends
+                          [False, False, False],    # 10. inverse
+                          [2,     3,     1    ],    # 11. left_space
+                          [0,     4,     0    ],    # 12. middle_space
+                          [2,     3,     2    ]]    # 13. right_space
+
+                  msg.print_multi_ascii_art(data=data)
+
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
     '''
     print(message)
 
     msg = cp.AsciiArt()
     msg.set_layout = cp.Layout.HORIZONTAL
+    msg.delay_ms = 80
+    msg.adj_indent = 6
     # msg.set_layout = cp.Layout.VERTICAL
-    msg.set_bottom_line = True
-    msg.set_top_line    = True
-    msg.adj_indent = 2
-    msg.adj_left_space = 2
-    msg.adj_middle_space = 0
-    msg.adj_right_space = 2
-    msg.delay_ms = 100
-    msg.ascii_type = cp.Ascii_Letter.BIG
 
-    # we have 3 data, we need 3 settings for every single data
-    # Note: If we add more data into the list, we will need more settings. In this case we have 3 items in the list data.
-    data = [     ["Py"], ["Th"],["On"]]
-    bolds      = [True,  True,  True]
-    bgs        = [115,   53,    117]
-    fgs        = [16,    11,     16]
-    italics    = [False, False, False]
-    underlines = [False, False, False]
-    strikes    = [False, False, False]
-    blinkings  = [False, False, False]
-    dims       = [False, False, False]
-    hiddens    = [False, False, False]
-    inverses   = [False, False, False]
+    data = [["Py",  "th",  "on" ],         # 0.  Letters
+            [True,  True,  True ],         # 1.  Bold
+            [152,   115,   202  ],         # 2.  bg
+            [16,    17,    23   ],         # 3.  Fg
+            [False, False, False],         # 4.  italic
+            [False, False, False],         # 5.  underline
+            [False, False, False],         # 6.  strikes
+            [False, False, False],         # 7.  blinking
+            [False, False, False],         # 8.  dims
+            [False, False, False],         # 9.  hiddends
+            [False, False, False],         # 10. inverse
+            [2,     3,     1    ],         # 11. left_space
+            [0,     4,     0    ],         # 12. middle_space
+            [2,     3,     2    ]]         # 13. right_space
 
-    # We have to pass all the parameters since we don't know the number of data that we will be passing 
-    # This function is making a combination of the Art class.
-    msg.print_multi_ascii_art(data, bolds, bgs, fgs, italics, underlines, strikes, blinkings, dims, hiddens, inverses)
+    msg.print_multi_ascii_art(data=data)
+
+    message = f'''
+
+      {cp.set_font(1,196,231)} Note {cp.reset_font()} All parameters must be provided without skipping any, since the
+             number of letter groups the user will use is unknown.
+             It is recommended that you experiment with the variables in this
+             example to better understand how they work. If you add another
+             group of letters, remember to add a corresponding column with the
+             styling parameters (such as bgs, fgs, bolds, etc.).
+
+      {cp.set_font(1,115,16)} Example Combination Of Letters {cp.reset_font()}
+
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                  print("    Type of Letters.")
+                  print("    Python: Doom, IS: Mono, PRETTY: Epic")
+                  cp.ins_newline(n=2)
+
+                  row_1 = [\"Py    \",  \"th      \",  \"on  \" ] # 0.  Letters
+
+                  row_2 = [f\"{{cp.ins_chr(n=18)}}\", \"IS    \",
+                           f\"{{cp.ins_chr(n=10)}}\"]
+
+                  row_3 = [\"PR\", \"ET\", \"TY\"]
+
+                  data =  [[True,  True,  True],      # 1.  Bold
+                          [152,   115,   202  ],      # 2.  bg
+                          [16,    17,    23   ],      # 3.  Fg
+                          [False, False, False],      # 4.  italic
+                          [False, False, False],      # 5.  underline
+                          [False, False, False],      # 6.  strikes
+                          [False, False, False],      # 7.  blinking
+                          [False, False, False],      # 8.  dims
+                          [False, False, False],      # 9.  hiddends
+                          [False, False, False],      # 10. inverse
+                          [2,     2,     2    ],      # 11. left_space
+                          [1,     1,     1    ],      # 12. middle_space
+                          [2,     2,     2    ]]      # 13. right_space
+
+                  data.insert(0, row_1)
+
+                  multi_msg = cp.AsciiArt()
+                  multi_msg.delay_ms = 70
+                  multi_msg.set_layout = cp.Layout.VERTICAL
+
+                  multi_msg.ascii_type = cp.Ascii_Letter.DOOM
+                  multi_msg.print_multi_ascii_art(data=data)
+
+
+                  multi_msg.ascii_type = cp.Ascii_Letter.MONO
+                  data[0] = row_2
+                  multi_msg.print_multi_ascii_art(data=data)
+
+                  multi_msg.ascii_type = cp.Ascii_Letter.EPIC
+                  data[0] = row_3
+                  multi_msg.print_multi_ascii_art(data=data)
+
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
+      '''
+    print(message)
+
+    print("    Type of Letters.")
+    print("    Python: Doom, IS: Mono, PRETTY: Epic")
+    cp.ins_newline(n=2)
+
+    row_1 = ["Py    ",  "th      ",  "on  " ] # 0.  Letters
+    row_2 = [f"{cp.ins_chr(n=18)}", "IS    ", f"{cp.ins_chr(n=10)}"]
+    row_3 = ["PR", "ET", "TY"]
+
+    data =  [[True,  True,  True],         # 1.  Bold
+            [152,   115,   202  ],         # 2.  bg
+            [16,    17,    23   ],         # 3.  Fg
+            [False, False, False],         # 4.  italic
+            [False, False, False],         # 5.  underline
+            [False, False, False],         # 6.  strikes
+            [False, False, False],         # 7.  blinking
+            [False, False, False],         # 8.  dims
+            [False, False, False],         # 9.  hiddends
+            [False, False, False],         # 10. inverse
+            [2,     2,     2    ],         # 11. left_space
+            [1,     1,     1    ],         # 12. middle_space
+            [2,     2,     2    ]]         # 13. right_space
+
+
+    data.insert(0, row_1)
+
+    multi_msg = cp.AsciiArt()
+    multi_msg.delay_ms = 60
+    multi_msg.set_layout = cp.Layout.VERTICAL
+    multi_msg.ascii_type = cp.Ascii_Letter.DOOM
+    multi_msg.print_multi_ascii_art(data=data)
+
+
+    multi_msg.ascii_type = cp.Ascii_Letter.MONO
+    data[0] = row_2
+    multi_msg.print_multi_ascii_art(data=data)
+
+    multi_msg.ascii_type = cp.Ascii_Letter.EPIC
+    data[0] = row_3
+    multi_msg.print_multi_ascii_art(data=data)
+    print()
+
+
 
 
 def print_ascii_logo_art_info():
@@ -4201,17 +4354,24 @@ def print_reversed_ascii_logo_art_info():
     cp.ins_newline(1)
     blue_div.print_fancy_divider(all_topics[55])
     message = f'''
-    
+
     '''
     print(message)
 
-    
+
 
 
 
 
 def pylo_info():
-    print("some work need here")
+    message = f'''
+      The {cp.set_font(1,22,231)} PyLO {cp.reset_font()} class (Python List Operations) provides convenient methods
+      for performing common list operations in Python. This class contains
+      25 methods that work together with the {cp.set_font(1,22,231)} FancyFormat {cp.reset_font()}class. For example,
+      the {cp.set_font(1,231,22)} sort_rows_by_col {cp.reset_font()} method does not sort the first row, because {cp.set_font(1,22,231)} PyLO {cp.reset_font()}
+      recognizes it as the header and treats the remaining rows as data.
+'''
+    print(message)
 
 
 
