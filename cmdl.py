@@ -3,13 +3,13 @@ import sys
 
 if __name__ == "__main__":        
         # variabvles needed for the documentation
-        main_topics        = ["screen_functions", "internal_functions",  "help_classes",  "cursor",  "fontstyle",  "fancymessage",  "pen",  "divider",  "fancyformat",  "asciiart"]
+        main_topics        = ["screen_functions", "internal_functions",  "help_classes",  "cursor",  "fontstyle",  "fancymessage",  "pen",  "divider",  "fancyformat",  "asciiart", "nestedlist"]
 
         screen_functions   = ["screen_functions_only", "clean", "clear","dimensions", "erase", "resize"]
 
         internal_functions = ["internal_functions_only", "ansi_colors", "ins_chr", "ins_newline", "set_reset_font", "terminal_bell"]
 
-        help_classes       = ["help_classes_only", "align", "length_bg", "ascii_letter", "line_style", "bg", "logo", "move", "divider_style", "no", "fg", "style", "layout", "unicode"]
+        help_classes       = ["help_classes_only", "align", "length_bg", "ascii_letter", "line_style", "bg", "logo", "move", "divider_style", "no", "fg", "style", "layout", "unicode", "direction"]
 
         cursor             = ["cursor_only", "jumpto", "jumpxy", "moveto", "movexy"]
 
@@ -23,16 +23,19 @@ if __name__ == "__main__":
 
         fancyformat        = ["fancyformat_only", "print_fancy_format", "reset_fancy_format"]
 
-        asciiart           = ["asciiart_only", "print_ascii_art", "print_multi_ascii_art", "print_ascii_logo_art", "print_reversed_ascii_logo_art"]
+        asciiart           = ["asciiart_only", "print_ascii_art", "print_multi_ascii_art", "print_ascii_art_logo"]
 
-        all_topics = ["screen_functions",  "internal_functions",  "help_classes",  "cursor",  "fontstyle",  "fancymessage",  "pen",  "divider",  "fancyformat",  "asciiart",
+        nestedlist         = ["nestedlist_only", "print_nested_list"]
 
-                      "screen_functions_only", "internal_functions_only",  "help_classes_only",  "cursor_only",  "fontstyle_only",  "fancymessage_only",  "pen_only",  "divider_only",  "fancyformat_only",  "asciiart_only",
+        all_topics = ["screen_functions",  "internal_functions",  "help_classes",  "cursor",  "fontstyle",  "fancymessage",  "pen",  "divider",  "fancyformat",  "asciiart", "nestedlist",
+
+                      "screen_functions_only", "internal_functions_only",  "help_classes_only",  "cursor_only",  "fontstyle_only",  "fancymessage_only",  "pen_only",  "divider_only",  "fancyformat_only",  "asciiart_only", "nestedlist_only"
 
                       "clean", "clear","dimensions", "erase", "resize", 
 
                       "ansi_colors", "get_list_type", "ins_chr", "ins_newline", "move_cursor_right", "set_reset_font", "subscript", "superscript", "terminal_bell",
-                      "align", "length_bg", "ascii_letter", "line_style", "bg", "logo", "move", "divider_style", "no", "fg", "style", "layout", "unicode",
+
+                      "align", "length_bg", "ascii_letter", "line_style", "bg", "logo", "move", "divider_style", "no", "fg", "style", "layout", "unicode", "direction",
 
                       "jumpto", "jumpxy", "moveto", "movexy",
 
@@ -46,8 +49,10 @@ if __name__ == "__main__":
 
                       "print_fancy_format", "reset_fancy_format",
 
-                      "print_ascii_art", "print_multi_ascii_art", "print_ascii_logo_art", "print_reversed_ascii_logo_art",
+                      "print_ascii_art", "print_multi_ascii_art", "print_ascii_art_logo",
 
+                      "print_nested_list",
+                      
                       "pylo"]
         
 
@@ -55,7 +60,7 @@ if __name__ == "__main__":
         original_list = []
         for i in sys.argv:
             original_list.append(i.lower())
-
+        
         # when only the first argument ,custom_print,  is being passed
         if (len(original_list)) <=1:
             cp.help.about_custom_print()
@@ -78,6 +83,7 @@ if __name__ == "__main__":
                     print(f"\n  The topic {cp.set_font(1,196,231)} \"{original_list[1]}\" {cp.reset_font()} is not recognized by custom_print Module  \n")
                     exit()
 
+
         # more than one parameter
         else:
             if "all" in original_list or "documentation" in original_list:
@@ -95,7 +101,6 @@ if __name__ == "__main__":
                         print(f"\n  The topic {cp.set_font(1,196,231)} \"{h}\" {cp.reset_font()} is not recognize by custom_print Module")
                         v_exist = 0
 
-
             # if at least one item does not exist in the documentation then we leave
             if v_exist == 0: 
                 exit()
@@ -106,7 +111,7 @@ if __name__ == "__main__":
 
         # deleting duplicate items in the list
         unique_topic_list = list(dict.fromkeys(original_list))
-        # print(unique_topic_list)
+        print(unique_topic_list)
         
 
 

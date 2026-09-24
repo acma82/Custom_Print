@@ -6,10 +6,10 @@ from custom_print.fancy_functions import ins_newline
 from custom_print.fancy_functions import move_cursor_right
 
 from custom_print                 import Move
-from custom_print                 import FancyFormat
-from custom_print                 import Line_Style
+# from custom_print                 import FancyFormat
+# from custom_print                 import Line_Style
 from custom_print                 import Cursor
-from custom_print.ref_names       import Layout, Ascii_Letter
+from custom_print.ref_names       import Layout, Ascii_Letter, Direction
 
 from custom_print.ascii_letters   import*
 # from custom_print.Logos           import*
@@ -110,7 +110,7 @@ class AsciiArt:
         # +---------------------------------------------------------------------------------------------------+
         # |                          Making the list result in vertical form                                  |
         # +---------------------------------------------------------------------------------------------------+
-        if self.set_layout == Layout.VERTICAL:
+        if self.set_layout == Layout.VERTICAL or self.set_layout.lower() == "v":
             if len(data) == 1: middle_sp = left_sp
             else:              pass
 
@@ -165,7 +165,7 @@ class AsciiArt:
         # +---------------------------------------------------------------------------------------------------+
         # |                          Making the list result in horizontal form                                |
         # +---------------------------------------------------------------------------------------------------+
-        elif self.set_layout == Layout.HORIZONTAL:
+        elif self.set_layout == Layout.HORIZONTAL or self.set_layout.lower() == "h":
             if len(data) == 1: middle_sp = left_sp
             else:              pass
 
@@ -378,7 +378,8 @@ class AsciiArt:
     # |    Only One Setting for Bold, Bg, Fg, italic, underline, strike, blinking, dim, and inverse for the customized logos.          |
     # |    For the specific logos like Linux, Debian, Alma, and so on. No settings will be applied for them.                           |
     # +--------------------------------------------------------------------------------------------------------------------------------+
-    def print_ascii_logo_art(self):
+    def print_ascii_art_logo(self, direction=Direction.UP_DOWN):
+
         # self.ascii_type -> Here it is a list we are passing rather than just the name of the letters to be used.
         # That is why we don't use the lovely function "eval" like in the print_ascii_art function or
         # the print_multi_ascii_art funtion. In those previous functions, we pass a string, the type of leeters to be used.
@@ -386,18 +387,18 @@ class AsciiArt:
         # Note that in the print_multi_ascii_art is a list that we pass as a parameter while the print_ascii_art we pass a
         # string as a parameter.
 
+        crs = Cursor()
         retardo = self.delay_ms/1000;
         
         color = set_font(self.bold, self.bg, self.fg, self.italic, self.underline, self.strike,
                         self.blinking, self.dim, self.hidden, self.inverse)
 
-        if self.set_layout == Layout.VERTICAL:
+        if direction == Direction.UP_DOWN:         # up_down
             for n in range(len(self.ascii_type)):
                 print(move_cursor_right(self.adj_indent)+color+ins_chr(self.adj_left_space)+self.ascii_type[n]+ins_chr(self.adj_right_space)+"\033[0m")
                 time.sleep(retardo)
         
-        elif self.set_layout == Layout.HORIZONTAL:
-            crs = Cursor()
+        elif direction == Direction.LEFT_RIGHT:    # left_right
             ctrl_cols = 0
             n_rows = len(self.ascii_type)
             n_cols = len(self.ascii_type[0])
@@ -415,47 +416,16 @@ class AsciiArt:
                 if col == (n_cols -1): pass
                 else:                  crs.jumpTo(qty = n_rows, direction= Move.UP)
 
-        else:
-            # +-------------------------------------------------------------------------------------+
-            # | LayOut NOT Specified                                                                |
-            # +-------------------------------------------------------------------------------------+
-            color = set_font(True, 196, 231)
-            error_layout = []
-            error_layout.append("                                                                    ")
-            error_layout.append("   ______                       _                             _     ")
-            error_layout.append("  |  ____|                     | |                           | |    ")
-            error_layout.append("  | |__   _ __ _ __ ___  _ __  | |     __ _ _   _  ___  _   _| |_   ")
-            error_layout.append("  |  __| | '__| '__/ _ \\| '__| | |    / _` | | | |/ _ \\| | | | __|  ")
-            error_layout.append("  | |____| |  | | | (_) | |    | |___| (_| | |_| | (_) | |_| | |_   ")
-            error_layout.append("  |______|_|  |_|  \\___/|_|    |______\\__,_|\\__, |\\___/ \\__,_|\\__|  ")
-            error_layout.append("                                             __/ |                  ")
-            error_layout.append("                                            |___/                   ")
-            error_layout.append("                                                                    ")
-            for row in error_layout:
-                print(f"    {color}{row}\033[0m")
-            print("")
-            print(f"    {self.ascii_type} ascii_type is NOT supported by custom_print Module")
-            print("    Form more help visit: ")
-            print("    https://github.com/acma82/Custom_Print/tree/main/readme ")
-            print()
-            print("    For help on the Terminal: custom_print AsciiArt")
-            print()
-            print("    Thank you for using custom_print")
-            exit()
 
-  
 
-    # +--------------------------------------------------------------------------------------------------------------------------------+
-    # |    Only One Setting for Bold, Bg, Fg, italic, underline, strike, blinking, dim, and inverse for the customized logos.          |
-    # |    For the specific logos like Linux, Debian, Alma, and so on. No settings will be applied for them.                           |
-    # +--------------------------------------------------------------------------------------------------------------------------------+
-    def print_reversed_ascii_logo_art(self):
-        retardo = self.delay_ms/1000;           key_letter = "";      crs = Cursor()
 
-        color = set_font(self.bold, self.bg, self.fg, self.italic, self.underline, self.strike,
-                        self.blinking, self.dim, self.hidden, self.inverse)
+        # +--------------------------------------------------------------------------------------------------------------------------------+
+        # |    Only One Setting for Bold, Bg, Fg, italic, underline, strike, blinking, dim, and inverse for the customized logos.          |
+        # |    For the specific logos like Linux, Debian, Alma, and so on. No settings will be applied for them.                           |
+        # +--------------------------------------------------------------------------------------------------------------------------------+
 
-        if self.set_layout == Layout.VERTICAL:
+
+        elif direction == Direction.DOWN_UP:      # down_up
             pos_crs = len(self.ascii_type) - 1
             ins_newline(len(self.ascii_type))
             
@@ -468,7 +438,7 @@ class AsciiArt:
             crs.jumpTo(qty = (len(self.ascii_type)), direction= Move.DOWN)
 
         
-        elif self.set_layout == Layout.HORIZONTAL:
+        elif direction == Direction.RIGHT_LEFT: # right_left
             ctrl_cols = 1
             n_rows = len(self.ascii_type);           n_cols = len(self.ascii_type[0])           
             x = n_cols
@@ -516,5 +486,6 @@ class AsciiArt:
             print()
             print("    Thank you for using custom_print")
             exit()
+
 
   

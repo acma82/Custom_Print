@@ -87,7 +87,7 @@ if __name__ == "__main__":
     my_own_m.append("                ")
                  
                  
-    art_logo = cp.Art()
+    art_logo = cp.AsciiArt()
     # art_logo.delay_ms = 25
     # art_logo.set_layout = cp.Layout.VERTICAL
     # art_logo.set_layout = cp.Layout.HORIZONTAL
@@ -99,12 +99,12 @@ if __name__ == "__main__":
     heigh = len(cp.Alpha_M)
     width = len(cp.Alpha_M[0])
     art_logo.ascii_type = cp.Alpha_A
-    art_logo.print_ascii_logo_art()
+    art_logo.print_ascii_art_logo()
     # Printin E            # crs.jumpTo(qty = n_rows, direction= Move.DOWN)
     crs.jumpTo(qty=heigh, direction=cp.Move.UP)
     art_logo.ascii_type = cp.Alpha_E
     art_logo.adj_indent = 10 + 2 + width ; art_logo.adj_right_space = 2
-    art_logo.print_ascii_logo_art()
+    art_logo.print_ascii_art_logo()
 
     cp.ins_newline(2)
 
@@ -113,12 +113,12 @@ if __name__ == "__main__":
     heigh = len(my_own_m)
     width = len(my_own_m[0])
     art_logo.ascii_type = my_own_m
-    art_logo.print_ascii_logo_art()
+    art_logo.print_ascii_art_logo()
     # Printin E
     crs.jumpTo(qty=heigh, direction=cp.Move.UP)
     art_logo.ascii_type = my_own_e
     art_logo.adj_indent = 4 + width ; art_logo.adj_right_space = 2
-    art_logo.print_ascii_logo_art()
+    art_logo.print_ascii_art_logo()
 
     cp.ins_newline(2)
 
@@ -130,7 +130,7 @@ if __name__ == "__main__":
     art_logo.adj_indent = 4
     art_logo.ascii_type = sword
     art_logo.blinking = True
-    art_logo.print_ascii_logo_art()
+    art_logo.print_ascii_art_logo()
 
     cp.ins_newline(2)
 
@@ -148,7 +148,7 @@ if __name__ == "__main__":
     art_logo.adj_middle_space = 0
     #---------------------------------------
     art_logo.ascii_type = Frog
-    art_logo.print_ascii_logo_art()
+    art_logo.print_ascii_art_logo()
 
 
     cp.ins_newline(2)
@@ -166,7 +166,10 @@ if __name__ == "__main__":
     word.append("\033[0;31;40m   ▄████\033[0;91;1;41m▀ \033[0;31;40m████████\033[0;91;1;40m█\033[0;37;40m \033[0;31;40m▄████\033[0;91;1;41m▀\033[0;91;1;40m▄\033[0;37;40m  \033[0;31;40m▄███\033[0;91;1;41m█\033[0;37;40m  \033[0;31;40m▀██████\033[0;91;1;41m▀\033[0;91;1;40m▄\033[0;37;40m    \033[0;31;40m▀▀██████▀▀\033[0;37;40m   \033[0;31;40m▄████\033[0;91;1;41m▀\033[0;91;1;40m▄\033[0;37;40m  \033[0;31;40m▄████\033[0;91;1;41m▀\033[0;91;1;40m▄   \033[0m")
     word.append("\033[0;91;1;40m                                                                                 ")
     art_logo.ascii_type = word
-    art_logo.print_ascii_logo_art()
+    art_logo.print_ascii_art_logo()
 
 
     # Reference-> https://www.asciiart.eu/gallery
+
+
+

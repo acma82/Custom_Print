@@ -105,6 +105,16 @@ class Move(enum.StrEnum):    # python3.12.1
     DOWN  = "down"
     LEFT  = "left"
 
+
+class Direction(enum.StrEnum):
+    '''
+    This class is used by print_ascii_art_logo to control the direction of the logos.
+    '''
+    UP_DOWN = "up_down"
+    DOWN_UP = "down_up"
+    RIGHT_LEFT = "right_left"
+    LEFT_RIGHT = "left_right"
+
 class Layout(enum.StrEnum):
 # class Layout():
     '''

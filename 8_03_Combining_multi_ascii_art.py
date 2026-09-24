@@ -28,7 +28,7 @@ data =  [[True,  True,  True],         # 1.  Bold
 
 multi_msg = cp.AsciiArt()
 multi_msg.delay_ms = 40
-multi_msg.set_layout = cp.Layout.HORIZONTAL #VERTICAL
+multi_msg.set_layout = "h" # cp.Layout.HORIZONTAL #VERTICAL
 
 data.insert(0, row_1)
 multi_msg.ascii_type = cp.Ascii_Letter.DOOM

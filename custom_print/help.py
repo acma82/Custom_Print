@@ -26,6 +26,7 @@ blue_div.all_corner_bg = 10;           blue_div.top_horizontal_line_bg = 4;     
 blue_div.left_vertical_line_bg = 10;   blue_div.right_vertical_line_bg = 10
 
 tbl = cp.FancyFormat()
+tbl.adj_space = 1
 tbl.header_align = cp.Align.CENTER
 tbl.data_align   = cp.Align.JUSTIFY
 tbl.header_bold  = True
@@ -91,7 +92,14 @@ all_topics = [
 
     "FancyFormat", "print_fancy_format", "reset_fancy_format",
 
-     "AsciiArt", "print_ascii_art", "print_multi_ascii_art", "print_ascii_logo_art", "print_reversed_ascii_logo_art"]
+    "AsciiArt", "print_ascii_art", "print_multi_ascii_art", "print_ascii_art_logo",
+
+    "NestedList", "print_nested_list",
+
+    "PyLO",
+
+    "Direction",
+    ]
 
 
 def  help_documentation():
@@ -107,7 +115,7 @@ def  help_documentation():
 
     crs = cp.Cursor()               # Cursor Object
     fst = cp.FontStyle()            # FontStyle Object
-    tbl = cp.FancyFormat()          # for lists
+    
 
     fst.bold = True
     fst.fg   = 0
@@ -126,7 +134,7 @@ def  help_documentation():
     internal_functions = [["ansi_colors", "set_reset_font"], ["get_list_type", "subscript"], ["ins_chr", "superscript"], ["ins_newline", "terminal_bell"], ["move_cursor_right", "    "]]
 
 
-    help_classes       = [["Align", "Line_Style"], ["Ascii_Letter", "Logo"],["Bg", "Move"], ["Divider_Style", "No"],["Fg", "Style"],["Layout", "Unicode"],["Length_Bg", "    "]]
+    help_classes       = [["Align", "Length_Bg"], ["Ascii_Letter", "Line_Style"],["Bg", "Logo"], ["Direction",  "Move"],["Divider_Style", "No"],["Fg", "Style"],["Layout", "Unicode"]]
 
     cmcpp1 = [["Cursor",    "FontStyle",       "FancyMessage",             "Pen"           ],
               ["jumpTo",    "style_on_off",    "print_fancy_message",      "draw_line"     ],
@@ -134,16 +142,15 @@ def  help_documentation():
               ["moveTo",    "print_style",     "get_message_attributes",   "    "          ],
               ["movexy",    "    ",            "    ",                     "    "          ]]
 
-    cmcpp2 = [["Divider",              "FancyFormat",           "PyLO"],
-              ["print_fancy_divider",  "print_fancy_format",    "    "],
-              ["    ",                 "reset_fancy_format",    "    "],]
+    cmcpp2 = [["Divider",              "FancyFormat",           "NestedList",           "PyLO"],
+              ["print_fancy_divider",  "print_fancy_format",    "print_nested_list",    "    "],
+              ["    ",                 "reset_fancy_format",    "    ",                 "    "]]
 
 
     cmcpp3 = [["AsciiArt"],
               ["print_ascii_art"],
               ["print_multi_ascii_art"],
-              ["print_ascii_logo_art"],
-              ["print_reversed_ascii_logo_art"]]
+              ["print_ascii_art_logo"]]
 
     cp.ins_newline(1)
     mensaje = "Documentation For custom_print Module....!"
@@ -925,6 +932,7 @@ def help_classes_info():
     align_info()
     ascii_letter_info()
     bg_info()
+    direction_info()
     divider_style_info()
     fg_info()
     layout_info()
@@ -1058,6 +1066,38 @@ def bg_info():
     print(message)
     # cp.bg_ansi_colors(bold=True, fg=0, n_line=1)
 
+
+#------------------------------------------------------------------------------------------------
+# direction                                                                                     -
+#------------------------------------------------------------------------------------------------
+
+def direction_info():
+    ''' This class is used by print_ascii_art_logo to control the logo\'s direction. '''
+    cp.ins_newline(1)
+    blue_div.print_fancy_divider(all_topics[58])
+    message = f'''
+      This class is used by print_ascii_art_logo to control the logo\'s direction.
+
+      This class provides four options:
+
+                    
+      {cp.set_font(0,53,231,0)}                                    {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}  {cp.Unicode.BULLET} 1. UP_DOWN                      {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}  {cp.Unicode.BULLET} 2. DOWN_UP                      {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}  {cp.Unicode.BULLET} 3. RIGHT_LEFT                   {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}  {cp.Unicode.BULLET} 4. LEFT_RIGHT                   {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}                                    {cp.reset_font()}
+
+
+      {cp.set_font(1,196,231)} Note {cp.reset_font()} These options can be replace by their original values.
+
+      UP_DOWN = "up_down"                RIGHT_LEFT = "right_left"
+    
+      DOWN_UP = "down_up"                LEFT_RIGHT = "left_right"
+
+      {cp.set_font(1,196,231)} Note {cp.reset_font()} See the print_ascii_art_logo method for usage examples.
+    '''
+    print(message)
 
 #------------------------------------------------------------------------------------------------
 # divider_style                                                                                 -
@@ -4024,7 +4064,7 @@ def asciiart_only_info():
 
       {cp.set_font(1,16,117)} Methods                                                        {cp.reset_font()}
       {cp.set_font(1,117,16)}                                                                {cp.reset_font()}
-      {cp.set_font(1,117,16)} 1. print_ascii_art            3.print_ascii_logo_art           {cp.reset_font()}
+      {cp.set_font(1,117,16)} 1. print_ascii_art            3.print_ascii_art_logo           {cp.reset_font()}
       {cp.set_font(1,117,16)}                                                                {cp.reset_font()}
       {cp.set_font(1,117,16)} 2. print_multi_ascii_art      4. print_reversed_ascii_logo_art {cp.reset_font()}
       {cp.set_font(1,117,16)}                                                                {cp.reset_font()}
@@ -4048,11 +4088,12 @@ def asciiart_only_info():
       All logos were taking from the following websites below:
 
       {cp.set_font(1,190,16)} Reference: {cp.reset_font()}
+      https://www.asciiart.eu/logos
       https://www.asciiart.eu/animations
       https://convertcase.net/bubble-text-generator/
       https://patorjk.com/software/taag/#p=display&f=Isometric2&t
 
-      {cp.set_font(1,196,231)} Note {cp.reset_font()} On {cp.set_font(1,22,231)} print_ascii_logo_art {cp.reset_font()} will be discuss how to print your own
+      {cp.set_font(1,196,231)} Note {cp.reset_font()} On {cp.set_font(1,22,231)} print_ascii_art_logo {cp.reset_font()} will be discuss how to print your own
              logo.
 
 
@@ -4117,8 +4158,8 @@ def asciiart_info():
     asciiart_only_info()
     print_ascii_art_info()
     print_multi_ascii_art_info()
-    print_ascii_logo_art_info()
-    print_reversed_ascii_logo_art_info()
+    print_ascii_art_logo_info()
+
 
 
 def print_ascii_art_info():
@@ -4339,24 +4380,228 @@ def print_multi_ascii_art_info():
 
 
 
-def print_ascii_logo_art_info():
-    ''' This method prints a logo in an Ascii Art. '''
+def print_ascii_art_logo_info():
+    ''' print_ascii_logo prints an ASCII art logo in the terminal with a chosen direction. '''
     cp.ins_newline(1)
     blue_div.print_fancy_divider(all_topics[54])
     message = f'''
 
+      This method prints an ASCII art logo in the terminal with a chosen
+      direction.
+
+      {cp.set_font(1,231,16)} Direction parameter {cp.reset_font()}
+
+      The direction is passed to the method. Four options are available:
+
+      {cp.set_font(1,231,22)}                    {cp.reset_font()}
+      {cp.set_font(1,231,22)} UP_DOWN            {cp.reset_font()}
+      {cp.set_font(1,231,22)} DOWN_UP            {cp.reset_font()}
+      {cp.set_font(1,231,22)}                    {cp.reset_font()}
+      {cp.set_font(1,231,22)} RIGHT_LEFT         {cp.reset_font()}
+      {cp.set_font(1,231,22)} LEFT_RIGHT         {cp.reset_font()}
+      {cp.set_font(1,231,22)}                    {cp.reset_font()}
+
+      Custom logos
+
+      The library comes with several predetermined logos. You can also create
+      your own logo or custom ASCII letters. Simply pass your logo as a list
+      to the ascii_type parameter. See the examples below to learn how to use
+      and customize print_ascii_art_logo.
+
+      
+      {cp.set_font(1,196,231)} Note {cp.reset_font()} This method does NOT use the {cp.set_font(1,22,231)} set_layout variable. {cp.reset_font()}
+
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+      
+      logo.bg = 21
+      logo.fg = 231
+      logo.adj_indent = 5
+      logo.ascii_type = cp.Logo_Centos
+      logo.print_ascii_art_logo()
+
+      Pyramid = []
+      Pyramid.append("                .                       ") # Top()
+      Pyramid.append("               /=\\\\                     ")
+      Pyramid.append("              /===\\ \\                   ")
+      Pyramid.append("             /=====\\' \\                 ")
+      Pyramid.append("            /=======\\'' \\               ")
+      Pyramid.append("           /=========\\ ' '\\             ")
+      Pyramid.append("          /===========\\''   \\           ")
+      Pyramid.append("         /=============\\ ' '  \\         ")
+      Pyramid.append("        /===============\\   ''  \\       ")
+      Pyramid.append("       /=================\\' ' ' ' \\     ")
+      Pyramid.append("      /===================\\' ' '  ' \\   ")
+      Pyramid.append("     /=====================\\' '   ' ' \\ ")
+      Pyramid.append("    /=======================\\  '   ' /  ")
+      Pyramid.append("   /=========================\\   ' /    ")
+      Pyramid.append("  /===========================\\'  /     ")
+      Pyramid.append(" /=============================\\/       ")
+      Pyramid.append("                                        ") # Bottom()
+      logo = cp.AsciiArt()
+      logo.bg = 53
+      logo.fg = 231
+      logo.delay_ms = 60
+      logo.ascii_type = Pyramid
+      logo.adj_indent = 17
+      logo.adj_left_space = 4
+      logo.adj_right_space = 4
+
+      # logo.print_ascii_art_logo(direction=cp.Direction.UP_DOWN)
+      # logo.print_ascii_art_logo(direction=cp.Direction.LEFT_RIGHT)
+      # logo.print_ascii_art_logo(direction=cp.Direction.RIGHT_LEFT)
+      logo.print_ascii_art_logo(direction=cp.Direction.DOWN_UP)                  
+
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
     '''
+
+
     print(message)
+    logo = cp.AsciiArt()
 
+    logo.bg = 21
+    logo.fg = 231
+    logo.adj_indent = 5
+    logo.ascii_type = cp.Logo_Centos
+    logo.print_ascii_art_logo()
 
-def print_reversed_ascii_logo_art_info():
-    ''' This method prints a logo in an Ascii Art in reverse mode. '''
-    cp.ins_newline(1)
-    blue_div.print_fancy_divider(all_topics[55])
+    Pyramid = []
+    Pyramid.append("                .                       ") # Top()
+    Pyramid.append("               /=\\\\                     ")
+    Pyramid.append("              /===\\ \\                   ")
+    Pyramid.append("             /=====\\' \\                 ")
+    Pyramid.append("            /=======\\'' \\               ")
+    Pyramid.append("           /=========\\ ' '\\             ")
+    Pyramid.append("          /===========\\''   \\           ")
+    Pyramid.append("         /=============\\ ' '  \\         ")
+    Pyramid.append("        /===============\\   ''  \\       ")
+    Pyramid.append("       /=================\\' ' ' ' \\     ")
+    Pyramid.append("      /===================\\' ' '  ' \\   ")
+    Pyramid.append("     /=====================\\' '   ' ' \\ ")
+    Pyramid.append("    /=======================\\  '   ' /  ")
+    Pyramid.append("   /=========================\\   ' /    ")
+    Pyramid.append("  /===========================\\'  /     ")
+    Pyramid.append(" /=============================\\/       ")
+    Pyramid.append("                                        ") # Bottom()
+    logo.bg = 53
+    logo.fg = 231
+    logo.delay_ms = 60
+    logo.ascii_type = Pyramid
+    logo.adj_indent = 17
+    logo.adj_left_space = 4
+    logo.adj_right_space = 4
+
+    # logo.print_ascii_art_logo(direction=cp.Direction.UP_DOWN)
+    # logo.print_ascii_art_logo(direction=cp.Direction.LEFT_RIGHT)
+    # logo.print_ascii_art_logo(direction=cp.Direction.RIGHT_LEFT)
+    logo.print_ascii_art_logo(direction=cp.Direction.DOWN_UP)
+    print()
+
     message = f'''
+      {cp.set_font(1,231,22)} Desgining your own letter, Isometric 1. {cp.reset_font()}
 
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  
+      import custom_print as cp
+      logo.bg = 21
+      logo.fg = 231
+      logo.adj_indent = 4
+      logo.adj_right_space = 1
+      logo.adj_left_space = 1
+      hello = []
+      hello.apend(\"      ___           ___                                  \")
+      hello.apend(\"     /__/\         /  /\                                 \")
+      hello.apend(\"     \  \:\       /  /:/_                                \")
+      hello.apend(\"      \__\:\     /  /:/ /\    ___     ___   ___     ___  \")
+      hello.apend(\"  ___ /  /::\   /  /:/ /:/_  /__/\   /  /\ /__/\   /  /\ \")
+      hello.apend(\" /__/\  /:/\:\ /__/:/ /:/ /\ \  \:\ /  /:/ \  \:\ /  /:/ \")
+      hello.apend(\" \  \:\/:/__\/ \  \:\/:/ /:/  \  \:\  /:/   \  \:\  /:/  \")
+      hello.apend(\"  \  \::/       \  \::/ /:/    \  \:\/:/     \  \:\/:/   \")
+      hello.apend(\"   \  \:\        \  \:\/:/      \  \::/       \  \::/    \")
+      hello.apend(\"    \  \:\        \  \::/        \__\/         \__\/     \")
+      hello.apend(\"     \__\/         \__\/                                 \")
+      hello.apend(\"     ")
+      logo.ascii_type = hello
+      logo.print_ascii_art_logo()
+
+'''
+    print(message)
+      
+    hello = []
+    hello.append("                                                                      ")
+    hello.append("      ___           ___                                       ___     ")
+    hello.append("     /__/\\         /  /\\                                     /  /\\    ")
+    hello.append("     \\  \\:\\       /  /:/_                                   /  /::\\   ")
+    hello.append("      \\__\\:\\     /  /:/ /\\    ___     ___   ___     ___    /  /:/\\:\\  ")
+    hello.append("  ___ /  /::\\   /  /:/ /:/_  /__/\\   /  /\\ /__/\\   /  /\\  /  /:/  \\:\\ ")
+    hello.append(" /__/\\  /:/\\:\\ /__/:/ /:/ /\\ \\  \\:\\ /  /:/ \\  \\:\\ /  /:/ /__/:/ \\__\\:\\")
+    hello.append(" \\  \\:\\/:/__\\/ \\  \\:\\/:/ /:/  \\  \\:\\  /:/   \\  \\:\\  /:/  \\  \\:\\ /  /:/")
+    hello.append("  \\  \\::/       \\  \\::/ /:/    \\  \\:\\/:/     \\  \\:\\/:/    \\  \\:\\  /:/ ")
+    hello.append("   \\  \\:\\        \\  \\:\\/:/      \\  \\::/       \\  \\::/      \\  \\:\\/:/  ")
+    hello.append("    \\  \\:\\        \\  \\::/        \\__\\/         \\__\\/        \\  \\::/   ")
+    hello.append("     \\__\\/         \\__\\/                                     \\__\\/    ")
+    hello.append("                                                                      ")
+
+    
+    logo.bg = 117
+    logo.fg = 16
+    logo.bold = True
+    logo.adj_indent = 4
+    logo.adj_right_space = 1
+    logo.adj_left_space = 1
+    logo.ascii_type = hello
+    logo.print_ascii_art_logo(direction=cp.Direction.UP_DOWN)
+
+    message = f'''
+    \033[1;48;5;231;91m Creating your own letters \033[0m
+
+'''
+    print(message)
+
+
+    GNU_word = []
+    GNU_word.append("                     ")
+    GNU_word.append("\033[0;91m████\033[0;97m███\033[0;37m \033[0;91m███\033[0;97m    ██\033[0;37m  \033[0;97m██  \033[0;91m█\033[0;31m█\033[0;37m \033[0m")
+    GNU_word.append("\033[0;91m██\033[0;37m      \033[0;97m█\033[0;31m███\033[0;97m   █\033[0;91m█\033[0;37m  \033[0;97m█\033[0;91m█\033[0;31m▌\033[0;97m █\033[0;31m█▌\033[0m")
+    GNU_word.append("\033[0;97m█\033[0;31m█\033[0;91m \033[0;97m \033[0;31m██\033[0;97m█\033[0;37m \033[0;97m█\033[0;31m█▌█\033[0;91m█\033[0;97m  █\033[0;31m█\033[0;37m  \033[0;97m█\033[0;31m█▌\033[0;97m █\033[0;31m█▌\033[0m")
+    GNU_word.append("\033[0;97m█\033[0;31m█\033[0;97m  \033[0;31m▐█\033[0;97m█\033[0;37m \033[0;97m█\033[0;31m█▌\033[0;97m █\033[0;91m█\033[0;97m █\033[0;31m█▌\033[0;37m \033[0;97m█\033[0;31m█▌\033[0;97m █\033[0;91m█\033[0;31m▌\033[0m")
+    GNU_word.append("\033[0;97m█\033[0;31m█████\033[0;97m█\033[0;37m \033[0;97m█\033[0;91m█\033[0;31m▌\033[0;97m  █\033[0;91m█\033[0;31m██▌\033[0;37m \033[0;97m█\033[0;31m███\033[0;91m██\033[0;31m▌\033[0m")
+    GNU_word.append("\033[0;97m \033[0;31m██\033[0;97m \033[0;31m▐\033[0;37m   \033[0;97m  \033[0;31m▌\033[0;97m    \033[0;31m█\033[0;97m \033[0;31m▌\033[0;37m \033[0;97m  \033[0;31m▌\033[0;97m \033[0;91m \033[0;97m \033[0;31m▌\033[0m")
+    GNU_word.append("\033[0;97m  \033[0;31m▐\033[0;37m     \033[0;97m       \033[0;31m▌\033[0;37m          \033[0m")
+    GNU_word.append("                          ")
+
+    logo.bg = -1
+    logo.fg = -1
+    logo.adj_indent = 20
+    logo.ascii_type = GNU_word
+    logo.print_ascii_art_logo()
+
+
+
+def nestedlist_only_info():      
+    ''' NestedList class '''
+    cp.ins_newline(1)
+    blue_div.print_fancy_divider(all_topics[56])
+    message = f'''
+    LIsta nestlist
     '''
     print(message)
+
+
+def print_nested_list_info():      
+    ''' Method print_nested_list '''
+    cp.ins_newline(1)
+    blue_div.print_fancy_divider(all_topics[57])
+    message = f'''
+    print_nest_list
+    '''
+    print(message)
+
+def nestedlist_info():
+    ''' The AsciiArt class converts letters, numbers, and symbols into ASCII art. '''
+    nestedlist_only_info()
+    print_nested_list_info()
+
+
+
 
 
 
