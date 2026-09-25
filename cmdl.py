@@ -111,7 +111,7 @@ if __name__ == "__main__":
 
         # deleting duplicate items in the list
         unique_topic_list = list(dict.fromkeys(original_list))
-        print(unique_topic_list)
+        # print(unique_topic_list)
         
 
 

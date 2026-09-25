@@ -4446,10 +4446,10 @@ def print_ascii_art_logo_info():
       logo.adj_left_space = 4
       logo.adj_right_space = 4
 
-      # logo.print_ascii_art_logo(direction=cp.Direction.UP_DOWN)
+      logo.print_ascii_art_logo(direction=cp.Direction.UP_DOWN)
       # logo.print_ascii_art_logo(direction=cp.Direction.LEFT_RIGHT)
       # logo.print_ascii_art_logo(direction=cp.Direction.RIGHT_LEFT)
-      logo.print_ascii_art_logo(direction=cp.Direction.DOWN_UP)                  
+      # logo.print_ascii_art_logo(direction=cp.Direction.DOWN_UP)                  
 
       {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
     '''
@@ -4463,6 +4463,7 @@ def print_ascii_art_logo_info():
     logo.adj_indent = 5
     logo.ascii_type = cp.Logo_Centos
     logo.print_ascii_art_logo()
+    print("\n")
 
     Pyramid = []
     Pyramid.append("                .                       ") # Top()
@@ -4484,16 +4485,16 @@ def print_ascii_art_logo_info():
     Pyramid.append("                                        ") # Bottom()
     logo.bg = 53
     logo.fg = 231
-    logo.delay_ms = 60
+    logo.delay_ms = 30
     logo.ascii_type = Pyramid
     logo.adj_indent = 17
     logo.adj_left_space = 4
     logo.adj_right_space = 4
 
-    # logo.print_ascii_art_logo(direction=cp.Direction.UP_DOWN)
+    logo.print_ascii_art_logo(direction=cp.Direction.UP_DOWN)
     # logo.print_ascii_art_logo(direction=cp.Direction.LEFT_RIGHT)
     # logo.print_ascii_art_logo(direction=cp.Direction.RIGHT_LEFT)
-    logo.print_ascii_art_logo(direction=cp.Direction.DOWN_UP)
+    # logo.print_ascii_art_logo(direction=cp.Direction.DOWN_UP)
     print()
 
     message = f'''
@@ -4507,18 +4508,18 @@ def print_ascii_art_logo_info():
       logo.adj_right_space = 1
       logo.adj_left_space = 1
       hello = []
-      hello.apend(\"      ___           ___                                  \")
-      hello.apend(\"     /__/\         /  /\                                 \")
-      hello.apend(\"     \  \:\       /  /:/_                                \")
-      hello.apend(\"      \__\:\     /  /:/ /\    ___     ___   ___     ___  \")
-      hello.apend(\"  ___ /  /::\   /  /:/ /:/_  /__/\   /  /\ /__/\   /  /\ \")
-      hello.apend(\" /__/\  /:/\:\ /__/:/ /:/ /\ \  \:\ /  /:/ \  \:\ /  /:/ \")
-      hello.apend(\" \  \:\/:/__\/ \  \:\/:/ /:/  \  \:\  /:/   \  \:\  /:/  \")
-      hello.apend(\"  \  \::/       \  \::/ /:/    \  \:\/:/     \  \:\/:/   \")
-      hello.apend(\"   \  \:\        \  \:\/:/      \  \::/       \  \::/    \")
-      hello.apend(\"    \  \:\        \  \::/        \__\/         \__\/     \")
-      hello.apend(\"     \__\/         \__\/                                 \")
-      hello.apend(\"     ")
+      hello.append(\"      ___           ___                                  \")
+      hello.append(\"     /__/\         /  /\                                 \")
+      hello.append(\"     \  \:\       /  /:/_                                \")
+      hello.append(\"      \__\:\     /  /:/ /\    ___     ___   ___     ___  \")
+      hello.append(\"  ___ /  /::\   /  /:/ /:/_  /__/\   /  /\ /__/\   /  /\ \")
+      hello.append(\" /__/\  /:/\:\ /__/:/ /:/ /\ \  \:\ /  /:/ \  \:\ /  /:/ \")
+      hello.append(\" \  \:\/:/__\/ \  \:\/:/ /:/  \  \:\  /:/   \  \:\  /:/  \")
+      hello.append(\"  \  \::/       \  \::/ /:/    \  \:\/:/     \  \:\/:/   \")
+      hello.append(\"   \  \:\        \  \:\/:/      \  \::/       \  \::/    \")
+      hello.append(\"    \  \:\        \  \::/        \__\/         \__\/     \")
+      hello.append(\"     \__\/         \__\/                                 \")
+      hello.append(\"                                                         \")
       logo.ascii_type = hello
       logo.print_ascii_art_logo()
 
@@ -4551,7 +4552,26 @@ def print_ascii_art_logo_info():
     logo.print_ascii_art_logo(direction=cp.Direction.UP_DOWN)
 
     message = f'''
-    \033[1;48;5;231;91m Creating your own letters \033[0m
+      In the previous example, users are encouraged to experiment with the
+      direction variables to better visualize the logo's behavior.
+
+      Try experimenting with the direction variables in the previous example
+      to see how the logo behaves."
+
+      The first logo is a library-predefined logo and the second is
+      user-created. The third is a custom letter-based logo, but it is stored
+      as a list. The {cp.set_font(1,22,231)} print_ascii_art {cp.reset_font()} and {cp.set_font(1,22,231)} print_multi_ascii_art {cp.reset_font()} methods only
+      accept strings, so they cannot process this type of data."
+
+      If you want to set colors like the {cp.set_font(1,22,231)} print_multi_ascii_art method, {cp.reset_font()} you
+      must specify the colors when creating the logo as shown in the following
+      example. However, be aware that" the {cp.set_font(1,231,22)} left_right {cp.reset_font()} and {cp.set_font(1,231,22)} right_left {cp.reset_font()}
+      directions will not work correctly, because adding colors breaks the
+      column structure. Also {cp.set_font(1,196,231)} Note {cp.reset_font()} that the {cp.set_font(1,231,22)} set_layout {cp.reset_font()} and {cp.set_font(1,231,22)} adj_middle_space {cp.reset_font()}
+      vairables are not used by this method.
+
+
+      \033[1;48;5;231;91m Creating your own letters \033[0m
 
 '''
     print(message)
@@ -4574,7 +4594,11 @@ def print_ascii_art_logo_info():
     logo.ascii_type = GNU_word
     logo.print_ascii_art_logo()
 
-
+    message = f'''
+      {cp.set_font(1,190,16)} Find the code of this logo at {cp.reset_font()} 
+      https://github.com/acma82/Custom_Print/blob/main/8_06_your_own_letters.py    
+      '''
+    print(message)
 
 def nestedlist_only_info():      
     ''' NestedList class '''
