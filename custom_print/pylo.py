@@ -102,7 +102,7 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Conversion to List                                                                                                                             -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def _bifc_to_list(self,data, convert_to_str=False):
+    def bifc_to_list(self,data, convert_to_str=False):
         '''  It converts bool, int, float, and complex type to list type  '''
         tempo_list = []
         if convert_to_str == True:
@@ -114,25 +114,25 @@ class PyLO():
 
     def bool_to_list(self,data:bool, convert_to_str=False):
         '''  It sets a bool variable into list as a bool or as string type  '''
-        new_list = PyLO._bifc_to_list(self, data, convert_to_str)
+        new_list = PyLO.bifc_to_list(self, data, convert_to_str)
         return new_list
 
 
     def int_to_list(self,data:int, convert_to_str=False):
         '''  It sets a int variable into list as an integer or as string type  '''
-        new_list = PyLO._bifc_to_list(self, data, convert_to_str)
+        new_list = PyLO.bifc_to_list(self, data, convert_to_str)
         return new_list
 
 
     def float_to_list(self,data:float, convert_to_str=False):
         '''  It sets a float variable into list as a float or as string type  '''
-        new_list = PyLO._bifc_to_list(self, data, convert_to_str)
+        new_list = PyLO.bifc_to_list(self, data, convert_to_str)
         return new_list
 
 
     def complex_to_list(self,data:complex, convert_to_str=False):
         '''  It sets a complex variable into a list as a complex or as string type   '''
-        new_list = PyLO._bifc_to_list(self, data, convert_to_str)
+        new_list = PyLO.bifc_to_list(self, data, convert_to_str)
         return new_list
 
     #---------------------------------------------------------------------------------------------------------------------------------------------
@@ -383,9 +383,8 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Shift An Element Inside A List, RIGHT or LEFT                                                                                                  -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def right_shift(self,my_list:list, qty:int=0, update:bool=False)->list:
-        '''
-        This function shift the elements in a list to the right.
+    def right_shift(self,my_list:list, qty:int=0, update:bool=False):
+        ''' This function shift the elements in a list to the right. 
 
         update is used to save the actual list with the shift elements.
         update is set to False is we wish to keep the original list and save
@@ -456,7 +455,7 @@ class PyLO():
             return my_list
 
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def left_shift(self, my_list:list, qty=0, update:bool=False)->list:
+    def left_shift(self, my_list:list, qty=0, update:bool=False):
         '''
         This function shift the elements in a list to the left.
 
@@ -528,7 +527,7 @@ class PyLO():
         else:
             return my_list
 
-    def shift(self, data:list, direction:str=Move.RIGHT, qty=0, update:bool=False)->list:
+    def shift(self, data:list, direction:str=Move.RIGHT, qty=0, update:bool=False):
         '''
         This function shift the elements in a list to the left or right.
 
@@ -548,7 +547,7 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Swap Two Items Into A List                                                                                                                     -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def swap(self, data:list, posi_1=0, posi_2=0, update:bool=False)->list:
+    def swap(self, data:list, posi_1=0, posi_2=0, update:bool=False):
         '''
         This function swap two elements in a list.
 
@@ -646,7 +645,7 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Get Dimensions of a List                                                                                                                       -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def dimensions(self, data:list)->list[int]:
+    def dimensions(self, data:list):
         '''
         dimensions(self, data:list)->list[int]
 
@@ -712,7 +711,7 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Autofill Data. It Completes Data List to Make   it Rectangular List (Rows, Cols)                                                               -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def autofill_data(self, data:list, fill_value:str="----", update:bool=False)->list:
+    def autofill_data(self, data:list, fill_value:str="----", update:bool=False):
         '''
         autofill_data(list, str/int/float, boolean)
 
@@ -751,7 +750,7 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Transpose List (Converting The Rows Into Cols AND Cols Into Rows)                                                                              -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def transpose(self, data:list, autofill=True, fill_value="----", update:bool=False)->list:
+    def transpose(self, data:list, autofill=True, fill_value="----", update:bool=False):
         '''
         transpose(data:list, autofill:bool, fill_value:int|float|str, update:bool)
 
@@ -840,7 +839,7 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Convert a List From Any Type to String                                                                                                         -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def data_to_str(self, data:list, update=False)->list:
+    def data_to_str(self, data:list, update=False):
 
         '''  Converts all the elements of a list to string type  '''
 
@@ -862,7 +861,7 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Convert a List From String to Number                                                                                                           -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def data_to_num(self, data:list, fill_value=0, update=False)->list:
+    def data_to_num(self, data:list, fill_value=0, update=False):
 
         '''  Converts all items from a list to numbers where it is possible.
              If it is not possible then it will take the fill_value provided to switch
@@ -910,7 +909,7 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Write a CSV File                                                                                                                               -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def write_csv_file(self, data:list, file_path:str="CSV_List")->str:
+    def write_csv_file(self, data:list, file_path:str="CSV_List"):
 
         '''  It writes a list into a CSV file
              E.g: file_path -> /home/User_Name/Documents/My_First_Table.csv  '''
@@ -945,7 +944,7 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Read a CSV File                                                                                                                                -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def read_csv_file(self, file_path:str="CSV_List")->list:
+    def read_csv_file(self, file_path:str="CSV_List"):
 
         '''  It reads a CSV file and returns a list of the contains of the file
              E.g: file_path -> /home/User_Name/Documents/My_First_Table.csv '''
@@ -980,7 +979,7 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Write a List into JSON File                                                                                                                    -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def write_json_file(self, data:list, file_path:str="JSON_List")->str:
+    def write_json_file(self, data:list, file_path:str="JSON_List"):
 
         '''  It writes a list into a json file
              E.g: file_path -> /home/User_Name/Documents/My_First_Table.json  '''
@@ -1005,7 +1004,7 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Read a JSON File and Return it as a List                                                                                                       -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def read_json_file(self, file_path:str="JSON_List")->list:
+    def read_json_file(self, file_path:str="JSON_List"):
 
         '''  It reads a json file and returns a list with the contains of the file
              E.g: file_path -> /home/User_Name/Documents/My_First_Table.json  '''
@@ -1029,7 +1028,7 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Delete a Column in a List                                                                                                                      -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def delete_col(self, data:list, index:int=0, update:bool=False)->list:
+    def delete_col(self, data:list, index:int=0, update:bool=False):
 
         '''  It deletes a specific column from the list  '''
 
@@ -1092,10 +1091,10 @@ class PyLO():
         return new_list
 
 
-#-------------------------------------------------------------------------------------------------------------------------------------------------
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Table List To Vector List                                                                                                                      -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def make_to_vector(self, data:list)->list:
+    def make_to_vector(self, data:list):
 
         '''  This function makes any list in a form as a vector. [1,2,3,4,5,etc.],
              up to 4 brackets.
@@ -1122,7 +1121,7 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Add a New Column in a List                                                                                                                     -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def add_col(self, data:list, col_data:list, posi:int=0)->list:
+    def add_col(self, data:list, col_data:list, posi:int=0):
 
         '''  This method adds a column into the list in a specific postion.
              The original list has to be in the form of a matrix or table
@@ -1196,7 +1195,7 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Replace a Value in the List                                                                                                                    -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def replace_value(self, data:list, old:int|str, new:int|str, case_sensitive:bool=True, update:bool=False)->list:
+    def replace_value(self, data:list, old:int|str, new:int|str, case_sensitive:bool=True, update:bool=False):
 
         '''  It replaces an item value for another in a list
              The list can be a vector [1,2,3,4] or a matrix (table) [[1,2],[3,1]]
@@ -1237,7 +1236,7 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Number a List                                                                                                                                  -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def add_col_id(self, data:list, start_number:int=0, id_label:str="ID", renumber:bool=False, update:bool=False)->list:
+    def add_col_id(self, data:list, start_number:int=0, id_label:str="ID", renumber:bool=False, update:bool=False):
 
         '''  This method set the number of rows by adding a column to the left side.  '''
 
@@ -1277,12 +1276,12 @@ class PyLO():
                 data.append(tempo_rows)
                 tempo_rows = []
         return result
-
-
+    
+    
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Join Two List as a Vector                                                                                                                      -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def join_as_vector(self, data:list, list_to_join:list, col_posi:int=0)->list:
+    def join_as_vector(self, data:list, list_to_join:list, col_posi:int=0):
 
         '''  It joins two list as a vector, join_list = [1,2,3,4,5,etc.]  '''
 
@@ -1315,7 +1314,7 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Grep or Find a Value in a List.                                                                                                                -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def find_value(self, data:list, value:int|str, case_sensitive=False)->list:
+    def find_value(self, data:list, value:int|str, case_sensitive=False):
 
         '''  This method finds a value into a list and returns the location of the value.
              Up to 4 brackets.
@@ -1362,7 +1361,7 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Lower Case                                                                                                                                     -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def lower_case(self, data:list)->list:
+    def lower_case(self, data:list):
 
         '''  This method lower case all the items in a list.  '''
 
@@ -1382,7 +1381,7 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Upper Case                                                                                                                                     -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def upper_case(self, data:list)->list:
+    def upper_case(self, data:list):
 
         '''  This method upper case all the items in a list.  '''
 
@@ -1403,7 +1402,7 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Capitalize Case                                                                                                                                -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def capitalize_case(self, data:list)->list:
+    def capitalize_case(self, data:list):
 
         '''  This method capitalize all the items in a list.  '''
 
@@ -1593,7 +1592,7 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Delete an Item from a List                                                                                                                     -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def delete_value(self, data:list, value:str="", case_sensitive:bool=True, update:bool=False)->list:
+    def delete_value(self, data:list, value:str="", case_sensitive:bool=True, update:bool=False):
 
         ''' This method delete an value from the list.
             This methods has the option of using the case sensitive.
@@ -1670,7 +1669,7 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Sort Rows of a List by Column Reference. Keep The Headers, Untouch                                                                             -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def sort_rows_by_col(self, data:list, ref_col:int=0, reversed_order:bool=False, update:bool=False)->list:
+    def sort_rows_by_col(self, data:list, ref_col:int=0, reversed_order:bool=False, update:bool=False):
 
         '''  sort_by_col won't sort the first row because it is considered the Header of the list.
              If a column is mixed with string type and another type, like integer or float, it will
@@ -1729,7 +1728,7 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Sort Columns of a List. Keep The Headers, Untouch                                                                                              -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def sort_cols(self, data:list, sort_type:str|list=Order.ASCENDING, update:bool=False)->list:
+    def sort_cols(self, data:list, sort_type:str|list=Order.ASCENDING, update:bool=False):
         ''' If the option provided is different than ascending or descending or a list, it will sort as ascending.
             If the list contains numbers not in the range of the data list, it will sort as ascending.
             If the list contains a length different than the length of the data, it will sort as ascending.
@@ -1900,6 +1899,9 @@ class PyLO():
         return case_list
 
 
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    # Find duplicates elements in a list.                                                                                                            -
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
     def find_duplicate(self, data:list, case_sensitive:bool=True):
 
         '''  This method find all duplicate values into a list and returns
@@ -1942,69 +1944,64 @@ class PyLO():
         return duplicate_list
 
 
-
-
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    # Mathematic Matrix Operation with List.                                                                                                         -
+    # Find the shortes element in a NestedList                                                                                                       -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
+    def find_longest_item(self, data:list, display=False):
+        longest_len  = 0
+        longest_item = ""
+        longest_row  = 0
+        longest_col  = 0
 
-    def matrix(self, matrix_a:list, operation, matrix_b:list)->list:
-        '''
-            matrix operation
-        '''
+        # Calculating Longest: Item, len, row, col
+        for row in range(len(data)):
+            for col in range(len(data[row])):
+                item_length = (len(str(data[row][col])))
+                if item_length > longest_len:
+                    longest_len  = item_length
+                    longest_item = data[row][col]
+                    longest_row  = row
+                    longest_col  = col
+                else: pass
 
-        return operation(matrix_a, matrix_b)
-
-
-    def multiply_by(self,matrix_a:list, component_b:int):
-        '''
-            matrix multiplication
-        '''
-        result = []
-        if isinstance(component_b, (int,float,complex)):
-            for row in range(len(matrix_a)):
-                tempo = []
-                for col in range(len(matrix_a[row])):
-                    tempo.append(matrix_a[row][col]*component_b)
-                result.append(tempo)
-            return result
-
+        result = [["Item", "Len", "Row", "Col"],
+                [longest_item, longest_len, longest_row, longest_col]]
 
         return result
 
-    def matrix_multiply_by_scalar(self, matrix:list, scalar:typing.Union[int,float,complex])->list:
-        '''
-            multiply a matrix with an scalar
-        '''
-
-        result = []
-        if isinstance(scalar, (int,float,complex)):
-            for row in range(len(matrix)):
-                tempo = []
-                for col in range(len(matrix[row])):
-                    tempo.append(matrix[row][col]*scalar)
-                result.append(tempo)
-            return result
-
-
+   
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    # Mathematic Vector Operation with List.                                                                                                         -
+    # Find the shortes element in a NestedList                                                                                                       -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def vector_multiply_by_scalar(self, vector:list, scalar:typing.Union[int,float,complex])->list:
-        '''
-            vector multiply by a scalar
-        '''
-        if isinstance(scalar, (int,float,complex)):
-            resutl = []
-            for row in vector:
-                resutl.append(row*scalar)
-            return resutl
+    def find_shortest_item(self, data:list, display=False):
+        shortest_len  = len(data[0][0])
+        shortest_item = ""
+        shortest_row  = 0
+        shortest_col  = 0
 
-    def vector_dot_product(self, vector_a:list, vector_b:list)->typing.Union[int, float, complex]:
-        '''
-            dot product for two vectors
-        '''
-        result = 0
-        for row in range(len(vector_a)):
-            result = vector_a[row]*vector_b[row] + result
+        # Calculating Shortest: Item, len, row, col
+        for row in range(len(data)):
+            for col in range(len(data[row])):
+                item_length = (len(str(data[row][col])))
+                if item_length < shortest_len:
+                    shortest_len  = item_length
+                    shortest_item = data[row][col]
+                    shortest_row  = row
+                    shortest_col  = col
+                else: pass
+
+        result = [["Item", "Len", "Row", "Col"],
+                [shortest_item, shortest_len, shortest_row, shortest_col]]
+
+        if display == True:
+            print(result)
+
         return result
+
+
+
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    #                                                                                                     -
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+
+
