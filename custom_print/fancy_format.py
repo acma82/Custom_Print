@@ -50,7 +50,29 @@ from custom_print.fancy_functions import get_list_type
 from custom_print.ref_names import Layout
 from custom_print.ref_names import Line_Style
 
-
+#-------------------------------------------------------------------------------------------------------------------------------------------------
+# Table List To Vector List                                                                                                                      -
+#-------------------------------------------------------------------------------------------------------------------------------------------------
+def make_to_vector(data:list):
+    '''  This function makes any list in a form as a vector. [1,2,3,4,5,etc.],
+            up to 4 brackets.
+    '''
+    vector_lista = []
+    for item in data:
+        if isinstance(item, list):
+            for i in item:
+                if isinstance(i, list):
+                    for n in i:
+                        if isinstance(n, list):
+                            for m in n:
+                                vector_lista.append(m)
+                        else:
+                            vector_lista.append(n)
+                else:
+                    vector_lista.append(i)
+        else:
+            vector_lista.append(item)
+    return vector_lista
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 # Fancy Format (Class, Methods and Fucntions)                                                                                                        -
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
@@ -2634,11 +2656,21 @@ class FancyFormat:
         elif list_type == "mix_items":                    # [10,[50],[250],["H"],100]
                                                           # "C",["H","K","P","o"]]
            # also convert the elements in my_list to string. all of them
-            for n in (data_list):
-                my_list.append(str(n))
+            if self.set_layout == Layout.HORIZONTAL or self.set_layout == "h":
+                vector_list = make_to_vector(data_list)    
+                for n in vector_list: my_list.append(str(n))
+                
+                print_multiple_horizontal_items(self,my_list)
 
-            print_multiple_horizontal_items(self,my_list)
+            elif self.set_layout == Layout.VERTICAL or self.set_layout == "v":
+                vector_list = make_to_vector(data_list)    
+                for n in vector_list: my_list.append([str(n)])
+                print_matrix_list(self,my_list)
 
+            else:
+                for n in data_list: my_list.append(str(n))
+                print_multiple_horizontal_items(self,my_list)
+                
             # if we want to save the new list to into the old one as string
             if self.update_list == True and (isinstance (data, list)):
                 data_list.clear()

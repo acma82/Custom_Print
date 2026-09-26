@@ -33,6 +33,15 @@ tbl.header_bold  = True
 
 
 def about_custom_print():
+    word = []
+    word.append("                                                                ")
+    word.append("    ___          _                        ___      _       _    ")
+    word.append("   / __\\   _ ___| |_ ___  _ __ ___       / _ \\_ __(_)_ __ | |_  ")
+    word.append("  / / | | | / __| __/ _ \\| '_ ` _ \\     / /_)/ '__| | '_ \\| __| ")
+    word.append(" / /__| |_| \\__ \\ || (_) | | | | | |   / ___/| |  | | | | | |_  ")
+    word.append(" \\____/\\__,_|___/\\__\\___/|_| |_| |_|___\\/    |_|  |_|_| |_|\\__| ")
+    word.append("                                  |_____|                       ")
+    word.append("                                                                ")
 
     '''  Description of custom_print project  '''
 
@@ -68,6 +77,16 @@ def about_custom_print():
     tbl.header_bold = True;         tbl.data_bold = True
     tbl.adj_top_margin = 2;         tbl.adj_indent = 4
 
+    logo = cp.AsciiArt()
+    logo.bg = 117
+    logo.fg = 16
+    logo.bold = True
+    logo.adj_indent = 6
+    logo.adj_right_space = 1
+    logo.adj_left_space = 1
+    logo.ascii_type = word
+    logo.print_ascii_art_logo(direction=cp.Direction.UP_DOWN)
+
     tbl.print_fancy_format(lst, "design_10")
     cp.ins_newline(1)
     tbl.reset_fancy_format()
@@ -78,7 +97,7 @@ all_topics = [
 
     "Internal_Functions", "ansi_colors", "get_list_type", "ins_chr", "ins_newline", "move_cursor_right", "set_reset_font", "subscript", "superscript", "terminal_bell",
 
-    "Help_Classes",  "Align", "Ascii_Letter", "Bg", "Divider_Style", "Fg", "Layout", "Length_Bg", "Line_Style", "Logo", "Move",  "No",  "Style",  "Unicode",
+    "Help_Classes",  "Align", "Ascii_Letter", "Bg", "Direction", "Divider_Style", "Fg", "Layout", "Length_Bg", "Line_Style", "Logo", "Move",  "No",  "Style",  "Unicode",
 
     "Cursor",  "jumpTo", "jumpxy", "moveTo", "movexy",
 
@@ -94,11 +113,9 @@ all_topics = [
 
     "AsciiArt", "print_ascii_art", "print_multi_ascii_art", "print_ascii_art_logo",
 
-    "NestedList", "print_nested_list",
+    "NestedList", "print_nested_list", "print_simple_list"
 
     "PyLO",
-
-    "Direction",
     ]
 
 
@@ -115,7 +132,7 @@ def  help_documentation():
 
     crs = cp.Cursor()               # Cursor Object
     fst = cp.FontStyle()            # FontStyle Object
-    
+
 
     fst.bold = True
     fst.fg   = 0
@@ -144,7 +161,7 @@ def  help_documentation():
 
     cmcpp2 = [["Divider",              "FancyFormat",           "NestedList",           "PyLO"],
               ["print_fancy_divider",  "print_fancy_format",    "print_nested_list",    "    "],
-              ["    ",                 "reset_fancy_format",    "    ",                 "    "]]
+              ["    ",                 "reset_fancy_format",    "print_simple_list",    "    "]]
 
 
     cmcpp3 = [["AsciiArt"],
@@ -321,6 +338,7 @@ def all_documentation():
     divider_info()
     fancyformat_info()
     asciiart_info()
+    nestedlist_info()
 
 
 
@@ -776,11 +794,12 @@ def set_reset_font_info():
 
 
        {cp.set_font(1,231,16)} Default Values {cp.reset_font()}
-
-       1)  bold    = False    4) italic    = False    7) blinking = False
-       2)  bg      = -1       5) underline = False    8) dim      = False
-       3)  fg      = -1       6) strike    = False    9) hidden   = False
-       10) inverse = False
+       {cp.set_font(0,53,231,0)}                                                                     {cp.reset_font()}
+       {cp.set_font(0,53,231,0)} 1)  bold    = False    4) italic    = False    7) blinking = False  {cp.reset_font()}
+       {cp.set_font(0,53,231,0)} 2)  bg      = -1       5) underline = False    8) dim      = False  {cp.reset_font()}
+       {cp.set_font(0,53,231,0)} 3)  fg      = -1       6) strike    = False    9) hidden   = False  {cp.reset_font()}
+       {cp.set_font(0,53,231,0)} 10) inverse = False                                                 {cp.reset_font()}
+       {cp.set_font(0,53,231,0)}                                                                     {cp.reset_font()}
 
        This function allows you to configure multiple font attributes. However,
        passing all these parameters can be cumbersome. For a more convenient
@@ -1080,7 +1099,7 @@ def direction_info():
 
       This class provides four options:
 
-                    
+
       {cp.set_font(0,53,231,0)}                                    {cp.reset_font()}
       {cp.set_font(0,53,231,0)}  {cp.Unicode.BULLET} 1. UP_DOWN                      {cp.reset_font()}
       {cp.set_font(0,53,231,0)}  {cp.Unicode.BULLET} 2. DOWN_UP                      {cp.reset_font()}
@@ -1092,7 +1111,7 @@ def direction_info():
       {cp.set_font(1,196,231)} Note {cp.reset_font()} These options can be replace by their original values.
 
       UP_DOWN = "up_down"                RIGHT_LEFT = "right_left"
-    
+
       DOWN_UP = "down_up"                LEFT_RIGHT = "left_right"
 
       {cp.set_font(1,196,231)} Note {cp.reset_font()} See the print_ascii_art_logo method for usage examples.
@@ -4408,11 +4427,11 @@ def print_ascii_art_logo_info():
       to the ascii_type parameter. See the examples below to learn how to use
       and customize print_ascii_art_logo.
 
-      
+
       {cp.set_font(1,196,231)} Note {cp.reset_font()} This method does NOT use the {cp.set_font(1,22,231)} set_layout variable. {cp.reset_font()}
 
       {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
-      
+
       logo.bg = 21
       logo.fg = 231
       logo.adj_indent = 5
@@ -4449,7 +4468,7 @@ def print_ascii_art_logo_info():
       logo.print_ascii_art_logo(direction=cp.Direction.UP_DOWN)
       # logo.print_ascii_art_logo(direction=cp.Direction.LEFT_RIGHT)
       # logo.print_ascii_art_logo(direction=cp.Direction.RIGHT_LEFT)
-      # logo.print_ascii_art_logo(direction=cp.Direction.DOWN_UP)                  
+      # logo.print_ascii_art_logo(direction=cp.Direction.DOWN_UP)
 
       {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
     '''
@@ -4491,64 +4510,57 @@ def print_ascii_art_logo_info():
     logo.adj_left_space = 4
     logo.adj_right_space = 4
 
-    logo.print_ascii_art_logo(direction=cp.Direction.UP_DOWN)
-    # logo.print_ascii_art_logo(direction=cp.Direction.LEFT_RIGHT)
+    logo.print_ascii_art_logo(direction=cp.Direction.LEFT_RIGHT)
     # logo.print_ascii_art_logo(direction=cp.Direction.RIGHT_LEFT)
+    # logo.print_ascii_art_logo(direction=cp.Direction.UP_DOWN)
     # logo.print_ascii_art_logo(direction=cp.Direction.DOWN_UP)
     print()
 
     message = f'''
-      {cp.set_font(1,231,22)} Desgining your own letter, Isometric 1. {cp.reset_font()}
+      {cp.set_font(1,231,22)} Desgining your own letter, Ogre: {cp.reset_font()}
 
-      {cp.set_font(1,231,0)} Example {cp.reset_font()}  
-      import custom_print as cp
-      logo.bg = 21
-      logo.fg = 231
-      logo.adj_indent = 4
-      logo.adj_right_space = 1
-      logo.adj_left_space = 1
-      hello = []
-      hello.append(\"      ___           ___                                  \")
-      hello.append(\"     /__/\         /  /\                                 \")
-      hello.append(\"     \  \:\       /  /:/_                                \")
-      hello.append(\"      \__\:\     /  /:/ /\    ___     ___   ___     ___  \")
-      hello.append(\"  ___ /  /::\   /  /:/ /:/_  /__/\   /  /\ /__/\   /  /\ \")
-      hello.append(\" /__/\  /:/\:\ /__/:/ /:/ /\ \  \:\ /  /:/ \  \:\ /  /:/ \")
-      hello.append(\" \  \:\/:/__\/ \  \:\/:/ /:/  \  \:\  /:/   \  \:\  /:/  \")
-      hello.append(\"  \  \::/       \  \::/ /:/    \  \:\/:/     \  \:\/:/   \")
-      hello.append(\"   \  \:\        \  \:\/:/      \  \::/       \  \::/    \")
-      hello.append(\"    \  \:\        \  \::/        \__\/         \__\/     \")
-      hello.append(\"     \__\/         \__\/                                 \")
-      hello.append(\"                                                         \")
-      logo.ascii_type = hello
-      logo.print_ascii_art_logo()
+      https://patorjk.com/software/taag/#p=display&f=Ogre
+
+
+{cp.set_font(1,231,0)} Example {cp.reset_font()}
+import custom_print as cp
+logo.bg = 21
+logo.fg = 231
+logo.adj_indent = 4
+logo.adj_right_space = 1
+logo.adj_left_space = 1
+word = []
+word.append(\"                                                                \")
+word.append(\"    ___          _                        ___      _       _    \")
+word.append(\"   / __\\   _ ___| |_ ___  _ __ ___       / _ \\_ __(_)_ __ | |_  \")
+word.append(\"  / / | | | / __| __/ _ \\| '_ ` _ \\     / /_)/ '__| | '_ \\| __| \")
+word.append(\" / /__| |_| \\__ \\ || (_) | | | | | |   / ___/| |  | | | | | |_  \")
+word.append(\" \\____/\\__,_|___/\\__\\___/|_| |_| |_|___\\/    |_|  |_|_| |_|\\__| \")
+word.append(\"                                  |_____|                       \")
+word.append(\"                                                                \")
+logo.ascii_type = hello
+logo.print_ascii_art_logo()
 
 '''
     print(message)
-      
-    hello = []
-    hello.append("                                                                      ")
-    hello.append("      ___           ___                                       ___     ")
-    hello.append("     /__/\\         /  /\\                                     /  /\\    ")
-    hello.append("     \\  \\:\\       /  /:/_                                   /  /::\\   ")
-    hello.append("      \\__\\:\\     /  /:/ /\\    ___     ___   ___     ___    /  /:/\\:\\  ")
-    hello.append("  ___ /  /::\\   /  /:/ /:/_  /__/\\   /  /\\ /__/\\   /  /\\  /  /:/  \\:\\ ")
-    hello.append(" /__/\\  /:/\\:\\ /__/:/ /:/ /\\ \\  \\:\\ /  /:/ \\  \\:\\ /  /:/ /__/:/ \\__\\:\\")
-    hello.append(" \\  \\:\\/:/__\\/ \\  \\:\\/:/ /:/  \\  \\:\\  /:/   \\  \\:\\  /:/  \\  \\:\\ /  /:/")
-    hello.append("  \\  \\::/       \\  \\::/ /:/    \\  \\:\\/:/     \\  \\:\\/:/    \\  \\:\\  /:/ ")
-    hello.append("   \\  \\:\\        \\  \\:\\/:/      \\  \\::/       \\  \\::/      \\  \\:\\/:/  ")
-    hello.append("    \\  \\:\\        \\  \\::/        \\__\\/         \\__\\/        \\  \\::/   ")
-    hello.append("     \\__\\/         \\__\\/                                     \\__\\/    ")
-    hello.append("                                                                      ")
 
-    
+    word = []
+    word.append("                                                                ")
+    word.append("    ___          _                        ___      _       _    ")
+    word.append("   / __\\   _ ___| |_ ___  _ __ ___       / _ \\_ __(_)_ __ | |_  ")
+    word.append("  / / | | | / __| __/ _ \\| '_ ` _ \\     / /_)/ '__| | '_ \\| __| ")
+    word.append(" / /__| |_| \\__ \\ || (_) | | | | | |   / ___/| |  | | | | | |_  ")
+    word.append(" \\____/\\__,_|___/\\__\\___/|_| |_| |_|___\\/    |_|  |_|_| |_|\\__| ")
+    word.append("                                  |_____|                       ")
+    word.append("                                                                ")
+
     logo.bg = 117
     logo.fg = 16
     logo.bold = True
-    logo.adj_indent = 4
+    logo.adj_indent = 6
     logo.adj_right_space = 1
-    logo.adj_left_space = 1
-    logo.ascii_type = hello
+    logo.adj_left_space  = 1
+    logo.ascii_type = word
     logo.print_ascii_art_logo(direction=cp.Direction.UP_DOWN)
 
     message = f'''
@@ -4595,44 +4607,225 @@ def print_ascii_art_logo_info():
     logo.print_ascii_art_logo()
 
     message = f'''
-      {cp.set_font(1,190,16)} Find the code of this logo at {cp.reset_font()} 
-      https://github.com/acma82/Custom_Print/blob/main/8_06_your_own_letters.py    
+      {cp.set_font(1,190,16)} Find the code of this logo at {cp.reset_font()}
+      https://github.com/acma82/Custom_Print/blob/main/8_06_your_own_letters.py
       '''
     print(message)
 
-def nestedlist_only_info():      
+def nestedlist_only_info():
     ''' NestedList class '''
     cp.ins_newline(1)
-    blue_div.print_fancy_divider(all_topics[56])
+    blue_div.print_fancy_divider(all_topics[55])
     message = f'''
-    LIsta nestlist
-    '''
-    print(message)
+      The NestedList class provides two methods for printing nested lists with
+      improved visualization. While these methods offer several formatting
+      options, users seeking additional styles can also explore the FancyFormat
+      class. Please note that these methods share some internal variables for
+      convenience."
+
+      {cp.set_font(1,16,117)} Methods                {cp.reset_font()}
+      {cp.set_font(1,117,16)}                        {cp.reset_font()}
+      {cp.set_font(1,117,16)} 1. print_nested_list   {cp.reset_font()}
+      {cp.set_font(1,117,16)}                        {cp.reset_font()}
+      {cp.set_font(1,117,16)} 2. print_simple_list   {cp.reset_font()}
+      {cp.set_font(1,117,16)}                        {cp.reset_font()}
 
 
-def print_nested_list_info():      
-    ''' Method print_nested_list '''
-    cp.ins_newline(1)
-    blue_div.print_fancy_divider(all_topics[57])
-    message = f'''
-    print_nest_list
-    '''
+      {cp.set_font(1,231,16)} Default Values {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}                                                                     {cp.reset_font()}
+      {cp.set_font(1,53,11,0)}   print_nested_list         print_simple_list                       {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}                                                                     {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}   id Section (Row, Col)     Header Section                          {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}                                                                     {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} id_on = True            {cp.Unicode.BULLET} mark = \"\u2022\"                              {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} id_bg = 234             {cp.Unicode.BULLET} header_bg = 231                         {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} id_fg = 231             {cp.Unicode.BULLET} header_fg = 16                          {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} id_bold = True          {cp.Unicode.BULLET} header_bold   = True                    {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} id_dim  = False         {cp.Unicode.BULLET} header_dim    = False                   {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} id_italic = True        {cp.Unicode.BULLET} header_italic = False                   {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} id_strike = False       {cp.Unicode.BULLET} header_strike = False                   {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} id_hidden = False       {cp.Unicode.BULLET} header_hidden = False                   {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} id_inverse   = False    {cp.Unicode.BULLET} header_inverse   = False                {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} id_blinking  = False    {cp.Unicode.BULLET} header_blinking  = False                {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} id_underline = False    {cp.Unicode.BULLET} header_underline = False                {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}                           {cp.Unicode.BULLET} adj_int_indent = 4                      {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} adj_middle_space = 2    {cp.Unicode.BULLET} force_all_col_same_width = True         {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}                                                                     {cp.reset_font()}
+
+      {cp.set_font(0,53,231,0)}                                                                     {cp.reset_font()}
+      {cp.set_font(1,53,11,0)}   Both Methods Share These Variables                                {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}                                                                     {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} data_bg = 202           {cp.Unicode.BULLET} self.data_bg_step = 1                   {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} data_fg = 231           {cp.Unicode.BULLET} self.data_bg_stop = 207                 {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} data_bold   = False     {cp.Unicode.BULLET} self.data_fg_step = 1                   {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} data_dim    = False     {cp.Unicode.BULLET} self.data_fg_stop = 232                 {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} data_italic = False                                               {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} data_strike = False     {cp.Unicode.BULLET} adj_left_space  = 2                     {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} data_hidden = False     {cp.Unicode.BULLET} adj_right_space = 2                     {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} data_inverse   = False  {cp.Unicode.BULLET} adj_indent      = 2                     {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} data_blinking  = False                                            {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} data_underline = False  {cp.Unicode.BULLET} transpose = False                       {cp.reset_font()}
+      {cp.set_font(0,53,231,0)}                                                                     {cp.reset_font()}
+      '''
     print(message)
+
 
 def nestedlist_info():
     ''' The AsciiArt class converts letters, numbers, and symbols into ASCII art. '''
     nestedlist_only_info()
     print_nested_list_info()
+    print_simple_list_info()
+
+
+def print_nested_list_info():
+    ''' Method print_nested_list '''
+    cp.ins_newline(1)
+    blue_div.print_fancy_divider(all_topics[54])
+    message = f'''
+      The example below illustrates how the variables affect the output when
+      printing data using this methods. The variables {cp.set_font(1,231,22)} data_bg_step, {cp.reset_font()}
+      {cp.set_font(1,231,22)} data_fg_step, data_bg_start, {cp.reset_font()} and {cp.set_font(1,231,22)} data_bg_stop {cp.reset_font()} behave exactly the same
+      as in the FancyFormat class. Please refer to the documentation of that
+      class for details.
+
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                 table = [["Python",    "Unix",   "on" ,    "Custom" ],
+                          ["Language",  "True",   "True",   "Print"  ],
+                          ["High",      "False",  "202",    "Version"],
+                          ["Level",     "17",     "23",     "1.5"    ],
+                          ["Pretty",    "True",   "False",  "2027"   ]]
+
+                 nl = cp.NestedList()
+                 nl.print_nested_list(table)
+
+    '''
+    print(message)
+    table = [["Python",    "Unix",   "on" ,    "Custom" ],
+             ["Language",  "True",   "True",   "Print"  ],
+             ["High",      "False",  "202",    "Version"],
+             ["Level",     "17",     "23",     "1.5"    ],
+             ["Pretty",    "True",   "False",  "2027"   ]]
+
+    nl = cp.NestedList()
+    nl.adj_indent = 11
+    nl.adj_left_space = 4
+    nl.adj_middle_space = 4
+    nl.adj_right_space = 4
+    nl.print_nested_list(table)
+
+    message =f'''
+|--- a ---|          b\u2191   c\u2191              d\u2191       d\u2191         e\u2191
+
+
+      a \u2192 adj_indent              c \u2192 data                 e \u2192 adj_right_space
+      b \u2192 adj_left_space          d \u2192 adj_middle_space
+
+      {cp.set_font(1,231,22)} Rows, Cols {cp.reset_font()} \u2192 These variables are controled by the id variables.
+                     Check the id Section for more reference.
+
+      {cp.set_font(1,22,231)} transpose_list = True {cp.reset_font()}
+    '''
+    print(message)
+    nl.transpose_list = True
+    nl.print_nested_list(table)
+
+    message = f'''
+
+      The behavior of the id variables and the transpose_list variable is
+      explained in the following example.
+
+      {cp.set_font(1,22,231)} transpose_list = True {cp.reset_font()} and {cp.set_font(1,22,231)} id_on = False {cp.reset_font()}
+    '''
+    print(message)
+    nl.id_on = False
+    nl.print_nested_list(table)
+
+    message = f'''
+      {cp.set_font(1,22,231)} transpose_list = False {cp.reset_font()} and {cp.set_font(1,22,231)} id_on = False {cp.reset_font()}
+    '''
+    print(message)
+    nl.transpose_list = False
+    nl.print_nested_list(table)
 
 
 
 
 
+def print_simple_list_info():
+    ''' Prints a List simple form '''
+    cp.ins_newline(1)
+    blue_div.print_fancy_divider(all_topics[54])
+    message = f'''
+      The example below illustrates how the variables affect the output when
+      printing data using this methods. The variables {cp.set_font(1,231,22)} data_bg_step, {cp.reset_font()}
+      {cp.set_font(1,231,22)} data_fg_step, data_bg_start, {cp.reset_font()} and {cp.set_font(1,231,22)} data_bg_stop {cp.reset_font()} behave exactly the same
+      as in the FancyFormat class. Please refer to the documentation of that
+      class for details.
 
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                 table = [["Python",    "Custom" ],
+                          ["Language",  "Print"  ],
+                          ["High",      "Version"],
+                          ["Level",     "1.5"    ],
+                          ["Pretty",    "2027"   ]]
 
+                 nl = cp.NestedList()
+                 nl.print_simple_list(table)
+      '''
+    print(message)
+    table = [["Python",   "Custom" ],
+             ["Language", "Print"  ],
+             ["High",     "Version"],
+             ["Level",    "1.5"    ],
+             ["Pretty",   "2027"   ]]
+    nl = cp.NestedList()
+    nl.adj_indent = 11
+    nl.adj_int_indent = 10
+    nl.adj_left_space = 4
+    nl.adj_right_space = 4
+
+    nl.print_simple_list(table)
+    message = f'''
+|--- a ---|--- b ---| c\u2191 |-- d\u2191 --| e\u2191 |
+
+      a \u2192 adj_indent            c \u2192 adj_left_space        e \u2192 adj_right_space
+      b \u2192 adj_int_indent        d \u2192 data
+
+      In this final example, we explain how the variables {cp.set_font(1,231,22)} adj_int_indent {cp.reset_font()} and
+      {cp.set_font(1,231,22)} force_all_col_same work. {cp.reset_font()} Notice that the example above the
+      {cp.set_font(1,231,22)} force_all_col_same is set to True. {cp.reset_font()}
+
+      {cp.set_font(1,22,231)} force_all_col_same = False {cp.reset_font()}
+      '''
+    print(message)
+    # nl.bullet = "f@!"
+    nl.force_all_col_same_width = False
+    nl.print_simple_list(table)
+    message = f'''
+
+    {cp.set_font(1,22,231)} transpose_list = True {cp.reset_font()} and {cp.set_font(1,22,231)} force_all_col_same = True {cp.reset_font()}
+     '''
+    print(message)
+    nl.force_all_col_same_width = True
+    nl.transpose_list = True
+    nl.print_simple_list(table)
+
+    message = f'''
+
+    {cp.set_font(1,22,231)} \u2022 Bullet {cp.reset_font()} 
+
+     '''
+    print(message)
 
 
 def pylo_info():
+    ''' pylo -> Python List Operation '''
+    cp.ins_newline(1)
+    blue_div.print_fancy_divider(all_topics[57])
+    message = f'''
+    print_nest_list
+    '''
+
     message = f'''
       The {cp.set_font(1,22,231)} PyLO {cp.reset_font()} class (Python List Operations) provides convenient methods
       for performing common list operations in Python. This class contains

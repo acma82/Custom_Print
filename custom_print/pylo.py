@@ -1095,11 +1095,9 @@ class PyLO():
     # Table List To Vector List                                                                                                                      -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     def make_to_vector(self, data:list):
-
         '''  This function makes any list in a form as a vector. [1,2,3,4,5,etc.],
              up to 4 brackets.
         '''
-
         vector_lista = []
         for item in data:
             if isinstance(item, list):

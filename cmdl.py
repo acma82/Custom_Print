@@ -25,7 +25,7 @@ if __name__ == "__main__":
 
         asciiart           = ["asciiart_only", "print_ascii_art", "print_multi_ascii_art", "print_ascii_art_logo"]
 
-        nestedlist         = ["nestedlist_only", "print_nested_list"]
+        nestedlist         = ["nestedlist_only", "print_nested_list", "print_simple_list"]
 
         all_topics = ["screen_functions",  "internal_functions",  "help_classes",  "cursor",  "fontstyle",  "fancymessage",  "pen",  "divider",  "fancyformat",  "asciiart", "nestedlist",
 
@@ -51,7 +51,7 @@ if __name__ == "__main__":
 
                       "print_ascii_art", "print_multi_ascii_art", "print_ascii_art_logo",
 
-                      "print_nested_list",
+                      "print_nested_list", "print_simple_list"
                       
                       "pylo"]
         
