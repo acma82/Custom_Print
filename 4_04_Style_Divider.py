@@ -1,5 +1,5 @@
 import custom_print as cp
-div = cp.Divider()
+div = cp.FancyDivider()
 
 
 # +---------------------------------------------------------------------------------------+
@@ -99,7 +99,7 @@ div.print_fancy_divider(title, cp.Divider_Style.SQ_BRACKETS);  cp.ins_newline(2)
 
 
 
-div2 = cp.Divider()
+div2 = cp.FancyDivider()
 div2.msg_align = cp.Align.LEFT
 div2.print_fancy_divider(title, cp.Divider_Style.CUSTOMIZED);   cp.ins_newline(2)
 div2.print_fancy_divider(title, cp.Divider_Style.DASH_1);       cp.ins_newline(2)

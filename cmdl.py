@@ -3,55 +3,56 @@ import sys
 
 if __name__ == "__main__":        
         # variabvles needed for the documentation
-        main_topics        = ["screen_functions", "internal_functions",  "help_classes",  "cursor",  "fontstyle",  "fancymessage",  "pen",  "divider",  "fancyformat",  "asciiart", "nestedlist"]
+        main_topics        = ["screen_functions", "internal_functions", "help_classes", "asciiart", "cursor",  "fontstyle",  "fancymessage",  "pen",  "fancydivider",  "fancyformat", "nestedlist"]
 
-        screen_functions   = ["screen_functions_only", "clean", "clear","dimensions", "erase", "resize"]
+        screen_functions   = ["screen_functions_only",   "clean", "clear", "dimensions", "erase", "resize"]
 
-        internal_functions = ["internal_functions_only", "ansi_colors", "ins_chr", "ins_newline", "set_reset_font", "terminal_bell"]
+        internal_functions = ["internal_functions_only", "ansi_colors", "get_list_type", "ins_chr", "ins_newline", "move_cursor_right", "set_reset_font", "subscript", "superscript", "terminal_bell"]
 
-        help_classes       = ["help_classes_only", "align", "length_bg", "ascii_letter", "line_style", "bg", "logo", "move", "divider_style", "no", "fg", "style", "layout", "unicode", "direction"]
+        help_classes       = ["help_classes_only",       "align", "ascii_letter", "bg", "direction", "divider_style", "fg", "layout", "length_bg",  "line_style",  "logo", "move",  "no",  "style",  "unicode"]
 
-        cursor             = ["cursor_only", "jumpto", "jumpxy", "moveto", "movexy"]
+        asciiart           = ["asciiart_only",           "print_ascii_art", "print_multi_ascii_art", "print_ascii_art_logo"]
 
-        fontstyle          = ["fontstyle_only", "style_on_off", "reset_style", "print_style"]
+        cursor             = ["cursor_only",             "jumpto", "jumpxy", "moveto", "movexy"]
 
-        fancymessage       = ["fancymessage_only", "print_fancy_message", "print_fancy_note", "get_message_attributes"]
+        fontstyle          = ["fontstyle_only",          "style_on_off", "print_style", "reset_style"]
 
-        pen                = ["pen_only", "draw_line", "draw_rectangle"]
+        fancymessage       = ["fancymessage_only",       "print_fancy_message", "print_fancy_note", "get_message_attributes"]
 
-        divider            = ["divider_only", "print_fancy_divider"]
+        pen                = ["pen_only",                "draw_line", "draw_rectangle"]
 
-        fancyformat        = ["fancyformat_only", "print_fancy_format", "reset_fancy_format"]
+        fancydivider       = ["fancydivider_only",            "print_fancy_divider", "reset_fancy_divider"]
 
-        asciiart           = ["asciiart_only", "print_ascii_art", "print_multi_ascii_art", "print_ascii_art_logo"]
+        fancyformat        = ["fancyformat_only",        "print_fancy_format", "reset_fancy_format"]
 
-        nestedlist         = ["nestedlist_only", "print_nested_list", "print_simple_list"]
+        nestedlist         = ["nestedlist_only",         "print_nested_list", "print_simple_list"]
 
-        all_topics = ["screen_functions",  "internal_functions",  "help_classes",  "cursor",  "fontstyle",  "fancymessage",  "pen",  "divider",  "fancyformat",  "asciiart", "nestedlist",
 
-                      "screen_functions_only", "internal_functions_only",  "help_classes_only",  "cursor_only",  "fontstyle_only",  "fancymessage_only",  "pen_only",  "divider_only",  "fancyformat_only",  "asciiart_only", "nestedlist_only"
+        all_topics = ["screen_functions",  "internal_functions",  "help_classes",  "cursor",  "fontstyle",  "fancymessage",  "pen",  "fancydivider",  "fancyformat",  "asciiart", "nestedlist",
 
-                      "clean", "clear","dimensions", "erase", "resize", 
+                      "screen_functions_only", "internal_functions_only",  "help_classes_only",  "cursor_only",  "fontstyle_only",  "fancymessage_only",  "pen_only",  "fancydivider_only",  "fancyformat_only",  "asciiart_only", "nestedlist_only",
+
+                      "clean", "clear", "dimensions", "erase", "resize", 
 
                       "ansi_colors", "get_list_type", "ins_chr", "ins_newline", "move_cursor_right", "set_reset_font", "subscript", "superscript", "terminal_bell",
 
-                      "align", "length_bg", "ascii_letter", "line_style", "bg", "logo", "move", "divider_style", "no", "fg", "style", "layout", "unicode", "direction",
+                      "align", "ascii_letter", "bg", "direction", "divider_style", "fg", "layout", "length_bg",  "line_style",  "logo", "move",  "no",  "style",  "unicode", 
+
+                      "print_ascii_art", "print_multi_ascii_art", "print_ascii_art_logo",
 
                       "jumpto", "jumpxy", "moveto", "movexy",
 
-                      "style_on_off", "reset_style", "print_style", 
+                      "style_on_off", "print_style", "reset_style", 
 
                       "print_fancy_message", "print_fancy_note", "get_message_attributes",
 
                       "draw_line", "draw_rectangle",
 
-                      "print_fancy_divider",
+                      "print_fancy_divider", "reset_fancy_divider",
 
                       "print_fancy_format", "reset_fancy_format",
 
-                      "print_ascii_art", "print_multi_ascii_art", "print_ascii_art_logo",
-
-                      "print_nested_list", "print_simple_list"
+                      "print_nested_list", "print_simple_list",
                       
                       "pylo"]
         
@@ -60,9 +61,9 @@ if __name__ == "__main__":
         original_list = []
         for i in sys.argv:
             original_list.append(i.lower())
-        
+
         # when only the first argument ,custom_print,  is being passed
-        if (len(original_list)) <=1:
+        if (len(original_list)) ==1:
             cp.help.about_custom_print()
             exit()
 
@@ -76,7 +77,7 @@ if __name__ == "__main__":
                 cp.help.all_documentation()
                 exit()
 
-            else:
+            else:                
                 if original_list[1] in all_topics:
                     original_list.pop(0) # remove the parameter 0 (custom_print)
                 else:
@@ -114,14 +115,17 @@ if __name__ == "__main__":
         # print(unique_topic_list)
         
 
-
+        # print("unique_topic_list", unique_topic_list)
+        # print("\n")
+        # print("main_topics", main_topics) # main_topics are the name of the groups (classes)
+        # exit()
         # removing the functions being called when the group is being called.        
         # removing the methods being called when the class is bein called.
         for topic in main_topics:
             if topic in unique_topic_list:
                 for fun in (eval(topic)):
                     if fun in unique_topic_list:
-                        print("deleted")
+                        # print("deleted")
                         unique_topic_list.remove(fun)
                     else:
                         pass

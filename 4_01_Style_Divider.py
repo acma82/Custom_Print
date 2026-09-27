@@ -3,7 +3,7 @@ import custom_print as cp
     It create a divider through the terminal screen.
 '''
 cp.ins_newline(1)
-div = cp.Divider()
+div = cp.FancyDivider()
 cp.ins_newline(2)
 # +--------------------------------------------------------------------------------------------+
 # | Corner Settings                                                                            |

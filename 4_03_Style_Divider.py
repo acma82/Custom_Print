@@ -4,7 +4,7 @@ import custom_print as cp
 '''
 cp.ins_newline(1)
 
-div = cp.Divider()
+div = cp.FancyDivider()
 
 
 # +--------------------------------------------------------------------------------------------+

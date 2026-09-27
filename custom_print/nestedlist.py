@@ -233,7 +233,7 @@ class NestedList():
         self.header_inverse   = False;             self.id_hidden = False
         self.header_blinking  = False;             self.id_inverse   = False
         self.header_underline = False;             self.id_blinking  = False
-        self.bullet = "\u2022";                      self.id_underline = False
+        self.bullet = "\u2022";                    self.id_underline = False
         self.adj_int_indent = 4;                   self.adj_middle_space = 2
         self.force_all_col_same_width = True
 
@@ -416,23 +416,13 @@ class NestedList():
         for row in range(len(mylist)):
             for col in range(len(mylist[row])):
                 if col == 0:
-                    if self.force_all_col_same_width == True:
-                        adj_sp = ins_chr(len(str(n_rows))-len(str(counter)))
-                        if len(str(self.bullet)) == 1:
-                            print(f"{indentation}{hd_colors}{lsp}{adj_sp}{self.bullet}  {mylist[row][col]}{rsp}{reset_font()}")
-                        elif len(str(self.bullet)) == 2:
-                            print(f"{indentation}{hd_colors}{lsp}{adj_sp}{self.bullet} {mylist[row][col]}{rsp}{reset_font()}")
-                        else:
-                            print(f"{indentation}{hd_colors}{lsp}{adj_sp}{counter}. {mylist[row][col]}{rsp}{reset_font()}")
+                    adj_sp = ins_chr(len(str(n_rows))-len(str(counter)))
+                    if len(str(self.bullet)) == 1:
+                        print(f"{indentation}{hd_colors}{lsp}{adj_sp}{self.bullet}  {mylist[row][col]}{rsp}{reset_font()}")
+                    elif len(str(self.bullet)) == 2:
+                        print(f"{indentation}{hd_colors}{lsp}{adj_sp}{self.bullet} {mylist[row][col]}{rsp}{reset_font()}")
                     else:
-                        adj_sp = ins_chr(len(str(n_rows))-len(str(counter)))
-                        if len(str(self.bullet)) == 1:
-                            print(f"{indentation}{hd_colors}{lsp}{adj_sp}{self.bullet}  {mylist[row][col]}{rsp}{reset_font()}")
-                        elif len(str(self.bullet)) == 2:
-                            print(f"{indentation}{hd_colors}{lsp}{adj_sp}{self.bullet} {mylist[row][col]}{rsp}{reset_font()}")
-                        else:
-                            print(f"{indentation}{hd_colors}{lsp}{adj_sp}{counter}. {mylist[row][col]}{rsp}{reset_font()}")
-
+                        print(f"{indentation}{hd_colors}{lsp}{adj_sp}{counter}. {mylist[row][col]}{rsp}{reset_font()}")
                 else:
                     adj_sp = ins_chr(len(str(n_rows))-len(str(counter)))
                     print(f"{indent}{dt_colors}{lsp}{adj_sp}{counter}. {mylist[row][col]}{rsp}{reset_font()}")

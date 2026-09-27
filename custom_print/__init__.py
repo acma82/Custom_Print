@@ -50,7 +50,7 @@ from .fancy_cursor     import Cursor
 from .fancy_font_style import FontStyle
 from .fancy_format     import FancyFormat
 from .fancy_message    import FancyMessage
-from .fancy_divider    import Divider
+from .fancy_divider    import FancyDivider
 from .ascii_art        import AsciiArt
 from .ascii_letters    import*
 from .help             import*

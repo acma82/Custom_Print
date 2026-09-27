@@ -152,7 +152,7 @@ def get_all_corner_chr(self):
 
 
 
-class Divider:
+class FancyDivider:
     '''
         It create a divider through the terminal screen.
     '''
@@ -196,7 +196,7 @@ class Divider:
 
 
 
-    def print_fancy_divider(self, message:str=" Custom_Print_Divider ", style:str=Divider_Style.CUSTOMIZED):
+    def print_fancy_divider(self, message:str=" Custom_Print_Divider ", style:str=Divider_Style.DASH_1):
         '''
             it prints the divider with all the attributes
         '''
@@ -452,3 +452,42 @@ class Divider:
         #  Printing the Bottom Horizontal Line                                                                |
         #-----------------------------------------------------------------------------------------------------+
         if self.bottom_horizontal_line_on == True: print(f"{final_chr_bhl}{reset_font()}")
+
+
+    def reset_fancy_divider(self):
+        '''
+            reset all to their defualt variables
+        '''
+        #-----------------------------------------------------------------------------------------------------+
+        #  Defining all the variables                                                                         |
+        #-----------------------------------------------------------------------------------------------------+
+        #  Defining all the corner variables
+        self.top_left_corner_chr     = " ";       self.top_left_corner_bg     = -1;       self.top_left_corner_fg     = -1
+        self.top_right_corner_chr    = " ";       self.top_right_corner_bg    = -1;       self.top_right_corner_fg    = -1
+        self.bottom_left_corner_chr  = " ";       self.bottom_left_corner_bg  = -1;       self.bottom_left_corner_fg  = -1
+        self.bottom_right_corner_chr = " ";       self.bottom_right_corner_bg = -1;       self.bottom_right_corner_fg = -1
+
+        self.all_corner_chr  = "";                self.all_corner_bg = -1;                self.all_corner_fg = -1
+        self.all_corner_bold = False
+
+        # Defining all the horizontal lines
+        self.top_horizontal_line_chr    = " ";    self.top_horizontal_line_bg    = -1;    self.top_horizontal_line_fg    = -1
+        self.bottom_horizontal_line_chr = " ";    self.bottom_horizontal_line_bg = -1;    self.bottom_horizontal_line_fg = -1
+        self.top_horizontal_line_on     = True;   self.bottom_horizontal_line_on = True;  self.horizontal_line_bold      = False
+
+        # Defining all the vertical lines
+        self.left_vertical_line_chr  = " ";      self.left_vertical_line_bg  = -1;        self.left_vertical_line_fg  = -1
+        self.right_vertical_line_chr = " ";      self.right_vertical_line_bg = -1;        self.right_vertical_line_fg = -1
+        self.vertical_line_bold      = False
+
+        # Data
+        self.msg_bold = False;                   self.msg_bg = -1;                        self.msg_fg = -1
+        self.msg_italic = False;                 self.msg_underline = False;              self.msg_strike = False
+        self.msg_blinking = False;               self.msg_dim = False;                    self.msg_hidden = False
+        self.msg_inverse  = False
+
+        # add all the other option for the font
+        self.adj_indent = 2;                     self.msg_align = Align.CENTER
+
+        # Fill blank
+        self.left_fill_bg = -1;                  self.right_fill_bg = -1;                  self.left_right_fill_bg = -1        
