@@ -1,9 +1,9 @@
 import custom_print as cp
 import sys
 
-if __name__ == "__main__":        
+if __name__ == "__main__":
         # variabvles needed for the documentation
-        main_topics        = ["screen_functions", "internal_functions", "help_classes", "asciiart", "cursor",  "fontstyle",  "fancymessage",  "pen",  "fancydivider",  "fancyformat", "nestedlist"]
+        main_topics        = ["screen_functions", "internal_functions", "help_classes", "asciiart", "cursor",  "fontstyle",  "fancymessage",  "pen",  "fancydivider",  "fancyformat", "nestedlist", "pylo"]
 
         screen_functions   = ["screen_functions_only",   "clean", "clear", "dimensions", "erase", "resize"]
 
@@ -21,28 +21,44 @@ if __name__ == "__main__":
 
         pen                = ["pen_only",                "draw_line", "draw_rectangle"]
 
-        fancydivider       = ["fancydivider_only",            "print_fancy_divider", "reset_fancy_divider"]
+        fancydivider       = ["fancydivider_only",       "print_fancy_divider", "reset_fancy_divider"]
 
         fancyformat        = ["fancyformat_only",        "print_fancy_format", "reset_fancy_format"]
 
         nestedlist         = ["nestedlist_only",         "print_nested_list", "print_simple_list"]
 
+        pylo               = ["pylo_only",               "str_list_option", "order", "appending", "case",
 
-        all_topics = ["screen_functions",  "internal_functions",  "help_classes",  "cursor",  "fontstyle",  "fancymessage",  "pen",  "fancydivider",  "fancyformat",  "asciiart", "nestedlist",
+                                                         "paragraph_to_list",     "data_to_str",       "dict_to_list",       "range_to_list",          "set_to_list",       "tuple_to_list",
 
-                      "screen_functions_only", "internal_functions_only",  "help_classes_only",  "cursor_only",  "fontstyle_only",  "fancymessage_only",  "pen_only",  "fancydivider_only",  "fancyformat_only",  "asciiart_only", "nestedlist_only",
+                                                         "bifcs",                  "bool_to_list",       "int_to_list",        "float_to_list",         "complex_to_list",   "data_to_num",
 
-                      "clean", "clear", "dimensions", "erase", "resize", 
+                                                         "shift",                 "left_shift",         "right_shift",        "swap",                  "transpose",
+
+                                                         "write_csv_file",        "read_csv_file",      "write_json_file",    "read_json_file",        "autofill_list",     "dimensions",
+
+                                                         "delete_col",            "add_col",            "add_col_id",         "join_as_vector",        "make_to_vector",    "replace_value",
+                                                         "find_value",            "delete_value",       "lower_case",         "upper_case",            "capitalize_case",
+                                                         "merge",                 "reverse_row_order",  "sort_rows_by_col",   "sort_cols",             "update_casae",      "update_case_col"
+                                                         "find_duplicate",        "find_longest_item",  "find_shortest_item", "split_list_by_col_condition"
+                             ]
+
+
+        all_topics = ["screen_functions",  "internal_functions",  "help_classes",  "cursor",  "fontstyle",  "fancymessage",  "pen",  "fancydivider",  "fancyformat",  "asciiart", "nestedlist", "pylo",
+
+                      "screen_functions_only", "internal_functions_only",  "help_classes_only",  "cursor_only",  "fontstyle_only",  "fancymessage_only",  "pen_only",  "fancydivider_only",  "fancyformat_only",  "asciiart_only", "nestedlist_only", "pylo_only",
+
+                      "clean", "clear", "dimensions", "erase", "resize",
 
                       "ansi_colors", "get_list_type", "ins_chr", "ins_newline", "move_cursor_right", "set_reset_font", "subscript", "superscript", "terminal_bell",
 
-                      "align", "ascii_letter", "bg", "direction", "divider_style", "fg", "layout", "length_bg",  "line_style",  "logo", "move",  "no",  "style",  "unicode", 
+                      "align", "ascii_letter", "bg", "direction", "divider_style", "fg", "layout", "length_bg",  "line_style",  "logo", "move",  "no",  "style",  "unicode",
 
                       "print_ascii_art", "print_multi_ascii_art", "print_ascii_art_logo",
 
                       "jumpto", "jumpxy", "moveto", "movexy",
 
-                      "style_on_off", "print_style", "reset_style", 
+                      "style_on_off", "print_style", "reset_style",
 
                       "print_fancy_message", "print_fancy_note", "get_message_attributes",
 
@@ -53,9 +69,24 @@ if __name__ == "__main__":
                       "print_fancy_format", "reset_fancy_format",
 
                       "print_nested_list", "print_simple_list",
-                      
-                      "pylo"]
-        
+
+                      "str_list_option", "order", "appending", "case",
+
+                      "paragraph_to_list",     "data_to_str",       "dict_to_list",       "range_to_list",   "set_to_list",       "tuple_to_list",
+
+                      "bifcs",            "bool_to_list",       "int_to_list",        "float_to_list",   "complex_to_list",   "data_to_num",
+
+                      "shift",           "left_shift",         "right_shift",        "swap",            "transpose",
+
+                      "write_csv_file",  "read_csv_file",      "write_json_file",    "read_json_file",  "autofill_list",     "dimensions",
+
+                      "delete_col",       "add_col",           "add_col_id",         "join_as_vector",  "make_to_vector",    "replace_value",
+                      "find_value",       "delete_value",      "lower_case",         "upper_case",      "capitalize_case",
+                      "merge",            "reverse_row_order", "sort_rows_by_col",   "sort_cols",       "update_casae",      "update_case_col"
+                      "find_duplicate",   "find_longest_item", "find_shortest_item", "split_list_by_col_condition"
+                     ]
+
+
 
         # converting all the arguments passed for help to be displayed into a list in lowercase
         original_list = []
@@ -68,7 +99,7 @@ if __name__ == "__main__":
             exit()
 
         # checking if the second argument exist when only 2 arguments are being passed
-        elif (len(original_list)) == 2:            
+        elif (len(original_list)) == 2:
             if original_list[1] == "help":
                 cp.help.help_documentation()
                 exit()
@@ -77,7 +108,7 @@ if __name__ == "__main__":
                 cp.help.all_documentation()
                 exit()
 
-            else:                
+            else:
                 if original_list[1] in all_topics:
                     original_list.pop(0) # remove the parameter 0 (custom_print)
                 else:
@@ -103,23 +134,23 @@ if __name__ == "__main__":
                         v_exist = 0
 
             # if at least one item does not exist in the documentation then we leave
-            if v_exist == 0: 
+            if v_exist == 0:
                 exit()
 
-        
+
 
 
 
         # deleting duplicate items in the list
         unique_topic_list = list(dict.fromkeys(original_list))
         # print(unique_topic_list)
-        
+
 
         # print("unique_topic_list", unique_topic_list)
         # print("\n")
         # print("main_topics", main_topics) # main_topics are the name of the groups (classes)
         # exit()
-        # removing the functions being called when the group is being called.        
+        # removing the functions being called when the group is being called.
         # removing the methods being called when the class is bein called.
         for topic in main_topics:
             if topic in unique_topic_list:
@@ -130,9 +161,9 @@ if __name__ == "__main__":
                     else:
                         pass
 
-            
 
-        
+
+
         # Calling all the functions or methods or group of functions or group of classes to be displayed
         # unique_topic_list contains all the topics the user wants to see
         for display in unique_topic_list:

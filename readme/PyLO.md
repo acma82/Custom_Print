@@ -26,7 +26,7 @@
     * [**int_to_list**](#integer-type-to-list-type)
     * [**float_to_list**](#float-type-to-list-type)
     * [**complex_to_list**](#complex-type-to-list-type)
-    * [**str_to_list**](#string-type-to-list-type)
+    * [**paragraph_to_list**](#string-type-to-list-type)
     * [**dict_to_list**](#dictionary-type-to-list-type)
     * [**range_to_list**](#range-type-to-list-type)
     * [**set_to_list**](#set-or-frozenset-type-to-list-type)
@@ -107,7 +107,7 @@ This class is used with ***sort_cols*** method. There are two options.
 <!-- String to List Option              -->
 <!-- ---------------------------------- -->
 ## Str_List_Option
-This class is used with ***str_to_list*** method. There are two options.
+This class is used with ***paragraph_to_list*** method. There are two options.
 * WORD_BY_WORD
 * LINE_BY_LINE
 
@@ -215,22 +215,22 @@ This method sets an int variable into a list where ***data*** is the float type.
     pylo = cp.PyLO()
 
     print(f"{cp.set_font(1,90,231)}  WORD_BY_WORD  {cp.reset_font()}")
-    result = pylo.str_to_list(data=paragraph, option=pylo.Str_List_Option.WORD_BY_WORD, counter=False)
+    result = pylo.paragraph_to_list(data=paragraph, option=pylo.Str_List_Option.WORD_BY_WORD, counter=False)
     print(result)
 
     cp.ins_newline(2)
     print(f"{cp.set_font(1,90,231)}  counter WORD_BY_WORD  {cp.reset_font()}")
-    result = pylo.str_to_list(paragraph, pylo.Str_List_Option.WORD_BY_WORD, counter=True)
+    result = pylo.paragraph_to_list(paragraph, pylo.Str_List_Option.WORD_BY_WORD, counter=True)
     print(result)
     
     cp.ins_newline(2)
     print(f"{cp.set_font(1,90,231)}  LINE_BY_LINE  {cp.reset_font()}")
-    result = pylo.str_to_list(paragraph, pylo.Str_List_Option.LINE_BY_LINE, counter=False)
+    result = pylo.paragraph_to_list(paragraph, pylo.Str_List_Option.LINE_BY_LINE, counter=False)
     print(result)
     
     cp.ins_newline(2)
     print(f"{cp.set_font(1,90,231)}  counter LINE_BY_LINE  {cp.reset_font()}")
-    result = pylo.str_to_list(paragraph, pylo.Str_List_Option.LINE_BY_LINE, counter=True)
+    result = pylo.paragraph_to_list(paragraph, pylo.Str_List_Option.LINE_BY_LINE, counter=True)
     print(result)
 ```
 

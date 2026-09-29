@@ -99,44 +99,8 @@ class PyLO():
         NONE = "none"
 
 
-    #-------------------------------------------------------------------------------------------------------------------------------------------------
-    # Conversion to List                                                                                                                             -
-    #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def bifc_to_list(self,data, convert_to_str=False):
-        '''  It converts bool, int, float, and complex type to list type  '''
-        tempo_list = []
-        if convert_to_str == True:
-            tempo_list.append(str(data))
-        else:
-            tempo_list.append(data)
-        return tempo_list
-
-
-    def bool_to_list(self,data:bool, convert_to_str=False):
-        '''  It sets a bool variable into list as a bool or as string type  '''
-        new_list = PyLO.bifc_to_list(self, data, convert_to_str)
-        return new_list
-
-
-    def int_to_list(self,data:int, convert_to_str=False):
-        '''  It sets a int variable into list as an integer or as string type  '''
-        new_list = PyLO.bifc_to_list(self, data, convert_to_str)
-        return new_list
-
-
-    def float_to_list(self,data:float, convert_to_str=False):
-        '''  It sets a float variable into list as a float or as string type  '''
-        new_list = PyLO.bifc_to_list(self, data, convert_to_str)
-        return new_list
-
-
-    def complex_to_list(self,data:complex, convert_to_str=False):
-        '''  It sets a complex variable into a list as a complex or as string type   '''
-        new_list = PyLO.bifc_to_list(self, data, convert_to_str)
-        return new_list
-
     #---------------------------------------------------------------------------------------------------------------------------------------------
-    def str_to_list(self,data:str, option:Str_List_Option=Str_List_Option.WORD_BY_WORD, counter=False):
+    def paragraph_to_list(self,data:str, option:Str_List_Option=Str_List_Option.WORD_BY_WORD, counter=False):
 
         '''  It sets a string variable into a list as word by word or line by line  '''
 
@@ -176,6 +140,51 @@ class PyLO():
         return tempo_list
 
 
+
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    # Conversion to List                                                                                                                             -
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    def bifcs_to_list(self,data, convert_to_str=False):
+        '''  It converts bool, int, float, and complex type to list type  '''
+        tempo_list = []
+        if convert_to_str == True:
+            tempo_list.append(str(data))
+        else:
+            tempo_list.append(data)
+        return tempo_list
+
+
+    # def paragraph_to_list(my_str):
+        
+    #     '''  It Converts a String to a String List  '''
+
+    #     tempo_list = []
+    #     tempo_list.append(my_str)
+    #     return tempo_list
+
+
+    def bool_to_list(self,data:bool, convert_to_str=False):
+        '''  It sets a bool variable into list as a bool or as string type  '''
+        new_list = PyLO.bifcs_to_list(self, data, convert_to_str)
+        return new_list
+
+
+    def int_to_list(self,data:int, convert_to_str=False):
+        '''  It sets a int variable into list as an integer or as string type  '''
+        new_list = PyLO.bifcs_to_list(self, data, convert_to_str)
+        return new_list
+
+
+    def float_to_list(self,data:float, convert_to_str=False):
+        '''  It sets a float variable into list as a float or as string type  '''
+        new_list = PyLO.bifcs_to_list(self, data, convert_to_str)
+        return new_list
+
+
+    def complex_to_list(self,data:complex, convert_to_str=False):
+        '''  It sets a complex variable into a list as a complex or as string type   '''
+        new_list = PyLO.bifcs_to_list(self, data, convert_to_str)
+        return new_list
     #---------------------------------------------------------------------------------------------------------------------------------------------
     def dict_to_list(self,data:dict, key_title="key", value_title="value", convert_to_str=False):
         '''  It sets a dictionary variable into a list with its original values or as string values   '''
@@ -222,18 +231,24 @@ class PyLO():
             header = "Range"
             if header_title == "":
                 if len(data) > 1:
-                    if layout == "vertical": tempo_list.append([header + " Values"])
-                    else:                    tempo_list.append(header  + " Values")
+                    if layout.lower() == "vertical" or layout.lower() == "v":
+                        tempo_list.append([header + " Values"])
+                    else:
+                        tempo_list.append(header  + " Values")
 
                 else:
-                    if layout == "vertical": tempo_list.append([header + " Value"])
-                    else:                    tempo_list.append(header  + " Value")
+                    if layout.lower() == "vertical" or layout.lower() == "v":
+                        tempo_list.append([header + " Value"])
+                    else:
+                        tempo_list.append(header  + " Value")
 
             elif (header_title == None or header_title.lower() == "none"):
                 pass
             else:
-                if layout == "vertical":  tempo_list.append([header_title])
-                else:                     tempo_list.append(header_title)
+                if layout.lower() == "vertical" or layout.lower():
+                    tempo_list.append([header_title])
+                else:
+                    tempo_list.append(header_title)
 
         #for n in data:
         if (layout.lower() == "v" or layout == Layout.VERTICAL):
@@ -267,18 +282,24 @@ class PyLO():
 
             if header_title == "":
                 if len(data) > 1:
-                    if layout == "vertical": tempo_list.append([header + " Values"])
-                    else:                    tempo_list.append(header  + " Values")
+                    if layout.lower() == "vertical" or layout.lower() == "v":
+                        tempo_list.append([header + " Values"])
+                    else:
+                        tempo_list.append(header  + " Values")
 
                 else:
-                    if layout == "vertical": tempo_list.append([header + " Value"])
-                    else:                    tempo_list.append(header  + " Value")
+                    if layout.lower() == "vertical" or layout.lower() == "v":
+                        tempo_list.append([header + " Value"])
+                    else:
+                        tempo_list.append(header  + " Value")
 
             elif (header_title == None or header_title.lower() == "none"):
                 pass
             else:
-                if layout == "vertical":  tempo_list.append([header_title])
-                else:                     tempo_list.append(header_title)
+                if layout.lower() == "vertical" or layout.lower() == "v":
+                    tempo_list.append([header_title])
+                else:
+                    tempo_list.append(header_title)
 
         #----------------------------------------------------------------------------------
         def _set_to_list_layout_vertical():
@@ -711,9 +732,9 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Autofill Data. It Completes Data List to Make   it Rectangular List (Rows, Cols)                                                               -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def autofill_data(self, data:list, fill_value:str="----", update:bool=False):
+    def autofill_list(self, data:list, fill_value:str="----", update:bool=False):
         '''
-        autofill_data(list, str/int/float, boolean)
+        autofill_list(list, str/int/float, boolean)
 
         This function will fill all the empty columns from the list.
         fill_value is the chr to be used to fill those columns. It can be str,
@@ -803,7 +824,7 @@ class PyLO():
 
             #--------------------------------------------------------------
             if autofill == True:
-                fill_list = PyLO.autofill_data(self, data=data, fill_value=fill_value)
+                fill_list = PyLO.autofill_list(self, data=data, fill_value=fill_value)
             else:
                 fill_list = data
             #--------------------------------------------------------------
@@ -841,7 +862,7 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     def data_to_str(self, data:list, update=False):
 
-        '''  Converts all the elements of a list to string type  '''
+        '''  Converts all the elements in a list in a string type  '''
 
         new_list = []
         for value in data:
@@ -1467,8 +1488,8 @@ class PyLO():
                             merge_list.append(list_1[row])
 
             elif merge_by == "columns":
-                new_list_2 = PyLO.autofill_data(self, data=list_2)#, fill_value="!-py-12-@$^*-cp-?!")
-                merge_list = PyLO.autofill_data(self, data=list_1)#, fill_value="!-py-12-@$^*-cp-?!")
+                new_list_2 = PyLO.autofill_list(self, data=list_2)#, fill_value="!-py-12-@$^*-cp-?!")
+                merge_list = PyLO.autofill_list(self, data=list_1)#, fill_value="!-py-12-@$^*-cp-?!")
 
                 columnas = []
                 for n in range(len(new_list_2[0])):  columnas.append([])
@@ -1673,7 +1694,7 @@ class PyLO():
              If a column is mixed with string type and another type, like integer or float, it will
              cause an error. This method is intended to be used with all cells filled with the same
              type per column except the header; any empty cells will be filled automatically.
-             If you want to fill those spots with a specific type, then use the autofill_data method.
+             If you want to fill those spots with a specific type, then use the autofill_list method.
         '''
 
         def _get_order_only_horizontal(in_list):
@@ -1701,7 +1722,7 @@ class PyLO():
 
             # Done [["Hello"],["bye"],["good"]] or [["Hello","mio"],["bye"],["good","hh"]]
         elif list_type == "multiple_items_multiple_rows":
-            complete_list = PyLO.autofill_data(self, data=data)
+            complete_list = PyLO.autofill_list(self, data=data)
             n_rows_n_cols_list = PyLO.dimensions(self, complete_list)
             n_cols = n_rows_n_cols_list[1][1]
 
@@ -1736,7 +1757,7 @@ class PyLO():
         if my_type_list == "multiple_items_multiple_rows":
 
             num_order = [];     order_list = []
-            new_data  = PyLO.autofill_data(self, data=data)
+            new_data  = PyLO.autofill_list(self, data=data)
             headers   = new_data.pop(0)
 
             if sort_type   == PyLO.Order.ASCENDING:  headers_sort = sorted(headers, reverse=False)
@@ -1816,7 +1837,7 @@ class PyLO():
             elif data_case == PyLO.Case.CAPITALIZE: case_list = PyLO.capitalize_case(self, data=data)
             else:                           case_list = []
         else:
-            new_data  = PyLO.autofill_data(self, data=data)
+            new_data  = PyLO.autofill_list(self, data=data)
             headers = new_data.pop(0)
 
             if   header_case == PyLO.Case.UPPER:      new_headers = PyLO.upper_case(self, data=headers)
@@ -1859,7 +1880,7 @@ class PyLO():
             else:                           case_list = []
 
         else:
-            new_data  = PyLO.autofill_data(self, data=data)
+            new_data  = PyLO.autofill_list(self, data=data)
             if col_ref > len(new_data[0]): new_col_ref = len(new_data[0])
             elif col_ref < 0:              new_col_ref = 0
             else:                          new_col_ref = col_ref

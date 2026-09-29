@@ -31,6 +31,13 @@ tbl.header_align = cp.Align.CENTER
 tbl.data_align   = cp.Align.JUSTIFY
 tbl.header_bold  = True
 
+pink_div = cp.FancyDivider()
+pink_div.msg_bg = 208;                   pink_div.msg_fg = 0;                           pink_div.msg_bold = True
+pink_div.adj_indent = 2;                 pink_div.msg_align = cp.Align.CENTER;           pink_div.left_right_fill_bg = 208
+pink_div.all_corner_bg = 208;            pink_div.top_horizontal_line_bg = 208;          pink_div.bottom_horizontal_line_bg = 208
+pink_div.left_vertical_line_bg = 208;    pink_div.right_vertical_line_bg = 208
+
+
 
 def about_custom_print():
     word = []
@@ -86,6 +93,12 @@ def about_custom_print():
     logo.adj_left_space = 1
     logo.ascii_type = word
     print()
+    tbl.set_banded_row_on = True
+    tbl.banded_row_bg = 208
+    tbl.banded_row_fg = 234
+    tbl.banded_row_step = 3
+
+
     logo.print_ascii_art_logo(direction=cp.Direction.UP_DOWN)
     tbl.print_fancy_format(lst, "design_10")
     print()
@@ -1957,9 +1970,9 @@ def style_on_off_info():
 # print_style                                                                                   -
 #------------------------------------------------------------------------------------------------
 def print_style_info():
-      
+
     ''' This method align the customized text on the screen with the position specified.  '''
-    
+
     cp.ins_newline(1)
     green_div.print_fancy_divider(all_topics[38], cp.Divider_Style.CUSTOMIZED)
     message = f'''
@@ -4692,7 +4705,7 @@ def nestedlist_only_info():
       {cp.set_font(0,53,231,0)}                                                                     {cp.reset_font()}
       {cp.set_font(0,53,231,0)}   id Section (Row, Col)     Header Section                          {cp.reset_font()}
       {cp.set_font(0,53,231,0)}                                                                     {cp.reset_font()}
-      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} id_on = True            {cp.Unicode.BULLET} mark = \"\u2022\"                              {cp.reset_font()}
+      {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} id_on = True            {cp.Unicode.BULLET} bullet = \"\u2022\"                              {cp.reset_font()}
       {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} id_bg = 234             {cp.Unicode.BULLET} header_bg = 231                         {cp.reset_font()}
       {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} id_fg = 231             {cp.Unicode.BULLET} header_fg = 16                          {cp.reset_font()}
       {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} id_bold = True          {cp.Unicode.BULLET} header_bold   = True                    {cp.reset_font()}
@@ -4724,16 +4737,61 @@ def nestedlist_only_info():
       {cp.set_font(0,53,231,0)} {cp.Unicode.BULLET} data_underline = False  {cp.Unicode.BULLET} transpose_list   = False                {cp.reset_font()}
       {cp.set_font(0,53,231,0)}                                                                     {cp.reset_font()}
 
-      {cp.set_font(1,196,231)} Note {cp.reset_font()} Both methods use the same variables for the data section,
-      with one exceptions:
-          
-             The variable {cp.set_font(1,231,22)} adj_middle_space {cp.reset_font()} is only used by the
-             print_nested_list() method and is ignored by print_simple_list().
+      {cp.set_font(1,196,231)} Note 1 {cp.reset_font()} Both methods use the same variables for the data section,
+               with one exceptions:
 
-      The variables adj_init_indent and force_all_col_same_width only affect
-      the print_simple_list() method and have no effect on print_nested_list().
-'''
+               The variable {cp.set_font(1,231,22)} adj_middle_space {cp.reset_font()} is only used by the
+               print_nested_list() {cp.reset_font()} method and is ignored by 
+               print_simple_list().
+
+               
+               The variables {cp.set_font(1,231,22)} adj_init_indent {cp.reset_font()} and {cp.set_font(1,231,22)} force_all_col_same_width {cp.reset_font()}
+               only affect the print_simple_list() method and have no effect on
+               print_nested_list().
+
+      {cp.set_font(1,196,231)} Note 2 {cp.reset_font()} The {cp.set_font(1,231,22)} bullet {cp.reset_font()} character used in the print_simple_list() method
+               (first row or column of this) class can be customized, but it has
+               limitations. For instance, you can replace the original {cp.set_font(1,231,22)} bullet {cp.reset_font()}
+               with another character (up to two characters). If you try to use
+               three or more characters, the NestedList class will automatically
+               replace them with the corresponding numbering (starting at 0.).
+               See the example below for the three scenarios.              
+
+
+{cp.set_font(1,22,231)}                                                                                {cp.reset_font()}
+{cp.set_font(1,22,231)}    bullet = \"***\"      bullet = \"**\"       bullet = \"*\"        Default Value   {cp.reset_font()}
+{cp.set_font(1,22,231)}                                                                                {cp.reset_font()}'''
     print(message)
+    crs = cp.Cursor()
+
+    table = [["Python",    "Unix",   "Custom" ],
+             ["Language",  "True",   "Print"  ],
+             ["High",      "False",  "Version"],
+             ["Level",     "17",     "1.5"    ],
+             ["Pretty",    "True",   "2027"   ]]
+
+    nl = cp.NestedList()
+    nl.adj_indent = 62
+    nl.adj_int_indent = 0
+    nl.adj_left_space = 2
+    nl.adj_right_space = 2
+    nl.print_simple_list(table)
+
+    nl.adj_indent = 42
+    nl.bullet = "*"
+    crs.jumpTo(qty=15, direction=cp.Move.UP)
+    nl.print_simple_list(table)
+
+    nl.adj_indent = 22
+    nl.bullet = "**"
+    crs.jumpTo(qty=15, direction=cp.Move.UP)
+    nl.print_simple_list(table)
+
+
+    nl.adj_indent = 2
+    nl.bullet = "***"
+    crs.jumpTo(qty=15, direction=cp.Move.UP)
+    nl.print_simple_list(table)
 
 
 def nestedlist_info():
@@ -4767,6 +4825,8 @@ def print_nested_list_info():
                  nl = cp.NestedList()
                  nl.print_nested_list(table)
 
+
+      {cp.set_font(1,22,231)} transpose_list = False {cp.reset_font()} and {cp.set_font(1,22,231)} id_on = True {cp.reset_font()}
     '''
     print(message)
     table = [["Python",    "Unix",   "on" ,    "Custom" ],
@@ -4788,10 +4848,12 @@ def print_nested_list_info():
       a \u2192 adj_indent              c \u2192 data                 e \u2192 adj_right_space
       b \u2192 adj_left_space          d \u2192 adj_middle_space
 
+
       {cp.set_font(1,231,22)} Rows, Cols {cp.reset_font()} \u2192 These variables are controled by the id variables.
                      Check the id Section for more reference.
 
-      {cp.set_font(1,22,231)} transpose_list = True {cp.reset_font()}
+
+      {cp.set_font(1,22,231)} transpose_list = True {cp.reset_font()} and {cp.set_font(1,22,231)} id_on = True {cp.reset_font()}
     '''
     print(message)
     nl.transpose_list = True
@@ -4832,21 +4894,28 @@ def print_simple_list_info():
       class for details.
 
       {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
-                 table = [["Python",    "Custom" ],
-                          ["Language",  "Print"  ],
-                          ["High",      "Version"],
-                          ["Level",     "1.5"    ],
-                          ["Pretty",    "2027"   ]]
+                 table = [[\"Python\",   \"Custom\",  \"Website\"   ],
+                          [\"Language\", \"Print\",   \"pypi.org\"  ],
+                          [\"High\",     \"Version\", \"github.com\"],
+                          [\"Level\",    \"1.5\",     \"gitlab.com\"],
+                          [\"Pretty\",   \"2027\",    \"python.org\"]]
 
                  nl = cp.NestedList()
+                 nl.adj_indent = 11
+                 nl.adj_int_indent = 10
+                 nl.adj_left_space = 4
+                 nl.adj_right_space = 4
                  nl.print_simple_list(table)
+
+
+      {cp.set_font(1,22,231)} transpose_list = False {cp.reset_font()} and {cp.set_font(1,22,231)} force_all_col_same_width = True {cp.reset_font()}
       '''
     print(message)
-    table = [["Python",   "Custom" ],
-             ["Language", "Print"  ],
-             ["High",     "Version"],
-             ["Level",    "1.5"    ],
-             ["Pretty",   "2027"   ]]
+    table = [["Python",   "Custom",  "Website"   ],
+             ["Language", "Print",   "pypi.org"  ],
+             ["High",     "Version", "github.com"],
+             ["Level",    "1.5",     "gitlab.com"],
+             ["Pretty",   "2027",    "python.org"]]
     nl = cp.NestedList()
     nl.adj_indent = 11
     nl.adj_int_indent = 10
@@ -4854,17 +4923,17 @@ def print_simple_list_info():
     nl.adj_right_space = 4
 
     nl.print_simple_list(table)
-    message = f'''
-|--- a ---|--- b ---| c\u2191 |-- d\u2191 --| e\u2191 |
+    message = f'''|--- a ---|--- b ---| c\u2191 |-- d\u2191 --| e\u2191 |
 
       a \u2192 adj_indent            c \u2192 adj_left_space        e \u2192 adj_right_space
       b \u2192 adj_int_indent        d \u2192 data
 
       In this final example, we explain how the variables {cp.set_font(1,231,22)} adj_int_indent {cp.reset_font()} and
-      {cp.set_font(1,231,22)} force_all_col_same work. {cp.reset_font()} Notice that the example above the
-      {cp.set_font(1,231,22)} force_all_col_same is set to True. {cp.reset_font()}
+      {cp.set_font(1,231,22)} force_all_col_same_width {cp.reset_font()} work. Notice that the example above the
+      {cp.set_font(1,231,22)} force_all_col_same_width {cp.reset_font()} is set to True.
 
-      {cp.set_font(1,22,231)} force_all_col_same = False {cp.reset_font()}
+
+      {cp.set_font(1,22,231)} transpose_list = False {cp.reset_font()} and {cp.set_font(1,22,231)} force_all_col_same_width = False {cp.reset_font()}
       '''
     print(message)
     # nl.bullet = "f@!"
@@ -4872,7 +4941,7 @@ def print_simple_list_info():
     nl.print_simple_list(table)
     message = f'''
 
-    {cp.set_font(1,22,231)} transpose_list = True {cp.reset_font()} and {cp.set_font(1,22,231)} force_all_col_same = True {cp.reset_font()}
+    {cp.set_font(1,22,231)} transpose_list = True {cp.reset_font()} and {cp.set_font(1,22,231)} force_all_col_same_width = True {cp.reset_font()}
      '''
     print(message)
     nl.force_all_col_same_width = True
@@ -4881,16 +4950,20 @@ def print_simple_list_info():
 
     message = f'''
 
-    {cp.set_font(1,22,231)} \u2022 Bullet {cp.reset_font()} 
 
-     '''
+      {cp.set_font(1,22,231)} transpose_list = True {cp.reset_font()} and {cp.set_font(1,22,231)} force_all_col_same_width = False {cp.reset_font()}
+'''
     print(message)
+    nl.force_all_col_same_width = False
+    nl.transpose_list = True
+    nl.print_simple_list(table)
+    print()
 
 
 # +--------------------------------------------------------------------------------------------+
 # | pylo (Python List Operation)                                                               |
 # +--------------------------------------------------------------------------------------------+
-def pylo_info():
+def pylo_only_info():
     ''' pylo -> Python List Operation '''
     cp.ins_newline(1)
     blue_div.print_fancy_divider(all_topics[60], cp.Divider_Style.CUSTOMIZED)
@@ -4901,10 +4974,194 @@ def pylo_info():
     message = f'''
       The {cp.set_font(1,22,231)} PyLO {cp.reset_font()} class (Python List Operations) provides convenient methods
       for performing common list operations in Python. This class contains
-      25 methods that work together with the {cp.set_font(1,22,231)} FancyFormat {cp.reset_font()}class. For example,
-      the {cp.set_font(1,231,22)} sort_rows_by_col {cp.reset_font()} method does not sort the first row, because {cp.set_font(1,22,231)} PyLO {cp.reset_font()}
-      recognizes it as the header and treats the remaining rows as data.
-'''
+      4 classes and 44 methods that work together with the {cp.set_font(1,22,231)} FancyFormat {cp.reset_font()}class.
+      For example, the {cp.set_font(1,231,22)} sort_rows_by_col {cp.reset_font()} method does not sort the first row,
+      because {cp.set_font(1,22,231)} PyLO {cp.reset_font()} recognizes it as the header and treats the remaining rows
+      as data.
+
+      
+      {cp.set_font(1,16,117)} Classes Inside PyLO Class                                         {cp.reset_font()}
+      {cp.set_font(1,208,16)}                                                                   {cp.reset_font()}
+      {cp.set_font(1,208,16)} 1. Str_List_Option             3. Order                           {cp.reset_font()}
+      {cp.set_font(1,208,16)}                                                                   {cp.reset_font()}
+      {cp.set_font(1,208,16)} 2. Appending                   4. Case                            {cp.reset_font()}
+      {cp.set_font(1,208,16)}                                                                   {cp.reset_font()}
+      {cp.set_font(1,16,117)} Conversion Methods                                                {cp.reset_font()}
+      {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
+      {cp.set_font(1,117,16)}    1. paragraph_to_list         |     7. data_to_num                    {cp.reset_font()}
+      {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
+      {cp.set_font(1,117,16)}    2. data_to_str         |     8. bool_to_list                   {cp.reset_font()}
+      {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
+      {cp.set_font(1,117,16)}    3. dict_to_list        |     9. int_to_list                    {cp.reset_font()}
+      {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
+      {cp.set_font(1,117,16)}    4. range_to_list       |    10. float_to_list                  {cp.reset_font()}
+      {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
+      {cp.set_font(1,117,16)}    5. set_to_list         |    11. complex_to_list                {cp.reset_font()}
+      {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
+      {cp.set_font(1,117,16)}    6. tuple_to_list       |    12. bifc                           {cp.reset_font()}
+      {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
+      {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
+      {cp.set_font(1,16,117)}    Rotation Methods                                               {cp.reset_font()}
+      {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
+      {cp.set_font(1,117,16)}    13. shift              |    16. swap                           {cp.reset_font()}
+      {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
+      {cp.set_font(1,117,16)}    14. left_shift         |    17. tanspose                       {cp.reset_font()}
+      {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
+      {cp.set_font(1,117,16)}    15. right_shift        |                                       {cp.reset_font()}
+      {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
+      {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
+      {cp.set_font(1,16,117)}    Write/Read Methods                                             {cp.reset_font()}
+      {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
+      {cp.set_font(1,117,16)}    18. write_csv_file     |    21. read_json_file                 {cp.reset_font()}
+      {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
+      {cp.set_font(1,117,16)}    19. read_csv_file      |    22. autofill_list                  {cp.reset_font()}
+      {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
+      {cp.set_font(1,117,16)}    20. write_json_file    |    23. dimensions                     {cp.reset_font()}
+      {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
+      {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
+      {cp.set_font(1,16,117)}    Manipulate List                                                {cp.reset_font()}
+      {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
+      {cp.set_font(1,117,16)}    24. delete_col         |    35. merge                          {cp.reset_font()}
+      {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
+      {cp.set_font(1,117,16)}    25. add_col            |    36. reverse_row_order              {cp.reset_font()}
+      {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
+      {cp.set_font(1,117,16)}    26. add_col_id         |    37. sort_rows_by_col               {cp.reset_font()}
+      {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
+      {cp.set_font(1,117,16)}    27. join_as_vector     |    38. sort_cols                      {cp.reset_font()}
+      {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
+      {cp.set_font(1,117,16)}    28. make_to_vector     |    39. update_case                    {cp.reset_font()}
+      {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
+      {cp.set_font(1,117,16)}    29. replace_value      |    40. update_case_col                {cp.reset_font()}
+      {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
+      {cp.set_font(1,117,16)}    30. find_value         |    41. find_duplicate                 {cp.reset_font()}
+      {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
+      {cp.set_font(1,117,16)}    31. delete_value       |    42. find_longest_item              {cp.reset_font()}
+      {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
+      {cp.set_font(1,117,16)}    32. lower_case         |    43. find_shortest_item             {cp.reset_font()}
+      {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
+      {cp.set_font(1,117,16)}    33. upper_case         |    44. split_list_by_col_condition    {cp.reset_font()}
+      {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
+      {cp.set_font(1,117,16)}    34. capitalize_case    |                                       {cp.reset_font()}
+      {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}      
+
+
+
+
+      {cp.set_font(1,196,231)} Note {cp.reset_font()}  To view the documentation for any method or class, refer to the
+      main menu, which explains how to navigate the documentation. PyLO uses 
+      the same standard as the main menu, as shown in the example below:
+
+      {cp.set_font(1,231,0)} Example {cp.reset_font()} 
+              custom_print pylo_only update_case
+
+                  
+      The PyLO class contains many methods for advanced list printing and
+      formatting. More comprehensive examples are available in the official
+      repository: https://github.com/acma82/Custom_Print
+
+      These examples are labeled as Example 6. Please refer to them for further
+      details.
+      '''
+    
+    print(message)
+
+def pylo_info():
+    pylo_only_info()
+
+    str_list_option_info()
+    order_info()
+    appending_info()
+    case_info()
+    
+    paragraph_to_list_info()
+    data_to_str_info()
+    dict_to_list_info()
+    range_to_list_info()
+    set_to_list_info()
+    tuple_to_list_info()
+    bifcs_info()
+    bool_to_list_info()
+    int_to_list_info()
+    float_to_list_info()
+    complex_to_list_info()
+    data_to_num_info()
+    shift_info()
+    left_shift_info()
+    right_shift_info()
+    swap_info()
+    transpose_info()
+    write_csv_file_info()
+    read_csv_file_info()
+    write_json_file_info()
+    read_json_file_info()
+    autofill_list_info()
+    dimensions_info()
+    delete_col_info()
+    add_col_info()
+    add_col_id_info()
+    join_as_vector_info()
+    make_to_vector_info()
+    replace_value_info()
+    find_value_info()
+    delete_value_info()
+    lower_case_info()
+    upper_case_info()
+    capitalize_case_info()
+    merge_info()
+    reverse_row_order_info()
+    sort_rows_by_col_info()
+    sort_cols_info()
+    update_casae_info()
+    update_case_col_info()
+    find_duplicate_info()
+    find_longest_item_info()
+    find_shortest_item_info()
+    split_list_by_col_condition_info()
+
+
+def str_list_option_info():
+    ''' It describes how to convert a paragraph to a list type '''
+    cp.ins_newline(1)
+    pink_div.print_fancy_divider("Str_List_Option", cp.Divider_Style.CUSTOMIZED)
+    message = f'''      
+      The Str_List_Option class provides two options: WORDS_BY_WORD and
+      LINE_BY_LINE. This class is used in conjunction with the paragraph_to_list()
+      method. See the paragraph_to_list() method for more details and examples.
+    '''
+    print(message)
+def order_info():
+    ''' It describes how to order a list '''
+    cp.ins_newline(1)
+    pink_div.print_fancy_divider("Order", cp.Divider_Style.CUSTOMIZED)
+    message = f'''      
+      The Order class provides two options: ASCENDING and DESCENDING. 
+      This method works in conjunction with the sort_cols() method. 
+      See the sort_cols() method for more details and examples.
+    '''
+    print(message)
+def appending_info():
+    ''' It helps to described the how to append a list '''
+    cp.ins_newline(1)
+    pink_div.print_fancy_divider("Appending", cp.Divider_Style.CUSTOMIZED)
+    message = f'''      
+      The Appending class provides two options: ROWS and COLUMNS. 
+      This method works in conjunction with the merge() method.
+      See the merge() method for more details and examples.
+    '''
+    print(message)
+def case_info():
+    ''' It helps to desgin the type of case in a list '''
+    cp.ins_newline(1)
+    pink_div.print_fancy_divider("Case", cp.Divider_Style.CUSTOMIZED)
+    message = f'''      
+      The Case class provides four options: UPPER, LOWER, CAPITALIZE,
+      and NONE. It works in conjunction with the following two methods:
+    
+      update_case()
+      update_case_col()
+    
+      See either of these methods for more details and examples.
+    '''
     print(message)
 
 
@@ -4912,7 +5169,425 @@ def pylo_info():
 
 
 
+def paragraph_to_list_info():
+    ''' Description of the work here '''
+    cp.ins_newline(1)
+    green_div.print_fancy_divider("paragraph_to_list", cp.Divider_Style.CUSTOMIZED)
+    message = f'''      
+    Work needed here
+    '''
+    print(message)
+def data_to_str_info():
+    ''' This converts all items in a list to string type '''
+    cp.ins_newline(1)
+    green_div.print_fancy_divider("data_to_str", cp.Divider_Style.CUSTOMIZED)
+    message = f'''      
+      The data_to_str() method converts all elements in a given list to strings
+      and returns a new list containing the converted values. 
+      
+      {cp.set_font(1,196,231)} Note {cp.reset_font()} If the update parameter is
+             set to True, the original list is modified in place
+             (the items in the original list will be converted to strings).
+             See the example below.
+    '''
+    print(message)
+def dict_to_list_info():
+    ''' Description of the work here '''
+    cp.ins_newline(1)
+    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    message = f'''      
+    Work needed here
+    '''
+    print(message)
+def range_to_list_info():
+    ''' Description of the work here '''
+    cp.ins_newline(1)
+    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    message = f'''      
+    Work needed here
+    '''
+    print(message)
+def set_to_list_info():
+    ''' Description of the work here '''
+    cp.ins_newline(1)
+    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    message = f'''      
+    Work needed here
+    '''
+    print(message)
+def tuple_to_list_info():
+    ''' Description of the work here '''
+    cp.ins_newline(1)
+    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    message = f'''      
+    Work needed here
+    '''
+    print(message)
+def bifcs_info():
+    ''' It converts bool, integer, float, complex ans string to a list type '''
+    cp.ins_newline(1)
+    green_div.print_fancy_divider("bifcs", cp.Divider_Style.CUSTOMIZED)
+    message = f'''      
+      The bifcs_to_list(self, data, convert_to_str=False) method converts
+      boolean, integer, float, complex, and string values into a list.
+      When convert_to_str is set to True, all items are converted to strings.
+      For example, if a number is passed with convert_to_str=False, it will 
+      be stored in the list with its original type (e.g., int or float). 
+      If convert_to_str=True, the number will be converted to a string before
+      being added to the list. The following methods internally use 
+      bifcs_to_list() for type conversion:
 
+      bool_to_list()
+      int_to_list()
+      float_to_list()
+      complex_to_list()
+      str_to_list
+
+      You can either call bifcs_to_list() directly or pass your data to the 
+      above methods, which will handle the conversion automatically.
+
+      {cp.set_font(1,196,231)} Note {cp.reset_font()} If a string is passed, it will be placed into a list as-is,
+             regardless of the convert_to_str parameter.
+
+    '''
+    print(message)
+def bool_to_list_info():
+    ''' It converts a bool type to list type '''
+    cp.ins_newline(1)
+    green_div.print_fancy_divider("bool_to_list", cp.Divider_Style.CUSTOMIZED)
+    message = f'''      
+      The bool_to_list() method converts a bool into a list.
+      When the parameter convert_to_str=False (default), the bool is added to
+      the list with its original type (bool). When convert_to_str=True, the
+      bool is converted to a string before being added to the list. You can
+      also use the more general method bifcs_to_list(), which handles boolean,
+      integer, float, complex, and string types in exactly the same way. See
+      the documentation and examples in bifcs_to_list() for more details.
+    '''
+    print(message)
+def int_to_list_info():
+    ''' It converts an int to list type '''
+    cp.ins_newline(1)
+    green_div.print_fancy_divider("int_to_list", cp.Divider_Style.CUSTOMIZED)
+    message = f'''      
+      The int_to_list() method converts an integer into a list. When the
+      parameter convert_to_str=False (default), the integer is added to the
+      list with its original type (int). When convert_to_str=True, the integer
+      is converted to a string before being added to the list. You can also use
+      the more general method bifcs_to_list(), which handles boolean, integer,
+      float, complex, and string types in exactly the same way. See the 
+      documentation and examples in bifcs_to_list() for more details.
+    '''
+    print(message)
+def float_to_list_info():
+    ''' It converts a float to list type '''
+    cp.ins_newline(1)
+    green_div.print_fancy_divider("float_to_list", cp.Divider_Style.CUSTOMIZED)
+    message = f'''      
+      The float_to_list() method converts a float into a list. When the
+      parameter convert_to_str=False (default), the float is added to the
+      list with its original type (float). When convert_to_str=True, the float
+      is converted to a string before being added to the list. You can also use
+      the more general method bifcs_to_list(), which handles boolean, integer,
+      float, complex, and string types in exactly the same way. See the
+      documentation and examples in bifcs_to_list() for more details.
+    '''
+    print(message)
+def complex_to_list_info():
+    ''' It converts a complex to list type '''
+    cp.ins_newline(1)
+    green_div.print_fancy_divider("complex_to_list", cp.Divider_Style.CUSTOMIZED)
+    message = f'''      
+      The complex_to_list() method converts a complex into a list. When the
+      parameter convert_to_str=False (default), the complex is added to the
+      list with its original type (complex). When convert_to_str=True, the
+      complex is converted to a string before being added to the list. You can
+      also use the more general method bifcs_to_list(), which handles boolean, 
+      integer, float, complex, and string types in exactly the same way. 
+      See the documentation and examples in bifcs_to_list() for more details.
+    '''
+    print(message)
+def data_to_num_info():
+    ''' This converts all the items from a list to numeric values '''
+    cp.ins_newline(1)
+    green_div.print_fancy_divider("data_to_num", cp.Divider_Style.CUSTOMIZED)
+    message = f'''      
+      The data_to_number() method converts all items in a given list to numeric
+      values wherever possible. If an item cannot be converted to a number, it
+      is replaced with the value specified in the fill_value parameter. If the
+      provided fill_value is not a number or cannot be converted to a numeric
+      type, it will be replaced with 0 instead. The method returns a new list
+      with the converted values. However, if the update parameter is set to
+      True, the original list is modified in place.. See the example below.
+    '''
+    print(message)
+def shift_info():
+    ''' Description of the work here '''
+    cp.ins_newline(1)
+    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    message = f'''      
+    Work needed here
+    '''
+    print(message)
+def left_shift_info():
+    ''' Description of the work here '''
+    cp.ins_newline(1)
+    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    message = f'''      
+    Work needed here
+    '''
+    print(message)
+def right_shift_info():
+    ''' Description of the work here '''
+    cp.ins_newline(1)
+    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    message = f'''      
+    Work needed here
+    '''
+    print(message)
+def swap_info():
+    ''' Description of the work here '''
+    cp.ins_newline(1)
+    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    message = f'''      
+    Work needed here
+    '''
+    print(message)
+def transpose_info():
+    ''' Description of the work here '''
+    cp.ins_newline(1)
+    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    message = f'''      
+    Work needed here
+    '''
+    print(message)
+def write_csv_file_info():
+    ''' Description of the work here '''
+    cp.ins_newline(1)
+    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    message = f'''      
+    Work needed here
+    '''
+    print(message)
+def read_csv_file_info():
+    ''' Description of the work here '''
+    cp.ins_newline(1)
+    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    message = f'''      
+    Work needed here
+    '''
+    print(message)
+def write_json_file_info():
+    ''' Description of the work here '''
+    cp.ins_newline(1)
+    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    message = f'''      
+    Work needed here
+    '''
+    print(message)
+def read_json_file_info():
+    ''' Description of the work here '''
+    cp.ins_newline(1)
+    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    message = f'''      
+    Work needed here
+    '''
+    print(message)
+def autofill_list_info():
+    ''' Description of the work here '''
+    cp.ins_newline(1)
+    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    message = f'''      
+    Work needed here
+    '''
+    print(message)
+def dimensions_info():
+    ''' Description of the work here '''
+    cp.ins_newline(1)
+    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    message = f'''      
+    Work needed here
+    '''
+    print(message)
+def delete_col_info():
+    ''' Description of the work here '''
+    cp.ins_newline(1)
+    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    message = f'''      
+    Work needed here
+    '''
+    print(message)
+def add_col_info():
+    ''' Description of the work here '''
+    cp.ins_newline(1)
+    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    message = f'''      
+    Work needed here
+    '''
+    print(message)
+def add_col_id_info():
+    ''' Description of the work here '''
+    cp.ins_newline(1)
+    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    message = f'''      
+    Work needed here
+    '''
+    print(message)
+def join_as_vector_info():
+    ''' Description of the work here '''
+    cp.ins_newline(1)
+    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    message = f'''      
+    Work needed here
+    '''
+    print(message)
+def make_to_vector_info():
+    ''' Description of the work here '''
+    cp.ins_newline(1)
+    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    message = f'''      
+    Work needed here
+    '''
+    print(message)
+def replace_value_info():
+    ''' Description of the work here '''
+    cp.ins_newline(1)
+    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    message = f'''      
+    Work needed here
+    '''
+    print(message)
+def find_value_info():
+    ''' Description of the work here '''
+    cp.ins_newline(1)
+    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    message = f'''      
+    Work needed here
+    '''
+    print(message)
+def delete_value_info():
+    ''' Description of the work here '''
+    cp.ins_newline(1)
+    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    message = f'''      
+    Work needed here
+    '''
+    print(message)
+def lower_case_info():
+    ''' Description of the work here '''
+    cp.ins_newline(1)
+    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    message = f'''      
+    Work needed here
+    '''
+    print(message)
+def upper_case_info():
+    ''' Description of the work here '''
+    cp.ins_newline(1)
+    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    message = f'''      
+    Work needed here
+    '''
+    print(message)
+def capitalize_case_info():
+    ''' Description of the work here '''
+    cp.ins_newline(1)
+    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    message = f'''      
+    Work needed here
+    '''
+    print(message)
+def merge_info():
+    ''' Description of the work here '''
+    cp.ins_newline(1)
+    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    message = f'''      
+    Work needed here
+    '''
+    print(message)
+def reverse_row_order_info():
+    ''' Description of the work here '''
+    cp.ins_newline(1)
+    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    message = f'''      
+    Work needed here
+    '''
+    print(message)
+def sort_rows_by_col_info():
+    ''' Description of the work here '''
+    cp.ins_newline(1)
+    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    message = f'''      
+    Work needed here
+    '''
+    print(message)
+def sort_cols_info():
+    ''' Description of the work here '''
+    cp.ins_newline(1)
+    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    message = f'''      
+    Work needed here
+    '''
+    print(message)
+def update_casae_info():
+    ''' Description of the work here '''
+    cp.ins_newline(1)
+    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    message = f'''      
+    Work needed here
+    '''
+    print(message)
+def update_case_col_info():
+    ''' Description of the work here '''
+    cp.ins_newline(1)
+    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    message = f'''      
+    Work needed here
+    '''
+    print(message)
+def find_duplicate_info():
+    ''' Description of the work here '''
+    cp.ins_newline(1)
+    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    message = f'''      
+    Work needed here
+    '''
+    print(message)
+def find_longest_item_info():
+    ''' Description of the work here '''
+    cp.ins_newline(1)
+    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    message = f'''      
+    Work needed here
+    '''
+    print(message)
+def find_shortest_item_info():
+    ''' Description of the work here '''
+    cp.ins_newline(1)
+    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    message = f'''      
+    Work needed here
+    '''
+    print(message)
+def split_list_by_col_condition_info():
+    ''' Description of the work here '''
+    cp.ins_newline(1)
+    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    message = f'''      
+    Work needed here
+    '''
+    print(message)
+
+
+
+def dsfs():
+    ''' Description of the work here '''
+    cp.ins_newline(1)
+    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    message = f'''      
+    Work needed here
+    '''
+    print(message)
 
 
 
