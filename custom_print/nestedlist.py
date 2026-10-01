@@ -30,14 +30,14 @@ def make_to_vector(data:list):
 #-------------------------------------------------------------------------------------------------------------------------------------------------
 # Convert a List From Any Type to String                                                                                                         -
 #-------------------------------------------------------------------------------------------------------------------------------------------------
-def data_to_str(data:list, update=False):
+def to_string_list(data:list, update=False):
 
     '''  Converts all the elements of a list to string type  '''
 
     new_list = []
     for value in data:
         if isinstance(value, list):
-            new_list.append(data_to_str(value))
+            new_list.append(to_string_list(value))
         else:
             new_list.append(str(value))
 
@@ -168,7 +168,7 @@ def padding_list(self, nested_list):
         new_list = nested_list
 
 
-    string_nested_list = data_to_str(new_list)                        # step 1
+    string_nested_list = to_string_list(new_list)                        # step 1
 
     if self.id_on == True:
         col_list = []
@@ -179,10 +179,10 @@ def padding_list(self, nested_list):
         if self.transpose_list == False: header_on_nested_list = add_col_id(nested_list=string_nested_list, id_label = "Rows \u2193")   # Step 3 (longest 8)
         else:                           header_on_nested_list = add_col_id(nested_list=string_nested_list, id_label = "Rows \u2192")   # Step 3 (longest 8)
         transpose_nested_list = get_transpose(header_on_nested_list)  # step 4
-        new_nested_list = data_to_str(transpose_nested_list)          # step 5
+        new_nested_list = to_string_list(transpose_nested_list)          # step 5
     else:
         transpose_nested_list = get_transpose(string_nested_list)     # step 4
-        new_nested_list = data_to_str (transpose_nested_list)
+        new_nested_list = to_string_list (transpose_nested_list)
 
     # ---------------------------------------------------------------------------------------------
     # this is for printing normally

@@ -3722,7 +3722,6 @@ def fancyformat_info():
     print_fancy_format_info()
     reset_fancy_format_info()
 
-
 # +--------------------------------------------------------------------------------------------+
 # | print_fancy_format                                                                         |
 # +--------------------------------------------------------------------------------------------+
@@ -4988,26 +4987,26 @@ def pylo_only_info():
       {cp.set_font(1,208,16)}                                                                   {cp.reset_font()}
       {cp.set_font(1,16,117)} Conversion Methods                                                {cp.reset_font()}
       {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
-      {cp.set_font(1,117,16)}    1. paragraph_to_list         |     7. data_to_num                    {cp.reset_font()}
+      {cp.set_font(1,117,16)}    1. bool_to_list        |     7. range_to_list                  {cp.reset_font()}
       {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
-      {cp.set_font(1,117,16)}    2. data_to_str         |     8. bool_to_list                   {cp.reset_font()}
+      {cp.set_font(1,117,16)}    2. int_to_list         |     8. set_to_list                    {cp.reset_font()}
       {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
-      {cp.set_font(1,117,16)}    3. dict_to_list        |     9. int_to_list                    {cp.reset_font()}
+      {cp.set_font(1,117,16)}    3. float_to_list       |     9. tuple_to_list                  {cp.reset_font()}
       {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
-      {cp.set_font(1,117,16)}    4. range_to_list       |    10. float_to_list                  {cp.reset_font()}
+      {cp.set_font(1,117,16)}    4. complex_to_list     |    10. to_string_list                    {cp.reset_font()}
       {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
-      {cp.set_font(1,117,16)}    5. set_to_list         |    11. complex_to_list                {cp.reset_font()}
+      {cp.set_font(1,117,16)}    5. bifc                |    11. paragraph_to_list              {cp.reset_font()}
       {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
-      {cp.set_font(1,117,16)}    6. tuple_to_list       |    12. bifc                           {cp.reset_font()}
+      {cp.set_font(1,117,16)}    6. dict_to_list        |    12. to_numeric_list                    {cp.reset_font()}
       {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
       {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
       {cp.set_font(1,16,117)}    Rotation Methods                                               {cp.reset_font()}
       {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
-      {cp.set_font(1,117,16)}    13. shift              |    16. swap                           {cp.reset_font()}
+      {cp.set_font(1,117,16)}    13. left_shift         |    16. swap                           {cp.reset_font()}
       {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
-      {cp.set_font(1,117,16)}    14. left_shift         |    17. tanspose                       {cp.reset_font()}
+      {cp.set_font(1,117,16)}    14. right_shift        |    17. tanspose                       {cp.reset_font()}
       {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
-      {cp.set_font(1,117,16)}    15. right_shift        |                                       {cp.reset_font()}
+      {cp.set_font(1,117,16)}    15. shift              |                                       {cp.reset_font()}
       {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
       {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
       {cp.set_font(1,16,117)}    Write/Read Methods                                             {cp.reset_font()}
@@ -5072,30 +5071,38 @@ def pylo_info():
     order_info()
     appending_info()
     case_info()
+
     
     paragraph_to_list_info()
-    data_to_str_info()
+    to_string_list_info()
     dict_to_list_info()
     range_to_list_info()
     set_to_list_info()
     tuple_to_list_info()
-    bifcs_info()
+    
+    to_numeric_list_info()
     bool_to_list_info()
     int_to_list_info()
     float_to_list_info()
     complex_to_list_info()
-    data_to_num_info()
+    bifcs_info()
+    
+    
     shift_info()
     left_shift_info()
     right_shift_info()
     swap_info()
     transpose_info()
+    
+    
     write_csv_file_info()
     read_csv_file_info()
     write_json_file_info()
     read_json_file_info()
     autofill_list_info()
     dimensions_info()
+    
+    
     delete_col_info()
     add_col_info()
     add_col_id_info()
@@ -5107,6 +5114,7 @@ def pylo_info():
     lower_case_info()
     upper_case_info()
     capitalize_case_info()
+    
     merge_info()
     reverse_row_order_info()
     sort_rows_by_col_info()
@@ -5125,8 +5133,9 @@ def str_list_option_info():
     pink_div.print_fancy_divider("Str_List_Option", cp.Divider_Style.CUSTOMIZED)
     message = f'''      
       The Str_List_Option class provides two options: WORDS_BY_WORD and
-      LINE_BY_LINE. This class is used in conjunction with the paragraph_to_list()
-      method. See the paragraph_to_list() method for more details and examples.
+      LINE_BY_LINE. This class is used in conjunction with the 
+      paragraph_to_list() method. See the paragraph_to_list() method for
+      more details and examples.
     '''
     print(message)
 def order_info():
@@ -5169,58 +5178,109 @@ def case_info():
 
 
 
-def paragraph_to_list_info():
-    ''' Description of the work here '''
+
+
+def bool_to_list_info():
+    ''' It converts a bool type to list type '''
     cp.ins_newline(1)
-    green_div.print_fancy_divider("paragraph_to_list", cp.Divider_Style.CUSTOMIZED)
+    green_div.print_fancy_divider("bool_to_list", cp.Divider_Style.CUSTOMIZED)
     message = f'''      
-    Work needed here
-    '''
-    print(message)
-def data_to_str_info():
-    ''' This converts all items in a list to string type '''
-    cp.ins_newline(1)
-    green_div.print_fancy_divider("data_to_str", cp.Divider_Style.CUSTOMIZED)
-    message = f'''      
-      The data_to_str() method converts all elements in a given list to strings
-      and returns a new list containing the converted values. 
+      The bool_to_list() method converts a bool into a list.
+      When the parameter convert_to_str=False (default), the bool is added to
+      the list with its original type (bool). When convert_to_str=True, the
+      bool is converted to a string before being added to the list.
       
-      {cp.set_font(1,196,231)} Note {cp.reset_font()} If the update parameter is
-             set to True, the original list is modified in place
-             (the items in the original list will be converted to strings).
-             See the example below.
+      You can also use the more general method bifcs_to_list(), which handles
+      boolean, integer, float, complex, and string types in exactly the same
+      way.
+      
+      See the documentation and examples in bifcs_to_list() for more details.
+
+      {cp.set_font(0,53,231)}                                                              {cp.reset_font()}
+      {cp.set_font(0,53,231)}  bool_to_list(data:bool, convert_to_str:bool=False)->list    {cp.reset_font()}
+      {cp.set_font(0,53,231)}                                                              {cp.reset_font()}
+
+
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                 import time
     '''
     print(message)
-def dict_to_list_info():
-    ''' Description of the work here '''
+def int_to_list_info():
+    ''' It converts an int to list type '''
     cp.ins_newline(1)
-    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    green_div.print_fancy_divider("int_to_list", cp.Divider_Style.CUSTOMIZED)
     message = f'''      
-    Work needed here
+      The int_to_list() method converts an integer into a list. When the
+      parameter convert_to_str=False (default), the integer is added to the
+      list with its original type (int). When convert_to_str=True, the integer
+      is converted to a string before being added to the list.
+      
+      You can also use the more general method bifcs_to_list(), which handles
+      boolean, integer, float, complex, and string types in exactly the same
+      way.
+      
+      See the documentation and examples in bifcs_to_list() for more details.
+
+
+      {cp.set_font(0,53,231)}                                                            {cp.reset_font()}
+      {cp.set_font(0,53,231)}  int_to_list(data:int, convert_to_str:bool=False)->list    {cp.reset_font()}
+      {cp.set_font(0,53,231)}                                                            {cp.reset_font()}      
+
+
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                 import time
     '''
     print(message)
-def range_to_list_info():
-    ''' Description of the work here '''
+def float_to_list_info():
+    ''' It converts a float to list type '''
     cp.ins_newline(1)
-    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    green_div.print_fancy_divider("float_to_list", cp.Divider_Style.CUSTOMIZED)
     message = f'''      
-    Work needed here
+      The float_to_list() method converts a float into a list. When the
+      parameter convert_to_str=False (default), the float is added to the
+      list with its original type (float). When convert_to_str=True, the float
+      is converted to a string before being added to the list.
+      
+      You can also use the more general method bifcs_to_list(), which handles
+      boolean, integer, float, complex, and string types in exactly the same
+      way.
+      
+      See the documentation and examples in bifcs_to_list() for more details.
+
+
+      {cp.set_font(0,53,231)}                                                                {cp.reset_font()}
+      {cp.set_font(0,53,231)}  float_to_list(data:float, convert_to_str:bool=False)->list    {cp.reset_font()}
+      {cp.set_font(0,53,231)}                                                                {cp.reset_font()}
+
+
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                 import time
     '''
     print(message)
-def set_to_list_info():
-    ''' Description of the work here '''
+def complex_to_list_info():
+    ''' It converts a complex to list type '''
     cp.ins_newline(1)
-    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    green_div.print_fancy_divider("complex_to_list", cp.Divider_Style.CUSTOMIZED)
     message = f'''      
-    Work needed here
-    '''
-    print(message)
-def tuple_to_list_info():
-    ''' Description of the work here '''
-    cp.ins_newline(1)
-    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
-    message = f'''      
-    Work needed here
+      The complex_to_list() method converts a complex into a list. When the
+      parameter convert_to_str=False (default), the complex is added to the
+      list with its original type (complex). When convert_to_str=True, the
+      complex is converted to a string before being added to the list.
+      
+      You can also use the more general method bifcs_to_list(), which handles
+      boolean, integer, float, complex, and string types in exactly the same
+      way. 
+      
+      See the documentation and examples in bifcs_to_list() for more details.
+
+
+      {cp.set_font(0,53,231)}                                                                    {cp.reset_font()}
+      {cp.set_font(0,53,231)}  complex_to_list(data:complex, convert_to_str:bool=False)->list    {cp.reset_font()}
+      {cp.set_font(0,53,231)}                                                                    {cp.reset_font()}      
+
+
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                 import time
     '''
     print(message)
 def bifcs_info():
@@ -5228,11 +5288,12 @@ def bifcs_info():
     cp.ins_newline(1)
     green_div.print_fancy_divider("bifcs", cp.Divider_Style.CUSTOMIZED)
     message = f'''      
-      The bifcs_to_list(self, data, convert_to_str=False) method converts
-      boolean, integer, float, complex, and string values into a list.
-      When convert_to_str is set to True, all items are converted to strings.
-      For example, if a number is passed with convert_to_str=False, it will 
-      be stored in the list with its original type (e.g., int or float). 
+      The bifcs_to_list() method converts boolean, integer, float, complex,
+      and string values into a list. When convert_to_str is set to True, 
+      all items are converted to strings. For example, if a number is 
+      passed with convert_to_str=False, it will be stored in the list with
+      its original type (e.g., int or float).
+      
       If convert_to_str=True, the number will be converted to a string before
       being added to the list. The following methods internally use 
       bifcs_to_list() for type conversion:
@@ -5246,169 +5307,516 @@ def bifcs_info():
       You can either call bifcs_to_list() directly or pass your data to the 
       above methods, which will handle the conversion automatically.
 
-      {cp.set_font(1,196,231)} Note {cp.reset_font()} If a string is passed, it will be placed into a list as-is,
-             regardless of the convert_to_str parameter.
+      If a string is passed, it will be placed into a list as-is, regardless
+      of the convert_to_str parameter.
+
+
+      {cp.set_font(0,53,231)}                                                          {cp.reset_font()}
+      {cp.set_font(0,53,231)}  bifcs_to_list(data, convert_to_str:bool=False)->list    {cp.reset_font()}
+      {cp.set_font(0,53,231)}                                                          {cp.reset_font()}
+
+
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                 import time
+    '''
+    print(message)
+def dict_to_list_info():
+    ''' It converts a dictionary into a list '''
+    cp.ins_newline(1)
+    green_div.print_fancy_divider("dict_to_list", cp.Divider_Style.CUSTOMIZED)
+    message = f'''      
+      The dict_to_list() method converts a dictionary into a list. It returns
+      a list containing the dictionary’s items (typically as key-value pairs).
+
+      You can optionally add a header row using the key_title and value_title
+      parameters (defaults: "Key" and "value"). To omit the title row, set at
+      least one of them to "none" or an empty string ("").
+
+      A convert_to_str parameter is also available (default: False). When set
+      to True, all items in the dictionary are converted to strings.
+
+      See the two examples below: one with titles and one ignoring the title
+      row.
+
+
+      {cp.set_font(0,53,231)}                                                                          {cp.reset_font()}
+      {cp.set_font(0,53,231)}  dict_to_list(data:dict, key_title:str="key", value_title:str="value",   {cp.reset_font()}
+      {cp.set_font(0,53,231)}                convert_to_str:str=False)->list                           {cp.reset_font()}
+      {cp.set_font(0,53,231)}                                                                          {cp.reset_font()}
+
+
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                 import time
+
 
     '''
     print(message)
-def bool_to_list_info():
-    ''' It converts a bool type to list type '''
+
+
+
+
+def range_to_list_info():
+    ''' It returns a list containing all the values from the range '''
     cp.ins_newline(1)
-    green_div.print_fancy_divider("bool_to_list", cp.Divider_Style.CUSTOMIZED)
+    green_div.print_fancy_divider("range_to_list", cp.Divider_Style.CUSTOMIZED)
     message = f'''      
-      The bool_to_list() method converts a bool into a list.
-      When the parameter convert_to_str=False (default), the bool is added to
-      the list with its original type (bool). When convert_to_str=True, the
-      bool is converted to a string before being added to the list. You can
-      also use the more general method bifcs_to_list(), which handles boolean,
-      integer, float, complex, and string types in exactly the same way. See
-      the documentation and examples in bifcs_to_list() for more details.
+      The range_to_list() method converts a range into a list. It returns a list
+      containing all the values from the range.
+
+      You can optionally add a header using the header_title parameter. To omit
+      the title row, set header_title to "" or "none".
+
+      The layout parameter controls whether the conversion is horizontal or
+      vertical.
+
+      The convert_to_str parameter converts all values in the list to strings
+      when set to True.
+
+      See the example below for how these three parameters work.
+
+
+      {cp.set_font(0,53,231)}                                                      {cp.reset_font()}
+      {cp.set_font(0,53,231)}  range_to_list(data:range, header_title:str = "",    {cp.reset_font()}
+      {cp.set_font(0,53,231)}                layout:Layout = Layout.HORIZONTAL,    {cp.reset_font()}
+      {cp.set_font(0,53,231)}                convert_to_str:bool = False)->list    {cp.reset_font()}
+      {cp.set_font(0,53,231)}                                                      {cp.reset_font()}
+
+
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                 import time
     '''
     print(message)
-def int_to_list_info():
-    ''' It converts an int to list type '''
+def set_to_list_info():
+    ''' It converts a set or frozenset into a list '''
     cp.ins_newline(1)
-    green_div.print_fancy_divider("int_to_list", cp.Divider_Style.CUSTOMIZED)
+    green_div.print_fancy_divider("set_to_list", cp.Divider_Style.CUSTOMIZED)
     message = f'''      
-      The int_to_list() method converts an integer into a list. When the
-      parameter convert_to_str=False (default), the integer is added to the
-      list with its original type (int). When convert_to_str=True, the integer
-      is converted to a string before being added to the list. You can also use
-      the more general method bifcs_to_list(), which handles boolean, integer,
-      float, complex, and string types in exactly the same way. See the 
-      documentation and examples in bifcs_to_list() for more details.
+      The set_to_list() method converts a set or frozenset into a list. It works
+      the same way as the range_to_list() method.
+
+      You can optionally add a header using the header_title parameter. To omit
+      the title row, set header_title to "" or "none".
+
+      The layout parameter controls whether the conversion is horizontal or
+      vertical.
+
+      The convert_to_str parameter converts all values in the list to strings 
+      when set to True.
+
+      See the example below for how these three parameters work.
+
+
+      {cp.set_font(0,53,231)}                                                            {cp.reset_font()}
+      {cp.set_font(0,53,231)}  set_to_list(data:set|frozenset, header_title:str = "",    {cp.reset_font()}
+      {cp.set_font(0,53,231)}              layout:Layout = Layout.VERTICAL,              {cp.reset_font()}
+      {cp.set_font(0,53,231)}               convert_to_str:bool=False)->list             {cp.reset_font()}
+      {cp.set_font(0,53,231)}                                                            {cp.reset_font()}
+
+
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                 import time
     '''
     print(message)
-def float_to_list_info():
-    ''' It converts a float to list type '''
+def tuple_to_list_info():
+    ''' It converts a tuple into a list '''
     cp.ins_newline(1)
-    green_div.print_fancy_divider("float_to_list", cp.Divider_Style.CUSTOMIZED)
+    green_div.print_fancy_divider("tuple_to_list", cp.Divider_Style.CUSTOMIZED)
     message = f'''      
-      The float_to_list() method converts a float into a list. When the
-      parameter convert_to_str=False (default), the float is added to the
-      list with its original type (float). When convert_to_str=True, the float
-      is converted to a string before being added to the list. You can also use
-      the more general method bifcs_to_list(), which handles boolean, integer,
-      float, complex, and string types in exactly the same way. See the
-      documentation and examples in bifcs_to_list() for more details.
+      The tuple_to_list() method converts a tuple into a list. Tuples behave
+      like lists except they are immutable (they cannot be modified after
+      creation). This method therefore creates a copy of the tuple and 
+      returns it as a list.
+
+
+      {cp.set_font(0,53,231)}                                     {cp.reset_font()}
+      {cp.set_font(0,53,231)}  tuple_to_list(data:tuple)->list    {cp.reset_font()}
+      {cp.set_font(0,53,231)}                                     {cp.reset_font()}
+
+
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                 import time
     '''
     print(message)
-def complex_to_list_info():
-    ''' It converts a complex to list type '''
+def to_string_list_info():
+    ''' It converts all items in a list to string type '''
     cp.ins_newline(1)
-    green_div.print_fancy_divider("complex_to_list", cp.Divider_Style.CUSTOMIZED)
+    green_div.print_fancy_divider("to_string_list", cp.Divider_Style.CUSTOMIZED)
     message = f'''      
-      The complex_to_list() method converts a complex into a list. When the
-      parameter convert_to_str=False (default), the complex is added to the
-      list with its original type (complex). When convert_to_str=True, the
-      complex is converted to a string before being added to the list. You can
-      also use the more general method bifcs_to_list(), which handles boolean, 
-      integer, float, complex, and string types in exactly the same way. 
-      See the documentation and examples in bifcs_to_list() for more details.
+      The to_string_list() method converts all elements in a given list to strings
+      and returns a new list containing the converted values. 
+      
+      If the update parameter is set to True, the original list is modified
+      in place (the items in the original list will be converted to strings).
+      See the example below.
+
+
+      {cp.set_font(0,53,231)}                                                             {cp.reset_font()}
+      {cp.set_font(0,53,231)}  to_string_list(data:list, update:bool=False)->list[str]    {cp.reset_font()}
+      {cp.set_font(0,53,231)}                                                             {cp.reset_font()}
+
+
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                 import time
     '''
     print(message)
-def data_to_num_info():
+def paragraph_to_list_info():
+    ''' method takes a string and converts its contents into a list'''
+    cp.ins_newline(1)
+    green_div.print_fancy_divider("paragraph_to_list", cp.Divider_Style.CUSTOMIZED)
+    message = f'''      
+      The paragraph_to_list() method takes a string and converts its contents
+      into a list. It offers two splitting modes:
+
+          WORD_BY_WORD
+          LINE_BY_LINE
+
+      This method is designed primarily for paragraphs rather than short
+      strings, although it can handle a string of any length. See the 
+      example below.
+
+      If you want to add a word counter as a separate column in the list,
+      set the counter parameter to True.
+
+      
+      {cp.set_font(0,53,231)}                                                                          {cp.reset_font()}
+      {cp.set_font(0,53,231)}  paragraph_to_list(data:str,                                             {cp.reset_font()}
+      {cp.set_font(0,53,231)}                option:Str_List_Option = Str_List_Option.WORD_BY_WORD,    {cp.reset_font()}
+      {cp.set_font(0,53,231)}                counter:bool=False)->list:[str]                           {cp.reset_font()}
+      {cp.set_font(0,53,231)}                                                                          {cp.reset_font()}
+    '''
+    print(message)
+def to_numeric_list_info():
     ''' This converts all the items from a list to numeric values '''
     cp.ins_newline(1)
-    green_div.print_fancy_divider("data_to_num", cp.Divider_Style.CUSTOMIZED)
+    green_div.print_fancy_divider("to_numeric_list", cp.Divider_Style.CUSTOMIZED)
     message = f'''      
-      The data_to_number() method converts all items in a given list to numeric
+      The to_numeric_list() method converts all items in a given list to numeric
       values wherever possible. If an item cannot be converted to a number, it
-      is replaced with the value specified in the fill_value parameter. If the
-      provided fill_value is not a number or cannot be converted to a numeric
-      type, it will be replaced with 0 instead. The method returns a new list
-      with the converted values. However, if the update parameter is set to
-      True, the original list is modified in place.. See the example below.
+      is replaced with the value specified in the fill_value parameter.
+      
+      If the provided fill_value is not a number or cannot be converted to a
+      numeric type, it will be replaced with 0 instead. The method returns a
+      new list with the converted values. However, if the update parameter is
+      set to True, the original list is modified in place. See the example
+      below.
+
+
+      {cp.set_font(0,53,231)}                                                                     {cp.reset_font()}
+      {cp.set_font(0,53,231)}  data_to_num(data:list, fill_value:int = 0, update:bool = False)    {cp.reset_font()}
+      {cp.set_font(0,53,231)}              ->list[int|float|complex]                              {cp.reset_font()}
+      {cp.set_font(0,53,231)}                                                                     {cp.reset_font()}      
+
+
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                 import time
     '''
-    print(message)
-def shift_info():
-    ''' Description of the work here '''
-    cp.ins_newline(1)
-    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
-    message = f'''      
-    Work needed here
-    '''
-    print(message)
+    print(message)    
+
+
+
 def left_shift_info():
-    ''' Description of the work here '''
+    ''' returns a new list with the elements of the original list shifted to the left n times '''
     cp.ins_newline(1)
-    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    green_div.print_fancy_divider("left_shift", cp.Divider_Style.CUSTOMIZED)
     message = f'''      
-    Work needed here
+      The left_shift() method returns a new list with the elements of the
+      original list shifted to the left n times. The update parameter can be
+      used to save the shifted version back to the original list.
+      
+      You can also use the more general shift() method by simply specifying the 
+      direction (left or right).
+
+      See the example below.
+
+      {cp.set_font(0,53,231)}                                                                  {cp.reset_font()}
+      {cp.set_font(0,53,231)}  left_shift(my_list:list, qty:int=0, update:bool=False)->list    {cp.reset_font()}
+      {cp.set_font(0,53,231)}                                                                  {cp.reset_font()}
+
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                 import time
     '''
     print(message)
 def right_shift_info():
-    ''' Description of the work here '''
+    ''' returns a new list with the elements of the original list shifted to the right n times '''
     cp.ins_newline(1)
-    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    green_div.print_fancy_divider("right_shift", cp.Divider_Style.CUSTOMIZED)
     message = f'''      
-    Work needed here
+      The right_shift() method returns a new list with the elements of the
+      original list shifted to the right n times. The update parameter can be
+      used to save the shifted version back to the original list.
+      
+      You can also use the more general shift() method by simply specifying the
+      direction (left or right). 
+          
+      See the example below.
+
+
+      {cp.set_font(0,53,231)}                                                                   {cp.reset_font()}
+      {cp.set_font(0,53,231)}  right_shift(my_list:list, qty:int=0, update:bool=False)->list    {cp.reset_font()}
+      {cp.set_font(0,53,231)}                                                                   {cp.reset_font()}
+
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                 import time
+    '''
+    print(message)
+def shift_info():
+    ''' It returns a new list with its elements shifted left or right '''
+    cp.ins_newline(1)
+    green_div.print_fancy_divider("shift", cp.Divider_Style.CUSTOMIZED)
+    message = f'''      
+      The shift() method returns a new list with its elements shifted left or
+      right. It supports two directions: left or right (default: Move.RIGHT).
+      The qty parameter specifies how many positions to shift.
+
+      The update parameter (default: False) determines whether the original
+      list is modified. When update=False, the original list is left 
+      unchanged and a new shifted list is returned.
+
+      You can also use the dedicated left_shift or right_shift methods
+      separately. See the example below for how the shift method works.
+
+      shift(data:list, direction:str=Move.RIGHT, qty:int=0, update:bool=False)
+
+
+      {cp.set_font(0,53,231)}                                                           {cp.reset_font()}
+      {cp.set_font(0,53,231)}  shift(data:list, direction:str=Move.RIGHT, qty:int=0,    {cp.reset_font()}
+      {cp.set_font(0,53,231)}        update:bool=False)->list                           {cp.reset_font()}
+      {cp.set_font(0,53,231)}                                                           {cp.reset_font()}   
+
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                 import time
     '''
     print(message)
 def swap_info():
-    ''' Description of the work here '''
+    ''' It swaps two elements in a list '''
     cp.ins_newline(1)
-    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    green_div.print_fancy_divider("swap", cp.Divider_Style.CUSTOMIZED)
     message = f'''      
-    Work needed here
+      The swap() method swaps two elements in a list. The update parameter
+      determines whether the original list is modified. When update is False,
+      the original list is left unchanged and a new list is returned
+      (typically assigned to another variable).
+
+      posi_1: the first position to swap
+      posi_2: the second position to swap
+
+      {cp.set_font(1,196,231)} Note {cp.reset_font()} If either position is out of range, the method returns the original
+             list unchanged and prints an “out of range” message.
+             See the example below to visualize the swapped elements.
+
+
+      {cp.set_font(0,53,231)}                                                                          {cp.reset_font()}
+      {cp.set_font(0,53,231)}  swap(data:list, posi_1:int=0, posi_2:int=0, update:bool=False)->list    {cp.reset_font()}
+      {cp.set_font(0,53,231)}                                                                          {cp.reset_font()}
+
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                 import time
     '''
     print(message)
 def transpose_info():
-    ''' Description of the work here '''
+    '''  '''
     cp.ins_newline(1)
-    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    green_div.print_fancy_divider("transpose", cp.Divider_Style.CUSTOMIZED)
     message = f'''      
-    Work needed here
+
+      The transpose() method transposes a list (typically a 2D list or matrix).
+      It accepts three parameters:
+
+        update —     When True, the original list is replaced with the
+                     transposed version. When False (default), the original
+                     list is left unchanged and the new transposed list is
+                     returned (usually assigned to another variable).
+
+        fill_value — Value used to fill missing positions when the list is not
+                     square or rectangular.
+
+        autofill —   When True, missing cells are filled with fill_value. When 
+                     False, some data may be lost for non-rectangular lists.
+
+                   
+      {cp.set_font(0,53,231)}                                                                     {cp.reset_font()}
+      {cp.set_font(0,53,231)}  transpose(data:list, autofill:bool=True, fill_value:str="----",    {cp.reset_font()}
+      {cp.set_font(0,53,231)}            update:bool=False)->list                                 {cp.reset_font()}
+      {cp.set_font(0,53,231)}                                                                     {cp.reset_font()}
+
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                 import time
     '''
     print(message)
+
+
+
+
+
+
+
+
 def write_csv_file_info():
-    ''' Description of the work here '''
+    ''' The write_csv_file() method writes a list to a CSV file '''
     cp.ins_newline(1)
-    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    green_div.print_fancy_divider("write_csv_file", cp.Divider_Style.CUSTOMIZED)
     message = f'''      
-    Work needed here
+      The write_csv_file() method writes a list to a CSV file.
+      The file_path parameter defaults to the current working directory with
+      the filename CSV_List.csv. You can override both the directory and the
+      filename by providing a new path. Both the directory and filename must
+      be specified together. See the examples below.
+
+        Examples:
+
+            file_path: str = "/user/Documents/File_Name"
+            file_path: str = "/user/Documents/File_Name.csv"
+
+            The .csv extension can be omitted.
+    
+    
+      {cp.set_font(0,53,231)}                                                                         {cp.reset_font()}
+      {cp.set_font(0,53,231)}  write_csv_file(data:list, file_path:str="CSV_List")->str[file_path]    {cp.reset_font()}
+      {cp.set_font(0,53,231)}                                                                         {cp.reset_font()}
+
+
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                 import time
+
     '''
     print(message)
 def read_csv_file_info():
-    ''' Description of the work here '''
+    ''' The read_csv_file() method reads a list from a CSV file and returns it '''
     cp.ins_newline(1)
-    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    green_div.print_fancy_divider("read_csv_file", cp.Divider_Style.CUSTOMIZED)
     message = f'''      
-    Work needed here
+      The read_csv_file() method reads a list from a CSV file and returns it.
+      The file_path parameter specifies both the directory and the filename.
+      See the examples below.
+
+        Examples:
+
+            file_path: str = "/home/user/Documents/File_Name"
+            file_path: str = "/home/user/Documents/File_Name.csv"
+
+            The .csv extension can be omitted.
+
+      {cp.set_font(0,53,231)}                                                   {cp.reset_font()}
+      {cp.set_font(0,53,231)}  read_csv_file(file_path:str="CSV_List")->list    {cp.reset_font()}
+      {cp.set_font(0,53,231)}                                                   {cp.reset_font()}
+
+
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                 import time
     '''
     print(message)
 def write_json_file_info():
-    ''' Description of the work here '''
+    ''' The write_json_file() method writes a list to a json file '''
     cp.ins_newline(1)
-    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    green_div.print_fancy_divider("write_json_file", cp.Divider_Style.CUSTOMIZED)
     message = f'''      
-    Work needed here
+      The write_json_file() method writes a list to a json file.
+      The file_path parameter defaults to the current working directory with the
+      filename json_List.json. You can override both the directory and the 
+      filename by providing a new path. Both the directory and filename must be
+      specified together. See the examples below.
+
+        Examples:
+
+            file_path: str = "/user/Documents/File_Name"
+            file_path: str = "/user/Documents/File_Name.json"
+
+            The .json extension can be omitted.
+    
+    
+      {cp.set_font(0,53,231)}                                                                          {cp.reset_font()}
+      {cp.set_font(0,53,231)}  write_csv_file(data:list, file_path:str="CSV_List")->str[file_path]     {cp.reset_font()}
+      {cp.set_font(0,53,231)}                                                                          {cp.reset_font()}
+
+
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                 import time
     '''
     print(message)
+
+
+
+
 def read_json_file_info():
-    ''' Description of the work here '''
+    ''' The read_json_file() method reads a list from a json file and returns it '''
     cp.ins_newline(1)
-    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    green_div.print_fancy_divider("read_json_file", cp.Divider_Style.CUSTOMIZED)
     message = f'''      
-    Work needed here
+      The read_json_file() method reads a list from a json file and returns it.
+      The file_path parameter specifies both the directory and the filename.
+      See the examples below.
+
+        Examples:
+
+            file_path: str = "/home/user/Documents/File_Name"
+            file_path: str = "/home/user/Documents/File_Name.json"
+
+            The .json extension can be omitted.
+
+{cp.set_font(0,53,231)}                                                         {cp.reset_font()}
+{cp.set_font(0,53,231)}read_json_file(self, file_path:str="JSON_List")->list    {cp.reset_font()}
+{cp.set_font(0,53,231)}                                                         {cp.reset_font()}
+
+
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                 import time
     '''
     print(message)
 def autofill_list_info():
-    ''' Description of the work here '''
+    ''' he autofill_list() method fills all empty cells in a list when the list
+      is not square or rectangular '''
     cp.ins_newline(1)
-    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    green_div.print_fancy_divider("autofill_list", cp.Divider_Style.CUSTOMIZED)
     message = f'''      
-    Work needed here
+      The autofill_list() method fills all empty cells in a list when the list
+      is not square or rectangular. The value used for empty cells is taken
+      from the fill_value parameter, which defaults to "----". The fill_value
+      parameter accepts str, int, float, complex, or bool types.
+
+      The update parameter is a boolean that defaults to False. When set to
+      True, the original list is modified in place with the filled values.
+      The resulting list (in table or matrix form) is also returned so it
+      can be stored in a variable.
+
+      
+      {cp.set_font(0,53,231)}                                                                   {cp.reset_font()}
+      {cp.set_font(0,53,231)}  autofill_list(data:list,                                         {cp.reset_font()}
+      {cp.set_font(0,53,231)}                fill_value:str|int|float|complex|bool = "----",    {cp.reset_font()}
+      {cp.set_font(0,53,231)}                update:bool=False)->list                           {cp.reset_font()}
+      {cp.set_font(0,53,231)}                                                                   {cp.reset_font()}
+
+
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                 import time
     '''
     print(message)
 def dimensions_info():
-    ''' Description of the work here '''
+    ''' It returns the number of rows and columns of a list '''
     cp.ins_newline(1)
-    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    green_div.print_fancy_divider("dimensions", cp.Divider_Style.CUSTOMIZED)
     message = f'''      
-    Work needed here
+      The dimensions() function returns the number of rows and columns of a list
+      (typically a 2D list or matrix) in the form [rows, cols].
+      See the example below.
+
+
+      {cp.set_font(0,53,231)}                                          {cp.reset_font()}
+      {cp.set_font(0,53,231)}  dimensions(data:list)->list[str|int]    {cp.reset_font()}
+      {cp.set_font(0,53,231)}                                          {cp.reset_font()}
+
+
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                 import time
     '''
     print(message)
+
+
+
+
+
+
+
+
 def delete_col_info():
     ''' Description of the work here '''
     cp.ins_newline(1)

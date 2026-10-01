@@ -31,8 +31,8 @@
     * [**range_to_list**](#range-type-to-list-type)
     * [**set_to_list**](#set-or-frozenset-type-to-list-type)
     * [**tuple_to_list**](#tuple-type-to-list-type)
-    * [**data_to_str**](#data-to-string)
-    * [**data_to_num**](#data-to-number)
+    * [**to_string_list**](#data-to-string)
+    * [**to_numeric_list**](#data-to-number)
 
 3.  **File Methods**
     * [**write_csv_file**](#write-a-list-into-a-csv-file)
@@ -429,7 +429,7 @@ This method sets an int variable into a list where ***data*** is the float type.
 ## Data to String
 
 ```python
-    data_to_str(data, update=False)
+    to_string_list(data, update=False)
 ```
 
 - This method converts all the elements of a list to string type
@@ -443,14 +443,14 @@ This method sets an int variable into a list where ***data*** is the float type.
     print(f"{cp.ins_chr(n=80, unicode="-")}")
     lst = [1,2,3,4,5,6]
     print(f"Original: {lst}  {cp.set_font(1,21,231)} update = False {cp.reset_font()}")
-    result = pylo.data_to_str(data=lst)
+    result = pylo.to_string_list(data=lst)
     print("Result  :",result)
     print("Original:", lst)
 
     print(f"{cp.ins_chr(n=80, unicode="-")}")
     lst = [[1],[2],[3],[4],[5],[6]]
     print(f"Original: {lst}  {cp.set_font(1,1,231)} update = True {cp.reset_font()}")
-    result = pylo.data_to_str(data=lst, update=True)
+    result = pylo.to_string_list(data=lst, update=True)
     print("Result  :",result)
     print("Original:",lst)
 ```
@@ -461,7 +461,7 @@ This method sets an int variable into a list where ***data*** is the float type.
 ## Data to Number
 
 ```python
-    data_to_num(self, data, fill_value=0, update=False)
+    to_numeric_list(self, data, fill_value=0, update=False)
 ```
 This method converts all items from a list to numbers where it is possible.
 If it is not possible then it will take the **fill_value** provided to switch
@@ -480,14 +480,14 @@ sustitute by zero, 0.
     print(f"{cp.set_font(1,90,231)}  Case 7  {cp.reset_font()}")
     lst = ["-10.5","-40",["50"],[250],["a","H"],"10"]
     print("original: ", lst)
-    result = pylo.data_to_num(data=lst, fill_value=10, update=False)
+    result = pylo.to_numeric_list(data=lst, fill_value=10, update=False)
     print("result  : ",result)
     print("original: ", lst)
 
     print(f"{cp.ins_chr(n=80, unicode="-")}")
 
     print("original: ", lst)
-    result = pylo.data_to_num(data=lst, fill_value='A', update=True)
+    result = pylo.to_numeric_list(data=lst, fill_value='A', update=True)
     print("result  : ",result)
     print("original: ", lst)
 ```

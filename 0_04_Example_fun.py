@@ -9,7 +9,7 @@ def print_items():
     for title in info_items[0]:
         print(f"\n  {cp.set_font(True,90,231)} {title} {cp.reset_font()}\n")
         for info in info_items[row_I]:
-            print(f"    {cp.set_font(True, -1, 22)} {info} {cp.reset_font()}")
+            print(f"    {cp.set_font(True, 227, 22)} {info} {cp.reset_font()}")
         row_I += 1
     
 

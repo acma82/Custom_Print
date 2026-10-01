@@ -4,28 +4,17 @@ import custom_print as cp
 
 list1 = cp.FancyFormat()
 csr   = cp.Cursor()
-# draw  = cp.Pen()
 msg   = cp.FancyMessage()
-
-
-
-# ncols, nrows = cp.dimensions()
-# cp.resize(44, 95)
-
-# setting for the format
-# general use
 
 list1.adj_indent = 3
 list1.header_horizontal_line_on = False
-#list1.update_list = 1
-list1.header_dim = True
 
 print()
 
 high = 0
 sp_list = []
 while high < 19:
-    sp_list.append([cp.ins_chr(85)])
+    sp_list.append([cp.ins_chr(69)])
     high += 1
 
 # Double Line Square
@@ -33,7 +22,7 @@ list1.title_bold  = True
 list1.title_bg    = 22
 list1.title_fg    = 15
 list1.title_align = "left"
-list1.title_msg   = f"{cp.ins_chr(34)}Nice Double Line Frame{cp.ins_chr(35)}"
+list1.title_msg   = f"{cp.ins_chr(25)}Nice Double Line Frame{cp.ins_chr(28)}"
 
 list1.print_fancy_format(sp_list,cp.Line_Style.DOUBLE_LINE)
 
@@ -55,7 +44,9 @@ list1.footnote_bold  = 1
 # header
 # horizontal line between headers and the firs data row. 1 shows it and 0 hides it
 list1.header_horizontal_line_on = 1
-list1.header_bg = 55
+list1.header_bg = 50
+list1.header_fg = 16
+list1.header_bold = True
 list1.data_fg   = 1
 
 list1.data_align = "c"#cp.Align.CENTER
@@ -67,7 +58,7 @@ print(csr.moveTo(qty=19,direction=cp.Move.UP), end="")
 list1.title_msg    = " Set Data "
 list1.footnote_msg = " Case 7 "
 set_tags = {1,3,5,7,9}
-list1.adj_indent = 70
+list1.adj_indent = 60
 
 pylo = cp.PyLO()
 
@@ -86,7 +77,7 @@ vowelsT = ("a", "e", "i", "o", "u")
 frozenset_Tuple = frozenset(vowelsT)
 
 print(csr.moveTo(qty=11,direction=cp.Move.UP), end="")
-list1.adj_indent = 47
+list1.adj_indent = 41
 vowellist = pylo.set_to_list(frozenset_Tuple,"header",cp.Layout.VERTICAL)
 list1.print_fancy_format(vowellist)
 

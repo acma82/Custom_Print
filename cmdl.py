@@ -29,9 +29,9 @@ if __name__ == "__main__":
 
         pylo               = ["pylo_only",               "str_list_option", "order", "appending", "case",
 
-                                                         "paragraph_to_list",     "data_to_str",       "dict_to_list",       "range_to_list",          "set_to_list",       "tuple_to_list",
+                                                         "paragraph_to_list",     "to_string_list",       "dict_to_list",       "range_to_list",          "set_to_list",       "tuple_to_list",
 
-                                                         "bifcs",                  "bool_to_list",       "int_to_list",        "float_to_list",         "complex_to_list",   "data_to_num",
+                                                         "bifcs",                  "bool_to_list",       "int_to_list",        "float_to_list",         "complex_to_list",   "to_numeric_list",
 
                                                          "shift",                 "left_shift",         "right_shift",        "swap",                  "transpose",
 
@@ -72,9 +72,9 @@ if __name__ == "__main__":
 
                       "str_list_option", "order", "appending", "case",
 
-                      "paragraph_to_list",     "data_to_str",       "dict_to_list",       "range_to_list",   "set_to_list",       "tuple_to_list",
+                      "paragraph_to_list",     "to_string_list",       "dict_to_list",       "range_to_list",   "set_to_list",       "tuple_to_list",
 
-                      "bifcs",            "bool_to_list",       "int_to_list",        "float_to_list",   "complex_to_list",   "data_to_num",
+                      "bifcs",            "bool_to_list",       "int_to_list",        "float_to_list",   "complex_to_list",   "to_numeric_list",
 
                       "shift",           "left_shift",         "right_shift",        "swap",            "transpose",
 

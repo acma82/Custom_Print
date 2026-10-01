@@ -22,7 +22,7 @@ div.bottom_right_corner_chr = "4"
 
 
 # Setting bg colors for corners              setting fg colors for corners 
-div.all_bg_corner = 54;                      div.all_fg_corner = 231
+div.all_corner_bg = 54;                      div.all_corner_fg = 231
 # Setting chr for corners                    Setting bold for corners
 div.all_corner_chr  = "*";                   div.all_corner_bold = False
 
@@ -67,5 +67,37 @@ div.left_fill_bg = 54;              div.right_fill_bg = 90;                  div
 # +--------------------------------------------------------------------------------------------+
 # | Printing the Divider                                                                       |
 # +--------------------------------------------------------------------------------------------+
-div.print_fancy_divider(message=" Custom Print Divider", style=cp.Divider_Style.CUSTOMIZED)
+div.print_fancy_divider(message=" Custom Print Divider ", style=cp.Divider_Style.CUSTOMIZED)
+cp.ins_newline(2)
+
+
+div.reset_fancy_divider()
+
+
+div.msg_bg = 16;                    div.msg_fg = 14
+div.adj_indent = 2;               
+div.left_right_fill_bg = 16
+div.top_horizontal_line_bg = 14
+div.bottom_horizontal_line_bg = 14
+div.vertical_line_bold = True
+div.left_vertical_line_bg  = 14;      div.left_vertical_line_fg  = 16
+div.right_vertical_line_bg = 14;      div.right_vertical_line_fg = 16
+
+div.all_corner_bg = 14
+div.all_corner_bold = True
+
+div.top_left_corner_fg     = 16
+div.top_right_corner_fg    = 16
+div.bottom_left_corner_fg  = 16
+div.bottom_right_corner_fg = 16
+
+div.top_horizontal_line_fg = 16
+div.bottom_horizontal_line_fg = 16
+div.horizontal_line_bold = True
+
+div.print_fancy_divider(message="  Custom Print Divider  ", style=cp.Divider_Style.DASH_1)
+cp.ins_newline(2)
+
+div.reset_fancy_divider()
+div.print_fancy_divider(message="  Custom Print Divider  ", style=cp.Divider_Style.DASH_2)
 cp.ins_newline(2)

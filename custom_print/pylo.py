@@ -860,14 +860,14 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Convert a List From Any Type to String                                                                                                         -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def data_to_str(self, data:list, update=False):
+    def to_string_list(self, data:list, update=False):
 
         '''  Converts all the elements in a list in a string type  '''
 
         new_list = []
         for value in data:
             if isinstance(value, list):
-                new_list.append(PyLO.data_to_str(self, value))
+                new_list.append(PyLO.to_string_list(self, value))
             else:
                 new_list.append(str(value))
 
@@ -882,7 +882,7 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Convert a List From String to Number                                                                                                           -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def data_to_num(self, data:list, fill_value=0, update=False):
+    def to_numeric_list(self, data:list, fill_value=0, update=False):
 
         '''  Converts all items from a list to numbers where it is possible.
              If it is not possible then it will take the fill_value provided to switch
@@ -914,7 +914,7 @@ class PyLO():
         new_list = []
         for value in data:
             if isinstance(value, list):
-                new_list.append(PyLO.data_to_num(self, value, new_refill))
+                new_list.append(PyLO.to_numeric_list(self, value, new_refill))
             else:
                 new_list.append(convert_to_number(value, new_refill))
 

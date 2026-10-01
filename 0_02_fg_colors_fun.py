@@ -17,7 +17,7 @@ import custom_print as cp
 crs = cp.Cursor()
 blue_msg = cp.FancyMessage()
 blue_msg.body_bold = True
-blue_msg.body_bg   = cp.No.WHITE #  15
+blue_msg.body_bg   = cp.No.LEMON_YELLOW
 blue_msg.body_fg   = 0
 
 cp.terminal_bell()

@@ -10,6 +10,9 @@ pylo = cp.PyLO()
 # int, bool, str, complex, float, range (horizontal and vertical), dictionary
 # set (horizontal and vertical), and fronzenset (horizontal and vertical) variables.
 #-------------------------------------------------------------------------------------
+tbl.header_bold = True
+tbl.header_fg = 231
+tbl.header_bg = 53
 # SETTINGS FOR THE Fancy_Format Class:
 
 print()

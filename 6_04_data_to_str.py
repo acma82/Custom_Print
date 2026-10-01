@@ -26,65 +26,65 @@ print(msg)
 
 print(f"{cp.set_font(1,90,231)}  Case 1  {cp.reset_font()}")
 lst = "hello";  print("Original:",lst)
-result = pylo.data_to_str(data=lst, update=False)
+result = pylo.to_string_list(data=lst, update=False)
 print("Result  :",result)
 
 
 print(f"{cp.set_font(1,90,231)}  Case 2  {cp.reset_font()}")
 lst = [];   print("Original:",lst)
-result = pylo.data_to_str(data=lst)
+result = pylo.to_string_list(data=lst)
 print("Result  :",result)
 
 
 print(f"{cp.set_font(1,90,231)}  Case 3  {cp.reset_font()}")
 lst = [5];   print("Original:",lst)
-result = pylo.data_to_str(data=lst)
+result = pylo.to_string_list(data=lst)
 print("Result  :",result)
 
 
 print(f"{cp.set_font(1,90,231)}  Case 4  {cp.reset_font()}")
 lst = [[1]];   print("Original:",lst)
-result = pylo.data_to_str(data=lst)
+result = pylo.to_string_list(data=lst)
 print("Result  :",result)
 
 
 print(f"{cp.set_font(1,90,231)}  Case 5  {cp.reset_font()}")
 lst = [1,2,3,4,5,6];   print("Original:",lst)
-result = pylo.data_to_str(data=lst)
+result = pylo.to_string_list(data=lst)
 print("Result  :",result)
 
 
 print(f"{cp.set_font(1,90,231)}  Case 6  {cp.reset_font()}")
 lst = [[1,2],[3,4],[5,6]];  print("Original:",lst)
-result = pylo.data_to_str(data=lst)
+result = pylo.to_string_list(data=lst)
 print("Result  :",result)
 
 lst = [[1],[4],[5,6]];  print("Original:",lst)
-result = pylo.data_to_str(data=lst)
+result = pylo.to_string_list(data=lst)
 print("Result  :",result)
 
 
 print(f"{cp.set_font(1,90,231)}  Case 7  {cp.reset_font()}")
 lst = [10,[50],[250],["H"],100];  print("Original:",lst)
-result = pylo.data_to_str(data=lst)
+result = pylo.to_string_list(data=lst)
 print("Result  :",result)
 
 
 print(f"{cp.set_font(1,90,231)}  Case 8  {cp.reset_font()}")
 lst = [[1,2,3,4,5,6]];  print("Original:",lst)
-result = pylo.data_to_str(data=lst)
+result = pylo.to_string_list(data=lst)
 print("Result  :",result)
 
 print(f"{cp.ins_chr(n=80, unicode="-")}")
 lst = [1,2,3,4,5,6]
 print(f"Original: {lst}  {cp.set_font(1,21,231)} update = False {cp.reset_font()}")
-result = pylo.data_to_str(data=lst)
+result = pylo.to_string_list(data=lst)
 print("Result  :",result)
 print("Original:", lst)
 
 print(f"{cp.ins_chr(n=80, unicode="-")}")
 lst = [[1],[2],[3],[4],[5],[6]]
 print(f"Original: {lst}  {cp.set_font(1,1,231)} update = True {cp.reset_font()}")
-result = pylo.data_to_str(data=lst, update=True)
+result = pylo.to_string_list(data=lst, update=True)
 print("Result  :",result)
 print("Original:",lst)
