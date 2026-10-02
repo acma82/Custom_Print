@@ -27,11 +27,11 @@ if __name__ == "__main__":
 
         nestedlist         = ["nestedlist_only",         "print_nested_list", "print_simple_list"]
 
-        pylo               = ["pylo_only",               "str_list_option", "order", "appending", "case",
+        pylo               = ["pylo_only",               "str_list_option", "order", "appending", "case", "operator",
 
                                                          "paragraph_to_list",     "to_string_list",       "dict_to_list",       "range_to_list",          "set_to_list",       "tuple_to_list",
 
-                                                         "bifcs",                  "bool_to_list",       "int_to_list",        "float_to_list",         "complex_to_list",   "to_numeric_list",
+                                                         "bifcs_to_list",                  "bool_to_list",       "int_to_list",        "float_to_list",         "complex_to_list",   "to_numeric_list",
 
                                                          "shift",                 "left_shift",         "right_shift",        "swap",                  "transpose",
 
@@ -39,8 +39,8 @@ if __name__ == "__main__":
 
                                                          "delete_col",            "add_col",            "add_col_id",         "join_as_vector",        "make_to_vector",    "replace_value",
                                                          "find_value",            "delete_value",       "lower_case",         "upper_case",            "capitalize_case",
-                                                         "merge",                 "reverse_row_order",  "sort_rows_by_col",   "sort_cols",             "update_casae",      "update_case_col"
-                                                         "find_duplicate",        "find_longest_item",  "find_shortest_item", "split_list_by_col_condition"
+                                                         "merge",                 "reverse_row_order",  "sort_rows_by_col",   "sort_cols",             "update_case",      "update_case_col"
+                                                         "find_duplicate",        "find_longest_item",  "find_shortest_item", "split_list_by_col_condition", "padding"
                              ]
 
 
@@ -70,20 +70,20 @@ if __name__ == "__main__":
 
                       "print_nested_list", "print_simple_list",
 
-                      "str_list_option", "order", "appending", "case",
+                      "str_list_option", "order", "appending", "case", "operator",
 
                       "paragraph_to_list",     "to_string_list",       "dict_to_list",       "range_to_list",   "set_to_list",       "tuple_to_list",
 
-                      "bifcs",            "bool_to_list",       "int_to_list",        "float_to_list",   "complex_to_list",   "to_numeric_list",
+                      "bifcs_to_list",         "bool_to_list",         "int_to_list",        "float_to_list",   "complex_to_list",   "to_numeric_list",
 
-                      "shift",           "left_shift",         "right_shift",        "swap",            "transpose",
+                      "shift",                 "left_shift",           "right_shift",        "swap",            "transpose",
 
-                      "write_csv_file",  "read_csv_file",      "write_json_file",    "read_json_file",  "autofill_list",     "dimensions",
+                      "write_csv_file",        "read_csv_file",      "write_json_file",    "read_json_file",  "autofill_list",     "dimensions",
 
-                      "delete_col",       "add_col",           "add_col_id",         "join_as_vector",  "make_to_vector",    "replace_value",
-                      "find_value",       "delete_value",      "lower_case",         "upper_case",      "capitalize_case",
-                      "merge",            "reverse_row_order", "sort_rows_by_col",   "sort_cols",       "update_casae",      "update_case_col"
-                      "find_duplicate",   "find_longest_item", "find_shortest_item", "split_list_by_col_condition"
+                      "delete_col",            "add_col",            "add_col_id",         "join_as_vector",  "make_to_vector",    "replace_value",
+                      "find_value",            "delete_value",       "lower_case",         "upper_case",      "capitalize_case",
+                      "merge",                 "reverse_row_order",  "sort_rows_by_col",   "sort_cols",       "update_case",      "update_case_col"
+                      "find_duplicate",        "find_longest_item",  "find_shortest_item", "split_list_by_col_condition",         "padding"
                      ]
 
 

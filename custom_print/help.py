@@ -4973,7 +4973,7 @@ def pylo_only_info():
     message = f'''
       The {cp.set_font(1,22,231)} PyLO {cp.reset_font()} class (Python List Operations) provides convenient methods
       for performing common list operations in Python. This class contains
-      4 classes and 44 methods that work together with the {cp.set_font(1,22,231)} FancyFormat {cp.reset_font()}class.
+      5 classes and 45 methods that work together with the {cp.set_font(1,22,231)} FancyFormat {cp.reset_font()}class.
       For example, the {cp.set_font(1,231,22)} sort_rows_by_col {cp.reset_font()} method does not sort the first row,
       because {cp.set_font(1,22,231)} PyLO {cp.reset_font()} recognizes it as the header and treats the remaining rows
       as data.
@@ -4981,9 +4981,9 @@ def pylo_only_info():
       
       {cp.set_font(1,16,117)} Classes Inside PyLO Class                                         {cp.reset_font()}
       {cp.set_font(1,208,16)}                                                                   {cp.reset_font()}
-      {cp.set_font(1,208,16)} 1. Str_List_Option             3. Order                           {cp.reset_font()}
+      {cp.set_font(1,208,16)} 1. Str_List_Option              3. Order              5. Operator {cp.reset_font()}
       {cp.set_font(1,208,16)}                                                                   {cp.reset_font()}
-      {cp.set_font(1,208,16)} 2. Appending                   4. Case                            {cp.reset_font()}
+      {cp.set_font(1,208,16)} 2. Appending                    4. Case                           {cp.reset_font()}
       {cp.set_font(1,208,16)}                                                                   {cp.reset_font()}
       {cp.set_font(1,16,117)} Conversion Methods                                                {cp.reset_font()}
       {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
@@ -4993,18 +4993,18 @@ def pylo_only_info():
       {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
       {cp.set_font(1,117,16)}    3. float_to_list       |     9. tuple_to_list                  {cp.reset_font()}
       {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
-      {cp.set_font(1,117,16)}    4. complex_to_list     |    10. to_string_list                    {cp.reset_font()}
+      {cp.set_font(1,117,16)}    4. complex_to_list     |    10. to_string_list                 {cp.reset_font()}
       {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
-      {cp.set_font(1,117,16)}    5. bifc                |    11. paragraph_to_list              {cp.reset_font()}
+      {cp.set_font(1,117,16)}    5. bifcs_to_list       |    11. paragraph_to_list              {cp.reset_font()}
       {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
-      {cp.set_font(1,117,16)}    6. dict_to_list        |    12. to_numeric_list                    {cp.reset_font()}
+      {cp.set_font(1,117,16)}    6. dict_to_list        |    12. to_numeric_list                {cp.reset_font()}
       {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
       {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
       {cp.set_font(1,16,117)}    Rotation Methods                                               {cp.reset_font()}
       {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
       {cp.set_font(1,117,16)}    13. left_shift         |    16. swap                           {cp.reset_font()}
       {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
-      {cp.set_font(1,117,16)}    14. right_shift        |    17. tanspose                       {cp.reset_font()}
+      {cp.set_font(1,117,16)}    14. right_shift        |    17. transpose                      {cp.reset_font()}
       {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
       {cp.set_font(1,117,16)}    15. shift              |                                       {cp.reset_font()}
       {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
@@ -5040,7 +5040,7 @@ def pylo_only_info():
       {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
       {cp.set_font(1,117,16)}    33. upper_case         |    44. split_list_by_col_condition    {cp.reset_font()}
       {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
-      {cp.set_font(1,117,16)}    34. capitalize_case    |                                       {cp.reset_font()}
+      {cp.set_font(1,117,16)}    34. capitalize_case    |    45. padding                        {cp.reset_font()}
       {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}      
 
 
@@ -5072,25 +5072,26 @@ def pylo_info():
     appending_info()
     case_info()
 
-    
-    paragraph_to_list_info()
-    to_string_list_info()
-    dict_to_list_info()
-    range_to_list_info()
-    set_to_list_info()
-    tuple_to_list_info()
-    
-    to_numeric_list_info()
+        
     bool_to_list_info()
     int_to_list_info()
     float_to_list_info()
     complex_to_list_info()
-    bifcs_info()
+    bifcs_to_list_info()
+    dict_to_list_info()
+
+    range_to_list_info()
+    set_to_list_info()
+    tuple_to_list_info()
+    to_string_list_info()
+    paragraph_to_list_info()
+    to_numeric_list_info()
+
+        
     
-    
-    shift_info()
     left_shift_info()
     right_shift_info()
+    shift_info()
     swap_info()
     transpose_info()
     
@@ -5119,12 +5120,13 @@ def pylo_info():
     reverse_row_order_info()
     sort_rows_by_col_info()
     sort_cols_info()
-    update_casae_info()
+    update_case_info()
     update_case_col_info()
     find_duplicate_info()
     find_longest_item_info()
     find_shortest_item_info()
     split_list_by_col_condition_info()
+    padding_info()
 
 
 def str_list_option_info():
@@ -5172,6 +5174,27 @@ def case_info():
       See either of these methods for more details and examples.
     '''
     print(message)
+def operator_info():
+    ''' It helps to desgin the type of operator in the method split_list_by_col_condition '''
+    cp.ins_newline(1)
+    pink_div.print_fancy_divider("Case", cp.Divider_Style.CUSTOMIZED)
+    message = f'''
+      The Operator class provides six options.
+      It works in conjunction with the split_list_by_col_condition method.
+
+            {cp.set_font(1,231,16)}  Operator                   Meaning  {cp.reset_font()}
+            EQUAL_TO                 =    "=="
+            NOT_EQUAL_TO             =    "!="
+            GREATER_THAN             =    ">"
+            LESS_THAN                =    "<"
+            GREATER_THAN_OR_EQUAL_TO =    ">="
+            LESS_THAN_OR_EQUAL_TO    =    "<="
+    
+          
+      See the split_list_by_col_condition methods for more details and examples.
+    '''
+    print(message)
+
 
 
 
@@ -5202,9 +5225,33 @@ def bool_to_list_info():
 
 
       {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
-                 import time
+                 pylo = cp.PyLO()
+
+                 data = True
+                 print(f\"{{cp.ins_chr(16)}} Original Data: {{data}}\")
+
+                 result = pylo.bool_to_list(data=data, convert_to_str=False)
+                 print(f\"{{cp.ins_chr(16)}} False    Data: {{result}}\")
+
+                 result = pylo.bool_to_list(data=data, convert_to_str=True)
+                 print(f\"{{cp.ins_chr(16)}} True     Data: {{result}}\")                 
+
+                 
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
     '''
     print(message)
+    pylo = cp.PyLO()
+    data = True
+    print(f"{cp.ins_chr(16)} Original Data: {data}")
+    result = pylo.bool_to_list(data=data, convert_to_str=False)
+    print(f"{cp.ins_chr(16)} False    Data: {result}")
+    result = pylo.bool_to_list(data=data, convert_to_str=True)
+    print(f"{cp.ins_chr(16)} True     Data: {result}")
+    print()
+
+
+
+
 def int_to_list_info():
     ''' It converts an int to list type '''
     cp.ins_newline(1)
@@ -5228,9 +5275,32 @@ def int_to_list_info():
 
 
       {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
-                 import time
+                 data = 99
+                 print(f\"{{cp.ins_chr(16)}} Original Data: {{data}}\")
+
+                 result = pylo.int_to_list(data=data, convert_to_str=False)
+                 print(f\"{{cp.ins_chr(16)}} False    Data: {{result}}\")
+
+                 result = pylo.int_to_list(data=data, convert_to_str=True)
+                 print(f\"{{cp.ins_chr(16)}} True     Data: {{result}}\")                 
+
+                 
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
     '''
     print(message)
+    
+    pylo = cp.PyLO()
+    data = 99
+    print(f"{cp.ins_chr(16)} Original Data: {data}")
+    result = pylo.bool_to_list(data=data, convert_to_str=False)
+    print(f"{cp.ins_chr(16)} False    Data: {result}")
+    result = pylo.bool_to_list(data=data, convert_to_str=True)
+    print(f"{cp.ins_chr(16)} True     Data: {result}")
+    print()
+
+
+
+
 def float_to_list_info():
     ''' It converts a float to list type '''
     cp.ins_newline(1)
@@ -5254,9 +5324,31 @@ def float_to_list_info():
 
 
       {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
-                 import time
+                 data = 99.97
+                 print(f\"{{cp.ins_chr(16)}} Original Data: {{data}}\")
+
+                 result = pylo.float_to_list(data=data, convert_to_str=False)
+                 print(f\"{{cp.ins_chr(16)}} False    Data: {{result}}\")
+
+                 result = pylo.float_to_list(data=data, convert_to_str=True)
+                 print(f\"{{cp.ins_chr(16)}} True     Data: {{result}}\")                 
+
+                 
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
     '''
     print(message)
+    pylo = cp.PyLO()
+    data = 99.97
+    print(f"{cp.ins_chr(16)} Original Data: {data}")
+    result = pylo.float_to_list(data=data, convert_to_str=False)
+    print(f"{cp.ins_chr(16)} False    Data: {result}")
+    result = pylo.float_to_list(data=data, convert_to_str=True)
+    print(f"{cp.ins_chr(16)} True     Data: {result}")
+    print()
+
+
+
+
 def complex_to_list_info():
     ''' It converts a complex to list type '''
     cp.ins_newline(1)
@@ -5280,10 +5372,32 @@ def complex_to_list_info():
 
 
       {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
-                 import time
+                 data = 56+99.97j
+                 print(f\"{{cp.ins_chr(16)}} Original Data: {{data}}\")
+
+                 result = pylo.complex_to_list(data=data, convert_to_str=False)
+                 print(f\"{{cp.ins_chr(16)}} False    Data: {{result}}\")
+
+                 result = pylo.complex_to_list(data=data, convert_to_str=True)
+                 print(f\"{{cp.ins_chr(16)}} True     Data: {{result}}\")      
+
+
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}           
     '''
     print(message)
-def bifcs_info():
+    pylo = cp.PyLO()
+    data = 56+99.97j
+    print(f"{cp.ins_chr(16)} Original Data: {data}")
+    result = pylo.complex_to_list(data=data, convert_to_str=False)
+    print(f"{cp.ins_chr(16)} False    Data: {result}")
+    result = pylo.complex_to_list(data=data, convert_to_str=True)
+    print(f"{cp.ins_chr(16)} True     Data: {result}")
+    print()
+
+
+
+
+def bifcs_to_list_info():
     ''' It converts bool, integer, float, complex ans string to a list type '''
     cp.ins_newline(1)
     green_div.print_fancy_divider("bifcs", cp.Divider_Style.CUSTOMIZED)
@@ -5317,9 +5431,32 @@ def bifcs_info():
 
 
       {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
-                 import time
+                 data = "Custom_Print Module...!"
+                 print(f\"{{cp.ins_chr(16)}} Original Data: {{data}}\")
+
+                 result = pylo.bifcs_to_list(data=data, convert_to_str=False)
+                 print(f\"{{cp.ins_chr(16)}} False    Data: {{result}}\")
+
+                 result = pylo.bifcs_to_list(data=data, convert_to_str=True)
+                 print(f\"{{cp.ins_chr(16)}} True     Data: {{result}}\")      
+
+
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}  
     '''
     print(message)
+
+    pylo = cp.PyLO()
+    data = "Custom_Print Module...!"
+    print(f"{cp.ins_chr(16)} Original Data: {data}")
+    result = pylo.bifcs_to_list(data=data, convert_to_str=False)
+    print(f"{cp.ins_chr(16)} False    Data: {result}")
+    result = pylo.bifcs_to_list(data=data, convert_to_str=True)
+    print(f"{cp.ins_chr(16)} True     Data: {result}")
+    print()
+
+
+
+
 def dict_to_list_info():
     ''' It converts a dictionary into a list '''
     cp.ins_newline(1)
@@ -5330,7 +5467,7 @@ def dict_to_list_info():
 
       You can optionally add a header row using the key_title and value_title
       parameters (defaults: "Key" and "value"). To omit the title row, set at
-      least one of them to "none" or an empty string ("").
+      least one of them to "none" or None.
 
       A convert_to_str parameter is also available (default: False). When set
       to True, all items in the dictionary are converted to strings.
@@ -5346,11 +5483,72 @@ def dict_to_list_info():
 
 
       {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
-                 import time
+                 pylo = cp.PyLO()
+
+                 print(f"{cp.set_font(1,231,22)}  Original Dictionary  {cp.reset_font()}")
+                 mydict = {{\"Name":\"Jose Alfredo\",\"Last\":\"Jimenez\",\"Country\":
+                             \"Mexico\",\"Age\":82, \"Lista\":[1,2,3]}}
+                 print(mydict)
+                 cp.ins_newline(2)
+             
+                 print(f"{cp.set_font(1,90,231)}  Case 1: Using Defult Values  {cp.reset_font()}")
+                 result = pylo.dict_to_list(data=mydict)
+                 print(result)
+                 cp.ins_newline(2)
+             
+                 print(f"{cp.set_font(1,90,231)}  Case 2: Setting Key & Value Titles  {cp.reset_font()}")
+                 result = pylo.dict_to_list(data=mydict, key_title="My Keys",
+                               value_title="My Values",convert_to_str=False)
+                 print(result)
+                 cp.ins_newline(2)
+             
+                 print(f"{cp.set_font(1,90,231)}  Case 3: Setting Key & Value to None  {cp.reset_font()}")
+                 result = pylo.dict_to_list(data=mydict, key_title="none",
+                               value_title=None,convert_to_str=False)
+                 print(result)
+                 cp.ins_newline(2)
+                 
+                 # Note: with one of then that is set to "none" or None, 
+                 # it won't set the key_title neither the value_title
+             
+                 print(f"{cp.set_font(1,90,231)}  Case 4: Setting convert_to_str = True  {cp.reset_font()}")
+                 result = pylo.dict_to_list(data=mydict, key_title=None,
+                               value_title="My Values",convert_to_str=True)
+                 print(result)
+                 print()
 
 
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}                   
     '''
     print(message)
+
+    pylo = cp.PyLO()
+    print(f"{cp.set_font(1,231,22)}  Original Dictionary  {cp.reset_font()}")
+    mydict = {"Name":"Jose Alfredo","Last":"Jimenez","Country":"Mexico","Age":82, "Lista":[1,2,3]}
+    print(mydict)
+    cp.ins_newline(2)
+
+    print(f"{cp.set_font(1,90,231)}  Case 1: Using Defult Values  {cp.reset_font()}")
+    result = pylo.dict_to_list(data=mydict)
+    print(result)
+    cp.ins_newline(2)
+
+    print(f"{cp.set_font(1,90,231)}  Case 2: Setting Key & Value Titles  {cp.reset_font()}")
+    result = pylo.dict_to_list(data=mydict, key_title="My Keys", value_title="My Values",convert_to_str=False)
+    print(result)
+    cp.ins_newline(2)
+
+    print(f"{cp.set_font(1,90,231)}  Case 3: Setting Key & Value to None  {cp.reset_font()}")
+    result = pylo.dict_to_list(data=mydict, key_title="none", value_title=None,convert_to_str=False)
+    print(result)
+    cp.ins_newline(2)
+    
+    # Note: with one of then that is "none" or None, it won't set the key_title neither the value_title
+
+    print(f"{cp.set_font(1,90,231)}  Case 4: Setting convert_to_str = True  {cp.reset_font()}")
+    result = pylo.dict_to_list(data=mydict, key_title=None, value_title="My Values",convert_to_str=True)
+    print(result)
+    print()
 
 
 
@@ -5364,7 +5562,7 @@ def range_to_list_info():
       containing all the values from the range.
 
       You can optionally add a header using the header_title parameter. To omit
-      the title row, set header_title to "" or "none".
+      the title row, set header_title to None or "none".
 
       The layout parameter controls whether the conversion is horizontal or
       vertical.
@@ -5383,9 +5581,71 @@ def range_to_list_info():
 
 
       {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
-                 import time
+                 print(f"{cp.set_font(1,231,22)}  Original Range  {cp.reset_font()}")
+                 r = range(0,15,3)
+                 print(r)
+
+                 print(f"{cp.set_font(1,90,231)}  Case 1  {cp.reset_font()}")
+                 l = pylo.range_to_list(data=r, layout=cp.Layout.VERTICAL,
+                                        convert_to_str=False)
+                 for n in l:
+                 print(n)
+                 cp.ins_newline(2)
+ 
+                 print(f"{cp.set_font(1,90,231)}  Case 2  {cp.reset_font()}")
+                 l = pylo.range_to_list(data=r, header_title="none", 
+                                        layout=cp.Layout.VERTICAL,
+                                        convert_to_str=False)
+                 print(l)
+                 cp.ins_newline(2)
+ 
+                 print(f"{cp.set_font(1,90,231)}  Case 3  {cp.reset_font()}")
+                 l = pylo.range_to_list(data=r, header_title="Header Title",
+                                        layout=cp.Layout.VERTICAL,
+                                        convert_to_str=False)
+                 print(l)
+                 cp.ins_newline(2)
+ 
+                 print(f"{cp.set_font(1,90,231)}  Case 4  {cp.reset_font()}")
+                 l = pylo.range_to_list(data=r, header_title="Header Title",
+                                        layout="h", convert_to_str=True)
+                 print(l)
+                 cp.ins_newline(2)
+
+
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}                  
     '''
     print(message)
+    pylo = cp.PyLO()
+    r = range(0,15,3)
+    print(f"{cp.set_font(1,231,22)}  Original Range  {cp.reset_font()}")
+    print(r)
+
+    print(f"{cp.set_font(1,90,231)}  Case 1  {cp.reset_font()}")
+    l = pylo.range_to_list(data=r, layout=cp.Layout.VERTICAL, convert_to_str=False)
+    print(l)
+    cp.ins_newline(2)
+
+    print(f"{cp.set_font(1,90,231)}  Case 2  {cp.reset_font()}")
+    l = pylo.range_to_list(data=r, header_title=None, layout=cp.Layout.VERTICAL, convert_to_str=False)
+    print(l)
+    cp.ins_newline(2)
+
+    print(f"{cp.set_font(1,90,231)}  Case 3  {cp.reset_font()}")
+    l = pylo.range_to_list(data=r, header_title="Header Title", layout=cp.Layout.VERTICAL, convert_to_str=False)
+    print(l)
+    cp.ins_newline(2)
+
+    print(f"{cp.set_font(1,90,231)}  Case 4  {cp.reset_font()}")
+    l = pylo.range_to_list(data=r, header_title="Header Title", layout="h", convert_to_str=True)
+    print(l)
+    print(f"{cp.ins_chr(n=80, unicode="-")}")
+    cp.ins_newline(2)
+    print()
+
+
+
+
 def set_to_list_info():
     ''' It converts a set or frozenset into a list '''
     cp.ins_newline(1)
@@ -5395,7 +5655,7 @@ def set_to_list_info():
       the same way as the range_to_list() method.
 
       You can optionally add a header using the header_title parameter. To omit
-      the title row, set header_title to "" or "none".
+      the title row, set header_title to None or "none".
 
       The layout parameter controls whether the conversion is horizontal or
       vertical.
@@ -5404,6 +5664,13 @@ def set_to_list_info():
       when set to True.
 
       See the example below for how these three parameters work.
+
+      {cp.set_font(1,196,231)} Note {cp.reset_font()} The primary difference between set and frozenset in Python is
+             mutability and hashability:
+
+             A set is mutable (it can be changed after creation) and unhashable,
+
+             While a frozenset is immutable (it cannot be modified) and hashable
 
 
       {cp.set_font(0,53,231)}                                                            {cp.reset_font()}
@@ -5415,8 +5682,124 @@ def set_to_list_info():
 
       {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
                  import time
+                 pylo = cp.PyLO()
+                 print(f"{cp.set_font(1,231,22)}  Working With Set Type  {cp.reset_font()}")
+ 
+                 set_1 = {1,3,5,7,9}
+                 print(f"{cp.set_font(1,90,231)}  Case 1  {cp.reset_font()}")
+                 result = pylo.set_to_list(data=set_1, header_title="None",
+                                           layout=cp.Layout.VERTICAL,
+                                           convert_to_str=False)
+                 print(result)
+ 
+                 print(f"{cp.set_font(1,90,231)}  Case 2  {cp.reset_font()}")
+                 result = pylo.set_to_list(data=set_1, header_title="",
+                                           layout="vertical",
+                                           convert_to_str=False)
+                 print(result)
+
+                 print(f"{cp.set_font(1,90,231)}  Case 3  {cp.reset_font()}")
+                 result = pylo.set_to_list(data=set_1, layout="v",
+                                           convert_to_str=False)
+                 print(result)
+
+                 print(f"{cp.set_font(1,90,231)}  Case 4  {cp.reset_font()}")
+                 result = pylo.set_to_list(data=set_1, header_title="Set",
+                                           layout="h", convert_to_str=True)
+
+                 print(result)
+ 
+
+    Note, values for
+                    convert_to_str = True/False,
+                    layout = \"vertical\" / \"horizontal\" or \"h\" / \"v\"
+
+                    header_title = ""            -> This will put Frozenset
+                                                       Value(s) for header_title
+                    
+                    header_title = None / "none" -> It won't set any 
+                                                    header_title
+
+                    header_title = "Any Title Header"                 
+                 
+                 print(f"{cp.set_font(1,231,22)}  Working With FrozenSet Type  {cp.reset_font()}")
+                 
+                 set_1 = {1,3,5,7,9}
+                 frozenset_1 = frozenset(set_1)
+                 print(f"{cp.set_font(1,90,231)}  Case 1  {cp.reset_font()}")
+                 result = pylo.set_to_list(data=frozenset_1, 
+                                           header_title="None",
+                                           layout=cp.Layout.VERTICAL,
+                                           convert_to_str=False)
+                 print(result)
+                 print(f"{cp.set_font(1,90,231)}  Case 2  {cp.reset_font()}")
+                 result = pylo.set_to_list(data=frozenset_1, header_title="",
+                                           layout="vertical", 
+                                           convert_to_str=False)
+                 print(result)
+
+                 print(f"{cp.set_font(1,90,231)}  Case 3  {cp.reset_font()}")
+                 result = pylo.set_to_list(data=frozenset_1, layout="v",
+                                           convert_to_str=False)
+                 print(result)
+
+                 print(f"{cp.set_font(1,90,231)}  Case 4  {cp.reset_font()}")
+                 result = pylo.set_to_list(data=frozenset_1, 
+                                          header_title="FrozenSET",
+                                          layout="h", convert_to_str=True)
+                 print(result)
+    
+                 
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()} 
     '''
     print(message)
+    pylo = cp.PyLO()
+
+    set_1 = {1,3,5,7,9}
+    print(f"{cp.set_font(1,231,22)}  Working With Set Type  {cp.reset_font()}")
+    print(f"{cp.set_font(1,90,231)}  Case 1  {cp.reset_font()}")
+    result = pylo.set_to_list(data=set_1, header_title="None", layout=cp.Layout.VERTICAL, convert_to_str=False)
+    print(result)
+    print(f"{cp.set_font(1,90,231)}  Case 2  {cp.reset_font()}")
+    result = pylo.set_to_list(data=set_1, header_title="", layout="vertical", convert_to_str=False)
+    print(result)
+    print(f"{cp.set_font(1,90,231)}  Case 3  {cp.reset_font()}")
+    result = pylo.set_to_list(data=set_1, layout="v", convert_to_str=False)
+    print(result)
+    print(f"{cp.set_font(1,90,231)}  Case 4  {cp.reset_font()}")
+    result = pylo.set_to_list(data=set_1, header_title="Set", layout="h", convert_to_str=True)
+    print(result)
+    print(f"{cp.ins_chr(n=80, unicode="-")}")
+    cp.ins_newline(2)
+
+
+    print(f"{cp.set_font(1,231,22)}  Working With FrozenSet Type  {cp.reset_font()}")
+    # Note:
+    # values for Set:   convert_to_str = True/False,         -> layout="vertical"/"horizontal" or "h"/"v"
+    #                   header_title = ""                    -> this will put Frozenset Value(s) for header_title
+    #                   header_title = None/"none"           -> It won't set any header_title
+    #                   header_title = "Any Title Header"
+    set_1 = {1,3,5,7,9}
+    frozenset_1 = frozenset(set_1)
+    print(f"{cp.set_font(1,90,231)}  Case 1  {cp.reset_font()}")
+    result = pylo.set_to_list(data=frozenset_1, header_title="None", layout=cp.Layout.VERTICAL, convert_to_str=False)
+    print(result)
+    print(f"{cp.set_font(1,90,231)}  Case 2  {cp.reset_font()}")
+    result = pylo.set_to_list(data=frozenset_1, header_title="", layout="vertical", convert_to_str=False)
+    print(result)
+    print(f"{cp.set_font(1,90,231)}  Case 3  {cp.reset_font()}")
+    result = pylo.set_to_list(data=frozenset_1, layout="v", convert_to_str=False)
+    print(result)
+    print(f"{cp.set_font(1,90,231)}  Case 4  {cp.reset_font()}")
+    result = pylo.set_to_list(data=frozenset_1, header_title="FrozenSET", layout="h", convert_to_str=True)
+    print(result)
+    print(f"{cp.ins_chr(n=80, unicode="-")}")
+    cp.ins_newline(2)
+    print()
+
+
+
+
 def tuple_to_list_info():
     ''' It converts a tuple into a list '''
     cp.ins_newline(1)
@@ -5434,16 +5817,118 @@ def tuple_to_list_info():
 
 
       {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
-                 import time
+                 pylo = cp.PyLO()
+                 print(f"{cp.set_font(1,231,22)}  Working With Tuple  {cp.reset_font()}")
+                 
+                 # this is a string                     Case 0
+                 tupleData1 = (("Apple"));    print("case 0:",tupleData1)
+                 
+                 # this is a empty tuple                Case 1
+                 tupleData2 = ("",);          print("case 1:",tupleData2)       
+                 
+                 # this is a simple tuple               Case 2
+                 tupleData3 = ("Apple",);     print("case 2:",tupleData3)       
+
+                 # this is a tuple inside tuple         Case 3
+                 tupleData4 = (("Apple",));   print("case 3:",tupleData4)       
+                 
+                 # Case 4
+                            # this is a simple tuple w/ tuples     
+                 tupleData5 = (("hello",),("hell",),("hi",),([1,2],)) 
+                 tupleData6 = (("hello","hello"),("hell",),("hi","bye","good"),
+                               ([1,2],))
+                 
+                 print("Case 4:",tupleData5); print("Case 4:",tupleData6)
+                 
+                 # Case 5
+                            # this is a simple tuple w/ string     
+                 tupleData7 = ("hello","hell","hi",[1,2])
+                            # this is a simple tuples w/ string    
+                 tupleData8 = (("hello"),("hell"),("hi"),([1,2]))
+
+                 print("Case 5:",tupleData7); print("Case 5:",tupleData8)
+                 
+                 #  Case 6
+                            # this is a tuple w/ combination
+                            #  other type of variables
+                 tupleData9 = (("hello","hello"),("hell",),
+                               ("hi","bye","good"),[1,2], "hello")
+
+                 print("Case 6:",tupleData9)
+
+                 
+                 print(f"{cp.set_font(1,231,22)}  Reuslts  {cp.reset_font()}")
+                 listData1 = pylo.tuple_to_list(tupleData1)
+                 print("Case 0:",listData1)
+                 listData2 = pylo.tuple_to_list(tupleData2)
+                 print("Case 1:",listData2)
+                 listData3 = pylo.tuple_to_list(tupleData3)
+                 print("Case 2:",listData3)
+                 listData4 = pylo.tuple_to_list(tupleData4)
+                 print("Case 3:",listData4)
+                 listData5 = pylo.tuple_to_list(tupleData5)
+                 print("Case 4:",listData5)
+                 listData6 = pylo.tuple_to_list(tupleData6)
+                 print("Case 4:",listData6)
+                 listData7 = pylo.tuple_to_list(tupleData7)
+                 print("Case 5:",listData7)
+                 listData8 = pylo.tuple_to_list(tupleData8)
+                 print("Case 5:",listData8)
+                 listData9 = pylo.tuple_to_list(tupleData9)
+                 print("Case 6:",listData9)
+--------------------------------------------------------------------------------
+
+
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}                  
     '''
     print(message)
+
+    pylo = cp.PyLO()
+
+    print(f"{cp.set_font(1,231,22)}  Working With Tuple  {cp.reset_font()}")
+    tupleData1 = (("Apple"));    print("case 0:",tupleData1)       # this is a string                     Case 0
+    tupleData2 = ("",);          print("case 1:",tupleData2)       # this is a tuple                      Case 1
+    tupleData3 = ("Apple",);     print("case 2:",tupleData3)       # this is a simple tuple               Case 2
+    tupleData4 = (("Apple",));   print("case 3:",tupleData4)       # this is a tuple inside tuple         Case 3
+    print()
+    tupleData5 = (("hello",),("hell",),("hi",),([1,2],)) # this is a simple tuple w/ tuples     Case 4
+    tupleData6 = (("hello","hello"),("hell",),("hi","bye","good"),([1,2],)) #                   Case 4
+    
+    print("Case 4:",tupleData5); print("Case 4:",tupleData6)
+    print()
+    
+    tupleData7 = ("hello","hell","hi",[1,2])             # this is a simple tuple w/ string     Case 5
+    tupleData8 = (("hello"),("hell"),("hi"),([1,2]))     # this is a simple tuples w/ string    Case 5
+    print("Case 5:",tupleData7); print("Case 5:",tupleData8)
+    print()
+    
+    # this is a tuple w/ combination other type of variables Case 6
+    tupleData9 = (("hello","hello"),("hell",),("hi","bye","good"),[1,2], "hello")
+    print("Case 6:",tupleData9)
+    print()
+    print(f"{cp.set_font(1,231,22)}  Reuslts  {cp.reset_font()}")
+    listData1 = pylo.tuple_to_list(tupleData1);   print("Case 0:",listData1)
+    listData2 = pylo.tuple_to_list(tupleData2);   print("Case 1:",listData2)
+    listData3 = pylo.tuple_to_list(tupleData3);   print("Case 2:",listData3)
+    listData4 = pylo.tuple_to_list(tupleData4);   print("Case 3:",listData4)
+    listData5 = pylo.tuple_to_list(tupleData5);   print("Case 4:",listData5)
+    listData6 = pylo.tuple_to_list(tupleData6);   print("Case 4:",listData6)
+    listData7 = pylo.tuple_to_list(tupleData7);   print("Case 5:",listData7)
+    listData8 = pylo.tuple_to_list(tupleData8);   print("Case 5:",listData8)
+    listData9 = pylo.tuple_to_list(tupleData9);   print("Case 6:",listData9)
+    print(f"{cp.ins_chr(n=80, unicode="-")}")
+    print()
+
+
+
+
 def to_string_list_info():
     ''' It converts all items in a list to string type '''
     cp.ins_newline(1)
     green_div.print_fancy_divider("to_string_list", cp.Divider_Style.CUSTOMIZED)
     message = f'''      
-      The to_string_list() method converts all elements in a given list to strings
-      and returns a new list containing the converted values. 
+      The to_string_list() method converts all elements in a given list to
+      strings and returns a new list containing the converted values. 
       
       If the update parameter is set to True, the original list is modified
       in place (the items in the original list will be converted to strings).
@@ -5455,10 +5940,42 @@ def to_string_list_info():
       {cp.set_font(0,53,231)}                                                             {cp.reset_font()}
 
 
-      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
-                 import time
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp                 
+                 pylo = cp.PyLO()
+                 lst = [1,2,3,4,5,6]
+                 print(f\"Original: {{lst}}  {cp.set_font(1,21,231)} update = False {cp.reset_font()}\")
+                 result = pylo.to_string_list(data=lst)
+                 print(\"Result  :\",result)
+                 print(\"Original:\", lst,\"\\n\")
+                                  
+                 lst = [[1],[2],[3],[4],[5],[6]]
+                 print(f\"Original: {{lst}}  {cp.set_font(1,1,231)} update = True {cp.reset_font()}\")
+                 result = pylo.to_string_list(data=lst, update=True)
+                 print(\"Result  :\",result)
+                 print(\"Original:\",lst)
+
+                 
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}                     
     '''
     print(message)
+    pylo = cp.PyLO()
+    lst = [1,2,3,4,5,6]
+    print(f"Original: {lst}  {cp.set_font(1,21,231)} update = False {cp.reset_font()}")
+    result = pylo.to_string_list(data=lst)
+    print("Result  :",result)
+    print("Original:", lst,"\n")
+    
+    print(f"{cp.ins_chr(n=80, unicode="-")}\n")
+    lst = [[1],[2],[3],[4],[5],[6]]
+    print(f"Original: {lst}  {cp.set_font(1,1,231)} update = True {cp.reset_font()}")
+    result = pylo.to_string_list(data=lst, update=True)
+    print("Result  :",result)
+    print("Original:",lst)
+    print()
+
+
+
+
 def paragraph_to_list_info():
     ''' method takes a string and converts its contents into a list'''
     cp.ins_newline(1)
@@ -5483,8 +6000,88 @@ def paragraph_to_list_info():
       {cp.set_font(0,53,231)}                option:Str_List_Option = Str_List_Option.WORD_BY_WORD,    {cp.reset_font()}
       {cp.set_font(0,53,231)}                counter:bool=False)->list:[str]                           {cp.reset_font()}
       {cp.set_font(0,53,231)}                                                                          {cp.reset_font()}
-    '''
+    
+
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                 pylo = cp.PyLO()
+                 
+                 paragraph = \'\'\'
+                 This is the Module Docstrings
+                 Trailing WhiteSpace refers to any whitespace characters 
+                 at the end of a line of code or string. 
+                 missing-final-newline refers to set
+                 the last empty line at the end of the code
+                 pyloint practis.py
+                 \'\'\'
+                 
+                 print(f"{cp.set_font(1,231,22)}  Working With String Type  {cp.reset_font()}")
+                 print(f"{cp.set_font(1,90,231)}  WORD_BY_WORD  {cp.reset_font()}")
+                 result = pylo.paragraph_to_list(data = paragraph,
+                          option = pylo.Str_List_Option.WORD_BY_WORD,
+                          counter = False)                          
+                 print(result)
+
+                 cp.ins_newline(2)
+                 print(f"{cp.set_font(1,90,231)}  counter WORD_BY_WORD  {cp.reset_font()}")
+                 result = pylo.paragraph_to_list(paragraph,
+                          pylo.Str_List_Option.WORD_BY_WORD,
+                          counter = True)
+                 print(result)
+
+                 cp.ins_newline(2)
+                 print(f"{cp.set_font(1,90,231)}  LINE_BY_LINE  {cp.reset_font()}")
+                 result = pylo.paragraph_to_list(paragraph,
+                          pylo.Str_List_Option.LINE_BY_LINE,
+                          counter=False)
+                 print(result)
+
+                 cp.ins_newline(2)
+                 print(f"{cp.set_font(1,90,231)}  counter LINE_BY_LINE  {cp.reset_font()}")
+                 result = pylo.paragraph_to_list(paragraph,
+                          pylo.Str_List_Option.LINE_BY_LINE,
+                          counter=True)
+                 print(result)
+
+--------------------------------------------------------------------------------
+
+
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}   
+'''
     print(message)
+
+    paragraph = '''
+     This is the Module Docstrings
+     Trailing WhiteSpace refers to any whitespace characters 
+     at the end of a line of code or string. 
+     missing-final-newline refers to set
+     the last empty line at the end of the code
+     pyloint practis.py
+    '''
+    pylo = cp.PyLO()
+    print(f"{cp.set_font(1,231,22)}  Working With String Type  {cp.reset_font()}")
+    print(f"{cp.set_font(1,90,231)}  WORD_BY_WORD  {cp.reset_font()}")
+    result = pylo.paragraph_to_list(data=paragraph, option=pylo.Str_List_Option.WORD_BY_WORD, counter=False)
+    print(result)
+    cp.ins_newline(2)
+    print(f"{cp.set_font(1,90,231)}  counter WORD_BY_WORD  {cp.reset_font()}")
+    result = pylo.paragraph_to_list(paragraph, pylo.Str_List_Option.WORD_BY_WORD, counter=True)
+    print(result)
+    cp.ins_newline(2)
+    print(f"{cp.set_font(1,90,231)}  LINE_BY_LINE  {cp.reset_font()}")
+    result = pylo.paragraph_to_list(paragraph, pylo.Str_List_Option.LINE_BY_LINE, counter=False)
+    print(result)
+    cp.ins_newline(2)
+    print(f"{cp.set_font(1,90,231)}  counter LINE_BY_LINE  {cp.reset_font()}")
+    result = pylo.paragraph_to_list(paragraph, pylo.Str_List_Option.LINE_BY_LINE, counter=True)
+    print(result)
+    cp.ins_newline(2)
+    print(f"{cp.ins_chr(n=80, unicode="-")}")
+    cp.ins_newline(2)
+    print()
+
+
+
+
 def to_numeric_list_info():
     ''' This converts all the items from a list to numeric values '''
     cp.ins_newline(1)
@@ -5508,9 +6105,105 @@ def to_numeric_list_info():
 
 
       {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
-                 import time
+                 pylo = cp.PyLO()
+                 result = pylo.to_numeric_list(data=lst, fill_value="0.1",
+                                               update=False)
+
+
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}                   
     '''
     print(message)    
+
+    pylo = cp.PyLO()
+    msg = f'''
+    Options                                       # Results             {cp.set_font(1,90,231)} Cases {cp.reset_font()}
+    lst = "hello"                                 # incorrect_var_type    (1)
+    lst = []                                      # empty_list            (2)
+    
+    lst = ["5"]                                   # one_item_no_row       (3)
+    lst = ["-5.7"]                                # one_item_no_row       (3)
+    
+    lst = [["1"]]                                 # one_item_one_row      (4)
+    lst = [["-1.1"],["(6+3j)"]]                   # one_item_one_row      (4)
+    
+    lst = ["-1.5",2,"3","4.5","5",6,"(5+5j)"]     # multiple_items_no_row (5)
+    
+    lst = [["1",2],["3.3",4],["-5",6],["-7.7",8]] # multi_its_multi_rows  (6)
+    lst = [["t",2],["-4",3],["-5.5","6.0",5]]
+    
+    lst = ["-10.5","-40",["50"],[250],["H"],"10"] # mix_items             (7)
+    '''
+    
+    
+    print(msg)
+    print(f"{cp.ins_chr(n=80, unicode="-")}")
+    print(f"{cp.set_font(1,90,231)}  Case 1  {cp.reset_font()}")
+    lst = "hello";      print("original: ", lst)
+    result = pylo.to_numeric_list(data=lst, fill_value="0.1", update=False)
+    print("result  : ",result)
+    
+    
+    #-------------------------------------------------------------------------------------------
+    print(f"{cp.ins_chr(n=80, unicode="-")}")
+    print(f"{cp.set_font(1,90,231)}  Case 2  {cp.reset_font()}")
+    lst = [];      print("original: ", lst)
+    result = pylo.to_numeric_list(data=lst, fill_value="0.1", update=False)
+    print("result  : ",result)
+    
+    
+    #-------------------------------------------------------------------------------------------
+    print(f"{cp.ins_chr(n=80, unicode="-")}")
+    print(f"{cp.set_font(1,90,231)}  Case 3  {cp.reset_font()}")
+    lst = ["5"];      print("original: ", lst)
+    result = pylo.to_numeric_list(data=lst, fill_value="0.1", update=False)
+    print("result  : ",result)
+    print()
+    lst = ["5.7"];    print("original: ", lst)
+    result = pylo.to_numeric_list(data=lst, fill_value="0.1", update=True)
+    print("result  : ",result)
+    
+    
+    #-------------------------------------------------------------------------------------------
+    print(f"{cp.ins_chr(n=80, unicode="-")}")
+    print(f"{cp.set_font(1,90,231)}  Case 4  {cp.reset_font()}")
+    lst = [["1"]];      print("original: ", lst)
+    result = pylo.to_numeric_list(data=lst, fill_value="0.1", update=False)
+    print("result  : ",result)
+    print()
+    lst = [["-1.1"],["(6+3j)"]];    print("original: ", lst)
+    result = pylo.to_numeric_list(data=lst, fill_value="0.1", update=True)
+    print("result  : ",result)
+    
+    
+    #-------------------------------------------------------------------------------------------
+    print(f"{cp.ins_chr(n=80, unicode="-")}")
+    print(f"{cp.set_font(1,90,231)}  Case 5  {cp.reset_font()}")
+    lst = ["-1.5",2,"3","4.5","5",6,"(5+5j)"];      print("original: ", lst)
+    result = pylo.to_numeric_list(data=lst, fill_value="0.1", update=False)
+    print("result  : ",result)
+    print(f"Addition:  (1+2j)+result[6] {(1+2j)+result[6]}")
+    
+    
+    #-------------------------------------------------------------------------------------------
+    print(f"{cp.ins_chr(n=80, unicode="-")}")
+    print(f"{cp.set_font(1,90,231)}  Case 6  {cp.reset_font()}")
+    lst = [["1",2],["3.3",4],["-5",6],["-7.7",8]];      print("original: ", lst)
+    result = pylo.to_numeric_list(data=lst, fill_value="0.1", update=False)
+    print("result  : ",result)
+    print()
+    lst = [["t",2],["-4",3],["-5.5","6.0",5]];      print("original: ", lst)
+    result = pylo.to_numeric_list(data=lst, fill_value="0.1", update=False)
+    print("result  : ",result)
+    
+    
+    #-------------------------------------------------------------------------------------------
+    print(f"{cp.ins_chr(n=80, unicode="-")}")
+    print(f"{cp.set_font(1,90,231)}  Case 7  {cp.reset_font()}")
+    lst = ["-10.5","-40",["50"],[250],["H"],"10"];      print("original: ", lst)
+    result = pylo.to_numeric_list(data=lst, fill_value="0.1", update=False)
+    print("result  : ",result)    
+    print()
+
 
 
 
@@ -5533,9 +6226,38 @@ def left_shift_info():
       {cp.set_font(0,53,231)}                                                                  {cp.reset_font()}
 
       {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
-                 import time
+                 pylo = cp.PyLO()
+
+                 list_1 = [[1,2,3,4,5,6]]
+                 print("original_list:  ", list_1, end="")                 
+
+                 newlist = pylo.left_shift(list_1, 2, False)
+                 print("shifted _list:  ",newlist)
+                 
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}                 
     '''
     print(message)
+
+    pylo = cp.PyLO()
+    # Left Shift List
+    list_1 = [[1,2,3,4,5,6]]
+    #---------------------------------------------------------------------------
+    print("original_list:  ", list_1, end=""); print(f"   left_shift 2, {cp.set_font(1,21,231)} update=False {cp.reset_font()}")
+    newlist = pylo.left_shift(list_1, 2, False)
+    print("shifted _list:  ",newlist)
+    print("original_list:  ", list_1)
+
+    print(f"{cp.ins_chr(n=80, unicode="-")}")
+
+    print("original_list:  ", list_1,end=""); print(f"   left_shift 2, {cp.set_font(1,1,231)} update=True {cp.reset_font()}")
+    newlist = pylo.left_shift(my_list=list_1, qty= 2, update= True)
+    print("shifted _list:  ",newlist)
+    print("original_list:  ", list_1)
+    print()
+
+
+
+
 def right_shift_info():
     ''' returns a new list with the elements of the original list shifted to the right n times '''
     cp.ins_newline(1)
@@ -5556,9 +6278,42 @@ def right_shift_info():
       {cp.set_font(0,53,231)}                                                                   {cp.reset_font()}
 
       {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
-                 import time
+                 pylo = cp.PyLO()
+
+                 list_1 = [[1],[4],[5,6]]
+                 print("original_list:  ", list_1)
+
+                 newlist = pylo.right_shift(list_1, 2, False)
+                 print("shifted _list:  ",newlist)
+
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}                 
     '''
     print(message)
+
+    pylo = cp.PyLO()
+    list_1 = [[1],[4],[5,6]]
+    # Right Shift List
+    print(f"{cp.ins_chr(n=80, unicode="-")}")
+    print(f"{cp.set_font(1,23,231)}    Right Shift    {cp.reset_font()}")
+    print(f"{cp.ins_chr(n=80, unicode="-")}")
+    cp.ins_newline(2)
+    #---------------------------------------------------------------------------
+    print("original_list:  ", list_1, end="");   print(f"   right_shift 2 times, {cp.set_font(1,21,231)} update=False {cp.reset_font()}")
+    newlist = pylo.right_shift(my_list=list_1, qty=2, update=False)
+    print("shifted _list:  ",newlist)
+    print("original_list:  ", list_1)
+
+    print(f"{cp.ins_chr(n=80, unicode="-")}")
+
+    print("original_list:  ", list_1,end=""); print(f"   right_shift 2 times, {cp.set_font(1,1,231)} update=True {cp.reset_font()}")
+    newlist = pylo.right_shift(my_list=list_1, qty= 2, update= True)
+    print("shifted _list:  ",newlist)
+    print("original_list:  ", list_1)
+    print()
+
+
+
+
 def shift_info():
     ''' It returns a new list with its elements shifted left or right '''
     cp.ins_newline(1)
@@ -5584,9 +6339,71 @@ def shift_info():
       {cp.set_font(0,53,231)}                                                           {cp.reset_font()}   
 
       {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
-                 import time
+                 pylo = cp.PyLO()
+                 list_1 = [[1],[4],[5,6]]
+
+                 # Right Shift List
+                 print(f"{cp.set_font(1,23,231)}    Shift Item in a List    {cp.reset_font()}")
+                 
+                 print("original_list:  ", list_1, end="")
+                 print(f"   right_shift 2, {cp.set_font(1,21,231)} update=False {cp.reset_font()}")
+                 newlist = pylo.shift(list_1, "r", 2, False)
+                 print("shifted _list:  ",newlist)
+                 print("original_list:  ", list_1)
+             
+                 print("original_list:  ", list_1,end="")
+                 print(f"   right_shift 2, {cp.set_font(1,1,231)} update=True {cp.reset_font()}")
+                 newlist = pylo.shift(data = list_1, direction = cp.Move.RIGHT,
+                                      qty  = 2, update = True)
+                 print("shifted _list:  ",newlist)
+                 print("original_list:  ", list_1)
+
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}                 
     '''
     print(message)
+
+    pylo = cp.PyLO()
+    list_1 = [[1],[4],[5,6]]
+    # Right Shift List
+    print(f"{cp.ins_chr(n=80, unicode="-")}")
+    print(f"{cp.set_font(1,23,231)}    Shift Item in a List    {cp.reset_font()}")
+    print(f"{cp.ins_chr(n=80, unicode="-")}")
+    cp.ins_newline(2)
+    #---------------------------------------------------------------------------
+    print("original_list:  ", list_1, end=""); print(f"   right_shift 2, {cp.set_font(1,21,231)} update=False {cp.reset_font()}")
+    newlist = pylo.shift(list_1, "r", 2, False)
+    print("shifted _list:  ",newlist)
+    print("original_list:  ", list_1)
+
+    print(f"{cp.ins_chr(n=80, unicode="-")}")
+
+    print("original_list:  ", list_1,end=""); print(f"   right_shift 2, {cp.set_font(1,1,231)} update=True {cp.reset_font()}")
+    newlist = pylo.shift(data = list_1, direction = cp.Move.RIGHT, qty = 2, update = True)
+    print("shifted _list:  ",newlist)
+    print("original_list:  ", list_1)
+
+    cp.ins_newline(2)
+
+
+    # Left Shift List
+    list_1 = [[1,2,3,4,5,6]]
+    #---------------------------------------------------------------------------
+    print("original_list:  ", list_1, end=""); print(f"   left_shift 2, {cp.set_font(1,21,231)} update=False {cp.reset_font()}")
+    newlist = pylo.shift(list_1, "l", 2, False)
+    print("shifted _list:  ",newlist)
+    print("original_list:  ", list_1)
+
+    print(f"{cp.ins_chr(n=80, unicode="-")}")
+
+    print("original_list:  ", list_1,end=""); print(f"   left_shift 2, {cp.set_font(1,1,231)} update=True {cp.reset_font()}")
+    newlist = pylo.shift(data=list_1, direction=cp.Move.LEFT, qty= 2, update= True)
+    print("shifted _list:  ",newlist)
+    print("original_list:  ", list_1)  
+    print() 
+
+
+
+
 def swap_info():
     ''' It swaps two elements in a list '''
     cp.ins_newline(1)
@@ -5610,9 +6427,48 @@ def swap_info():
       {cp.set_font(0,53,231)}                                                                          {cp.reset_font()}
 
       {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
-                 import time
+                 pylo = cp.PyLO()
+
+                 print(f"{cp.set_font(1,23,231)}    Swap Items in a List    {cp.reset_font()}")
+                 lst = [[1,2],[3,4],[5,6],[7,8]]
+                 print("original: ", lst,end="")
+                 print(f"   {cp.set_font(1,21,231)} update=False, {cp.reset_font()} posi_1=0, posi_2=2")
+                 newlist = pylo.swap(data=lst, update= False,
+                                     posi_1= 0, posi_2=2)
+                 print("swaped_l: ",newlist)
+                 print("original: ", lst)
+                              
+                 print("original: ", lst,end="")
+                 print(f"   {cp.set_font(1,1,231)} update=True, {cp.reset_font()} posi_1=3, posi_2=10")
+                 newlist = pylo.swap(data=lst, update=True,
+                                     posi_1=3, posi_2=10)
+                 print("swaped_l: ",newlist)
+                 print("original: ", lst)  
+
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}                                
     '''
     print(message)
+
+    pylo = cp.PyLO()
+    print(f"{cp.ins_chr(n=80, unicode="-")}")
+    print(f"{cp.set_font(1,23,231)}    Swap Items in a List    {cp.reset_font()}")
+    lst = [[1,2],[3,4],[5,6],[7,8]]
+    print("original: ", lst,end=""); print(f"   {cp.set_font(1,21,231)} update=False, {cp.reset_font()} posi_1=0, posi_2=2")
+    newlist = pylo.swap(data=lst, update= False, posi_1= 0, posi_2=2)
+    print("swaped_l: ",newlist)
+    print("original: ", lst)
+
+    print(f"{cp.ins_chr(n=80, unicode="-")}")
+
+    print("original: ", lst,end=""); print(f"   {cp.set_font(1,1,231)} update=True, {cp.reset_font()} posi_1=3, posi_2=10")
+    newlist = pylo.swap(data=lst, update=True, posi_1=3, posi_2=10)
+    print("swaped_l: ",newlist)
+    print("original: ", lst)
+    print()
+
+
+
+
 def transpose_info():
     '''  '''
     cp.ins_newline(1)
@@ -5640,13 +6496,43 @@ def transpose_info():
       {cp.set_font(0,53,231)}                                                                     {cp.reset_font()}
 
       {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
-                 import time
+                 pylo = cp.PyLO()
+
+                 lst = [[1,2],[3,4],[5,6]]
+                 print("original :", lst)
+                 trans_lst = pylo.transpose(data=lst, autofill=True, fill_value=0.5, update=False)
+                 print("Transpose:",trans_lst)
+    
+                 lst = [[1],[4],[5,6]]
+                 print("original :", lst)
+                 trans_lst = pylo.transpose(data=lst, autofill=True, fill_value=0.5, update=False)
+                 print("Transpose:",trans_lst)
+                 
+                 lst = [[1],[4],[5,6]]
+                 print("original :", lst)
+                 trans_lst = pylo.transpose(data=lst, autofill=False, fill_value=0.5, update=False)
+                 print("Transpose:",trans_lst)
+                 
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
     '''
     print(message)
-
-
-
-
+    print()
+    pylo = cp.PyLO()
+    lst = [[1,2],[3,4],[5,6]]
+    print("original :", lst)
+    trans_lst = pylo.transpose(data=lst, autofill=True, fill_value=0.5, update=False)
+    print("Transpose:",trans_lst)
+    print()
+    lst = [[1],[4],[5,6]]
+    print("original :", lst)
+    trans_lst = pylo.transpose(data=lst, autofill=True, fill_value=0.5, update=False)
+    print("Transpose:",trans_lst)
+    print()
+    lst = [[1],[4],[5,6]]
+    print("original :", lst)
+    trans_lst = pylo.transpose(data=lst, autofill=False, fill_value=0.5, update=False)
+    print("Transpose:",trans_lst)
+    print()
 
 
 
@@ -5676,10 +6562,30 @@ def write_csv_file_info():
 
 
       {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
-                 import time
+                 pylo = cp.PyLO()
 
+                 classes_methods_fancyprint = [
+                      ["Header 1","Header 2",    "Header 3"          ],
+                      ["Cursor",  "FontStyle",   "FancyFormat"       ],
+                      ["jumpTo",  "start_style", "print_fancy_format"],
+                      ["jumpxy",  "stop_style",  "reset_fancy_format"],
+                      ["moveTo",  "print_style",  "----             "],
+                      ["movexy",  "reset_style",  "----             "]]
+
+                 file_path = pylo.write_csv_file(classes_methods_fancyprint)
+                 print(file_path)
+
+                 list_1 = [10,[50],[250],["H"],100]
+
+                 file_path = pylo.write_csv_file(list_1, "file_1")
+                 print(file_path)
     '''
     print(message)
+    print()
+
+
+
+
 def read_csv_file_info():
     ''' The read_csv_file() method reads a list from a CSV file and returns it '''
     cp.ins_newline(1)
@@ -5702,9 +6608,21 @@ def read_csv_file_info():
 
 
       {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
-                 import time
+                 pylo = cp.PyLO()                 
+                 tbl = cp.FancyFormat()
+                 
+                 file_info = pylo.read_csv_file("CSV_List")
+                 tbl.print_fancy_format(file_info)
+                 
+                 file_info = pylo.read_csv_file("file_1.csv")
+                 tbl.print_fancy_format(file_info)
     '''
     print(message)
+    print()
+
+
+
+
 def write_json_file_info():
     ''' The write_json_file() method writes a list to a json file '''
     cp.ins_newline(1)
@@ -5725,14 +6643,31 @@ def write_json_file_info():
     
     
       {cp.set_font(0,53,231)}                                                                          {cp.reset_font()}
-      {cp.set_font(0,53,231)}  write_csv_file(data:list, file_path:str="CSV_List")->str[file_path]     {cp.reset_font()}
+      {cp.set_font(0,53,231)}  write_json_file(data:list, file_path:str="JSON_List")->str[file_path]   {cp.reset_font()}
       {cp.set_font(0,53,231)}                                                                          {cp.reset_font()}
 
 
       {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
-                 import time
+                 pylo = cp.PyLO()
+
+                 classes_methods_fancyprint = [
+                      [\"Header 1\",\"Header 2\",    \"Header 3\"          ],
+                      [\"Cursor\",  \"FontStyle\",   \"FancyFormat\"       ],
+                      [\"jumpTo\",  \"start_style\", \"print_fancy_format\"],
+                      [\"jumpxy\",  \"stop_style\",  \"reset_fancy_format\"],
+                      [\"moveTo\",  \"print_style\", \"----              \"],
+                      [\"movexy\",  \"reset_style\", \"----              \"]]
+                      
+                 file_path = pylo.write_json_file(classes_methods_fancyprint)
+                 print(file_path)
+
+                 list_1 = [10,[50],[250],["H"],100]
+
+                 file_path = pylo.write_json_file(list_1, "file_1.json")
+                 print(file_path)
     '''
     print(message)
+    print()
 
 
 
@@ -5753,15 +6688,27 @@ def read_json_file_info():
 
             The .json extension can be omitted.
 
-{cp.set_font(0,53,231)}                                                         {cp.reset_font()}
-{cp.set_font(0,53,231)}read_json_file(self, file_path:str="JSON_List")->list    {cp.reset_font()}
-{cp.set_font(0,53,231)}                                                         {cp.reset_font()}
+      {cp.set_font(0,53,231)}                                                           {cp.reset_font()}
+      {cp.set_font(0,53,231)}  read_json_file(self, file_path:str="JSON_List")->list    {cp.reset_font()}
+      {cp.set_font(0,53,231)}                                                           {cp.reset_font()}
 
 
       {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
-                 import time
+                 pylo = cp.PyLO()
+                 tbl = cp.FancyFormat()
+                 
+                 file_info = pylo.read_json_file("JSON_List.json")
+                 tbl.print_fancy_format(file_info)
+                 
+                 file_info = pylo.read_json_file("file_1.json")
+                 tbl.print_fancy_format(file_info)                 
     '''
     print(message)
+    print()
+
+
+
+
 def autofill_list_info():
     ''' he autofill_list() method fills all empty cells in a list when the list
       is not square or rectangular '''
@@ -5787,9 +6734,53 @@ def autofill_list_info():
 
 
       {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
-                 import time
+                 pylo = cp.PyLO()
+                 print(message)
+                 lst = [[\"H1\",\"H2\", \"H3\"],
+                        [\"d1\"],
+                        [\"D1\",\"DATO1\"]]
+                 
+                 print(f\"{cp.set_font(1,90,231)} update = False {cp.reset_font()}\")
+                 print(f\"Original: {{lst}}\")
+                 new_lst = pylo.autofill_list(data=lst)
+                 print(f\"autofill: {{new_lst}}\")
+                 print(f\"Original: {{lst}}\")
+             
+                 print()
+             
+                 print(f\"{cp.set_font(1,90,231)} update = True {cp.reset_font()}\")
+                 print(f\"Original: {{lst}}\")
+                 new_lst = pylo.autofill_list(data=lst, fill_value=99,
+                                              update=True)
+                 print(f\"autofill: {{new_lst}}\")
+                 print(f\"Original: {{lst}}\")
+
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
     '''
+    pylo = cp.PyLO()
     print(message)
+    lst = [["H1","H2", "H3"],
+           ["d1"],
+           ["D1","DATO1"]]
+    
+    print(f"{cp.set_font(1,90,231)} update = False {cp.reset_font()}")
+    print(f"Original: {lst}")
+    new_lst = pylo.autofill_list(data=lst)
+    print(f"autofill: {new_lst}")
+    print(f"Original: {lst}")
+
+    print()
+
+    print(f"{cp.set_font(1,90,231)} update = True {cp.reset_font()}")
+    print(f"Original: {lst}")
+    new_lst = pylo.autofill_list(data=lst, fill_value=99, update=True)
+    print(f"autofill: {new_lst}")
+    print(f"Original: {lst}")
+    print()
+
+
+
+
 def dimensions_info():
     ''' It returns the number of rows and columns of a list '''
     cp.ins_newline(1)
@@ -5806,10 +6797,33 @@ def dimensions_info():
 
 
       {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
-                 import time
+                 pylo = cp.PyLO()
+                 lst = [
+                       [\"Header 1\",\"Header 2\",    \"Header 3\"          ],
+                       [\"Cursor\",  \"FontStyle\",   \"FancyFormat\"       ],
+                       [\"jumpTo\",  \"start_style\", \"print_fancy_format\"],
+                       [\"jumpxy\",  \"stop_style\",  \"reset_fancy_format\"],
+                       [\"moveTo\",  \"print_style\", \"----              \"],
+                       [\"movexy\",  \"reset_style\", \"----              \"]]
+    
+                  n_rows_n_cols_list = pylo.dimensions(lst)
+                  print(f\"rows: {{n_rows_n_cols_list}}\")
+
+                  
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
     '''
     print(message)
-
+    pylo = cp.PyLO()
+    lst = [
+          ["Header 1","Header 2",    "Header 3"          ],
+          ["Cursor",  "FontStyle",   "FancyFormat"       ],
+          ["jumpTo",  "start_style", "print_fancy_format"],
+          ["jumpxy",  "stop_style",  "reset_fancy_format"],
+          ["moveTo"],
+          ["movexy",  "reset_style"]]
+    
+    n_rows_n_cols_list = pylo.dimensions(lst)
+    print(f"      rows: {n_rows_n_cols_list}\n")
 
 
 
@@ -5818,182 +6832,274 @@ def dimensions_info():
 
 
 def delete_col_info():
-    ''' Description of the work here '''
+    '''  It deletes a specific column from the list  '''
     cp.ins_newline(1)
-    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    green_div.print_fancy_divider("delete_col", cp.Divider_Style.CUSTOMIZED)
     message = f'''      
-    Work needed here
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                 pylo = cp.PyLO()
+                  
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
+
     '''
     print(message)
 def add_col_info():
-    ''' Description of the work here '''
+    ''' This method adds a column into the list in a specific postion '''
     cp.ins_newline(1)
-    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    green_div.print_fancy_divider("add_col", cp.Divider_Style.CUSTOMIZED)
     message = f'''      
-    Work needed here
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                 pylo = cp.PyLO()
+                  
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
+
     '''
     print(message)
 def add_col_id_info():
-    ''' Description of the work here '''
+    '''  This method set the number of rows by adding a column to the left side  '''
     cp.ins_newline(1)
-    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    green_div.print_fancy_divider("add_col_id", cp.Divider_Style.CUSTOMIZED)
     message = f'''      
-    Work needed here
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                 pylo = cp.PyLO()
+                  
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
+
     '''
     print(message)
 def join_as_vector_info():
-    ''' Description of the work here '''
+    '''  It joins two list as a vector, join_list = [1,2,3,4,5,etc.]  '''
     cp.ins_newline(1)
-    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    green_div.print_fancy_divider("join_as_vector", cp.Divider_Style.CUSTOMIZED)
     message = f'''      
-    Work needed here
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                 pylo = cp.PyLO()
+                  
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
+
     '''
     print(message)
 def make_to_vector_info():
-    ''' Description of the work here '''
+    ''' This function makes any list in a form as a vector. [1,2,3,4,5,etc.], up to 4 brackets '''
     cp.ins_newline(1)
-    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    green_div.print_fancy_divider("make_to_vector", cp.Divider_Style.CUSTOMIZED)
     message = f'''      
-    Work needed here
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                 pylo = cp.PyLO()
+                  
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
+
     '''
     print(message)
 def replace_value_info():
-    ''' Description of the work here '''
+    ''' It replaces an item value for another in a list '''
     cp.ins_newline(1)
-    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    green_div.print_fancy_divider("replace_value", cp.Divider_Style.CUSTOMIZED)
     message = f'''      
-    Work needed here
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                 pylo = cp.PyLO()
+                  
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
+
     '''
     print(message)
 def find_value_info():
-    ''' Description of the work here '''
+    ''' This method finds a value into a list and returns the location of the value. Up to 4 brackets '''
     cp.ins_newline(1)
-    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    green_div.print_fancy_divider("find_value", cp.Divider_Style.CUSTOMIZED)
     message = f'''      
-    Work needed here
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                 pylo = cp.PyLO()
+                  
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
+
     '''
     print(message)
 def delete_value_info():
-    ''' Description of the work here '''
+    ''' This method delete a value from the list '''
     cp.ins_newline(1)
-    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    green_div.print_fancy_divider("delete_value", cp.Divider_Style.CUSTOMIZED)
     message = f'''      
-    Work needed here
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                 pylo = cp.PyLO()
+                  
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
+
     '''
     print(message)
 def lower_case_info():
-    ''' Description of the work here '''
+    '''  This method lowercase all the items in a list  '''
     cp.ins_newline(1)
-    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    green_div.print_fancy_divider("lower_case", cp.Divider_Style.CUSTOMIZED)
     message = f'''      
-    Work needed here
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                 pylo = cp.PyLO()
+                  
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
+
     '''
     print(message)
 def upper_case_info():
-    ''' Description of the work here '''
+    '''  This method uppercase all the items in a list  '''
     cp.ins_newline(1)
-    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    green_div.print_fancy_divider("upper_case", cp.Divider_Style.CUSTOMIZED)
     message = f'''      
-    Work needed here
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                 pylo = cp.PyLO()
+                  
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
+
     '''
     print(message)
 def capitalize_case_info():
-    ''' Description of the work here '''
+    '''  This method capitalize all the items in a list  '''
     cp.ins_newline(1)
-    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    green_div.print_fancy_divider("capitalize", cp.Divider_Style.CUSTOMIZED)
     message = f'''      
-    Work needed here
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                 pylo = cp.PyLO()
+                  
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
+
     '''
     print(message)
 def merge_info():
-    ''' Description of the work here '''
+    ''' This method merge two lists '''
     cp.ins_newline(1)
-    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    green_div.print_fancy_divider("merge", cp.Divider_Style.CUSTOMIZED)
     message = f'''      
-    Work needed here
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                 pylo = cp.PyLO()
+                  
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
+
     '''
     print(message)
 def reverse_row_order_info():
-    ''' Description of the work here '''
+    ''' This methods reverse the order of the list keeping the headers in the same positon '''
     cp.ins_newline(1)
-    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    green_div.print_fancy_divider("reverse_row_order", cp.Divider_Style.CUSTOMIZED)
     message = f'''      
-    Work needed here
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                 pylo = cp.PyLO()
+                  
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
+
     '''
     print(message)
 def sort_rows_by_col_info():
-    ''' Description of the work here '''
+    ''' sort_by_col won't sort the first row because it is considered the Header of the list '''
     cp.ins_newline(1)
-    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    green_div.print_fancy_divider("sort_rows_by_col", cp.Divider_Style.CUSTOMIZED)
     message = f'''      
-    Work needed here
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                 pylo = cp.PyLO()
+                  
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
+
     '''
     print(message)
 def sort_cols_info():
-    ''' Description of the work here '''
+    ''' If the option provided is different than ascending or descending or a list, it will sort as ascending.
+        If the list contains numbers not in the range of the data list, it will sort as ascending.
+        If the list contains a length different than the length of the data, it will sort as ascending.
+        If the list is NOT in the form of rXc it will return an empty list as a result
+     '''
     cp.ins_newline(1)
-    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    green_div.print_fancy_divider("sort_cols", cp.Divider_Style.CUSTOMIZED)
     message = f'''      
-    Work needed here
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                 pylo = cp.PyLO()
+                  
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
+
     '''
     print(message)
-def update_casae_info():
+def update_case_info():
     ''' Description of the work here '''
     cp.ins_newline(1)
-    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    green_div.print_fancy_divider("update_case", cp.Divider_Style.CUSTOMIZED)
     message = f'''      
-    Work needed here
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                 pylo = cp.PyLO()
+                  
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
+
     '''
     print(message)
 def update_case_col_info():
-    ''' Description of the work here '''
+    ''' This method updates the case for a specific column, header and data '''
     cp.ins_newline(1)
-    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    green_div.print_fancy_divider("update_case_col", cp.Divider_Style.CUSTOMIZED)
     message = f'''      
-    Work needed here
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                 pylo = cp.PyLO()
+                  
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
+
     '''
     print(message)
 def find_duplicate_info():
-    ''' Description of the work here '''
+    ''' This method find all duplicate values into a list and returns all duplicate values into a list '''
     cp.ins_newline(1)
-    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    green_div.print_fancy_divider("find_duplicate", cp.Divider_Style.CUSTOMIZED)
     message = f'''      
-    Work needed here
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                 pylo = cp.PyLO()
+                  
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
     '''
     print(message)
+
 def find_longest_item_info():
-    ''' Description of the work here '''
+    ''' This method finds the longest item in a list and returns it in a list form '''
     cp.ins_newline(1)
-    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    green_div.print_fancy_divider("find_longest_item", cp.Divider_Style.CUSTOMIZED)
     message = f'''      
-    Work needed here
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                 pylo = cp.PyLO()
+                  
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
+
     '''
     print(message)
 def find_shortest_item_info():
-    ''' Description of the work here '''
+    ''' This method finds the shortest item in a list and returns it in a list form '''
     cp.ins_newline(1)
-    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    green_div.print_fancy_divider("find_shortest_item", cp.Divider_Style.CUSTOMIZED)
     message = f'''      
-    Work needed here
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                 pylo = cp.PyLO()
+                  
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
+
     '''
     print(message)
 def split_list_by_col_condition_info():
-    ''' Description of the work here '''
+    ''' This method split the list in two list by a condition '''
     cp.ins_newline(1)
-    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    green_div.print_fancy_divider("split_list_by_col", cp.Divider_Style.CUSTOMIZED)
     message = f'''      
-    Work needed here
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                 pylo = cp.PyLO()
+                  
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
+
     '''
     print(message)
 
 
 
-def dsfs():
-    ''' Description of the work here '''
+def padding_info():
+    ''' This method pad a list '''
     cp.ins_newline(1)
-    green_div.print_fancy_divider("Title Here", cp.Divider_Style.CUSTOMIZED)
+    green_div.print_fancy_divider("padding", cp.Divider_Style.CUSTOMIZED)
     message = f'''      
-    Work needed here
+      {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
+                 pylo = cp.PyLO()
+                  
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
+
     '''
     print(message)
 
@@ -6010,6 +7116,5 @@ if __name__ == '__main__':
 # in the top insert a newline for message and the tail a newline for the message
 # at the end of the function or method add double newline.
 # this will be the parttern for title and tail of the function class
-
 
 

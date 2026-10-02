@@ -106,22 +106,22 @@ def str_to_num(data:list, fill_value=0, update:bool=False)->list:
 #-------------------------------------------------------------------------------------------
 print(f"{cp.ins_chr(n=80, unicode="-")}")
 msg = '''
-Options                                       # Results                           Cases
-lst = "hello"                                 # incorrect_variable_type             1
-lst = []                                      # empty_list                          2
+Options                                       # Results                      Cases
+lst = "hello"                                 # incorrect_variable_type        1
+lst = []                                      # empty_list                     2
 
-lst = ["5"]                                   # one_item_no_row                     3
-lst = ["-5.7"]                                # one_item_no_row                     3
+lst = ["5"]                                   # one_item_no_row                3
+lst = ["-5.7"]                                # one_item_no_row                3
 
-lst = [["1"]]                                 # one_item_one_row                    4
-lst = [["-1.1"],["(6+3j)"]]                   # one_item_one_row                    4
+lst = [["1"]]                                 # one_item_one_row               4
+lst = [["-1.1"],["(6+3j)"]]                   # one_item_one_row               4
 
-lst = ["-1.5",2,"3","4.5","5",6,"(5+5j)"]     # multiple_items_no_row               5
+lst = ["-1.5",2,"3","4.5","5",6,"(5+5j)"]     # multiple_items_no_row          5
 
-lst = [["1",2],["3.3",4],["-5",6],["-7.7",8]] # multiple_items_multiple_rows        6
+lst = [["1",2],["3.3",4],["-5",6],["-7.7",8]] # multiple_items_multiple_rows   6
 lst = [["t",2],["-4",3],["-5.5","6.0",5]]
 
-lst = ["-10.5","-40",["50"],[250],["H"],"10"] # mix_items                           7
+lst = ["-10.5","-40",["50"],[250],["H"],"10"] # mix_items                      7
 '''
 
 

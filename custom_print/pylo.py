@@ -51,6 +51,7 @@ import typing          # To define in the function type of arguments that are ac
 from custom_print.ref_names import Move
 from custom_print.ref_names import Layout
 from custom_print.fancy_functions import get_list_type
+from custom_print.fancy_functions import ins_chr
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 # Python List Operation Functions (PyLO)                                                                                                             -
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
@@ -97,6 +98,19 @@ class PyLO():
         LOWER = "lower"
         CAPITALIZE = "capitalize"
         NONE = "none"
+
+
+    class Operator(enum.StrEnum):
+    
+        '''  Defines what type of operator to use when splitting a list by condition.  '''
+
+        # Operator  Meaning
+        EQUAL_TO                 = "=="
+        NOT_EQUAL_TO             = "!="
+        GREATER_THAN             = ">"
+        LESS_THAN                = "<"
+        GREATER_THAN_OR_EQUAL_TO = ">="
+        LESS_THAN_OR_EQUAL_TO    = "<="
 
 
     #---------------------------------------------------------------------------------------------------------------------------------------------
@@ -147,10 +161,23 @@ class PyLO():
     def bifcs_to_list(self,data, convert_to_str=False):
         '''  It converts bool, int, float, and complex type to list type  '''
         tempo_list = []
-        if convert_to_str == True:
-            tempo_list.append(str(data))
+        
+        if isinstance(data, complex):           
+            if convert_to_str == True:
+                data = str(data)
+                data = data.replace("(", "")
+                data = data.replace(")", "")
+                tempo_list.append(data)
+            else:
+                tempo_list.append(data)
+            return tempo_list            
+        
         else:
-            tempo_list.append(data)
+            if convert_to_str == True:
+                tempo_list.append(str(data))
+            else:
+                tempo_list.append(data)
+        
         return tempo_list
 
 
@@ -245,12 +272,13 @@ class PyLO():
             elif (header_title == None or header_title.lower() == "none"):
                 pass
             else:
-                if layout.lower() == "vertical" or layout.lower():
+                if layout.lower() == "vertical" or layout.lower() == "v":
                     tempo_list.append([header_title])
                 else:
                     tempo_list.append(header_title)
 
-        #for n in data:
+
+
         if (layout.lower() == "v" or layout == Layout.VERTICAL):
             range_to_list_get_header("vertical")
             for n in data:
@@ -1382,7 +1410,7 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     def lower_case(self, data:list):
 
-        '''  This method lower case all the items in a list.  '''
+        '''  This method lowercase all the items in a list.  '''
 
         new_list = []
         for value in data:
@@ -1402,7 +1430,7 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     def upper_case(self, data:list):
 
-        '''  This method upper case all the items in a list.  '''
+        '''  This method uppercase all the items in a list.  '''
 
         new_list = []
         for value in data:
@@ -1613,7 +1641,7 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     def delete_value(self, data:list, value:str="", case_sensitive:bool=True, update:bool=False):
 
-        ''' This method delete an value from the list.
+        ''' This method delete a value from the list.
             This methods has the option of using the case sensitive.
         '''
 
@@ -1967,21 +1995,36 @@ class PyLO():
     # Find the shortes element in a NestedList                                                                                                       -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     def find_longest_item(self, data:list, display=False):
+        ''' This method finds the longest item in a list and returns it in a list form '''
         longest_len  = 0
         longest_item = ""
         longest_row  = 0
         longest_col  = 0
 
+        type_of_list = get_list_type(data)        
+        if type_of_list == "multiple_items_multiple_rows" or type_of_list == "multiple_items_one_row":
         # Calculating Longest: Item, len, row, col
-        for row in range(len(data)):
-            for col in range(len(data[row])):
-                item_length = (len(str(data[row][col])))
+            for row in range(len(data)):
+                for col in range(len(data[row])):
+                    item_length = (len(str(data[row][col])))
+                    if item_length > longest_len:
+                        longest_len  = item_length
+                        longest_item = data[row][col]
+                        longest_row  = row
+                        longest_col  = col
+                    else: pass
+        
+        elif type_of_list == "multiple_items_no_row":
+            for col in range(len(data)):
+                item_length = len(str(data[col]))
                 if item_length > longest_len:
-                    longest_len  = item_length
-                    longest_item = data[row][col]
-                    longest_row  = row
+                    longest_len = item_length
+                    longest_item = data[col]
+                    longest_row  = 0
                     longest_col  = col
                 else: pass
+
+        else: pass
 
         result = [["Item", "Len", "Row", "Col"],
                 [longest_item, longest_len, longest_row, longest_col]]
@@ -1993,21 +2036,39 @@ class PyLO():
     # Find the shortes element in a NestedList                                                                                                       -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     def find_shortest_item(self, data:list, display=False):
-        shortest_len  = len(data[0][0])
+        ''' This method finds the shortest item in a list and returns it in a list form '''
+        shortest_len  = 0
         shortest_item = ""
         shortest_row  = 0
         shortest_col  = 0
 
-        # Calculating Shortest: Item, len, row, col
-        for row in range(len(data)):
-            for col in range(len(data[row])):
-                item_length = (len(str(data[row][col])))
+        type_of_list = get_list_type(data)        
+        if type_of_list == "multiple_items_multiple_rows" or type_of_list == "multiple_items_one_row":
+            # Calculating Shortest: Item, len, row, col
+            shortest_len  = len(str(data[0][0]))
+            shortest_item = data[0][0]
+            for row in range(len(data)):
+                for col in range(len(data[row])):
+                    item_length = (len(str(data[row][col])))
+                    if item_length < shortest_len:
+                        shortest_len  = item_length
+                        shortest_item = data[row][col]
+                        shortest_row  = row
+                        shortest_col  = col
+                    else: pass
+
+        elif type_of_list == "multiple_items_no_row":            
+            shortest_len  = len(str(data[0]))
+            shortest_item = data[0]
+            for col in range(len(data)):
+                item_length = len(str(data[col]))
                 if item_length < shortest_len:
-                    shortest_len  = item_length
-                    shortest_item = data[row][col]
-                    shortest_row  = row
+                    shortest_len = item_length
+                    shortest_item = data[col]
+                    shortest_row  = 0
                     shortest_col  = col
-                else: pass
+                else:pass
+        else: pass
 
         result = [["Item", "Len", "Row", "Col"],
                 [shortest_item, shortest_len, shortest_row, shortest_col]]
@@ -2020,7 +2081,149 @@ class PyLO():
 
 
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    #                                                                                                     -
+    # split list by col condition                                                                                                                    -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
+    def split_list_by_condition(self, data:list=[["Empthy"]], col_idx:int=0, condition:int|str="Fail", sensitive_case=False,
+                                 operator:str="==", start_row:int=1):
+        # headers = data.pop(0)
+        list_true_condition  = []
+        list_false_condition = []
+        type_of_list = get_list_type(data)
+
+        
+        if type_of_list == "multiple_items_multiple_rows":           
+            print(type_of_list)
+            for row in range(start_row, len(data)):
+                if isinstance(condition, str):
+                    print(data[row][col_idx])
+
+                    if sensitive_case == False:
+                        try:
+                            if data[row][col_idx].lower() == condition.lower():
+                                list_true_condition.append(data[row])
+                            else:
+                                list_false_condition.append(data[row])
+                        except:
+                            list_false_condition.append(data[row])
+                                   
+                                   
+                    else:
+                        if data[row][col_idx] == condition:
+                            list_true_condition.append(data[row])
+                        else:
+                            list_false_condition.append(data[row])
+
+                else: # dealing with number condition                        
+                    if operator == "==":
+                        try:
+                            if data[row][col_idx] == condition:
+                                list_true_condition.append(data[row])
+                            else:
+                                list_false_condition.append(data[row])
+                        except:
+                                list_false_condition.append(data[row])
+                    
+                    elif operator == "<=":
+                        try:
+                            if data[row][col_idx] <= condition:
+                                list_true_condition.append(data[row])
+                            else:
+                                list_false_condition.append(data[row])
+                        except:
+                            list_false_condition.append(data[row])
+
+                    elif operator == "<":
+                        try:
+                            if data[row][col_idx] < condition:
+                                list_true_condition.append(data[row])
+                            else:
+                                list_false_condition.append(data[row])
+                        except:
+                            list_false_condition.append(data[row])
+
+                    elif operator == ">=":
+                        try:
+                            if data[row][col_idx] >= condition:
+                                list_true_condition.append(data[row])
+                            else:
+                                list_false_condition.append(data[row])
+                        except:
+                            list_false_condition.append(data[row])
+
+                    elif operator == ">":
+                        try:
+                            if data[row][col_idx] > condition:
+                                list_true_condition.append(data[row])
+                            else:
+                                list_false_condition.append(data[row])
+                        except:
+                            list_false_condition.append(data[row])
+
+                    elif operator == "!=":
+                        try:
+                            if data[row][col_idx] != condition:
+                                list_true_condition.append(data[row])
+                            else:
+                                list_false_condition.append(data[row])
+                        except:
+                            list_false_condition.append(data[row])
+
+                    else:
+                        pass
+        
+
+        else:
+            pass
+
+        if (len(list_true_condition)) >= 1:
+            if start_row == 1:
+                list_true_condition.insert(0, data[0])
+
+        if (len(list_false_condition)) >= 1:
+            if start_row == 1:
+                list_false_condition.insert(0, data[0])
 
 
+        return list_true_condition, list_false_condition
+
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    # Padding a list                                                                                                                                 -
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
+    def padding_list(self, data:list, align="c", padding_size:int=1, left_pad:int=2, right_pad:int=2):
+        new_data = self.to_string_list(data=data)
+        padded_matrix = []
+        type_of_list = get_list_type(data)
+        longest_item = self.find_longest_item(data=new_data)
+
+        
+
+        if type_of_list == "multiple_items_multiple_rows" or type_of_list == "multiple_items_one_row":
+            if longest_item[1][1] < padding_size: pass
+            else:                                 padding_size = longest_item[1][1]
+
+            if align == "c" or align == "center":
+                padded_matrix = [[cell.center(padding_size) for cell in row] for row in new_data]
+            elif align == "l" or align == "left":
+                padded_matrix = [[cell.ljust(padding_size) for cell in row] for row in new_data]
+            elif align == "r" or align == "right":    
+                padded_matrix = [[cell.rjust(padding_size) for cell in row] for row in new_data]
+            else:                
+                padded_matrix = [[f"{ins_chr(left_pad)}{cell.ljust(padding_size)}{ins_chr(right_pad)}" for cell in row] for row in new_data]
+
+
+        elif type_of_list == "multiple_items_no_row":   
+            if longest_item[1][1] < padding_size: pass
+            else:                                 padding_size = longest_item[1][1]
+            if align == "c" or align == "center":
+                padded_matrix = [cell.center(padding_size) for cell in new_data]
+            elif align == "l" or align == "left":
+                padded_matrix = [cell.ljust(padding_size) for cell in new_data]
+            elif align == "r" or align == "right":    
+                padded_matrix = [cell.rjust(padding_size) for cell in new_data]
+            else:                
+                padded_matrix = [f"{ins_chr(left_pad)}{cell.ljust(padding_size)}{ins_chr(right_pad)}" for cell in new_data]
+
+        
+        else:
+            pass
+        return padded_matrix
