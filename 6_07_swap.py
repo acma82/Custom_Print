@@ -51,3 +51,6 @@ print("original: ", lst)
                 will return the list as original and it will print a message
                 out of range.    
 '''
+lst = [7,8,9,5,2]
+result = pylo.swap(lst,0,3,False)
+print(result)

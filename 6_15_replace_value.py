@@ -64,26 +64,27 @@ def experiment_replace(data:list, ref_value="---", new_value="----")->list:
 import custom_print as cp
 pylo = cp.PyLO()
 
-print(f"{cp.set_font(1,1,15)} old=3, new=\"NEW\", case_sensitive=True, update=False {cp.reset_font()}")
+print(f"{cp.set_font(1,1,15)} value=3, new=\"NEW\", case_sensitive=True, update=False {cp.reset_font()}")
 list_1 = [[11,[10,3],12,3],[14,15,3],[12,3,3]]
 print("Original:",list_1)
-new_lst = pylo.replace_value(list_1, old=3, new="NEW", case_sensitive=True, update=False)
+
+new_lst = pylo.replace_value(list_1, current_value=3, new_value="NEW", case_sensitive=True, update=False)
 print("Result  :",new_lst)
 print("Original:",list_1)
 
 cp.ins_newline(2)
 
-list_2 = [["HeadeR 1", "HeadeR 2", "HeadeR 3",0],
-          ["DatitO 1", "DatitO 2", "DatitO 3",1],
-          ["DatitO 4", "DatitO 5", "DatitO 6",0],
-          ["DatitO 1", "DatitO 2", "DatitO 1",3]]
+lst  = [["Head", 0],
+        ["Data", 1],
+        ["DATA", 0],
+        ["data", 3]]
 
+print(f"{cp.set_font(1,1,15)} value=\"datito 1\", new=\"NEW\", case_sensitive=False, update=True {cp.reset_font()}")
+new_lst = pylo.replace_value(data=lst, current_value="data", new_value="NEW_DATA", case_sensitive=False, update=True)
 
-print(f"{cp.set_font(1,1,15)} old=\"datito 1\", new=\"NEW\", case_sensitive=False, update=True {cp.reset_font()}")
-new_lst = pylo.replace_value(data=list_2, old="datito 1", new="NEW", case_sensitive=False, update=True)
-print("Result  :",new_lst)
+print("Result  : ",new_lst)
 cp.ins_newline(2)
-print(list_2)
+print("lst     : ",lst)
 
 
  

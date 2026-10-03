@@ -13,9 +13,10 @@ print("List_2: ",list_2)
 print("\n")
 
 for n in range(len(list_1)):
-    join_list = pylo.join_as_vector(data=list_1, list_to_join=list_2, col_posi=n)
+    join_list = pylo.join_as_vector(data=list_1, list_to_join=list_2, col_index=n)
     print(f"Result:{n} {join_list}")
 
+print()
 
-join_list = pylo.join_as_vector(data=list_1, list_to_join=list_2, col_posi=9)
+join_list = pylo.join_as_vector(data=list_1, list_to_join=list_2, col_index=9)
 print(f"Result:9 {join_list}")

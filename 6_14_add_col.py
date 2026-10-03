@@ -16,8 +16,8 @@ list_2 = ["New_Header",   "New_Row_Col",  "New_Row_Col"]
 tbl.print_fancy_format(list_2)
 
 tbl.title_msg = " New Complete List_1_2 "
-tbl.footnote_msg = " data=list_1, col_data=list_2, posi=1 "
-list_1_2 = pylo.add_col(data=list_1, col_data=list_2, posi=1)
+tbl.footnote_msg = " data=list_1, col_data=list_2, col_index=1 "
+list_1_2 = pylo.add_col(data=list_1, col_data=list_2, col_index=1)
 tbl.print_fancy_format(list_1_2)
 tbl.footnote_msg = ""
 
@@ -41,13 +41,13 @@ tbl.print_fancy_format(list_4)
 # add cols into another list merge in horizontal
 tmp = list_3
 for rows in range(len(list_4)):
-    tmp = pylo.add_col(data=tmp, col_data=list_4[rows], posi=len(tmp)+1)
+    tmp = pylo.add_col(data=tmp, col_data=list_4[rows], col_index=len(tmp)+1)
 
 tbl.print_fancy_format(tmp, cp.Line_Style.DOUBLE_LINE)
 
 tmp = list_3
 for rows in range(len(list_4)):
-    tmp = pylo.add_col(data=tmp, col_data=list_4[rows], posi=len(tmp))
+    tmp = pylo.add_col(data=tmp, col_data=list_4[rows], col_index=len(tmp))
 
 tbl.print_fancy_format(tmp, cp.Line_Style.DOUBLE_LINE)
 

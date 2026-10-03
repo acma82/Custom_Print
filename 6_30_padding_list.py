@@ -21,7 +21,7 @@ lst = ["acma2",4787878,"Migue", "acma", "Miguelito"]         # multiple_items_no
 # # print(cp.get_list_type(lst))
 
 
-padding_list = pylo.padding_list(data=lst, align="j", padding_size=1, left_pad=4, right_pad=1)
+padding_list = pylo.padding_list(data=lst, align=cp.Align.JUSTIFY, padding_size=1, left_pad=4, right_pad=1)
 print(padding_list)
 
 

@@ -1077,7 +1077,7 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Delete a Column in a List                                                                                                                      -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def delete_col(self, data:list, index:int=0, update:bool=False):
+    def delete_col(self, data:list, col_index:int=0, update:bool=False):
 
         '''  It deletes a specific column from the list  '''
 
@@ -1089,8 +1089,8 @@ class PyLO():
 
 
         else:
-            if   index > n_cmax-1: index = n_cmax -1
-            elif index < 0:        index = 0
+            if   col_index > n_cmax-1: col_index = n_cmax -1
+            elif col_index < 0:        col_index = 0
             else:                  pass
 
             #                 Done  ["dato"]                    Done [["dato"]]
@@ -1100,20 +1100,20 @@ class PyLO():
 
             # multiple_items_no_row -> ["Hello","bye","good"]          mix_items -> [10,[50],[250],["H"],100]
             elif list_type == "multiple_items_no_row" or list_type == "mix_items":
-                value =  data.pop(index)
+                value =  data.pop(col_index)
                 for n in data: new_list.append(n)
-                if update == False: data.insert(index,value)
+                if update == False: data.insert(col_index,value)
 
 
             elif list_type == "multiple_items_one_row":       # Done [["Hello","bye","good"]]
-                if index >= len(data[0]):
+                if col_index >= len(data[0]):
                     print("col_ref is out of range in one or more columns in the list")
                 else:
                     tempo = []
-                    value = data[0].pop(index)
+                    value = data[0].pop(col_index)
                     for n in data[0]: tempo.append(n)
                     new_list.append(tempo)
-                    if update == False: data[0].insert(index,value)
+                    if update == False: data[0].insert(col_index,value)
 
 
             # Done [["Hello"],["bye"],["good"]] or [["Hello","mio"],["bye"],["good","hh"]]
@@ -1122,7 +1122,7 @@ class PyLO():
                 for row in data:
                     tempo = []
                     for col in range(len(row)):
-                        if index == col:  pass
+                        if col_index == col:  pass
                         else:             tempo.append(row[col])
 
                     # if tempo != []: new_list.append(tempo)
@@ -1168,7 +1168,7 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Add a New Column in a List                                                                                                                     -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def add_col(self, data:list, col_data:list, posi:int=0):
+    def add_col(self, data:list, col_data:list, col_index:int=0, update:bool=False):
 
         '''  This method adds a column into the list in a specific postion.
              The original list has to be in the form of a matrix or table
@@ -1208,25 +1208,25 @@ class PyLO():
                     dimension_ld = PyLO.dimensions(self, data=data)
                     max_col = dimension_ld[1][1]
 
-                    if posi <= 0:
+                    if col_index <= 0:
                         for row in data:
                             new_list[ctrl].insert(0, col_info[ctrl])
                             ctrl += 1
 
-                    elif posi >= max_col:
+                    elif col_index >= max_col:
                         for row in data:
                             new_list[ctrl].append(col_info[ctrl])
                             ctrl += 1
 
                     else:
                         for row in data:
-                            if posi >= len(row):
+                            if col_index >= len(row):
                                 new_list[ctrl].append(col_info[ctrl])
                                 cnt += 1
 
                             else:
                                 for n in range(len(row)):
-                                    if posi == n:
+                                    if col_index == n:
                                         new_list[ctrl].insert(n, col_info[cnt])
                                         cnt += 1
                                     else: pass
@@ -1236,13 +1236,21 @@ class PyLO():
             else:
                 new_list =[]
 
+        if update == True:
+            data.clear()
+            for row in new_list:
+                for col in row:
+                    tempo_rows.append(col)
+                data.append(tempo_rows)
+                tempo_rows = []
+
         return new_list
 
 
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Replace a Value in the List                                                                                                                    -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def replace_value(self, data:list, old:int|str, new:int|str, case_sensitive:bool=True, update:bool=False):
+    def replace_value(self, data:list, current_value:int|str, new_value:int|str, case_sensitive:bool=True, update:bool=False):
 
         '''  It replaces an item value for another in a list
              The list can be a vector [1,2,3,4] or a matrix (table) [[1,2],[3,1]]
@@ -1252,22 +1260,22 @@ class PyLO():
         new_list = []
         for value in data:
             if isinstance(value, list):
-                new_list.append(PyLO.replace_value(self, value, old, new, case_sensitive))
+                new_list.append(PyLO.replace_value(self, value, current_value, new_value, case_sensitive))
 
             else:
                 if case_sensitive == True:
-                    if value == old:    new_list.append(new)
+                    if value == current_value:    new_list.append(new_value)
                     else:               new_list.append(value)
 
                 elif case_sensitive == False:
-                    if isinstance(value, str) and isinstance(old, str):
-                        if value.lower() == old.lower():
-                            new_list.append(new)
+                    if isinstance(value, str) and isinstance(current_value, str):
+                        if value.lower() == current_value.lower():
+                            new_list.append(new_value)
                         else:
                             new_list.append(value)
                     else:
-                        if value == old:
-                            new_list.append(new)
+                        if value == current_value:
+                            new_list.append(new_value)
                         else:
                             new_list.append(value)
 
@@ -1328,7 +1336,7 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Join Two List as a Vector                                                                                                                      -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def join_as_vector(self, data:list, list_to_join:list, col_posi:int=0):
+    def join_as_vector(self, data:list, list_to_join:list, col_index:int=0):
 
         '''  It joins two list as a vector, join_list = [1,2,3,4,5,etc.]  '''
 
@@ -1336,17 +1344,17 @@ class PyLO():
         lista_2 = PyLO.make_to_vector(self, data=list_to_join)
         join_list = []
 
-        if   col_posi >= len(lista_1):
+        if   col_index >= len(lista_1):
             for n in lista_1: join_list.append(n)
             for n in lista_2: join_list.append(n)
 
-        elif col_posi <= 0:
+        elif col_index <= 0:
             for n in lista_2: join_list.append(n)
             for n in lista_1: join_list.append(n)
         else:
             ctrl = 0
             for l1 in lista_1:
-                if ctrl == col_posi:
+                if ctrl == col_index:
                     for l2 in lista_2:
                         join_list.append(l2)
                     join_list.append(l1)
@@ -1363,8 +1371,8 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     def find_value(self, data:list, value:int|str, case_sensitive=False):
 
-        '''  This method finds a value into a list and returns the location of the value.
-             Up to 4 brackets.
+        '''  This method finds a value into a list and returns the location of the value
+             in a list, Up to 4 brackets.
         '''
 
         my_type = get_list_type(data)
@@ -1394,6 +1402,7 @@ class PyLO():
             for v in range(len(tmp)):
                 if tmp[v] == new_value:
                     grep_list.append(v)
+            ctrl = 2
 
         if   ctrl == 1 and len(grep_list)>0: grep_list.insert(0, ["Row","Col","value"])
         elif ctrl == 2 and len(grep_list)>0:
@@ -1994,7 +2003,7 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Find the shortes element in a NestedList                                                                                                       -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def find_longest_item(self, data:list, display=False):
+    def find_longest_item(self, data:list):
         ''' This method finds the longest item in a list and returns it in a list form '''
         longest_len  = 0
         longest_item = ""
@@ -2035,7 +2044,7 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Find the shortes element in a NestedList                                                                                                       -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def find_shortest_item(self, data:list, display=False):
+    def find_shortest_item(self, data:list):
         ''' This method finds the shortest item in a list and returns it in a list form '''
         shortest_len  = 0
         shortest_item = ""
@@ -2073,8 +2082,6 @@ class PyLO():
         result = [["Item", "Len", "Row", "Col"],
                 [shortest_item, shortest_len, shortest_row, shortest_col]]
 
-        if display == True:
-            print(result)
 
         return result
 

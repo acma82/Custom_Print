@@ -135,8 +135,8 @@ tbl.print_fancy_format(new_list)
 
 
 tbl.title_msg = " Adding Numbers, update=True "
-pylo.number(methods, start_number=1, id_txt="No.", renumber=False, update=True)
+pylo.add_col_id(methods, start_number=1, id_label="No.", renumber=False, update=True)
 tbl.print_fancy_format(methods)
 
-result = pylo.delete_col(data=methods, index=2, update=False)
+result = pylo.delete_col(data=methods, col_index=2, update=False)
 tbl.print_fancy_format(result)
