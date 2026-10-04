@@ -16,29 +16,30 @@ l1 = [["Names",    "Lasts",    "Ages",  "Department", "AWeb"    ],
 
 
 
-new_list = pylo.sort_cols(l1, "ascending", False)
-tbl.title_msg = " Ascending Order ";    tbl.print_fancy_format(new_list)
+new_list = pylo.sort_cols(l1, pylo.Order.ASCENDING, False)
 tbl.title_msg = " Original List ";      tbl.print_fancy_format(l1)
+tbl.title_msg = " Ascending Order ";    tbl.print_fancy_format(new_list)
 
 
-new_list = pylo.sort_cols(l1, "descending", False)
+new_list = pylo.sort_cols(l1, pylo.Order.DESCENDING, False)
 tbl.title_msg = " Descending Order ";     tbl.print_fancy_format(new_list)
-tbl.title_msg = " Original List ";        tbl.print_fancy_format(l1)
-
-new_list = pylo.sort_cols(data=l1, sort_type=[4,0,1,3,2], update=True)
-tbl.title_msg = " Order by List Reference [4,0,1,3,2] update=True "
-tbl.print_fancy_format(new_list)
-tbl.title_msg = " Original List "
-tbl.print_fancy_format(l1)
 
 
-new_list = pylo.sort_cols(data=l1, sort_type=pylo.Order.ASCENDING, update=False)
-new_list = pylo.sort_cols(data=l1, sort_type=pylo.Order.DESCENDING, update=True)
 
-tbl.title_msg = ""
-l1 = ["NaMeS",    "LaStS",    "AgeS",  "DeparTmenT", "AWeB"]
-l = sorted(l1, reverse=False)
-tbl.print_fancy_format(l)
+# new_list = pylo.sort_cols(data=l1, sort_type=[4,0,1,3,2], update=True)
+# tbl.title_msg = " Order by List Reference [4,0,1,3,2] update=True "
+# tbl.print_fancy_format(new_list)
+# tbl.title_msg = " Original List "
+# tbl.print_fancy_format(l1)
 
-new_list = pylo.sort_cols(data=l1, sort_type=pylo.Order.ASCENDING, update=False)
-tbl.print_fancy_format(new_list)
+
+# new_list = pylo.sort_cols(data=l1, sort_type=pylo.Order.ASCENDING, update=False)
+# new_list = pylo.sort_cols(data=l1, sort_type=pylo.Order.DESCENDING, update=True)
+
+# tbl.title_msg = ""
+# l1 = ["NaMeS",    "LaStS",    "AgeS",  "DeparTmenT", "AWeB"]
+# l = sorted(l1, reverse=False)
+# tbl.print_fancy_format(l)
+
+# new_list = pylo.sort_cols(data=l1, sort_type=pylo.Order.ASCENDING, update=False)
+# tbl.print_fancy_format(new_list)

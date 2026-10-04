@@ -179,7 +179,7 @@ def padding_list(self, nested_list):
         if self.transpose_list == False: header_on_nested_list = add_col_id(nested_list=string_nested_list, id_label = "Rows \u2193")   # Step 3 (longest 8)
         else:                           header_on_nested_list = add_col_id(nested_list=string_nested_list, id_label = "Rows \u2192")   # Step 3 (longest 8)
         transpose_nested_list = get_transpose(header_on_nested_list)  # step 4
-        new_nested_list = to_string_list(transpose_nested_list)          # step 5
+        new_nested_list = to_string_list(transpose_nested_list)       # step 5
     else:
         transpose_nested_list = get_transpose(string_nested_list)     # step 4
         new_nested_list = to_string_list (transpose_nested_list)
@@ -306,13 +306,15 @@ class NestedList():
                         if col == 0:
                             print(f"{indentation}{id_colors}  {formatted_nested_list[row][col]} ", end="", flush=True)
                         elif col == 1:
-                            if len(formatted_nested_list) == 2: # only 2 rows
+                            if len(formatted_nested_list[0]) == 2: # only 2 columns
                                 print(f"{dt_colors}{lsp}{formatted_nested_list[row][col]}{rsp}",end="", flush=True)
                             else:
                                 if col == last_col:
                                     print(f"{dt_colors}{lsp}{formatted_nested_list[row][col]}{rsp}",end="", flush=True)
                                 else:
                                     print(f"{dt_colors}{lsp}{formatted_nested_list[row][col]}",end="", flush=True)
+
+                                    
                         else: # more than one
                             if col == last_col:
                                 print(f"{dt_colors}{msp}{formatted_nested_list[row][col]}{rsp}",end="", flush=True)

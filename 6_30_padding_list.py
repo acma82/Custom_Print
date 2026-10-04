@@ -23,27 +23,3 @@ lst = ["acma2",4787878,"Migue", "acma", "Miguelito"]         # multiple_items_no
 
 padding_list = pylo.padding_list(data=lst, align=cp.Align.JUSTIFY, padding_size=1, left_pad=4, right_pad=1)
 print(padding_list)
-
-
-# explanation.
-# this method padd a list. the align is specified and the size of the padding is taking 
-# from the padding_size parameter. If the padding_size parameter is shorter than the
-# longest element in the list then it will be take the longest len of the list as
-# the padding_size. 
-# for the left_pad and right_pad are used only when the align is set to "j" or "justify"
-# otherwise it is ignored.
-# The justify alignment will pad the list as left using the reference of padding_size or 
-# the longest item in the list and then it will add the spaces specify
-# for the left_pad and the right_pad
-
-# mylist = pylo.to_string_list(lst)
-# longest = pylo.find_longest_item(mylist)
-# print(longest[1][1])
-
-# # A matrix with unaligned text 
-# matrix = [ ["apple", "to"], ["banana", "strawberry"] ]
-# # Pad each string to a width of 10 spaces on the right 
-# padded_matrix = [[cell.ljust(longest[1][1]) for cell in row] for row in mylist]
-# # Print the result cleanly 
-# print(padded_matrix)
-# # for row in padded_matrix: print(row)

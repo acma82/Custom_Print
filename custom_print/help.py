@@ -26,10 +26,6 @@ blue_div.all_corner_bg = 10;           blue_div.top_horizontal_line_bg = 4;     
 blue_div.left_vertical_line_bg = 10;   blue_div.right_vertical_line_bg = 10
 
 tbl = cp.FancyFormat()
-tbl.adj_space = 1
-tbl.header_align = cp.Align.CENTER
-tbl.data_align   = cp.Align.JUSTIFY
-tbl.header_bold  = True
 
 pink_div = cp.FancyDivider()
 pink_div.msg_bg = 208;                   pink_div.msg_fg = 0;                           pink_div.msg_bold = True
@@ -40,6 +36,7 @@ pink_div.left_vertical_line_bg = 208;    pink_div.right_vertical_line_bg = 208
 
 
 def about_custom_print():
+    tbl.reset_fancy_format()
     word = []
     word.append("                                                                ")
     word.append("    ___          _                        ___      _       _    ")
@@ -102,7 +99,6 @@ def about_custom_print():
     logo.print_ascii_art_logo(direction=cp.Direction.UP_DOWN)
     tbl.print_fancy_format(lst, "design_10")
     print()
-    tbl.reset_fancy_format()
 
 
 # This list is used for the name in the dividers)
@@ -134,15 +130,18 @@ all_topics = [
 
 
 def  help_documentation():
-    # pylo = cp.PyLO()
-    # result = pylo.sort_rows_by_col(data=help_classes, ref_col=0, reversed_order=False, update=False)
-
     blue_msg  = cp.FancyMessage()   # for titles in the help menu and for class names
     blue_msg.body_bold   = True
     blue_msg.title_bold  = True
     blue_msg.body_italic = True
 
     cols, rows = cp.dimensions()
+
+    tbl.reset_fancy_format()
+    tbl.adj_space = 1
+    tbl.header_align = cp.Align.CENTER
+    tbl.data_align   = cp.Align.JUSTIFY
+    tbl.header_bold  = True
 
     crs = cp.Cursor()               # Cursor Object
     fst = cp.FontStyle()            # FontStyle Object
@@ -257,7 +256,7 @@ def  help_documentation():
     print(f"   {fst.style_on()} Example 1: {fst.style_off()}  custom_print clean")
     print("\n      It will display the documentation for the function clean. ")
     note=" Note: "
-    #                   20                   40                   60                   80   85   90
+
     message_note = '''
  It is possible to display the documentation for multiple
  functions or methods simultaneously by passing them as parameters.
@@ -332,7 +331,6 @@ def  help_documentation():
     tbl.adj_indent = 24
     tbl.print_fancy_format("Bugs \u2192 acma.mex@hotmail.com", cp.Line_Style.DOUBLE_LINE)
     cp.ins_newline(1)
-    tbl.reset_fancy_format()
 
 
 def all_documentation():
@@ -986,6 +984,7 @@ def help_classes_info():
 def align_info():
     cp.ins_newline(1)
     green_div.print_fancy_divider(all_topics[17], cp.Divider_Style.CUSTOMIZED)
+    tbl.reset_fancy_format()
     message = f'''
       This class is used where alignment is needed. It  contains 4 options.
 
@@ -1015,7 +1014,6 @@ def align_info():
     tbl.header_bold = True
     tbl.print_fancy_format(data=lista, style=cp.Line_Style.TURQUOISE_BLACK)
     print(f"\n      {cp.set_font(1,196,231)} Note {cp.reset_font()} See FancyFormat Class or FancyMessage Class to visualize \n             a complete example.\n\n")
-    tbl.reset_fancy_format()
 
 
 #------------------------------------------------------------------------------------------------
@@ -1024,6 +1022,7 @@ def align_info():
 def ascii_letter_info():
     cp.ins_newline(1)
     green_div.print_fancy_divider(all_topics[18], cp.Divider_Style.CUSTOMIZED)
+    tbl.reset_fancy_format()
     message = f'''
       This class is used mainly with AsciiArt class. It contains 23 options.
 
@@ -1078,7 +1077,6 @@ def ascii_letter_info():
 
     tbl.print_fancy_format(data=lista, style=cp.Line_Style.TURQUOISE_BLACK)
     print(f"\n  {cp.set_font(1,196,231)} Note {cp.reset_font()} See the AsciiArt class to visualize a complete example.\n\n")
-    tbl.reset_fancy_format()
 
 
 #------------------------------------------------------------------------------------------------
@@ -1272,6 +1270,7 @@ def length_bg_info():
 def line_style_info():
     cp.ins_newline(1)
     green_div.print_fancy_divider(all_topics[25], cp.Divider_Style.CUSTOMIZED)
+    tbl.reset_fancy_format()
     message = f'''
       Style_Line class is used with FancyFormat class. There are many options.
 
@@ -1381,7 +1380,7 @@ def line_style_info():
     lst = [["Header 1", "Header 2", "Header 3", "Header 4"],
            ["Data 1",   "Data 2",   "Data 3",   "Data 4"  ],
            ["Data 5",   "Data 6",   "Data 7",   "Data 8"  ]]
-    tbl = cp.FancyFormat()
+    
     tbl.header_bg   = 23;         tbl.data_bg   = 231
     tbl.header_fg   = 231;        tbl.data_fg   = 21
     tbl.header_bold = True;       tbl.data_bold = True
@@ -3107,7 +3106,7 @@ def reset_fancy_divider_info():
                   print("Assign: ", div.msg_bold)
                   print("Assign: ", div.msg_bg)
 
-                  tbl.reset_fancy_format()
+                  tbl.reset_fancy_divider()
                   print("Reset : ", div.msg_bold)
                   print("Reset : ", div.msg_bg)
 
@@ -3132,7 +3131,7 @@ def reset_fancy_divider_info():
 def fancyformat_only_info():
     ''' It prints data in a table format. '''
     cp.ins_newline(1)
-    tbl = cp.FancyFormat()
+    tbl.reset_fancy_format()
     crs = cp.Cursor()
     blue_div.print_fancy_divider(all_topics[50], cp.Divider_Style.CUSTOMIZED)
 
@@ -3588,7 +3587,6 @@ def fancyformat_only_info():
     tbl.data_multi_fg_step = 4
     tbl.print_fancy_format(data=lst,
                            style=cp.Line_Style.DASH_LINE)
-    tbl.reset_fancy_format()
 
 
     message = f'''
@@ -3734,7 +3732,7 @@ def print_fancy_format_info():
     ''' The print_fancy_format() method prints any variable in a customized table format. '''
     cp.ins_newline(1)
     green_div.print_fancy_divider(all_topics[51], cp.Divider_Style.CUSTOMIZED)
-    tbl = cp.FancyFormat()
+    tbl.reset_fancy_format()
     message = f'''
     The print_fancy_format() method prints any variable in a customized and
     visually appealing table format. It is highly flexible and can be
@@ -3998,8 +3996,7 @@ def print_fancy_format_info():
     tbl.data_multi_fg_step = 4
     tbl.data_multi_fg_stop = 121
 
-    tbl.print_fancy_format(data=lst, style=cp.Line_Style.TEAL_WHITE)
-    tbl.reset_fancy_format()
+    tbl.print_fancy_format(data=lst, style=cp.Line_Style.TEAL_WHITE)    
 
     message = f'''
       {cp.set_font(1,196,231)} Note {cp.reset_font()} The TEAL_WHITE color template internally sets data_bg = 231
@@ -4070,6 +4067,7 @@ def reset_fancy_format_info():
 def asciiart_only_info():
     cp.ins_newline(1)
     blue_div.print_fancy_divider(all_topics[53], cp.Divider_Style.CUSTOMIZED)
+    tbl.reset_fancy_format()
     def description_ascii_letters():
         ascii_letter_description = [["No.", "Type",                      "Uppercase",    "Lowercase",    "Shiff_On",     "Shift_Off",  "Rows"],
                                     [1,     "Alpha      ",    "Yes",          "No",           "No",           "No",                    "23"  ],
@@ -4109,7 +4107,6 @@ def asciiart_only_info():
 
         # tbl.data_align = cp.Align.CENTER
         tbl.print_fancy_format(data=ascii_letter_description, style=cp.Line_Style.WHITE_BLACK_PURPLE)
-        tbl.reset_fancy_format()
 
         message = f'''
       {cp.set_font(1,196,231)} Rows: {cp.reset_font()}{cp.set_font(1,231,16)} It means the height in rows of the letters for that type.  {cp.reset_font()}
@@ -4119,6 +4116,7 @@ def asciiart_only_info():
     #------------------------------------------------------------------------------------------------------------------------------------
 
     def description_ascii_logos():
+        tbl.reset_fancy_format()
         ascii_logo_description = [["No.", "Name"],
                                     [3,     "Logo_Centos"],
                                     [2,     "Logo_Debian"],
@@ -4137,7 +4135,6 @@ def asciiart_only_info():
         tbl.adj_bottom_space  = 0; tbl.adj_top_space  = 2
 
         tbl.print_fancy_format(data=ascii_logo_description, style=cp.Line_Style.WHITE_BLACK_PURPLE)
-        tbl.reset_fancy_format()
 
     #------------------------------------------------------------------------------------------------------------------------------------
 
@@ -5027,7 +5024,7 @@ def pylo_only_info():
       {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
       {cp.set_font(1,117,16)}    24. delete_col         |    35. merge                          {cp.reset_font()}
       {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
-      {cp.set_font(1,117,16)}    25. add_col            |    36. reverse_row_order              {cp.reset_font()}
+      {cp.set_font(1,117,16)}    25. add_col            |    36. reversed_row_order             {cp.reset_font()}
       {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
       {cp.set_font(1,117,16)}    26. add_col_id         |    37. sort_rows_by_col               {cp.reset_font()}
       {cp.set_font(1,117,16)}                           |                                       {cp.reset_font()}
@@ -5122,7 +5119,7 @@ def pylo_info():
     capitalize_case_info()
 
     merge_info()
-    reverse_row_order_info()
+    reversed_row_order_info()
     sort_rows_by_col_info()
     sort_cols_info()
     update_case_info()
@@ -5131,7 +5128,7 @@ def pylo_info():
     find_longest_item_info()
     find_shortest_item_info()
     split_list_by_col_condition_info()
-    padding_info()
+    padding_list_info()
 
 
 def str_list_option_info():
@@ -5143,8 +5140,18 @@ def str_list_option_info():
       LINE_BY_LINE. This class is used in conjunction with the
       paragraph_to_list() method. See the paragraph_to_list() method for
       more details and examples.
+
+      {cp.set_font(1,231,16)} {cp.Unicode.BULLET} Values: {cp.reset_font()}
+      
+      WORD_BY_WORD = \"word_by_word\"
+
+      LINE_BY_LINE = \"line_by_line\"
     '''
     print(message)
+
+
+
+
 def order_info():
     ''' It describes how to order a list '''
     cp.ins_newline(1)
@@ -5153,8 +5160,18 @@ def order_info():
       The Order class provides two options: ASCENDING and DESCENDING.
       This method works in conjunction with the sort_cols() method.
       See the sort_cols() method for more details and examples.
+
+      {cp.set_font(1,231,16)} {cp.Unicode.BULLET} Values: {cp.reset_font()}
+
+      ASCENDING  = \"ascending\"
+
+      DESCENDING = \"descending\"
     '''
     print(message)
+
+
+
+
 def appending_info():
     ''' It helps to described the how to append a list '''
     cp.ins_newline(1)
@@ -5163,8 +5180,18 @@ def appending_info():
       The Appending class provides two options: ROWS and COLUMNS.
       This method works in conjunction with the merge() method.
       See the merge() method for more details and examples.
+
+      {cp.set_font(1,231,16)} {cp.Unicode.BULLET} Values: {cp.reset_font()}
+
+      ROWS    = \"rows\"
+      
+      COLUMNS = \"columns\"
     '''
     print(message)
+
+
+
+
 def case_info():
     ''' It helps to desgin the type of case in a list '''
     cp.ins_newline(1)
@@ -5177,17 +5204,29 @@ def case_info():
       update_case_col()
 
       See either of these methods for more details and examples.
+
+      {cp.set_font(1,231,16)} {cp.Unicode.BULLET} Values: {cp.reset_font()}
+
+      UPPER = \"upper\"            CAPITALIZE = \"capitalize\"
+
+      LOWER = \"lower\"            NONE = \"none\"
     '''
     print(message)
+
+
+
+
 def operator_info():
     ''' It helps to desgin the type of operator in the method split_list_by_col_condition '''
     cp.ins_newline(1)
-    pink_div.print_fancy_divider("Case", cp.Divider_Style.CUSTOMIZED)
+    pink_div.print_fancy_divider("Operator", cp.Divider_Style.CUSTOMIZED)
     message = f'''
       The Operator class provides six options.
       It works in conjunction with the split_list_by_col_condition method.
 
-            {cp.set_font(1,231,16)}  Operator                   Meaning  {cp.reset_font()}
+      {cp.set_font(1,231,16)} {cp.Unicode.BULLET} Values: {cp.reset_font()}
+
+            {cp.set_font(1,231,22)}  Operator                   Meaning  {cp.reset_font()}
             EQUAL_TO                 =    "=="
             NOT_EQUAL_TO             =    "!="
             GREATER_THAN             =    ">"
@@ -5196,10 +5235,10 @@ def operator_info():
             LESS_THAN_OR_EQUAL_TO    =    "<="
 
 
-      See the split_list_by_col_condition methods for more details and examples.
+      See the split_list_by_col_condition methods for more details
+      and examples.     
     '''
     print(message)
-
 
 
 
@@ -6814,7 +6853,6 @@ def dimensions_info():
                   n_rows_n_cols_list = pylo.dimensions(lst)
                   print(f\"rows: {{n_rows_n_cols_list}}\")
 
-
       {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
     '''
     print(message)
@@ -6828,7 +6866,8 @@ def dimensions_info():
           ["movexy",  "reset_style"]]
 
     n_rows_n_cols_list = pylo.dimensions(lst)
-    print(f"      rows: {n_rows_n_cols_list}\n")
+    print(f"      rows: {n_rows_n_cols_list}")
+    print()
 
 
 
@@ -6840,6 +6879,7 @@ def delete_col_info():
     '''  It deletes a specific column from the list  '''
     cp.ins_newline(1)
     green_div.print_fancy_divider("delete_col", cp.Divider_Style.CUSTOMIZED)
+    tbl.reset_fancy_format()
     message = f'''
       {cp.set_font(0,53,231)}                                                               {cp.reset_font()}
       {cp.set_font(0,53,231)}  delete_col(data:list, col_index:int=0, update:bool=False)    {cp.reset_font()}
@@ -6859,7 +6899,6 @@ def delete_col_info():
                  print("Result      : ",result)
 
                  print("New Original: ",lst_6)
-
 
       {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
     '''
@@ -6892,13 +6931,13 @@ def delete_col_info():
     new_list = pylo.delete_col(methods, 2)
     tbl.print_fancy_format(new_list)
     print()
-    tbl.reset_fancy_format()
 
 
 def add_col_info():
     ''' This method adds a column into the list in a specific postion '''
     cp.ins_newline(1)
     green_div.print_fancy_divider("add_col", cp.Divider_Style.CUSTOMIZED)
+    tbl.reset_fancy_format()
     message = f'''
 
       {cp.set_font(0,53,231)}                                                                          {cp.reset_font()}
@@ -6932,12 +6971,10 @@ def add_col_info():
                                          col_data=list_2, col_index=1)
                  tbl.print_fancy_format(list_1_2)
 
-
-
       {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
-
     '''
     print(message)
+
     pylo = cp.PyLO()
     tbl.title_bg = 90
     tbl.title_align = cp.Align.LEFT
@@ -6956,13 +6993,13 @@ def add_col_info():
     list_1_2 = pylo.add_col(data=list_1, col_data=list_2, col_index=1)
     tbl.print_fancy_format(list_1_2)
     print()
-    tbl.reset_fancy_format()
 
 
 def add_col_id_info():
     '''  This method set the number of rows by adding a column to the left side  '''
     cp.ins_newline(1)
     green_div.print_fancy_divider("add_col_id", cp.Divider_Style.CUSTOMIZED)
+    tbl.reset_fancy_format()
     message = f'''
       {cp.set_font(0,53,231)}                                                                  {cp.reset_font()}
       {cp.set_font(0,53,231)}  add_col_id(data:list, start_number:int=0, id_label:str="ID",    {cp.reset_font()}
@@ -6994,9 +7031,7 @@ def add_col_id_info():
                  tbl.title_msg = " New List With col_id Added "
                  tbl.print_fancy_format(new_methods,cp.Line_Style.WHITE_BLACK_2)
 
-
       {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
-
     '''
     print(message)
 
@@ -7019,7 +7054,7 @@ def add_col_id_info():
     new_methods = pylo.add_col_id(data=methods, start_number=1, id_label="No.", renumber=False, update=False)
     tbl.title_msg = " New List With col_id Added "
     tbl.print_fancy_format(new_methods,cp.Line_Style.WHITE_BLACK_2)
-    tbl.reset_fancy_format()
+    print()
 
 
 
@@ -7074,6 +7109,7 @@ def join_as_vector_info():
     print("\n col_index=9")
     join_list = pylo.join_as_vector(data=list_1, list_to_join=list_2, col_index=-19)
     print(f"Result:9 {join_list}")
+    print()
 
 
 
@@ -7099,7 +7135,6 @@ def make_to_vector_info():
                  print("Vector_2: ",result)
 
                  {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
-
     '''
     print(message)
 
@@ -7165,7 +7200,6 @@ def replace_value_info():
                  print()
 
       {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
-
     '''
     print(message)
     pylo = cp.PyLO()
@@ -7198,6 +7232,7 @@ def find_value_info():
     ''' This method finds a value into a list and returns the location of the value. Up to 4 brackets '''
     cp.ins_newline(1)
     green_div.print_fancy_divider("find_value", cp.Divider_Style.CUSTOMIZED)
+    tbl.reset_fancy_format()
     message = f'''
       {cp.set_font(0,53,231)}                                                                {cp.reset_font()}
       {cp.set_font(0,53,231)}  find_value(data:list, value:int|str, case_sensitive=False)    {cp.reset_font()}
@@ -7267,7 +7302,7 @@ def find_value_info():
     tbl.print_fancy_format(list_1)
     print("  Result ")
     tbl.print_fancy_format(result)
-    tbl.reset_fancy_format()
+    print()
 
 
 
@@ -7489,187 +7524,878 @@ def merge_info():
     ''' This method merge two lists '''
     cp.ins_newline(1)
     green_div.print_fancy_divider("merge", cp.Divider_Style.CUSTOMIZED)
+    tbl.reset_fancy_format()
     message = f'''
-      {cp.set_font(0,53,231)}                               {cp.reset_font()}
-      {cp.set_font(0,53,231)}                               {cp.reset_font()}
-      {cp.set_font(0,53,231)}                               {cp.reset_font()}
+      {cp.set_font(0,53,231)}                                                 {cp.reset_font()}
+      {cp.set_font(0,53,231)}  merge(list_1:list, list_2:list, posi:int=0,    {cp.reset_font()}
+      {cp.set_font(0,53,231)}        merge_by:Appending=Appending.ROWS,       {cp.reset_font()}
+      {cp.set_font(0,53,231)}        fill_value:any="----")                   {cp.reset_font()}
+      {cp.set_font(0,53,231)}                                                 {cp.reset_font()}
 
       {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
                  pylo = cp.PyLO()
+                 tbl  = cp.FancyFormat()
+                 tbl.title_bg  = 90
+                 tbl.title_bold = True
+                 tbl.title_italic = True
+                 tbl.title_align  = cp.Align.LEFT
+                 
+                 methods = [
+                           ["Cursor",  "FontStyle"  ,  "FancyFormat"       ],
+                           ["jumpTo",  "start_style",  "print_fancy_format"],
+                           ["jumpxy",  "stop_style" ,  "reset_fancy_format"],
+                           ["moveTo",  "print_style"                       ],
+                           ["movexy"]]
+ 
+                 people = [
+                          ["Names",  "Lasts",   "Age", "A"],
+                          ["Pancho", "Melti",    50,   "1"],
+                          ["Javier", "Nangy",    32,   "2"],
+                          ["Melony", "Archi",    40,   "3"],
+                          ["Jose",   "Valvimar", 18,   "4"]]
+
+                 tbl.title_msg = " List 1: Methods "
+                 tbl.print_fancy_format(methods)
+
+                 tbl.title_msg = " List 2: People "
+                 tbl.print_fancy_format(people)
+
+
+                 tbl.adj_space = 1
+                 tbl.title_msg = " Merge List 2 to List 1 as COLUMNS posi = 8 "
+                 merge_cols = pylo.merge(list_1=methods, list_2=people,
+                              posi=8, merge_by=pylo.Appending.COLUMNS) 
+                 tbl.print_fancy_format(merge_cols)
+
+                 tbl.title_msg = " Merge List 2 to List 1 as ROWS posi = -1 "
+                 merge_rows = pylo.merge(list_1=methods, list_2=people,
+                              posi=-8, merge_by=pylo.Appending.ROWS)
+                 tbl.print_fancy_format(merge_rows)
+
+                 tbl.title_msg = " Merge List 2 to List 1 as ROWS posi = 2 "
+                 merge_rows = pylo.merge(list_1=methods, list_2=people,
+                              posi=2, merge_by=pylo.Appending.ROWS)
+                 tbl.print_fancy_format(merge_rows)
 
       {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
-
     '''
     print(message)
-def reverse_row_order_info():
+    pylo = cp.PyLO()    
+
+    tbl.title_bg  = 90
+    tbl.title_bold = True
+    tbl.title_italic = True
+    tbl.title_align  = cp.Align.LEFT
+
+    #-----------------------------------------------------------------------------------------
+    methods = [\
+        ["Cursor",  "FontStyle"  ,  "FancyFormat"       ],
+        ["jumpTo",  "start_style",  "print_fancy_format"],
+        ["jumpxy",  "stop_style" ,  "reset_fancy_format"],
+        ["moveTo",  "print_style"                                                    ],
+        ["movexy"]]
+
+    people = [\
+          ["Names",  "Lasts",   "Age", "A"],
+          ["Pancho", "Melti",    50,   "1"],
+          ["Javier", "Nangy",    32,   "2"],
+          ["Melony", "Archi",    40,   "3"],
+          ["Jose",   "Valvimar", 18,   "4"]]
+
+    tbl.title_msg = " List 1: Methods "
+    tbl.print_fancy_format(methods)
+
+    tbl.title_msg = " List 2: People "
+    tbl.print_fancy_format(people)
+
+
+    tbl.adj_space = 1
+    tbl.title_msg = " Merge List 2 to List 1 as COLUMNS posi = 8 "
+    merge_cols = pylo.merge(list_1=methods, list_2=people, posi=8, merge_by=pylo.Appending.COLUMNS) 
+
+    tbl.print_fancy_format(merge_cols)
+
+    tbl.title_msg = " Merge List 2 to List 1 as ROWS posi = -1 "
+    merge_rows = pylo.merge(list_1=methods, list_2=people, posi=-8, merge_by=pylo.Appending.ROWS)
+    tbl.print_fancy_format(merge_rows)
+
+    tbl.title_msg = " Merge List 2 to List 1 as ROWS posi = 2 "
+    merge_rows = pylo.merge(list_1=methods, list_2=people, posi=2, merge_by=pylo.Appending.ROWS)
+    tbl.print_fancy_format(merge_rows)
+    print()
+
+
+
+
+def reversed_row_order_info():
     ''' This methods reverse the order of the list keeping the headers in the same positon '''
     cp.ins_newline(1)
-    green_div.print_fancy_divider("reverse_row_order", cp.Divider_Style.CUSTOMIZED)
+    green_div.print_fancy_divider("reversed_row_order", cp.Divider_Style.CUSTOMIZED)
+    tbl.reset_fancy_format()
     message = f'''
-      {cp.set_font(0,53,231)}                               {cp.reset_font()}
-      {cp.set_font(0,53,231)}                               {cp.reset_font()}
-      {cp.set_font(0,53,231)}                               {cp.reset_font()}
+      {cp.set_font(0,53,231)}                                                            {cp.reset_font()}
+      {cp.set_font(0,53,231)}  reversed_row_order(data:list, keep_header:bool=True,      {cp.reset_font()}
+      {cp.set_font(0,53,231)}                      update:bool=False)                    {cp.reset_font()}
+      {cp.set_font(0,53,231)}                                                            {cp.reset_font()}
 
       {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
                  pylo = cp.PyLO()
+                 tbl  = cp.FancyFormat()
+                 tbl.title_bg  = 90
+                 tbl.title_bold = True
+                 tbl.title_italic = True
+                 tbl.title_align = cp.Align.CENTER
+                 tbl.adj_space = 1
+                 
+                 
+                 methods = [
+                 ["Header 0",    "Header 1"   ,    "Header 2"           ],
+                 ["Cursor",      "FontStyle"  ,    "FancyMessage"       ],
+                 ["jumpTo",      "start_style",    "print_fancy_message"],
+                 ["jumpxy",      "stop_style" ,    "print_fancy_note"   ],
+                 ["moveTo",      "print_style"                          ],
+                 ["movexy"                                             ]]
+                 
+                 
+                 tbl.title_msg = " Original List "
+                 tbl.print_fancy_format(methods)
+                 
+                 
+                 result = pylo.reversed_row_order(data=methods,
+                                                  keep_header=True,
+                                                  update=False)
+
+                 tbl.title_msg = " data=methods, keep_header=True,
+                                   update=False "
+
+                 tbl.print_fancy_format(result)
+                 
+                 
+                 result = pylo.reversed_row_order(data=methods,
+                                                  keep_header=False,
+                                                  update=False)
+
+                 tbl.title_msg = " data=methods, Keep_header=False,
+                                   update=False "
+
+                 tbl.print_fancy_format(result)
 
       {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
-
     '''
     print(message)
+
+    pylo = cp.PyLO()
+    tbl.title_bg  = 90
+    tbl.title_bold = True
+    tbl.title_italic = True
+    tbl.title_align = cp.Align.CENTER
+    tbl.adj_space = 1
+
+
+    methods = [
+        ["Header 0",    "Header 1"   ,    "Header 2"           ],
+        ["Cursor",      "FontStyle"  ,    "FancyMessage"       ],
+        ["jumpTo",      "start_style",    "print_fancy_message"],
+        ["jumpxy",      "stop_style" ,    "print_fancy_note"   ],
+        ["moveTo",      "print_style"                          ],
+        ["movexy"                                              ]]
+
+
+    tbl.title_msg = " Original List "
+    tbl.print_fancy_format(methods)
+
+
+    result = pylo.reversed_row_order(data=methods, keep_header=True, update=False)
+    tbl.title_msg = " data=methods, Keep_header=True, update=False "
+    tbl.print_fancy_format(result)
+
+
+    result = pylo.reversed_row_order(data=methods, keep_header=False, update=False)
+    tbl.title_msg = " data=methods, Keep_header=False, update=False "
+    tbl.print_fancy_format(result)
+    print()
+
+
+
+
 def sort_rows_by_col_info():
     ''' sort_by_col won't sort the first row because it is considered the Header of the list '''
     cp.ins_newline(1)
     green_div.print_fancy_divider("sort_rows_by_col", cp.Divider_Style.CUSTOMIZED)
+    tbl.reset_fancy_format()
     message = f'''
-      {cp.set_font(0,53,231)}                               {cp.reset_font()}
-      {cp.set_font(0,53,231)}                               {cp.reset_font()}
-      {cp.set_font(0,53,231)}                               {cp.reset_font()}
+      {cp.set_font(0,53,231)}                                                                {cp.reset_font()}
+      {cp.set_font(0,53,231)}  sort_rows_by_col(data:list, col_index:int=0,                  {cp.reset_font()}
+      {cp.set_font(0,53,231)}                   reversed_order:bool=False,                   {cp.reset_font()}
+      {cp.set_font(0,53,231)}                   keep_header:bool=True, update:bool=False)    {cp.reset_font()}
+      {cp.set_font(0,53,231)}                                                                {cp.reset_font()}
 
       {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
                  pylo = cp.PyLO()
+                 lst  = [
+                     [\"ID\",  \"Names\",   \"Last\",     \"Age\",    \"Department\"],
+                     [  1,   \"Juan\",    \"Alegria\",    30,     \"EE\"        ],
+                     [ 17,   \"Manuel\",  \"Alvarez\",    25,     \"EC\"        ],
+                     [  9,   \"Luis\",    \"Nanguse\",    21,     \"AD\"        ],
+                     [  3,   \"Pancho\",  \"Marlo\",      41+8j,  \"BE\"        ],
+                     [  2,   \"Felipe\",  \"Cautizo\",    15.5                ]] 
+             
+                 tbl.title_bg = 90
+                 tbl.title_fg = 231
+                 tbl.title_msg = \" Original List \"
+                 tbl.title_align = cp.Align.LEFT
+                 tbl.print_fancy_format(lst)
+             
+                 tbl.title_msg = \" Sort_by Col 0, reversed_order=False,
+                                    keep_header = True \"
+                 result = pylo.sort_rows_by_col(data=lst, col_index=0, 
+                          reversed_order=False, keep_header=True,
+                          update=False)
+                 tbl.print_fancy_format(result)
+             
+                 
+                 tbl.title_msg = \" Sort_by Col 0. reverse_order=True,
+                                    keep_header = True \"
+                 result = pylo.sort_rows_by_col(data=lst, col_index=0,
+                          reversed_order=True, keep_header=True,
+                          update=False)
+                 tbl.print_fancy_format(result)
+             
+                 
+                 tbl.title_msg = \" Sort_by Col 1. reversed = False,
+                                    keep_header = False \"
+                 result = pylo.sort_rows_by_col(data=lst, col_index=1,
+                          reversed_order = False, keep_header = False,
+                          update=False)
+                 tbl.print_fancy_format(result)
+             
+                 
+                 tbl.title_msg = \" Sort_by Col 1. reversed_order = True,
+                                    keep_header=False \"
+                 result = pylo.sort_rows_by_col(data=lst, col_index=10,
+                          reversed_order = True, keep_header = False,
+                          update=False)
+                 tbl.print_fancy_format(result)
 
       {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
-
     '''
     print(message)
+
+    pylo = cp.PyLO()
+    lst  = [["ID",  "Names",   "Last",     "Age",    "Department"],
+            [  1,   "Juan",    "Alegria",    30,     "EE"        ],
+            [ 17,   "Manuel",  "Alvarez",    25,     "EC"        ],
+            [  9,   "Luis",    "Nanguse",    21,     "AD"        ],
+            [  3,   "Pancho",  "Marlo",      41+8j,  "BE"        ],
+            [  2,   "Felipe",  "Cautizo",    15.5                ]] 
+
+    tbl.title_bg = 90
+    tbl.title_fg = 231
+    tbl.title_msg = " Original List "
+    tbl.title_align = cp.Align.LEFT
+    tbl.print_fancy_format(lst)
+
+    tbl.title_msg = " Sort_by Col 0, reversed_order=False, keep_header=True "
+    result = pylo.sort_rows_by_col(data=lst, col_index=0, reversed_order=False, keep_header=True, update=False)
+    tbl.print_fancy_format(result)
+
+    tbl.title_msg = " Sort_by Col 0. reversed_order=True, keep_header=True "
+    result = pylo.sort_rows_by_col(data=lst, col_index=0, reversed_order=True, keep_header=True, update=False)
+    tbl.print_fancy_format(result)
+
+    tbl.title_msg = " Sort_by Col 1. reversed_order=False, keep_header=False "
+    result = pylo.sort_rows_by_col(data=lst, col_index=1, reversed_order=False, keep_header=False, update=False)
+    tbl.print_fancy_format(result)
+
+    tbl.title_msg = " Sort_by Col 1. reversed_order=True, keep_header=False "
+    result = pylo.sort_rows_by_col(data=lst, col_index=10, reversed_order=True, keep_header=False, update=False)
+    tbl.print_fancy_format(result)
+    print()
+
+
+
+
 def sort_cols_info():
-    ''' If the option provided is different than ascending or descending or a list, it will sort as ascending.
-        If the list contains numbers not in the range of the data list, it will sort as ascending.
-        If the list contains a length different than the length of the data, it will sort as ascending.
-        If the list is NOT in the form of rXc it will return an empty list as a result
+    ''' explanation
      '''
     cp.ins_newline(1)
     green_div.print_fancy_divider("sort_cols", cp.Divider_Style.CUSTOMIZED)
+    tbl.reset_fancy_format()
     message = f'''
-      {cp.set_font(0,53,231)}                               {cp.reset_font()}
-      {cp.set_font(0,53,231)}                               {cp.reset_font()}
-      {cp.set_font(0,53,231)}                               {cp.reset_font()}
+      {cp.set_font(0,53,231)}                                                         {cp.reset_font()}
+      {cp.set_font(0,53,231)}  sort_cols(data:list, sort_type:str=Order.ASCENDING,    {cp.reset_font()}
+      {cp.set_font(0,53,231)}            update:bool=False)                           {cp.reset_font()}
+      {cp.set_font(0,53,231)}                                                         {cp.reset_font()}
 
       {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
                  pylo = cp.PyLO()
+               
+                 tbl  = cp.FancyFormat()
+                 tbl.title_bg  = 90
+                 tbl.title_bold = True
+                 tbl.title_italic = True
+                 tbl.title_align = cp.Align.CENTER
+               
+                 #         0         1        2          3          4
+                 l1 = [[\"Names\",  \"Lasts",  "Ages", "Department", \"AWeb\"  ],
+                       [\"Miguel\", \"AC\",     40,        \"EE\",      \"uno\"   ],
+                       [\"Tyler\",  \"Hig\",    35,        \"ECE\",     \"dos\"   ],
+                       [\"Alex\",   \"Call\",   38,        \"EE\",      \"tres\"  ],
+                       [\"Matt\",   \"Armaci\", 40,        \"CS\",      \"cuatro\"]]
+               
+               
+               
+                 new_list = pylo.sort_cols(l1, pylo.Order.ASCENDING, False)
+                 tbl.title_msg = \" Original List \"
+                 tbl.print_fancy_format(l1)
+                 
+                 tbl.title_msg = \" Ascending Order \"
+                 tbl.print_fancy_format(new_list)
+               
+               
+                 new_list = pylo.sort_cols(l1, pylo.Order.DESCENDING, False)
+                 tbl.title_msg = \" Descending Order \"
+                 tbl.print_fancy_format(new_list)
 
       {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
-
     '''
     print(message)
+
+    pylo = cp.PyLO()
+
+    tbl  = cp.FancyFormat()
+    tbl.title_bg  = 90
+    tbl.title_bold = True
+    tbl.title_italic = True
+    tbl.title_align = cp.Align.CENTER
+
+    #         0           1          2            3         4
+    l1 = [["Names",    "Lasts",    "Ages",  "Department", "AWeb"    ],
+          ["Miguel",   "AC",       40,      "EE",         "uno"     ],
+          ["Tyler",    "Hig",      35,      "ECE",        "dos"     ],
+          ["Alex",     "Call",     38,      "EE",         "tres"    ],
+          ["Matt",     "Armaci",   40,      "CS",         "cuatro"  ]]
+
+
+
+    new_list = pylo.sort_cols(l1, pylo.Order.ASCENDING, False)
+    tbl.title_msg = " Original List ";      tbl.print_fancy_format(l1)
+    tbl.title_msg = " Ascending Order ";    tbl.print_fancy_format(new_list)
+
+
+    new_list = pylo.sort_cols(l1, pylo.Order.DESCENDING, False)
+    tbl.title_msg = " Descending Order ";     tbl.print_fancy_format(new_list)
+    print()
+
+
+
+
 def update_case_info():
     ''' Description of the work here '''
     cp.ins_newline(1)
     green_div.print_fancy_divider("update_case", cp.Divider_Style.CUSTOMIZED)
+    tbl.reset_fancy_format()
     message = f'''
-      {cp.set_font(0,53,231)}                               {cp.reset_font()}
-      {cp.set_font(0,53,231)}                               {cp.reset_font()}
-      {cp.set_font(0,53,231)}                               {cp.reset_font()}
+      {cp.set_font(0,53,231)}                                                              {cp.reset_font()}
+      {cp.set_font(0,53,231)}  update_case(data:list, header_case:str=Case.CAPITALIZE,     {cp.reset_font()}
+      {cp.set_font(0,53,231)}              data_case:str=Case.LOWER, update:bool=False)    {cp.reset_font()}
+      {cp.set_font(0,53,231)}                                                              {cp.reset_font()}
 
       {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
                  pylo = cp.PyLO()
+                 tbl  = cp.FancyFormat()
+                 tbl.title_bg  = 90
+                 tbl.title_bold = True
+                 tbl.title_italic = True
+                 tbl.title_align = cp.Align.CENTER
+             
+                 #         0           1          2            3         4
+                 l1 = [
+                 [\"NaMeS\",    \"LaStS\",    \"AgeS\",  \"DeparTmenT\", \"AWeB\"    ],
+                 [\"MigueL\",   \"AC\",       40,      \"EE\",         \"UnO\"     ],
+                 [\"TyleR\",    \"HiG\",      35,      \"ECE\",        \"DoS\"     ],
+                 [\"AleX\",     \"CalL\",     38,      \"EE\",         \"TreS\"    ],
+                 [\"MatT\",     \"ArmacI\",   40,      \"CS\",         \"CuatrO\"  ]]
+             
+                 result = pylo.update_case(l1, pylo.Case.UPPER,
+                                               pylo.Case.LOWER, False)
+                 tbl.title_msg = \" Original List \"
+                 tbl.print_fancy_format(l1)
+                 
+                 tbl.title_msg = \" Headers Uppercase, Data Lowercase \"
+                 tbl.print_fancy_format(result)
 
       {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
-
     '''
     print(message)
+    pylo = cp.PyLO()
+    tbl.title_bg  = 90
+    tbl.title_bold = True
+    tbl.title_italic = True
+    tbl.title_align = cp.Align.CENTER
+
+    #         0           1          2            3         4
+    l1 = [["NaMeS",    "LaStS",    "AgeS",  "DeparTmenT", "AWeB"    ],
+          ["MigueL",   "AC",       40,         "EE",      "UnO"     ],
+          ["TyleR",    "HiG",      35,         "ECE",     "DoS"     ],
+          ["AleX",     "CalL",     38,         "EE",      "TreS"    ],
+          ["MatT",     "ArmacI",   40,         "CS",      "CuatrO"  ]]
+
+    #l1 = [["NaMeS",    "LaStS",    "AgeS",  "DeparTmenT", "AWeB"]]
+
+    result = pylo.update_case(l1, pylo.Case.UPPER, pylo.Case.LOWER, False)
+    tbl.title_msg = " Original List ";             tbl.print_fancy_format(l1)
+    tbl.title_msg = " Headers Uppercase, Data Lowercase "; tbl.print_fancy_format(result)
+    print()
+
+
+
+
 def update_case_col_info():
     ''' This method updates the case for a specific column, header and data '''
     cp.ins_newline(1)
     green_div.print_fancy_divider("update_case_col", cp.Divider_Style.CUSTOMIZED)
+    tbl.reset_fancy_format()
     message = f'''
-      {cp.set_font(0,53,231)}                               {cp.reset_font()}
-      {cp.set_font(0,53,231)}                               {cp.reset_font()}
-      {cp.set_font(0,53,231)}                               {cp.reset_font()}
+      {cp.set_font(0,53,231)}                                                                 {cp.reset_font()}
+      {cp.set_font(0,53,231)}  update_case_col(data:list, header_case:str=Case.CAPITALIZE,    {cp.reset_font()}
+      {cp.set_font(0,53,231)}                   data_case:str=Case.LOWER, col_index=0,        {cp.reset_font()}
+      {cp.set_font(0,53,231)}                   update:bool=False)                            {cp.reset_font()}
+      {cp.set_font(0,53,231)}                                                                 {cp.reset_font()}
 
       {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
                  pylo = cp.PyLO()
 
-      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
+                 tbl  = cp.FancyFormat()
+                 tbl.title_bg  = 90
+                 tbl.title_bold = True
+                 tbl.title_italic = True
+                 tbl.title_align = cp.Align.CENTER
+             
+                 #         0           1          2            3         4
+                 l1 = [[\"NaMeS\",  \"LaStS\",  "AgeS",  \"DeparTmenT\", \"AWeB\"  ],
+                       [\"MigueL\", \"AC\",      40,     \"EE\",         \"One\"   ],
+                       [\"TyleR\",  \"HiG\",     35,     \"ECE\",        \"Two\"   ],
+                       [\"AleX\",   \"CalL\",    38,     \"EE\",         \"Thre\"  ],
+                       [\"MatT\",   \"ArmacI\",  40,     \"CS\",         \"Fourth\"]]
+             
+                 tbl.title_msg = " Original"
+                 tbl.print_fancy_format(l1)
+             
+                 tbl.title_msg = \" Header=upper, Data=Lower, col_index=4,
+                                   Update=False\"
 
+                 result = pylo.update_case_col(data=l1, header_case=\"upper\", 
+                          data_case=\"LOWER\", col_index=4, update=False)
+                 tbl.print_fancy_format(result)
+                              
+                 result = pylo.update_case_col(data=l1,
+                          header_case=pylo.Case.LOWER,
+                          data_case=pylo.Case.UPPER,
+                          col_index=0, update=True)
+
+                 tbl.title_msg = \" Header=Lower, Data=Upper,
+                                   col_index=4, Update=True\"
+                 tbl.print_fancy_format(result)
+                 
+                 tbl.title_msg = \" Original \"
+                 tbl.print_fancy_format(l1)
+
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
     '''
     print(message)
+
+    pylo = cp.PyLO()
+    tbl.title_bg  = 90
+    tbl.title_bold = True
+    tbl.title_italic = True
+    tbl.title_align = cp.Align.CENTER
+
+    #         0           1          2            3         4
+    l1 = [["NaMeS",    "LaStS",    "AgeS",  "DeparTmenT", "AWeB"    ],
+          ["MigueL",   "AC",       40,         "EE",      "One"     ],
+          ["TyleR",    "HiG",      35,         "ECE",     "Two"     ],
+          ["AleX",     "CalL",     38,         "EE",      "Thre"    ],
+          ["MatT",     "ArmacI",   40,         "CS",      "Fourth"  ]]
+
+    tbl.title_msg = " Original"
+    tbl.print_fancy_format(l1)
+
+    tbl.title_msg = " Header=upper, Data=Lower, col_index=4, Update=False"
+    result = pylo.update_case_col(data=l1, header_case="upper", data_case="LOWER", col_index=4, update=False)
+    tbl.print_fancy_format(result)
+
+    cp.ins_newline(2)
+    
+    tbl.title_msg = " Header=Lower, Data=Upper, col_index=0, Update=True"
+    result = pylo.update_case_col(data=l1, header_case=pylo.Case.LOWER, data_case=pylo.Case.UPPER, col_index=0, update=True)
+    tbl.print_fancy_format(result)
+
+    tbl.title_msg = " Original"
+    tbl.print_fancy_format(l1)
+    print()
+
+
+
+
 def find_duplicate_info():
     ''' This method find all duplicate values into a list and returns all duplicate values into a list '''
     cp.ins_newline(1)
     green_div.print_fancy_divider("find_duplicate", cp.Divider_Style.CUSTOMIZED)
+    tbl.reset_fancy_format()
     message = f'''
-      {cp.set_font(0,53,231)}                               {cp.reset_font()}
-      {cp.set_font(0,53,231)}                               {cp.reset_font()}
-      {cp.set_font(0,53,231)}                               {cp.reset_font()}
+      {cp.set_font(0,53,231)}                                                         {cp.reset_font()}
+      {cp.set_font(0,53,231)}  find_duplicate(data:list, case_sensitive:bool=True)    {cp.reset_font()}
+      {cp.set_font(0,53,231)}                                                         {cp.reset_font()}
 
       {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
                  pylo = cp.PyLO()
+                 tbl  = cp.FancyFormat()
+                 tbl.title_bg  = 90
+                 tbl.title_bold = True
+                 tbl.title_italic = True
+                 tbl.title_align = cp.Align.CENTER
+             
 
+                 l1 = [
+{cp.set_font(1,22,231,1)}          #   0              1              2            3           4        {cp.reset_font()}
+         [\"Header 1\",    \"Header 2\",    \"header 1\",  \"header 4\", \"Header 5\"],
+{cp.set_font(1,22,231,1)}          #   5              6              7            8           9        {cp.reset_font()}
+         [\"Data 1\",      \"Data 2\",          40,      \"Data 3\",   \"Data 4\"  ],
+{cp.set_font(1,22,231,1)}          #   10             11             12           13          14       {cp.reset_font()}
+         [\"Data 5\",      \"Data 6\",          40,      \"data 3\",   \"Data 1\"  ]]
+             
+                 tbl.title_msg = \" Original\"
+                 tbl.print_fancy_format(l1)
+             
+                 cp.ins_newline(2)
+                 
+                 tbl.title_msg = \" Result -> data=l1, case_sensitive=False \"
+                 result = pylo.find_duplicate(data=l1, case_sensitive=False)
+                 tbl.print_fancy_format(result)
+             
+                 cp.ins_newline(2)
+                 
+                 tbl.title_msg = \" Result -> data=l1, case_sensitive=True\"
+                 result = pylo.find_duplicate(data=l1, case_sensitive=True)
+                 tbl.print_fancy_format(result)
+                 tbl.reset_fancy_format()
+                 print()
+                 
       {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
     '''
     print(message)
+
+    pylo = cp.PyLO()
+    tbl.title_bg  = 90
+    tbl.title_bold = True
+    tbl.title_italic = True
+    tbl.title_align = cp.Align.CENTER
+
+    #         0           1          2            3         4
+    l1 = [["Header 1",    "Header 2",    "header 1",  "header 4", "Header 5"],
+          ["Data 1",      "Data 2",       40,         "Data 3",   "Data 4"  ],
+          ["Data 5",      "Data 6",       40,         "data 3",   "Data 1"  ]]
+
+    tbl.title_msg = " Original"
+    tbl.print_fancy_format(l1)
+
+    cp.ins_newline(2)
+
+    tbl.title_msg = " Result -> data=l1, case_sensitive=False "
+    result = pylo.find_duplicate(data=l1, case_sensitive=False)
+    tbl.print_fancy_format(result)
+
+    cp.ins_newline(2)
+    
+    tbl.title_msg = " Result -> data=l1, case_sensitive=True "
+    result = pylo.find_duplicate(data=l1, case_sensitive=True)
+    tbl.print_fancy_format(result)    
+    print()
+
+
+
 
 def find_longest_item_info():
     ''' This method finds the longest item in a list and returns it in a list form '''
     cp.ins_newline(1)
     green_div.print_fancy_divider("find_longest_item", cp.Divider_Style.CUSTOMIZED)
+    tbl.reset_fancy_format()
     message = f'''
-      {cp.set_font(0,53,231)}                               {cp.reset_font()}
-      {cp.set_font(0,53,231)}                               {cp.reset_font()}
-      {cp.set_font(0,53,231)}                               {cp.reset_font()}
+      {cp.set_font(0,53,231)}                                  {cp.reset_font()}
+      {cp.set_font(0,53,231)}  find_longest_item(data:list)    {cp.reset_font()}
+      {cp.set_font(0,53,231)}                                  {cp.reset_font()}
 
       {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
                  pylo = cp.PyLO()
+                 tbl  = cp.FancyFormat()
+                 print()
+                #         0               1                 2
+                l1 = [[\"Header 1\",    \"Header 2\",  \"I am the longest one\"],
+                      [\"Data 1\",      \"Data 2\",    \"4\"       ],
+                      [\"Data 5\",      \"Data 6\",    \"Data 1\"  ]]
+
+                tbl.print_fancy_format(l1)                
+                cp.ins_newline(2)
+                result = pylo.find_longest_item(l1)
+                tbl.print_fancy_format(result)
 
       {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
-
     '''
     print(message)
+    pylo = cp.PyLO()
+    print()
+    #         0               1                 2
+    l1 = [["Header 1",    "Header 2",  "I am the longest one"],
+          ["Data 1",      "Data 2",    "4"       ],
+          ["Data 5",      "Data 6",    "Data 1"  ]]
+    tbl.print_fancy_format(l1)
+    cp.ins_newline(2)
+    result = pylo.find_longest_item(l1)
+    tbl.data_align = cp.Align.CENTER
+    tbl.print_fancy_format(result)
+    print()
+
+
+
+
 def find_shortest_item_info():
     ''' This method finds the shortest item in a list and returns it in a list form '''
     cp.ins_newline(1)
     green_div.print_fancy_divider("find_shortest_item", cp.Divider_Style.CUSTOMIZED)
+    tbl.reset_fancy_format()
     message = f'''
-      {cp.set_font(0,53,231)}                               {cp.reset_font()}
-      {cp.set_font(0,53,231)}                               {cp.reset_font()}
-      {cp.set_font(0,53,231)}                               {cp.reset_font()}
+      {cp.set_font(0,53,231)}                                   {cp.reset_font()}
+      {cp.set_font(0,53,231)}  find_shortest_item(data:list)    {cp.reset_font()}
+      {cp.set_font(0,53,231)}                                   {cp.reset_font()}
 
       {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
                  pylo = cp.PyLO()
+                 tbl  = cp.FancyFormat()
+                 print()
+                #         0               1                 2
+                l1 = [[\"Header 1\",    \"Header 2\",  \"I am the longest one\"],
+                      [\"Data 1\",      \"Data 2\",    \"4\"       ],
+                      [\"Data 5\",      \"Data 6\",    \"Data 1\"  ]]
+
+                tbl.print_fancy_format(l1)                
+                cp.ins_newline(2)
+                result = pylo.find_shortest_item(l1)
+                tbl.print_fancy_format(result)
 
       {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
-
     '''
     print(message)
+
+    pylo = cp.PyLO()
+    print()
+    #         0               1                 2
+    l1 = [["Header 1",    "Header 2",  "I am the longest one"],
+          ["Data 1",      "Data 2",    "4"       ],
+          ["Data 5",      "Data 6",    "Data 1"  ]]
+    tbl.print_fancy_format(l1)
+    cp.ins_newline(2)
+    result = pylo.find_shortest_item(l1)
+    tbl.data_align = cp.Align.CENTER
+    tbl.print_fancy_format(result)  
+    print()
+
+
+
+
 def split_list_by_col_condition_info():
     ''' This method split the list in two list by a condition '''
     cp.ins_newline(1)
     green_div.print_fancy_divider("split_list_by_col", cp.Divider_Style.CUSTOMIZED)
+    tbl.reset_fancy_format()
     message = f'''
-      {cp.set_font(0,53,231)}                               {cp.reset_font()}
-      {cp.set_font(0,53,231)}                               {cp.reset_font()}
-      {cp.set_font(0,53,231)}                               {cp.reset_font()}
+      {cp.set_font(0,53,231)}                                                                 {cp.reset_font()}
+      {cp.set_font(0,53,231)}  split_list_by_condition(self, data:list=[["Empthy"]],          {cp.reset_font()}
+      {cp.set_font(0,53,231)}                          col_index:int=0,                       {cp.reset_font()}
+      {cp.set_font(0,53,231)}                          condition:int|float|str="Fail",        {cp.reset_font()}      
+      {cp.set_font(0,53,231)}                          sensitive_case=False,                  {cp.reset_font()}
+      {cp.set_font(0,53,231)}                          operator:str="==", start_row:int=1)    {cp.reset_font()}
+      {cp.set_font(0,53,231)}                                                                 {cp.reset_font()}
 
       {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
                  pylo = cp.PyLO()
+                 tbl  = cp.FancyFormat()
+                 tbl.title_bold = True
+                 tbl.title_bg = 90
+                 tbl.title_fg = 231
+                 tbl.adj_indent = 6
+             
+                 matrix = [[\"Id\",    \"Name\",         \"Status\",    \"Grade\"], 
+                           [1,       \"Student 1\",    \"pass\",       95    ],
+                           [2,       \"Student 2\",    \"fail\",       50    ],
+                           [3,       \"Student 3\",    \"Pass\",       100   ],
+                           [4,       \"Student 4\",    \"Pass\",       70.1  ],
+                           [5,       \"Student 5\",    \"Fail\",       60    ]]
+                 
+                 true_condition_list,  false_condition_list = 
+                 pylo.split_list_by_condition(data=matrix, col_index=3,
+                 condition=70, sensitive_case=True,
+                 operator=pylo.Operator.GREATER_THAN, start_row=1)
+
+                 tbl.title_msg = \" Original List, col_index=3, condition > 70 \"
+                 tbl.print_fancy_format(matrix)
+             
+                 tbl.title_msg = \" True Condition List, Grade > 70 \"
+                 tbl.print_fancy_format(true_condition_list)
+             
+                 tbl.title_msg = \" False Conditon List, Grade > 70 \"
+                 tbl.print_fancy_format(false_condition_list)
+             
+             
+                 tbl.title_bg = 231
+                 tbl.title_fg = 22        
+                 matrix = [["Grade"],[97.4],[70],[50],[97.0]]
+             
+                 true_condition_list,  false_condition_list = 
+                 pylo.split_list_by_condition(data=matrix, col_index=3,
+                 condition=70, sensitive_case=True,
+                 operator=pylo.Operator.GREATER_THAN, start_row=1)
+
+                 print(\"\\n      \", end=\"\", flush=True)
+                 print(f\"matrix = {{matrix}}\\n\")
+                 tbl.title_msg = \" Original List, col_index=3, condition > 70 \"
+                 tbl.print_fancy_format(matrix)
+             
+                 tbl.title_msg = \" True Condition List, Grade > 70 \"
+                 tbl.print_fancy_format(true_condition_list)
+             
+                 tbl.title_msg = \" False Conditon List, Grade > 70 \"
+                 tbl.print_fancy_format(false_condition_list)
+             
+             
+                 tbl.title_bg = 14
+                 tbl.title_fg = 16
+                 
+                 true_condition_list,  false_condition_list =
+                 pylo.split_list_by_condition(data=matrix, col_index=0,
+                 condition=70, sensitive_case=True,
+                 operator=pylo.Operator.GREATER_THAN, start_row=1)
+
+                 tbl.title_msg = \" Original List, col_index=0, condition > 70 \"
+                 tbl.print_fancy_format(matrix)
+             
+                 tbl.title_msg = \" True Condition List, Grade > 70 \"
+                 tbl.print_fancy_format(true_condition_list)
+             
+                 tbl.title_msg = \" False Conditon List, Grade > 70 \"
+                 tbl.print_fancy_format(false_condition_list)
 
       {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
-
     '''
     print(message)
+    pylo = cp.PyLO()
+    tbl.title_bold = True
+    tbl.title_bg = 90
+    tbl.title_fg = 231
+    tbl.adj_indent = 6
+
+    matrix = [["Id",    "Name",         "Status",    "Grade"], 
+              [1,       "Student 1",    "pass",       95    ],
+              [2,       "Student 2",    "fail",       50    ],
+              [3,       "Student 3",    "Pass",       100   ],
+              [4,       "Student 4",    "Pass",       70.1  ],
+              [5,       "Student 5",    "Fail",       60    ]]
+    print(matrix)
+    true_condition_list,  false_condition_list = pylo.split_list_by_condition(data=matrix, col_index=3, condition=70, sensitive_case=True,
+                                                                              operator=pylo.Operator.GREATER_THAN, start_row=1)
+    tbl.title_msg = " Original List, col_index=3, condition > 70 "
+    tbl.print_fancy_format(matrix)
+
+    tbl.title_msg = " True Condition List, Grade > 70 "
+    tbl.print_fancy_format(true_condition_list)
+
+    tbl.title_msg = " False Conditon List, Grade > 70 "
+    tbl.print_fancy_format(false_condition_list)
 
 
+    tbl.title_bg = 231
+    tbl.title_fg = 22        
+    matrix = [["Grade"],[97.4],[70],[50],[97.0]]
 
-def padding_info():
+    true_condition_list,  false_condition_list = pylo.split_list_by_condition(data=matrix, col_index=3, condition=70, sensitive_case=True,
+                                                                              operator=pylo.Operator.GREATER_THAN, start_row=1)
+    print("\n      ", end="", flush=True)
+    print(f"matrix = {matrix}\n")
+    tbl.title_msg = " Original List, col_index=3, condition > 70 "
+    tbl.print_fancy_format(matrix)
+
+    tbl.title_msg = " True Condition List, Grade > 70 "
+    tbl.print_fancy_format(true_condition_list)
+
+    tbl.title_msg = " False Conditon List, Grade > 70 "
+    tbl.print_fancy_format(false_condition_list)
+
+
+    tbl.title_bg = 14
+    tbl.title_fg = 16
+    
+    true_condition_list,  false_condition_list = pylo.split_list_by_condition(data=matrix, col_index=0, condition=70, sensitive_case=True,
+                                                                              operator=pylo.Operator.GREATER_THAN, start_row=1)
+    tbl.title_msg = " Original List, col_index=0, condition > 70 "
+    tbl.print_fancy_format(matrix)
+
+    tbl.title_msg = " True Condition List, Grade > 70 "
+    tbl.print_fancy_format(true_condition_list)
+
+    tbl.title_msg = " False Conditon List, Grade > 70 "
+    tbl.print_fancy_format(false_condition_list)
+    print()
+
+
+def padding_list_info():
     ''' This method pad a list '''
     cp.ins_newline(1)
-    green_div.print_fancy_divider("padding", cp.Divider_Style.CUSTOMIZED)
+    green_div.print_fancy_divider("padding_list", cp.Divider_Style.CUSTOMIZED)
+    pylo = cp.PyLO()
     message = f'''
-      {cp.set_font(0,53,231)}                               {cp.reset_font()}
-      {cp.set_font(0,53,231)}                               {cp.reset_font()}
-      {cp.set_font(0,53,231)}                               {cp.reset_font()}
+      {cp.set_font(0,53,231)}                                                            {cp.reset_font()}
+      {cp.set_font(0,53,231)}  padding_list(data:list, align="c", padding_size:int=1,    {cp.reset_font()}
+      {cp.set_font(0,53,231)}               left_pad:int=2, right_pad:int=2)             {cp.reset_font()}
+      {cp.set_font(0,53,231)}                                                            {cp.reset_font()}
 
       {cp.set_font(1,231,0)} Example {cp.reset_font()}  import custom_print as cp
                  pylo = cp.PyLO()
+                 lst = [\"acma2\", 0123456789, \"Nick_Name\", \"Student\"]
+
+                 padding_list = pylo.padding_list(data=lst, 
+                                align=cp.Align.LEFT, padding_size=1,
+                               left_pad=4, right_pad=1)
+
+                 print(padding_list)
+
+      {cp.set_font(1,231,16)}  Type of lists that padding_list can handle                   {cp.reset_font()}
+      {cp.set_font(0,22,231)}                                                               {cp.reset_font()}
+      {cp.set_font(0,22,231)}  lst = [\"acma2\", 0123456789, \"Nick_Name\", \"Student\"]          {cp.reset_font()}
+      {cp.set_font(0,22,231)}                                                               {cp.reset_font()}
+      {cp.set_font(0,22,231)}  lst = [[\"1454545454",\"Hello\", \"Hell\", \"Python 3 \"]]          {cp.reset_font()}
+      {cp.set_font(0,22,231)}                                                               {cp.reset_font()}
+      {cp.set_font(0,22,231)}  lst = [[\"1454545454"],[\"Hello\"], [\"Hell\"], [\"Python 3 \"]]    {cp.reset_font()}
+      {cp.set_font(0,22,231)}                                                               {cp.reset_font()}
+      {cp.set_font(0,22,231)}  lst = [["Python",  "th",  "on"],                             {cp.reset_font()}
+      {cp.set_font(0,22,231)}         [True,  True,  True    ],                             {cp.reset_font()}
+      {cp.set_font(0,22,231)}         [152,   115,   202     ],                             {cp.reset_font()}
+      {cp.set_font(0,22,231)}         [16,    177,    23     ],                             {cp.reset_font()}
+      {cp.set_font(0,22,231)}         [22,     33,    10     ],                             {cp.reset_font()}
+      {cp.set_font(0,22,231)}         [21,     33,    11     ],                             {cp.reset_font()}
+      {cp.set_font(0,22,231)}         [24,     33,     1     ]]                             {cp.reset_font()}
+      {cp.set_font(0,22,231)}                                                               {cp.reset_font()}
 
       {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
-
     '''
     print(message)
 
-
+    lst = ["acma2", 1234567890, "Nick_Name", "Student"]
+    print(f"      Original List: {lst}")
+   
+    padding_list = pylo.padding_list(data=lst, align=cp.Align.LEFT, padding_size=1, left_pad=4, right_pad=1)
+    print()
+    print("      Padding List :",padding_list)
+    print()
 
 
 
@@ -7677,10 +8403,4 @@ def padding_info():
 if __name__ == '__main__':
     print(sys.argv)
     help_documentation()
-
-# in the top insert a new line(group name) cp.ins_newline(1), before the divider
-# in the top insert a newline for message and the tail a newline for the message
-# at the end of the function or method add double newline.
-# this will be the parttern for title and tail of the function class
-
 

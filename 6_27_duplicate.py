@@ -114,3 +114,4 @@ print(f"{cp.Bg.AVOCADO_GREEN+cp.Fg.BLACK} case_sensitive=False {cp.Bg.OFF+cp.Fg.
 print(NEW_LIST)
 rst = pylo.find_duplicate(data=NEW_LIST, case_sensitive=False)
 tbl.print_fancy_format(rst)
+

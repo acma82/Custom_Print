@@ -76,11 +76,13 @@ print("New Original: ",lst_6)
 
 print(f"{cp.ins_chr(n=80, unicode="-")}")
 
-lst_6 = [[1],[3],[5,6]]
-print("Original    : ",lst_6)
-result = pylo.delete_col(lst_6,0, update=False)
+print(f"{cp.set_font(1,23,231)} Case 7. index = 0, update=False  {cp.reset_font()}")
+lst_7 = [10,[1],[3],[5,6],7]
+print("Original    : ",lst_7)
+result = pylo.delete_col(lst_7,0, update=False)
 print("Result      : ",result)
-print("New Original: ",lst_6)
+print("New Original: ",lst_7)
+
 
 print(f"{cp.ins_chr(n=80, unicode="-")}")
 
@@ -119,24 +121,3 @@ print("New Original: ",lst_8)
 
 print(f"{cp.ins_chr(n=80, unicode="-")}")
 
-methods = [\
-    ["Cursor",  "FontStyle"  ,  "FancyMessage"       ,  "Pen"           ],
-    ["jumpTo",  "start_style",  "print_fancy_message",  "draw_line"     ],
-    ["jumpxy",  "stop_style" ,  "print_fancy_note"   ,  "draw_rectangle"],
-    ["moveTo",  "print_style",  "----"               ,  "----"          ],
-    ["movexy",  "reset_style",  "----"               ,  "----"          ]]
-
-tbl.title_bg = 90; tbl.title_align = cp.Align.CENTER
-tbl.title_msg = " index = 2, update=False "
-tbl.print_fancy_format(methods)
-tbl.title_msg = " Result After Deleting col 2 "
-new_list = pylo.delete_col(methods, 2)
-tbl.print_fancy_format(new_list)
-
-
-tbl.title_msg = " Adding Numbers, update=True "
-pylo.add_col_id(methods, start_number=1, id_label="No.", renumber=False, update=True)
-tbl.print_fancy_format(methods)
-
-result = pylo.delete_col(data=methods, col_index=2, update=False)
-tbl.print_fancy_format(result)

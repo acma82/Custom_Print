@@ -101,7 +101,7 @@ class PyLO():
 
 
     class Operator(enum.StrEnum):
-    
+
         '''  Defines what type of operator to use when splitting a list by condition.  '''
 
         # Operator  Meaning
@@ -161,8 +161,8 @@ class PyLO():
     def bifcs_to_list(self,data, convert_to_str=False):
         '''  It converts bool, int, float, and complex type to list type  '''
         tempo_list = []
-        
-        if isinstance(data, complex):           
+
+        if isinstance(data, complex):
             if convert_to_str == True:
                 data = str(data)
                 data = data.replace("(", "")
@@ -170,19 +170,19 @@ class PyLO():
                 tempo_list.append(data)
             else:
                 tempo_list.append(data)
-            return tempo_list            
-        
+            return tempo_list
+
         else:
             if convert_to_str == True:
                 tempo_list.append(str(data))
             else:
                 tempo_list.append(data)
-        
+
         return tempo_list
 
 
     # def paragraph_to_list(my_str):
-        
+
     #     '''  It Converts a String to a String List  '''
 
     #     tempo_list = []
@@ -433,7 +433,7 @@ class PyLO():
     # Shift An Element Inside A List, RIGHT or LEFT                                                                                                  -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     def right_shift(self,my_list:list, qty:int=0, update:bool=False):
-        ''' This function shift the elements in a list to the right. 
+        ''' This function shift the elements in a list to the right.
 
         update is used to save the actual list with the shift elements.
         update is set to False is we wish to keep the original list and save
@@ -1331,8 +1331,8 @@ class PyLO():
                 data.append(tempo_rows)
                 tempo_rows = []
         return result
-    
-    
+
+
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Join Two List as a Vector                                                                                                                      -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1478,7 +1478,7 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Merge 2 List                                                                                                                                   -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def merge(self, list_1:list, list_2:list, posi=0, merge_by=Appending.ROWS):
+    def merge(self, list_1:list, list_2:list, posi=0, merge_by=Appending.ROWS, fill_value:any="----"):
 
         '''  This method merge two list with two option of merge.
              It can be merge by ROWS or by COLUMNS. It also,
@@ -1512,7 +1512,7 @@ class PyLO():
                     for n in list_2: merge_list.append(n)
                     for n in list_1: merge_list.append(n)
 
-                elif posi >= len(list_1[0]):
+                elif posi >= len(list_1):
                     for n in list_1: merge_list.append(n)
                     for n in list_2: merge_list.append(n)
 
@@ -1525,8 +1525,8 @@ class PyLO():
                             merge_list.append(list_1[row])
 
             elif merge_by == "columns":
-                new_list_2 = PyLO.autofill_list(self, data=list_2)#, fill_value="!-py-12-@$^*-cp-?!")
-                merge_list = PyLO.autofill_list(self, data=list_1)#, fill_value="!-py-12-@$^*-cp-?!")
+                new_list_2 = PyLO.autofill_list(self, data=list_2, fill_value = fill_value)
+                merge_list = PyLO.autofill_list(self, data=list_1, fill_value = fill_value)
 
                 columnas = []
                 for n in range(len(new_list_2[0])):  columnas.append([])
@@ -1536,14 +1536,7 @@ class PyLO():
                         columnas[col].append(row[col])
 
                 for row in range(len(columnas)):
-                    merge_list = PyLO.add_col(self, data=merge_list, col_data=columnas[row], posi=posi)
-
-                # for row in merge:
-                #     tmp = []
-                #     for col in row:
-                #         if col == "!-py-12-@$^*-cp-?!": pass
-                #         else: tmp.append(col)
-                #     merge_list.append(tmp)
+                    merge_list = PyLO.add_col(self, data=merge_list, col_data=columnas[row], col_index=posi)
 
             else: pass
 
@@ -1570,7 +1563,7 @@ class PyLO():
                             merge_list.append(list_1[n])
 
             elif merge_by == "columns":
-                merge_list = PyLO.add_col(self, data=list_1, col_data=list_2, posi=posi)
+                merge_list = PyLO.add_col(self, data=list_1, col_data=list_2, col_index=posi)
 
 
         # Any Case with Case 6
@@ -1595,7 +1588,7 @@ class PyLO():
                             merge_list.append(list_2[n])
 
             elif merge_by == "columns":
-                merge_list = PyLO.add_col(self, data=list_2, col_data=list_1, posi=posi)
+                merge_list = PyLO.add_col(self, data=list_2, col_data=list_1, col_index=posi)
 
         else:
             # Case 3,    Case 4,    Case 5,    Case 7,    Case 8
@@ -1655,32 +1648,34 @@ class PyLO():
         '''
 
         new_list = []
-        for my_value in data:
-            if isinstance(my_value, list):
-                new_list.append(PyLO.delete_value(self, my_value, value, case_sensitive, False))
+        if isinstance(data, list):
+            for my_value in data:
+                if isinstance(my_value, list):
+                    new_list.append(PyLO.delete_value(self, my_value, value, case_sensitive, False))
 
-            else:
-                if case_sensitive == True:
-                    if my_value == value:    pass
-                    else:               new_list.append(my_value)
+                else:
+                    if case_sensitive == True:
+                        if my_value == value:    pass
+                        else:               new_list.append(my_value)
 
-                elif case_sensitive == False:
-                    if isinstance(my_value, str) and isinstance(value, str):
-                        if my_value.lower() == value.lower():
-                            pass
+                    elif case_sensitive == False:
+                        if isinstance(my_value, str) and isinstance(value, str):
+                            if my_value.lower() == value.lower():
+                                pass
+                            else:
+                                new_list.append(my_value)
                         else:
-                            new_list.append(my_value)
-                    else:
-                        if my_value == value:
-                            pass
-                        else:
-                            new_list.append(my_value)
+                            if my_value == value:
+                                pass
+                            else:
+                                new_list.append(my_value)
 
-                else: pass
-        if update == True:
-            data.clear()
-            for d in new_list:
-                data.append(d)
+                    else: pass
+            if update == True:
+                data.clear()
+                for d in new_list:
+                    data.append(d)
+        else: pass
 
         return new_list
 
@@ -1688,7 +1683,7 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Reverse Order in a List ROWS. Keeps the Headers Untouch                                                                                        -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def reversed_row_order(self, data:list, update:bool=False):
+    def reversed_row_order(self, data:list, keep_header:bool = True, update:bool=False):
 
         '''  This methods reverse the order of the list keeping
              the headers in the same positon.
@@ -1699,20 +1694,27 @@ class PyLO():
 
         my_type = get_list_type(data)
         if my_type == "multiple_items_multiple_rows":
+            if keep_header == True:
 
-            for row in data:
-                if ctrl == 0:
-                    headers.append(row)
-                    ctrl = 1
-                else:
-                    for col in row:
-                        tmp.append(col)
-                    body.append(tmp)
-                    tmp = []
+                for row in data:
+                    if ctrl == 0:
+                        headers.append(row)
+                        ctrl = 1
+                    else:
+                        for col in row:
+                            tmp.append(col)
+                        body.append(tmp)
+                        tmp = []
 
-            for row in reversed(body):
-                reversed_list.append(row)
-            reversed_list.insert(0,headers[0])
+
+                for row in reversed(body):
+                    reversed_list.append(row)
+                reversed_list.insert(0,headers[0])
+            else:
+                for row in reversed(data):
+                    reversed_list.append(row)
+
+
 
             if update == True:
                 data.clear()
@@ -1725,7 +1727,7 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Sort Rows of a List by Column Reference. Keep The Headers, Untouch                                                                             -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def sort_rows_by_col(self, data:list, ref_col:int=0, reversed_order:bool=False, update:bool=False):
+    def sort_rows_by_col(self, data:list, col_index:int=0, reversed_order:bool=False, keep_header:bool=True, update:bool=False):
 
         '''  sort_by_col won't sort the first row because it is considered the Header of the list.
              If a column is mixed with string type and another type, like integer or float, it will
@@ -1763,14 +1765,24 @@ class PyLO():
             n_rows_n_cols_list = PyLO.dimensions(self, complete_list)
             n_cols = n_rows_n_cols_list[1][1]
 
-            if ref_col >= n_cols:  print("\n ref_col out of range...! \n")
+            if col_index >= n_cols:  col_index = n_cols-1 # print("\n col_index out of range...! \n")
+            elif col_index <= -1:    col_index = 0
+            else:                    pass
+
+
+            if keep_header == True:
+                sorted_list = [complete_list[0]] + sorted(complete_list[1:], key=lambda x: x[col_index])
             else:
-                sorted_list = [complete_list[0]] + sorted(complete_list[1:], key=lambda x: x[ref_col])
-                # sorted_list = [new_list[0]] + sorted(new_list[1:], key=lambda x: x[str(ref_col)])
-                if reversed_order == True:
+                sorted_list = sorted(complete_list[0:], key=lambda x: x[col_index])
+            # sorted_list = [new_list[0]] + sorted(new_list[1:], key=lambda x: x[str(col_index)])
+
+            if reversed_order == True:
+                if keep_header == True:
                     header_row = sorted_list.pop(0)
                     list.reverse(sorted_list)
                     sorted_list.insert(0,header_row)
+                else:
+                    list.reverse(sorted_list)
 
         else: print(msg="\n Not supported between instances of types \n")
 
@@ -1784,7 +1796,7 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Sort Columns of a List. Keep The Headers, Untouch                                                                                              -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def sort_cols(self, data:list, sort_type:str|list=Order.ASCENDING, update:bool=False):
+    def sort_cols(self, data:list, sort_type:str=Order.ASCENDING, update:bool=False):
         ''' If the option provided is different than ascending or descending or a list, it will sort as ascending.
             If the list contains numbers not in the range of the data list, it will sort as ascending.
             If the list contains a length different than the length of the data, it will sort as ascending.
@@ -1895,8 +1907,10 @@ class PyLO():
                 case_list.append(n)
 
         if update == True:
-            data.clear()
-            [data.append(n) for n in case_list]
+            if not isinstance(data, list): pass
+            else:
+                data.clear()
+                [data.append(n) for n in case_list]
 
         return case_list
 
@@ -1904,7 +1918,7 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Update Case in a Specific Column in a List.                                                                                                    -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def update_case_col(self, data:list, header_case:str=Case.CAPITALIZE, data_case:str=Case.LOWER, col_ref=0, update:bool=False):
+    def update_case_col(self, data:list, header_case:str=Case.CAPITALIZE, data_case:str=Case.LOWER, col_index=0, update:bool=False):
 
         '''  This method updates the case for a specific column, header and data.  '''
 
@@ -1918,26 +1932,26 @@ class PyLO():
 
         else:
             new_data  = PyLO.autofill_list(self, data=data)
-            if col_ref > len(new_data[0]): new_col_ref = len(new_data[0])
-            elif col_ref < 0:              new_col_ref = 0
-            else:                          new_col_ref = col_ref
+            if   col_index > len(new_data[0]): new_col_index = len(new_data[0])-1
+            elif col_index < 0:                new_col_index = 0
+            else:                              new_col_index = col_index
 
 
             new_headers = new_data.pop(0)
 
-            if isinstance(new_headers[new_col_ref], str):
+            if isinstance(new_headers[new_col_index], str):
 
-                if   header_case.lower() == PyLO.Case.UPPER:      new_headers[new_col_ref] = new_headers[new_col_ref].upper()
-                elif header_case.lower() == PyLO.Case.LOWER:      new_headers[new_col_ref] = new_headers[new_col_ref].lower()
-                elif header_case.lower() == PyLO.Case.CAPITALIZE: new_headers[new_col_ref] = new_headers[new_col_ref].capitalize()
-                else:                             pass
+                if   header_case.lower() == PyLO.Case.UPPER:      new_headers[new_col_index] = new_headers[new_col_index].upper()
+                elif header_case.lower() == PyLO.Case.LOWER:      new_headers[new_col_index] = new_headers[new_col_index].lower()
+                elif header_case.lower() == PyLO.Case.CAPITALIZE: new_headers[new_col_index] = new_headers[new_col_index].capitalize()
+                else:                                              pass
             else: pass
 
             for row in range(len(new_data)):
-                if isinstance(new_data[row][new_col_ref], str):
-                    if   data_case.lower() == PyLO.Case.UPPER:      new_data[row][new_col_ref] = new_data[row][new_col_ref].upper()
-                    elif data_case.lower() == PyLO.Case.LOWER:      new_data[row][new_col_ref] = new_data[row][new_col_ref].lower()
-                    elif data_case.lower() == PyLO.Case.CAPITALIZE: new_data[row][new_col_ref] = new_data[row][new_col_ref].capitalize()
+                if isinstance(new_data[row][new_col_index], str):
+                    if   data_case.lower() == PyLO.Case.UPPER:      new_data[row][new_col_index] = new_data[row][new_col_index].upper()
+                    elif data_case.lower() == PyLO.Case.LOWER:      new_data[row][new_col_index] = new_data[row][new_col_index].lower()
+                    elif data_case.lower() == PyLO.Case.CAPITALIZE: new_data[row][new_col_index] = new_data[row][new_col_index].capitalize()
                     else: pass
                 else:
                     pass
@@ -1949,8 +1963,11 @@ class PyLO():
                 case_list.append(n)
 
         if update == True:
-            data.clear()
-            [data.append(n) for n in case_list]
+            if not isinstance(data, list): pass
+            else:
+                data.clear()
+                [data.append(n) for n in case_list]
+
 
         return case_list
 
@@ -1994,7 +2011,7 @@ class PyLO():
                             duplicate_list.append(tmp)
 
         if len(duplicate_list)>0:
-            p = ["Data 1", "Posi 1", "Data 2", "Posi 2"]
+            p = ["Value 1", "Position 1", "Value 2", "Position 2"]
             duplicate_list.insert(0,p)
 
         return duplicate_list
@@ -2010,7 +2027,7 @@ class PyLO():
         longest_row  = 0
         longest_col  = 0
 
-        type_of_list = get_list_type(data)        
+        type_of_list = get_list_type(data)
         if type_of_list == "multiple_items_multiple_rows" or type_of_list == "multiple_items_one_row":
         # Calculating Longest: Item, len, row, col
             for row in range(len(data)):
@@ -2022,7 +2039,7 @@ class PyLO():
                         longest_row  = row
                         longest_col  = col
                     else: pass
-        
+
         elif type_of_list == "multiple_items_no_row":
             for col in range(len(data)):
                 item_length = len(str(data[col]))
@@ -2035,12 +2052,12 @@ class PyLO():
 
         else: pass
 
-        result = [["Item", "Len", "Row", "Col"],
+        result = [["Value", "Length", "Row", "Col"],
                 [longest_item, longest_len, longest_row, longest_col]]
 
         return result
 
-   
+
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Find the shortes element in a NestedList                                                                                                       -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
@@ -2051,7 +2068,7 @@ class PyLO():
         shortest_row  = 0
         shortest_col  = 0
 
-        type_of_list = get_list_type(data)        
+        type_of_list = get_list_type(data)
         if type_of_list == "multiple_items_multiple_rows" or type_of_list == "multiple_items_one_row":
             # Calculating Shortest: Item, len, row, col
             shortest_len  = len(str(data[0][0]))
@@ -2066,7 +2083,7 @@ class PyLO():
                         shortest_col  = col
                     else: pass
 
-        elif type_of_list == "multiple_items_no_row":            
+        elif type_of_list == "multiple_items_no_row":
             shortest_len  = len(str(data[0]))
             shortest_item = data[0]
             for col in range(len(data)):
@@ -2079,7 +2096,7 @@ class PyLO():
                 else:pass
         else: pass
 
-        result = [["Item", "Len", "Row", "Col"],
+        result = [["Value", "Len", "Row", "Col"],
                 [shortest_item, shortest_len, shortest_row, shortest_col]]
 
 
@@ -2090,49 +2107,48 @@ class PyLO():
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # split list by col condition                                                                                                                    -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def split_list_by_condition(self, data:list=[["Empthy"]], col_idx:int=0, condition:int|str="Fail", sensitive_case=False,
+    def split_list_by_condition(self, data:list=[["Empthy"]], col_index:int=0, condition:int|float|str="Fail", sensitive_case=False,
                                  operator:str="==", start_row:int=1):
-        # headers = data.pop(0)
+        ''' This method divide the list into two list by a condition (True/False) '''
         list_true_condition  = []
         list_false_condition = []
         type_of_list = get_list_type(data)
 
-        
-        if type_of_list == "multiple_items_multiple_rows":           
-            print(type_of_list)
+
+        if type_of_list == "multiple_items_multiple_rows":
             for row in range(start_row, len(data)):
                 if isinstance(condition, str):
-                    print(data[row][col_idx])
+                    print(data[row][col_index])
 
                     if sensitive_case == False:
                         try:
-                            if data[row][col_idx].lower() == condition.lower():
+                            if data[row][col_index].lower() == condition.lower():
                                 list_true_condition.append(data[row])
                             else:
                                 list_false_condition.append(data[row])
                         except:
                             list_false_condition.append(data[row])
-                                   
-                                   
+
+
                     else:
-                        if data[row][col_idx] == condition:
+                        if data[row][col_index] == condition:
                             list_true_condition.append(data[row])
                         else:
                             list_false_condition.append(data[row])
 
-                else: # dealing with number condition                        
+                else: # dealing with number condition
                     if operator == "==":
                         try:
-                            if data[row][col_idx] == condition:
+                            if data[row][col_index] == condition:
                                 list_true_condition.append(data[row])
                             else:
                                 list_false_condition.append(data[row])
                         except:
                                 list_false_condition.append(data[row])
-                    
+
                     elif operator == "<=":
                         try:
-                            if data[row][col_idx] <= condition:
+                            if data[row][col_index] <= condition:
                                 list_true_condition.append(data[row])
                             else:
                                 list_false_condition.append(data[row])
@@ -2141,7 +2157,7 @@ class PyLO():
 
                     elif operator == "<":
                         try:
-                            if data[row][col_idx] < condition:
+                            if data[row][col_index] < condition:
                                 list_true_condition.append(data[row])
                             else:
                                 list_false_condition.append(data[row])
@@ -2150,7 +2166,7 @@ class PyLO():
 
                     elif operator == ">=":
                         try:
-                            if data[row][col_idx] >= condition:
+                            if data[row][col_index] >= condition:
                                 list_true_condition.append(data[row])
                             else:
                                 list_false_condition.append(data[row])
@@ -2159,7 +2175,7 @@ class PyLO():
 
                     elif operator == ">":
                         try:
-                            if data[row][col_idx] > condition:
+                            if data[row][col_index] > condition:
                                 list_true_condition.append(data[row])
                             else:
                                 list_false_condition.append(data[row])
@@ -2168,7 +2184,7 @@ class PyLO():
 
                     elif operator == "!=":
                         try:
-                            if data[row][col_idx] != condition:
+                            if data[row][col_index] != condition:
                                 list_true_condition.append(data[row])
                             else:
                                 list_false_condition.append(data[row])
@@ -2177,7 +2193,7 @@ class PyLO():
 
                     else:
                         pass
-        
+
 
         else:
             pass
@@ -2202,7 +2218,7 @@ class PyLO():
         type_of_list = get_list_type(data)
         longest_item = self.find_longest_item(data=new_data)
 
-        
+
 
         if type_of_list == "multiple_items_multiple_rows" or type_of_list == "multiple_items_one_row":
             if longest_item[1][1] < padding_size: pass
@@ -2212,25 +2228,25 @@ class PyLO():
                 padded_matrix = [[cell.center(padding_size) for cell in row] for row in new_data]
             elif align == "l" or align == "left":
                 padded_matrix = [[cell.ljust(padding_size) for cell in row] for row in new_data]
-            elif align == "r" or align == "right":    
+            elif align == "r" or align == "right":
                 padded_matrix = [[cell.rjust(padding_size) for cell in row] for row in new_data]
-            else:                
+            else:
                 padded_matrix = [[f"{ins_chr(left_pad)}{cell.ljust(padding_size)}{ins_chr(right_pad)}" for cell in row] for row in new_data]
 
 
-        elif type_of_list == "multiple_items_no_row":   
+        elif type_of_list == "multiple_items_no_row":
             if longest_item[1][1] < padding_size: pass
             else:                                 padding_size = longest_item[1][1]
             if align == "c" or align == "center":
                 padded_matrix = [cell.center(padding_size) for cell in new_data]
             elif align == "l" or align == "left":
                 padded_matrix = [cell.ljust(padding_size) for cell in new_data]
-            elif align == "r" or align == "right":    
+            elif align == "r" or align == "right":
                 padded_matrix = [cell.rjust(padding_size) for cell in new_data]
-            else:                
+            else:
                 padded_matrix = [f"{ins_chr(left_pad)}{cell.ljust(padding_size)}{ins_chr(right_pad)}" for cell in new_data]
 
-        
+
         else:
             pass
         return padded_matrix
