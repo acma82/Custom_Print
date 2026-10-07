@@ -14,12 +14,6 @@ l1 = [["NaMeS",    "LaStS",    "AgeS",  "DeparTmenT", "AWeB"    ],
       ["AleX",     "CalL",     38,         "EE",      "TreS"    ],
       ["MatT",     "ArmacI",   40,         "CS",      "CuatrO"  ]]
 
-# l1 = "fasdf"
-# l1 = []
-# l1 = ["NaMeS",    "LaStS",    "AgeS",  "DeparTmenT", "AWeB"]
-# l1 = ["NaMeS",    [4,"t"],"LaStS",    "AgeS",  "DeparTmenT", "AWeB"]
-# l1 = [["NaMeS",    "LaStS",    "AgeS",  "DeparTmenT", "AWeB"]]
-# l1 = [["NaMeS"],    ["LaStS"],    ["AgeS"],  ["DeparTmenT"], ["AWeB"]]
 
 result = pylo.update_case(l1, pylo.Case.UPPER, pylo.Case.LOWER, False)
 tbl.title_msg = " Headers Upper, Data Lower "; tbl.print_fancy_format(result)
@@ -41,33 +35,3 @@ tbl.print_fancy_format(result)
 lista_lowcase = ["A","B","C","&","A",">","6","Q","Ñ"]
 result = pylo.update_case(data=lista_lowcase, header_case=pylo.Case.LOWER, data_case=pylo.Case.LOWER, update=False )
 tbl.print_fancy_format(result)
-
-
-Doh_ñ = []
-Doh_ñ.append("ñ")
-
-Doh_Ñ = []
-Doh_Ñ.append("Ñ")
-
-print("\u00F1")  # ñ
-print("\u00D1")  # Ñ
-print(cp.Unicode.UPPERCASE_N_TILDE) # ñ
-print(cp.Unicode.LOWERCASE_N_TILDE) # Ñ
-
-
-a = "\u00F1"
-if a == "ñ":
-    print("success....!")
-    my_l = eval(f"Doh_{a}")
-    print(my_l)
-    print(my_l[0])      
-
-
-
-
-a = cp.Unicode.UPPERCASE_N_TILDE
-if a == "Ñ":
-    print("success....!")
-    my_l = eval(f"Doh_{a}")
-    print(my_l)
-    print(my_l[0])      

@@ -11,8 +11,8 @@ list1.set_banded_row_on = True
 list1.banded_row_bg = 196
 list1.banded_row_fg = 231
 
-ncols, nrows = cp.dimensions()
-cp.resize(45, 120)
+# ncols, nrows = cp.terminal_size()
+# cp.resize(45, 120)
 
 
 # setting for the format
@@ -166,5 +166,5 @@ list1.print_fancy_format(tupleData9)
 msg = f"{cp.ins_chr(44)}THE END.....!{cp.ins_chr(44)}"
 
 
-input("Enter to Continue: ")
-cp.resize(nrows, ncols)
+# input("Enter to Continue: ")
+# cp.resize(nrows, ncols)

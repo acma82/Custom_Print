@@ -26,13 +26,14 @@
     * [**int_to_list**](#integer-type-to-list-type)
     * [**float_to_list**](#float-type-to-list-type)
     * [**complex_to_list**](#complex-type-to-list-type)
-    * [**paragraph_to_list**](#string-type-to-list-type)
+    * [**paragraph_to_list**](#paragraph-to-list)
     * [**dict_to_list**](#dictionary-type-to-list-type)
     * [**range_to_list**](#range-type-to-list-type)
     * [**set_to_list**](#set-or-frozenset-type-to-list-type)
     * [**tuple_to_list**](#tuple-type-to-list-type)
     * [**to_string_list**](#data-to-string)
     * [**to_numeric_list**](#data-to-number)
+
 
 3.  **File Methods**
     * [**write_csv_file**](#write-a-list-into-a-csv-file)
@@ -48,7 +49,7 @@
     * [**update_case_col**](#update-case-col)
 
 5. **Table Methods**
-    * [**autofill_data**](#autofill-data)
+    * [**autofill_list**](#autofill-data)
     * [**dimensions**](#list-dimensions)
 
     * [**find_value**](#find-value)
@@ -64,13 +65,18 @@
     * [**shift**](#shift)
     * [**swap**](#swap)
 
-    * [**number**](#add-number-of-rows-to-a-list)
+    * [**add_col_id**](#add-number-of-rows-to-a-list)
     * [**transpose**](#transpose)
     * [**merge**](#merge)
     * [**reversed_row_order**](#reversed-row-order)
     * [**sort_rows_by_cols**](#sort-rows-by-columns)
     * [**sort_cols**](#sort-columns)
     * [**find_duplicate**](#find-duplicate)
+    * [**find_longest_item**](#find-longest-item)
+    * [**find_shortest_item**](#find-shortest-item)
+    * [**padding_list**](#padding-list)
+    * [**split_list_by_col_condition**](#split-list-by-col-condition)
+
  
 <!-- ---------------------------------- -->
 <!-- Appending                          -->
@@ -205,7 +211,19 @@ This method sets an int variable into a list where ***data*** is the float type.
     print(result)
 ```
 
-## String Type to List Type
+## Paragraph To List
+      The paragraph_to_list() method takes a string and converts its contents
+      into a list. It offers two splitting modes:
+
+          WORD_BY_WORD
+          LINE_BY_LINE
+
+      This method is designed primarily for paragraphs rather than short
+      strings, although it can handle a string of any length. See the
+      example below.
+
+      If you want to add a word counter as a separate column in the list,
+      set the counter parameter to True.
 <!--- ## <span style="color:cyan"> <strong> String Type to List Type </strong> </span> --->
 
 [**Top**](#pylo-class) <span style="color:gray"> <strong> Example: </strong> </span>
@@ -232,8 +250,49 @@ This method sets an int variable into a list where ***data*** is the float type.
     print(f"{cp.set_font(1,90,231)}  counter LINE_BY_LINE  {cp.reset_font()}")
     result = pylo.paragraph_to_list(paragraph, pylo.Str_List_Option.LINE_BY_LINE, counter=True)
     print(result)
-```
 
+    # ---------------------------------------------------------------------------------------------
+
+    import custom_print as cp
+    pylo = cp.PyLO()
+
+    paragraph = '''
+    This is the Module Docstrings
+    Trailing WhiteSpace refers to any whitespace characters
+    at the end of a line of code or string.
+    missing-final-newline refers to set
+    the last empty line at the end of the code
+    pyloint practis.py
+    '''
+
+    print(f"  Working With String Type  ")
+    print(f"  WORD_BY_WORD  ")
+    result = pylo.paragraph_to_list(data = paragraph,
+            option = pylo.Str_List_Option.WORD_BY_WORD,
+            counter = False)
+    print(result)
+
+    cp.ins_newline(2)
+    print(f"  counter WORD_BY_WORD  ")
+    result = pylo.paragraph_to_list(paragraph,
+            pylo.Str_List_Option.WORD_BY_WORD,
+            counter = True)
+    print(result)
+
+    cp.ins_newline(2)
+    print(f"  LINE_BY_LINE  ")
+    result = pylo.paragraph_to_list(paragraph,
+            pylo.Str_List_Option.LINE_BY_LINE,
+            counter=False)
+    print(result)
+
+    cp.ins_newline(2)
+    print(f"  counter LINE_BY_LINE  ")
+    result = pylo.paragraph_to_list(paragraph,
+            pylo.Str_List_Option.LINE_BY_LINE,
+            counter=True)
+    print(result)
+```
 ## Dictionary Type to List Type
 <!--- ## <span style="color:cyan"> <strong> Dictionary Type to List Type </strong> </span> --->
 
@@ -491,6 +550,7 @@ sustitute by zero, 0.
     print("result  : ",result)
     print("original: ", lst)
 ```
+
 
 
 
@@ -815,8 +875,8 @@ tbl.print_fancy_format(l1)
 ## Autofill Data
 
 ```python
-autofill_data(data, fill_value="----", update=False)
-autofill_data(list, str/int/float, boolean)
+autofill_list(data, fill_value="----", update=False)
+autofill_list(list, str/int/float, boolean)
 ```
 
 This function will fill all the empty columns from the list.
@@ -837,7 +897,7 @@ print(f"{cp.ins_chr(n=80, unicode="-")}")
 print(f"{cp.ins_chr(n=80, unicode="-")}")
 
 print("Original:",lst)
-result = pylo.autofill_data(lst)
+result = pylo.autofill_list(lst)
 print("Using default values")
 print("Result  :",result)
 print("Original:",lst)
@@ -848,7 +908,7 @@ print(f"{cp.ins_chr(n=80, unicode="-")}")
 
 
 print("Original:",lst)
-result = pylo.autofill_data(lst, fill_value=9.8, update=False)
+result = pylo.autofill_list(lst, fill_value=9.8, update=False)
 print("mylist=lst, fill_value=9.8, update=False")
 print("Result  :",result)
 print("Original:",lst)
@@ -859,7 +919,7 @@ print(f"{cp.ins_chr(n=80, unicode="-")}")
 
 
 print("Original:",lst)
-result = pylo.autofill_data(data=lst, fill_value=99, update=False)
+result = pylo.autofill_list(data=lst, fill_value=99, update=False)
 print("mylist=lst, fill_value=99, update=False")
 print("Result  :",result)
 print("Original:",lst)
@@ -868,7 +928,7 @@ print(f"{cp.ins_chr(n=80, unicode="-")}")
 print(f"{cp.ins_chr(n=80, unicode="-")}")
 
 print("Original:",lst)
-result = pylo.autofill_data(data=lst, fill_value="AB", update=True)
+result = pylo.autofill_list(data=lst, fill_value="AB", update=True)
 print("mylist=lst, fill_value=\"AB\", update=True")
 print("Result  :",result)
 print("Original:",lst)
@@ -1382,7 +1442,7 @@ print("original: ", lst)
 This method set the number of rows by adding a column to the left side.
 
 ```python
-new_list = number(data, start_number=0, id_txt="Id", renumber=False, update=False)
+new_list = add_col_id(data, start_number=0, id_label="Id", renumber=False, update=False)
 ```
 
 [**Top**](#pylo-class) <span style="color:gray"> <strong> Example: </strong> </span>
@@ -1408,7 +1468,7 @@ print(f"{cp.ins_chr(20, cp.Unicode.BLAKC_RIGHT_POINT_TRIANGLE+cp.Unicode.BLACK_L
 tbl.title_msg = " People "
 tbl.print_fancy_format(people)
 
-number_people = pylo.number(people, 1, "Num", False, False)
+number_people = pylo.add_col_id(people, 1, "Num", False, False)
 tbl.title_msg = " New People "
 tbl.print_fancy_format(number_people)
 
@@ -1417,7 +1477,7 @@ number_people.insert(2,[999, "KAYLA", "ACBD",  12])
 tbl.print_fancy_format(number_people)
 
 tbl.title_msg = " Numbering Again "
-pylo.number(data=number_people, start_number=1, id_txt="No.", renumber=True, update=True)
+pylo.add_col_id(data=number_people, start_number=1, id_label="No.", renumber=True, update=True)
 tbl.print_fancy_format(number_people)
 ```
 
@@ -1677,7 +1737,7 @@ tbl.print_fancy_format(reversed_list)
 If a column is mixed with string type and another type, like integer or float, it will
 cause an error. This method is intended to be used with all cells filled with the same
 type of data per column except the header; any empty cells will be filled automatically.
-If you want to fill those spots with a specific type, then use the ***autofill_data*** method.
+If you want to fill those spots with a specific type, then use the ***autofill_list*** method.
 
 ```python
 sort_rows_by_col(data, ref_col=0, reversed_order=False, update=False)       
@@ -1825,6 +1885,330 @@ tbl.print_fancy_format(rst)
 
 
 
+## Find Longest Item
+    This method finds the longest item in a table (list of lists / matrix) and
+    returns detailed information about it.
+
+       parameter: 
+
+          data: A list of lists representing a table or matrix.
+
+       Returns: 
+        A list containing the following information about the longest item:
+
+          • The value of the longest item
+          • The length (len()) of that item
+          • The position of the item as a tuple (row, col)
+
+
+       Note  This method is designed to work with tabular data
+             (matrices/tables). It does not support flat vectors or deeply
+             nested irregular lists.
+
+
+      See the example below for the exact return format.
+
+[**Top**](#pylo-class) <span style="color:gray"> <strong> Example: </strong> </span>
+
+```python
+import custom_print as cp
+pylo = cp.PyLO()
+tbl  = cp.FancyFormat()
+print()
+
+#         0               1                 2
+l1 = [["Header 1",    "Header 2",  "I am the longest one"],
+        ["Data 1",      "Data 2",    "4"       ],
+        ["Data 5",      "Data 6",    "Data 1"  ]]
+
+tbl.print_fancy_format(l1)
+cp.ins_newline(2)
+result = pylo.find_longest_item(l1)
+
+tbl.data_align = cp.Align.CENTER
+tbl.header_bold = True
+tbl.header_bg = 231
+tbl.header_fg = 22
+tbl.print_fancy_format(result)
+
+
+
+```
+## Find Shortest Item
+    This method finds the shortest item in a table (list of lists / matrix)
+    and returns detailed information about it.
+
+       parameters: 
+
+          data: A list of lists representing a table or matrix.
+
+       Returns: 
+        A list containing the following information about the shortest item:
+
+          • The value of the shortest item
+          • The length (len()) of that item
+          • The position of the item as a tuple (row, col)
+
+       Note  This method is designed to work with tabular data
+             (matrices/tables). It does not support flat vectors or deeply
+             nested irregular lists.
+
+      See the example below for the exact return format.
+
+[**Top**](#pylo-class) <span style="color:gray"> <strong> Example: </strong> </span>
+
+```python
+import custom_print as cp
+pylo = cp.PyLO()
+tbl  = cp.FancyFormat()
+
+print()
+#         0               1                 2
+l1 = [["Header 1",    "Header 2",  "I am the longest one"],
+        ["Data 1",      "Data 2",    "4"       ],
+        ["Data 5",      "Data 6",    "Data 1"  ]]
+
+tbl.print_fancy_format(l1)
+cp.ins_newline(2)
+result = pylo.find_shortest_item(l1)
+
+tbl.data_align = cp.Align.CENTER
+tbl.header_bold = True
+tbl.header_bg = 231
+tbl.header_fg = 22
+tbl.print_fancy_format(result)
+```
+
+
+## Padding List
+      This method adds padding (spaces) to each item in the list for alignment
+      purposes. Primarily used for formatting tables or ASCII art output.
+
+       parameters: 
+
+          data: List of items (usually strings) to be padded.
+
+          align: Alignment option. Supported values:
+
+              "c" → Center (default)
+              "l" → Left
+              "r" → Right
+              "j" → Justify
+
+          padding_size: The total desired width for each item. If this value is
+                        smaller than the longest item in the list, the length
+                        of the longest item will be used instead.
+
+          left_pad: Number of spaces to add on the left side when using "j"
+                    (justify) alignment.
+
+          right_pad: Number of spaces to add on the right side when using "j"
+                     (justify) alignment.
+
+       Note  The parameters left_pad and right_pad are only used when align="j"
+             (justify). For all other alignments (c, l, r), they are ignored.
+
+       Behavior: 
+
+          When align="j", each item will be padded using:
+
+          left_pad + max(padding_size, length_of_longest_item) + right_pad
+
+
+
+[**Top**](#pylo-class) <span style="color:gray"> <strong> Example: </strong> </span>
+
+```python
+
+ import custom_print as cp
+pylo = cp.PyLO()
+lst = ["acma2", 0123456789, "Nick_Name", "Student"]
+
+padding_list = pylo.padding_list(data=lst, align=cp.Align.LEFT,
+                                 padding_size=1, left_pad=4, right_pad=1)
+
+                 print(padding_list)
+
+```
+
+![Alt text](pylo_padding_01.png)
+
+
+## Split List By Col Condition
+      This method splits a table (list of lists) into two separate lists based
+      on whether each row satisfies a given condition.
+
+       parameters: 
+
+          data: A list of lists representing a table/matrix. The first row is
+                treated as a header by default.
+
+          col_index: The column index to evaluate the condition against.
+
+          condition: The value to compare against (can be int, float, or str).
+
+          case_sensitive: If True, string comparisons are case-sensitive. If
+                          False (default), string comparisons are
+                          case-insensitive.
+
+           Note  When case_sensitive=True, only string comparison is supported
+                 and the operator parameter is ignored.
+
+          operator: The comparison operator to use. Supported values are:
+
+              "==" (EQUAL_TO)
+              "!=" (NOT_EQUAL_TO)
+              ">"  (GREATER_THAN)
+              "<"  (LESS_THAN)
+              ">=" (GREATER_THAN_OR_EQUAL_TO)
+              "<=" (LESS_THAN_OR_EQUAL_TO)
+
+          start_row: Row index from which to start evaluating the condition.
+                     Default is 1 (skips the header row). If set to any value
+                     other than 1, the first row is not treated as a header and
+                     all rows are evaluated as data.
+
+       Returns: 
+          A tuple containing two lists:
+
+              true_condition_list: Rows that satisfy the condition
+              false_condition_list: Rows that do not satisfy the condition
+
+       Important Behavior: 
+
+      This method only works with proper tables/matrices (list of lists where
+      all rows have the same number of columns). If col_index is out of range,
+      the function will not raise an error. All rows will be placed in the
+      false_condition_list and the true_condition_list will be empty.
+      The header row (row 0) is never evaluated when start_row=1 (default).
+
+      See the examples below for detailed behavior with different data types and
+      edge cases.
+
+
+[**Top**](#pylo-class) <span style="color:gray"> <strong> Example: </strong> </span>
+
+```python
+import custom_print as cp
+pylo = cp.PyLO()
+tbl  = cp.FancyFormat()
+tbl.title_bold = True
+tbl.title_bg = 90
+tbl.title_fg = 231
+tbl.adj_indent = 6
+
+Case 1: 
+
+matrix = [["Id",    "Name",         "Status",    "Grade"],
+        [1,       "Student 1",    "pass",       95    ],
+        [2,       "Student 2",    "fail",       50    ],
+        [3,       "Student 3",    "Pass",       100   ],
+        [4,       "Student 4",    "Pass",       70.1  ],
+        [5,       "Student 5",    "Fail",       60    ]]
+
+true_condition_list,  false_condition_list =
+pylo.split_list_by_condition(data=matrix, col_index=3,
+condition=70, sensitive_case=True,
+operator=pylo.Operator.GREATER_THAN, start_row=1)
+
+tbl.title_msg =" Original List, col_index=3, condition > 70 " 
+tbl.print_fancy_format(matrix)
+
+tbl.title_msg =" True Condition List, Grade > 70 " 
+tbl.print_fancy_format(true_condition_list)
+
+tbl.title_msg =" False Conditon List, Grade > 70 " 
+tbl.print_fancy_format(false_condition_list)
+
+
+Case 2: 
+
+tbl.title_bg = 231
+tbl.title_fg = 22
+matrix = [["Grade"],[97.4],[70],[50],[97.0]]
+
+true_condition_list,  false_condition_list =
+pylo.split_list_by_condition(data=matrix, col_index=3,
+condition=70, sensitive_case=True,
+operator=pylo.Operator.GREATER_THAN, start_row=1)
+
+print("\n      ", end="", flush=True)
+print(f"matrix = {matrix}\n")
+tbl.title_msg =" Original List, col_index=3, condition > 70 " 
+tbl.print_fancy_format(matrix)
+
+tbl.title_msg =" True Condition List, Grade > 70 " 
+tbl.print_fancy_format(true_condition_list)
+
+tbl.title_msg =" False Conditon List, Grade > 70 " 
+tbl.print_fancy_format(false_condition_list)
+
+Case 3: 
+
+tbl.title_bg = 14
+tbl.title_fg = 16
+
+true_condition_list,  false_condition_list =
+pylo.split_list_by_condition(data=matrix, col_index=0,
+condition=70, sensitive_case=True,
+operator=pylo.Operator.GREATER_THAN, start_row=1)
+
+tbl.title_msg =" Original List, col_index=0, condition > 70 " 
+tbl.print_fancy_format(matrix)
+
+tbl.title_msg =" True Condition List, Grade > 70 " 
+tbl.print_fancy_format(true_condition_list)
+
+tbl.title_msg =" False Conditon List, Grade > 70 " 
+tbl.print_fancy_format(false_condition_list)
+
+Case 4: 
+
+tbl.title_bg = 202
+tbl.title_fg = 231
+
+true_condition_list, false_condition_list =
+pylo.split_list_by_condition(data=matrix, col_index=0,
+condition=93, sensitive_case=True,
+operator=pylo.Operator.GREATER_THAN, start_row=0)
+
+print()
+print(f" data=matrix, col_index=0, condition=93,
+        sensitive_case=True,")
+print(f" operator=pylo.Operator.GREATER_THAN, start_row=0)")
+print()
+tbl.title_msg =" Original List " 
+tbl.print_fancy_format(matrix)
+tbl.title_msg =" True Condition List " 
+tbl.print_fancy_format(true_condition_list)
+tbl.title_msg =" False Condition List " 
+tbl.print_fancy_format(false_condition_list)
+```
+
+**Note**  In  Case 4,  the start_row parameter is set to 0, meaning the
+        condition is applied to all rows, including the first row. As a
+        result, the header is treated as regular data and will only
+        appear in the true_condition_list if it satisfies the given
+        condition.
+
+**Additionally**, this case demonstrates a comparison between mixed
+        data types (strings and numbers). Mixing data types in a column
+        can lead to unexpected or inconsistent results and is not
+        recommended.
+
+
+**Important**  The case_sensitive parameter only applies when the condition
+            is a string. When the condition parameter is a string, The
+            ascii value takes control on how to evaluate the comparison.
+
+**Reference**  https://www.geeksforgeeks.org/dsa/ascii-table/
+
+
+```python
+true_condition_list, false_condition_list =                             
+pylo.split_list_by_condition(data = matrix, col_index = 2, condition="Fail", sensitive_case = False,  
+                             operator = pylo.Operator.EQUAL_TO, start_row = 1)    
+```
 #### [Back](README.md)
 
 https://github.com/acma82/custom_print

@@ -13,6 +13,8 @@
 * [**Header Under Line Section**](#header-under-line-section)
 * [**Sumarize**](#sumarize)
 * [**Demo**](#demo-1)
+* [**Banded Row**](#banded-row)
+* [**Multi Colors**](#multi-color)
 
 
 <!-- ---------------------------------- -->
@@ -381,5 +383,183 @@ tbl.print_fancy_format(data=lst, style=cp.Line_Style.DESIGN_5)
 ```
 
 ![Alt text](Demo2.png)
+[**Top**](#fancyformat)
+<!-- ---------------------------------- -->
+<!-- Banded_Row                      -->
+<!-- ---------------------------------- -->
+## Banded Row
+**set_banded_row_on** was created to apply alternating background colors to the table rows.
+When **set_banded_row_on** is set to True, banded_row_bg and banded_row_fg control the 
+banded row behavior. See the example below.
+
+```python
+    import custom_print as cp
+    tbl = cp.FancyFormat()
+    crs = cp.Cursor()
+
+    lst = [["set_banded_row_on = False"],["Data 1"],
+            ["Data 2"],["Data 3"],["Data 4"]]
+
+    tbl.adj_indent = 40
+    tbl.title_msg = "Banded Row Inactive"
+    tbl.header_bg = 4;          tbl.header_fg = 231
+    tbl.data_bg = 231;          tbl.data_fg = 16
+    tbl.header_horizontal_line_on = True
+
+    tbl.print_fancy_format(lst)
+
+    lst = [["set_banded_row_on = True"],["Data 1"],
+            ["Data 2"],["Data 3"],["Data 4"]]
+
+    tbl.adj_indent = 6
+    tbl.title_msg = "Banded Row Active"
+    tbl.set_banded_row_on = True
+    tbl.banded_row_bg = 208;    tbl.banded_row_fg = 16
+    crs.jumpTo(qty=8, direction=cp.Move.UP)
+
+    tbl.print_fancy_format(lst)
+
+```
+![Alt text](banded_row_01.png)
+
+**bande_row_step**  variable is set to 1 by default. It can be changed to a different value for more convenience for the visualization.
+
+![Alt text](banded_row_02.png)
+
+[**Top**](#fancyformat)
+
+## Multi Color
+
+                                                                               
+          Multi Color Section                                                   
+                                                                                
+          self.set_multi_bg_fg_on = False   |                                   
+                                            |                                   
+          self.data_multi_bg_step  = 1      |    self.data_multi_fg_step  = 1   
+          self.data_multi_bg_stop  = 255    |    self.data_multi_fg_stop  = 255 
+                                            |                                   
+                                                                                
+
+      This option was created to apply alternating background colors to the
+      table rows. When  set_multi_bg_fg_on  is set to True, the following
+      variables control the color behavior:
+
+      data_multi_bg acts as a range variable in the format (start, stop, step).
+      The start value is taken from the data_bg variable (see Data Section for
+      details). The stop value is defined by  data_multi_bg_stop.  The step
+      value is defined by  data_multi_bg_step. 
+
+      For example, if a table has 5 data rows, data_bg is set to 9 (PASTEL_RED),
+      and  data_multi_bg_stop  is set to 21, the background colors will be
+      applied as shown in the table below.
+
+
+      Rows        Start                 Color           check color name
+        1          data_bg = 9          PASTEL_RED            (9)
+        2          data_bg += step(10)  ELECTRIC_LIGHT_GREEN  (10)
+        3          data_bg += step(11)  DARKISH_YELLOW        (11)
+        4          data_bg += step(12)  LIGHT_BLUE            (12)
+        5          data_bg += step(13)  LIGHT_PURPLE          (13)
+
+       Note  In this example,  data_multi_bg_stop is set to 21. Since the table
+             only contains 5 rows, the stop value is not reached. Now assume
+              data_multi_bg_step  is set to 4. In this case,
+             the background colors will be applied as shown in the table below.
+
+       Rows        Start                Color
+        1          data_bg = 9          PASTEL_RED            (9)
+        2          data_bg += _step     LIGHT_PURPLE          (13)
+        3          data_bg += step(17)  DARK_BLUE             (17)
+        4          data_bg += step(21)  PASTEL_RED            (21) Restar (9)
+        5          data_bg += step(13)  LIGHT_PURPLE          (13)
+
+
+       Note  The fourth row reaches the defined limit  (data_multi_bg_stop). 
+             Once the limit is reached, the color sequence restarts from the
+             beginning — using the  data_bg  color, which is 9 (PASTEL_RED).
+             The variable  data_multi_fg  works exactly the same way as
+              data_multi_bg. 
+
+In the following example, the background color step is set to 0
+(static background) to make the foreground color progression easier to
+see. Please also note that the header colors are not affected by these
+settings.
+
+
+```python
+    import custom_print as cp
+    tbl = cp.FancyFormat()
+
+    lst   = [["Header 1", "Header 2", "Header 3", "Header 4"],
+            ["Data 1",   "Data 2",   "Data 3",   "Data 4"  ],
+            ["Data 2",   "Data 6",   "Data 7",   "Data 8"  ],
+            ["Data 3",   "Data 2",   "Data 3",   "Data 4"  ],
+            ["Data 4",   "Data 2",   "Data 3",   "Data 4"  ],
+            ["Data 5",   "Data 2",   "Data 3",   "Data 4"  ]]
+
+    tbl.header_bg = cp.No.VERY_DARK_MAGENTA
+    tbl.header_fg = cp.No.WHITE
+
+    tbl.data_bg   = cp.No.WHITE # 15
+    tbl.data_multi_bg_step = 0
+
+
+    tbl.set_multi_bg_fg_on = True
+    tbl.data_bold = True
+    tbl.data_fg = 9               # start
+    tbl.data_multi_fg_stop = 21
+
+    tbl.data_multi_fg_step = 1
+    tbl.print_fancy_format(data=my_list,
+                            style=cp.Line_Style.DASH_LINE)
+
+    tbl.data_multi_fg_step = 4
+    tbl.print_fancy_format(data=my_list,
+                            style=cp.Line_Style.DASH_LINE)
+
+```    
+![Alt text](multi_color_01.png)
+
+
+```python
+    import custom_print as cp
+    tbl = cp.FancyFormat()
+
+    lst = [["Header 1", "Header 2", "Header 3", "Header 4"],
+            ["Data 1",   "Data 2",   "Data 3",   "Data 4"  ],
+            ["Data 2",   "Data 6",   "Data 7",   "Data 8"  ],
+            ["Data 3",   "Data 2",   "Data 3",   "Data 4"  ],
+            ["Data 4",   "Data 2",   "Data 3",   "Data 4"  ],
+            ["Data 5",   "Data 2",   "Data 3",   "Data 4"  ]]
+
+    tbl.title_msg = " Line_Style.TEAL_WHITE "
+    tbl.title_align = cp.Align.CENTER
+    tbl.title_bg = cp.No.DARK_WHITE
+    tbl.title_fg = 22
+
+    tbl.header_bg = cp.No.VERY_DARK_MAGENTA
+    tbl.header_fg = cp.No.WHITE
+
+    tbl.data_align = cp.Align.CENTER
+    tbl.data_bold  = True
+    tbl.data_bg    = cp.No.WHITE # 15 (start)
+    tbl.data_fg    = 9           #    (start)
+
+    tbl.set_multi_bg_fg_on = True
+
+    tbl.data_multi_bg_step = 2
+    tbl.data_multi_bg_stop = 255  # This is the default value
+                                # just to undertand better.
+                                # Not necessary.
+    tbl.data_multi_fg_step = 4
+    tbl.data_multi_fg_stop = 121
+
+    tbl.print_fancy_format(data=lst,
+                        style=cp.Line_Style.TEAL_WHITE)
+    # TEAL_WHITE -> data_bg=231  data_fg=21
+    # How the design is done with the colors internally.
+```
+![Alt text](multi_color_02.png)
+
 
 #### [Back](README.md)

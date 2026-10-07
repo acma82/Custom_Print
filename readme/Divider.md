@@ -1,5 +1,5 @@
 #### [Back](README.md)
-# Divider
+# FancyDivider
       The default values are intentionally kept simple. However, you can easily
       modify them to create a more fancy and customized visualization. Several
       ready-to-use templates are also provided for quick and attractive styling.

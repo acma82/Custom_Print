@@ -4,8 +4,8 @@
   * [**clean**](#clean)
   * [**clear**](#clear)
   * [**erase**](#erase)
-  * [**dimensions**](#dimensions)
   * [**resize**](#resize)
+  * [**terminal_size**](#terminal_size)
 
 * <span style="color:cyan"> <strong>  Internal Functions </strong> </span>
   * [**bg_ansi_colors**](#bg_ansi_colors)
@@ -14,6 +14,7 @@
   * [**ins_newline**](#ins_newline)
   * [**reset_font**](#reset_font)
   * [**set_font**](#set_font)
+  * [**subscript_superscript**](#subscript-and-superscript-functions)
   * [**terminal_bell**](#terminal_bell)
 
 
@@ -63,14 +64,14 @@ cp.erase()
 print("Good Bye...!")
 ```
 
-## dimensions
-It returns the dimensions of the terminal, cols and rows.
+## terminal_size
+It returns the terminal size, cols and rows.
 
 [**Top**](#functions) <span style="color:gray"> <strong> Example: </strong> </span>
 
 ```python
 import custom_print as cp
-cols, rows = cp.dimensions()
+cols, rows = cp.terminal_size()
 print("cols: ", cols, "  rows: ", rows)
 ```
 
@@ -83,7 +84,7 @@ It resizes the terminal size.
 ```python   
 import custom_print as cp
 cp.clean()
-r, c = cp.dimensions()
+r, c = cp.terminal_size()
 print(f"rows: {r}, cols: {c}")
 cp.resize(25, 120)
 print("Good Bye...!")    
@@ -233,6 +234,17 @@ print(f"Water -> H{cp.subscript(2)}O    Power: X{cp.superscript('5+v')}+5")
         q, z,
         C, F, Q, S, X, Y,
         Z
+
+[**Top**](#functions) <span style="color:gray"> <strong> Example: </strong> </span>
+
+```python
+import custon_print as cp
+#+-----------------------------------------------------------------------------------+
+#|    Subscript and SuperScript Function                                             |
+#+-----------------------------------------------------------------------------------+
+print(f"Water -> H{cp.subscript(2)}O    Power: X{cp.superscript("5+v")} + 5")
+print(f"Water -> H{cp.subscript(2)}O    Power: X{cp.superscript(5)} + 5")
+```
 
 
 ## terminal_bell

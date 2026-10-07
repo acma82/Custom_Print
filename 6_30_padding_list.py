@@ -14,12 +14,10 @@ pylo = cp.PyLO()
 
 lst = ["acma2",4787878,"Migue", "acma", "Miguelito"]         # multiple_items_no_row   ->  works
 
-# resultl = pylo.find_longest_item(lst)
-# # resultl = pylo.find_shortest_item(lst)
-# print(resultl)                         
 
-# # print(cp.get_list_type(lst))
-
+print()
+print(f"{cp.set_font(1,202,231)} padding_list = pylo.padding_list(data=lst, align=cp.Align.JUSTIFY, {cp.reset_font()}\n"\
+      f"{cp.set_font(1,202,231)} padding_size=1, left_pad=4, right_pad=1)                           {cp.reset_font()}\n")
 
 padding_list = pylo.padding_list(data=lst, align=cp.Align.JUSTIFY, padding_size=1, left_pad=4, right_pad=1)
 print(padding_list)

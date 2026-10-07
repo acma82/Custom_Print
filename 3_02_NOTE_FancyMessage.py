@@ -37,7 +37,7 @@ what would I give
 Raw rose crystal  
 sediment of the sun
 '''
-ncols, nrows = cp.dimensions()
+ncols, nrows = cp.terminal_size()
 cp.resize(35, 100)
 cp.clear()
 #msg.help_lines = True

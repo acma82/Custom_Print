@@ -13,8 +13,8 @@ nl.print_nested_list(l1)
 
 print("\n")
 
-l1 = [["Header 1",    "Header",  "I am the longest one"]]
-l1 = [["Header 1"],    ["Header"],  ["I am the longest one"]]
+# l1 = [["Header 1",    "Header",  "I am the longest one"]]
+# l1 = [["Header 1"],    ["Header"],  ["I am the longest one"]]
 
 resultL = pylo.find_longest_item(l1)
 resultS = pylo.find_shortest_item(l1)

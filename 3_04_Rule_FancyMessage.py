@@ -5,7 +5,7 @@ import custom_print as cp
 def print_rule():
     #----------------------------------------------------------------------------------------------
     cp.terminal_bell()
-    cols, rows = cp.dimensions()
+    cols, rows = cp.terminal_size()
     crs = cp.Cursor()
     #----------------------------------------------------------------------------------------------
     fm = cp.FancyMessage()

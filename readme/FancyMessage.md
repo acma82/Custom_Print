@@ -56,9 +56,11 @@ This class contains 3 methods and the attributes and their default values are di
 
 ```python
     note_msg  = " Note: "   note_align   = Align.JUSTIFY        note_blinking    = False
-    note_bg   = 231         note_strike  = False                note_underline #-----------------------------------------------------------------------------------------------------+
-#  Vertical line Variables                                                                            |
-#-----------------------------------------------------------------------------------------------------+   
+    note_bg   = 231         note_strike  = False                note_underline
+    
+#----------------------------------------------------------------------------------------+
+#  Vertical line Variables                                                               |
+#----------------------------------------------------------------------------------------+   
   = False
     note_fg   = 0           note_italic  = False                note_position    = 1
     note_bold = False       note_inverse = False                note_right_space = 2

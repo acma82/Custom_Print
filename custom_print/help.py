@@ -4218,14 +4218,14 @@ def asciiart_only_info():
     #------------------------------------------------------------------------------------------------------------------------------------
 
     message = f'''
-      This class includes 4 different methods that allow you to print
+      This class includes 3 different methods that allow you to print
       ASCII art in various styles.
 
       {cp.set_font(1,16,117)} Methods                                                        {cp.reset_font()}
       {cp.set_font(1,117,16)}                                                                {cp.reset_font()}
       {cp.set_font(1,117,16)} 1. print_ascii_art            3.print_ascii_art_logo           {cp.reset_font()}
       {cp.set_font(1,117,16)}                                                                {cp.reset_font()}
-      {cp.set_font(1,117,16)} 2. print_multi_ascii_art      4. print_reversed_ascii_logo_art {cp.reset_font()}
+      {cp.set_font(1,117,16)} 2. print_multi_ascii_art                                       {cp.reset_font()}
       {cp.set_font(1,117,16)}                                                                {cp.reset_font()}
 
 
@@ -4690,6 +4690,8 @@ word.append(\"                                                                \"
 logo.ascii_type = hello
 logo.print_ascii_art_logo()
 
+
+      {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
 '''
     print(message)
 
@@ -4878,6 +4880,7 @@ def nestedlist_only_info():
     nl.bullet = "***"
     crs.jumpTo(qty=15, direction=cp.Move.UP)
     nl.print_simple_list(table)
+    print()
 
 
 def nestedlist_info():
@@ -6632,6 +6635,25 @@ def transpose_info():
                      False, some data may be lost for non-rectangular lists.
 
 
+{cp.set_font(1,231,16)}   Inputs                              Outputs                            Case  {cp.reset_font()}
+   list_1 = "hello"                    []                                   1
+   list_1 = []                         []                                   2
+   list_1 = [5]                        [[5]]                                3
+   list_1 = [[1]]                      [1]                                  4
+   list_1 = [1,2,3,4,5,6]              [[1],[2],[3],[4],[5],[6]]            5
+
+   list_1 = [[1,2],[3,4],[5,6]]        [[1,3,5],[2,4,6]]                    6
+   list_1 = [[1],[4],[5,6]]            [[1,4,5],[fill_value,fill_value,6]]  6
+                                       [[1,4,5]] -> autofill = False        6
+
+   list_1 = [10,[50],[250],["H"],100]  [[10],[[50]],[[250]],[["H"]],[100]]  7
+
+   list_1 = [[1,2,3,4,5,6]]            [1, 2, 3, 4, 5, 6]                   8 
+   list_1 = [1, 2, 3, 4, 5, 6]         [[1], [2], [3], [4], [5], [6]]
+   list_1 = [[1],[2],[3],[4],[5],[6]]  [[1,2,3,4,5,6]]
+                        
+
+
       {cp.set_font(0,53,231)}                                                                     {cp.reset_font()}
       {cp.set_font(0,53,231)}  transpose(data:list, autofill:bool=True, fill_value:str="----",    {cp.reset_font()}
       {cp.set_font(0,53,231)}            update:bool=False)->list                                 {cp.reset_font()}
@@ -6642,17 +6664,20 @@ def transpose_info():
 
                  lst = [[1,2],[3,4],[5,6]]
                  print("original :", lst)
-                 trans_lst = pylo.transpose(data=lst, autofill=True, fill_value=0.5, update=False)
+                 trans_lst = pylo.transpose(data=lst, autofill=True,
+                                            fill_value=0.5, update=False)
                  print("Transpose:",trans_lst)
 
                  lst = [[1],[4],[5,6]]
                  print("original :", lst)
-                 trans_lst = pylo.transpose(data=lst, autofill=True, fill_value=0.5, update=False)
+                 trans_lst = pylo.transpose(data=lst, autofill=True,
+                                            fill_value=0.5, update=False)
                  print("Transpose:",trans_lst)
 
                  lst = [[1],[4],[5,6]]
                  print("original :", lst)
-                 trans_lst = pylo.transpose(data=lst, autofill=False, fill_value=0.5, update=False)
+                 trans_lst = pylo.transpose(data=lst, autofill=False,
+                                            fill_value=0.5, update=False)
                  print("Transpose:",trans_lst)
 
       {cp.set_font(1,231,90)} \u25CF Output {cp.reset_font()}
@@ -8999,9 +9024,9 @@ def split_list_by_col_condition_info():
     print()
     message = f'''
       {cp.set_font(1,196,231)} Note {cp.reset_font()} In {cp.set_font(1,202,231)} Case 4, {cp.reset_font()} the start_row parameter is set to 0, meaning the
-             condition is applied to all rows, including the first row. As a 
-             result, the header is treated as regular data and will only 
-             appear in the true_condition_list if it satisfies the given 
+             condition is applied to all rows, including the first row. As a
+             result, the header is treated as regular data and will only
+             appear in the true_condition_list if it satisfies the given
              condition.
 
              Additionally, this case demonstrates a comparison between mixed
@@ -9009,13 +9034,13 @@ def split_list_by_col_condition_info():
              can lead to unexpected or inconsistent results and is not
              recommended.
 
-             
+
       {cp.set_font(1,231,16)} Important {cp.reset_font()} The case_sensitive parameter only applies when the condition
                   is a string. When the condition parameter is a string, The
                   ascii value takes control on how to evaluate the comparison.
 
       {cp.set_font(1,190,16)} Reference {cp.reset_font()} https://www.geeksforgeeks.org/dsa/ascii-table/
-                  
+
       '''
     print(message)
     matrix = [["Id",    "Name",         "Status",    "Grade"],
@@ -9024,17 +9049,18 @@ def split_list_by_col_condition_info():
               [3,       "Student 3",    "Pass",       100   ],
               [4,       "Student 4",    "Pass",       70.1  ],
               [5,       "Student 5",    "Fail",       60    ]]
-    
+
     true_condition_list, false_condition_list = pylo.split_list_by_condition(data=matrix, col_index=2, condition="Fail", sensitive_case=False,
                                                                              operator=pylo.Operator.EQUAL_TO, start_row=1)
     message = f'''
-    {cp.set_font(1,231,16,1)}                                                                       {cp.reset_font()}
-    {cp.set_font(1,231,202,1)}  true_condition_list, false_condition_list =                          {cp.reset_font()}
-    {cp.set_font(1,231,16,1)}  pylo.split_list_by_condition({cp.set_font(1,231,70,1)}data = matrix, col_index = 2,           {cp.reset_font()}
-    {cp.set_font(1,231,70,1)}                               sensitive_case = False, start_row = 1,  {cp.reset_font()}
-    {cp.set_font(1,231,70,1)}                               operator = pylo.Operator.EQUAL_TO{cp.set_font(1,231,16,1)})      {cp.reset_font()}
-    {cp.set_font(1,231,70,1)}                                                                       {cp.reset_font()}
-     
+    {cp.set_font(1,231,16,1)}                                                                          {cp.reset_font()}
+    {cp.set_font(1,231,202,1)}  true_condition_list, false_condition_list =                             {cp.reset_font()}
+    {cp.set_font(1,231,16,1)}  pylo.split_list_by_condition({cp.set_font(1,231,70,1)}data = matrix, col_index = 2,              {cp.reset_font()}
+    {cp.set_font(1,231,70,1)}                               condition="Fail", sensitive_case = False,  {cp.reset_font()}
+    {cp.set_font(1,231,70,1)}                               operator = pylo.Operator.EQUAL_TO,         {cp.reset_font()}
+    {cp.set_font(1,231,70,1)}                               start_row = 1{cp.set_font(1,231,16,1)})                             {cp.reset_font()}
+    {cp.set_font(1,231,70,1)}                                                                          {cp.reset_font()}
+
      '''
     print(message)
     tbl.title_msg = " Original List "
@@ -9044,7 +9070,7 @@ def split_list_by_col_condition_info():
     tbl.title_msg = " False Condition List "
     tbl.print_fancy_format(false_condition_list)
     print()
-    
+
 
 
 

@@ -40,11 +40,11 @@ draw_line_fg    = -1            |                                   |
 
 custom_print module is not a big thing, but I hope you find useful occasionally. **Python 3.12.1** or greater is required.						
 
-Note: custom_print module has been tested on RedHat 9, Centos Stream 9, AlmaLinux 9, and Windows 10.
+Note: custom_print module has been tested on RedHat 9, Centos Stream 9, AlmaLinux 9, and Windows 11.
 
 
 #### [Back](README.md)
 
 https://github.com/acma82/custom_print
 
-## Report bugs at	→	acma.mex@hotmail.com
+## Report bugs at	→	acma.mex@gmail.com

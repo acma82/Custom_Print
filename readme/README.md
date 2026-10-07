@@ -13,6 +13,9 @@
         middle_right_corner_chr = " " (1.5V)       # chr only for matrix list (before: right_lateral_corner_chr 1.4V)
         
 
+        To see documentation or help on terminal:
+                custom_print 
+                custom_print help
 
 
 
@@ -21,22 +24,20 @@
 |:-----------------------------------------|:-----------------------------------|
 |  clean                                   |  ansi_colors                       |
 |  clear                                   |  ins_chr                           |
-|  dimensions                              |  ins_newline                       |
-|  erase                                   |  set_reset_font                    |
-|  resize                                  |  subscript                         |
+|  erase                                   |  ins_newline                       |
+|  resize                                  |  set_reset_font                    |
+|  terminal_size                           |  subscript                         |
 |                                          |  superscript                       |
 |                                          |  terminal_bell                     |
 
 
 
 ## Classes
-|  [AsciiArt](AsciiArt.md)         |  [Cursor](Cursor.md)               | [Divider](Divider.md)      |
+|  [AsciiArt](AsciiArt.md)         |  [Cursor](Cursor.md)               | [FancyDivider](Divider.md)      |
 |:---------------------------------|:-----------------------------------|:---------------------------|
 |  [FancyFormat](FancyFormat.md)   | [FancyMessage](FancyMessage.md)    | [FontStyle](FontStyle.md)  |
-|  [Help_Classes](HelpClasses.md)  | [Pen](Pen.md)                      | [PyLO](PyLO.md)            |
-
-
-
+|  [Help_Classes](HelpClasses.md)  | [NestedList](NestedList.md)        | [Pen](Pen.md)              |
+|  [PyLO](PyLO.md)                 |                                    | 
 
 
 <div id=first> Saturday December 30, 2024 First Release. </div>
