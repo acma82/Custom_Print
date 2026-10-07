@@ -65,8 +65,9 @@ class Align(enum.StrEnum):
     RIGHT    = "right"
     JUSTIFY  = "justify"
     NONE     = "none"
-    
+
 class Ascii_Letter(enum.StrEnum):
+    ''' Ascii_Letter Names '''
     ALPHA        = "Alpha"
     ANSI_SHADOW  = "ANSI_Shadow"
     BIG          = "Big"
@@ -164,7 +165,7 @@ class Line_Style(enum.StrEnum):
     SQ_BRACKETS   = "sq_brackets"
     NONE          = "none"
     # This two option are for making their own custom color for the user
-    
+
     # Design 2
     SPACE_0  = "space_0"
     SPACE_1  = "space_1"
@@ -204,8 +205,8 @@ class Line_Style(enum.StrEnum):
     BLUE_PURPLE_WHITE_2 = "blue_purple_white_2"
     GREEN_GREEN_BLACK   = "green_green_black"
 
-    
-    
+
+
 
 
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
@@ -245,7 +246,7 @@ class Unicode(enum.StrEnum):
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Arrows                                                                                                                                         -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    BLACK_RIGHTWARDS_ARROWHEAD = "\N{BLACK RIGHTWARDS ARROWHEAD}" 
+    BLACK_RIGHTWARDS_ARROWHEAD = "\N{BLACK RIGHTWARDS ARROWHEAD}"
 
     RIGHT_ARROW   = "\N{RIGHTWARDS ARROW}" # \u2192 →
     LEFT_ARROW    = "\N{LEFTWARDS ARROW}"  # \u2190 ←
@@ -261,9 +262,9 @@ class Unicode(enum.StrEnum):
 
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Miscellaneous                                                                                                                                  -
-    #-------------------------------------------------------------------------------------------------------------------------------------------------  
+    #-------------------------------------------------------------------------------------------------------------------------------------------------
     EM_DASH = "\N{EM DASH}"
-    
+
     LOWERCASE_N_TILDE = "\N{LATIN SMALL LETTER N WITH TILDE}"   # ñ
     UPPERCASE_N_TILDE = "\N{LATIN CAPITAL LETTER N WITH TILDE}" # Ñ
 
@@ -286,23 +287,23 @@ class Unicode(enum.StrEnum):
     SUBSCRIPT_ALPHA     = '?'
     SUBSCRIPT_BETA      = '\u1d66'
     SUBSCRIPT_GAMMA     = '\u1d67'
-    SUBSCRIPT_DELTA     = '?'     
-    SUBSCRIPT_EPSILON   = '?'     
-    SUBSCRIPT_THETA     = '?'    
-    SUBSCRIPT_IOTA      = '?'    
+    SUBSCRIPT_DELTA     = '?'
+    SUBSCRIPT_EPSILON   = '?'
+    SUBSCRIPT_THETA     = '?'
+    SUBSCRIPT_IOTA      = '?'
     SUBSCRIPT_PHO       = '\u1d68'
-    SUBSCRIPT_PHI       = '?'    
+    SUBSCRIPT_PHI       = '?'
     SUBSCRIPT_PSI       = '\u1d69'
     SUBSCRIPT_CHI       = '\u1d6a'
 
     SUPERSCRIPT_ALPHA   = '\u1d45'
-    SUPERSCRIPT_BETA    = '\u1d5d' 
-    SUPERSCRIPT_GAMMA   = '\u1d5e' 
-    SUPERSCRIPT_DELTA   = '\u1d5f' 
-    SUPERSCRIPT_EPSILON = '\u1d4b' 
+    SUPERSCRIPT_BETA    = '\u1d5d'
+    SUPERSCRIPT_GAMMA   = '\u1d5e'
+    SUPERSCRIPT_DELTA   = '\u1d5f'
+    SUPERSCRIPT_EPSILON = '\u1d4b'
     SUPERSCRIPT_THETA   = '\u1dbf'
     SUPERSCRIPT_IOTA    = '\u1da5'
-    SUPERSCRIPT_PHO     = '?'     
+    SUPERSCRIPT_PHO     = '?'
     SUPERSCRIPT_PHI     = '\u1db2'
     SUPERSCRIPT_PSI     = '\u1d60'
     SUPERSCRIPT_CHI     = '\u1d61'
@@ -743,6 +744,3 @@ class Style(enum.StrEnum):
     STRIKE_ON    = "\033[9m";       STRIKE_OFF    = "\033[29m"
     RESET_ALL    = "\033[0m"
     OFF = "\033[22m"+"\033[23m"+"\033[24m"+"\033[25m"+"\033[27m"+"\033[28m"+"\033[29m"
-
-
-

@@ -163,11 +163,10 @@ class Pen(Cursor):                         # Inheritance the Cursor Class here.
             sq_in.outer_corner_fg   = self.draw_line_fg         # values -1 to 255
 
             sq_in.inner_corner_bold = self.draw_line_bold
-            sq_in.inner_corner_bg   = self.draw_line_bg  
-            sq_in.inner_corner_fg   = self.draw_line_fg  
+            sq_in.inner_corner_bg   = self.draw_line_bg
+            sq_in.inner_corner_fg   = self.draw_line_fg
 
 
-            sq_in.corner
             # Line Under Header and Header Section
             sq_in.header_bg = self.draw_line_bg
             sq_in.header_fg = self.draw_line_fg
@@ -176,7 +175,7 @@ class Pen(Cursor):                         # Inheritance the Cursor Class here.
 
             sq_in.header_all_cell_bg = True
 
-             
+
             sq_in.header_vertical_line_bg = self.draw_line_bg
             sq_in.header_vertical_line_fg = self.draw_line_fg
 

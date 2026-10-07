@@ -88,7 +88,6 @@ class FancyMessage(Cursor):
         self.adj_bg_msg_to_space_available = False    # True or False
 
 
-
         #--------------------------------------------------------------------
         # Note Settings Here, print_fancy_note
         self.note_msg = " Note: "
@@ -301,7 +300,7 @@ class FancyMessage(Cursor):
     #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     # Print Fancy Note                                                                                                                                 -
     #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    def print_fancy_note(self, body_msg:str="")->None:
+    def print_fancy_note(self, body_msg:str=""):
         '''
             It prints the fancy note with the attributes defined
         '''
@@ -358,7 +357,7 @@ class FancyMessage(Cursor):
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Print Fancy Message                                                                                                                            -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def print_fancy_message(self, body_msg:str="")->None:
+    def print_fancy_message(self, body_msg:str=""):
 
         '''  It prints the fancy message with the attributes defined  '''
 
@@ -485,7 +484,7 @@ class FancyMessage(Cursor):
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     # Get Message Attributes                                                                                                                         -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
-    def get_message_attributes(self, body_msg:str="", print_attributes=True)->list:
+    def get_message_attributes(self, body_msg:str="", print_attributes=True):
         '''
         It returns the attributes of the message
         '''
@@ -553,7 +552,6 @@ class FancyMessage(Cursor):
             tbl.adj_space  = 4
 
             tbl.header_horizontal_line_on = True
-            # tbl.horizontal_line_on = False
             tbl.middle_horizontal_line_on = False
             tbl.adj_bottom_margin = 1
 

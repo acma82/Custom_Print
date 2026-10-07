@@ -1,4 +1,5 @@
-
+''' Logos library '''
+#pylint: disable=line-too-long
 Logo_Unix = []
 Logo_Unix.append("                                                         ")          # 0
 Logo_Unix.append("                                     ,        ,          ")          # 1

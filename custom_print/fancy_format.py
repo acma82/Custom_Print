@@ -958,7 +958,7 @@ def print_matrix_list(self,my_list):
                                 control_banded_row += 1
                                 set_d = set_font(self.data_bold, self.data_bg, self.data_fg, self.data_italic, self.data_underline,\
                                                     self.data_strike, self.data_blinking, self.data_dim, self.data_hidden, self.data_inverse)
-                                
+
 
                             elif control_banded_row == self.banded_row_step:
                                 control_banded_row = 0
@@ -1173,7 +1173,7 @@ def print_matrix_list(self,my_list):
                         control_banded_row += 1
                         set_d = set_font(self.data_bold, self.data_bg, self.data_fg, self.data_italic, self.data_underline,\
                                             self.data_strike, self.data_blinking, self.data_dim, self.data_hidden, self.data_inverse)
-                        
+
 
                     elif control_banded_row == self.banded_row_step:
                         control_banded_row = 0
@@ -1212,7 +1212,7 @@ def print_matrix_list(self,my_list):
                         if multi_fg >= self.data_multi_fg_stop:
                             multi_fg = self.data_fg # start over again
 
-                        
+
             #----------------------------------------------------------------------------------------------------------------------------------
 
             for dato in datos:
@@ -1635,7 +1635,7 @@ class FancyFormat:
         self.data_multi_bg_step  = 1
         self.data_multi_bg_stop  = 255
         self.data_multi_fg_step  = 1
-        self.data_multi_fg_stop  = 255        
+        self.data_multi_fg_stop  = 255
 
         #---------------------------------------------------------------------------------------------------------------------------------------------
         # Title Section
@@ -2657,20 +2657,20 @@ class FancyFormat:
                                                           # "C",["H","K","P","o"]]
            # also convert the elements in my_list to string. all of them
             if self.set_layout == Layout.HORIZONTAL or self.set_layout == "h":
-                vector_list = make_to_vector(data_list)    
+                vector_list = make_to_vector(data_list)
                 for n in vector_list: my_list.append(str(n))
-                
+
                 print_multiple_horizontal_items(self,my_list)
 
             elif self.set_layout == Layout.VERTICAL or self.set_layout == "v":
-                vector_list = make_to_vector(data_list)    
+                vector_list = make_to_vector(data_list)
                 for n in vector_list: my_list.append([str(n)])
                 print_matrix_list(self,my_list)
 
             else:
                 for n in data_list: my_list.append(str(n))
                 print_multiple_horizontal_items(self,my_list)
-                
+
             # if we want to save the new list to into the old one as string
             if self.update_list == True and (isinstance (data, list)):
                 data_list.clear()

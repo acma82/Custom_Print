@@ -10,7 +10,7 @@ import time
 from custom_print import clean
 from custom_print import clear
 from custom_print import erase
-from custom_print import dimensions
+from custom_print import terminal_size
 
 print("fp.clear() -> clear function")
 print("Clear the terminal and restore to home the cursor")
@@ -20,7 +20,7 @@ clear()
 
 
 # It returns the dimensions of the terminal
-cols, rows = dimensions()
+cols, rows = terminal_size()
 print("fp.dimensions() -> It returns the dimensions of the screen")
 print("cols: ", cols, "  rows: ", rows)
 time.sleep(3)

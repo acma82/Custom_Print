@@ -5,7 +5,7 @@ if __name__ == "__main__":
         # variabvles needed for the documentation
         main_topics        = ["screen_functions", "internal_functions", "help_classes", "asciiart", "cursor",  "fontstyle",  "fancymessage",  "pen",  "fancydivider",  "fancyformat", "nestedlist", "pylo"]
 
-        screen_functions   = ["screen_functions_only",   "clean", "clear", "dimensions", "erase", "resize"]
+        screen_functions   = ["screen_functions_only",   "clean", "clear", "erase", "resize", "terminal_size"]
 
         internal_functions = ["internal_functions_only", "ansi_colors", "get_list_type", "ins_chr", "ins_newline", "move_cursor_right", "set_reset_font", "subscript", "superscript", "terminal_bell"]
 
@@ -47,7 +47,7 @@ if __name__ == "__main__":
 
                       "screen_functions_only", "internal_functions_only",  "help_classes_only",  "cursor_only",  "fontstyle_only",  "fancymessage_only",  "pen_only",  "fancydivider_only",  "fancyformat_only",  "asciiart_only", "nestedlist_only", "pylo_only",
 
-                      "clean", "clear", "dimensions", "erase", "resize",
+                      "clean", "clear",  "erase", "resize", "terminal_size",
 
                       "ansi_colors", "get_list_type", "ins_chr", "ins_newline", "move_cursor_right", "set_reset_font", "subscript", "superscript", "terminal_bell",
 
@@ -98,6 +98,7 @@ if __name__ == "__main__":
 
         # checking if the second argument exist when only 2 arguments are being passed
         elif (len(original_list)) == 2:
+
             if original_list[1] == "help":
                 cp.help.help_documentation()
                 exit()
@@ -114,7 +115,7 @@ if __name__ == "__main__":
                     exit()
 
 
-        # more than one parameter
+        # more than two parameters
         else:
             if "all" in original_list or "documentation" in original_list:
                 cp.help.all_documentation()

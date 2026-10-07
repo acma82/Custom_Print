@@ -1,4 +1,44 @@
+''' This class print ascii art on the terminal'''
+#pylint: disable=eval-used
+#pylint: disable=bare-except
+#pylint: disable=invalid-name
+#pylint: disable=unused-import
+#pylint: disable=line-too-long
+#pylint: disable=too-many-lines
+#pylint: disable=no-else-return
+#pylint: disable=unused-variable
+#pylint: disable=wildcard-import
+#pylint: disable=too-many-locals
+#pylint: disable=protected-access
+#pylint: disable=too-many-branches
+#pylint: disable=consider-using-in
+#pylint: disable=chained-comparison
+#pylint: disable=too-many-arguments
+#pylint: disable=too-many-statements
+#pylint: disable=multiple-statements
+#pylint: disable=consider-using-join
+#pylint: disable=unspecified-encoding
+#pylint: disable=unnecessary-negation
+#pylint: disable=singleton-comparison
+#pylint: disable=unused-wildcard-import
+#pylint: disable=too-few-public-methods
+#pylint: disable=too-many-nested-blocks
+#pylint: disable=too-many-public-methods
+#pylint: disable=expression-not-assigned
+#pylint: disable=consider-using-enumerate
+#pylint: disable=unnecessary-comprehension
+#pylint: disable=too-many-return-statements
+#pylint: disable=unbalanced-tuple-unpacking
+#pylint: disable=consider-using-max-builtin
+#pylint: disable=too-many-instance-attributes
+#pylint: disable=too-many-instance-attributes
+#pylint: disable=too-many-instance-attributes
+#pylint: disable=too-many-positional-arguments
+#pylint: disable=inconsistent-return-statements
+#pylint: disable=possibly-used-before-assignment
+
 import time
+import sys
 
 from custom_print.fancy_functions import ins_chr
 from custom_print.fancy_functions import set_font
@@ -6,50 +46,46 @@ from custom_print.fancy_functions import ins_newline
 from custom_print.fancy_functions import move_cursor_right
 
 from custom_print                 import Move
-# from custom_print                 import FancyFormat
-# from custom_print                 import Line_Style
 from custom_print                 import Cursor
 from custom_print.ref_names       import Layout, Ascii_Letter, Direction
-
 from custom_print.ascii_letters   import*
-# from custom_print.Logos           import*
-# from custom_print.pylo            import PyLO
-
 # +------------------------------------------------------------------------------------------------------------------------------------+
 # |  Creating the Ascii Word                                                                                                           |
 # |  --------------------------------------------------------------------------------------------------------------------------------  |
 # +------------------------------------------------------------------------------------------------------------------------------------+
 class AsciiArt:
-    def __init__(self):        
+    ''' This clas print ascii art on terminal '''
+    def __init__(self):
         self.bold     = False;                self.bg = -1;                           self.fg = -1
         self.italic   = False;                self.underline = False;                 self.strike = False
         self.blinking = False;                self.dim = False;                       self.hidden = False
         self.inverse  = False;                self.ascii_type = Ascii_Letter.STANDARD
-              
+
         self.adj_indent = 0;                  self.delay_ms   = 0
-        self.set_layout = Layout.VERTICAL;    self.set_top_line_on = True;            self.set_bottom_line_on = True; 
+        self.set_layout = Layout.VERTICAL;    self.set_top_line_on = True;            self.set_bottom_line_on = True
         self.adj_left_space = 0;              self.adj_middle_space = 0;              self.adj_right_space = 0
-        
+
     # +--------------------------------------------------------------------------------------------------------------------------------+
     # |    Only One Setting for Bold, Bg, Fg, italic, underline, strike, blinking, dim, and inverse                                    |
     # +--------------------------------------------------------------------------------------------------------------------------------+
     def print_ascii_art(self, msg="ABC"):
+        ''' This method prints the letters in form os ascii art '''
         # Defining variables
         rows = 0;                            result = []
-        tempo_row = "";                      retardo = self.delay_ms/1000            
+        tempo_row = "";                      retardo = self.delay_ms/1000
         skip_top_row = self.set_top_line_on;    left_sp = self.adj_left_space
         middle_sp = self.adj_middle_space;   right_sp = self.adj_right_space
-        
+
         symbol_chrs = ["`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=",
                        "[", "]", "\\", ";", "'",  ",", ".", "/",
                        "~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+", "|","{", "}", ":", "\"", "<", ">", "?", " "]
-        
+
         symbol_name = ["backtick", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "zero", "minus", "equal",
                        "open_bracket", "closed_bracket", "backward_slash", "semicolon", "apostrophe", "comma", "period", "forward_slash",
                        "tilde", "exclamation", "arroba", "pound", "dollar", "percent", "caret", "ampersand", "asterisk",  "open_parenthesis",
                        "closed_parenthesis", "underscore", "plus", "pipe", "open_curly", "closed_curly", "colon", "quotation","less_than",
                        "greater_than", "question", "space"]
-      
+
         data = msg
 
         ascii_letter_options = [Ascii_Letter.ALPHA,    Ascii_Letter.ANSI_SHADOW,  Ascii_Letter.BIG,
@@ -93,12 +129,12 @@ class AsciiArt:
             print("    For help on the Terminal: custom_print AsciiArt")
             print()
             print("    Thank you for using custom_print")
-            exit()
+            sys.exit()
 
         # Make sure always exist space list in the Type of Letters Using
         rows = len(eval(self.ascii_type+"_space"))
 
-   
+
         if self.ascii_type == Ascii_Letter.MOON2:
             color = set_font(self.bold, 0, self.fg, self.italic, self.underline, self.strike,
                         self.blinking, self.dim, self.hidden, self.inverse)
@@ -119,7 +155,7 @@ class AsciiArt:
                 if skip_top_row == False: pass
                 else:
                     for l in range(len(data)):
-                        try:                            
+                        try:
                             row_info = self.ascii_type + "_" + data[l] + "[" + str(r) + "]"
 
                             if l == (len(data)-1):
@@ -128,14 +164,14 @@ class AsciiArt:
                                 tempo_row = tempo_row + ins_chr(middle_sp) + eval(row_info) #+ ins_chr(middle_sp) # middle items
                             else:
                                 tempo_row = tempo_row + ins_chr(left_sp) + eval(row_info) #+ ins_chr(middle_sp)   # first item
-                        
+
                         except:
-                            
+
                             if data[l] in symbol_chrs:
                                 position = symbol_chrs.index(data[l])
                                 symbol_chr = symbol_name[position]
-                            
-                            
+
+
                                 try:
                                     row_info = eval(self.ascii_type + "_" + symbol_chr + "[" + str(r) + "]")
                                 except:
@@ -174,22 +210,22 @@ class AsciiArt:
 
             if self.set_bottom_line_on == False:
                 rows    -= 1
-                move_up -= 1 
+                move_up -= 1
             if self.set_top_line_on == False:
                 move_up -= 1
 
 
             for w in range(len(data)):
-                try:    
+                try:
                     if data[w] in symbol_chrs:
                         position = symbol_chrs.index(data[w])
                         symbol_chr = symbol_name[position]
-                        
-                        list_letter = eval(self.ascii_type + "_" + symbol_chr)                        
+
+                        list_letter = eval(self.ascii_type + "_" + symbol_chr)
                     else:
                         list_letter = eval(self.ascii_type + "_" + data[w])
-                except: 
-                        list_letter = eval(self.ascii_type + "_" + "NA")
+                except:
+                    list_letter = eval(self.ascii_type + "_" + "NA")
 
                 for r in range(rows):
                     if skip_top_row == False: skip_top_row = True
@@ -203,14 +239,14 @@ class AsciiArt:
                                 print(f"{color}\033[{str(move_right)}C{list_letter[r]}{ins_chr(right_sp)}\033[0m")                                  # last item
                             else:
                                 print(f"{color}\033[{str(move_right)}C{color}{list_letter[r]}{ins_chr(middle_sp)}\033[0m")                          # middle items# w >= 1:
-                   
+
                 if w == 0:
                     # Because Moon2 has predefined color and the length of those color is 12, we have to subtract 12
                     if self.ascii_type == Ascii_Letter.MOON2:
                         move_right = move_right + left_sp + len(list_letter[0]) + middle_sp - 12  # first item
                     else:
                         move_right = move_right + left_sp + len(list_letter[0]) + middle_sp       # first item   original
-                    
+
                 else:
                     if self.ascii_type == Ascii_Letter.MOON2:
                         move_right = move_right + len(list_letter[0]) + middle_sp - 12            # middle item
@@ -221,7 +257,7 @@ class AsciiArt:
                 skip_top_row = self.set_top_line_on
                 time.sleep(retardo)
             print(f"\033[{rows}B",end="")
-            
+
 
         else:
             # +-------------------------------------------------------------------------------------+
@@ -249,7 +285,7 @@ class AsciiArt:
             print("    For help on the Terminal: custom_print AsciiArt")
             print()
             print("    Thank you for using custom_print")
-            exit()
+            sys.exit()
 
 
 
@@ -261,7 +297,7 @@ class AsciiArt:
     # |    Multiple Settings for Bold, Bg, Fg, italic, underline, strike, blinking, dim, and inverse                                   |
     # +--------------------------------------------------------------------------------------------------------------------------------+
     def print_multi_ascii_art(self,data):
-
+        ''' This method prints in multi colors the ascii art letters '''
         # self.adj_indent cannot be changed or it will be messy
         # self.ascii_type cannot be changed ot it will be messy because many ascii letters has different height
         # The following variables are not being alter their value: ascii_type, set_layout, set_top_line_on, set_bottom_line_on and set_delay_ms
@@ -288,7 +324,7 @@ class AsciiArt:
         letter_height = 0
         symbol_chrs = ["`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=", "[", "]", "\\", ";", "'",  ",", ".", "/",
                         "~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+", "{", "}", "|",  ":", "\"", "<", ">", "?", " "]
-        
+
         symbol_name = ["backtick", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "zero", "minus", "equal",
                         "open_bracket", "close_bracket", "backward_slash", "semicolon", "apostrophe", "comma", "period",   "forwad_slash",
                         "tilde", "exclamation", "arroba", "pound", "dollar", "percent", "caret", "ampersand", "asterisk",  "open_parenthesis",
@@ -354,20 +390,20 @@ class AsciiArt:
 
         # Putting back the variables
         #------------------------------------------------------------
-        self.bg    = bu_bg  
-        self.fg    = bu_fg  
-        self.dim   = bu_dim 
+        self.bg    = bu_bg
+        self.fg    = bu_fg
+        self.dim   = bu_dim
         self.bold  = bu_bold
-        self.italic    = bu_italic   
+        self.italic    = bu_italic
         self.underline = bu_underline
-        self.strike    = bu_strike   
-        self.blinking  = bu_blinking 
-        self.hidden    = bu_hiddends 
-        self.inverse   = bu_inverse  
-        self.adj_left_space   = bu_adj_left_space  
+        self.strike    = bu_strike
+        self.blinking  = bu_blinking
+        self.hidden    = bu_hiddends
+        self.inverse   = bu_inverse
+        self.adj_left_space   = bu_adj_left_space
         self.adj_middle_space = bu_adj_middle_space
-        self.adj_right_space  = bu_adj_right_space 
-        self.adj_indent       = bu_adj_indent      
+        self.adj_right_space  = bu_adj_right_space
+        self.adj_indent       = bu_adj_indent
         #------------------------------------------------------------
         # End of putting back the variables
 
@@ -379,17 +415,17 @@ class AsciiArt:
     # |    For the specific logos like Linux, Debian, Alma, and so on. No settings will be applied for them.                           |
     # +--------------------------------------------------------------------------------------------------------------------------------+
     def print_ascii_art_logo(self, direction=Direction.UP_DOWN):
-
+        ''' This method prints the logo in 4 different orientation '''
         # self.ascii_type -> Here it is a list we are passing rather than just the name of the letters to be used.
         # That is why we don't use the lovely function "eval" like in the print_ascii_art function or
         # the print_multi_ascii_art funtion. In those previous functions, we pass a string, the type of leeters to be used.
-        # Then with that name and the string pass as a parameter we create the letter to be used, using the eval function.        
+        # Then with that name and the string pass as a parameter we create the letter to be used, using the eval function.
         # Note that in the print_multi_ascii_art is a list that we pass as a parameter while the print_ascii_art we pass a
         # string as a parameter.
 
         crs = Cursor()
-        retardo = self.delay_ms/1000;
-        
+        retardo = self.delay_ms/1000
+
         color = set_font(self.bold, self.bg, self.fg, self.italic, self.underline, self.strike,
                         self.blinking, self.dim, self.hidden, self.inverse)
 
@@ -397,7 +433,7 @@ class AsciiArt:
             for n in range(len(self.ascii_type)):
                 print(move_cursor_right(self.adj_indent)+color+ins_chr(self.adj_left_space)+self.ascii_type[n]+ins_chr(self.adj_right_space)+"\033[0m")
                 time.sleep(retardo)
-        
+
         elif direction == Direction.LEFT_RIGHT:    # left_right
             ctrl_cols = 0
             n_rows = len(self.ascii_type)
@@ -411,7 +447,7 @@ class AsciiArt:
                         # input("enter")
                     else: # middle cols
                         print(move_cursor_right(self.adj_indent+self.adj_left_space+ctrl_cols)+color+self.ascii_type[row][col]+"\033[0m")
-                ctrl_cols += 1                
+                ctrl_cols += 1
                 time.sleep(retardo)
                 if col == (n_cols -1): pass
                 else:                  crs.jumpTo(qty = n_rows, direction= Move.UP)
@@ -428,7 +464,7 @@ class AsciiArt:
         elif direction == Direction.DOWN_UP:      # down_up
             pos_crs = len(self.ascii_type) - 1
             ins_newline(len(self.ascii_type))
-            
+
 
             for n in  range(len(self.ascii_type)):
                 print(move_cursor_right(self.adj_indent)+color+ins_chr(self.adj_left_space)+self.ascii_type[pos_crs]+ins_chr(self.adj_right_space)+"\033[0m")
@@ -437,10 +473,10 @@ class AsciiArt:
                 pos_crs -= 1
             crs.jumpTo(qty = (len(self.ascii_type)), direction= Move.DOWN)
 
-        
+
         elif direction == Direction.RIGHT_LEFT: # right_left
             ctrl_cols = 1
-            n_rows = len(self.ascii_type);           n_cols = len(self.ascii_type[0])           
+            n_rows = len(self.ascii_type);           n_cols = len(self.ascii_type[0])
             x = n_cols
 
             for col in range(n_cols):
@@ -450,11 +486,11 @@ class AsciiArt:
                         print(move_cursor_right(self.adj_indent)+color+ins_chr(self.adj_left_space+n_cols-1)+self.ascii_type[row][x]+ins_chr(self.adj_right_space)+"\033[0m")
                     elif col == (n_cols - 1 ): # last col
                         print(move_cursor_right(self.adj_indent+self.adj_left_space)+color+self.ascii_type[row][x]+"\033[0m")
-                        
+
                     else: # middle cols
                         print(move_cursor_right(self.adj_indent+self.adj_left_space+n_cols-ctrl_cols)+color+self.ascii_type[row][x]+"\033[0m")
-                
-                
+
+
                 ctrl_cols += 1
                 time.sleep(retardo)
                 if col == (n_cols -1): pass
@@ -485,7 +521,4 @@ class AsciiArt:
             print("    For help on the Terminal: custom_print AsciiArt")
             print()
             print("    Thank you for using custom_print")
-            exit()
-
-
-  
+            sys.exit()

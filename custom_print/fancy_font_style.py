@@ -80,7 +80,7 @@ class FontStyle:
         # self.indent is used for style_on and for print_style when using justify
         self.indent    = 0
 
-    def set_font_style(self)->str:
+    def set_font_style(self):
 
         '''  This function changes the attributes of the font (bold=bool, bg=int, fg=int).
 
@@ -146,7 +146,7 @@ class FontStyle:
 
 
 
-    def style_on(self)->str:
+    def style_on(self):
         '''
         Activate the style
         '''
@@ -157,7 +157,7 @@ class FontStyle:
 
 
 
-    def style_off(self)->str:
+    def style_off(self):
         '''
         Deactivate the style
         '''
@@ -165,7 +165,7 @@ class FontStyle:
 
 
 
-    def print_style(self, msg)->None:
+    def print_style(self, msg):
         '''
         print_style will help to print a fancy statement on the terminal
         '''

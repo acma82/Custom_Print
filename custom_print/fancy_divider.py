@@ -45,12 +45,12 @@ from custom_print.ref_names import Divider_Style
 from custom_print.fancy_functions import ins_chr
 from custom_print.fancy_functions import set_font
 from custom_print.fancy_functions import reset_font
-from custom_print.fancy_functions import dimensions
+from custom_print.fancy_functions import terminal_size
 
 
 def get_final_top_bottom_corner_colors(self):
     '''
-        it will get the final corner colors for top and bottom 
+        it will get the final corner colors for top and bottom
     '''
     #-----------------------------------------------------------------------------------------------------+
     #  Creating all the the CORNER colors                                                                 |
@@ -201,7 +201,7 @@ class FancyDivider:
             it prints the divider with all the attributes
         '''
         msg = str(message)
-        cols, rows = dimensions()
+        cols, rows = terminal_size()
         if style == Divider_Style.CUSTOMIZED or style == Divider_Style.BLUE_WHITE_1 or style == Divider_Style.BLUE_WHITE_2:
             sp = int((cols - len(msg))-len(self.left_vertical_line_chr)+1-len(self.right_vertical_line_chr)+1)
         else:
@@ -490,4 +490,4 @@ class FancyDivider:
         self.adj_indent = 2;                     self.msg_align = Align.CENTER
 
         # Fill blank
-        self.left_fill_bg = -1;                  self.right_fill_bg = -1;                  self.left_right_fill_bg = -1        
+        self.left_fill_bg = -1;                  self.right_fill_bg = -1;                  self.left_right_fill_bg = -1

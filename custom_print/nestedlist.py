@@ -1,3 +1,43 @@
+'''
+Nested List.
+'''
+
+#pylint: disable=bare-except
+#pylint: disable=invalid-name
+#pylint: disable=unused-import
+#pylint: disable=line-too-long
+#pylint: disable=too-many-lines
+#pylint: disable=no-else-return
+#pylint: disable=unused-variable
+#pylint: disable=too-many-locals
+#pylint: disable=protected-access
+#pylint: disable=too-many-branches
+#pylint: disable=consider-using-in
+#pylint: disable=chained-comparison
+#pylint: disable=too-many-arguments
+#pylint: disable=too-many-statements
+#pylint: disable=multiple-statements
+#pylint: disable=consider-using-join
+#pylint: disable=unspecified-encoding
+#pylint: disable=unnecessary-negation
+#pylint: disable=singleton-comparison
+#pylint: disable=too-few-public-methods
+#pylint: disable=too-many-nested-blocks
+#pylint: disable=too-many-public-methods
+#pylint: disable=expression-not-assigned
+#pylint: disable=dangerous-default-value
+#pylint: disable=consider-using-enumerate
+#pylint: disable=unnecessary-comprehension
+#pylint: disable=too-many-return-statements
+#pylint: disable=unbalanced-tuple-unpacking
+#pylint: disable=consider-using-max-builtin
+#pylint: disable=too-many-instance-attributes
+#pylint: disable=too-many-instance-attributes
+#pylint: disable=too-many-instance-attributes
+#pylint: disable=too-many-positional-arguments
+#pylint: disable=inconsistent-return-statements
+#pylint: disable=possibly-used-before-assignment
+
 from custom_print.fancy_functions import set_font
 from custom_print.fancy_functions import reset_font
 from custom_print.fancy_functions import ins_chr
@@ -51,6 +91,7 @@ def to_string_list(data:list, update=False):
 # Transpose list                                                                                                                                 -
 #-------------------------------------------------------------------------------------------------------------------------------------------------
 def get_transpose(nested_list):
+    ''' get the transpose of the list '''
     transpose_list = []
     tempo = []
     for col in range(len(nested_list[0])):
@@ -63,7 +104,7 @@ def get_transpose(nested_list):
 #-------------------------------------------------------------------------------------------------------------------------------------------------
 # Number a List                                                                                                                                  -
 #-------------------------------------------------------------------------------------------------------------------------------------------------
-def add_col_id(nested_list:list, start_number:int=0, id_label:str="ID", renumber:bool=False, update:bool=False):
+def add_col_id(nested_list:list, start_number:int=0, id_label:str="ID", update:bool=False):
 
     '''  This method set the number of rows by adding a column to the left side.  '''
 
@@ -103,7 +144,8 @@ def add_col_id(nested_list:list, start_number:int=0, id_label:str="ID", renumber
 #-------------------------------------------------------------------------------------------------------------------------------------------------
 # Find the shortes element in a NestedList                                                                                                       -
 #-------------------------------------------------------------------------------------------------------------------------------------------------
-def find_longest_item(data:list, display=False):
+def find_longest_item(data:list):
+    ''' longest item in a list '''
     longest_len  = 0
     longest_item = ""
     longest_row  = 0
@@ -131,6 +173,7 @@ def find_longest_item(data:list, display=False):
 # Padding the list                                                                                                                               -
 #-------------------------------------------------------------------------------------------------------------------------------------------------
 def padding_list(self, nested_list):
+    ''' padding a list '''
     # I want to print the nested list in a nice way.
     # For Normal Order:
     #       1. convert this list to string in all the elements
@@ -177,7 +220,7 @@ def padding_list(self, nested_list):
         string_nested_list.insert(0, col_list)                        # step 2
 
         if self.transpose_list == False: header_on_nested_list = add_col_id(nested_list=string_nested_list, id_label = "Rows \u2193")   # Step 3 (longest 8)
-        else:                           header_on_nested_list = add_col_id(nested_list=string_nested_list, id_label = "Rows \u2192")   # Step 3 (longest 8)
+        else:                           header_on_nested_list  = add_col_id(nested_list=string_nested_list, id_label = "Rows \u2192")   # Step 3 (longest 8)
         transpose_nested_list = get_transpose(header_on_nested_list)  # step 4
         new_nested_list = to_string_list(transpose_nested_list)       # step 5
     else:
@@ -187,7 +230,7 @@ def padding_list(self, nested_list):
     # ---------------------------------------------------------------------------------------------
     # this is for printing normally
     # ---------------------------------------------------------------------------------------------
-    padding_list = []
+    padding_list_i = []
     if self.transpose_list == False:
         for row in range(len(new_nested_list)):                       # step 6 (padding)
             longest = find_longest_item([new_nested_list[row]])
@@ -198,8 +241,8 @@ def padding_list(self, nested_list):
             else:
                 padded_matrix = [cell.ljust(longest[1][1]) for cell in new_nested_list[row]]
 
-            padding_list.append(padded_matrix)
-        formatted_nested_list = get_transpose(padding_list)             # step 7 (transpose final list)
+            padding_list_i.append(padded_matrix)
+        formatted_nested_list = get_transpose(padding_list_i)             # step 7 (transpose final list)
     else:
         # ---------------------------------------------------------------------------------------------
         # Reversed Order     Step 6 # here is missing the colors
@@ -208,9 +251,9 @@ def padding_list(self, nested_list):
         for row in range(len(nested_list_str)):
             longest = find_longest_item([nested_list_str[row]])
             padded_matrix = [word.ljust(longest[1][1]) for word in nested_list_str[row]] # step 6 (padding)
-            padding_list.append(padded_matrix)
+            padding_list_i.append(padded_matrix)
 
-        formatted_nested_list = get_transpose(padding_list)                              # step 7 (transpose final list)
+        formatted_nested_list = get_transpose(padding_list_i)                              # step 7 (transpose final list)
 
     return formatted_nested_list
 
@@ -220,6 +263,7 @@ def padding_list(self, nested_list):
 # Nested List                                                                                                                                       -
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 class NestedList():
+    ''' NestedList '''
     def __init__(self):
         # print_simple_list;                       print_nested_list
         # header variables;                        id variables
@@ -238,10 +282,10 @@ class NestedList():
         self.force_all_col_same_width = True
 
         # data_variables
-        self.data_bg = 202;                        self.data_bg_step = 1;
-        self.data_fg = 231;                        self.data_bg_stop = 207;
-        self.data_bold   = False;                  self.data_fg_step = 1;
-        self.data_dim    = False;                  self.data_fg_stop = 232;
+        self.data_bg = 202;                        self.data_bg_step = 1
+        self.data_fg = 231;                        self.data_bg_stop = 207
+        self.data_bold   = False;                  self.data_fg_step = 1
+        self.data_dim    = False;                  self.data_fg_stop = 232
         self.data_italic = False
         self.data_strike = False;                  self.adj_left_space  = 2
         self.data_hidden = False;                  self.adj_right_space = 2
@@ -254,6 +298,7 @@ class NestedList():
     # Print Nested List                                                                                                                                  -
     #-----------------------------------------------------------------------------------------------------------------------------------------------------
     def print_nested_list(self, nested_list:list=[["Custom_print"]]):
+        ''' print a nested list (matrix) '''
         bg_step = self.data_bg;        fg_step = self.data_fg
         formatted_nested_list = padding_list(self, nested_list=nested_list)
         # step 8 (get the font settings)
@@ -314,7 +359,7 @@ class NestedList():
                                 else:
                                     print(f"{dt_colors}{lsp}{formatted_nested_list[row][col]}",end="", flush=True)
 
-                                    
+
                         else: # more than one
                             if col == last_col:
                                 print(f"{dt_colors}{msp}{formatted_nested_list[row][col]}{rsp}",end="", flush=True)
@@ -383,6 +428,7 @@ class NestedList():
     # Print Nested List                                                                                                                                  -
     #-----------------------------------------------------------------------------------------------------------------------------------------------------
     def print_simple_list(self, nested_list):
+        ''' print a list in a simple way '''
         # bu id_on
         bu_id_on = self.id_on
         self.id_on = False

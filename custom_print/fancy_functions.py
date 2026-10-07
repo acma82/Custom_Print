@@ -61,10 +61,9 @@ def clean():
     print("\033[H",end="")   # return home the cursor
 
 
-if os.name == 'nt' and (platform.release() == '10' or platform.release() == "11"):
+if os.name == 'nt':
     OS_Windows = True
     OS_Linux = False
-    # Fix ANSI color in Windows 10 version 10.0.14393 (Windows Anniversary Update)
     import ctypes
     kernel32 = ctypes.windll.kernel32
     kernel32.SetConsoleMode(kernel32.GetStdHandle(-11), 7)
@@ -136,7 +135,7 @@ else:
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 # Returns the Terminal Dimensions                                                                                                                    -
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
-def dimensions():
+def terminal_size():
 
     '''  It returns the dimensions of the terminal: cols, rows = dimensions()  '''
 
@@ -270,7 +269,7 @@ def terminal_bell():
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 # Insert A Unicode Character n Times                                                                                                                 -
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
-def ins_chr(n:int=1, unicode:str=" ")->str:
+def ins_chr(n:int=1, unicode:str=" "):
 
     '''  This function inserts n times the unicode provided
          ins_chr(n=x, unicode=" ")  '''

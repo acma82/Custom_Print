@@ -53,6 +53,6 @@ from .fancy_message    import FancyMessage
 from .fancy_divider    import FancyDivider
 from .ascii_art        import AsciiArt
 from .ascii_letters    import*
-from .help             import*
 from .logos            import*
 from .nestedlist       import NestedList
+from .help             import*

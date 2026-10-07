@@ -24,6 +24,7 @@ custom_print module can handle any type of variable.
 #pylint: disable=too-many-nested-blocks
 #pylint: disable=too-many-public-methods
 #pylint: disable=expression-not-assigned
+#pylint: disable=dangerous-default-value
 #pylint: disable=consider-using-enumerate
 #pylint: disable=unnecessary-comprehension
 #pylint: disable=too-many-return-statements
@@ -35,7 +36,6 @@ custom_print module can handle any type of variable.
 #pylint: disable=too-many-positional-arguments
 #pylint: disable=inconsistent-return-statements
 #pylint: disable=possibly-used-before-assignment
-
 
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 #12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
@@ -2118,23 +2118,124 @@ class PyLO():
         if type_of_list == "multiple_items_multiple_rows":
             for row in range(start_row, len(data)):
                 if isinstance(condition, str):
-                    print(data[row][col_index])
 
                     if sensitive_case == False:
-                        try:
-                            if data[row][col_index].lower() == condition.lower():
-                                list_true_condition.append(data[row])
-                            else:
+                        if operator == "==":
+                            try:
+                                if data[row][col_index].lower() == condition.lower():
+                                    list_true_condition.append(data[row])
+                                else:
+                                    list_false_condition.append(data[row])
+                            except:
                                 list_false_condition.append(data[row])
-                        except:
-                            list_false_condition.append(data[row])
+
+                        elif operator == "<=":
+                            try:
+                                if data[row][col_index].lower() <= condition.lower():
+                                    list_true_condition.append(data[row])
+                                else:
+                                    list_false_condition.append(data[row])
+                            except:
+                                list_false_condition.append(data[row])
+
+                        elif operator == "<":
+                            try:
+                                if data[row][col_index].lower() < condition.lower():
+                                    list_true_condition.append(data[row])
+                                else:
+                                    list_false_condition.append(data[row])
+                            except:
+                                list_false_condition.append(data[row])
+
+                        elif operator == ">=":
+                            try:
+                                if data[row][col_index].lower() >= condition.lower():
+                                    list_true_condition.append(data[row])
+                                else:
+                                    list_false_condition.append(data[row])
+                            except:
+                                list_false_condition.append(data[row])
+
+                        elif operator == ">":
+                            try:
+                                if data[row][col_index].lower() > condition.lower():
+                                    list_true_condition.append(data[row])
+                                else:
+                                    list_false_condition.append(data[row])
+                            except:
+                                list_false_condition.append(data[row])
+
+                        elif operator == "!=":
+                            try:
+                                if data[row][col_index].lower() != condition.lower():
+                                    list_true_condition.append(data[row])
+                                else:
+                                    list_false_condition.append(data[row])
+                            except:
+                                list_false_condition.append(data[row])
+
+                        else:
+                            pass
 
 
                     else:
-                        if data[row][col_index] == condition:
-                            list_true_condition.append(data[row])
+                        if operator == "==":
+                            try:
+                                if data[row][col_index] == condition:
+                                    list_true_condition.append(data[row])
+                                else:
+                                    list_false_condition.append(data[row])
+                            except:
+                                list_false_condition.append(data[row])
+
+                        elif operator == "<=":
+                            try:
+                                if data[row][col_index] <= condition:
+                                    list_true_condition.append(data[row])
+                                else:
+                                    list_false_condition.append(data[row])
+                            except:
+                                list_false_condition.append(data[row])
+
+                        elif operator == "<":
+                            try:
+                                if data[row][col_index] < condition:
+                                    list_true_condition.append(data[row])
+                                else:
+                                    list_false_condition.append(data[row])
+                            except:
+                                list_false_condition.append(data[row])
+
+                        elif operator == ">=":
+                            try:
+                                if data[row][col_index] >= condition:
+                                    list_true_condition.append(data[row])
+                                else:
+                                    list_false_condition.append(data[row])
+                            except:
+                                list_false_condition.append(data[row])
+
+                        elif operator == ">":
+                            try:
+                                if data[row][col_index] > condition:
+                                    list_true_condition.append(data[row])
+                                else:
+                                    list_false_condition.append(data[row])
+                            except:
+                                list_false_condition.append(data[row])
+
+                        elif operator == "!=":
+                            try:
+                                if data[row][col_index] != condition:
+                                    list_true_condition.append(data[row])
+                                else:
+                                    list_false_condition.append(data[row])
+                            except:
+                                list_false_condition.append(data[row])
+
                         else:
-                            list_false_condition.append(data[row])
+                            pass
+
 
                 else: # dealing with number condition
                     if operator == "==":
@@ -2144,7 +2245,7 @@ class PyLO():
                             else:
                                 list_false_condition.append(data[row])
                         except:
-                                list_false_condition.append(data[row])
+                            list_false_condition.append(data[row])
 
                     elif operator == "<=":
                         try:
@@ -2213,6 +2314,7 @@ class PyLO():
     # Padding a list                                                                                                                                 -
     #-------------------------------------------------------------------------------------------------------------------------------------------------
     def padding_list(self, data:list, align="c", padding_size:int=1, left_pad:int=2, right_pad:int=2):
+        ''' Padding a list '''
         new_data = self.to_string_list(data=data)
         padded_matrix = []
         type_of_list = get_list_type(data)
