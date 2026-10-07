@@ -108,9 +108,9 @@ def about_custom_print():
     tbl.title_bold = True
 
 
-    tbl.footnote_msg = f"1{cp.superscript('st')} Released on Friday, December 27, 2024\n"\
-                       f"    2{cp.superscript('st')} Released on Sunday  September 21, 2025\n"\
-                       f"    3{cp.superscript('st')} Released on ----  ------ --, 2026"
+    tbl.footnote_msg = f"1{cp.superscript('st')} Released on Friday,   December  27, 2024\n"\
+                       f"    2{cp.superscript('st')} Released on Sunday,   September 21, 2025\n"\
+                       f"    3{cp.superscript('st')} Released on Wendsday, November  04, 2026"
     tbl.adj_top_space = 1
     tbl.adj_bottom_space = 1
 
