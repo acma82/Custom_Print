@@ -3,14 +3,21 @@
 
 <!-- # All About Custom_Print Module -->
 
-## <strong> custom_print : <span style="color:cyan"> Working on Release Version 1.1.5 </strong> </span>
+## <strong> custom_print : <span style="color:cyan"> Release Version 1.1.9 </strong> </span>
+
+<strong> FancyFormat class has been updated in the new verison. A few variables are being changed.  </strong>
+
+## New
+|  Version      | Topics |
+|:--------------|:---------------------------------------------|
+|  1.1.4        |  -----                                       |
+|  1.1.7        |  AsciiArt, NestedList                        |
+|  1.1.7        |  AsciiArt, NestedList, Help on the Terminal  |
 
 
-
-
-<strong> FancyFormat class has been updated in the new verison 1.5. A few variables are being changed from 1.4 to 1.5 version.  </strong>
-        middle_left_corner_chr  = " " (1.5V)       # chr only for matrix list (before: left_lateral_corner_chr  1.4V)
-        middle_right_corner_chr = " " (1.5V)       # chr only for matrix list (before: right_lateral_corner_chr 1.4V)
+        middle_left_corner_chr  = " " (1.7V)       # before: left_lateral_corner_chr  1.4V
+        middle_right_corner_chr = " " (1.7V)       # before: right_lateral_corner_chr 1.4V
+        FancyDivider                               # before: Divider 1.4V
         
 
         To see documentation on terminal:

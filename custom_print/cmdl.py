@@ -1,18 +1,16 @@
 ''' Main Documentation '''
 #pylint: disable=eval-used
 #pylint: disable=invalid-name
-
 if __name__ == "__main__":
-    from custom_print import* 
     import sys
-    # variabvles needed for the documentation
+    # variables needed for the documentation
     main_topics        = ["screen_functions",    "internal_functions", "help_classes",
                           "asciiart", "cursor",  "fontstyle",
                           "fancymessage",        "pen",
                           "fancydivider",        "fancyformat",
                           "nestedlist",          "pylo"]
 
-  
+
     screen_functions   = ["screen_functions_only",
                           "clean",  "clear", "erase",
                           "resize", "terminal_size"
@@ -155,95 +153,89 @@ if __name__ == "__main__":
                     "find_duplicate", "find_longest_item",  "find_shortest_item",
                     "split_list_by_col_condition",          "padding_list"]
 
-
-    # import custom_print as cp
-    pylo = PyLO()
-    crs = Cursor()
-    tbl = FancyFormat()
-    # div = FancyDivider()
+    # inside the custom folder
+    import custom_print as cp
 
     # converting all the arguments passed for help to be displayed into a list in lowercase
     original_list = []
     for i in sys.argv:
         original_list.append(i.lower())
 
+    print(original_list)
     # when only the first argument ,custom_print,  is being passed
     if (len(original_list)) ==1:
-        print(f"{set_font(1,231,22)}inside{reset_font()}")
-
-        # cp.help_classes_info()
-        about_custom_print()
+        cp.about_custom_print()
         sys.exit()
 
-    # # checking if the second argument exist when only 2 arguments are being passed
-    # elif (len(original_list)) == 2:
+    # checking if the second argument exist when only 2 arguments are being passed
+    elif (len(original_list)) == 2:
 
-    #     if original_list[1] == "help":
-    #         cp.help_documentation()
-    #         sys.exit()
+        if original_list[1] == "help":
+            cp.help_documentation()
+            sys.exit()
 
-    #     elif original_list[1] == "all" or original_list[1] == "documentation":
-    #         cp.help.all_documentation()
-    #         sys.exit()
+        elif original_list[1] == "all" or original_list[1] == "documentation":
+            cp.help.all_documentation()
+            sys.exit()
 
-    #     else:
-    #         if original_list[1] in all_topics:
-    #             original_list.pop(0) # remove the parameter 0 (custom_print)
-    #         else:
-    #             print(f"\n  The topic "
-    #                   f"{cp.set_font(1,196,231)} \"{original_list[1]}\" {cp.reset_font()}"
-    #                    " is not recognized by custom_print Module \n")
-    #             sys.exit()
-
-
-    # # more than two parameters
-    # else:
-    #     if "all" in original_list or "documentation" in original_list:
-    #         cp.help.all_documentation()
-    #         sys.exit()
-
-    #     else:
-    #         original_list.pop(0) # remove the parameter 0 (custom_print)
-    #         # checking that all the arguments exist
-    #         v_exist = 1
-    #         for h in original_list:
-    #             if h in all_topics:
-    #                 pass
-    #             else:
-    #                 print(f"\n  The topic {cp.set_font(1,196,231)} \"{h}\" {cp.reset_font()}"
-    #                        " is not recognize by custom_print Module")
-    #                 v_exist = 0
-
-    #     # if at least one item does not exist in the documentation then we leave
-    #     if v_exist == 0:
-    #         sys.exit()
+        else:
+            if original_list[1] in all_topics:
+                original_list.pop(0) # remove the parameter 0 (custom_print)
+            else:
+                print(f"\n  The topic "
+                      f"{cp.set_font(1,196,231)} \"{original_list[1]}\" {cp.reset_font()}"
+                       " is not recognized by custom_print Module \n")
+                sys.exit()
 
 
+    # more than two parameters
+    else:
+        if "all" in original_list or "documentation" in original_list:
+            cp.help.all_documentation()
+            sys.exit()
 
+        else:
+            original_list.pop(0) # remove the parameter 0 (custom_print)
+            # checking that all the arguments exist
+            v_exist = 1
+            for h in original_list:
+                if h in all_topics:
+                    pass
+                else:
+                    print(f"\n  The topic {cp.set_font(1,196,231)} \"{h}\" {cp.reset_font()}"
+                           " is not recognize by custom_print Module")
+                    v_exist = 0
 
-
-    # # deleting duplicate items in the list
-    # unique_topic_list = list(dict.fromkeys(original_list))
-    # # print(unique_topic_list)
-
-
-    # # main_topics are the name of the groups (classes)
-    # # removing the functions being called when the group is being called.
-    # # removing the methods being called when the class is bein called.
-    # for topic in main_topics:
-    #     if topic in unique_topic_list:
-    #         for fun in (eval(topic)):
-    #             if fun in unique_topic_list:
-    #                 # print("deleted")
-    #                 unique_topic_list.remove(fun)
-    #             else:
-    #                 pass
+        # if at least one item does not exist in the documentation then we leave
+        if v_exist == 0:
+            sys.exit()
 
 
 
 
-    # # Calling all the functions or methods or group of functions or group of classes to be displayed
-    # # unique_topic_list contains all the topics the user wants to see
-    # for display in unique_topic_list:
-    #     topic = eval("cp.help."+display+"_info")
-    #     topic()
+
+    # deleting duplicate items in the list
+    unique_topic_list = list(dict.fromkeys(original_list))
+    # print(unique_topic_list)
+
+
+    # main_topics are the name of the groups (classes)
+    # removing the functions being called when the group is being called.
+    # removing the methods being called when the class is bein called.
+    for topic in main_topics:
+        if topic in unique_topic_list:
+            for fun in (eval(topic)):
+                if fun in unique_topic_list:
+                    # print("deleted")
+                    unique_topic_list.remove(fun)
+                else:
+                    pass
+
+
+
+
+    # Calling all the functions or methods or group of functions or group of classes to be displayed
+    # unique_topic_list contains all the topics the user wants to see
+    for display in unique_topic_list:
+        topic = eval("cp.help."+display+"_info")
+        topic()
