@@ -2209,6 +2209,8 @@ true_condition_list, false_condition_list =
 pylo.split_list_by_condition(data = matrix, col_index = 2, condition="Fail", sensitive_case = False,  
                              operator = pylo.Operator.EQUAL_TO, start_row = 1)    
 ```
+![Alt text](pylo_list_condition_01.png)
+
 #### [Back](README.md)
 
 https://github.com/acma82/custom_print

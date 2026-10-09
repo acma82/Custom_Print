@@ -36,55 +36,51 @@ This class contains 3 methods and the attributes and their default values are di
     body_bold   = False        right_indent = 2            body_blinking  = False
     body_msg    = "Body Msg"   top_lines    = 1            body_underline = False
     help_lines  = False        bottom_lines = 1
-```
 
 
-    The following options work when length is set to Length_bg.ONLY_WORD.
 
-    They don't do anything when length is set to Length_bg.All_ROW.
+   # The following options work when length is set to Length_bg.ONLY_WORD.
+
+   # They don't do anything when length is set to Length_bg.All_ROW.
 
 	adj_bg_lines_to_right_indent  = False
 
 	adj_bg_msg_to_space_available = False
 
-    Note: All the above variables are being used by both methods, print_fancy_message and print_fancy_note.
-
+   # Note: All the above variables are being used by both methods, print_fancy_message and print_fancy_note.
+```
 
 [**Top**](#fancymessage)
 
 ## Note Default Values
 
 ```python
-    note_msg  = " Note: "   note_align   = Align.JUSTIFY        note_blinking    = False
-    note_bg   = 231         note_strike  = False                note_underline
+    note_msg    = " Note: "     note_align   = Align.JUSTIFY        note_blinking = False
+    note_bg     = 231           note_strike  = False                note_underline = False          
+    note_fg     = 0             note_italic  = False                note_left_space = 2                 
+    note_bold   = False         note_inverse = False                note_right_space = 2
+    note_dim = False            note_hidden  = False                note_position = 1
     
-#----------------------------------------------------------------------------------------+
-#  Vertical line Variables                                                               |
-#----------------------------------------------------------------------------------------+   
-  = False
-    note_fg   = 0           note_italic  = False                note_position    = 1
-    note_bold = False       note_inverse = False                note_right_space = 2
-    note_dim  = False       note_hidden  = False                note_left_space  = 2
 ```
 
 ## Title Default Values
 
 ```python
-    title_msg  = ""         title_align   = Align.LEFT          title_blinking      = False
-    title_bg   = 4          title_strike  = False               title_underline     = False
-    title_fg   = 231        title_italic  = False               title_indent        = 2
-    title_bold = False      title_inverse = False               title_body_lines    = 1
-    title_dim  = False      title_hidden  = False
+    title_msg  = ""             title_align   = Align.LEFT          title_blinking      = False
+    title_bg   = 4              title_strike  = False               title_underline     = False
+    title_fg   = 231            title_italic  = False               title_indent        = 2
+    title_bold = False          title_inverse = False               title_body_lines    = 1
+    title_dim  = False          title_hidden  = False
 ```
 
 ## Footnote Default Values
 
 ```python
-    footnote_msg  = ""      footnote_align   = Align.RIGHT      footnote_blinking   = False
-    footnote_bg   = 4       footnote_strike  = False            footnote_underline  = False
-    footnote_fg	  = 231     footnote_italic  = False            footnote_indent     = 2
-    footnote_bold = False   footnote_inverse = False            footnote_body_lines = 1
-    footnote_dim  = False   footnote_hidden  = False
+    footnote_msg  = ""          footnote_align   = Align.RIGHT      footnote_blinking   = False
+    footnote_bg   = 4           footnote_strike  = False            footnote_underline  = False
+    footnote_fg	  = 231         footnote_italic  = False            footnote_indent     = 2
+    footnote_bold = False       footnote_inverse = False            footnote_body_lines = 1
+    footnote_dim  = False       footnote_hidden  = False
 ```
     Body Section is being used by both methods print_fancy_message and print_fancy_note.
 ## Fancy Message Examples

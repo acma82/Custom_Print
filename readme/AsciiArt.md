@@ -16,30 +16,30 @@ The table below describes all the supported names for letters, numbers, and symb
 
 ## Description of Ascii Letters Keyboard
 
-
-       1     Alpha         Yes         No          No         No          23    
-       2     ANSI_Shadow   Yes         No          Yes        Yes         8     
-       3     Big           Yes         Yes         Yes        Yes         8     
-       4     Blocks        Yes         No          Yes        Yes         13    
-       5     Bulbhead      Yes         No          Yes        Yes         6     
-       6     Classy        Yes         Yes         Yes        Yes         8     
-       7     Colossal      Yes         Yes         Yes        Yes         10    
-       8     Crazy         Yes         Yes         Yes        Yes         15    
-       9     Doh           Yes         Yes         Yes        Yes         18    
-       10    Doom          Yes         Yes         Yes        Yes         8     
-       11    Epic          Yes         No          Yes        Yes         10    
-       12    Graceful      Yes         No          Yes        Yes         6     
-       13    Larry         Yes         Yes         Yes        Yes         9     
-       14    Money_NE      Yes         Yes         Yes        Yes         10    
-       15    Money_NW      Yes         Yes         Yes        Yes         10    
-       16    Money_SE      Yes         Yes         Yes        Yes         11    
-       17    Money_SW      Yes         Yes         Yes        Yes         11    
-       18    Mono          Yes         Yes         Yes        Yes         9     
-       19    Moon          Yes         No          No         No          5     
-       20    Moon2         Yes         No          No         No          5     
-       21    Roman         Yes         Yes         Yes        Yes         9     
-       22    Standard      Yes         Yes         Yes        Yes         7     
-       23    Sweet         No          Yes         Yes        Yes         12    
+      No.    Type           Uppercase    Lowercase    Shiff_On    Shiff_Off      Rows
+       1     Alpha             Yes          No           No          No           23    
+       2     ANSI_Shadow       Yes          No           Yes         Yes          8     
+       3     Big               Yes          Yes          Yes         Yes          8     
+       4     Blocks            Yes          No           Yes         Yes          13    
+       5     Bulbhead          Yes          No           Yes         Yes          6     
+       6     Classy            Yes          Yes          Yes         Yes          8     
+       7     Colossal          Yes          Yes          Yes         Yes          10    
+       8     Crazy             Yes          Yes          Yes         Yes          15    
+       9     Doh               Yes          Yes          Yes         Yes          18    
+       10    Doom              Yes          Yes          Yes         Yes          8     
+       11    Epic              Yes          No           Yes         Yes          10    
+       12    Graceful          Yes          No           Yes         Yes          6     
+       13    Larry             Yes          Yes          Yes         Yes          9     
+       14    Money_NE          Yes          Yes          Yes         Yes          10    
+       15    Money_NW          Yes          Yes          Yes         Yes          10    
+       16    Money_SE          Yes          Yes          Yes         Yes          11    
+       17    Money_SW          Yes          Yes          Yes         Yes          11    
+       18    Mono              Yes          Yes          Yes         Yes          9     
+       19    Moon              Yes          No           No          No           5     
+       20    Moon2             Yes          No           No          No           5     
+       21    Roman             Yes          Yes          Yes         Yes          9     
+       22    Standard          Yes          Yes          Yes         Yes          7     
+       23    Sweet             No           Yes          Yes         Yes          12    
                                                                                 
                                                   Table Ascii Letters Available 
 

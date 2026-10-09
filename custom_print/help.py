@@ -5012,7 +5012,7 @@ def print_simple_list_info():
     nl.adj_right_space = 4
 
     nl.print_simple_list(table)
-    message = f'''|--- a ---|--- b ---| c\u2191 |-- d\u2191 --| e\u2191 |
+    message = f'''|--- a ---|--- b ---| c\u2191 |---- d\u2191 ----|e\u2191|
 
       a \u2192 adj_indent            c \u2192 adj_left_space        e \u2192 adj_right_space
       b \u2192 adj_int_indent        d \u2192 data

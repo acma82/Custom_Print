@@ -7,20 +7,26 @@
 
 <strong> FancyFormat class has been updated in the new verison. A few variables are being changed.  </strong>
 
+        FancyFormat:
+                middle_left_corner_chr  = " " (1.7V)       # before: left_lateral_corner_chr  1.4V
+                middle_right_corner_chr = " " (1.7V)       # before: right_lateral_corner_chr 1.4V
+                title_xx                      (1.7)        # before: xx_title
+                header_xx                     (1.7)        # before: xx_header
+                and so on....
+        FancyDivider                                       # before: Divider 1.4V
+
 ## New
 |  Version      | Topics |
 |:--------------|:---------------------------------------------|
 |  1.1.4        |  -----                                       |
 |  1.1.7        |  AsciiArt, NestedList                        |
-|  1.1.7        |  AsciiArt, NestedList, Help on the Terminal  |
+|  1.1.9        |  AsciiArt, NestedList, Help in the Terminal  |
 
 
-        middle_left_corner_chr  = " " (1.7V)       # before: left_lateral_corner_chr  1.4V
-        middle_right_corner_chr = " " (1.7V)       # before: right_lateral_corner_chr 1.4V
-        FancyDivider                               # before: Divider 1.4V
+
         
 
-        To see documentation on terminal:
+        To see documentation in terminal:
                 custom_print 
                 custom_print help
 
