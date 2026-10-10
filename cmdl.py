@@ -1,13 +1,17 @@
-'''
-Main Documentation
-'''
-#pylint: disable=line-too-long
-#pylint: disable=invalid-name
+''' Main Documentation '''
 #pylint: disable=eval-used
+#pylint: disable=invalid-name
+#pylint: disable=unused-variable
+#pylint: disable=too-many-locals
+#pylint: disable=too-many-statements
+#pylint: disable=possibly-used-before-assignment
+#pylint: disable=too-many-branches
+#pylint: disable=line-too-long
 import sys
 import custom_print as cp
 
-if __name__ == "__main__":
+def main():
+    ''' Main Documentation '''
     # variabvles needed for the documentation
     main_topics        = ["screen_functions", "internal_functions", "help_classes", "asciiart", "cursor",  "fontstyle",  "fancymessage",  "pen",  "fancydivider",  "fancyformat", "nestedlist", "pylo"]
 
@@ -148,7 +152,6 @@ if __name__ == "__main__":
 
     # deleting duplicate items in the list
     unique_topic_list = list(dict.fromkeys(original_list))
-    # print(unique_topic_list)
 
 
     # print("unique_topic_list", unique_topic_list)
@@ -168,9 +171,12 @@ if __name__ == "__main__":
 
 
 
-
     # Calling all the functions or methods or group of functions or group of classes to be displayed
     # unique_topic_list contains all the topics the user wants to see
     for display in unique_topic_list:
         topic = eval("cp.help."+display+"_info")
         topic()
+
+
+if __name__ == "__main__":
+    main()

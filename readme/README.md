@@ -3,33 +3,43 @@
 
 <!-- # All About Custom_Print Module -->
 
-## <strong> custom_print : <span style="color:cyan"> Release Version 1.1.9 </strong> </span>
+## <strong> custom_print : <span style="color:cyan"> Release Version 1.2.0 </strong> </span>
 
-<strong> FancyFormat class has been updated in the new verison. A few variables are being changed.  </strong>
+<strong> FancyFormat class has been updated in the new verison. A few variables are being changed and others added.  </strong>
 
         FancyFormat:
-                middle_left_corner_chr  = " " (1.7V)       # before: left_lateral_corner_chr  1.4V
-                middle_right_corner_chr = " " (1.7V)       # before: right_lateral_corner_chr 1.4V
-                title_xx                      (1.7)        # before: xx_title
-                header_xx                     (1.7)        # before: xx_header
+                middle_left_corner_chr  = " " (1.2.0 V)       # before: left_lateral_corner_chr  1.1.4 V
+                middle_right_corner_chr = " " (1.2.0 V)       # before: right_lateral_corner_chr 1.1.4 V
+                title_xx                      (1.2.0 V)       # before: xx_title
+                header_xx                     (1.2.0 V)       # before: xx_header
                 and so on....
-        FancyDivider                                       # before: Divider 1.4V
+
+                banded_row...........  New
+                data_multi_color.....  New
+
+        FancyDivider                          (1.2.0 V)       # before: Divider 1.1.4 V
 
 ## New
-|  Version      | Topics |
-|:--------------|:---------------------------------------------|
-|  1.1.4        |  -----                                       |
-|  1.1.7        |  AsciiArt, NestedList                        |
-|  1.1.9        |  AsciiArt, NestedList, Help in the Terminal  |
+|  Version      | New Class              |
+|:-------------:|:----------------------:|
+|  1.1.4        |  -----                 |
+|  1.2.0        |  AsciiArt, NestedList  |
 
 
 
         
 
-        To see documentation in terminal:
-                custom_print 
-                custom_print help
+    Note:
 
+    This module does not currently include a full docstring.
+
+    You can find detailed documentation in two ways:
+
+    Online: Visit the README at https://github.com/acma82/Custom_Print/tree/main/readme#readme
+
+    In the terminal: Type custom_print help
+
+    We apologize for any inconvenience. The docstring will be added in a future release.
 
 
 ## Fucntions
@@ -54,6 +64,7 @@
 
 
 <div id=first> Saturday December 30, 2024 First Release. </div>
+
 
 <br>
 
